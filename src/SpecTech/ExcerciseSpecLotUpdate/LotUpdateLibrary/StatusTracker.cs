@@ -53,7 +53,7 @@ namespace PerfEx.Infrastructure.LotUpdate
             get
             {
                 if (_facRetriever == null) {
-                    throw new NotImplementedException();
+                    throw new InvalidOperationException("LotRetrieverFactory must be set before initialize.");
                 }
                 return _facRetriever;
             }
