@@ -21,8 +21,7 @@ namespace PerfEx.Infrastructure.LotUpdate
                        select it);
             qry = WrapObservableQuery(qry);
             _subscription = qry.Subscribe(
-                    nx => {
-                    }
+                    OnUpdateTrackingInformation
                     , OnError
                     , OnCompleted
                 );
