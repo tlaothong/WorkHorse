@@ -7,6 +7,8 @@ namespace PerfEx.Demo.SystemUnderTest
 {
     public class TargetOfTest
     {
+        #region properties
+
         private IWorkTogether _workTogether;
 
         public IWorkTogether WorkTogether
@@ -22,6 +24,8 @@ namespace PerfEx.Demo.SystemUnderTest
             get { return _member; }
             set { _member = value; }
         }
+
+        #endregion properties
 
         public string Hello()
         {
