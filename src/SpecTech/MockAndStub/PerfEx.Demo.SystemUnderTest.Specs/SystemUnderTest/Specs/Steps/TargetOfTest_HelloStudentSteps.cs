@@ -14,15 +14,11 @@ namespace PerfEx.Demo.SystemUnderTest.Specs.Steps
         private TargetOfTest _tot;
         private IWorkTogether _coWorker;
 
-        private MockRepository _mocks;
         public MockRepository Mocks
         {
             get
             {
-                if (_mocks == null) {
-                    _mocks = new MockRepository();
-                }
-                return _mocks;
+                return SpecEventDefinitions.Mocks;
             }
         }
 
@@ -36,7 +32,7 @@ namespace PerfEx.Demo.SystemUnderTest.Specs.Steps
             var tot = new TargetOfTest();
             _tot = tot;
 
-            var coWorker = mocks.Stub<IWorkTogether>();
+            var coWorker = mocks.DynamicMock<IWorkTogether>();
             _coWorker = coWorker;
 
             tot.WorkTogether = coWorker;
@@ -48,8 +44,13 @@ namespace PerfEx.Demo.SystemUnderTest.Specs.Steps
             var coWorker = _coWorker;
 
             SetupResult.For(coWorker.GetStudentName(studentId)).Return(name);
+        }
 
-            Mocks.Replay(coWorker);
+        [Given(@"Expects Log\('(.*)'\)")]
+        public void GivenExpectsLogHelloStudent(string expectedMessage)
+        {
+            var coWorker = _coWorker;
+            coWorker.Log(expectedMessage);
         }
 
         [When(@"call HelloStudent\((.*)\)")]

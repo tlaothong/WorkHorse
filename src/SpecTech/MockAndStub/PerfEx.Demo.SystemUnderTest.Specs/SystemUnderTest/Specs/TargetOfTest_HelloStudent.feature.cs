@@ -58,7 +58,7 @@ namespace PerfEx.Demo.SystemUnderTest.Specs
         public virtual void HelloStudentGivenTheExistingStudentId()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Hello Student given the existing student id", new string[] {
-                        "mytag"});
+                        "record_mock"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
@@ -66,8 +66,12 @@ testRunner.Given("an instance of TargetOfTest initializes with mock up of IWorkT
 #line 9
 testRunner.And("There is a student id #1 names \'John\'");
 #line 10
-testRunner.When("call HelloStudent(1)");
+testRunner.And("Expects Log(\'HelloStudent\')");
 #line 11
+testRunner.And("Expects Log(\'Found: John\')");
+#line 12
+testRunner.When("call HelloStudent(1)");
+#line 13
 testRunner.Then("the result should be \'Hello John.\'");
 #line hidden
             testRunner.CollectScenarioErrors();
@@ -75,16 +79,21 @@ testRunner.Then("the result should be \'Hello John.\'");
         
         public virtual void HelloExistingStudents(string studentId, string name)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Hello existing Students", ((string[])(null)));
-#line 13
-this.ScenarioSetup(scenarioInfo);
-#line 14
-testRunner.Given("an instance of TargetOfTest initializes with mock up of IWorkTogether");
-#line 15
-testRunner.And(string.Format("There is a student id #{0} names \'{1}\'", studentId, name));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Hello existing Students", new string[] {
+                        "record_mock"});
 #line 16
-testRunner.When(string.Format("call HelloStudent({0})", studentId));
+this.ScenarioSetup(scenarioInfo);
 #line 17
+testRunner.Given("an instance of TargetOfTest initializes with mock up of IWorkTogether");
+#line 18
+testRunner.And(string.Format("There is a student id #{0} names \'{1}\'", studentId, name));
+#line 19
+testRunner.And("Expects Log(\'HelloStudent\')");
+#line 20
+testRunner.And(string.Format("Expects Log(\'Found: {0}\')", name));
+#line 21
+testRunner.When(string.Format("call HelloStudent({0})", studentId));
+#line 22
 testRunner.Then(string.Format("the result should be \'Hello {0}.\'", name));
 #line hidden
             testRunner.CollectScenarioErrors();
