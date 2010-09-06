@@ -3,7 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LotUpdateLibrary", "LotUpdateLibrary\LotUpdateLibrary.csproj", "{2378D27A-427C-4C92-97EA-3451DE3EBF6B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlow", "SpecFlow\SpecFlow.csproj", "{96A77C7F-AE9F-4D6F-8D7D-EC367FFAD88A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A379EA8A-6A87-41AE-8D41-692DC1B228B1}"
+	ProjectSection(SolutionItems) = preProject
+		ExcerciseSpecLotUpdate.vsmdi = ExcerciseSpecLotUpdate.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = ExcerciseSpecLotUpdate.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -13,6 +25,10 @@ Global
 		{2378D27A-427C-4C92-97EA-3451DE3EBF6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2378D27A-427C-4C92-97EA-3451DE3EBF6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2378D27A-427C-4C92-97EA-3451DE3EBF6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96A77C7F-AE9F-4D6F-8D7D-EC367FFAD88A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96A77C7F-AE9F-4D6F-8D7D-EC367FFAD88A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96A77C7F-AE9F-4D6F-8D7D-EC367FFAD88A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96A77C7F-AE9F-4D6F-8D7D-EC367FFAD88A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
