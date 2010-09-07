@@ -52,10 +52,41 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SimpleGame\Specs\CreateGameRounds.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreateGameRounds.feature</DependentUpon>
+    </Compile>
+    <Compile Include="SimpleGame\Specs\GenerateGameTableConfiguration_N2N.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GenerateGameTableConfiguration_N2N.feature</DependentUpon>
+    </Compile>
+    <Compile Include="SimpleGame\Specs\SaveTableConfiguration_N2N.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SaveTableConfiguration_N2N.feature</DependentUpon>
+    </Compile>
+    <Compile Include="SimpleGame\Specs\Steps\CommonSteps.cs" />
+    <Compile Include="SimpleGame\Specs\Steps\GameTableConfiguratorStepsBase.cs" />
+    <Compile Include="SimpleGame\Specs\Steps\GenerateGameTableSteps.cs" />
+    <Compile Include="SimpleGame\Specs\Steps\SaveTableConfigurationSteps.cs" />
     <Compile Include="SpecEventDefinitions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="SimpleGame\Specs\CreateGameRounds.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CreateGameRounds.feature.cs</LastGenOutput>
+    </None>
+    <None Include="SimpleGame\Specs\GenerateGameTableConfiguration_N2N.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>GenerateGameTableConfiguration_N2N.feature.cs</LastGenOutput>
+    </None>
+    <None Include="SimpleGame\Specs\SaveTableConfiguration_N2N.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SaveTableConfiguration_N2N.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PerfEx.Demo.SimpleGame.Commands\PerfEx.Demo.SimpleGame.Commands.csproj">
@@ -75,9 +106,7 @@
       <Name>PerfEx.Demo.SimpleGame</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="SimpleGame\Specs\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
