@@ -6,11 +6,11 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{2CC53B83-D389-4228-9BD7-45720FACEDB1}</ProjectGuid>
+    <ProjectGuid>{F5EAAD44-2007-440B-B96E-FEE6231A7608}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PerfEx.Demo</RootNamespace>
-    <AssemblyName>PerfEx.Demo.SystemUnderTest.Specs</AssemblyName>
+    <AssemblyName>PerfEx.Demo.SimpleGame.Specs</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -51,29 +51,32 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SpecEventDefinitions.cs" />
-    <Compile Include="SystemUnderTest\PlainRhinoMock\PlainUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SystemUnderTest\Specs\Steps\TargetOfTest_HelloStudentSteps.cs" />
-    <Compile Include="SystemUnderTest\Specs\TargetOfTest_HelloStudent.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TargetOfTest_HelloStudent.feature</DependentUpon>
-    </Compile>
+    <Compile Include="SpecEventDefinitions.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="SystemUnderTest\Specs\TargetOfTest_HelloStudent.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>TargetOfTest_HelloStudent.feature.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PerfEx.Demo.SystemUnderTest\PerfEx.Demo.SystemUnderTest.csproj">
-      <Project>{2E23771A-9B00-4BEA-B532-EE71851A9F26}</Project>
-      <Name>PerfEx.Demo.SystemUnderTest</Name>
+    <ProjectReference Include="..\PerfEx.Demo.SimpleGame.Commands\PerfEx.Demo.SimpleGame.Commands.csproj">
+      <Project>{CA268C8B-5A75-4A0F-8B56-7EFF54837366}</Project>
+      <Name>PerfEx.Demo.SimpleGame.Commands</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PerfEx.Demo.SimpleGame.DAL.Contracts\PerfEx.Demo.SimpleGame.DAL.Contracts.csproj">
+      <Project>{81770B5A-859B-43E6-ABA7-6F99D4588872}</Project>
+      <Name>PerfEx.Demo.SimpleGame.DAL.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PerfEx.Demo.SimpleGame.Models\PerfEx.Demo.SimpleGame.Models.csproj">
+      <Project>{BAF49E6C-8F91-4CE0-9AAE-05E70429A962}</Project>
+      <Name>PerfEx.Demo.SimpleGame.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PerfEx.Demo.SimpleGame\PerfEx.Demo.SimpleGame.csproj">
+      <Project>{C7988E4D-4B0F-4449-957B-169A46114AC3}</Project>
+      <Name>PerfEx.Demo.SimpleGame</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SimpleGame\Specs\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

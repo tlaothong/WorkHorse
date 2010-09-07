@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{2E23771A-9B00-4BEA-B532-EE71851A9F26}</ProjectGuid>
+    <ProjectGuid>{CA268C8B-5A75-4A0F-8B56-7EFF54837366}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PerfEx.Demo</RootNamespace>
-    <AssemblyName>PerfEx.Demo.SystemUnderTest</AssemblyName>
+    <RootNamespace>PerfEx.Demo.SimpleGame</RootNamespace>
+    <AssemblyName>PerfEx.Demo.SimpleGame.Commands</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,12 +40,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\CreateGameRoundCommand.cs" />
+    <Compile Include="Commands\CreateGameTableConfigurationsCommand.cs" />
+    <Compile Include="Commands\GameTableConfigurationRelatedCommandBase.cs" />
+    <Compile Include="Commands\ListActiveGameRoundsCommand.cs" />
+    <Compile Include="Commands\ListGameTableConfigurationsCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SystemUnderTest\IMembership.cs" />
-    <Compile Include="SystemUnderTest\IWorkTogether.cs" />
-    <Compile Include="SystemUnderTest\TargetOfTest.cs" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\PerfEx.Demo.SimpleGame.Models\PerfEx.Demo.SimpleGame.Models.csproj">
+      <Project>{BAF49E6C-8F91-4CE0-9AAE-05E70429A962}</Project>
+      <Name>PerfEx.Demo.SimpleGame.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
