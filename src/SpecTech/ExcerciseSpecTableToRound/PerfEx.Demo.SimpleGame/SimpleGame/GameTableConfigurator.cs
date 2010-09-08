@@ -3,11 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using PerfEx.Demo.SimpleGame.Models;
+using PerfEx.Demo.SimpleGame.DAL;
 
 namespace PerfEx.Demo.SimpleGame
 {
     public class GameTableConfigurator
     {
+        private IGameTableDataAccess _dac;
+
+        public GameTableConfigurator(IGameTableDataAccess dac)
+        {
+            _dac = dac;
+        }
+
         /// <summary>
         /// สร้าง GameTable เริ่มต้นจากค่าที่กำหนด
         /// </summary>
@@ -17,17 +25,12 @@ namespace PerfEx.Demo.SimpleGame
         /// <returns>โต๊ะที่สร้างจากเงื่อนไขที่กำหนด</returns>
         public IEnumerable<GameTable> GenerateTableConfiguration(int tableCount, int gameDuration, int gameInterval)
         {
-            List<GameTable> lst = new List<GameTable>();
-
             for (int i = 0; i < tableCount; i++) {
-                lst.Add(new GameTable {
-                    TableID = i + 1,
+                yield return new GameTable {
                     GameDuration = gameDuration,
-                    GameInterval = gameInterval,
-                });
+                    Interval = gameInterval
+                };
             }
-
-            return lst.ToArray();
         }
 
         /// <summary>
@@ -35,9 +38,12 @@ namespace PerfEx.Demo.SimpleGame
         /// </summary>
         /// <param name="name">ชื่อ setting</param>
         /// <param name="tables">การตั้งค่าของโต๊ะต่าง ๆ</param>
-        void SaveTableConfiguration(string name, IEnumerable<GameTable> tables)
+        public void SaveTableConfiguration(string name, IEnumerable<GameTable> tables)
         {
-            throw new NotImplementedException();
+            _dac.Create(new Commands.CreateGameTableConfigurationsCommand {
+                Name = name,
+                Tables = tables,
+            });
         }
 
         /// <summary>
@@ -45,7 +51,7 @@ namespace PerfEx.Demo.SimpleGame
         /// </summary>
         /// <param name="name">ชื่อ setting</param>
         /// <param name="bufferRoundsCount">จำนวนโต๊ะที่สร้างให้เกินจากที่บันทึกไว้</param>
-        void CreateGameRounds(string name, int bufferRoundsCount)
+        public void CreateGameRounds(string name, int bufferRoundsCount)
         {
             throw new NotImplementedException();
         }
