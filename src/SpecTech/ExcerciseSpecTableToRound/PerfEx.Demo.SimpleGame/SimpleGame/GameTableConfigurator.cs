@@ -17,7 +17,17 @@ namespace PerfEx.Demo.SimpleGame
         /// <returns>โต๊ะที่สร้างจากเงื่อนไขที่กำหนด</returns>
         public IEnumerable<GameTable> GenerateTableConfiguration(int tableCount, int gameDuration, int gameInterval)
         {
-            throw new NotImplementedException();
+            List<GameTable> lst = new List<GameTable>();
+
+            for (int i = 0; i < tableCount; i++) {
+                lst.Add(new GameTable {
+                    TableID = i + 1,
+                    GameDuration = gameDuration,
+                    GameInterval = gameInterval,
+                });
+            }
+
+            return lst.ToArray();
         }
 
         /// <summary>
