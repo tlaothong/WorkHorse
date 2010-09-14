@@ -43,7 +43,9 @@
     <Compile Include="Commands\CreateGameRoundCommand.cs" />
     <Compile Include="Commands\CreateGameTableConfigurationsCommand.cs" />
     <Compile Include="Commands\GameTableConfigurationRelatedCommandBase.cs" />
+    <Compile Include="Commands\GetGameResultCommand.cs" />
     <Compile Include="Commands\ListActiveGameRoundsCommand.cs" />
+    <Compile Include="Commands\ListGamePlayInformationCommand.cs" />
     <Compile Include="Commands\ListGameTableConfigurationsCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

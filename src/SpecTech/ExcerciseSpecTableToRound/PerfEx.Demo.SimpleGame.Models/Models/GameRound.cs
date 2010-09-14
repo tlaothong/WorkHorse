@@ -7,5 +7,9 @@ namespace PerfEx.Demo.SimpleGame.Models
 {
     public class GameRound
     {
+        public int TableID { get; set; }
+        public int RoundID { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
     }
 }

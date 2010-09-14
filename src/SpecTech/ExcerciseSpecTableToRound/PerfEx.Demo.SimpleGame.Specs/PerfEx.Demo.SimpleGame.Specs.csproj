@@ -62,14 +62,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GenerateGameTableConfiguration_N2N.feature</DependentUpon>
     </Compile>
+    <Compile Include="SimpleGame\Specs\GetGameInformationForUser.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GetGameInformationForUser.feature</DependentUpon>
+    </Compile>
+    <Compile Include="SimpleGame\Specs\GetGameResult.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GetGameResult.feature</DependentUpon>
+    </Compile>
     <Compile Include="SimpleGame\Specs\SaveTableConfiguration_N2N.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SaveTableConfiguration_N2N.feature</DependentUpon>
     </Compile>
+    <Compile Include="SimpleGame\Specs\Steps\ColorGameServiceStepBase.cs" />
     <Compile Include="SimpleGame\Specs\Steps\CommonSteps.cs" />
+    <Compile Include="SimpleGame\Specs\Steps\CreateGameRoundStep.cs" />
+    <Compile Include="SimpleGame\Specs\Steps\GameServiceCommonStep.cs" />
     <Compile Include="SimpleGame\Specs\Steps\GameTableConfiguratorStepsBase.cs" />
     <Compile Include="SimpleGame\Specs\Steps\GenerateGameTableSteps.cs" />
+    <Compile Include="SimpleGame\Specs\Steps\GetGamePlayInformationStep.cs" />
+    <Compile Include="SimpleGame\Specs\Steps\GetGameResultStep.cs" />
     <Compile Include="SimpleGame\Specs\Steps\SaveTableConfigurationSteps.cs" />
     <Compile Include="SpecEventDefinitions.cs" />
   </ItemGroup>
@@ -82,6 +97,14 @@
     <None Include="SimpleGame\Specs\GenerateGameTableConfiguration_N2N.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>GenerateGameTableConfiguration_N2N.feature.cs</LastGenOutput>
+    </None>
+    <None Include="SimpleGame\Specs\GetGameInformationForUser.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>GetGameInformationForUser.feature.cs</LastGenOutput>
+    </None>
+    <None Include="SimpleGame\Specs\GetGameResult.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>GetGameResult.feature.cs</LastGenOutput>
     </None>
     <None Include="SimpleGame\Specs\SaveTableConfiguration_N2N.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

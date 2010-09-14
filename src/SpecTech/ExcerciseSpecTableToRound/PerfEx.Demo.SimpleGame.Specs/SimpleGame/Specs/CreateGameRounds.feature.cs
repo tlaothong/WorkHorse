@@ -91,17 +91,15 @@ testRunner.And("the table configuration set \'config1\' has the following data",
             table2.AddRow(new string[] {
                         "1",
                         "5",
-                        "0:0",
-                        "0:0"});
+                        "10:00",
+                        "10:20"});
             table2.AddRow(new string[] {
                         "2",
                         "6",
-                        "0:0",
-                        "0:0"});
+                        "10:05",
+                        "10:25"});
 #line 14
 testRunner.And("the active GameRounds are", ((string)(null)), table2);
-#line 18
-testRunner.When("call CreateGameRounds(\'config1\', 1)");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "TableID",
@@ -109,27 +107,149 @@ testRunner.When("call CreateGameRounds(\'config1\', 1)");
                         "StartTime",
                         "EndTime"});
             table3.AddRow(new string[] {
-                        "1",
-                        "5",
-                        "0:0",
-                        "0:0"});
-            table3.AddRow(new string[] {
-                        "2",
-                        "6",
-                        "0:0",
-                        "0:0"});
-            table3.AddRow(new string[] {
                         "3",
                         "7",
-                        "0:0",
-                        "0:0"});
+                        "10:10",
+                        "10:30"});
             table3.AddRow(new string[] {
                         "1",
                         "8",
-                        "0:0",
-                        "0:0"});
-#line 19
-testRunner.Then("the result rounds should be saved to the ICreateGameRound.Create() with data", ((string)(null)), table3);
+                        "10:15",
+                        "10:35"});
+#line 18
+testRunner.And("Expect result should be add", ((string)(null)), table3);
+#line 23
+testRunner.When("call CreateGameRounds(\'config1\', 1)");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "TableID",
+                        "RoundID",
+                        "StartTime",
+                        "EndTime"});
+            table4.AddRow(new string[] {
+                        "1",
+                        "5",
+                        "10:00",
+                        "10:20"});
+            table4.AddRow(new string[] {
+                        "2",
+                        "6",
+                        "10:05",
+                        "10:25"});
+            table4.AddRow(new string[] {
+                        "3",
+                        "7",
+                        "10:10",
+                        "10:30"});
+            table4.AddRow(new string[] {
+                        "1",
+                        "8",
+                        "10.15",
+                        "10.35"});
+#line 24
+testRunner.Then("the result rounds should be saved to the ICreateGameRound.Create() with data", ((string)(null)), table4);
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Create GameRounds from the table configuration2 that interval value not same at a" +
+            "ll")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Create Game Rounds")]
+        public virtual void CreateGameRoundsFromTheTableConfiguration2ThatIntervalValueNotSameAtAll()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create GameRounds from the table configuration2 that interval value not same at a" +
+                    "ll", new string[] {
+                        "record_mock"});
+#line 32
+this.ScenarioSetup(scenarioInfo);
+#line 33
+testRunner.Given("The GameTableConfigurator has been created and initialized");
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "TableID",
+                        "GameDuration",
+                        "Interval"});
+            table5.AddRow(new string[] {
+                        "1",
+                        "20",
+                        "5"});
+            table5.AddRow(new string[] {
+                        "2",
+                        "20",
+                        "10"});
+            table5.AddRow(new string[] {
+                        "3",
+                        "20",
+                        "7"});
+#line 34
+testRunner.And("the table configuration set \'config2\' has the following data", ((string)(null)), table5);
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "TableID",
+                        "RoundID",
+                        "StartTime",
+                        "EndTime"});
+            table6.AddRow(new string[] {
+                        "1",
+                        "5",
+                        "10:00",
+                        "10:20"});
+            table6.AddRow(new string[] {
+                        "2",
+                        "6",
+                        "10:05",
+                        "10:30"});
+#line 39
+testRunner.And("the active GameRounds are", ((string)(null)), table6);
+#line hidden
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                        "TableID",
+                        "RoundID",
+                        "StartTime",
+                        "EndTime"});
+            table7.AddRow(new string[] {
+                        "3",
+                        "7",
+                        "10:15",
+                        "10:35"});
+            table7.AddRow(new string[] {
+                        "1",
+                        "8",
+                        "10:25",
+                        "10:45"});
+#line 43
+testRunner.And("Expect result should be add", ((string)(null)), table7);
+#line 48
+testRunner.When("call CreateGameRounds(\'config2\', 1)");
+#line hidden
+            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                        "TableID",
+                        "RoundID",
+                        "StartTime",
+                        "EndTime"});
+            table8.AddRow(new string[] {
+                        "1",
+                        "5",
+                        "10:00",
+                        "10:20"});
+            table8.AddRow(new string[] {
+                        "2",
+                        "6",
+                        "10:05",
+                        "10:25"});
+            table8.AddRow(new string[] {
+                        "3",
+                        "7",
+                        "10:15",
+                        "10:35"});
+            table8.AddRow(new string[] {
+                        "1",
+                        "8",
+                        "10:22",
+                        "10:42"});
+#line 49
+testRunner.Then("the result rounds should be saved to the ICreateGameRound.Create() with data", ((string)(null)), table8);
 #line hidden
             testRunner.CollectScenarioErrors();
         }
