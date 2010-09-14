@@ -1,0 +1,17 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_IMvvmCollectionService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://localhost:49856/MvvmCollectionService.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IMvvmCollectionService"
+                contract="MvvmCollectionSvc.IMvvmCollectionService" name="BasicHttpBinding_IMvvmCollectionService" />
+        </client>
+    </system.serviceModel>
+</configuration>
