@@ -10,5 +10,7 @@ namespace PerfEx.Demo.SimpleGame.Commands
     {
         public DateTime FromTime { get; set; }
         public IEnumerable<GameRound> Rounds { get; set; }
+
+
     }
 }

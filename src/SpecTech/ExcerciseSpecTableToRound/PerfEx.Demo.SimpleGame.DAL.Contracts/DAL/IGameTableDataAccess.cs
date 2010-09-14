@@ -12,7 +12,8 @@ namespace PerfEx.Demo.SimpleGame.DAL
         IListActiveRounds,
 
         ICreateGameTableConfiguration,
-        ICreateGameRound
+        ICreateGameRound,
+        IListGamePlayInformation
     { }
 
     /// <summary>
@@ -45,5 +46,12 @@ namespace PerfEx.Demo.SimpleGame.DAL
     public interface ICreateGameRound
     {
         void Create(GameRound entity, CreateGameRoundCommand cmd);
+    }
+
+    /// <summary>
+    /// List GamePlayInfomation that User is playing
+    /// </summary>
+    public interface IListGamePlayInformation {
+        IEnumerable<GamePlayInfomation> List(ListGamePlayInformationCommand cmd);
     }
 }
