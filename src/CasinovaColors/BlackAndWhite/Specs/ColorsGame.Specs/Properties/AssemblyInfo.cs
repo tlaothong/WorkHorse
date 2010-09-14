@@ -1,4 +1,4 @@
-﻿// Copyright ©  2010
+﻿// Copyright © Hewlett-Packard 2010
 
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -7,12 +7,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TheS.Casinova.ColorsGame.Specs")]
+[assembly: AssemblyTitle("ColorsGame.Specs")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TheS.Casinova.ColorsGame.Specs")]
-[assembly: AssemblyCopyright("Copyright ©  2010")]
+[assembly: AssemblyCompany("Hewlett-Packard")]
+[assembly: AssemblyProduct("ColorsGame.Specs")]
+[assembly: AssemblyCopyright("Copyright © Hewlett-Packard 2010")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -22,7 +22,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("925ff624-96a0-4669-972c-bd5e4db6f411")]
+[assembly: Guid("33ef7d3b-8540-494a-8eaf-edd41d6009a4")]
 
 // Version information for an assembly consists of the following four values:
 //

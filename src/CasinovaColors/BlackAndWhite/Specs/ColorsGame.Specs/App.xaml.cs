@@ -2,7 +2,7 @@
 using System.Windows;
 using Microsoft.Silverlight.Testing;
 
-namespace TheS.Casinova.ColorsGame.Specs
+namespace ColorsGame.Specs
 {
     public partial class App : Application
     {

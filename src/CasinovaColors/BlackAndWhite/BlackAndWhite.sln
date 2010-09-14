@@ -20,6 +20,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheS.Casinova.ColorsGame.WebProviders", "TheS.Casinova.ColorsGame.WebProviders\TheS.Casinova.ColorsGame.WebProviders.csproj", "{2BD98EC8-E26D-4523-962C-28AF67D9652E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorsGame", "ColorsGame\ColorsGame.csproj", "{917B29E7-ED9D-4F8A-A7A6-A84231829CB3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0CB3D1F8-EDD7-473D-8420-ACF4E5BA355F} = {0CB3D1F8-EDD7-473D-8420-ACF4E5BA355F}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorsGame.Web", "ColorsGame.Web\ColorsGame.Web.csproj", "{0CB3D1F8-EDD7-473D-8420-ACF4E5BA355F}"
 EndProject
@@ -42,7 +45,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheS.Casinova.ColorsGame.Ba
 EndProject
 Project("{C8D11400-126E-41CD-887F-60BD40844F9E}") = "_Database_Colors", "_Database_Colors\_Database_Colors.dbproj", "{67CBC824-A49E-4E9B-A947-360F3DFE65C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheS.Casinova.ColorsGame.Specs", "TheS.Casinova.ColorsGame.Specs\TheS.Casinova.ColorsGame.Specs.csproj", "{D39B283C-1EAA-46CF-A629-E7274220416F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorsGame.Specs", "Specs\ColorsGame.Specs\ColorsGame.Specs.csproj", "{D8EFDDF7-2F9F-4864-A476-1DE4F4A603DC}"
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
@@ -119,10 +122,10 @@ Global
 		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{D39B283C-1EAA-46CF-A629-E7274220416F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D39B283C-1EAA-46CF-A629-E7274220416F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D39B283C-1EAA-46CF-A629-E7274220416F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D39B283C-1EAA-46CF-A629-E7274220416F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8EFDDF7-2F9F-4864-A476-1DE4F4A603DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8EFDDF7-2F9F-4864-A476-1DE4F4A603DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8EFDDF7-2F9F-4864-A476-1DE4F4A603DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8EFDDF7-2F9F-4864-A476-1DE4F4A603DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -131,5 +134,6 @@ Global
 		{0DB8D7AB-3677-413B-9610-D98C5AE126B6} = {F3ACEB10-BCF0-4F58-8D32-0063D19B58A4}
 		{A547C498-53C6-4EB8-944B-5BA20DC1F472} = {F3ACEB10-BCF0-4F58-8D32-0063D19B58A4}
 		{351AF90D-418E-4EF4-8F3E-5EE6832E53B7} = {F3ACEB10-BCF0-4F58-8D32-0063D19B58A4}
+		{D8EFDDF7-2F9F-4864-A476-1DE4F4A603DC} = {F3ACEB10-BCF0-4F58-8D32-0063D19B58A4}
 	EndGlobalSection
 EndGlobal
