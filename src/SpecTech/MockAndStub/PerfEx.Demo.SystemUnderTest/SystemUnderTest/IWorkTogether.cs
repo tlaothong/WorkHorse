@@ -10,5 +10,10 @@ namespace PerfEx.Demo.SystemUnderTest
         string ReadText();
         int NumberOfFans { get; }
         string NumToText(int number);
+        string GetStudentName(int studentId);
+
+        void Log(string logMessage);
+
+        int Add(int a, int b);  // Func<int, int, int>
     }
 }

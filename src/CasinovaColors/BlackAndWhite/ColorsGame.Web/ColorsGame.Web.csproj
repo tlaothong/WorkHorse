@@ -14,7 +14,7 @@
     <AssemblyName>ColorsGame.Web</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <SilverlightApplicationList>{917B29E7-ED9D-4F8A-A7A6-A84231829CB3}|..\ColorsGame\ColorsGame.csproj|ClientBin|False</SilverlightApplicationList>
+    <SilverlightApplicationList>{917B29E7-ED9D-4F8A-A7A6-A84231829CB3}|..\ColorsGame\ColorsGame.csproj|ClientBin|False,{D39B283C-1EAA-46CF-A629-E7274220416F}|..\TheS.Casinova.ColorsGame.Specs\TheS.Casinova.ColorsGame.Specs.csproj|ClientBin|False</SilverlightApplicationList>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -91,10 +91,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ClientBin\ColorsGame.xap" />
+    <Content Include="ClientBin\TheS.Casinova.ColorsGame.Specs.xap" />
     <Content Include="ColorsGameTestPage.aspx" />
     <Content Include="ColorsGameTestPage.html" />
     <Content Include="Global.asax" />
     <Content Include="Silverlight.js" />
+    <Content Include="TheS.Casinova.ColorsGame.SpecsTestPage.aspx" />
+    <Content Include="TheS.Casinova.ColorsGame.SpecsTestPage.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
