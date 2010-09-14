@@ -8,7 +8,7 @@ namespace TheS.Casinova.ColorsGame.BackServices
 {
     public class CommandManagerStub : PerfEx.Infrastructure.CommandPattern.CommandManagerBase
     {
-        // TODO: Add Type refereces
+        static Type _xcutors = typeof(TheS.Casinova.ColorsGame.BackServices.BackExecutors.PayForColorsWinnerInfoExecutor);
 
         private Action<PerfEx.Infrastructure.IDependencyRegistry> _registerAction;
 

@@ -9,9 +9,10 @@ using TheS.Casinova.ColorsGame.Commands;
 namespace TheS.Casinova.ColorsGame.DAL
 {
     public interface IColorsGameDataQuery :
-        IGetGamePlayerInfoQuery
+        IGetGamePlayInfoQuery
     { }
 
-    public interface IGetGamePlayerInfoQuery : IFetchData<GamePlayInformation, GetGamePlayInfoCommand>
+    public interface IGetGamePlayInfoQuery
+        : IFetchData<GamePlayInformation, GetGamePlayInfoCommand>
     { }
 }

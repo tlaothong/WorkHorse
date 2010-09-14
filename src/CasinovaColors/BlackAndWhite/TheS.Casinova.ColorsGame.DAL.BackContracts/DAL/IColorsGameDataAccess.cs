@@ -13,9 +13,11 @@ namespace TheS.Casinova.ColorsGame.DAL
         IUpdateWinnerToGamePlayInfo
     { }
 
-    public interface IPayForColorsWinnerInfo : IDataAction<PlayerInformation, PayForColorsWinnerInfoCommand>
+    public interface IPayForColorsWinnerInfo
+        : IDataAction<PlayerInformation, PayForColorsWinnerInfoCommand>
     { }
 
-    public interface IUpdateWinnerToGamePlayInfo : IDataAction<GamePlayInformation, PayForColorsWinnerInfoCommand>
+    public interface IUpdateWinnerToGamePlayInfo
+        : IDataAction<GamePlayInformation, PayForColorsWinnerInfoCommand>
     { }
 }

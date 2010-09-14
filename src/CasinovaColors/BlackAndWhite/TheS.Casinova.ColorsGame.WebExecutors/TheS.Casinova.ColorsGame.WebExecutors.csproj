@@ -56,10 +56,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebExecutors\PayForColorsWinnerInfoExecutor.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="WebExecutors\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\TheS.Casinova.ColorsGame.BackServices.Contracts\TheS.Casinova.ColorsGame.BackServices.Contracts.csproj">
       <Project>{625662C6-61FF-4A91-B068-A1DA68D553A5}</Project>

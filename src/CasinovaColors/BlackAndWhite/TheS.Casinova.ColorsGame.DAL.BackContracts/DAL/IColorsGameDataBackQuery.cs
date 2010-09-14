@@ -12,6 +12,7 @@ namespace TheS.Casinova.ColorsGame.DAL
         IGetRoundWinnerQuery
     { }
 
-    public interface IGetRoundWinnerQuery : IFetchData<string, PayForColorsWinnerInfoCommand>
+    public interface IGetRoundWinnerQuery
+        : IFetchSingleData<string, PayForColorsWinnerInfoCommand>
     { }
 }
