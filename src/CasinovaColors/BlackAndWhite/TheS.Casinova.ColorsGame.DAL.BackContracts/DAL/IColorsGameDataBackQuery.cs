@@ -12,6 +12,7 @@ namespace TheS.Casinova.ColorsGame.DAL
         IGetRoundWinnerQuery
     { }
 
+    //ดึงข้อมูล Winner ที่ผู้เล่นเสียเงินโต๊ะที่ดู
     public interface IGetRoundWinnerQuery
         : IFetchSingleData<string, PayForColorsWinnerInfoCommand>
     { }

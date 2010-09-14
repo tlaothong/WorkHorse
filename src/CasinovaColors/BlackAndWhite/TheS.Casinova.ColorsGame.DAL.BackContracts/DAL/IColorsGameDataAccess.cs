@@ -13,10 +13,12 @@ namespace TheS.Casinova.ColorsGame.DAL
         IUpdateWinnerToGamePlayInfo
     { }
 
+    //หักเงินผู้เล่น
     public interface IPayForColorsWinnerInfo
         : IDataAction<PlayerInformation, PayForColorsWinnerInfoCommand>
     { }
 
+    //อัพเดทข้อมูล game information โต๊ะที่เสียเงินดู Winner (TrackingID, OnGoingTrackingID, Winner, LastUpdate)
     public interface IUpdateWinnerToGamePlayInfo
         : IDataAction<GamePlayInformation, PayForColorsWinnerInfoCommand>
     { }
