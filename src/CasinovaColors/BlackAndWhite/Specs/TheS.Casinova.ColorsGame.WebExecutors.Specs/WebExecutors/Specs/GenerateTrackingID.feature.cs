@@ -64,13 +64,12 @@ this.ScenarioSetup(scenarioInfo);
 #line 8
 testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initialized");
 #line 9
-testRunner.And("I have entered UserName = \'nayit\', TableID = \'1\' and RoundID = \'5\'");
+testRunner.And("Expect the TrackingID should be generate by calling PayForColorsWinnerInfoExecuto" +
+                    "r");
 #line 10
-testRunner.And("Expected call PayFoeColorWinnerInfoExecutor");
+testRunner.When("Call ExecuteCommand(UserName\'nit\',TableID \'1\', RoundID \'5\')");
 #line 11
-testRunner.When("I press add");
-#line 12
-testRunner.Then("the result should be 120 on the screen");
+testRunner.Then("the result should be TrackingID \'2a3b\'");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

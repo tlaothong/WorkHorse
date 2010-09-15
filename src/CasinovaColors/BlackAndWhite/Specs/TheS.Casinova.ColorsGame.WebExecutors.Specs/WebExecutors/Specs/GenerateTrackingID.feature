@@ -6,7 +6,6 @@
 @mytag
 Scenario: Generate TrackingID
 	Given The PayForColorsWinnerInfoExecutor has been created and initialized
-	And I have entered UserName = 'nayit', TableID = '1' and RoundID = '5'
-	And Expected call PayFoeColorWinnerInfoExecutor
-	When I press add
-	Then the result should be 120 on the screen
+	And Expect the TrackingID should be generate by calling PayForColorsWinnerInfoExecutor
+	When Call ExecuteCommand(UserName'nit',TableID '1', RoundID '5')
+	Then the result should be TrackingID '2a3b'
