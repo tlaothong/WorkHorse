@@ -74,10 +74,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BackServices\CommandManagerStub.cs" />
+    <Compile Include="BackServices\PayForColorsWinnerInfo.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PayForColorsWinnerInfo.feature</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="BackServices\PayForColorsWinnerInfo.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>PayForColorsWinnerInfo.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BackServices\Specs\" />
