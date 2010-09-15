@@ -14,15 +14,23 @@ namespace TheS.Casinova.ColorsGame.BackServices.BackExecutors
     {
         private IColorsGameDataAccess _dac;
         private IColorsGameDataBackQuery _dqr;
+        const int _payFee = 1;
+
+        public PayForColorsWinnerInfoExecutor(IColorsGameDataAccess dac, IColorsGameDataBackQuery dqr)
+        {
+            _dac = dac;
+            _dqr = dqr;
+        }
 
         //Executor สำหรับ หักเงินผู้เล่น, อัพเดทข้อมูล game information, และดึงข้อมูล Winner โต๊ะที่เลือก เพื่อส่งข้อมูลกลับไปให้ Web Executor ทำงานต่อไป
         protected override void ExecuteCommand(PayForColorsWinnerInfoCommand command)
         {            
             //หักเงินผู้เล่น
+            command.PlayerInformation.Balance -= _payFee;
             _dac.ApplyAction(command.PlayerInformation, command);
 
             //ดึงข้อมูล Winner
-            _dqr.Get(command);
+            command.GamePlayInformation.Winner = _dqr.Get(command);
             
             //อัพเดทข้อมูล game information
             _dac.ApplyAction(command.GamePlayInformation, command);

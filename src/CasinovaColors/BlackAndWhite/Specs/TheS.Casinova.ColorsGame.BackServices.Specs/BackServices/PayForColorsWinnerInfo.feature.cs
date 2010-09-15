@@ -53,11 +53,11 @@ namespace TheS.Casinova.ColorsGame.BackServices
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Add two numbers")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้ใช้มีเงินพอ, ระบบหักเงิน")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PayForColorsWinnerInfo")]
-        public virtual void AddTwoNumbers()
+        public virtual void ผใชมเงนพอระบบหกเงน()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add two numbers", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้ใช้มีเงินพอ, ระบบหักเงิน", new string[] {
                         "mytag"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
