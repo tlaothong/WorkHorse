@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using PerfEx.Infrastructure.Mvvm;
 
 namespace ColorsGame
 {
@@ -17,6 +18,7 @@ namespace ColorsGame
         public ShowWinnerPage()
         {
             InitializeComponent();
+            MvvmBinder.Bind(this, DataContext);
         }
     }
 }
