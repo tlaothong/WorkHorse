@@ -58,7 +58,7 @@ namespace TheS.Casinova.ColorsGame.WebExecutors.Specs
         public virtual void GenerateTrackingID()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Generate TrackingID", new string[] {
-                        "mytag"});
+                        "record_mock"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
@@ -69,7 +69,7 @@ testRunner.And("Expect the TrackingID should be generate by calling PayForColors
 #line 10
 testRunner.When("Call ExecuteCommand(UserName\'nit\',TableID \'1\', RoundID \'5\')");
 #line 11
-testRunner.Then("the result should be TrackingID \'2a3b\'");
+testRunner.Then("the result should be TrackingID \'5AE8C8A6-2FC0-4FCD-B1C4-B4CD3D465541\'");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
