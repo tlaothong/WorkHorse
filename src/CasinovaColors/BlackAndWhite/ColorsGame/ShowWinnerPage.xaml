@@ -1,13 +1,31 @@
-﻿<UserControl x:Class="ColorsGame.ShowWinnerPage"
+﻿<UserControl
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ColorsGame_ViewModels="clr-namespace:ColorsGame.ViewModels" x:Class="ColorsGame.ShowWinnerPage"
     mc:Ignorable="d"
     d:DesignHeight="300" d:DesignWidth="400">
     
+	<UserControl.Resources>
+		<ColorsGame_ViewModels:ShowWinnerPageViewModel x:Key="ShowWinnerPageViewModelDataSource" d:IsDataSource="True"/>
+	</UserControl.Resources>
+	<UserControl.DataContext>
+		<Binding Source="{StaticResource ShowWinnerPageViewModelDataSource}"/>
+	</UserControl.DataContext>
+    
     <StackPanel x:Name="LayoutRoot" Background="White">
-    	<Button Content="Get Winner"/>
-    	<TextBlock TextWrapping="Wrap" Text="TextBlock"/>
+    	<Button x:Name="GetWinner" Content="Get Winner" Height="41"/>
+    	<TextBlock x:Name="WinnerTrick" TextWrapping="Wrap" Text="Message:" FontWeight="Bold" TextDecorations="Underline"/>
+    	<TextBlock TextWrapping="Wrap" Text="TableID:" FontWeight="Bold"/>
+    	<TextBox x:Name="TableID" TextWrapping="Wrap" Text="{Binding TableID, Mode=TwoWay}"/>
+    	<TextBlock TextWrapping="Wrap" Text="RoundID:" FontWeight="Bold"/>
+    	<TextBox x:Name="RoundID" TextWrapping="Wrap" Text="{Binding RoundID, Mode=TwoWay}"/>
+    	<TextBlock TextWrapping="Wrap" Text="Balance:" FontWeight="Bold"/>
+    	<TextBlock x:Name="Balance" TextWrapping="Wrap" Text="{Binding Balance}"/>
+    	<TextBlock TextWrapping="Wrap" Text="TrackingID:" FontWeight="Bold"/>
+    	<TextBlock x:Name="TrackingID" TextWrapping="Wrap" Text="{Binding TrackingID}"/>
+    	<TextBlock TextWrapping="Wrap" FontWeight="Bold" Text="Winner:"/>
+    	<TextBlock x:Name="Winner" TextWrapping="Wrap" Text="{Binding Winner}"/>
     </StackPanel>
 </UserControl>
