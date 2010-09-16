@@ -7,6 +7,7 @@ using Rhino.Mocks;
 using TheS.Casinova.ColorsGame.BackServices;
 using TheS.Casinova.ColorsGame.Commands;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TheS.Casinova.ColorsGame.Models;
 
 namespace TheS.Casinova.ColorsGame.WebExecutors.Specs.Steps
 {
@@ -14,7 +15,7 @@ namespace TheS.Casinova.ColorsGame.WebExecutors.Specs.Steps
     public class GenerateTrackingIdSteps : GenerateTrackingIdStepsBase
     {
         private string _trackingId;
-
+              
         [Given(@"Expect the TrackingID should be generate by calling PayForColorsWinnerInfoExecutor")]
         public void GivenExpectTheTrackingIDShouldBeGenerateByCallingPayForColorsWinnerInfoExecutor()
         {
@@ -24,25 +25,30 @@ namespace TheS.Casinova.ColorsGame.WebExecutors.Specs.Steps
                 _trackingId = "5AE8C8A6-2FC0-4FCD-B1C4-B4CD3D465541";
             }
        
-            Dac.PayForWinnerInfo(null);
-            LastCall.IgnoreArguments();
+            //Dac.PayForWinnerInfo(null);
+            //LastCall.IgnoreArguments();
         }
 
         [When(@"Call ExecuteCommand\(UserName'(.*)',TableID '(.*)', RoundID '(.*)'\)")]
         public void WhenCallExecuteCommandUserNameXTableIDXRoundIDX(string userName, int tableId, int roundId)
         {
-            Dac.PayForWinnerInfo(new Commands.PayForColorsWinnerInfoCommand {
-                UserName = userName,
+
+            PayForColorsWinnerInfoCommand cmd = new PayForColorsWinnerInfoCommand {
+                PlayerInformation = new PlayerInformation 
+                {
+                    UserName = userName,
+                },
                 TableID = tableId,
                 RoundID = roundId,
-            });
+            };
 
+            Dac.PayForWinnerInfo(cmd);            
         }
 
         [Then(@"the result should be TrackingID '(.*)'")]
         public void ThenTheResultShouldBeTrackingIDX(string trackingId)
         {
-            Assert.AreEqual(_trackingId, trackingId, "TrackingID");
+            Assert.AreEqual(_trackingId, trackingId, "Generate TrackingID already");
         }
     }
 }
