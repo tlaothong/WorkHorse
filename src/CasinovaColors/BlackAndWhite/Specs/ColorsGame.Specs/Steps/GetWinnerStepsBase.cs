@@ -16,21 +16,12 @@ namespace ColorsGame.Specs.Steps
 {
     public class GetWinnerStepsBase
     {
-        protected ShowWinnerPageViewModel ViewModel
+        protected Service.IColorsGameService Dac
         {
             get
             {
                 return ScenarioContext.Current[
-                    CommonSteps.Key_ShowWinner] as ShowWinnerPageViewModel;
-            }
-        }
-
-        protected ColorsGameServiceSoapClient Dac
-        {
-            get
-            {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dac] as ColorsGameServiceSoapClient;
+                    CommonSteps.Key_Dac] as Service.IColorsGameService;
             }
         }
     }
