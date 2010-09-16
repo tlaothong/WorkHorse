@@ -34,8 +34,18 @@ namespace ColorsGame.ViewModels
 
         #endregion
 
+        #region For testing
+
+        public ColorsGameServiceSoapClient Svc
+        {
+            get { return _svc; }
+            set { _svc = value; }
+        }
+
+        #endregion For testing
+
         #region Properties
-        
+
         /// <summary>
         /// ยอดเงินคงเหลือ
         /// </summary>
@@ -124,6 +134,9 @@ namespace ColorsGame.ViewModels
 
         #region Constructor
 
+        /// <summary>
+        /// Initialize show winner page view model
+        /// </summary>
         public ShowWinnerPageViewModel()
         {
             _notif = new PropertyChangedNotifier(this, () => PropertyChanged);
