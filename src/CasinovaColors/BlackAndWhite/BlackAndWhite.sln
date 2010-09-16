@@ -46,6 +46,9 @@ EndProject
 Project("{C8D11400-126E-41CD-887F-60BD40844F9E}") = "_Database_Colors", "_Database_Colors\_Database_Colors.dbproj", "{67CBC824-A49E-4E9B-A947-360F3DFE65C3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorsGame.Specs", "Specs\ColorsGame.Specs\ColorsGame.Specs.csproj", "{D8EFDDF7-2F9F-4864-A476-1DE4F4A603DC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0CB3D1F8-EDD7-473D-8420-ACF4E5BA355F} = {0CB3D1F8-EDD7-473D-8420-ACF4E5BA355F}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution

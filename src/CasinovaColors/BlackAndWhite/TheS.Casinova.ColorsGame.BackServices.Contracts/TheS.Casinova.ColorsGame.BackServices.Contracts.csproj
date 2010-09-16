@@ -46,11 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackServices\IColorsGameBackService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BackServices\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\TheS.Casinova.ColorsGame.Commands\TheS.Casinova.ColorsGame.Commands.csproj">
       <Project>{D5E560E5-ED90-4E03-9924-D0A0822E7A49}</Project>

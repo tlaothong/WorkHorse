@@ -74,12 +74,21 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebExecutors\CommandManagerStub.cs" />
+    <Compile Include="WebExecutors\Specs\GenerateTrackingID.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GenerateTrackingID.feature</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="WebExecutors\Specs\" />
+    <Folder Include="WebExecutors\Specs\Steps\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="WebExecutors\Specs\GenerateTrackingID.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>GenerateTrackingID.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\TheS.Casinova.ColorsGame.BackServices.Contracts\TheS.Casinova.ColorsGame.BackServices.Contracts.csproj">

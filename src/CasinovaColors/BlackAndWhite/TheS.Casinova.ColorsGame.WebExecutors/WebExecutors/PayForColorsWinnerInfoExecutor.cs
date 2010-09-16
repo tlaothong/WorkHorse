@@ -11,6 +11,7 @@ namespace TheS.Casinova.ColorsGame.WebExecutors
     public class PayForColorsWinnerInfoExecutor
         : SynchronousCommandExecutorBase<PayForColorsWinnerInfoCommand>
     {
+        //Generate TrackingID
         protected override void ExecuteCommand(PayForColorsWinnerInfoCommand command)
         {
             throw new NotImplementedException();
