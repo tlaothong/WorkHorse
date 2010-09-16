@@ -5,6 +5,7 @@ using System.Text;
 using PerfEx.Infrastructure.CommandPattern;
 using TheS.Casinova.ColorsGame.Models;
 using TheS.Casinova.ColorsGame.Commands;
+using TheS.Casinova.ColorsGame.DAL;
 
 namespace TheS.Casinova.ColorsGame.WebExecutors
 {
