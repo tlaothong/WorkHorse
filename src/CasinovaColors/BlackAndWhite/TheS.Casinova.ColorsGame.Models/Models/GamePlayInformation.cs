@@ -10,10 +10,12 @@ namespace TheS.Casinova.ColorsGame.Models
     /// </summary>
     public class GamePlayInformation
     {
+        //input
         public string UserName { get; set; }
         public int TableID { get; set; }
         public int RoundID { get; set; }
 
+        //output
         public Guid TrackingID { get; set; }
         public Guid OnGoingTrackingID { get; set; }
         public double TotalBetAmounfOfBlack { get; set; }
