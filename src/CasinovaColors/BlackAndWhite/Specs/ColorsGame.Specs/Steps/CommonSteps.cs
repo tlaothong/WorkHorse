@@ -16,7 +16,6 @@ namespace ColorsGame.Specs.Steps
     [Binding]
     public class CommonSteps
     {
-        public const string Key_ShowWinner = "showWinnerPageViewModel";
         public const string Key_Dac = "mockColorsGameService";
 
         MockRepository Mocks { get { return SpecEventDefinitions.Mocks; } }
@@ -24,12 +23,9 @@ namespace ColorsGame.Specs.Steps
         [Given(@"Create and initialize ShowWinnerPageViewModel and Colors game service")]
         public void GivenCreateAndInitializeShowWinnerPageViewModelAndColorsGameService()
         {
-            //var dac = Mocks.DynamicMock<ColorsGame.ColorsGameSvc.ColorsGameServiceSoapClient>();
-            
-            //ScenarioContext.Current[Key_Dac] = dac;
-            //ScenarioContext.Current[Key_ShowWinner] = new ViewModels.ShowWinnerPageViewModel {
-            //    Svc = dac
-            //};
+            var dac = Mocks.DynamicMock<Service.IColorsGameService>();
+
+            ScenarioContext.Current[Key_Dac] = dac;
         }
     }
 }

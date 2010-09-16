@@ -82,8 +82,15 @@ testRunner.Given("Create and initialize ShowWinnerPageViewModel and Colors game 
                         "9",
                         "11",
                         "sakul",
-                        "2d5e2",
-                        "2d5e2",
+                        "{955D6ACD-E4E0-4D1C-90AC-F3715BB2685A}",
+                        "{955D6ACD-E4E0-4D1C-90AC-F3715BB2685A}",
+                        "15-08-2010"});
+            table1.AddRow(new string[] {
+                        "10",
+                        "12",
+                        "sakul",
+                        "{77C1905A-CD47-4FB4-BF56-4D8EC739474E}",
+                        "{48A4E591-A1EA-4C9D-8D38-623F9EBA3128}",
                         "15-08-2010"});
 #line 19
 testRunner.And("Back server have game play information are:", ((string)(null)), table1);
@@ -98,14 +105,132 @@ testRunner.And("Back server have game play information are:", ((string)(null)), 
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Request pay for colors winner information get trackingID accept", new string[] {
                         "record_mock"});
-#line 24
-this.ScenarioSetup(scenarioInfo);
 #line 25
-testRunner.Given("Server respond TrackingID: 2d5e2");
+this.ScenarioSetup(scenarioInfo);
 #line 26
 testRunner.When("I press GetWinner( TableID: 9, RoundID: 11 )");
 #line 27
-testRunner.Then("the result should be TrackingID: 2d5e2");
+testRunner.Then("the result should be TrackingID: {955D6ACD-E4E0-4D1C-90AC-F3715BB2685A}");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Request pay for colors winner information but don\'t have TableID, get null and sk" +
+            "ip checking trackingID")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Get winner information")]
+        [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
+        public virtual void RequestPayForColorsWinnerInformationButDonTHaveTableIDGetNullAndSkipCheckingTrackingID()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Request pay for colors winner information but don\'t have TableID, get null and sk" +
+                    "ip checking trackingID", new string[] {
+                        "record_mock"});
+#line 30
+this.ScenarioSetup(scenarioInfo);
+#line 31
+testRunner.When("I press GetWinner( TableID: 1, RoundID: 11 )");
+#line 32
+testRunner.Then("Get null and skip checking trackingID");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Request pay for colors winner information but don\'t have RoundID, get null and sk" +
+            "ip checking trackingID")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Get winner information")]
+        [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
+        public virtual void RequestPayForColorsWinnerInformationButDonTHaveRoundIDGetNullAndSkipCheckingTrackingID()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Request pay for colors winner information but don\'t have RoundID, get null and sk" +
+                    "ip checking trackingID", new string[] {
+                        "record_mock"});
+#line 35
+this.ScenarioSetup(scenarioInfo);
+#line 36
+testRunner.When("I press GetWinner( TableID: 9, RoundID: 1 )");
+#line 37
+testRunner.Then("Get null and skip checking trackingID");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Request pay for colors winner information but don\'t have TableID and RoundID, get" +
+            " null and skip checking trackingID")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Get winner information")]
+        [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
+        public virtual void RequestPayForColorsWinnerInformationButDonTHaveTableIDAndRoundIDGetNullAndSkipCheckingTrackingID()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Request pay for colors winner information but don\'t have TableID and RoundID, get" +
+                    " null and skip checking trackingID", new string[] {
+                        "record_mock"});
+#line 40
+this.ScenarioSetup(scenarioInfo);
+#line 41
+testRunner.When("I press GetWinner( TableID: 1, RoundID: 1 )");
+#line 42
+testRunner.Then("Get null and skip checking trackingID");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Request pay for colors winner information but TableID is minus value, get null an" +
+            "d skip checking trackingID")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Get winner information")]
+        [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
+        public virtual void RequestPayForColorsWinnerInformationButTableIDIsMinusValueGetNullAndSkipCheckingTrackingID()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Request pay for colors winner information but TableID is minus value, get null an" +
+                    "d skip checking trackingID", new string[] {
+                        "record_mock"});
+#line 45
+this.ScenarioSetup(scenarioInfo);
+#line 46
+testRunner.When("I press GetWinner( TableID: -1, RoundID: 11 )");
+#line 47
+testRunner.Then("Get null and skip checking trackingID");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Request pay for colors winner information but RoundID is minus value, get null an" +
+            "d skip checking trackingID")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Get winner information")]
+        [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
+        public virtual void RequestPayForColorsWinnerInformationButRoundIDIsMinusValueGetNullAndSkipCheckingTrackingID()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Request pay for colors winner information but RoundID is minus value, get null an" +
+                    "d skip checking trackingID", new string[] {
+                        "record_mock"});
+#line 50
+this.ScenarioSetup(scenarioInfo);
+#line 51
+testRunner.When("I press GetWinner( TableID: 9, RoundID: -1 )");
+#line 52
+testRunner.Then("Get null and skip checking trackingID");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Request pay for colors winner information but TableID and RoundID is minus value," +
+            " get null and skip checking trackingID")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Get winner information")]
+        [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
+        public virtual void RequestPayForColorsWinnerInformationButTableIDAndRoundIDIsMinusValueGetNullAndSkipCheckingTrackingID()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Request pay for colors winner information but TableID and RoundID is minus value," +
+                    " get null and skip checking trackingID", new string[] {
+                        "record_mock"});
+#line 55
+this.ScenarioSetup(scenarioInfo);
+#line 56
+testRunner.When("I press GetWinner( TableID: -1, RoundID: -1 )");
+#line 57
+testRunner.Then("Get null and skip checking trackingID");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
