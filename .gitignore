@@ -9,3 +9,4 @@ ClientBin/
 *.sln.cache
 *.csproj.user
 TestResults/
+NeatUpload_Temp/
