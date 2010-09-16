@@ -23,7 +23,7 @@ namespace ColorsGame.Specs.Steps
                                OnGoingTrackingID = Guid.Parse(c["OnGoingTrackingID"]),
                                LastUpdate = DateTime.Parse(c["LastUpdate"]),
                            };
-
+            
             //SetupResult.For(Dac.PayForWinnerInformationAsync(7, 11)).Return(
             //    gameInfo.FirstOrDefault(c=>c.TableID.Equals(7)&&c.RoundID.Equals
             //    );
