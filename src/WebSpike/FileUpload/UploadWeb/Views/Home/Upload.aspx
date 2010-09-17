@@ -10,8 +10,8 @@
     <script src="../../NeatUpload/NeatUpload.js" type="text/javascript"></script>
 
     <h2>Upload</h2>
-    
-    <form id="formID" action='<%: Url.Content("~/NeatUpload/StaticUploadHandler.ashx")%>' method="post" enctype="multipart/form-data">
+    <%--<x action='<%: Url.Content("~/NeatUpload/StaticUploadHandler.ashx")%>' />--%>
+    <form id="formID" action='<%: Url.Action("Upload", "Home") %>' method="post" enctype="multipart/form-data">
 	    InputFile: 
 	    <!-- The HTML for an InputFile control is a normal <input type="file"> control with a name
 	         field that has the form "NeatUpload_" + any alphanumeric numeric string + "-" + a name
