@@ -24,12 +24,23 @@ namespace ColorsGame.ViewModels
         private int _tableCount;
         private int _durationTime;
         private int _intervalTime;
+        private string _configurationName;
         private ObservableCollection<Models.GameTable> _sampleTable;
         private ObservableCollection<Models.GameRound> _gameTable;
 
         #endregion
 
         #region Properties
+
+        public string ConfigurationName
+        {
+            get { return _configurationName; }
+            set
+            {
+                _configurationName = value;
+                _notif.Raise(()=>ConfigurationName);
+            }
+        }
 
         public ObservableCollection<Models.GameTable> SampleTable
         {
