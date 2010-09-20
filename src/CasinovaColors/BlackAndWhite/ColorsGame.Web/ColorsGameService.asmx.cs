@@ -41,9 +41,11 @@ namespace ColorsGame.Web
                 PlayerInformation = new PlayerInformation {
                     UserName = userName,
                 },
-                TableID = tableId,
-                RoundID = roundId,
-                TrackingID = trackingID,
+                GamePlayInformation = new GamePlayInformation {
+                    TableID = tableId,
+                    RoundID = roundId,
+                    TrackingID = trackingID,
+                }
             };
 
             _svc = new PayForColorsWinnerInfoExecutor(_dac);
