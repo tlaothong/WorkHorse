@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Commands\GetGamePlayInfoCommand.cs" />
     <Compile Include="Commands\PayForColorsWinnerInfoCommand.cs" />
+    <Compile Include="Commands\SaveTableConfigurationCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
