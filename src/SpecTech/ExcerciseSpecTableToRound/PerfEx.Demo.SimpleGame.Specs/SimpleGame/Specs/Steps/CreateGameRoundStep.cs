@@ -69,7 +69,7 @@ namespace PerfEx.Demo.SimpleGame.Specs.Steps {
 
         [Then(@"the result rounds should be saved to the ICreateGameRound\.Create\(\) with data")]
         public void ThenTheResultRoundsShouldBeSavedToTheICreateGameRound_CreateWithData(Table table) {
-            
+            Assert.IsTrue(true, "Expectation has been verified in the end of block When.");
         }
     }
 }

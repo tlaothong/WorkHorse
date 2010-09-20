@@ -14,7 +14,8 @@ namespace TheS.Casinova.ColorsGame.BackServices.BackExecutors
     {
         private IColorsGameDataAccess _dac;
         private IColorsGameDataBackQuery _dqr;
-        const int _payFee = 1;
+
+        const int _payFee = 5;
 
         public PayForColorsWinnerInfoExecutor(IColorsGameDataAccess dac, IColorsGameDataBackQuery dqr)
         {
@@ -26,13 +27,19 @@ namespace TheS.Casinova.ColorsGame.BackServices.BackExecutors
         protected override void ExecuteCommand(PayForColorsWinnerInfoCommand command)
         {            
             //หักเงินผู้เล่น
-            command.PlayerInformation.Balance -= _payFee;
-            _dac.ApplyAction(command.PlayerInformation, command);
+            if (command.PlayerInformation.Balance >= _payFee) {
+                command.PlayerInformation.Balance -= _payFee;
+                _dac.ApplyAction(command.PlayerInformation, command);
+            }
+            else {
+                Console.WriteLine("๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑  เงินไม่พอ  ๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑");
+            }
 
             //ดึงข้อมูล Winner
             command.GamePlayInformation.Winner = _dqr.Get(command);
             
-            //อัพเดทข้อมูล game information
+            ////อัพเดทข้อมูล game information
+            command.GamePlayInformation.LastUpdate = DateTime.Now;
             _dac.ApplyAction(command.GamePlayInformation, command);
         }
     }

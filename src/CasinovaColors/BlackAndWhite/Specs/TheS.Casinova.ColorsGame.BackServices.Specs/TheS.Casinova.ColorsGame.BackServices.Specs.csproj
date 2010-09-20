@@ -74,23 +74,65 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BackServices\CommandManagerStub.cs" />
+    <Compile Include="BackServices\GetRoundWinnerQuery.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GetRoundWinnerQuery.feature</DependentUpon>
+    </Compile>
     <Compile Include="BackServices\PayForColorsWinnerInfo.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PayForColorsWinnerInfo.feature</DependentUpon>
     </Compile>
+    <Compile Include="BackServices\PayForColorsWinnerInfoN2N.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PayForColorsWinnerInfoN2N.feature</DependentUpon>
+    </Compile>
+    <Compile Include="BackServices\SaveTableConfiguration.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SaveTableConfiguration.feature</DependentUpon>
+    </Compile>
+    <Compile Include="BackServices\SpecEventDefinitions.cs" />
+    <Compile Include="BackServices\Specs\ColorsGameStepsBase.cs" />
+    <Compile Include="BackServices\Specs\CommonSteps.cs" />
+    <Compile Include="BackServices\Specs\GetRoundWinnerQuerySteps.cs" />
+    <Compile Include="BackServices\Specs\PayForColorsWinnerInfoN2NSteps.cs" />
+    <Compile Include="BackServices\Specs\PayForColorsWinnerInfoSteps.cs" />
+    <Compile Include="BackServices\Specs\SaveTableConfigurationSteps.cs" />
+    <Compile Include="BackServices\Specs\UpdateWinnerToGamePlayInfoSteps.cs" />
+    <Compile Include="BackServices\UpdateWinnerToGamePlayInfo.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UpdateWinnerToGamePlayInfo.feature</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="BackServices\GetRoundWinnerQuery.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>GetRoundWinnerQuery.feature.cs</LastGenOutput>
+    </None>
     <None Include="BackServices\PayForColorsWinnerInfo.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>PayForColorsWinnerInfo.feature.cs</LastGenOutput>
     </None>
+    <None Include="BackServices\PayForColorsWinnerInfoN2N.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>PayForColorsWinnerInfoN2N.feature.cs</LastGenOutput>
+    </None>
+    <None Include="BackServices\SaveTableConfiguration.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SaveTableConfiguration.feature.cs</LastGenOutput>
+    </None>
+    <None Include="BackServices\UpdateWinnerToGamePlayInfo.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UpdateWinnerToGamePlayInfo.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BackServices\Specs\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\TheS.Casinova.ColorsGame.BackServices.Contracts\TheS.Casinova.ColorsGame.BackServices.Contracts.csproj">
       <Project>{625662C6-61FF-4A91-B068-A1DA68D553A5}</Project>

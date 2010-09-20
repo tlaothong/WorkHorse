@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Models\GamePlayInformation.cs" />
     <Compile Include="Models\PlayerInformation.cs" />
+    <Compile Include="Models\TableConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

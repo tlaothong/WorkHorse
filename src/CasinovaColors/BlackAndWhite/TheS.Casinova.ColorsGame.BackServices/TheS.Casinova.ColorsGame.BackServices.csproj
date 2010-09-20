@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="BackServices\BackCommands.cs" />
     <Compile Include="BackServices\BackExecutors\PayForColorsWinnerInfoExecutor.cs" />
+    <Compile Include="BackServices\BackExecutors\SaveTableConfigExecutor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -53,22 +53,83 @@ namespace TheS.Casinova.ColorsGame.BackServices
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้ใช้มีเงินพอ, ระบบหักเงิน")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้ใช้มีเงินพอ, ระบบหักเงินจากผู้ใช้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PayForColorsWinnerInfo")]
-        public virtual void ผใชมเงนพอระบบหกเงน()
+        public virtual void ผใชมเงนพอระบบหกเงนจากผใช()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้ใช้มีเงินพอ, ระบบหักเงิน", new string[] {
-                        "mytag"});
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้ใช้มีเงินพอ, ระบบหักเงินจากผู้ใช้", new string[] {
+                        "record_mock"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
-testRunner.Given("I have entered 50 into the calculator");
+testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initialized");
 #line 9
-testRunner.And("I have entered 70 into the calculator");
+testRunner.And("sent UserName: \'OhAe\' and expected Balance: \'95\'");
 #line 10
-testRunner.When("I press add");
+testRunner.When("call PayForColorsWinnerInfo(UserName: \'OhAe\', Balance: \'100\')");
 #line 11
-testRunner.Then("the result should be 120 on the screen");
+testRunner.Then("the player information should be saved by calling IColorsGameDataAccess.ApplyActi" +
+                    "on(PlayerInformation, cmd)");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้ใช้มีเงินพอดีหัก, ระบบหักเงินจากผู้ใช้2")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PayForColorsWinnerInfo")]
+        public virtual void ผใชมเงนพอดหกระบบหกเงนจากผใช2()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้ใช้มีเงินพอดีหัก, ระบบหักเงินจากผู้ใช้2", new string[] {
+                        "record_mock"});
+#line 14
+this.ScenarioSetup(scenarioInfo);
+#line 15
+testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initialized");
+#line 16
+testRunner.And("sent UserName: \'OhAe\' and expected Balance: \'0\'");
+#line 17
+testRunner.When("call PayForColorsWinnerInfo(UserName: \'OhAe\', Balance: \'5\')");
+#line 18
+testRunner.Then("the player information should be saved by calling IColorsGameDataAccess.ApplyActi" +
+                    "on(PlayerInformation, cmd)");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้ใช้มีเงินไม่พอ, ระบบแจ้งเตือน")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PayForColorsWinnerInfo")]
+        public virtual void ผใชมเงนไมพอระบบแจงเตอน()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้ใช้มีเงินไม่พอ, ระบบแจ้งเตือน", new string[] {
+                        "record_mock"});
+#line 21
+this.ScenarioSetup(scenarioInfo);
+#line 22
+testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initialized");
+#line 23
+testRunner.When("call PayForColorsWinnerInfo(UserName: \'OhAe\', Balance: \'0\')");
+#line 24
+testRunner.Then("ระบบแจ้งเตือนว่าเงินไม่พอ");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้ใช้มีเงินไม่พอ, ระบบแจ้งเตือน2")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PayForColorsWinnerInfo")]
+        public virtual void ผใชมเงนไมพอระบบแจงเตอน2()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้ใช้มีเงินไม่พอ, ระบบแจ้งเตือน2", new string[] {
+                        "record_mock"});
+#line 27
+this.ScenarioSetup(scenarioInfo);
+#line 28
+testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initialized");
+#line 29
+testRunner.When("call PayForColorsWinnerInfo(UserName: \'OhAe\', Balance: \'-10\')");
+#line 30
+testRunner.Then("ระบบแจ้งเตือนว่าเงินไม่พอ");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
