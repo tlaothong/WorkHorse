@@ -17,7 +17,7 @@ namespace TheS.Casinova.ColorsGame.WebExecutors.Specs
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.3.5.2")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute()]
-    public partial class GenerateTrackingIDFeature
+    public partial class GenerateTrackingIDForClientAndBackServiceFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -29,7 +29,7 @@ namespace TheS.Casinova.ColorsGame.WebExecutors.Specs
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Generate TrackingID", "In order to generate TrackingID\r\nAs a WebServer\r\nI want to request winner for the" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Generate TrackingID For Client and BackService", "In order to generate TrackingID\r\nAs a WebServer\r\nI want to request winner for the" +
                     " WebServer ganarate TrackingID", ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -53,21 +53,20 @@ namespace TheS.Casinova.ColorsGame.WebExecutors.Specs
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Generate TrackingID")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Generate TrackingID")]
-        public virtual void GenerateTrackingID()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Generate TrackingID for Client and BackService")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Generate TrackingID For Client and BackService")]
+        public virtual void GenerateTrackingIDForClientAndBackService()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Generate TrackingID", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Generate TrackingID for Client and BackService", new string[] {
                         "record_mock"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
-testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initialized");
+testRunner.Given("The ColorsGameService  has been created and initialized");
 #line 9
-testRunner.And("Expect the TrackingID should be generate by calling PayForColorsWinnerInfoExecuto" +
-                    "r");
+testRunner.And("Expect execute PayForColorsWinnerInfoCommand");
 #line 10
-testRunner.When("Call ExecuteCommand(UserName\'nit\',TableID \'1\', RoundID \'5\')");
+testRunner.When("Call PayForWinnerInformation(TableID \'1\', RoundID \'5\') by UserName \'nit\'");
 #line 11
 testRunner.Then("the result should be TrackingID \'5AE8C8A6-2FC0-4FCD-B1C4-B4CD3D465541\'");
 #line hidden

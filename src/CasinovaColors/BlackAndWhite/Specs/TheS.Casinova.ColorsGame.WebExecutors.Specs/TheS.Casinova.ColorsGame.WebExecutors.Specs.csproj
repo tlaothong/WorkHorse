@@ -62,6 +62,10 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
     <Reference Include="TechTalk.SpecFlow">
       <HintPath>..\..\..\..\..\lib\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
@@ -84,7 +88,9 @@
     <Compile Include="WebExecutors\Specs\Steps\GenerateTrackingIdSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\GenerateTrackingIdStepsBase.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="WebExecutors\Specs\GenerateTrackingID.feature">
@@ -93,6 +99,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\ColorsGame.Web\ColorsGame.Web.csproj">
+      <Project>{0CB3D1F8-EDD7-473D-8420-ACF4E5BA355F}</Project>
+      <Name>ColorsGame.Web</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\TheS.Casinova.ColorsGame.BackServices.Contracts\TheS.Casinova.ColorsGame.BackServices.Contracts.csproj">
       <Project>{625662C6-61FF-4A91-B068-A1DA68D553A5}</Project>
       <Name>TheS.Casinova.ColorsGame.BackServices.Contracts</Name>
