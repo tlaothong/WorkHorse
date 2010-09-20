@@ -6,7 +6,7 @@
 @record_mock
 Scenario: Save GameTable configuration to the data store
 	Given The SaveTableConfiguration has been created and initialized
-	And Expect the tables should be saved by calling ICreateGameTableConfiguration.Create()
+	And Expect the tables should be saved by calling IColorsGameDataAccess.Create()
 	When call SaveTableConfiguration(name: 'config1', tables: as follows)
 		|TableID	|GameDuration	|Interval	|
 		|1			|20				|5			|
@@ -14,3 +14,17 @@ Scenario: Save GameTable configuration to the data store
 		|3			|20				|5			|
 		|4			|20				|5			|
 	Then the tables should be saved by calling IColorsGameDataAccess.Create()
+
+@record_mock
+Scenario: Save GameTable configuration to the data store2
+	Given The SaveTableConfiguration has been created and initialized
+	And Expect the tables should be saved by calling IColorsGameDataAccess.Create()
+	When call SaveTableConfiguration(name: 'config2', tables: as follows)
+		|TableID	|GameDuration	|Interval	|
+		|1			|30				|15			|
+		|2			|20				|10			|
+		|3			|10				|5			|
+		|4			|20				|10			|
+		|5			|20				|10			|
+	Then the tables should be saved by calling IColorsGameDataAccess.Create()
+

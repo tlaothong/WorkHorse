@@ -8,6 +8,7 @@ namespace TheS.Casinova.ColorsGame.Commands
 {
     public class SaveTableConfigurationCommand
     {
-        public TableConfig TableConfig { get; set; }
+        public string Name { get; set; }
+        public IEnumerable<TableConfig> TableConfig { get; set; }
     }
 }

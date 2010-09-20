@@ -6,38 +6,44 @@ using TechTalk.SpecFlow;
 using Rhino.Mocks;
 using TheS.Casinova.ColorsGame.DAL;
 using TheS.Casinova.ColorsGame.BackServices.BackExecutors;
+using TheS.Casinova.ColorsGame.Models;
+using TheS.Casinova.ColorsGame.Commands;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TheS.Casinova.ColorsGame.BackServices.Specs
 {
     [Binding]
     public class SaveTableConfigurationSteps : ColorsGameStepsBase
     {
-        MockRepository Mocks { get { return SpecEventDefinitions.Mocks; } }
+        private SaveTableConfigurationCommand _cmd;
 
-        [Given(@"Expect the tables should be saved by calling ICreateGameTableConfiguration\.Create\(\)")]
-        public void GivenExpectTheTablesShouldBeSavedByCallingICreateGameTableConfiguration_Create()
+        [Given(@"Expect the tables should be saved by calling IColorsGameDataAccess\.Create\(\)")]
+        public void GivenExpectTheTablesShouldBeSavedByCallingIColorsGameDataAccess_Create()
         {
-            var dac = Mocks.DynamicMock<IColorsGameDataAccess>();
-
-            SaveTableConfigurationExecutor saveTableCfgExecutor = new SaveTableConfigurationExecutor(dac);
+            Dac.Create(null, null);
+            LastCall.IgnoreArguments();
         }
 
-        [Given(@"The GameTableConfigurator has been created and initialized")]
-        public void GivenTheGameTableConfiguratorHasBeenCreatedAndInitialized()
+        [When(@"call SaveTableConfiguration\(name: '(.*)', tables: as follows\)")]
+        public void WhenCallSaveTableConfigurationNameConfig1TablesAsFollows(string name, Table table)
         {
-            ScenarioContext.Current.Pending();
+            var qry = (from item in table.Rows
+                       select new TableConfig {
+                           TableID = Convert.ToInt32(item["TableID"]),
+                           Duration = Convert.ToInt32(item["Duration"]),
+                           Interval = Convert.ToInt32(item["Interval"]),
+                       });
+
+            _cmd = new SaveTableConfigurationCommand { Name = name, TableConfig = qry };
+            Action<SaveTableConfigurationCommand> cmd = (a) => { };
+
+            SaveTableConfigurationExecutor.Execute(_cmd, cmd);
         }
 
         [Then(@"the tables should be saved by calling IColorsGameDataAccess\.Create\(\)")]
         public void ThenTheTablesShouldBeSavedByCallingIColorsGameDataAccess_Create()
         {
-            ScenarioContext.Current.Pending();
-        }
-
-        [When(@"call SaveTableConfiguration\(name: 'config1', tables: as follows\)")]
-        public void WhenCallSaveTableConfigurationNameConfig1TablesAsFollows(Table table)
-        {
-            ScenarioContext.Current.Pending();
+            Assert.IsTrue(true, "Expectation has been verified in the end of block When.");
         }
     }
 }

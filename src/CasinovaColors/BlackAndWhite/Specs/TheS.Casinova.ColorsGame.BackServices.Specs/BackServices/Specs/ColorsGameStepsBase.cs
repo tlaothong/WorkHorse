@@ -19,6 +19,15 @@ namespace TheS.Casinova.ColorsGame.BackServices.Specs
             }
         }
 
+        protected SaveTableConfigurationExecutor SaveTableConfigurationExecutor
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_SaveTableConfigurationExecutor] as SaveTableConfigurationExecutor;
+            }
+        }
+
         protected IColorsGameDataAccess Dac
         {
             get

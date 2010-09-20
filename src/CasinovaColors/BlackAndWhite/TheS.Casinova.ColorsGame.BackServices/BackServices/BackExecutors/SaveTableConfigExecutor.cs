@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using PerfEx.Infrastructure.CommandPattern;
 using TheS.Casinova.ColorsGame.DAL;
+using TheS.Casinova.ColorsGame.Commands;
 
 namespace TheS.Casinova.ColorsGame.BackServices.BackExecutors
 {
     public class SaveTableConfigurationExecutor
-        : SynchronousCommandExecutorBase<SaveTableConfigurationExecutor>
+        : SynchronousCommandExecutorBase<SaveTableConfigurationCommand>
     {
         private IColorsGameDataAccess _dac;
 
@@ -17,9 +18,9 @@ namespace TheS.Casinova.ColorsGame.BackServices.BackExecutors
             _dac = dac;
         }
 
-        protected override void ExecuteCommand(SaveTableConfigurationExecutor command)
+        protected override void ExecuteCommand(SaveTableConfigurationCommand command)
         {
-            throw new NotImplementedException();
+            _dac.Create(command.TableConfig, command);
         }
     }
 }
