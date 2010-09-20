@@ -26,6 +26,6 @@ namespace TheS.Casinova.ColorsGame.DAL
 
     //บันทึกข้อมูล TableConfig ใหม่
     public interface ISaveTableConfiguration
-        : ICreateData<TableConfig, SaveTableConfigurationCommand>
+        : ICreateData<IEnumerable<TableConfig>, SaveTableConfigurationCommand>
     { }
 }

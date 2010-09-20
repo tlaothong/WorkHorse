@@ -13,6 +13,7 @@ namespace TheS.Casinova.ColorsGame.BackServices.Specs
     public class CommonSteps
     {
         public const string Key_PayForColorsWinnerInfoExecutor = "PayForColorsWinnerInfoExecutor";
+        public const string Key_SaveTableConfigurationExecutor = "SaveTableConfiguration";
         public const string Key_Dac = "mockColorsGameDataAccess";
         public const string Key_Dqr = "mockColorsGameDataBackQuery";
 
@@ -27,6 +28,15 @@ namespace TheS.Casinova.ColorsGame.BackServices.Specs
             ScenarioContext.Current[Key_Dac] = dac;
             ScenarioContext.Current[Key_Dqr] = dqr;
             ScenarioContext.Current[Key_PayForColorsWinnerInfoExecutor] = new PayForColorsWinnerInfoExecutor(dac, dqr);
+        }
+
+        [Given(@"The SaveTableConfiguration has been created and initialized")]
+        public void GivenTheSaveTableConfigurationHasBeenCreatedAndInitialized()
+        {
+            var dac = Mocks.DynamicMock<IColorsGameDataAccess>();
+
+            ScenarioContext.Current[Key_Dac] = dac;
+            ScenarioContext.Current[Key_SaveTableConfigurationExecutor] = new SaveTableConfigurationExecutor(dac);
         }
     }
 }

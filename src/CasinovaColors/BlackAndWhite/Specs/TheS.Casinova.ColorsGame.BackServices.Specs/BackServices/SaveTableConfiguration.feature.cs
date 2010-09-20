@@ -64,8 +64,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 8
 testRunner.Given("The SaveTableConfiguration has been created and initialized");
 #line 9
-testRunner.And("Expect the tables should be saved by calling ICreateGameTableConfiguration.Create" +
-                    "()");
+testRunner.And("Expect the tables should be saved by calling IColorsGameDataAccess.Create()");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "TableID",
@@ -90,6 +89,52 @@ testRunner.And("Expect the tables should be saved by calling ICreateGameTableCon
 #line 10
 testRunner.When("call SaveTableConfiguration(name: \'config1\', tables: as follows)", ((string)(null)), table1);
 #line 16
+testRunner.Then("the tables should be saved by calling IColorsGameDataAccess.Create()");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Save GameTable configuration to the data store2")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Save Table Configuration to the data store")]
+        public virtual void SaveGameTableConfigurationToTheDataStore2()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Save GameTable configuration to the data store2", new string[] {
+                        "record_mock"});
+#line 19
+this.ScenarioSetup(scenarioInfo);
+#line 20
+testRunner.Given("The SaveTableConfiguration has been created and initialized");
+#line 21
+testRunner.And("Expect the tables should be saved by calling IColorsGameDataAccess.Create()");
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "TableID",
+                        "GameDuration",
+                        "Interval"});
+            table2.AddRow(new string[] {
+                        "1",
+                        "30",
+                        "15"});
+            table2.AddRow(new string[] {
+                        "2",
+                        "20",
+                        "10"});
+            table2.AddRow(new string[] {
+                        "3",
+                        "10",
+                        "5"});
+            table2.AddRow(new string[] {
+                        "4",
+                        "20",
+                        "10"});
+            table2.AddRow(new string[] {
+                        "5",
+                        "20",
+                        "10"});
+#line 22
+testRunner.When("call SaveTableConfiguration(name: \'config2\', tables: as follows)", ((string)(null)), table2);
+#line 29
 testRunner.Then("the tables should be saved by calling IColorsGameDataAccess.Create()");
 #line hidden
             testRunner.CollectScenarioErrors();
