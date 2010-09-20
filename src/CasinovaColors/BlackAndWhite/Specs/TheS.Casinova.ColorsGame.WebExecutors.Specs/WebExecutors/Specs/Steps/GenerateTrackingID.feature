@@ -4,8 +4,11 @@
 	I want to request winner for the WebServer ganarate TrackingID
 
 @record_mock
-Scenario: Generate TrackingID for Client and BackService
-	Given The ColorsGameService  has been created and initialized
-	And Expect execute PayForColorsWinnerInfoCommand
-	When Call PayForWinnerInformation(TableID '1', RoundID '5') by UserName 'nit'
-	Then the result should be TrackingID '5AE8C8A62FC04FCDB1C4B4CD3D465541'
+Scenario: ระบบส่งค่าข้อมูล tableID และ roundID ถูกต้อง
+	Given The PayForWinnerInfoExecutor  has been created and initialized
+	And Request winner from TableId '1', RoundId '5' UserName 'nit'
+	And Expect call IColorGameBackService.PayForWinnerInfo() 
+	When Execute PayForColorsWinnerInfoCommand(TableID '1', RoundID '5') by UserName 'nit'
+	Then The result should be executeCommand by calling IColorGameBackService.PayForWinnerInfo()
+	And The WebServer can generate TrackingID
+

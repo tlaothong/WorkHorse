@@ -53,22 +53,28 @@ namespace TheS.Casinova.ColorsGame.WebExecutors.Specs.Steps
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Generate TrackingID for Client and BackService")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบส่งค่าข้อมูล tableID และ roundID ถูกต้อง")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Generate TrackingID For Client and BackService")]
-        public virtual void GenerateTrackingIDForClientAndBackService()
+        public virtual void ระบบสงคาขอมลTableIDและRoundIDถกตอง()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Generate TrackingID for Client and BackService", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบส่งค่าข้อมูล tableID และ roundID ถูกต้อง", new string[] {
                         "record_mock"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
-testRunner.Given("The ColorsGameService  has been created and initialized");
+testRunner.Given("The PayForWinnerInfoExecutor  has been created and initialized");
 #line 9
-testRunner.And("Expect execute PayForColorsWinnerInfoCommand");
+testRunner.And("Request winner from TableId \'1\', RoundId \'5\' UserName \'nit\'");
 #line 10
-testRunner.When("Call PayForWinnerInformation(TableID \'1\', RoundID \'5\') by UserName \'nit\'");
+testRunner.And("Expect call IColorGameBackService.PayForWinnerInfo()");
 #line 11
-testRunner.Then("the result should be TrackingID \'5AE8C8A62FC04FCDB1C4B4CD3D465541\'");
+testRunner.When("Execute PayForColorsWinnerInfoCommand(TableID \'1\', RoundID \'5\') by UserName \'nit\'" +
+                    "");
+#line 12
+testRunner.Then("The result should be executeCommand by calling IColorGameBackService.PayForWinner" +
+                    "Info()");
+#line 13
+testRunner.And("The WebServer can generate TrackingID");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

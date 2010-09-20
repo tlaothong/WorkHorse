@@ -13,19 +13,19 @@ namespace TheS.Casinova.ColorsGame.WebExecutors.Specs.Steps
     public class CommonSteps
     {
  
-        public const string Key_PayForWinnerExtor = "winnerExecutor";
+        public const string Key_PayForWinnerExecutor = "winnerExecutor";
         public const string Key_Dac = "mockColorGameDataAccess";
 
         MockRepository Mocks { get { return SpecEventDefinitions.Mocks; } }
 
-        [Given(@"The ColorsGameService  has been created and initialized")]
-       public void GivenTheColorsGameServiceHasBeenCreatedAndInitialized()
+        [Given(@"The PayForWinnerInfoExecutor  has been created and initialized")]
+        public void GivenThePayForWinnerInfoExecutorHasBeenCreatedAndInitialized()
  
         {
             var dac = Mocks.DynamicMock<IColorsGameBackService>();
 
             ScenarioContext.Current[Key_Dac] = dac;
-            ScenarioContext.Current[Key_PayForWinnerExtor] = new PayForColorsWinnerInfoExecutor(dac);
+            ScenarioContext.Current[Key_PayForWinnerExecutor] = new PayForColorsWinnerInfoExecutor(dac);
         }
     }
 }
