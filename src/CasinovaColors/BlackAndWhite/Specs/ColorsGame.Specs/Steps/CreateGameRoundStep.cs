@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Rhino.Mocks;
+using System.Collections.ObjectModel;
 
 namespace ColorsGame.Specs.Steps
 {
@@ -11,6 +13,7 @@ namespace ColorsGame.Specs.Steps
     public class CreateGameRoundStep
     {
         private ViewModels.CreateGameRoundPage _createGameRound;
+        private Dictionary<string, IEnumerable<Models.GameTable>> _tableConfigurations = new Dictionary<string, IEnumerable<Models.GameTable>>();
         
         [Given(@"Create and initialize CreateGameRoundPage")]
         public void GivenCreateAndInitializeCreateGameRoundPage()
@@ -53,6 +56,32 @@ namespace ColorsGame.Specs.Steps
         public void ThenDisplaySampleTablesHasSkip()
         {
             Console.WriteLine("Skip display sample tables.");
+        }
+
+        [Given(@"the table configuration set '(.*)' has the following data")]
+        public void GivenTheTableConfigurationSetConfig1HasTheFollowingData(string configname, Table table)
+        {
+            var tableConfig = from c in table.Rows
+                              select new Models.GameTable {
+                                  TableID = int.Parse(c["TableID"]),
+                                  GameDuration = int.Parse(c["GameDuration"]),
+                                  Interval = int.Parse(c["Interval"])
+                              };
+
+            _tableConfigurations.Add(configname, tableConfig);
+            // TODO : Return ข้อมูล config ที่อยู่ในระบบ
+        }
+
+        [When(@"Generate from configuration name '(.*)'")]
+        public void WhenGenerateFromConfigurationNameConfig1(string configName)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"The active game table are")]
+        public void ThenTheActiveGameTableAre(Table table)
+        {
+            ScenarioContext.Current.Pending();
         }
     }
 }

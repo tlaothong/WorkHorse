@@ -45,6 +45,7 @@ namespace ColorsGame.Specs
         public virtual void ScenarioSetup(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioStart(scenarioInfo);
+            this.FeatureBackground();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCleanupAttribute()]
@@ -53,20 +54,11 @@ namespace ColorsGame.Specs
             testRunner.OnScenarioEnd();
         }
         
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Initialize game configuration complete , sampel tables has created")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Create game round")]
-        public virtual void InitializeGameConfigurationCompleteSampelTablesHasCreated()
+        public virtual void FeatureBackground()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Initialize game configuration complete , sampel tables has created", ((string[])(null)));
 #line 6
-this.ScenarioSetup(scenarioInfo);
 #line 7
 testRunner.Given("Create and initialize CreateGameRoundPage");
-#line 8
-testRunner.And("Config TableCount: 5, DurationTime: 120 minute, IntervalTime: 5 minute");
-#line 9
-testRunner.When("I press Save");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "TableID",
@@ -74,26 +66,60 @@ testRunner.When("I press Save");
                         "Interval"});
             table1.AddRow(new string[] {
                         "1",
-                        "120",
+                        "20",
                         "5"});
             table1.AddRow(new string[] {
                         "2",
+                        "20",
+                        "10"});
+            table1.AddRow(new string[] {
+                        "3",
+                        "20",
+                        "7"});
+#line 8
+testRunner.And("the table configuration set \'config1\' has the following data", ((string)(null)), table1);
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Initialize game configuration complete , sampel tables has created")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Create game round")]
+        public virtual void InitializeGameConfigurationCompleteSampelTablesHasCreated()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Initialize game configuration complete , sampel tables has created", ((string[])(null)));
+#line 14
+this.ScenarioSetup(scenarioInfo);
+#line 15
+testRunner.Given("Config TableCount: 5, DurationTime: 120 minute, IntervalTime: 5 minute");
+#line 16
+testRunner.When("I press Save");
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "TableID",
+                        "GameDuration",
+                        "Interval"});
+            table2.AddRow(new string[] {
+                        "1",
                         "120",
                         "5"});
-            table1.AddRow(new string[] {
+            table2.AddRow(new string[] {
+                        "2",
+                        "120",
+                        "5"});
+            table2.AddRow(new string[] {
                         "3",
                         "120",
                         "5"});
-            table1.AddRow(new string[] {
+            table2.AddRow(new string[] {
                         "4",
                         "120",
                         "5"});
-            table1.AddRow(new string[] {
+            table2.AddRow(new string[] {
                         "5",
                         "120",
                         "5"});
-#line 10
-testRunner.Then("sample tables has created", ((string)(null)), table1);
+#line 17
+testRunner.Then("sample tables has created", ((string)(null)), table2);
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -104,15 +130,13 @@ testRunner.Then("sample tables has created", ((string)(null)), table1);
         public virtual void SaveGameConfigurationTableCount0SkipGenerateSampleTables()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Save game configuration TableCount: 0, skip generate sample tables", ((string[])(null)));
-#line 18
+#line 25
 this.ScenarioSetup(scenarioInfo);
-#line 19
-testRunner.Given("Create and initialize CreateGameRoundPage");
-#line 20
-testRunner.And("Config TableCount: 0, DurationTime: 120 minute, IntervalTime: 5 minute");
-#line 21
+#line 26
+testRunner.Given("Config TableCount: 0, DurationTime: 120 minute, IntervalTime: 5 minute");
+#line 27
 testRunner.When("I press Save");
-#line 22
+#line 28
 testRunner.Then("display sample tables has skip");
 #line hidden
             testRunner.CollectScenarioErrors();
@@ -126,15 +150,13 @@ testRunner.Then("display sample tables has skip");
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Save game configuration using TableCount is minus value, skip generate sample tab" +
                     "les", ((string[])(null)));
-#line 24
+#line 30
 this.ScenarioSetup(scenarioInfo);
-#line 25
-testRunner.Given("Create and initialize CreateGameRoundPage");
-#line 26
-testRunner.And("Config TableCount: -1, DurationTime: 120 minute, IntervalTime: 5 minute");
-#line 27
+#line 31
+testRunner.Given("Config TableCount: -1, DurationTime: 120 minute, IntervalTime: 5 minute");
+#line 32
 testRunner.When("I press Save");
-#line 28
+#line 33
 testRunner.Then("display sample tables has skip");
 #line hidden
             testRunner.CollectScenarioErrors();
@@ -148,15 +170,13 @@ testRunner.Then("display sample tables has skip");
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Save game configuration using DurationTime is minus value, skip generate sample t" +
                     "ables", ((string[])(null)));
-#line 30
+#line 35
 this.ScenarioSetup(scenarioInfo);
-#line 31
-testRunner.Given("Create and initialize CreateGameRoundPage");
-#line 32
-testRunner.And("Config TableCount: 5, DurationTime: -1 minute, IntervalTime: 5 minute");
-#line 33
+#line 36
+testRunner.Given("Config TableCount: 5, DurationTime: -1 minute, IntervalTime: 5 minute");
+#line 37
 testRunner.When("I press Save");
-#line 34
+#line 38
 testRunner.Then("display sample tables has skip");
 #line hidden
             testRunner.CollectScenarioErrors();
@@ -170,15 +190,13 @@ testRunner.Then("display sample tables has skip");
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Save game configuration using IntervalTime is minus value, skip generate sample t" +
                     "ables", ((string[])(null)));
-#line 36
-this.ScenarioSetup(scenarioInfo);
-#line 37
-testRunner.Given("Create and initialize CreateGameRoundPage");
-#line 38
-testRunner.And("Config TableCount: 5, DurationTime: 120 minute, IntervalTime: -1 minute");
-#line 39
-testRunner.When("I press Save");
 #line 40
+this.ScenarioSetup(scenarioInfo);
+#line 41
+testRunner.Given("Config TableCount: 5, DurationTime: 120 minute, IntervalTime: -1 minute");
+#line 42
+testRunner.When("I press Save");
+#line 43
 testRunner.Then("display sample tables has skip");
 #line hidden
             testRunner.CollectScenarioErrors();
@@ -192,16 +210,51 @@ testRunner.Then("display sample tables has skip");
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Save game configuration using TableCount,DurationTime,IntervalTime are minus valu" +
                     "e, skip generate sample tables", ((string[])(null)));
-#line 42
-this.ScenarioSetup(scenarioInfo);
-#line 43
-testRunner.Given("Create and initialize CreateGameRoundPage");
-#line 44
-testRunner.And("Config TableCount: -1, DurationTime: -1 minute, IntervalTime: -1 minute");
 #line 45
-testRunner.When("I press Save");
+this.ScenarioSetup(scenarioInfo);
 #line 46
+testRunner.Given("Config TableCount: -1, DurationTime: -1 minute, IntervalTime: -1 minute");
+#line 47
+testRunner.When("I press Save");
+#line 48
 testRunner.Then("display sample tables has skip");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Generate table from configuration name: \'config1\' accept")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Create game round")]
+        public virtual void GenerateTableFromConfigurationNameConfig1Accept()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Generate table from configuration name: \'config1\' accept", ((string[])(null)));
+#line 50
+this.ScenarioSetup(scenarioInfo);
+#line 51
+testRunner.When("Generate from configuration name \'config1\'");
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "TableID",
+                        "RoundID",
+                        "StartTime",
+                        "EndTime"});
+            table3.AddRow(new string[] {
+                        "1",
+                        "1",
+                        "10:00",
+                        "10:20"});
+            table3.AddRow(new string[] {
+                        "2",
+                        "2",
+                        "10:05",
+                        "10:25"});
+            table3.AddRow(new string[] {
+                        "3",
+                        "3",
+                        "10:15",
+                        "10:35"});
+#line 52
+testRunner.Then("The active game table are", ((string)(null)), table3);
 #line hidden
             testRunner.CollectScenarioErrors();
         }
