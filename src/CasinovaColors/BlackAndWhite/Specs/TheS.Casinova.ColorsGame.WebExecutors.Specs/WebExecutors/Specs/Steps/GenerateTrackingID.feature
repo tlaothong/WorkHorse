@@ -8,4 +8,4 @@ Scenario: Generate TrackingID for Client and BackService
 	Given The ColorsGameService  has been created and initialized
 	And Expect execute PayForColorsWinnerInfoCommand
 	When Call PayForWinnerInformation(TableID '1', RoundID '5') by UserName 'nit'
-	Then the result should be TrackingID '5AE8C8A6-2FC0-4FCD-B1C4-B4CD3D465541'
+	Then the result should be TrackingID '5AE8C8A62FC04FCDB1C4B4CD3D465541'

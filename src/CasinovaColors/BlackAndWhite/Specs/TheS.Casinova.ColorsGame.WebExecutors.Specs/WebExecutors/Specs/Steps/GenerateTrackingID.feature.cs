@@ -68,7 +68,7 @@ testRunner.And("Expect execute PayForColorsWinnerInfoCommand");
 #line 10
 testRunner.When("Call PayForWinnerInformation(TableID \'1\', RoundID \'5\') by UserName \'nit\'");
 #line 11
-testRunner.Then("the result should be TrackingID \'5AE8C8A6-2FC0-4FCD-B1C4-B4CD3D465541\'");
+testRunner.Then("the result should be TrackingID \'5AE8C8A62FC04FCDB1C4B4CD3D465541\'");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
