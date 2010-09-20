@@ -38,8 +38,8 @@ namespace TheS.Casinova.ColorsGame.WebExecutors.Specs.Steps
                 {
                     UserName = userName,
                 },
-                TableID = tableId,
-                RoundID = roundId,
+                //TableID = tableId,
+                //RoundID = roundId,
             };
 
             Dac.PayForWinnerInfo(cmd);            

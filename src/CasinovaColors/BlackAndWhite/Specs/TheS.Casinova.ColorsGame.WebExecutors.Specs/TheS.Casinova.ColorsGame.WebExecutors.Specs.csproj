@@ -75,7 +75,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpecEventDefinitions.cs" />
     <Compile Include="WebExecutors\CommandManagerStub.cs" />
-    <Compile Include="WebExecutors\Specs\GenerateTrackingID.feature.cs">
+    <Compile Include="WebExecutors\Specs\Steps\GenerateTrackingID.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GenerateTrackingID.feature</DependentUpon>
@@ -87,7 +87,7 @@
   <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="WebExecutors\Specs\GenerateTrackingID.feature">
+    <None Include="WebExecutors\Specs\Steps\GenerateTrackingID.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>GenerateTrackingID.feature.cs</LastGenOutput>
     </None>

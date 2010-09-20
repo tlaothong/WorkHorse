@@ -30,14 +30,16 @@ namespace ColorsGame.Specs.Steps
                     return gameInformation.FirstOrDefault(c => c.TableID.Equals(tableID) && c.RoundID.Equals(roundID)).TrackingID.ToString();
                 else return null;
             };
-            Expect.Call(Dac.PayForWinnerInformation(0, 0)).IgnoreArguments().Do(getGameInformation);
+
+            Expect.Call(Dac.PayForWinnerInformation(0, 0))
+                .IgnoreArguments().Do(getGameInformation);
+
         }
 
         [When(@"I press GetWinner\( TableID: (.*), RoundID: (.*) \)")]
         public void WhenIPressGetWinnerTableIDRoundID(int tableID, int roundID)
         {
             _trackingID = Dac.PayForWinnerInformation(tableID, roundID);
-            var x = Dac.GetMyGamePlayInfo();
         }
 
         [Then(@"the result should be TrackingID: (.*)")]
