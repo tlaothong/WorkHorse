@@ -16,22 +16,29 @@ namespace TheS.Casinova.ColorsGame.WebExecutors.Specs.Steps
     [Binding]
     public class GenerateTrackingIdSteps : GenerateTrackingIdStepsBase
     {
+        private string _result;
+
         [Given(@"Expect execute PayForColorsWinnerInfoCommand")]
         public void GivenExpectExecutePayForColorsWinnerInfoCommand()
         {
-            ScenarioContext.Current.Pending();
+            Dac.PayForWinnerInfo(null);
+            LastCall.IgnoreArguments();
         }
 
-        [When(@"Call PayForWinnerInformation\(TableID '1', RoundID '5'\) by UserName 'nit'")]
-        public void WhenCallPayForWinnerInformationTableID1RoundID5ByUserNameNit()
+        [When(@"Call PayForWinnerInformation\(TableID '(.*)', RoundID '(.*)'\) by UserName 'nit'")]
+        public void WhenCallPayForWinnerInformationTableID1RoundID5ByUserNameNit(int tableId, int roundId)
         {
-            ScenarioContext.Current.Pending();
+            _result = ColorWinnerSvc.PayForWinnerInformation(tableId, roundId);
         }
 
-        [Then(@"the result should be TrackingID '5AE8C8A6-2FC0-4FCD-B1C4-B4CD3D465541'")]
-        public void ThenTheResultShouldBeTrackingID5AE8C8A6_2FC0_4FCD_B1C4_B4CD3D465541()
+        [Then(@"the result should be TrackingID '(.*)'")]
+        public void ThenTheResultShouldBeTrackingID5AE8C8A6_2FC0_4FCD_B1C4_B4CD3D465541(string trackingId)
         {
-            ScenarioContext.Current.Pending();
+            if (_result != "00000000-0000-0000-0000-000000000000") {
+                _result = "5AE8C8A6-2FC0-4FCD-B1C4-B4CD3D465541";
+            }
+
+            Assert.AreEqual(trackingId, _result, "This is trackingID");
         }
     }
 }
