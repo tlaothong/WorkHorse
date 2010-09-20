@@ -34,8 +34,18 @@ namespace ColorsGame.ViewModels
 
         #endregion
 
+        #region For testing
+
+        public ColorsGameServiceSoapClient Svc
+        {
+            get { return _svc; }
+            set { _svc = value; }
+        }
+
+        #endregion For testing
+
         #region Properties
-        
+
         /// <summary>
         /// ยอดเงินคงเหลือ
         /// </summary>
@@ -124,6 +134,9 @@ namespace ColorsGame.ViewModels
 
         #region Constructor
 
+        /// <summary>
+        /// Initialize show winner page view model
+        /// </summary>
         public ShowWinnerPageViewModel()
         {
             _notif = new PropertyChangedNotifier(this, () => PropertyChanged);
@@ -179,11 +192,19 @@ namespace ColorsGame.ViewModels
                 next => {
                     var winner = next.EventArgs.Result.FirstOrDefault(c => c.TableID.Equals(_tableID) && c.RoundID.Equals(_roundID));
                     if (winner != null) {
-                        StringBuilder message = new StringBuilder();
-                        message.Append(string.Format("Winner: {0}", winner.Winner))
-                            .Append(string.Format("\nTrackingID: {0}", winner.TrackingID))
-                            .Append(string.Format("\nOnGoingTrackingID: {0}", winner.OnGoingTrackingID));
-                        Winner = message.ToString();
+
+                        // Check TrackingID and Server TrackingID
+                        if (TrackingID.Equals(winner.TrackingID)) {
+
+                            // TrackingID is match on server trackingID
+                            StringBuilder message = new StringBuilder();
+                            message.Append(string.Format("Winner: {0}", winner.Winner))
+                                .Append(string.Format("\nTrackingID: {0}", winner.TrackingID))
+                                .Append(string.Format("\nOnGoingTrackingID: {0}", winner.OnGoingTrackingID));
+                            Winner = message.ToString();
+                        }
+                        // TrackingID not match
+                        else svc.GetMyGamePlayInfoAsync();
                     }
                     else Winner = string.Format("Don't any match TableID: {0}, RoundID: {1}.", _tableID, _roundID);
                 },
