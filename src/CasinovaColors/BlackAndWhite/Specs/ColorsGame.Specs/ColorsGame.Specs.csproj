@@ -110,6 +110,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CreateGameRoundN2N.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreateGameRoundN2N.feature</DependentUpon>
+    </Compile>
     <Compile Include="CheckGamePlayInfo.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -131,6 +136,7 @@
     <Compile Include="Steps\CheckGamePlayInfoStep.cs" />
     <Compile Include="Steps\CheckGamePlayInfoStepBase.cs" />
     <Compile Include="Steps\CommonSteps.cs" />
+    <Compile Include="Steps\CreateGameRoundStep.cs" />
     <Compile Include="Steps\GetWinnerStep.cs" />
     <Compile Include="Steps\GetWinnerStepsBase.cs" />
     <Compile Include="Steps\RequestGamePlayInfoStep.cs" />
@@ -144,6 +150,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="CreateGameRoundN2N.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CreateGameRoundN2N.feature.cs</LastGenOutput>
+    </None>
     <None Include="CheckGamePlayInfo.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>CheckGamePlayInfo.feature.cs</LastGenOutput>
