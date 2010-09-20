@@ -22,7 +22,7 @@ namespace TheS.Casinova.ColorsGame.WebExecutors
        // Generate TrackingID
         protected override void ExecuteCommand(PayForColorsWinnerInfoCommand command)
         {
-            command.TrackingID = Guid.NewGuid();
+            //command.TrackingID = Guid.NewGuid();
             _dac.PayForWinnerInfo(command);
         }
     }
