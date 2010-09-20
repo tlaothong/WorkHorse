@@ -60,6 +60,49 @@ namespace ColorsGame.Specs
 #line 7
 testRunner.Given("Create and initialize ShowWinnerPageViewModel and Colors game service");
 #line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "TableID",
+                        "RoundID",
+                        "UserName",
+                        "TrackingID",
+                        "OnGoingTrackingID",
+                        "LastUpdate",
+                        "Winner"});
+            table1.AddRow(new string[] {
+                        "1",
+                        "1",
+                        "TitleUpz",
+                        "625604D9-082A-4C58-A7FC-3023A4EC1430",
+                        "625604D9-082A-4C58-A7FC-3023A4EC1430",
+                        "15-08-2010",
+                        "White"});
+            table1.AddRow(new string[] {
+                        "2",
+                        "2",
+                        "TitleUpz",
+                        "B36ECC48-89D8-44AA-B80F-15708E12B1D3",
+                        "B36ECC48-89D8-44AA-B80F-15708E12B1D3",
+                        "15-08-2010",
+                        "Black"});
+            table1.AddRow(new string[] {
+                        "3",
+                        "3",
+                        "TitleUpz",
+                        "779417EE-DD7E-4B74-8372-E51985938AF5",
+                        "926FFFD8-6109-4ADF-ABFF-38CD348516D1",
+                        "15-08-2010",
+                        "Black"});
+            table1.AddRow(new string[] {
+                        "4",
+                        "4",
+                        "TitleUpz",
+                        "F7718534-39C3-487F-A9C8-E0F746D77AEF",
+                        "F7718534-39C3-487F-A9C8-E0F746D77AEF",
+                        "15-08-2010",
+                        "White"});
+#line 8
+testRunner.And("Game Play Information on BackServer as:", ((string)(null)), table1);
+#line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
@@ -70,14 +113,15 @@ testRunner.Given("Create and initialize ShowWinnerPageViewModel and Colors game 
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("TrackingID is equal OngoingTrackingID", new string[] {
                         "record_mock"});
-#line 10
+#line 17
 this.ScenarioSetup(scenarioInfo);
-#line 11
-testRunner.Given("I entered username = \'TitleUpz\'");
-#line 12
-testRunner.When("execute GetGamePlayInfo");
-#line 13
-testRunner.Then("the result should be 120 on the screen");
+#line 18
+testRunner.Given("TrackingID = \'625604D9-082A-4C58-A7FC-3023A4EC1430\' from Table = \'1\' RoundID = \'1" +
+                    "\'");
+#line 19
+testRunner.When("I receive GamePlayInformation[]");
+#line 20
+testRunner.Then("the result will be accept");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

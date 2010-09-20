@@ -128,10 +128,13 @@
       <DependentUpon>RequestGamePlayInfo.feature</DependentUpon>
     </Compile>
     <Compile Include="SpecEventDefinitions.cs" />
+    <Compile Include="Steps\CheckGamePlayInfoStep.cs" />
+    <Compile Include="Steps\CheckGamePlayInfoStepBase.cs" />
     <Compile Include="Steps\CommonSteps.cs" />
     <Compile Include="Steps\GetWinnerStep.cs" />
     <Compile Include="Steps\GetWinnerStepsBase.cs" />
     <Compile Include="Steps\RequestGamePlayInfoStep.cs" />
+    <Compile Include="Steps\RequestGamePlayInfoStepBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

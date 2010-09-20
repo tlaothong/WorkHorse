@@ -22,29 +22,12 @@ namespace ColorsGame.Specs.Steps
                                RoundID = int.Parse(c["RoundID"]),
                                TrackingID = Guid.Parse(c["TrackingID"])
                            };
-<<<<<<< HEAD
             
             //SetupResult.For(Dac.PayForWinnerInformationAsync(7, 11)).Return(
             //    gameInfo.FirstOrDefault(c=>c.TableID.Equals(7)&&c.RoundID.Equals
             //    );
         }
 
-        [Given(@"Server respond TrackingID: (.*)")]
-        public void GivenServerRespondTrackingID(string trackingID)
-        {
-
-=======
-
-            Func<int, int, string> getGameInformation = (tableID, roundID) => {
-                const int MinusValue = -1;
-                if (tableID <= MinusValue || roundID <= MinusValue) return null;
-                if (gameInformation.Any(c => c.TableID.Equals(tableID) && c.RoundID.Equals(roundID)))
-                    return gameInformation.FirstOrDefault(c => c.TableID.Equals(tableID) && c.RoundID.Equals(roundID)).TrackingID.ToString();
-                else return null;
-            };
-            Expect.Call(Dac.PayForWinnerInformation(0, 0)).IgnoreArguments().Do(getGameInformation);
->>>>>>> 6d15e08dc7d14ce34994f34f6ca89f85bcc7c43c
-        }
 
         [When(@"I press GetWinner\( TableID: (.*), RoundID: (.*) \)")]
         public void WhenIPressGetWinnerTableIDRoundID(int tableID, int roundID)
