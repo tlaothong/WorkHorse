@@ -6,7 +6,7 @@ using TheS.Casinova.ColorsGame.Models;
 
 namespace TheS.Casinova.ColorsGame.Commands
 {
-    public class ListGameTableConfigurationCommand
+    public class ListGameTableConfigurationsCommand
         : GameTableConfigurationRelatedCommandBase
     {
         // Intentionally left blank. We re-use the base class implementation.

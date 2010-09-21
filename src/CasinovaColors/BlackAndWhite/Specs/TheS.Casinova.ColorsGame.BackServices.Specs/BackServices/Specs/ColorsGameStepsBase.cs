@@ -54,5 +54,14 @@ namespace TheS.Casinova.ColorsGame.BackServices.Specs
                     CommonSteps.Key_CreateGameRoundExecutor] as CreateGameRoundExecutor;
             }
         }
+
+        protected ListGameTableConfigurationsExecutor ListGameTableConfigurationsExecutor
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_ListGameTableConfigurationsExecutor] as ListGameTableConfigurationsExecutor;
+            }
+        }
     }
 }

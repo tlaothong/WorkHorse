@@ -21,7 +21,7 @@ namespace TheS.Casinova.ColorsGame.DAL
 
     //ดึงข้อมูล Table configuration ที่ตั้งค่าไว้
     public interface IListGameTableConfigurations
-        : IFetchData<TableConfiguration, ListGameTableConfigurationCommand>
+        : IFetchData<TableConfiguration, ListGameTableConfigurationsCommand>
     { }
 
     //ดึงข้อมูล Game round ที่ยังไม่หมดเวลา

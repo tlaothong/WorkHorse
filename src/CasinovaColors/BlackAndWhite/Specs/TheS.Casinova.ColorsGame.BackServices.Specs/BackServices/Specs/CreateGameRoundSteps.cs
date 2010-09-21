@@ -22,7 +22,7 @@ namespace TheS.Casinova.ColorsGame.BackServices.Specs
                            GameDuration = Convert.ToInt32(it["GameDuration"]),
                            Interval = Convert.ToInt32(it["Interval"]),
                        });
-            SetupResult.For(Dqr.List(new ListGameTableConfigurationCommand()))
+            SetupResult.For(Dqr.List(new ListGameTableConfigurationsCommand()))
                 .IgnoreArguments()
                 .Return(qry);
         }

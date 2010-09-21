@@ -24,7 +24,7 @@ namespace TheS.Casinova.ColorsGame.BackServices.BackExecutors
         protected override void ExecuteCommand(CreateGameRoundCommand command)
         {
             //CreateGameRoundCommand cmd = new CreateGameRoundCommand();
-            var lstTable = _dqr.List(new ListGameTableConfigurationCommand {
+            var lstTable = _dqr.List(new ListGameTableConfigurationsCommand {
                 Name = command.Name,
             });
             var lstActiveRound = _dqr.List(new Commands.ListActiveGameRoundsCommand {
