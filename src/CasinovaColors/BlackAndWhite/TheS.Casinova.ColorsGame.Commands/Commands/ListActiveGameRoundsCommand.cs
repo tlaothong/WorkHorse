@@ -6,9 +6,9 @@ using TheS.Casinova.ColorsGame.Models;
 
 namespace TheS.Casinova.ColorsGame.Commands
 {
-    public class SaveTableConfigurationCommand
-        : GameTableConfigurationRelatedCommandBase
+    public class ListActiveGameRoundsCommand
     {
-        // Intentionally left blank. We re-use the base class implementation.
+        public DateTime FromTime { get; set; }
+        public IEnumerable<GameRoundInformation> ActiveRounds { get; set; }
     }
 }

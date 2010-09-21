@@ -20,7 +20,7 @@ namespace TheS.Casinova.ColorsGame.BackServices.Specs
         [Given(@"Expect the tables should be saved by calling IColorsGameDataAccess\.Create\(\)")]
         public void GivenExpectTheTablesShouldBeSavedByCallingIColorsGameDataAccess_Create()
         {
-            Dac.Create(null, null);
+            Dac.Create(null, new SaveTableConfigurationCommand());
             LastCall.IgnoreArguments();
         }
 
@@ -28,13 +28,13 @@ namespace TheS.Casinova.ColorsGame.BackServices.Specs
         public void WhenCallSaveTableConfigurationNameConfig1TablesAsFollows(string name, Table table)
         {
             var qry = (from item in table.Rows
-                       select new TableConfig {
+                       select new TableConfiguration {
                            TableID = Convert.ToInt32(item["TableID"]),
-                           Duration = Convert.ToInt32(item["Duration"]),
+                           GameDuration = Convert.ToInt32(item["GameDuration"]),
                            Interval = Convert.ToInt32(item["Interval"]),
                        });
 
-            _cmd = new SaveTableConfigurationCommand { Name = name, TableConfig = qry };
+            _cmd = new SaveTableConfigurationCommand { Name = name, TableConfigurations = qry };
             Action<SaveTableConfigurationCommand> cmd = (a) => { };
 
             SaveTableConfigurationExecutor.Execute(_cmd, cmd);

@@ -74,6 +74,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BackServices\CommandManagerStub.cs" />
+    <Compile Include="BackServices\CreateGameRound.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreateGameRound.feature</DependentUpon>
+    </Compile>
     <Compile Include="BackServices\GetRoundWinnerQuery.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -97,6 +102,7 @@
     <Compile Include="BackServices\SpecEventDefinitions.cs" />
     <Compile Include="BackServices\Specs\ColorsGameStepsBase.cs" />
     <Compile Include="BackServices\Specs\CommonSteps.cs" />
+    <Compile Include="BackServices\Specs\CreateGameRoundSteps.cs" />
     <Compile Include="BackServices\Specs\GetRoundWinnerQuerySteps.cs" />
     <Compile Include="BackServices\Specs\PayForColorsWinnerInfoN2NSteps.cs" />
     <Compile Include="BackServices\Specs\PayForColorsWinnerInfoSteps.cs" />
@@ -111,6 +117,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="BackServices\CreateGameRound.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CreateGameRound.feature.cs</LastGenOutput>
+    </None>
     <None Include="BackServices\GetRoundWinnerQuery.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>GetRoundWinnerQuery.feature.cs</LastGenOutput>

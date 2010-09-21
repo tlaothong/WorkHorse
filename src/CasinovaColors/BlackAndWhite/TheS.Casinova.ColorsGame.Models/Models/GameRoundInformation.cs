@@ -5,10 +5,11 @@ using System.Text;
 
 namespace TheS.Casinova.ColorsGame.Models
 {
-    public class TableConfiguration
+    public class GameRoundInformation
     {
         public int TableID { get; set; }
-        public int GameDuration { get; set; }
-        public int Interval { get; set; }
+        public int RoundID { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
     }
 }

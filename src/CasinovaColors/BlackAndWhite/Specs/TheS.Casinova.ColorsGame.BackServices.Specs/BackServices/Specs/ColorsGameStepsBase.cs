@@ -10,6 +10,24 @@ namespace TheS.Casinova.ColorsGame.BackServices.Specs
 {
     public class ColorsGameStepsBase
     {
+        protected IColorsGameDataAccess Dac
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_Dac] as IColorsGameDataAccess;
+            }
+        }
+
+        protected IColorsGameDataBackQuery Dqr
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_Dqr] as IColorsGameDataBackQuery;
+            }
+        }
+
         protected PayForColorsWinnerInfoExecutor PayForColorsWinnerInfoExecutor
         {
             get
@@ -28,21 +46,12 @@ namespace TheS.Casinova.ColorsGame.BackServices.Specs
             }
         }
 
-        protected IColorsGameDataAccess Dac
+        protected CreateGameRoundExecutor CreateGameRoundExecutor
         {
             get
             {
                 return ScenarioContext.Current[
-                    CommonSteps.Key_Dac] as IColorsGameDataAccess;
-            }
-        }
-
-        protected IColorsGameDataBackQuery Dqr
-        {
-            get
-            {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr] as IColorsGameDataBackQuery;
+                    CommonSteps.Key_CreateGameRoundExecutor] as CreateGameRoundExecutor;
             }
         }
     }

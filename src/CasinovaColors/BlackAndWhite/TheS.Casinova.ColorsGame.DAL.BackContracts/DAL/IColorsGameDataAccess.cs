@@ -11,7 +11,8 @@ namespace TheS.Casinova.ColorsGame.DAL
     public interface IColorsGameDataAccess :
         IPayForColorsWinnerInfo,
         IUpdateWinnerToGamePlayInfo,
-        ISaveTableConfiguration
+        ISaveTableConfiguration,
+        ICreateGameRound
     { }
 
     //หักเงินผู้เล่น
@@ -24,8 +25,13 @@ namespace TheS.Casinova.ColorsGame.DAL
         : IDataAction<GamePlayInformation, PayForColorsWinnerInfoCommand>
     { }
 
-    //บันทึกข้อมูล TableConfig ใหม่
+    //บันทึกข้อมูล TableConfiguration ใหม่
     public interface ISaveTableConfiguration
-        : ICreateData<IEnumerable<TableConfig>, SaveTableConfigurationCommand>
+        : ICreateData<TableConfiguration, SaveTableConfigurationCommand>
+    { }
+
+    //บันทึกข้อมูลก GameRound ใหม่
+    public interface ICreateGameRound
+        : ICreateData<GameRoundInformation, CreateGameRoundCommand>
     { }
 }
