@@ -48,6 +48,36 @@
     <Compile Include="BackServices\Specs\UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Modules\Advertising\TheS.sPerf.Advertising.BackServices.Contracts\TheS.sPerf.Advertising.BackServices.Contracts.csproj">
+      <Project>{BFDF8583-10AA-4AD2-A70D-5925FC6D06F1}</Project>
+      <Name>TheS.sPerf.Advertising.BackServices.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Advertising\TheS.sPerf.Advertising.BackServices\TheS.sPerf.Advertising.BackServices.csproj">
+      <Project>{4C6AE332-BB35-49A2-8FC7-9DA22B754047}</Project>
+      <Name>TheS.sPerf.Advertising.BackServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Advertising\TheS.sPerf.Advertising.Commands\TheS.sPerf.Advertising.Commands.csproj">
+      <Project>{D25730E2-1B6C-44EB-A07D-9A11CFFD6B73}</Project>
+      <Name>TheS.sPerf.Advertising.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Advertising\TheS.sPerf.Advertising.DAL.BackContracts\TheS.sPerf.Advertising.DAL.BackContracts.csproj">
+      <Project>{FEE010C0-FB13-4F9B-9F0E-3CBBD32C5DA8}</Project>
+      <Name>TheS.sPerf.Advertising.DAL.BackContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Advertising\TheS.sPerf.Advertising.Models\TheS.sPerf.Advertising.Models.csproj">
+      <Project>{698837C0-17A3-4789-88C4-EFD878992B89}</Project>
+      <Name>TheS.sPerf.Advertising.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Shared\TheS.sPerf.Common.Commands\TheS.sPerf.Common.Commands.csproj">
+      <Project>{79BED253-77C4-4A06-BE38-9A62AEF6C060}</Project>
+      <Name>TheS.sPerf.Common.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Shared\TheS.sPerf.Common.Models\TheS.sPerf.Common.Models.csproj">
+      <Project>{0D11D276-067C-4B60-ABCC-67F9A76449AA}</Project>
+      <Name>TheS.sPerf.Common.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

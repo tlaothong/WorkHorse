@@ -48,6 +48,32 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebExecutors\Specs\UnitTest1.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Modules\ContentBookmark\TheS.sPerf.ContentBookmark.BackServices.Contracts\TheS.sPerf.ContentBookmark.BackServices.Contracts.csproj">
+      <Project>{B9A09265-1591-4197-826B-BDD27058380C}</Project>
+      <Name>TheS.sPerf.ContentBookmark.BackServices.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\ContentBookmark\TheS.sPerf.ContentBookmark.Commands\TheS.sPerf.ContentBookmark.Commands.csproj">
+      <Project>{9A86673D-6F82-43BA-9FC0-3553CA4A0299}</Project>
+      <Name>TheS.sPerf.ContentBookmark.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\ContentBookmark\TheS.sPerf.ContentBookmark.DAL.Contracts\TheS.sPerf.ContentBookmark.DAL.Contracts.csproj">
+      <Project>{1E7AAC67-E895-4B7C-B4E9-D61D18F3AA1D}</Project>
+      <Name>TheS.sPerf.ContentBookmark.DAL.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\ContentBookmark\TheS.sPerf.ContentBookmark.Models\TheS.sPerf.ContentBookmark.Models.csproj">
+      <Project>{4D0238DE-056E-46FC-BD1F-BEFBDED02E8A}</Project>
+      <Name>TheS.sPerf.ContentBookmark.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Shared\TheS.sPerf.Common.Commands\TheS.sPerf.Common.Commands.csproj">
+      <Project>{79BED253-77C4-4A06-BE38-9A62AEF6C060}</Project>
+      <Name>TheS.sPerf.Common.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Shared\TheS.sPerf.Common.Models\TheS.sPerf.Common.Models.csproj">
+      <Project>{0D11D276-067C-4B60-ABCC-67F9A76449AA}</Project>
+      <Name>TheS.sPerf.Common.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -48,6 +48,36 @@
     <Compile Include="BackServices\Specs\UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Modules\Club\TheS.sPerf.Club.BackServices.Contracts\TheS.sPerf.Club.BackServices.Contracts.csproj">
+      <Project>{83F9F2DD-3DD4-4B7B-B316-D4231B030D6C}</Project>
+      <Name>TheS.sPerf.Club.BackServices.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Club\TheS.sPerf.Club.BackServices\TheS.sPerf.Club.BackServices.csproj">
+      <Project>{E51D2601-2F75-433B-B341-420873BBA122}</Project>
+      <Name>TheS.sPerf.Club.BackServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Club\TheS.sPerf.Club.Commands\TheS.sPerf.Club.Commands.csproj">
+      <Project>{E167DD8F-DC61-4A6F-812D-DC6F3F7763BB}</Project>
+      <Name>TheS.sPerf.Club.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Club\TheS.sPerf.Club.DAL.BackContracts\TheS.sPerf.Club.DAL.BackContracts.csproj">
+      <Project>{4DC842F6-C3E1-4781-8F1A-C4964EBE7A1E}</Project>
+      <Name>TheS.sPerf.Club.DAL.BackContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Club\TheS.sPerf.Club.Models\TheS.sPerf.Club.Models.csproj">
+      <Project>{DFAC0394-1F0B-4C37-8A11-4C11FE4864EB}</Project>
+      <Name>TheS.sPerf.Club.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Shared\TheS.sPerf.Common.Commands\TheS.sPerf.Common.Commands.csproj">
+      <Project>{79BED253-77C4-4A06-BE38-9A62AEF6C060}</Project>
+      <Name>TheS.sPerf.Common.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Shared\TheS.sPerf.Common.Models\TheS.sPerf.Common.Models.csproj">
+      <Project>{0D11D276-067C-4B60-ABCC-67F9A76449AA}</Project>
+      <Name>TheS.sPerf.Common.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

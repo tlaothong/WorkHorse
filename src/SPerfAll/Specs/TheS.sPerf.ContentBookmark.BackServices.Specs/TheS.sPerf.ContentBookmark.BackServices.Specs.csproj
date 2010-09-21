@@ -48,6 +48,36 @@
     <Compile Include="BackServices\Specs\UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Modules\ContentBookmark\TheS.sPerf.ContentBookmark.BackServices.Contracts\TheS.sPerf.ContentBookmark.BackServices.Contracts.csproj">
+      <Project>{B9A09265-1591-4197-826B-BDD27058380C}</Project>
+      <Name>TheS.sPerf.ContentBookmark.BackServices.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\ContentBookmark\TheS.sPerf.ContentBookmark.BackServices\TheS.sPerf.ContentBookmark.BackServices.csproj">
+      <Project>{A28DF731-64AC-4DD4-8AAE-473C7B0F38B4}</Project>
+      <Name>TheS.sPerf.ContentBookmark.BackServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\ContentBookmark\TheS.sPerf.ContentBookmark.Commands\TheS.sPerf.ContentBookmark.Commands.csproj">
+      <Project>{9A86673D-6F82-43BA-9FC0-3553CA4A0299}</Project>
+      <Name>TheS.sPerf.ContentBookmark.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\ContentBookmark\TheS.sPerf.ContentBookmark.DAL.BackContracts\TheS.sPerf.ContentBookmark.DAL.BackContracts.csproj">
+      <Project>{A9F9E78B-7594-4B25-9411-61AE43FEFF7C}</Project>
+      <Name>TheS.sPerf.ContentBookmark.DAL.BackContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\ContentBookmark\TheS.sPerf.ContentBookmark.Models\TheS.sPerf.ContentBookmark.Models.csproj">
+      <Project>{4D0238DE-056E-46FC-BD1F-BEFBDED02E8A}</Project>
+      <Name>TheS.sPerf.ContentBookmark.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Shared\TheS.sPerf.Common.Commands\TheS.sPerf.Common.Commands.csproj">
+      <Project>{79BED253-77C4-4A06-BE38-9A62AEF6C060}</Project>
+      <Name>TheS.sPerf.Common.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Shared\TheS.sPerf.Common.Models\TheS.sPerf.Common.Models.csproj">
+      <Project>{0D11D276-067C-4B60-ABCC-67F9A76449AA}</Project>
+      <Name>TheS.sPerf.Common.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
