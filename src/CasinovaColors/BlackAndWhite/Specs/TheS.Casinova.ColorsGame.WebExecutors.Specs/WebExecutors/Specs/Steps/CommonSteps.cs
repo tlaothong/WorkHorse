@@ -4,28 +4,30 @@ using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
 using Rhino.Mocks;
-using TheS.Casinova.ColorsGame.BackServices;
-using ColorsGame.Web;
+using TheS.Casinova.ColorsGame.DAL;
+using TheS.Casinova.ColorsGame.WebExecutors;
 
 namespace TheS.Casinova.ColorsGame.WebExecutors.Specs.Steps
 {
     [Binding]
     public class CommonSteps
     {
-        public const string Key_PayForWinnerSvc = "winnerSvc";
-        public const string Key_PayForWinnerExtor = "winnerExecutor";
-        public const string Key_Dac = "mockColorGameDataAccess";
+        //Get game round winner
+        public const string Key_GameRoundWinner = "gameRoundWinner";
+        public const string Key_DacRoundWinner = "mockGameroundWinner";
 
         MockRepository Mocks { get { return SpecEventDefinitions.Mocks; } }
 
-        [Given(@"The ColorsGameService  has been created and initialized")]
-       public void GivenTheColorsGameServiceHasBeenCreatedAndInitialized()
- 
+        //Get game round winner specs initialized
+        [Given(@"The GameRoundWinner has been created and initialized")]
+        public void GivenTheGameRoundWinnerHasBeenCreatedAndInitialized()
         {
-            var dac = Mocks.DynamicMock<IColorsGameBackService>();
+            var dac = Mocks.DynamicMock<IColorsGameDataQuery>();
 
-            ScenarioContext.Current[Key_Dac] = dac;
-            ScenarioContext.Current[Key_PayForWinnerSvc] = new ColorsGameService(dac);
+            ScenarioContext.Current[Key_DacRoundWinner] = dac;
+            ScenarioContext.Current[Key_GameRoundWinner] = new GetGameRoundWinnerExecutor(dac);
         }
+
+
     }
 }
