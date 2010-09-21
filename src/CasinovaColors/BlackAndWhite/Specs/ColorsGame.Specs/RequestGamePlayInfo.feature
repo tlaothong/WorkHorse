@@ -17,10 +17,16 @@ Background:Table GamePlayInformaiton from GetGamePlayInformation as
 Scenario: OngoingTrackingID is available 
 	Given I have call PayForWinnerInformation(tableID='1',roundID='1')
 	When recieve TrackingID from called
-	Then execute GetGamePlayInformation
+	Then I will receive trackingID then execute GetGamePlayInformation
+
+@record_mock
+Scenario: OngoingTrackingID2 is available 
+	Given I have call PayForWinnerInformation(tableID='3',roundID='3')
+	When recieve TrackingID from called
+	Then I will receive trackingID then execute GetGamePlayInformation
 
 @record_mock
 Scenario: OngoingTrackingID is unavailable
 	Given I have call PayForWinnerInformation(tableID='2',roundID='2')
-	When recieve TrackingID from called
+	When had not recieved TrackingID from called
 	Then recall PayForWinnerInformation again

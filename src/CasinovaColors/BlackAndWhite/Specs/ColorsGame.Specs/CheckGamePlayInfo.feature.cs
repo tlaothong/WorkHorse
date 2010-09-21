@@ -121,7 +121,51 @@ testRunner.Given("TrackingID = \'625604D9-082A-4C58-A7FC-3023A4EC1430\' from Tab
 #line 19
 testRunner.When("I receive GamePlayInformation[]");
 #line 20
-testRunner.Then("the result will be accept");
+testRunner.Then("the result will be accept by OnGoingTrackingID: \'625604D9-082A-4C58-A7FC-3023A4EC" +
+                    "1430\'");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("TrackingID2 is equal OngoingTrackingID")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Check game play information")]
+        [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
+        public virtual void TrackingID2IsEqualOngoingTrackingID()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("TrackingID2 is equal OngoingTrackingID", new string[] {
+                        "record_mock"});
+#line 23
+this.ScenarioSetup(scenarioInfo);
+#line 24
+testRunner.Given("TrackingID = \'B36ECC48-89D8-44AA-B80F-15708E12B1D3\' from Table = \'2\' RoundID = \'2" +
+                    "\'");
+#line 25
+testRunner.When("I receive GamePlayInformation[]");
+#line 26
+testRunner.Then("the result will be accept by OnGoingTrackingID: \'B36ECC48-89D8-44AA-B80F-15708E12" +
+                    "B1D3\'");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("TrackingID2 is not equal OngoingTrackingID")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Check game play information")]
+        [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
+        public virtual void TrackingID2IsNotEqualOngoingTrackingID()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("TrackingID2 is not equal OngoingTrackingID", new string[] {
+                        "record_mock"});
+#line 29
+this.ScenarioSetup(scenarioInfo);
+#line 30
+testRunner.Given("TrackingID = \'779417EE-DD7E-4B74-8372-E51985938AF5\' from Table = \'3\' RoundID = \'3" +
+                    "\'");
+#line 31
+testRunner.When("I receive GamePlayInformation[]");
+#line 32
+testRunner.Then("request GamePlayInformation again");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

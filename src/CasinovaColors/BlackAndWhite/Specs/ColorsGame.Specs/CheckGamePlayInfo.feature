@@ -17,5 +17,17 @@ Background:Table GamePlayInformaiton is result from GetGamePlayInformation as
 Scenario: TrackingID is equal OngoingTrackingID
 	Given TrackingID = '625604D9-082A-4C58-A7FC-3023A4EC1430' from Table = '1' RoundID = '1'
 	When I receive GamePlayInformation[]
-	Then the result will be accept
+	Then the result will be accept by OnGoingTrackingID: '625604D9-082A-4C58-A7FC-3023A4EC1430'
+
+@record_mock
+Scenario: TrackingID2 is equal OngoingTrackingID
+	Given TrackingID = 'B36ECC48-89D8-44AA-B80F-15708E12B1D3' from Table = '2' RoundID = '2'
+	When I receive GamePlayInformation[]
+	Then the result will be accept by OnGoingTrackingID: 'B36ECC48-89D8-44AA-B80F-15708E12B1D3'
+
+@record_mock
+Scenario: TrackingID2 is not equal OngoingTrackingID
+	Given TrackingID = '779417EE-DD7E-4B74-8372-E51985938AF5' from Table = '3' RoundID = '3'
+	When I receive GamePlayInformation[]
+	Then request GamePlayInformation again
 

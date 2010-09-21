@@ -119,7 +119,27 @@ testRunner.Given("I have call PayForWinnerInformation(tableID=\'1\',roundID=\'1\
 #line 19
 testRunner.When("recieve TrackingID from called");
 #line 20
-testRunner.Then("execute GetGamePlayInformation");
+testRunner.Then("I will receive trackingID then execute GetGamePlayInformation");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("OngoingTrackingID2 is available")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Request game information")]
+        [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
+        public virtual void OngoingTrackingID2IsAvailable()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("OngoingTrackingID2 is available", new string[] {
+                        "record_mock"});
+#line 23
+this.ScenarioSetup(scenarioInfo);
+#line 24
+testRunner.Given("I have call PayForWinnerInformation(tableID=\'3\',roundID=\'3\')");
+#line 25
+testRunner.When("recieve TrackingID from called");
+#line 26
+testRunner.Then("I will receive trackingID then execute GetGamePlayInformation");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -132,13 +152,13 @@ testRunner.Then("execute GetGamePlayInformation");
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("OngoingTrackingID is unavailable", new string[] {
                         "record_mock"});
-#line 23
+#line 29
 this.ScenarioSetup(scenarioInfo);
-#line 24
+#line 30
 testRunner.Given("I have call PayForWinnerInformation(tableID=\'2\',roundID=\'2\')");
-#line 25
-testRunner.When("recieve TrackingID from called");
-#line 26
+#line 31
+testRunner.When("had not recieved TrackingID from called");
+#line 32
 testRunner.Then("recall PayForWinnerInformation again");
 #line hidden
             testRunner.CollectScenarioErrors();
