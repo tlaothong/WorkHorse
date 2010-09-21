@@ -48,6 +48,36 @@
     <Compile Include="BackServices\Specs\UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Modules\KnowledgeTips\TheS.sPerf.KnowledgeTips.BackServices.Contracts\TheS.sPerf.KnowledgeTips.BackServices.Contracts.csproj">
+      <Project>{B6E40B8E-26FC-4B8B-A068-A710F2AFA91E}</Project>
+      <Name>TheS.sPerf.KnowledgeTips.BackServices.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\KnowledgeTips\TheS.sPerf.KnowledgeTips.BackServices\TheS.sPerf.KnowledgeTips.BackServices.csproj">
+      <Project>{55ED0AD2-D427-45FB-B82F-FA7EE43373EC}</Project>
+      <Name>TheS.sPerf.KnowledgeTips.BackServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\KnowledgeTips\TheS.sPerf.KnowledgeTips.Commands\TheS.sPerf.KnowledgeTips.Commands.csproj">
+      <Project>{A9AFAC46-7549-4BC5-968C-C6DAE30F00E5}</Project>
+      <Name>TheS.sPerf.KnowledgeTips.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\KnowledgeTips\TheS.sPerf.KnowledgeTips.DAL.BackContracts\TheS.sPerf.KnowledgeTips.DAL.BackContracts.csproj">
+      <Project>{34BCCBAD-0C12-4C96-B36C-4B17DC6A9837}</Project>
+      <Name>TheS.sPerf.KnowledgeTips.DAL.BackContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\KnowledgeTips\TheS.sPerf.KnowledgeTips.Models\TheS.sPerf.KnowledgeTips.Models.csproj">
+      <Project>{B02933CD-D9F5-4D26-BB4B-149ACF465BB2}</Project>
+      <Name>TheS.sPerf.KnowledgeTips.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Shared\TheS.sPerf.Common.Commands\TheS.sPerf.Common.Commands.csproj">
+      <Project>{79BED253-77C4-4A06-BE38-9A62AEF6C060}</Project>
+      <Name>TheS.sPerf.Common.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Shared\TheS.sPerf.Common.Models\TheS.sPerf.Common.Models.csproj">
+      <Project>{0D11D276-067C-4B60-ABCC-67F9A76449AA}</Project>
+      <Name>TheS.sPerf.Common.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

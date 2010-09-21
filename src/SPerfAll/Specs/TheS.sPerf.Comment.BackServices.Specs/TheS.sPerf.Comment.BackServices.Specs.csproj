@@ -48,6 +48,36 @@
     <Compile Include="BackServices\Specs\UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Modules\Comment\TheS.sPerf.Comment.BackServices.Contracts\TheS.sPerf.Comment.BackServices.Contracts.csproj">
+      <Project>{FE1D4F22-17FD-4BAF-8176-1956697F21EB}</Project>
+      <Name>TheS.sPerf.Comment.BackServices.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Comment\TheS.sPerf.Comment.BackServices\TheS.sPerf.Comment.BackServices.csproj">
+      <Project>{EE874EA5-B9A7-407F-991A-C4ABE8757709}</Project>
+      <Name>TheS.sPerf.Comment.BackServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Comment\TheS.sPerf.Comment.Commands\TheS.sPerf.Comment.Commands.csproj">
+      <Project>{BFFE1E99-FEC5-4145-83BF-BDE2482C8979}</Project>
+      <Name>TheS.sPerf.Comment.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Comment\TheS.sPerf.Comment.DAL.BackContracts\TheS.sPerf.Comment.DAL.BackContracts.csproj">
+      <Project>{6356D0C2-82A5-4BDF-B68C-EC966A91290F}</Project>
+      <Name>TheS.sPerf.Comment.DAL.BackContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Comment\TheS.sPerf.Comment.Models\TheS.sPerf.Comment.Models.csproj">
+      <Project>{EB8EAA41-B156-4731-813D-08ECEAACAFBB}</Project>
+      <Name>TheS.sPerf.Comment.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Shared\TheS.sPerf.Common.Commands\TheS.sPerf.Common.Commands.csproj">
+      <Project>{79BED253-77C4-4A06-BE38-9A62AEF6C060}</Project>
+      <Name>TheS.sPerf.Common.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Shared\TheS.sPerf.Common.Models\TheS.sPerf.Common.Models.csproj">
+      <Project>{0D11D276-067C-4B60-ABCC-67F9A76449AA}</Project>
+      <Name>TheS.sPerf.Common.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
