@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebExecutors\GetGameRoundWinnerExecutor.cs" />
     <Compile Include="WebExecutors\PayForColorsWinnerInfoExecutor.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -9,11 +9,23 @@ using TheS.Casinova.ColorsGame.Commands;
 namespace TheS.Casinova.ColorsGame.DAL
 {
     public interface IColorsGameDataBackQuery :
-        IGetRoundWinnerQuery
+        IGetRoundWinnerQuery,
+        IListGameTableConfigurations,
+        IListActiveGameRounds
     { }
 
     //ดึงข้อมูล Winner ที่ผู้เล่นเสียเงินโต๊ะที่ดู
     public interface IGetRoundWinnerQuery
         : IFetchSingleData<string, PayForColorsWinnerInfoCommand>
+    { }
+
+    //ดึงข้อมูล Table configuration ที่ตั้งค่าไว้
+    public interface IListGameTableConfigurations
+        : IFetchData<TableConfiguration, ListGameTableConfigurationsCommand>
+    { }
+
+    //ดึงข้อมูล Game round ที่ยังไม่หมดเวลา
+    public interface IListActiveGameRounds
+        : IFetchData<GameRoundInformation, ListActiveGameRoundsCommand>
     { }
 }

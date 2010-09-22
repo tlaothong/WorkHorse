@@ -20,7 +20,9 @@ namespace TheS.Casinova.ColorsGame.BackServices.BackExecutors
 
         protected override void ExecuteCommand(SaveTableConfigurationCommand command)
         {
-            _dac.Create(command.TableConfig, command);
+            foreach (var item in command.TableConfigurations) {
+                _dac.Create(item, command);
+            }
         }
     }
 }

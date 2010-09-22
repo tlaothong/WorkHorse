@@ -6,9 +6,9 @@ using TheS.Casinova.ColorsGame.Models;
 
 namespace TheS.Casinova.ColorsGame.Commands
 {
-    public class SaveTableConfigurationCommand
-        : GameTableConfigurationRelatedCommandBase
+    public class GameTableConfigurationRelatedCommandBase
     {
-        // Intentionally left blank. We re-use the base class implementation.
+        public string Name { get; set; }
+        public IEnumerable<TableConfiguration> TableConfigurations { get; set; }
     }
 }

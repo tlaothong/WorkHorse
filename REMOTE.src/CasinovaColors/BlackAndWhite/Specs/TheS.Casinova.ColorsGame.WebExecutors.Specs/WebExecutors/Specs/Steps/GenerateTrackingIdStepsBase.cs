@@ -11,14 +11,14 @@ namespace TheS.Casinova.ColorsGame.WebExecutors.Specs.Steps
     [Binding]
     public class GenerateTrackingIdStepsBase
     {
-        protected PayForColorsWinnerInfoExecutor ColorWinnerExecutor
-        {
-            get
-            {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_PayForWinnerExecutor] as PayForColorsWinnerInfoExecutor;
-            }
-        }
+        //protected ColorsGameService ColorWinnerSvc
+        //{
+        //    get
+        //    {
+        //        return ScenarioContext.Current[
+        //            CommonSteps.Key_PayForWinnerSvc] as ColorsGameService;
+        //    }
+        //}
 
         //protected PayForColorsWinnerInfoExecutor ColorWinnerExtor
         //{

@@ -74,10 +74,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BackServices\CommandManagerStub.cs" />
+    <Compile Include="BackServices\CreateGameRound.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreateGameRound.feature</DependentUpon>
+    </Compile>
     <Compile Include="BackServices\GetRoundWinnerQuery.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GetRoundWinnerQuery.feature</DependentUpon>
+    </Compile>
+    <Compile Include="BackServices\ListGameTableConfigurations.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListGameTableConfigurations.feature</DependentUpon>
     </Compile>
     <Compile Include="BackServices\PayForColorsWinnerInfo.feature.cs">
       <AutoGen>True</AutoGen>
@@ -97,7 +107,9 @@
     <Compile Include="BackServices\SpecEventDefinitions.cs" />
     <Compile Include="BackServices\Specs\ColorsGameStepsBase.cs" />
     <Compile Include="BackServices\Specs\CommonSteps.cs" />
+    <Compile Include="BackServices\Specs\CreateGameRoundSteps.cs" />
     <Compile Include="BackServices\Specs\GetRoundWinnerQuerySteps.cs" />
+    <Compile Include="BackServices\Specs\ListGameTableConfigurationsSteps.cs" />
     <Compile Include="BackServices\Specs\PayForColorsWinnerInfoN2NSteps.cs" />
     <Compile Include="BackServices\Specs\PayForColorsWinnerInfoSteps.cs" />
     <Compile Include="BackServices\Specs\SaveTableConfigurationSteps.cs" />
@@ -111,9 +123,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="BackServices\CreateGameRound.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CreateGameRound.feature.cs</LastGenOutput>
+    </None>
     <None Include="BackServices\GetRoundWinnerQuery.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>GetRoundWinnerQuery.feature.cs</LastGenOutput>
+    </None>
+    <None Include="BackServices\ListGameTableConfigurations.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ListGameTableConfigurations.feature.cs</LastGenOutput>
     </None>
     <None Include="BackServices\PayForColorsWinnerInfo.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

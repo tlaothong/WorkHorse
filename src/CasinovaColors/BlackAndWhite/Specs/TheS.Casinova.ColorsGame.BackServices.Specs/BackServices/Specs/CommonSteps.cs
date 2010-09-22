@@ -12,10 +12,12 @@ namespace TheS.Casinova.ColorsGame.BackServices.Specs
     [Binding]
     public class CommonSteps
     {
-        public const string Key_PayForColorsWinnerInfoExecutor = "PayForColorsWinnerInfoExecutor";
-        public const string Key_SaveTableConfigurationExecutor = "SaveTableConfiguration";
         public const string Key_Dac = "mockColorsGameDataAccess";
         public const string Key_Dqr = "mockColorsGameDataBackQuery";
+        public const string Key_PayForColorsWinnerInfoExecutor = "PayForColorsWinnerInfoExecutor";
+        public const string Key_SaveTableConfigurationExecutor = "SaveTableConfiguration";
+        public const string Key_CreateGameRoundExecutor = "CreateGameRoundExecutor";
+        public const string Key_ListGameTableConfigurationsExecutor = "ListGameTableConfigurationsExecutor";
 
         MockRepository Mocks { get { return SpecEventDefinitions.Mocks; } }
 
@@ -37,6 +39,26 @@ namespace TheS.Casinova.ColorsGame.BackServices.Specs
 
             ScenarioContext.Current[Key_Dac] = dac;
             ScenarioContext.Current[Key_SaveTableConfigurationExecutor] = new SaveTableConfigurationExecutor(dac);
+        }
+        
+        [Given(@"The CreateGameRoundExecutor has been created and initialized")]
+        public void GivenTheCreateGameRoundExecutorHasBeenCreatedAndInitialized()
+        {
+            var dac = Mocks.StrictMock<IColorsGameDataAccess>();
+            var dqr = Mocks.Stub<IColorsGameDataBackQuery>();
+
+            ScenarioContext.Current[Key_Dac] = dac;
+            ScenarioContext.Current[Key_Dqr] = dqr;
+            ScenarioContext.Current[Key_CreateGameRoundExecutor] = new CreateGameRoundExecutor(dac, dqr);
+        }
+
+        [Given(@"The ListGameTableConfigurations has been created and initialized")]
+        public void GivenTheListGameTableConfigurationsHasBeenCreatedAndInitialized()
+        {
+            var dqr = Mocks.DynamicMock<IColorsGameDataBackQuery>();
+
+            ScenarioContext.Current[Key_Dqr] = dqr;
+            ScenarioContext.Current[Key_ListGameTableConfigurationsExecutor] = new ListGameTableConfigurationsExecutor(dqr);
         }
     }
 }

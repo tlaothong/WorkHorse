@@ -20,22 +20,13 @@ namespace TheS.Casinova.ColorsGame.WebExecutors.Specs.Steps
             }
         }
 
-        //protected PayForColorsWinnerInfoExecutor ColorWinnerExtor
-        //{
-        //    get
-        //    {
-        //        return ScenarioContext.Current[
-        //            CommonSteps.Key_PayForWinnerExtor] as PayForColorsWinnerInfoExecutor;
-        //    }
-        //}
-
-        //protected IColorsGameBackService Dac
-        //{
-        //    get
-        //    {
-        //        return ScenarioContext.Current[
-        //            CommonSteps.Key_Dac] as IColorsGameBackService;
-        //    }
-        //}
+        protected IColorsGameBackService Dac
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_Dac] as IColorsGameBackService;
+            }
+        }
     }
 }
