@@ -24,13 +24,15 @@ namespace TheS.Casinova.ColorsGame.WebExecutors
         // ส่ง trackingID ไปยัง BackServer
         protected override void ExecuteCommand(PayForColorsWinnerInfoCommand command)
         {
+            
             _svc = new ColorsGameService();
 
-            command.GamePlayInformation.OnGoingTrackingID = Guid.Parse(_svc.PayForWinnerInformation(
-                command.GamePlayInformation.TableID, 
-                command.GamePlayInformation.RoundID));  //เรียก web service เพื่อ get ค่า trackingID
+           command.GamePlayInformation.OnGoingTrackingID = Guid.Parse(_svc.PayForWinnerInformation(
+                    command.GamePlayInformation.TableID,
+                    command.GamePlayInformation.RoundID));  //เรียก web service เพื่อ get ค่า trackingID
 
-            _dac.PayForWinnerInfo(command); 
+            _dac.PayForWinnerInfo(command);
+            
         }
     }
 }

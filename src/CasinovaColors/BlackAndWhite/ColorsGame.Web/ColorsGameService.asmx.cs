@@ -21,10 +21,12 @@ namespace ColorsGame.Web
         //generate trackingID แล้วส่งข้อมูลกลับไปให้ Client และส่งค่าไปให้ Service เพื่อส่งต่อไปยัง BackServer
         [WebMethod]
         public string PayForWinnerInformation(int tableId, int roundId)
-        {           
-            string userName = User.Identity.Name;   //ชื่อของผู้ใช้ที่ทำการร้องขอ
+        {
+            string userName = "Nit";//User.Identity.Name; //username ของผู้ใช้ที่กำลัง logon
+            string TrackingID = Guid.NewGuid().ToString("N");
+
             // return "ticket";
-            return Guid.NewGuid().ToString("N");
+            return TrackingID;       
         }
 
         [WebMethod]

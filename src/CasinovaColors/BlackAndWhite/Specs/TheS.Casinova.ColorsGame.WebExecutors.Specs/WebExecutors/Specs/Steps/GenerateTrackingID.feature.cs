@@ -17,7 +17,7 @@ namespace TheS.Casinova.ColorsGame.WebExecutors.Specs.Steps
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.3.5.2")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute()]
-    public partial class GenerateTrackingIDForClientAndBackServiceFeature
+    public partial class GenerateTrackingIDFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -29,8 +29,8 @@ namespace TheS.Casinova.ColorsGame.WebExecutors.Specs.Steps
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Generate TrackingID For Client and BackService", "In order to generate TrackingID\r\nAs a WebServer\r\nI want to request winner for the" +
-                    " WebServer ganarate TrackingID", ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Generate TrackingID", "In order to generate TrackingID\r\nAs a WebServer\r\nI want to ganarate TrackingID fo" +
+                    "r Client and BackService", ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -52,25 +52,52 @@ namespace TheS.Casinova.ColorsGame.WebExecutors.Specs.Steps
             testRunner.OnScenarioEnd();
         }
         
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Generate TrackingID for Client and BackService")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Generate TrackingID For Client and BackService")]
-        public virtual void GenerateTrackingIDForClientAndBackService()
+        public virtual void ระบบสงคาขอมลTableIDและRoundIDถกตอง(string tableId, string roundId)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Generate TrackingID for Client and BackService", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบส่งค่าข้อมูล tableID และ roundID ถูกต้อง", new string[] {
                         "record_mock"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
-testRunner.Given("The ColorsGameService  has been created and initialized");
+testRunner.Given("The PayForWinnerInfoExecutor  has been created and initialized");
 #line 9
-testRunner.And("Expect execute PayForColorsWinnerInfoCommand");
+testRunner.And(string.Format("Request winner from TableID \'{0}\', RoundID \'{1}\' UserName \'nit\'", tableId, roundId));
 #line 10
-testRunner.When("Call PayForWinnerInformation(TableID \'1\', RoundID \'5\') by UserName \'nit\'");
+testRunner.And("Expect call IColorGameBackService.PayForWinnerInfo()");
 #line 11
-testRunner.Then("the result should be TrackingID \'5AE8C8A62FC04FCDB1C4B4CD3D465541\'");
+testRunner.When(string.Format("Execute PayForColorsWinnerInfoCommand(TableID \'{0}\', RoundID \'{1}\') by UserName \'" +
+                        "nit\'", tableId, roundId));
+#line 12
+testRunner.Then("The result should be executeCommand by calling IColorGameBackService.PayForWinner" +
+                    "Info()");
+#line 13
+testRunner.And("The WebServer can generated TrackingID");
 #line hidden
             testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบส่งค่าข้อมูล tableID และ roundID ถูกต้อง")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Generate TrackingID")]
+        public virtual void ระบบสงคาขอมลTableIDและRoundIDถกตอง_1()
+        {
+            this.ระบบสงคาขอมลTableIDและRoundIDถกตอง("1", "5");
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบส่งค่าข้อมูล tableID และ roundID ถูกต้อง")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Generate TrackingID")]
+        public virtual void ระบบสงคาขอมลTableIDและRoundIDถกตอง_2()
+        {
+            this.ระบบสงคาขอมลTableIDและRoundIDถกตอง("2", "6");
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบส่งค่าข้อมูล tableID และ roundID ถูกต้อง")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Generate TrackingID")]
+        public virtual void ระบบสงคาขอมลTableIDและRoundIDถกตอง_3()
+        {
+            this.ระบบสงคาขอมลTableIDและRoundIDถกตอง("3", "7");
         }
     }
 }
