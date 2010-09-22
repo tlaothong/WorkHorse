@@ -21,17 +21,15 @@ namespace TheS.Casinova.ColorsGame.WebExecutors.Specs.Steps
         private string _result;
         private bool _checkResult;
 
-        [Given(@"Request winner from TableId '(.*)', RoundId '(.*)' UserName 'nit'")]
-        public void GivenRequestWinnerFromTableIdXRoundIdXUserNameNit(int tableId, int roundId)
+        [Given(@"Request winner from TableID '(.*)', RoundID '(.*)' UserName 'nit'")]
+        public void GivenRequestWinnerFromTableIDXRoundIDXUserNameNit(int tableId, int roundId)
         {
-            //_result = Guid.NewGuid().ToString("N");
           _result =  _svc.PayForWinnerInformation(tableId, roundId);
         }
 
         [Given(@"Expect call IColorGameBackService\.PayForWinnerInfo\(\)")]
         public void GivenExpectCallIColorGameBackService_PayForWinnerInfo()
         {
-            
             Dac.PayForWinnerInfo(null);
             LastCall.IgnoreArguments();
         }
@@ -54,15 +52,17 @@ namespace TheS.Casinova.ColorsGame.WebExecutors.Specs.Steps
             Assert.IsTrue(true, "Expectation has been verified in the end of block When.");
         }
 
-        [Then(@"The WebServer can generate TrackingID")]
+        [Then(@"The WebServer can generated TrackingID")]
         public void ThenTheWebServerCanGenerateTrackingID()
         {
             string trackingId = "00000000000000000000000000000000";
 
-            if (_result == trackingId) {
+            if (_result == trackingId) 
+            {
                 _checkResult = false;
             }
-            else if (string.IsNullOrEmpty(_result) == true) {
+            else if (string.IsNullOrEmpty(_result) == true) 
+            {
                 _checkResult = false;
             }
             else 

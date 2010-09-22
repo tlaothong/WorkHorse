@@ -22,11 +22,11 @@ namespace ColorsGame.Web
         [WebMethod]
         public string PayForWinnerInformation(int tableId, int roundId)
         {
-                string userName = "nit";  // User.Identity.Name; //username ของผู้ใช้ที่กำลัง logon
-                string TrackingID = Guid.NewGuid().ToString("N");
+            string userName = "Nit";//User.Identity.Name; //username ของผู้ใช้ที่กำลัง logon
+            string TrackingID = Guid.NewGuid().ToString("N");
 
-                // return "ticket";
-                return TrackingID;       
+            // return "ticket";
+            return TrackingID;       
         }
 
         [WebMethod]

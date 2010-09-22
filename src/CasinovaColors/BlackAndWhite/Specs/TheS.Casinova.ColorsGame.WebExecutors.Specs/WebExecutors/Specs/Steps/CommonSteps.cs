@@ -6,6 +6,7 @@ using TechTalk.SpecFlow;
 using Rhino.Mocks;
 using TheS.Casinova.ColorsGame.DAL;
 using TheS.Casinova.ColorsGame.WebExecutors;
+using TheS.Casinova.ColorsGame.BackServices;
 
 namespace TheS.Casinova.ColorsGame.WebExecutors.Specs.Steps
 {
@@ -29,6 +30,8 @@ namespace TheS.Casinova.ColorsGame.WebExecutors.Specs.Steps
 
             ScenarioContext.Current[Key_DacRoundWinner] = dac;
             ScenarioContext.Current[Key_GameRoundWinner] = new GetGameRoundWinnerExecutor(dac);
+        }
+
         [Given(@"The PayForWinnerInfoExecutor  has been created and initialized")]
         public void GivenThePayForWinnerInfoExecutorHasBeenCreatedAndInitialized()
  
