@@ -17,7 +17,7 @@ namespace TheS.Casinova.ColorsGame.WebExecutors.Specs.Steps
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.3.5.2")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute()]
-    public partial class GenerateTrackingIDForClientAndBackServiceFeature
+    public partial class GenerateTrackingIDFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -29,8 +29,8 @@ namespace TheS.Casinova.ColorsGame.WebExecutors.Specs.Steps
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Generate TrackingID For Client and BackService", "In order to generate TrackingID\r\nAs a WebServer\r\nI want to request winner for the" +
-                    " WebServer ganarate TrackingID", ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Generate TrackingID", "In order to generate TrackingID\r\nAs a WebServer\r\nI want to ganarate TrackingID fo" +
+                    "r Client and BackService", ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -52,9 +52,9 @@ namespace TheS.Casinova.ColorsGame.WebExecutors.Specs.Steps
             testRunner.OnScenarioEnd();
         }
         
-        public virtual void ระบบสงคาขอมลTableIDและRoundID(string tableId, string roundId)
+        public virtual void ระบบสงคาขอมลTableIDและRoundIDถกตอง(string tableId, string roundId)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบส่งค่าข้อมูล tableID และ roundID", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบส่งค่าข้อมูล tableID และ roundID ถูกต้อง", new string[] {
                         "record_mock"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
@@ -77,27 +77,27 @@ testRunner.And("The WebServer can generated TrackingID");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบส่งค่าข้อมูล tableID และ roundID")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Generate TrackingID For Client and BackService")]
-        public virtual void ระบบสงคาขอมลTableIDและRoundID_1()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบส่งค่าข้อมูล tableID และ roundID ถูกต้อง")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Generate TrackingID")]
+        public virtual void ระบบสงคาขอมลTableIDและRoundIDถกตอง_1()
         {
-            this.ระบบสงคาขอมลTableIDและRoundID("1", "5");
+            this.ระบบสงคาขอมลTableIDและRoundIDถกตอง("1", "5");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบส่งค่าข้อมูล tableID และ roundID")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Generate TrackingID For Client and BackService")]
-        public virtual void ระบบสงคาขอมลTableIDและRoundID_2()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบส่งค่าข้อมูล tableID และ roundID ถูกต้อง")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Generate TrackingID")]
+        public virtual void ระบบสงคาขอมลTableIDและRoundIDถกตอง_2()
         {
-            this.ระบบสงคาขอมลTableIDและRoundID("2", "6");
+            this.ระบบสงคาขอมลTableIDและRoundIDถกตอง("2", "6");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบส่งค่าข้อมูล tableID และ roundID")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Generate TrackingID For Client and BackService")]
-        public virtual void ระบบสงคาขอมลTableIDและRoundID_3()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบส่งค่าข้อมูล tableID และ roundID ถูกต้อง")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Generate TrackingID")]
+        public virtual void ระบบสงคาขอมลTableIDและRoundIDถกตอง_3()
         {
-            this.ระบบสงคาขอมลTableIDและRoundID("3", "7");
+            this.ระบบสงคาขอมลTableIDและRoundIDถกตอง("3", "7");
         }
     }
 }
