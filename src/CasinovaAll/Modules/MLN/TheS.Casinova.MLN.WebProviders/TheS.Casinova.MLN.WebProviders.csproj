@@ -45,6 +45,40 @@
   <ItemGroup>
     <Folder Include="WebProviders\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\TheS.Casinova.Common.Commands\TheS.Casinova.Common.Commands.csproj">
+      <Project>{B0BA601A-7B65-4973-9E00-4F9035883877}</Project>
+      <Name>TheS.Casinova.Common.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\TheS.Casinova.Common.Models\TheS.Casinova.Common.Models.csproj">
+      <Project>{6079CFCD-811A-4962-B021-8D3D14C0C45B}</Project>
+      <Name>TheS.Casinova.Common.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.Casinova.MLN.BackServices.Contracts\TheS.Casinova.MLN.BackServices.Contracts.csproj">
+      <Project>{D8AF34B4-FCC4-40A8-909D-69575D5B1C84}</Project>
+      <Name>TheS.Casinova.MLN.BackServices.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.Casinova.MLN.BackServices\TheS.Casinova.MLN.BackServices.csproj">
+      <Project>{9CB8BC95-DBDE-4F4C-AC14-5DA8C37B231F}</Project>
+      <Name>TheS.Casinova.MLN.BackServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.Casinova.MLN.Commands\TheS.Casinova.MLN.Commands.csproj">
+      <Project>{FDD4C75F-38C3-4D4B-A336-917EB1533541}</Project>
+      <Name>TheS.Casinova.MLN.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.Casinova.MLN.DAL.Contracts\TheS.Casinova.MLN.DAL.Contracts.csproj">
+      <Project>{F5D756BB-A7FE-4BB2-A908-32676F853DEF}</Project>
+      <Name>TheS.Casinova.MLN.DAL.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.Casinova.MLN.DAL\TheS.Casinova.MLN.DAL.csproj">
+      <Project>{42A5EA3A-059F-4507-B81B-654B5633CD4D}</Project>
+      <Name>TheS.Casinova.MLN.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.Casinova.MLN.Models\TheS.Casinova.MLN.Models.csproj">
+      <Project>{1853A12A-A6BB-4C65-A446-C177C045BC55}</Project>
+      <Name>TheS.Casinova.MLN.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

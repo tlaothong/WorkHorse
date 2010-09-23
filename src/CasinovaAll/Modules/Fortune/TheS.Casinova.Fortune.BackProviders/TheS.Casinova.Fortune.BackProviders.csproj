@@ -45,6 +45,36 @@
   <ItemGroup>
     <Folder Include="BackProviders\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\TheS.Casinova.Common.Commands\TheS.Casinova.Common.Commands.csproj">
+      <Project>{B0BA601A-7B65-4973-9E00-4F9035883877}</Project>
+      <Name>TheS.Casinova.Common.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\TheS.Casinova.Common.Models\TheS.Casinova.Common.Models.csproj">
+      <Project>{6079CFCD-811A-4962-B021-8D3D14C0C45B}</Project>
+      <Name>TheS.Casinova.Common.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.Casinova.Fortune.BackServices.Contracts\TheS.Casinova.Fortune.BackServices.Contracts.csproj">
+      <Project>{06112527-F9DF-4B9B-A4A2-BEA6B6EE7BBD}</Project>
+      <Name>TheS.Casinova.Fortune.BackServices.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.Casinova.Fortune.Commands\TheS.Casinova.Fortune.Commands.csproj">
+      <Project>{71057C2C-A179-494B-90A2-E67AB19AF2EA}</Project>
+      <Name>TheS.Casinova.Fortune.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.Casinova.Fortune.DAL.BackContracts\TheS.Casinova.Fortune.DAL.BackContracts.csproj">
+      <Project>{03D2A6DE-BD3E-45F2-9FE2-A997A82F41D6}</Project>
+      <Name>TheS.Casinova.Fortune.DAL.BackContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.Casinova.Fortune.DAL\TheS.Casinova.Fortune.DAL.csproj">
+      <Project>{508A775E-E2EF-4B5C-A5C1-054CFF24D730}</Project>
+      <Name>TheS.Casinova.Fortune.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.Casinova.Fortune.Models\TheS.Casinova.Fortune.Models.csproj">
+      <Project>{76D20D86-35A8-4D0B-87DE-1DC576754DEE}</Project>
+      <Name>TheS.Casinova.Fortune.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
