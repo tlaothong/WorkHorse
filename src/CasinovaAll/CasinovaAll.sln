@@ -152,6 +152,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheS.Casinova.Fortune.Model
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{5E0967BD-47B6-41EB-A160-7B956C07EEDF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheS.Casinova.Common.Commands", "Modules\Shared\TheS.Casinova.Common.Commands\TheS.Casinova.Common.Commands.csproj", "{B0BA601A-7B65-4973-9E00-4F9035883877}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheS.Casinova.Common.Models", "Modules\Shared\TheS.Casinova.Common.Models\TheS.Casinova.Common.Models.csproj", "{6079CFCD-811A-4962-B021-8D3D14C0C45B}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = CasinovaAll.vsmdi
@@ -397,6 +401,14 @@ Global
 		{76D20D86-35A8-4D0B-87DE-1DC576754DEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76D20D86-35A8-4D0B-87DE-1DC576754DEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76D20D86-35A8-4D0B-87DE-1DC576754DEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0BA601A-7B65-4973-9E00-4F9035883877}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0BA601A-7B65-4973-9E00-4F9035883877}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0BA601A-7B65-4973-9E00-4F9035883877}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0BA601A-7B65-4973-9E00-4F9035883877}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6079CFCD-811A-4962-B021-8D3D14C0C45B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6079CFCD-811A-4962-B021-8D3D14C0C45B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6079CFCD-811A-4962-B021-8D3D14C0C45B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6079CFCD-811A-4962-B021-8D3D14C0C45B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -473,5 +485,7 @@ Global
 		{E5F1EF4B-A972-440F-85E9-ED3276A5D7F4} = {DD45D225-3FAA-4B4C-87AE-7E447744C99D}
 		{16CC1371-EA34-44F1-8D9D-1BDC4D6EBCD0} = {DD45D225-3FAA-4B4C-87AE-7E447744C99D}
 		{76D20D86-35A8-4D0B-87DE-1DC576754DEE} = {70F65A6B-40E5-47EC-9970-DA1A25DBCED1}
+		{B0BA601A-7B65-4973-9E00-4F9035883877} = {5E0967BD-47B6-41EB-A160-7B956C07EEDF}
+		{6079CFCD-811A-4962-B021-8D3D14C0C45B} = {5E0967BD-47B6-41EB-A160-7B956C07EEDF}
 	EndGlobalSection
 EndGlobal
