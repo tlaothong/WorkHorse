@@ -48,7 +48,36 @@
     <Compile Include="BackServices\Specs\UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Modules\Shared\TheS.Casinova.Common.Commands\TheS.Casinova.Common.Commands.csproj">
+      <Project>{B0BA601A-7B65-4973-9E00-4F9035883877}</Project>
+      <Name>TheS.Casinova.Common.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Shared\TheS.Casinova.Common.Models\TheS.Casinova.Common.Models.csproj">
+      <Project>{6079CFCD-811A-4962-B021-8D3D14C0C45B}</Project>
+      <Name>TheS.Casinova.Common.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\TwoWins\TheS.Casinova.TwoWins.BackServices.Contracts\TheS.Casinova.TwoWins.BackServices.Contracts.csproj">
+      <Project>{4DB3DF7B-A1AA-43D6-8633-4E45683C6C38}</Project>
+      <Name>TheS.Casinova.TwoWins.BackServices.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\TwoWins\TheS.Casinova.TwoWins.BackServices\TheS.Casinova.TwoWins.BackServices.csproj">
+      <Project>{BDCDC8D0-797A-4EBF-AA11-C4529B310261}</Project>
+      <Name>TheS.Casinova.TwoWins.BackServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\TwoWins\TheS.Casinova.TwoWins.Commands\TheS.Casinova.TwoWins.Commands.csproj">
+      <Project>{A9857C91-9E6F-4D55-ACFF-AAC834A2A4A8}</Project>
+      <Name>TheS.Casinova.TwoWins.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\TwoWins\TheS.Casinova.TwoWins.DAL.BackContracts\TheS.Casinova.TwoWins.DAL.BackContracts.csproj">
+      <Project>{6D5E6257-1E6F-44AC-BDB8-D22F3740FB6F}</Project>
+      <Name>TheS.Casinova.TwoWins.DAL.BackContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\TwoWins\TheS.Casinova.TwoWins.Models\TheS.Casinova.TwoWins.Models.csproj">
+      <Project>{97C8CB3B-4CAD-487E-8C08-57F7B449DD50}</Project>
+      <Name>TheS.Casinova.TwoWins.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

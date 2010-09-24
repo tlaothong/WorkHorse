@@ -45,6 +45,20 @@
   <ItemGroup>
     <Folder Include="Commands\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\TheS.Casinova.Common.Commands\TheS.Casinova.Common.Commands.csproj">
+      <Project>{B0BA601A-7B65-4973-9E00-4F9035883877}</Project>
+      <Name>TheS.Casinova.Common.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\TheS.Casinova.Common.Models\TheS.Casinova.Common.Models.csproj">
+      <Project>{6079CFCD-811A-4962-B021-8D3D14C0C45B}</Project>
+      <Name>TheS.Casinova.Common.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.Casinova.Chat.Models\TheS.Casinova.Chat.Models.csproj">
+      <Project>{8E50F3B7-4F44-49BE-A5CE-2CDF66EF4D9C}</Project>
+      <Name>TheS.Casinova.Chat.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
