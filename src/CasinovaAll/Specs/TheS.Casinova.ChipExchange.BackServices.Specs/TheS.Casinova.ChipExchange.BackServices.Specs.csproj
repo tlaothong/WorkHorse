@@ -50,6 +50,36 @@
   <ItemGroup>
     <Folder Include="BackServices\Specs\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Modules\ChipExchange\TheS.Casinova.ChipExchange.BackServices.Contracts\TheS.Casinova.ChipExchange.BackServices.Contracts.csproj">
+      <Project>{4812732D-8D4A-489C-90C5-AD1401F94398}</Project>
+      <Name>TheS.Casinova.ChipExchange.BackServices.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\ChipExchange\TheS.Casinova.ChipExchange.BackServices\TheS.Casinova.ChipExchange.BackServices.csproj">
+      <Project>{28F67CC4-49BF-4658-ADF3-F786119ECA50}</Project>
+      <Name>TheS.Casinova.ChipExchange.BackServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\ChipExchange\TheS.Casinova.ChipExchange.Commands\TheS.Casinova.ChipExchange.Commands.csproj">
+      <Project>{783249CD-793F-4C2C-BE6C-980C70FAB6DD}</Project>
+      <Name>TheS.Casinova.ChipExchange.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\ChipExchange\TheS.Casinova.ChipExchange.DAL.BackContracts\TheS.Casinova.ChipExchange.DAL.BackContracts.csproj">
+      <Project>{EA10BD8C-3F35-411C-81ED-C43EA49AE2AC}</Project>
+      <Name>TheS.Casinova.ChipExchange.DAL.BackContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\ChipExchange\TheS.Casinova.ChipExchange.Models\TheS.Casinova.ChipExchange.Models.csproj">
+      <Project>{4D33D4E0-40CE-4AF2-A30F-53FCAE1A2886}</Project>
+      <Name>TheS.Casinova.ChipExchange.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Shared\TheS.Casinova.Common.Commands\TheS.Casinova.Common.Commands.csproj">
+      <Project>{B0BA601A-7B65-4973-9E00-4F9035883877}</Project>
+      <Name>TheS.Casinova.Common.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Shared\TheS.Casinova.Common.Models\TheS.Casinova.Common.Models.csproj">
+      <Project>{6079CFCD-811A-4962-B021-8D3D14C0C45B}</Project>
+      <Name>TheS.Casinova.Common.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

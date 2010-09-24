@@ -48,6 +48,36 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebExecutors\Specs\UnitTest1.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Modules\ChipExchange\TheS.Casinova.ChipExchange.BackServices.Contracts\TheS.Casinova.ChipExchange.BackServices.Contracts.csproj">
+      <Project>{4812732D-8D4A-489C-90C5-AD1401F94398}</Project>
+      <Name>TheS.Casinova.ChipExchange.BackServices.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\ChipExchange\TheS.Casinova.ChipExchange.Commands\TheS.Casinova.ChipExchange.Commands.csproj">
+      <Project>{783249CD-793F-4C2C-BE6C-980C70FAB6DD}</Project>
+      <Name>TheS.Casinova.ChipExchange.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\ChipExchange\TheS.Casinova.ChipExchange.DAL.Contracts\TheS.Casinova.ChipExchange.DAL.Contracts.csproj">
+      <Project>{D35797D6-F8E0-4B72-8EBA-CACC5C1CEFE2}</Project>
+      <Name>TheS.Casinova.ChipExchange.DAL.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\ChipExchange\TheS.Casinova.ChipExchange.Models\TheS.Casinova.ChipExchange.Models.csproj">
+      <Project>{4D33D4E0-40CE-4AF2-A30F-53FCAE1A2886}</Project>
+      <Name>TheS.Casinova.ChipExchange.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\ChipExchange\TheS.Casinova.ChipExchange.WebExecutors\TheS.Casinova.ChipExchange.WebExecutors.csproj">
+      <Project>{1495EE20-EF19-4D1F-95C9-EA64E5007A47}</Project>
+      <Name>TheS.Casinova.ChipExchange.WebExecutors</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Shared\TheS.Casinova.Common.Commands\TheS.Casinova.Common.Commands.csproj">
+      <Project>{B0BA601A-7B65-4973-9E00-4F9035883877}</Project>
+      <Name>TheS.Casinova.Common.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Shared\TheS.Casinova.Common.Models\TheS.Casinova.Common.Models.csproj">
+      <Project>{6079CFCD-811A-4962-B021-8D3D14C0C45B}</Project>
+      <Name>TheS.Casinova.Common.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
