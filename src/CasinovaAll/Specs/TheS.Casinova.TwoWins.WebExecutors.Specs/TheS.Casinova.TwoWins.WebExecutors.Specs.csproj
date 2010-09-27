@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{56625A56-F8C7-4A4C-B84B-299B796B7219}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TheS.Casinova.TwoWins</RootNamespace>
+    <AssemblyName>TheS.Casinova.TwoWins.WebExecutors.Specs</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebExecutors\Specs\UnitTest1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Modules\Shared\TheS.Casinova.Common.Commands\TheS.Casinova.Common.Commands.csproj">
+      <Project>{B0BA601A-7B65-4973-9E00-4F9035883877}</Project>
+      <Name>TheS.Casinova.Common.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Shared\TheS.Casinova.Common.Models\TheS.Casinova.Common.Models.csproj">
+      <Project>{6079CFCD-811A-4962-B021-8D3D14C0C45B}</Project>
+      <Name>TheS.Casinova.Common.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\TwoWins\TheS.Casinova.TwoWins.BackServices.Contracts\TheS.Casinova.TwoWins.BackServices.Contracts.csproj">
+      <Project>{4DB3DF7B-A1AA-43D6-8633-4E45683C6C38}</Project>
+      <Name>TheS.Casinova.TwoWins.BackServices.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\TwoWins\TheS.Casinova.TwoWins.Commands\TheS.Casinova.TwoWins.Commands.csproj">
+      <Project>{A9857C91-9E6F-4D55-ACFF-AAC834A2A4A8}</Project>
+      <Name>TheS.Casinova.TwoWins.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\TwoWins\TheS.Casinova.TwoWins.DAL.Contracts\TheS.Casinova.TwoWins.DAL.Contracts.csproj">
+      <Project>{12066649-8497-4E14-BECD-04E402BD97FB}</Project>
+      <Name>TheS.Casinova.TwoWins.DAL.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\TwoWins\TheS.Casinova.TwoWins.Models\TheS.Casinova.TwoWins.Models.csproj">
+      <Project>{97C8CB3B-4CAD-487E-8C08-57F7B449DD50}</Project>
+      <Name>TheS.Casinova.TwoWins.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\TwoWins\TheS.Casinova.TwoWins.WebExecutors\TheS.Casinova.TwoWins.WebExecutors.csproj">
+      <Project>{3F9D720E-1E22-4B05-9352-95F398F86D24}</Project>
+      <Name>TheS.Casinova.TwoWins.WebExecutors</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
