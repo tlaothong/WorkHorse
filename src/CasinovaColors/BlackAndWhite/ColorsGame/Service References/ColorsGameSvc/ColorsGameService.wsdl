@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="PayForWinnerInformation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="tableId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="roundId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PayForWinnerInformationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PayForWinnerInformationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMyGamePlayInfo">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMyGamePlayInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMyGamePlayInfoResult" type="tns:ArrayOfGamePlayInformation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfGamePlayInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="GamePlayInformation" nillable="true" type="tns:GamePlayInformation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GamePlayInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TableID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RoundID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TrackingID" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="OnGoingTrackingID" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalBetAmounfOfBlack" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalBetAmountOfWhite" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Winner" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="PayForWinnerInformationSoapIn">
+    <wsdl:part name="parameters" element="tns:PayForWinnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="PayForWinnerInformationSoapOut">
+    <wsdl:part name="parameters" element="tns:PayForWinnerInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMyGamePlayInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMyGamePlayInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetMyGamePlayInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMyGamePlayInfoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ColorsGameServiceSoap">
+    <wsdl:operation name="PayForWinnerInformation">
+      <wsdl:input message="tns:PayForWinnerInformationSoapIn" />
+      <wsdl:output message="tns:PayForWinnerInformationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMyGamePlayInfo">
+      <wsdl:input message="tns:GetMyGamePlayInfoSoapIn" />
+      <wsdl:output message="tns:GetMyGamePlayInfoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ColorsGameServiceSoap" type="tns:ColorsGameServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="PayForWinnerInformation">
+      <soap:operation soapAction="http://tempuri.org/PayForWinnerInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMyGamePlayInfo">
+      <soap:operation soapAction="http://tempuri.org/GetMyGamePlayInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ColorsGameServiceSoap12" type="tns:ColorsGameServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="PayForWinnerInformation">
+      <soap12:operation soapAction="http://tempuri.org/PayForWinnerInformation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMyGamePlayInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetMyGamePlayInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ColorsGameService">
+    <wsdl:port name="ColorsGameServiceSoap" binding="tns:ColorsGameServiceSoap">
+      <soap:address location="http://localhost:49168/ColorsGameService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ColorsGameServiceSoap12" binding="tns:ColorsGameServiceSoap12">
+      <soap12:address location="http://localhost:49168/ColorsGameService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
