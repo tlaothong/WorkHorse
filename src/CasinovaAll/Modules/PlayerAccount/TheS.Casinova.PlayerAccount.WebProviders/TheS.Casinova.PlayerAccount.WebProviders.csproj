@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{84821BC2-C2EB-45F0-A0EE-CF05CF1C38B8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TheS.Casinova.PlayerAccount</RootNamespace>
+    <AssemblyName>TheS.Casinova.PlayerAccount.WebProviders</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="WebProviders\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\TheS.Casinova.Common.Commands\TheS.Casinova.Common.Commands.csproj">
+      <Project>{B0BA601A-7B65-4973-9E00-4F9035883877}</Project>
+      <Name>TheS.Casinova.Common.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\TheS.Casinova.Common.Models\TheS.Casinova.Common.Models.csproj">
+      <Project>{6079CFCD-811A-4962-B021-8D3D14C0C45B}</Project>
+      <Name>TheS.Casinova.Common.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.Casinova.PlayerAccount.BackServices.Contracts\TheS.Casinova.PlayerAccount.BackServices.Contracts.csproj">
+      <Project>{71089D2E-913D-43E9-A714-F358E2DA68B2}</Project>
+      <Name>TheS.Casinova.PlayerAccount.BackServices.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.Casinova.PlayerAccount.BackServices\TheS.Casinova.PlayerAccount.BackServices.csproj">
+      <Project>{23C61844-E80B-496E-99EA-61CBF899DF56}</Project>
+      <Name>TheS.Casinova.PlayerAccount.BackServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.Casinova.PlayerAccount.Commands\TheS.Casinova.PlayerAccount.Commands.csproj">
+      <Project>{0A6CBBEC-3B10-4DB1-9F4B-AF472B79801C}</Project>
+      <Name>TheS.Casinova.PlayerAccount.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.Casinova.PlayerAccount.DAL.Contracts\TheS.Casinova.PlayerAccount.DAL.Contracts.csproj">
+      <Project>{EB1862A8-F099-4BC4-80D6-7597FF268B92}</Project>
+      <Name>TheS.Casinova.PlayerAccount.DAL.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.Casinova.PlayerAccount.DAL\TheS.Casinova.PlayerAccount.DAL.csproj">
+      <Project>{16FD9E40-62B0-46DE-B279-53F3C4E32C4E}</Project>
+      <Name>TheS.Casinova.PlayerAccount.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.Casinova.PlayerAccount.Models\TheS.Casinova.PlayerAccount.Models.csproj">
+      <Project>{28B48276-2905-4A6C-9BBA-09007F7E7084}</Project>
+      <Name>TheS.Casinova.PlayerAccount.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
