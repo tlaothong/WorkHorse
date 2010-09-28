@@ -17,8 +17,6 @@ namespace HighAndLow
         public MainPage()
         {
             InitializeComponent();
-            BetList.Items.Add("999");
-            BetList.Items.Add("999");
         }
     }
 }
