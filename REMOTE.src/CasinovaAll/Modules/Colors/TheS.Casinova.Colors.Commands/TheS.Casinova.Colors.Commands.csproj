@@ -43,7 +43,6 @@
     <Compile Include="Commands\BetCommand.cs" />
     <Compile Include="Commands\GetGamePlayInfoCommand.cs" />
     <Compile Include="Commands\PayForColorsWinnerInfoCommand.cs" />
-    <Compile Include="Commands\ListActiveGameRoundsCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
