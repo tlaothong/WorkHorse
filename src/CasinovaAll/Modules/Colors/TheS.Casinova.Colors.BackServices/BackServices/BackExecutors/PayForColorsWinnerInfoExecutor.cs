@@ -34,6 +34,9 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
                 Console.WriteLine("๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑  เงินไม่พอ  ๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑");
             }
 
+            //บันทึก OnGoingTrackingID สำหรับตรวจสอบการ GetRoundWinner
+            _dac.ApplyAction(command.GamePlayInfo, command);
+
             //ดึงข้อมูล Winner
             command.GamePlayInfo.Winner = _dqr.Get(command);
         }

@@ -8,7 +8,9 @@ using PerfEx.Infrastructure.Data;
 
 namespace TheS.Casinova.Colors.DAL
 {
-    public interface IColorsGameDataAccess : IPayForColorsWinnerInfo
+    public interface IColorsGameDataAccess :
+        IPayForColorsWinnerInfo,
+        IUpdateOnGoingTrackingID
     { }
 
     /// <summary>
@@ -22,6 +24,6 @@ namespace TheS.Casinova.Colors.DAL
     /// บันทึกรหัส TrackingID สำรวจตรวจสอบการทำงาน
     /// </summary>
     public interface IUpdateOnGoingTrackingID
-        : IDataAction<GameRoundInformation, PayForColorsWinnerInfoCommand>
+        : IDataAction<GamePlayInformation, PayForColorsWinnerInfoCommand>
     { }
 }
