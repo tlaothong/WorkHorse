@@ -13,6 +13,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
     public class CommonSteps
     {
         public const string Key_Dac = "mockColorsGameDataAccess";
+        public const string Key_Dqr = "mockColorsGameDataBackQuery";
         public const string Key_PayForColorsWinnerInfoExecutor = "PayForColorsWinnerInfoExecutor";
 
         MockRepository Mocks { get { return SpecEventDefinitions.Mocks; } }
@@ -21,9 +22,10 @@ namespace TheS.Casinova.Colors.BackServices.Specs
         public void GivenThePayForColorsWinnerInfoExecutorHasBeenCreatedAndInitialized()
         {
             var dac = Mocks.DynamicMock<IColorsGameDataAccess>();
+            var dqr = Mocks.DynamicMock<IColorsGameDataBackQuery>();
 
             ScenarioContext.Current[Key_Dac] = dac;
-            ScenarioContext.Current[Key_PayForColorsWinnerInfoExecutor] = new PayForColorsWinnerInfoExecutor(dac);
+            ScenarioContext.Current[Key_PayForColorsWinnerInfoExecutor] = new PayForColorsWinnerInfoExecutor(dac, dqr);
         }
     }
 }

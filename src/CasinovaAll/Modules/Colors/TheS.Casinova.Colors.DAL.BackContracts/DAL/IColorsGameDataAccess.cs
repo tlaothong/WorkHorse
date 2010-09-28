@@ -17,4 +17,11 @@ namespace TheS.Casinova.Colors.DAL
     public interface IPayForColorsWinnerInfo
         : IDataAction<PlayerInformation, PayForColorsWinnerInfoCommand>
     { }
+
+    /// <summary>
+    /// บันทึกรหัส TrackingID สำรวจตรวจสอบการทำงาน
+    /// </summary>
+    public interface IUpdateOnGoingTrackingID
+        : IDataAction<GameRoundInformation, PayForColorsWinnerInfoCommand>
+    { }
 }
