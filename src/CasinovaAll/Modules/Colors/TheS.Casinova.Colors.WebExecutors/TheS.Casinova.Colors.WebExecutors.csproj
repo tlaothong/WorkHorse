@@ -31,6 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PerfEx.Infrastructure">
+      <HintPath>..\..\..\..\..\lib\PerfEx.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="PerfEx.Infrastructure.Advanced">
+      <HintPath>..\..\..\..\..\lib\PerfEx.Infrastructure.Advanced.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,10 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebExecutors\ListActiveGameRoundsExecutor.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="WebExecutors\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\Chat\TheS.Casinova.Chat.BackProviders\TheS.Casinova.Chat.BackProviders.csproj">
       <Project>{5774B6A6-ACF2-43BB-B58B-059D75DEFFC6}</Project>
