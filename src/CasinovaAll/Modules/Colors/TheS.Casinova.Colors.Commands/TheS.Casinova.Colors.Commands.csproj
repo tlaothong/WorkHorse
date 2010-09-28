@@ -40,11 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\ListActiveGameRoundsCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Commands\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\Chat\TheS.Casinova.Chat.BackProviders\TheS.Casinova.Chat.BackProviders.csproj">
       <Project>{5774B6A6-ACF2-43BB-B58B-059D75DEFFC6}</Project>
