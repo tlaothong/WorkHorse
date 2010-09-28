@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using TheS.Casinova.Colors.Commands;
 using PerfEx.Infrastructure.CommandPattern;
+using TheS.Casinova.Colors.Commands;
 using TheS.Casinova.Colors.DAL;
 
 namespace TheS.Casinova.Colors.BackServices.BackExecutors

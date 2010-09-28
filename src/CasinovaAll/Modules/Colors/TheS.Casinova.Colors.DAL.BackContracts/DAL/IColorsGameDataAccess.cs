@@ -8,8 +8,7 @@ using PerfEx.Infrastructure.Data;
 
 namespace TheS.Casinova.Colors.DAL
 {
-    public interface IColorsGameDataAccess
-        : IPayForColorsWinnerInfo
+    public interface IColorsGameDataAccess : IPayForColorsWinnerInfo
     { }
 
     /// <summary>
