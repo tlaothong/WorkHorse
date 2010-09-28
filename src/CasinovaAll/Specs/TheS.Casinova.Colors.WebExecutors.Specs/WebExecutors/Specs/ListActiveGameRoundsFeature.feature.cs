@@ -73,7 +73,7 @@ testRunner.Given("The ColorsGame has been created and initialized");
                         "1",
                         "2",
                         "09:00",
-                        "13:00"});
+                        "14:00"});
             table1.AddRow(new string[] {
                         "2",
                         "3",
@@ -108,7 +108,7 @@ testRunner.When("Call ListActiveGameRoundsExecutor");
                         "1",
                         "2",
                         "09:00",
-                        "13:00"});
+                        "14:00"});
             table2.AddRow(new string[] {
                         "2",
                         "3",
@@ -131,6 +131,39 @@ testRunner.When("Call ListActiveGameRoundsExecutor");
                         "19:00"});
 #line 18
 testRunner.Then("The result should be:", ((string)(null)), table2);
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ลิสต์ข้อมูลโต๊ะเกมที่กำลัง active แต่ใน database ยังไม่มีข้อมูล")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListActiveGameRounds")]
+        public virtual void ลสตขอมลโตะเกมทกำลงActiveแตในDatabaseยงไมมขอมล()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ลิสต์ข้อมูลโต๊ะเกมที่กำลัง active แต่ใน database ยังไม่มีข้อมูล", new string[] {
+                        "record_mock"});
+#line 27
+this.ScenarioSetup(scenarioInfo);
+#line 28
+testRunner.Given("The ColorsGame has been created and initialized");
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "TableId",
+                        "RoundId",
+                        "StartTime",
+                        "EndTime"});
+#line 29
+testRunner.And("The active game rounds are :", ((string)(null)), table3);
+#line 32
+testRunner.When("Call ListActiveGameRoundsExecutor");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "TableId",
+                        "RoundId",
+                        "StartTime",
+                        "EndTime"});
+#line 33
+testRunner.Then("The result should be:", ((string)(null)), table4);
 #line hidden
             testRunner.CollectScenarioErrors();
         }

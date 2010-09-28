@@ -8,7 +8,7 @@ Scenario: ลิสต์ข้อมูลโต๊ะเกมที่กำ�
 	Given The ColorsGame has been created and initialized
 	And The active game rounds are :
 		|TableId|RoundId|StartTime|EndTime|
-		|1		|2		|09:00	  |13:00  |
+		|1		|2		|09:00	  |14:00  |
 		|2		|3		|10:30	  |15:30  |
 		|3		|4		|13:00	  |16:00  |
 		|4		|5		|13:30	  |18:30  |
@@ -17,9 +17,19 @@ Scenario: ลิสต์ข้อมูลโต๊ะเกมที่กำ�
 	When Call ListActiveGameRoundsExecutor
 	Then The result should be:
 		|TableId|RoundId|StartTime|EndTime|
-		|1		|2		|09:00	  |13:00  |
+		|1		|2		|09:00	  |14:00  |
 		|2		|3		|10:30	  |15:30  |
 		|3		|4		|13:00	  |16:00  |
 		|4		|5		|13:30	  |18:30  |
 		|5		|6		|14:00	  |19:00  |
 	
+@record_mock
+Scenario: ลิสต์ข้อมูลโต๊ะเกมที่กำลัง active แต่ใน database ยังไม่มีข้อมูล
+	Given The ColorsGame has been created and initialized
+	And The active game rounds are :
+		|TableId|RoundId|StartTime|EndTime|
+		
+	When Call ListActiveGameRoundsExecutor
+	Then The result should be:
+		|TableId|RoundId|StartTime|EndTime|
+		

@@ -27,7 +27,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
                            EndTime = DateTime.Today + TimeSpan.Parse(it["EndTime"]),
                        });
 
-            SetupResult.For(Dac.List(new Commands.ListActiveGameRoundsCommand()))
+            Expect.Call(Dac.List(new Commands.ListActiveGameRoundsCommand()))
                 .IgnoreArguments()
                 .Return(qry);
 
