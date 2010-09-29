@@ -8,7 +8,7 @@ using TheS.Casinova.Colors.DAL;
 namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
 {
     [Binding]
-    public class ListActiveGameRoundsStepsBase
+    public class ColorsGameStepsBase
     {
         protected ListActiveGameRoundsExecutor ActiveGameRoundsExecutor
         {
@@ -16,6 +16,15 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
             {
                 return ScenarioContext.Current[
                     CommonSteps.Key_ListActiveGameRoundsExecutor] as ListActiveGameRoundsExecutor;
+            }
+        }
+
+        protected ListGamePlayInfoExecutor GamePlayInfoExecutor
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_ListGamePlayInfo] as ListGamePlayInfoExecutor;
             }
         }
 

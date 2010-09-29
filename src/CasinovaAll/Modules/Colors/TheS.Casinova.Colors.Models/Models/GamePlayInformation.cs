@@ -38,7 +38,7 @@ namespace TheS.Casinova.Colors.Models
         /// <summary>
         /// total amont of black bet
         /// </summary>
-        public double TotalBetAmounfOfBlack { get; set; }
+        public double TotalBetAmountOfBlack { get; set; }
 
         /// <summary>
         /// total amount of white bet

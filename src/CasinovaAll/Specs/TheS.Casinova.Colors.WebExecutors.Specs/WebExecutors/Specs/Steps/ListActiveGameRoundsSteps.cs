@@ -11,9 +11,8 @@ using TheS.Casinova.Colors.Commands;
 namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
 {
     [Binding]
-    public class ListActiveGameRoundsSteps : ListActiveGameRoundsStepsBase
+    public class ListActiveGameRoundsSteps : ColorsGameStepsBase
     {
-        private IEnumerable<ActiveGameRounds> _result;
         private ListActiveGameRoundsCommand cmd;
 
         [Given(@"The active game rounds are :")]
@@ -37,6 +36,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         public void WhenCallListActiveGameRoundsExecutor()
         {
             cmd = new ListActiveGameRoundsCommand();
+            
             ActiveGameRoundsExecutor.Execute(cmd, x => {});
         }
 

@@ -5,7 +5,7 @@
 
 @record_mock
 Scenario: ลิสต์ข้อมูลโต๊ะเกมที่กำลัง active ณ เวลาปัจจุบันที่ผู้เล่นเข้าห้องเกม
-	Given The ColorsGame has been created and initialized
+	Given The ActiveGameRound has been created and initialized
 	And The active game rounds are :
 		|TableId|RoundId|StartTime|EndTime|
 		|1		|2		|09:00	  |14:00  |
@@ -25,7 +25,7 @@ Scenario: ลิสต์ข้อมูลโต๊ะเกมที่กำ�
 	
 @record_mock
 Scenario: ลิสต์ข้อมูลโต๊ะเกมที่กำลัง active แต่ใน database ยังไม่มีข้อมูล
-	Given The ColorsGame has been created and initialized
+	Given The ActiveGameRound has been created and initialized
 	And The active game rounds are :
 		|TableId|RoundId|StartTime|EndTime|
 		

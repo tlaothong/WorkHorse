@@ -62,7 +62,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
-testRunner.Given("The ColorsGame has been created and initialized");
+testRunner.Given("The ActiveGameRound has been created and initialized");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "TableId",
@@ -145,7 +145,7 @@ testRunner.Then("The result should be:", ((string)(null)), table2);
 #line 27
 this.ScenarioSetup(scenarioInfo);
 #line 28
-testRunner.Given("The ColorsGame has been created and initialized");
+testRunner.Given("The ActiveGameRound has been created and initialized");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "TableId",

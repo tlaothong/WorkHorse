@@ -4,17 +4,28 @@ using System.Linq;
 using System.Text;
 using TheS.Casinova.Colors.Commands;
 using TheS.Casinova.Colors.Models;
+using PerfEx.Infrastructure.Data;
 
 namespace TheS.Casinova.Colors.DAL
 {
     public interface IColorsGameDataQuery :
-        IListActiveGameRounds
+        IListActiveGameRounds,
+        IListGamePlayInformation
+
     
     {}
 
-    //List ข้อมูลโต๊ะเกมที่ active
+    /// <summary>
+    /// List ข้อมูลโต๊ะเกมที่ active
+    /// </summary>
     public interface IListActiveGameRounds
-    {
-        IEnumerable<ActiveGameRounds> List(ListActiveGameRoundsCommand amd);
-    }
+         : IFetchData<ActiveGameRounds, ListActiveGameRoundsCommand>
+    { }
+
+    /// <summary>
+    /// list ข้อมูลโต๊ะเกมที่ผู้เล่น เคยเล่นไว้
+    /// </summary>
+    public interface IListGamePlayInformation
+        : IFetchData<GamePlayInformation, ListGamePlayInfoCommand>
+    { }
 }

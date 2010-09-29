@@ -19,12 +19,13 @@ namespace TheS.Casinova.Colors.WebExecutors
             _dac = dac;
         }
 
-        //List โต๊ะเกมที่ active
+        /// <summary>
+        /// list ข้อมูลโต๊ะเกมที่ active
+        /// </summary>
          protected override void ExecuteCommand(ListActiveGameRoundsCommand command)
          {
-             command.ActiveRounds = _dac.List(new ListActiveGameRoundsCommand {
-                 FromTime = DateTime.Now
-             });
+             command.FromTime = DateTime.Now;
+             command.ActiveRounds = _dac.List(command);
          }
     }
 }

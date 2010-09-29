@@ -12,18 +12,29 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
     public class CommonSteps
     {
         public const string Key_ListActiveGameRoundsExecutor = "ActiveGameRoundsExecutor";
+        public const string Key_ListGamePlayInfo = "GamePlayInfoExecutor";
         public const string Key_Dac = "mockColorGameDataAccess";
 
         MockRepository Mocks { get { return SpecEventDefinitions.Mocks; } }
 
-        //Color game specs initialized
-        [Given(@"The ColorsGame has been created and initialized")]
-        public void GivenTheGameRoundWinnerHasBeenCreatedAndInitialized()
+        //List active game round specs initialized
+        [Given(@"The ActiveGameRound has been created and initialized")]
+        public void GivenTheActiveGameRoundHasBeenCreatedAndInitialized()
         {
             var dac = Mocks.DynamicMock<IColorsGameDataQuery>();
 
             ScenarioContext.Current[Key_Dac] = dac;
             ScenarioContext.Current[Key_ListActiveGameRoundsExecutor] = new ListActiveGameRoundsExecutor(dac);
+        }
+
+        //List game play information specs initialized
+        [Given(@"The GamePlayInformation has been created and initialized")]
+        public void GivenTheGamePlayInformationHasBeenCreatedAndInitialized()
+        {
+            var dac = Mocks.DynamicMock<IColorsGameDataQuery>();
+
+            ScenarioContext.Current[Key_Dac] = dac;
+            ScenarioContext.Current[Key_ListGamePlayInfo] = new ListGamePlayInfoExecutor(dac);
         }
     }
 }
