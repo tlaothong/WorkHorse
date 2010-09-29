@@ -10,17 +10,15 @@ namespace TheS.Casinova.ColorsGame.Models
     /// </summary>
     public class GamePlayInformation
     {
-        //input
-        public string UserName { get; set; }
-        public int TableID { get; set; }
-        public int RoundID { get; set; }
+        public string UserName { get; set; } //username of player
+        public int TableID { get; set; } // tableID of the gmae playable
+        public int RoundID { get; set; } //roundID of the game playable
 
-        //output
-        public Guid TrackingID { get; set; }
-        public Guid OnGoingTrackingID { get; set; }
-        public double TotalBetAmounfOfBlack { get; set; }
-        public double TotalBetAmountOfWhite { get; set; }
-        public string Winner { get; set; }
-        public DateTime LastUpdate { get; set; }
+        public Guid TrackingID { get; set; } // trackingID
+        public Guid OnGoingTrackingID { get; set; } //the trackingID of winner information when user request for get information
+        public double TotalBetAmounfOfBlack { get; set; } // total amont of black bet
+        public double TotalBetAmountOfWhite { get; set; } // total amount of white bet
+        public string Winner { get; set; } // the winner of color on that time when player request winner
+        public DateTime LastUpdate { get; set; } //the last update time of player request winner information
     }
 }

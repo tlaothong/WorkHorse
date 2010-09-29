@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
 using TheS.Casinova.ColorsGame.BackServices;
+using ColorsGame.Web;
 
 namespace TheS.Casinova.ColorsGame.WebExecutors.Specs.Steps
 {
     [Binding]
     public class GenerateTrackingIdStepsBase
     {
-        protected PayForColorsWinnerInfoExecutor ColorWinnerExtor
+        protected PayForColorsWinnerInfoExecutor ColorWinnerExecutor
         {
             get
             {

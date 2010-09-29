@@ -8,47 +8,69 @@ using TheS.Casinova.ColorsGame.BackServices;
 using TheS.Casinova.ColorsGame.Commands;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TheS.Casinova.ColorsGame.Models;
+using ColorsGame.Web;
+using System.Security.Principal;
 
 namespace TheS.Casinova.ColorsGame.WebExecutors.Specs.Steps
 {
     [Binding]
     public class GenerateTrackingIdSteps : GenerateTrackingIdStepsBase
     {
-        private string _trackingId;
-              
-        [Given(@"Expect the TrackingID should be generate by calling PayForColorsWinnerInfoExecutor")]
-        public void GivenExpectTheTrackingIDShouldBeGenerateByCallingPayForColorsWinnerInfoExecutor()
-        {
-            _trackingId = Guid.NewGuid().ToString();
+        private PayForColorsWinnerInfoCommand _cmd = new PayForColorsWinnerInfoCommand();
+        private ColorsGameService _svc = new ColorsGameService();
+        private string _result;
+        private bool _checkResult;
 
-            if (_trackingId != "00000000-0000-0000-0000-000000000000") {
-                _trackingId = "5AE8C8A6-2FC0-4FCD-B1C4-B4CD3D465541";
-            }
-       
-            //Dac.PayForWinnerInfo(null);
-            //LastCall.IgnoreArguments();
+        [Given(@"Request winner from TableID '(.*)', RoundID '(.*)' UserName 'nit'")]
+        public void GivenRequestWinnerFromTableIDXRoundIDXUserNameNit(int tableId, int roundId)
+        {
+          _result =  _svc.PayForWinnerInformation(tableId, roundId);
         }
 
-        [When(@"Call ExecuteCommand\(UserName'(.*)',TableID '(.*)', RoundID '(.*)'\)")]
-        public void WhenCallExecuteCommandUserNameXTableIDXRoundIDX(string userName, int tableId, int roundId)
+        [Given(@"Expect call IColorGameBackService\.PayForWinnerInfo\(\)")]
+        public void GivenExpectCallIColorGameBackService_PayForWinnerInfo()
         {
+            Dac.PayForWinnerInfo(null);
+            LastCall.IgnoreArguments();
+        }
 
-            PayForColorsWinnerInfoCommand cmd = new PayForColorsWinnerInfoCommand {
-                PlayerInformation = new PlayerInformation 
-                {
-                    UserName = userName,
-                },
-                TableID = tableId,
-                RoundID = roundId,
+        [When(@"Execute PayForColorsWinnerInfoCommand\(TableID '(.*)', RoundID '(.*)'\) by UserName 'nit'")]
+        public void WhenExecutePayForColorsWinnerInfoCommand(int tableId, int roundId)
+        {
+            _cmd.GamePlayInformation = new GamePlayInformation {
+                    TableID = tableId,
+                    RoundID = roundId,
             };
 
-            Dac.PayForWinnerInfo(cmd);            
+            Action<PayForColorsWinnerInfoCommand> command= (a) => {};
+            ColorWinnerExecutor.Execute(_cmd,command);
         }
 
-        [Then(@"the result should be TrackingID '(.*)'")]
-        public void ThenTheResultShouldBeTrackingIDX(string trackingId)
+        [Then(@"The result should be executeCommand by calling IColorGameBackService\.PayForWinnerInfo\(\)")]
+        public void ThenTheResultShouldBeExecuteCommandByCallingIColorGameBackService_PayForWinnerInfo()
         {
-            Assert.AreEqual(_trackingId, trackingId, "Generate TrackingID already");
+            Assert.IsTrue(true, "Expectation has been verified in the end of block When.");
+        }
+
+        [Then(@"The WebServer can generated TrackingID")]
+        public void ThenTheWebServerCanGenerateTrackingID()
+        {
+            string trackingId = "00000000000000000000000000000000";
+
+            if (_result == trackingId) 
+            {
+                _checkResult = false;
+            }
+            else if (string.IsNullOrEmpty(_result) == true) 
+            {
+                _checkResult = false;
+            }
+            else 
+            {
+                _checkResult = true;
+            }
+           
+            Assert.AreEqual(true, _checkResult, "Generate tracking is successed");
         }
     }
 }

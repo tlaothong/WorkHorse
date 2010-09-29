@@ -10,9 +10,17 @@ namespace TheS.Casinova.ColorsGame.DAL
 {
     public interface IColorsGameDataQuery :
         IGetGamePlayInfoQuery
+    //IGetRoundWinnerQuery
     { }
 
     public interface IGetGamePlayInfoQuery
         : IFetchData<GamePlayInformation, GetGamePlayInfoCommand>
-    { }
+    {
+        IEnumerable<GamePlayInformation> Get(GetGamePlayInfoCommand cmd);
+    }
+
+    //public interface IGetRoundWinnerQuery
+    //{
+    //    IEnumerable<GamePlayInformation> Get(GetGamePlayInfoCommand cmd);
+    //}
 }

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 using TheS.Casinova.ColorsGame.Models;
-using TheS.Casinova.ColorsGame.Commands;
 
 namespace ColorsGame.Web
 {
@@ -17,14 +16,17 @@ namespace ColorsGame.Web
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
     // [System.Web.Script.Services.ScriptService]
     public class ColorsGameService : System.Web.Services.WebService
-    {
 
+    {
+        //generate trackingID แล้วส่งข้อมูลกลับไปให้ Client และส่งค่าไปให้ Service เพื่อส่งต่อไปยัง BackServer
         [WebMethod]
         public string PayForWinnerInformation(int tableId, int roundId)
         {
-            string userName = User.Identity.Name;
+            string userName = "Nit";//User.Identity.Name; //username ของผู้ใช้ที่กำลัง logon
+            string TrackingID = Guid.NewGuid().ToString("N");
+
             // return "ticket";
-            return Guid.NewGuid().ToString("N");
+            return TrackingID;       
         }
 
         [WebMethod]

@@ -46,8 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\CreateGameRoundsCommand.cs" />
+    <Compile Include="Commands\GameTableConfigurationRelatedCommandBase.cs" />
     <Compile Include="Commands\GetGamePlayInfoCommand.cs" />
+    <Compile Include="Commands\ListActiveGameRoundsCommand.cs" />
+    <Compile Include="Commands\ListGameTableConfigurationsCommand.cs" />
     <Compile Include="Commands\PayForColorsWinnerInfoCommand.cs" />
+    <Compile Include="Commands\SaveTableConfigurationCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

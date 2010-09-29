@@ -60,7 +60,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BackServices\BackCommands.cs" />
+    <Compile Include="BackServices\BackExecutors\CreateGameRoundExecutor.cs" />
+    <Compile Include="BackServices\BackExecutors\ListGameTableConfigurationsExecutor.cs" />
     <Compile Include="BackServices\BackExecutors\PayForColorsWinnerInfoExecutor.cs" />
+    <Compile Include="BackServices\BackExecutors\SaveTableConfigurationExecutor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

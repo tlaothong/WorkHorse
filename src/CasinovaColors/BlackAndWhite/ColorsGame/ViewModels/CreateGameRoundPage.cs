@@ -20,6 +20,7 @@ namespace ColorsGame.ViewModels
         #region Fields
         
         private PropertyChangedNotifier _notif;
+        // TODO : ไม่สามารถนำมาใช้งานได้หากอยู่ใน Specs
         //private ColorsGameServiceSoapClient _svc;
         private int _tableCount;
         private int _durationTime;
@@ -105,6 +106,7 @@ namespace ColorsGame.ViewModels
         public CreateGameRoundPage()
         {
             _notif = new PropertyChangedNotifier(this, () => PropertyChanged);
+            // TODO : ไม่สามารถนำมาใช้งานได้หากอยู่ใน Specs
             //_svc = new ColorsGameServiceSoapClient();
             _sampleTable = new ObservableCollection<Models.GameTable>();
             _gameTable = new ObservableCollection<Models.GameRound>();
