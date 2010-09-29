@@ -70,6 +70,7 @@
     <Compile Include="BackServices\Specs\ColorsGameStepsBase.cs" />
     <Compile Include="BackServices\Specs\CommonSteps.cs" />
     <Compile Include="BackServices\Specs\PayForColorsWinnerInfoSteps.cs" />
+    <Compile Include="BackServices\Specs\UpdateOnGoingTrackingIDSteps.cs" />
     <Compile Include="BackServices\UpdateOnGoingTrackingID.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
