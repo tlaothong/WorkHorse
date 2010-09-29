@@ -70,6 +70,11 @@
     <Compile Include="BackServices\Specs\ColorsGameStepsBase.cs" />
     <Compile Include="BackServices\Specs\CommonSteps.cs" />
     <Compile Include="BackServices\Specs\PayForColorsWinnerInfoSteps.cs" />
+    <Compile Include="BackServices\UpdateOnGoingTrackingID.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UpdateOnGoingTrackingID.feature</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -107,6 +112,10 @@
     <None Include="BackServices\PayForColorsWinnerInfo.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>PayForColorsWinnerInfo.feature.cs</LastGenOutput>
+    </None>
+    <None Include="BackServices\UpdateOnGoingTrackingID.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UpdateOnGoingTrackingID.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup />
