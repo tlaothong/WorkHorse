@@ -41,14 +41,14 @@
       <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Advanced.dll</HintPath>
     </Reference>
     <Reference Include="Rhino.Mocks">
-      <HintPath>..\..\..\..\lib\Rhino.Mocks.dll</HintPath>
+      <HintPath>D:\TheSProject\git\workhorse2\WorkHorse\lib\Rhino.Mocks.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="TechTalk.SpecFlow">
-      <HintPath>..\..\..\..\lib\TechTalk.SpecFlow.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\..\..\Program Files\TechTalk\SpecFlow\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -64,15 +64,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ListActiveGameRoundsFeature.feature</DependentUpon>
     </Compile>
-    <Compile Include="WebExecutors\Specs\ListGamePlayInfoFeature.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ListGamePlayInfoFeature.feature</DependentUpon>
-    </Compile>
     <Compile Include="WebExecutors\Specs\Steps\CommonSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\ListActiveGameRoundsSteps.cs" />
-    <Compile Include="WebExecutors\Specs\Steps\ColorsGameStepsBase.cs" />
-    <Compile Include="WebExecutors\Specs\Steps\ListGamePlayInfoSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\ListActiveGameRoundsStepsBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Modules\Colors\TheS.Casinova.Colors.BackServices.Contracts\TheS.Casinova.Colors.BackServices.Contracts.csproj">
@@ -110,10 +104,6 @@
     <None Include="WebExecutors\Specs\ListActiveGameRoundsFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ListActiveGameRoundsFeature.feature.cs</LastGenOutput>
-    </None>
-    <None Include="WebExecutors\Specs\ListGamePlayInfoFeature.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>ListGamePlayInfoFeature.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
