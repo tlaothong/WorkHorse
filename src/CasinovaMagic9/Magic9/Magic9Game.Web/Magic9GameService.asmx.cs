@@ -16,11 +16,12 @@ namespace Magic9Game.Web
     // [System.Web.Script.Services.ScriptService]
     public class Magic9GameService : System.Web.Services.WebService
     {
+        private static int _currentBet = 95;
 
         [WebMethod]
-        public string HelloWorld()
+        public int GetNumber()
         {
-            return "Hello World";
+            return _currentBet++;
         }
     }
 }
