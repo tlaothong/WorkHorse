@@ -38,9 +38,21 @@ namespace SliderRange
             var lower = (int)LowerSlider.Value;
             UpperSlider.Value = (int)Math.Max(upper, lower);
             LowerSlider.Value = (int)Math.Min(upper, lower);
-            if ((int)e.NewValue != (int)e.OldValue ) {
+			
+			//TODO : Check condition
+			//condition :: upper and lower must different equal to _minDiff 
+            if ((int)e.NewValue != (int)e.OldValue ) {   //check is value change
                 if (UpperSlider.Value.Equals(UpperSlider.Minimum)) UpperSlider.Value = (int)LowerSlider.Value + 1;
-                if (LowerSlider.Value.Equals(LowerSlider.Maximum)) LowerSlider.Value = (int)UpperSlider.Value - 1;
+                else if (LowerSlider.Value.Equals(LowerSlider.Maximum)) LowerSlider.Value = (int)UpperSlider.Value - 1;
+				
+				//   <<<Upper slider
+					else if(UpperSlider.Value.Equals(LowerSlider.Value+1)){
+						LowerSlider.Value-=1;  
+					}
+				//   Lower slider>>>
+					else if(LowerSlider.Value.Equals(UpperSlider.Value-1)) {
+						UpperSlider.Value+=1;
+					}
             }
 
 

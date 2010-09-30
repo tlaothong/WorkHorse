@@ -51,7 +51,6 @@ namespace SliderRange
 			//TODO: minimum different bettween upper value and lowwer value
 			
 			//Find total value
-
             int total = 0;
             for (int startFrom = lower; startFrom <= upper; startFrom++) total += startFrom;
             Total.Text = total.ToString();
