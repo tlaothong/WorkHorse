@@ -2,39 +2,7 @@
     d:DesignHeight="800" d:DesignWidth="600" mc:Ignorable="d" Width="800" Height="600">
 
 	<UserControl.Resources>
-        <Style x:Key="Circle" TargetType="Button">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Canvas Width="50" Height="50">
-                            <Ellipse Fill="Blue" Height="50" Stroke="Black" Width="50"/>
-                            <ContentPresenter Width="50" OpacityMask="Black" Height="15" HorizontalAlignment="Center" Canvas.Top="19" VerticalAlignment="Center"/>
-                        </Canvas>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
         <Magic9Game_ViewModels:MainPageViewModel x:Key="MainPageViewModelDataSource" d:IsDataSource="True"/>
-		<DataTemplate x:Key="DoubleTemplate">
-			<StackPanel>
-				<TextBlock Text="{Binding Mode=OneWay}"/>
-			</StackPanel>
-		</DataTemplate>
-		<DataTemplate x:Key="StringTemplate">
-			<StackPanel>
-				<TextBlock Text="{Binding Mode=OneWay}"/>
-			</StackPanel>
-		</DataTemplate>
-		<DataTemplate x:Key="DoubleTemplate1">
-			<StackPanel>
-				<TextBlock Text="{Binding Mode=OneWay}"/>
-			</StackPanel>
-		</DataTemplate>
-		<DataTemplate x:Key="DoubleTemplate2">
-			<StackPanel>
-				<TextBlock Text="{Binding Mode=OneWay}"/>
-			</StackPanel>
-		</DataTemplate>
 	</UserControl.Resources>
 	<UserControl.DataContext>
 		<Binding Source="{StaticResource MainPageViewModelDataSource}"/>
@@ -110,7 +78,15 @@
     		<TextBlock TextWrapping="Wrap" Text="Amount" Canvas.Left="104" Canvas.Top="17" FontWeight="Bold"/>
     		<TextBox x:Name="Amount" TextWrapping="Wrap" Text="{Binding Amount, Mode=TwoWay}" Canvas.Left="156" Width="158" Canvas.Top="13"/>
     		<TextBlock TextWrapping="Wrap" Text="Interval" Canvas.Left="347" Canvas.Top="17" FontWeight="Bold"/>
-    		<ComboBox x:Name="Interval" Width="191" Canvas.Left="401" Canvas.Top="15" ItemTemplate="{StaticResource StringTemplate}" ItemsSource="{Binding Interval}"/>
+    		<ComboBox x:Name="Interval" Width="191" Canvas.Left="401" Canvas.Top="15" ItemsSource="{Binding Interval}">
+    			<ComboBox.ItemTemplate>
+    				<DataTemplate>
+    					<StackPanel>
+    						<TextBlock Text="{Binding Mode=OneWay}"/>
+    					</StackPanel>
+    				</DataTemplate>
+    			</ComboBox.ItemTemplate>
+    		</ComboBox>
     		<Button x:Name="StartStop" Content="Start" Width="150" Canvas.Left="626" Canvas.Top="8" Height="33"/>
 
     	</Canvas>

@@ -99,6 +99,26 @@ namespace Magic9Game.ViewModels
             _service = new Magic9GameServiceSoapClient();
 
             _service.GetNumberCompleted += new EventHandler<GetNumberCompletedEventArgs>(_service_GetNumberCompleted);
+
+            // Sample interval time
+            Interval.Add("1 second");
+            Interval.Add("2 second");
+            Interval.Add("5 second");
+            Interval.Add("10 second");
+            Interval.Add("30 second");
+
+            Interval.Add("1 minute");
+            Interval.Add("2 minute");
+            Interval.Add("5 minute");
+            Interval.Add("10 minute");
+            Interval.Add("30 minute");
+
+            Interval.Add("1 hours");
+            Interval.Add("2 hours");
+            Interval.Add("3 hours");
+            Interval.Add("5 hours");
+            Interval.Add("12 hours");
+            Interval.Add("24 hours");
         }
 
         #endregion Constructor
