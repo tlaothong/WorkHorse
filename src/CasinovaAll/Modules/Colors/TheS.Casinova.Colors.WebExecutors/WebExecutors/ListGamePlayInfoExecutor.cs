@@ -9,6 +9,9 @@ using TheS.Casinova.Colors.Models;
 
 namespace TheS.Casinova.Colors.WebExecutors
 {
+    /// <summary>
+    /// list ข้อมูลโต๊ะเกมทั้งหมดที่ผู้เล่นลงเดิมพันไว้
+    /// </summary>
     public class ListGamePlayInfoExecutor
          : SynchronousCommandExecutorBase<ListGamePlayInfoCommand>
     {
@@ -19,9 +22,6 @@ namespace TheS.Casinova.Colors.WebExecutors
             _dac = dac;
         }
 
-        /// <summary>
-        /// list ข้อมูลโต๊ะเกมทั้งหมดที่ผู้เล่นลงเดิมพันไว้
-        /// </summary>
         protected override void ExecuteCommand(ListGamePlayInfoCommand command)
         {
             command.GamePlayInfos = _dac.List(command);

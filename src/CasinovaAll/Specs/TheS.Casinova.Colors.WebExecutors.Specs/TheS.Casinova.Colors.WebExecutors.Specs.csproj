@@ -69,10 +69,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ListGamePlayInfoFeature.feature</DependentUpon>
     </Compile>
+    <Compile Include="WebExecutors\Specs\PayForColorsWinnerInfoFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PayForColorsWinnerInfoFeature.feature</DependentUpon>
+    </Compile>
     <Compile Include="WebExecutors\Specs\Steps\CommonSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\ListActiveGameRoundsSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\ColorsGameStepsBase.cs" />
     <Compile Include="WebExecutors\Specs\Steps\ListGamePlayInfoSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\PayForColorsWinnerInfoSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Modules\Colors\TheS.Casinova.Colors.BackServices.Contracts\TheS.Casinova.Colors.BackServices.Contracts.csproj">
@@ -114,6 +120,10 @@
     <None Include="WebExecutors\Specs\ListGamePlayInfoFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ListGamePlayInfoFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\PayForColorsWinnerInfoFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>PayForColorsWinnerInfoFeature.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

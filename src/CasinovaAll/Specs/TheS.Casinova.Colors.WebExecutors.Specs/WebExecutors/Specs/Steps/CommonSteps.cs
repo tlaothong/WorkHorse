@@ -5,12 +5,14 @@ using System.Text;
 using TechTalk.SpecFlow;
 using Rhino.Mocks;
 using TheS.Casinova.Colors.DAL;
+using TheS.Casinova.Colors.BackServices;
 
 namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
 {
     [Binding]
     public class CommonSteps
     {
+        public const string Key_PayForWinnerInfo = "PayForWinnerExecutor";
         public const string Key_ListActiveGameRoundsExecutor = "ActiveGameRoundsExecutor";
         public const string Key_ListGamePlayInfo = "GamePlayInfoExecutor";
         public const string Key_Dac = "mockColorGameDataAccess";
@@ -35,6 +37,15 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
 
             ScenarioContext.Current[Key_Dac] = dac;
             ScenarioContext.Current[Key_ListGamePlayInfo] = new ListGamePlayInfoExecutor(dac);
+        }
+
+        [Given(@"The PayForcolorsWinnerInfo has been created and initialized")]
+        public void GivenThePayForcolorsWinnerInfoHasBeenCreatedAndInitialized()
+        {
+            var dac = Mocks.DynamicMock<IColorsGameBackService>();
+
+            ScenarioContext.Current[Key_Dac] = dac;
+            ScenarioContext.Current[Key_PayForWinnerInfo] = new PayForColorsWinnerInfoExecutor(dac);
         }
     }
 }

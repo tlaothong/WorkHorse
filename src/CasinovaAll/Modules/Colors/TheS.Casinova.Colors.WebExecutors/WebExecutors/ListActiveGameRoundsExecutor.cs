@@ -9,6 +9,9 @@ using PerfEx.Infrastructure.CommandPattern;
 
 namespace TheS.Casinova.Colors.WebExecutors
 {
+    /// <summary>
+    /// list ข้อมูลโต๊ะเกมที่ active
+    /// </summary>
     public class ListActiveGameRoundsExecutor
         : SynchronousCommandExecutorBase<ListActiveGameRoundsCommand>
     {
@@ -19,9 +22,6 @@ namespace TheS.Casinova.Colors.WebExecutors
             _dac = dac;
         }
 
-        /// <summary>
-        /// list ข้อมูลโต๊ะเกมที่ active
-        /// </summary>
          protected override void ExecuteCommand(ListActiveGameRoundsCommand command)
          {
              command.FromTime = DateTime.Now;

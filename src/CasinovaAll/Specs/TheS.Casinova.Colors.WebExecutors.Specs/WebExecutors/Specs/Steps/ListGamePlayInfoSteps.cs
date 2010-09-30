@@ -22,8 +22,8 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
                        select new GamePlayInformation{
                            TableID = Convert.ToInt32(it["TableID"]),
                            RoundID = Convert.ToInt32(it["RoundID"]),
-                           TotalBetAmountOfBlack = double.Parse(it["TotalBetAmountOfBlack"]),
-                           TotalBetAmountOfWhite = double.Parse(it["TotalBetAmountOfWhite"]),
+                           TotalBetAmountOfBlack = Convert.ToDouble(it["TotalBetAmountOfBlack"]),
+                           TotalBetAmountOfWhite = Convert.ToDouble(it["TotalBetAmountOfWhite"]),
                            Winner = Convert.ToString(it["Winner"]),
                            LastUpdate = DateTime.Today + TimeSpan.Parse(it["LastUpdate"]),
                            TrackingID = Guid.Parse(it["TrackingID"]),
@@ -53,8 +53,8 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
                                select new {
                                    TableID = Convert.ToInt32(it["TableID"]),
                                    RoundID = Convert.ToInt32(it["RoundID"]),
-                                   TotalBetAmountOfBlack = double.Parse(it["TotalBetAmountOfBlack"]),
-                                   TotalBetAmountOfWhite = double.Parse(it["TotalBetAmountOfWhite"]),
+                                   TotalBetAmountOfBlack = Convert.ToDouble(it["TotalBetAmountOfBlack"]),
+                                   TotalBetAmountOfWhite = Convert.ToDouble(it["TotalBetAmountOfWhite"]),
                                    Winner = Convert.ToString(it["Winner"]),
                                    LastUpdate = DateTime.Today + TimeSpan.Parse(it["LastUpdate"]),
                                    TrackingID = Guid.Parse(it["TrackingID"]),

@@ -4,12 +4,22 @@ using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
 using TheS.Casinova.Colors.DAL;
+using TheS.Casinova.Colors.BackServices;
 
 namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
 {
     [Binding]
     public class ColorsGameStepsBase
     {
+        protected PayForColorsWinnerInfoExecutor PayForWinnerInfo
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_PayForWinnerInfo] as PayForColorsWinnerInfoExecutor;
+            }
+        }
+
         protected ListActiveGameRoundsExecutor ActiveGameRoundsExecutor
         {
             get
@@ -34,6 +44,15 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
             {
                 return ScenarioContext.Current[
                     CommonSteps.Key_Dac] as IColorsGameDataQuery;
+            }
+        }
+
+        protected IColorsGameBackService BackDac
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_Dac] as IColorsGameBackService;
             }
         }
     }
