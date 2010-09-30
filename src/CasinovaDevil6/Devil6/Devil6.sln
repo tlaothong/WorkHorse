@@ -2,6 +2,9 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devil6Game", "Devil6Game\Devil6Game.csproj", "{25F92300-002C-41E5-8F8B-609A8DC5F792}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DEE1EB42-F639-4D6E-A998-4A4C6EE5007A} = {DEE1EB42-F639-4D6E-A998-4A4C6EE5007A}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devil6Game.Web", "Devil6Game.Web\Devil6Game.Web.csproj", "{DEE1EB42-F639-4D6E-A998-4A4C6EE5007A}"
 EndProject
