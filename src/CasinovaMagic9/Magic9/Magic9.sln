@@ -2,6 +2,9 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magic9Game", "Magic9Game\Magic9Game.csproj", "{57C3B593-C7F2-4C35-B6FC-42990BB8E978}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B69B1655-F4C3-4C22-808E-8897016B66FB} = {B69B1655-F4C3-4C22-808E-8897016B66FB}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magic9Game.Web", "Magic9Game.Web\Magic9Game.Web.csproj", "{B69B1655-F4C3-4C22-808E-8897016B66FB}"
 EndProject

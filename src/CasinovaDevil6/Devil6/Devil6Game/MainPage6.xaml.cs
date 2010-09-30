@@ -1,4 +1,4 @@
-﻿    using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,14 +9,13 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
-using PerfEx.Infrastructure.Mvvm;
 
-namespace Magic9Game
+namespace Devil6Game
 {
     public partial class MainPage : UserControl
     {
         #region Fields
-        
+
         private const string AutoBetOn = "Enable";
         private const string AutoBetOff = "Disable";
         private const string AutoBetStart = "Start";
@@ -27,14 +26,12 @@ namespace Magic9Game
         #endregion Fields
 
         #region Constructor
-        
+
         public MainPage()
         {
             InitializeComponent();
-            MvvmBinder.Bind(this, DataContext);
-
             AutoBet.Click += new RoutedEventHandler(AutoBet_Click);
-            StartStop.Click += new RoutedEventHandler(StartStop_Click);
+            StartStop.Click+=new RoutedEventHandler(StartStop_Click);
         }
 
         #endregion Constructor

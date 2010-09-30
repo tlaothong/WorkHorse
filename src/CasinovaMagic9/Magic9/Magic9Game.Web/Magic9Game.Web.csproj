@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ClientBin\Magic9Game.xap" />
+    <Content Include="Magic9GameService.asmx" />
     <Content Include="Magic9GameTestPage.aspx" />
     <Content Include="Magic9GameTestPage.html" />
     <Content Include="Silverlight.js" />
@@ -64,6 +65,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Magic9GameService.asmx.cs">
+      <DependentUpon>Magic9GameService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

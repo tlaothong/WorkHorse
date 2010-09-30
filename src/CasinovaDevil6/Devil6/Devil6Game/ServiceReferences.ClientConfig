@@ -1,0 +1,17 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="Devil6GameServiceSoap" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://localhost:54650/Devil6GameService.asmx"
+                binding="basicHttpBinding" bindingConfiguration="Devil6GameServiceSoap"
+                contract="Devil6Svc.Devil6GameServiceSoap" name="Devil6GameServiceSoap" />
+        </client>
+    </system.serviceModel>
+</configuration>

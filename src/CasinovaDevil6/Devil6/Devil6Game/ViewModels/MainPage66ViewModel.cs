@@ -13,16 +13,22 @@ using System.ComponentModel;
 
 namespace Devil6Game.ViewModels
 {
-    public class MainPage66ViewModel : MainPageViewModel
+    public class MainPage66ViewModel : MainPage6ViewModel
     {
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// กำหนดค่าเริ่มต้นของ Main page view model
+        /// </summary>
         public MainPage66ViewModel()
         {
             _notify = new PropertyChangedNotifier(this, () => PropertyChanged);
         }
 
+        /// <summary>
+        /// Bet หมายเลข 10
+        /// </summary>
         public void BetTen()
         {
             //TODO :
