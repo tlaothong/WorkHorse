@@ -166,7 +166,7 @@ namespace ColorsGame.ViewModels
             }
 
             var svc = _svc;
-            svc.PayForWinnerInformationAsync(_tableID, _roundID);
+            svc.PayForWinnerInformationAsync(_tableID, _roundID); 
         }
 
         // On page start initialize view movdel handle events
