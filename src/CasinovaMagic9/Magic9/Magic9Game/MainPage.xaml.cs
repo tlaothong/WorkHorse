@@ -56,7 +56,10 @@ namespace Magic9Game
         {
             _autoBetStart = !_autoBetStart;
             if (_autoBetStart) changeState(AutoBetStop);
-            else changeState(AutoBetStart);
+            else {
+                changeState(AutoBetStart);
+                changeState(AutoBetOff);
+            }
         }
 
         // change game state
