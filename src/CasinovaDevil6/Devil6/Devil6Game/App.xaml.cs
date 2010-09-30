@@ -26,7 +26,7 @@ namespace Devil6Game
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            this.RootVisual = new MainPage();
+            this.RootVisual = new Devil6Page();
         }
 
         private void Application_Exit(object sender, EventArgs e)

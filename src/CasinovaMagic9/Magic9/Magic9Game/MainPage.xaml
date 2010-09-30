@@ -1,120 +1,12 @@
-﻿<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:Magic9Game_ViewModels="clr-namespace:Magic9Game.ViewModels" xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="Magic9Game.MainPage"
+﻿<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+x:Class="Magic9Game.MainPage"
     d:DesignHeight="800" d:DesignWidth="600" mc:Ignorable="d" Width="800" Height="600">
 
-	<UserControl.Resources>
-        <Style x:Key="Circle" TargetType="Button">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Canvas Width="50" Height="50">
-                            <Ellipse Fill="Blue" Height="50" Stroke="Black" Width="50"/>
-                            <ContentPresenter Width="50" OpacityMask="Black" Height="15" HorizontalAlignment="Center" Canvas.Top="19" VerticalAlignment="Center"/>
-                        </Canvas>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <Magic9Game_ViewModels:MainPageViewModel x:Key="MainPageViewModelDataSource" d:IsDataSource="True"/>
-		<DataTemplate x:Key="DoubleTemplate">
-			<StackPanel>
-				<TextBlock Text="{Binding Mode=OneWay}"/>
-			</StackPanel>
-		</DataTemplate>
-		<DataTemplate x:Key="StringTemplate">
-			<StackPanel>
-				<TextBlock Text="{Binding Mode=OneWay}"/>
-			</StackPanel>
-		</DataTemplate>
-		<DataTemplate x:Key="DoubleTemplate1">
-			<StackPanel>
-				<TextBlock Text="{Binding Mode=OneWay}"/>
-			</StackPanel>
-		</DataTemplate>
-		<DataTemplate x:Key="DoubleTemplate2">
-			<StackPanel>
-				<TextBlock Text="{Binding Mode=OneWay}"/>
-			</StackPanel>
-		</DataTemplate>
-	</UserControl.Resources>
-	<UserControl.DataContext>
-		<Binding Source="{StaticResource MainPageViewModelDataSource}"/>
-	</UserControl.DataContext>
+	
 
-    <Grid x:Name="LayoutRoot" Background="White">
-    	<VisualStateManager.VisualStateGroups>
-    		<VisualStateGroup x:Name="AutoBetState">
-    			<VisualState x:Name="Disable">
-    				<Storyboard>
-    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Auto">
-    						<DiscreteObjectKeyFrame KeyTime="0">
-    							<DiscreteObjectKeyFrame.Value>
-    								<Visibility>Collapsed</Visibility>
-    							</DiscreteObjectKeyFrame.Value>
-    						</DiscreteObjectKeyFrame>
-    					</ObjectAnimationUsingKeyFrames>
-    				</Storyboard>
-    			</VisualState>
-    			<VisualState x:Name="Enable">
-    				<Storyboard>
-    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Auto">
-    						<DiscreteObjectKeyFrame KeyTime="0">
-    							<DiscreteObjectKeyFrame.Value>
-    								<Visibility>Visible</Visibility>
-    							</DiscreteObjectKeyFrame.Value>
-    						</DiscreteObjectKeyFrame>
-    					</ObjectAnimationUsingKeyFrames>
-    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(StackPanel.Orientation)" Storyboard.TargetName="BetLogData">
-    						<DiscreteObjectKeyFrame KeyTime="0">
-    							<DiscreteObjectKeyFrame.Value>
-    								<Orientation>Horizontal</Orientation>
-    							</DiscreteObjectKeyFrame.Value>
-    						</DiscreteObjectKeyFrame>
-    					</ObjectAnimationUsingKeyFrames>
-    				</Storyboard>
-    			</VisualState>
-    		</VisualStateGroup>
-    		<VisualStateGroup x:Name="StartStopState">
-    			<VisualState x:Name="Start"/>
-    			<VisualState x:Name="Stop">
-    				<Storyboard>
-    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(ContentControl.Content)" Storyboard.TargetName="StartStop">
-    						<DiscreteObjectKeyFrame KeyTime="0" Value="Stop"/>
-    					</ObjectAnimationUsingKeyFrames>
-    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Control.IsEnabled)" Storyboard.TargetName="AutoBet">
-    						<DiscreteObjectKeyFrame KeyTime="0">
-    							<DiscreteObjectKeyFrame.Value>
-    								<System:Boolean>False</System:Boolean>
-    							</DiscreteObjectKeyFrame.Value>
-    						</DiscreteObjectKeyFrame>
-    					</ObjectAnimationUsingKeyFrames>
-    				</Storyboard>
-    			</VisualState>
-    		</VisualStateGroup>
-    	</VisualStateManager.VisualStateGroups>
-    	<Canvas x:Name="Title" Height="50" VerticalAlignment="Top">
-    		<Rectangle Fill="Black" Stroke="Black" Height="50" Width="800"/>
-    		<TextBlock x:Name="TableName" TextWrapping="Wrap" Text="Magic 9" FontSize="26.667" Canvas.Left="6" Canvas.Top="6" FontWeight="Bold" Foreground="White"/>
-
-    	</Canvas>
-    	<ScrollViewer x:Name="BetLogViewer" Height="100" Margin="0,50,0,0" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-    		<StackPanel x:Name="BetLogData"/>
-    	</ScrollViewer>
-    	<Button x:Name="Bet" Content="Bet" Margin="296,0,296,200" Height="68" VerticalAlignment="Bottom"/>
-    	<Canvas x:Name="Pot" Height="107" Margin="195,190,195,0" VerticalAlignment="Top">
-    		<Rectangle Fill="#FFFBFBFB" Height="107" Stroke="Black" Width="410" StrokeThickness="3" d:LayoutOverrides="Width"/>
-    		<TextBlock x:Name="POT" TextWrapping="Wrap" Text="{Binding Pot}" FontSize="26.667" TextAlignment="Center" Canvas.Top="32" Width="410" />
-
-    	</Canvas>
-    	<Canvas x:Name="Auto" Height="49" Margin="8,0,8,8" VerticalAlignment="Bottom" Visibility="Collapsed">
-    		<Rectangle Fill="#FFF7F7F7" Height="49" Stroke="Black" Width="784"/>
-    		<TextBlock TextWrapping="Wrap" Text="Amount" Canvas.Left="104" Canvas.Top="17" FontWeight="Bold"/>
-    		<TextBox x:Name="Amount" TextWrapping="Wrap" Text="{Binding Amount, Mode=TwoWay}" Canvas.Left="156" Width="158" Canvas.Top="13"/>
-    		<TextBlock TextWrapping="Wrap" Text="Interval" Canvas.Left="347" Canvas.Top="17" FontWeight="Bold"/>
-    		<ComboBox x:Name="Interval" Width="191" Canvas.Left="401" Canvas.Top="15" ItemTemplate="{StaticResource StringTemplate}" ItemsSource="{Binding Interval}"/>
-    		<Button x:Name="StartStop" Content="Start" Width="150" Canvas.Left="626" Canvas.Top="8" Height="33"/>
-
-    	</Canvas>
-    	<Button x:Name="AutoBet" Content="AutoBet" Width="78" Height="39" HorizontalAlignment="Left" Margin="13,0,0,13" VerticalAlignment="Bottom"/>
-
-    </Grid>
+    <Grid x:Name="LayoutRoot" Background="White"/>
+    	
 </UserControl>

@@ -25,7 +25,7 @@
 
         <Canvas>
 
-    		<Border BorderThickness="0,1,0,0" BorderBrush="Black" VerticalAlignment="Center" Height="1" Canvas.Left="5" Canvas.Top="150" Width="390"/>
+			<Border BorderThickness="0,1,0,0" BorderBrush="Black" VerticalAlignment="Center" Height="1" Canvas.Left="5" Canvas.Top="150" Width="390"/>
 
     		<Slider x:Name="LowerSlider"
     			Template="{StaticResource sliderTemplate}" ValueChanged="SliderValueChanged"

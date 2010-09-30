@@ -15,9 +15,12 @@ namespace SliderRange
 {
     public partial class MainPage : UserControl
     {
+		private const int _minBet = 1;
         public MainPage()
         {
             InitializeComponent();
+			//set minimum of bet when page_Loaded
+			UpperSlider.Value += _minBet;
 
             // change max
             SetMaximumTextBox.TextChanged += (sender, e) => {
@@ -45,6 +48,9 @@ namespace SliderRange
             Maximum.Text = upper.ToString();
             Minimum.Text = lower.ToString();
 
+			//TODO: minimum different bettween upper value and lowwer value
+			
+			//Find total value
             int total = 0;
             for (int startFrom = lower; startFrom <= upper; startFrom++)
                 total += startFrom;
