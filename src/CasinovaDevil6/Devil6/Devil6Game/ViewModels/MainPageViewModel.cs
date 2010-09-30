@@ -16,11 +16,10 @@ namespace Devil6Game.ViewModels
     public class MainPageViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-
-        private double _amount;
-        private DateTime _interval;
-        private int _repetiton;
-        private PropertyChangedNotifier _notify;
+        protected double _amount;
+        protected DateTime _interval;
+        protected int _repetiton;
+        protected PropertyChangedNotifier _notify;
 
         #region Properties
         
@@ -34,7 +33,7 @@ namespace Devil6Game.ViewModels
             }
         }
 
-        public int Interval
+        public DateTime Interval
         {
             get { return _interval; }
             set
@@ -62,19 +61,38 @@ namespace Devil6Game.ViewModels
 
         }
 
-        public void BetOne()
+        #region Method
+
+        public void ShowBetLogData()
         {
             //TODO :
+        }
+        
+        public void BetOne()
+        {
+            //TODO : Bet No.1 method
         }
 
         public void BetFive()
         {
-            //TODO :
+            //TODO : Bet No.5 medtod
         }
 
-        public void AutoBet()
+        public void ShowAutoBet()
         {
             //TODO :
         }
+        
+        public void StartAutoBet()
+        {
+            //TODO :
+        }
+
+        public void StopAutoBet()
+        {
+            //TODO :
+        }
+
+        #endregion Method
     }
 }
