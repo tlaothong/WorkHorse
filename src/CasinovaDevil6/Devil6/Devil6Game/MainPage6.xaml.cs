@@ -12,9 +12,9 @@ using System.Windows.Shapes;
 
 namespace Devil6Game
 {
-    public partial class MainPage : UserControl
+    public partial class MainPage6 : UserControl
     {
-        public MainPage()
+        public MainPage6()
         {
             InitializeComponent();
         }
