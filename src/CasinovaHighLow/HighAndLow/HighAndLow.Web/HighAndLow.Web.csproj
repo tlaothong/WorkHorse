@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ClientBin\HighAndLow.xap" />
+    <Content Include="HighAndLowGameService.asmx" />
     <Content Include="HighAndLowTestPage.aspx" />
     <Content Include="HighAndLowTestPage.html" />
     <Content Include="Silverlight.js" />
@@ -64,6 +65,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HighAndLowGameService.asmx.cs">
+      <DependentUpon>HighAndLowGameService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
