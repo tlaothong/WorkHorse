@@ -9,19 +9,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
-using PerfEx.Infrastructure.Mvvm;
 
 namespace SliderRange
 {
-    public partial class MainPage : UserControl
+    public partial class SliderStyle2 : UserControl
     {
-		private const int _minBet = 1;
-        public MainPage()
+        public SliderStyle2()
         {
             InitializeComponent();
-			//set minimum of bet when page_Loaded
-			UpperSlider.Value += _minBet;
-
             // change max
             SetMaximumTextBox.TextChanged += (sender, e) => {
                 int set = int.Parse((sender as TextBox).Text);
@@ -41,19 +36,17 @@ namespace SliderRange
         {
             var upper = (int)UpperSlider.Value;
             var lower = (int)LowerSlider.Value;
-            UpperSlider.Value = Math.Max(upper, lower);
-            LowerSlider.Value = Math.Min(upper, lower);
+            UpperSlider.Value = (int)Math.Max(upper, lower);
+            LowerSlider.Value = (int)Math.Min(upper, lower);
+            if ((int)e.NewValue != (int)e.OldValue ) {
+                if (UpperSlider.Value.Equals(UpperSlider.Minimum)) UpperSlider.Value = (int)LowerSlider.Value + 1;
+                if (LowerSlider.Value.Equals(LowerSlider.Maximum)) LowerSlider.Value = (int)UpperSlider.Value - 1;
+            }
+
 
             // Display
-            Maximum.Text = upper.ToString();
-            Minimum.Text = lower.ToString();
-<<<<<<< HEAD
-
-			//TODO: minimum different bettween upper value and lowwer value
-			
-			//Find total value
-=======
->>>>>>> ac40d17ceac697075b3f2a11ee8dd46b180c2f7a
+            Maximum.Text = ((int)UpperSlider.Value).ToString();
+            Minimum.Text = ((int)LowerSlider.Value).ToString();
             int total = 0;
             for (int startFrom = lower; startFrom <= upper; startFrom++) total += startFrom;
             Total.Text = total.ToString();

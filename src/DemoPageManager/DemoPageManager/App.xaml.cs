@@ -10,7 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace SliderRange
+namespace DemoPageManager
 {
     public partial class App : Application
     {
@@ -26,8 +26,7 @@ namespace SliderRange
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            //this.RootVisual = new MainPage();
-            this.RootVisual = new SliderStyle2();
+            this.RootVisual = new MainPage();
         }
 
         private void Application_Exit(object sender, EventArgs e)
