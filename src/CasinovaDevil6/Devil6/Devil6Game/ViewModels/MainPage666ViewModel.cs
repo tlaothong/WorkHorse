@@ -17,12 +17,18 @@ namespace Devil6Game.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// กำหนดค่าเริ่มต้นของ Main page view model
+        /// </summary>
         public MainPage666ViewModel()
         {
             _notify = new PropertyChangedNotifier(this, () => PropertyChanged);
 
         }
 
+        /// <summary>
+        /// Bet หมายเลข 20
+        /// </summary>
         public void BetTwenty()
         {
             //TODO :
