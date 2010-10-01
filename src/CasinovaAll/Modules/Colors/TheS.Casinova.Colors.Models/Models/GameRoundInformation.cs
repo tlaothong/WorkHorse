@@ -34,5 +34,10 @@ namespace TheS.Casinova.Colors.Models
         /// เงินในกองสีขาว
         /// </summary>
         public double WhitePot { get; set; }
+
+        /// <summary>
+        /// จำนวน hand ทั้งหมดที่ลง
+        /// </summary>
+        public int HandCount { get; set; }
     }
 }

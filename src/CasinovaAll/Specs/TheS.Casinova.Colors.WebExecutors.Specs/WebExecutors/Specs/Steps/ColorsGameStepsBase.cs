@@ -11,6 +11,15 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
     [Binding]
     public class ColorsGameStepsBase
     {
+        protected GetGameResultExecutor GetGameResult
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_GetGameResult] as GetGameResultExecutor;
+            }
+        }
+
         protected PayForColorsWinnerInfoExecutor PayForWinnerInfo
         {
             get

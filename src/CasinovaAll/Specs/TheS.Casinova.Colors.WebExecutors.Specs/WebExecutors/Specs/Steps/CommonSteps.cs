@@ -12,6 +12,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
     [Binding]
     public class CommonSteps
     {
+        public const string Key_GetGameResult = "GetGameResultExecutor";
         public const string Key_PayForWinnerInfo = "PayForWinnerExecutor";
         public const string Key_ListActiveGameRoundsExecutor = "ActiveGameRoundsExecutor";
         public const string Key_ListGamePlayInfo = "GamePlayInfoExecutor";
@@ -39,6 +40,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
             ScenarioContext.Current[Key_ListGamePlayInfo] = new ListGamePlayInfoExecutor(dac);
         }
 
+        //Pay For Colors Winner Information specs initialized
         [Given(@"The PayForcolorsWinnerInfo has been created and initialized")]
         public void GivenThePayForcolorsWinnerInfoHasBeenCreatedAndInitialized()
         {
@@ -47,5 +49,16 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
             ScenarioContext.Current[Key_Dac] = dac;
             ScenarioContext.Current[Key_PayForWinnerInfo] = new PayForColorsWinnerInfoExecutor(dac);
         }
+
+        //Game round information specs initialized
+        [Given(@"The GameRoundInformation has been created and initialized")]
+        public void GivenTheGameRoundInformationHasBeenCreatedAndInitialized()
+        {
+            var dac = Mocks.DynamicMock<IColorsGameDataQuery>();
+
+            ScenarioContext.Current[Key_Dac] = dac;
+            ScenarioContext.Current[Key_GetGameResult] = new GetGameResultExecutor(dac);
+        }
+
     }
 }
