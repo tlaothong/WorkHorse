@@ -14,20 +14,27 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
     {
         private double _payFee;
 
-        private IColorsGameDataAccess _dac;
-        private IColorsGameDataBackQuery _dqr;
+        private IPayForColorsWinnerInfo _iPayForColorsWinnerInfo;
+        private ICreatePlayerActionInfo _iCreatPlayerActionInfo;
+        private IUpdateOnGoingTrackingID _iUpdateOnGoingTrackingID;
+
         private IGetPlayerInfoQuery _iGetPlayerInfo;
-        private IGetRoundWinnerQuery _iGetRoundWinner;
-        private IListBetLogQuery _iListBetLog;
-        string _winner;
+        private IListPlayerActionInfoQuery _iListPlayerActionInfo;        
+        private IGetGameRoundInfoQuery _iGetGameRoundInfo;
+
+        private string _winner;
+        private PlayerActionInformation _playerActionInfo;
 
         public PayForColorsWinnerInfoExecutor(IColorsGameDataAccess dac, IColorsGameDataBackQuery dqr)
         {
-            _dac = dac;
-            _dqr = dqr;
+            _iPayForColorsWinnerInfo = dac;
+            _iUpdateOnGoingTrackingID = dac;
+            _iCreatPlayerActionInfo = dac;
+
             _iGetPlayerInfo = dqr;
-            _iGetRoundWinner = dqr;
-            _iListBetLog = dqr;
+            _iGetGameRoundInfo = dqr;
+            _iListPlayerActionInfo = dqr;
+
             _winner = null;
         }
 
@@ -39,7 +46,7 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
             var balance = _iGetPlayerInfo.Get(command);
 
             //ดึงข้อมูลการลงพนันของผู้เล่นในโต๊ะเกมนั้นๆ
-            var betCount = _iListBetLog.List(command);
+            var betCount = _iListPlayerActionInfo.List(command);
 
             //กำหนดเงินที่จะหัก
             if (betCount.Count() > 1) {
@@ -51,19 +58,28 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
             //หักเงินผู้เล่น
             if (balance >= _payFee) {
                 command.PlayerInfo.Balance = balance -= _payFee;
-                _dac.ApplyAction(command.PlayerInfo, command);
+                _iPayForColorsWinnerInfo.ApplyAction(command.PlayerInfo, command);
             }
             else {
                 Console.WriteLine("๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑  เงินไม่พอ  ๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑");
             }
 
-            //บันทึก OnGoingTrackingID สำหรับตรวจสอบการ GetRoundWinner
-            _dac.ApplyAction(command.GamePlayInfo, command);
+             //บันทึกข้อมูล GamePlayInfo
+            _playerActionInfo = new PlayerActionInformation {
+                RoundID = command.GameRoundInfo.RoundID,
+                UserName = command.PlayerInfo.UserName, 
+                ActionType = "GetWinner",               
+                Amount = _payFee,
+            };
+            _iCreatPlayerActionInfo.Create(_playerActionInfo, command);
 
+            //บันทึก OnGoingTrackingID สำหรับตรวจสอบการ GetRoundWinner
+            _iUpdateOnGoingTrackingID.ApplyAction(command.GamePlayInfo, command);
+            
             #endregion Update balance
 
             //ดึงข้อมูล Winner
-             var roundInfo = _iGetRoundWinner.Get(command);
+             var roundInfo = _iGetGameRoundInfo.Get(command);
 
              if (roundInfo.WhitePot >= roundInfo.BlackPot ) {
                  _winner = "White";
@@ -71,6 +87,7 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
              else {
                  _winner = "Black";
              }
+
         }
     }
 }

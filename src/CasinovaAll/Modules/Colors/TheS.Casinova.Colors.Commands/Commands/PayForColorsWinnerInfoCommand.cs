@@ -19,5 +19,8 @@ namespace TheS.Casinova.Colors.Commands
 
         //ข้อมูลทั่วไปของโต๊ะเกม
         public GameRoundInformation GameRoundInfo { get; set; }
+       
+        //ประเภทการดำเนินการ(GetWinner)
+        public string ActionType { get; set; }
     }
 }

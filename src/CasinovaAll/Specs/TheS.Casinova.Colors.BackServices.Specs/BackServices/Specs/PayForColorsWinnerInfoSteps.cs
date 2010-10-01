@@ -18,7 +18,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
         private PlayerInformation _expected;
         private const double _fee = 5;
 
-        [Given(@"sent UserName: '(.*)' and expected Balance: '(.*)'")]
+        [Given(@"sent UserName: '(.*)' and _expected Balance: '(.*)'")]
         public void GivenUserNameXBalanceX(string userName, double balance)
         {
             _expected = new PlayerInformation { UserName = userName, Balance = balance };
@@ -48,7 +48,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
             }
         }
 
-        [Then(@"the player information should be saved by calling IColorsGameDataAccess\.ApplyAction\(PlayerInformation, cmd\)")]
+        [Then(@"the player information should be saved by calling IColorsGameDataAccess\.ApplyAction\(PlayerInformation, _cmd\)")]
         public void ThenThePlayerInformationShouldBeSavedByCallingIColorsGameDataAccess_CreatePayForColorsWinnerInfoCommand()
         {
             Assert.IsTrue(true, "Expectation has been verified in the end of block When.");

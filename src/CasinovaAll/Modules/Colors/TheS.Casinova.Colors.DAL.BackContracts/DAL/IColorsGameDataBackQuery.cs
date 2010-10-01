@@ -9,15 +9,15 @@ using TheS.Casinova.Colors.Models;
 namespace TheS.Casinova.Colors.DAL
 {
     public interface IColorsGameDataBackQuery : 
-        IGetRoundWinnerQuery,
+        IGetGameRoundInfoQuery,
         IGetPlayerInfoQuery,
-        IListBetLogQuery
+        IListPlayerActionInfoQuery
     { }
     
     /// <summary>
     /// ดึงข้อมูล Winner ที่ผู้เล่นเสียเงินโต๊ะที่ดู
     /// </summary>
-    public interface IGetRoundWinnerQuery
+    public interface IGetGameRoundInfoQuery
         : IFetchSingleData<GameRoundInformation, PayForColorsWinnerInfoCommand>
     { }
 
@@ -31,7 +31,7 @@ namespace TheS.Casinova.Colors.DAL
     /// <summary>
     /// ดึงข้อมูลการลงพนันของผู้เล่นในโต๊ะเกมนั้นๆ
     /// </summary>
-    public interface IListBetLogQuery
-        : IFetchData<BetInformation, PayForColorsWinnerInfoCommand>
+    public interface IListPlayerActionInfoQuery
+        : IFetchData<PlayerActionInformation, PayForColorsWinnerInfoCommand>
     { }
 }

@@ -10,6 +10,7 @@ namespace TheS.Casinova.Colors.DAL
 {
     public interface IColorsGameDataAccess :
         IPayForColorsWinnerInfo,
+        ICreatePlayerActionInfo,
         IUpdateOnGoingTrackingID
     { }
 
@@ -21,9 +22,17 @@ namespace TheS.Casinova.Colors.DAL
     { }
 
     /// <summary>
+    /// เพิ่มข้อมูลการดูข้อมูลผู้ชนะในเวลานั้น หลังจากหักเงินผู้เล่น
+    /// </summary>
+    public interface ICreatePlayerActionInfo
+        : ICreateData<PlayerActionInformation, PayForColorsWinnerInfoCommand>
+    { }
+
+    /// <summary>
     /// บันทึกรหัส TrackingID สำรวจตรวจสอบการทำงาน
     /// </summary>
     public interface IUpdateOnGoingTrackingID
         : IDataAction<GamePlayInformation, PayForColorsWinnerInfoCommand>
     { }
+
 }

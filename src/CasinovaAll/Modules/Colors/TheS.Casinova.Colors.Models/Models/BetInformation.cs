@@ -8,7 +8,7 @@ namespace TheS.Casinova.Colors.Models
     /// <summary>
     /// ข้อมูลการลงพนันของผู้เล่นแต่ละครั้ง
     /// </summary>
-    public class BetInformation
+    public class PlayerActionInformation
     {
         /// <summary>
         /// รหัสโต๊ะเกมที่ลงพนัน
@@ -18,6 +18,16 @@ namespace TheS.Casinova.Colors.Models
         /// <summary>
         /// ชื่อผู้เล่นที่ลงพนัน
         /// </summary>
-        public string UserName { get; set; }       
+        public string UserName { get; set; }
+        
+        /// <summary>
+        /// ประเภทของการดำเนินการ
+        /// </summary>
+        public string ActionType { get; set; }
+
+        /// <summary>
+        /// จำนวนเงินที่ใช้ดำเนินการ
+        /// </summary>
+        public double Amount { get; set; }
     }
 }

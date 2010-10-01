@@ -64,12 +64,12 @@ this.ScenarioSetup(scenarioInfo);
 #line 8
 testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initialized");
 #line 9
-testRunner.And("sent UserName: \'OhAe\' and expected Balance: \'95\'");
+testRunner.And("sent UserName: \'OhAe\' and _expected Balance: \'95\'");
 #line 10
 testRunner.When("call PayForColorsWinnerInfo(UserName: \'OhAe\', Balance: \'100\')");
 #line 11
 testRunner.Then("the player information should be saved by calling IColorsGameDataAccess.ApplyActi" +
-                    "on(PlayerInformation, cmd)");
+                    "on(PlayerInformation, _cmd)");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -86,12 +86,12 @@ this.ScenarioSetup(scenarioInfo);
 #line 15
 testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initialized");
 #line 16
-testRunner.And("sent UserName: \'OhAe\' and expected Balance: \'0\'");
+testRunner.And("sent UserName: \'OhAe\' and _expected Balance: \'0\'");
 #line 17
 testRunner.When("call PayForColorsWinnerInfo(UserName: \'OhAe\', Balance: \'5\')");
 #line 18
 testRunner.Then("the player information should be saved by calling IColorsGameDataAccess.ApplyActi" +
-                    "on(PlayerInformation, cmd)");
+                    "on(PlayerInformation, _cmd)");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
