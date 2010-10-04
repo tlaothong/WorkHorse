@@ -12,12 +12,12 @@ using System.ComponentModel;
 using PerfEx.Infrastructure;
 using System.Collections.ObjectModel;
 using Magic9Game.Magic9Svc;
+using System.Globalization;
 
 namespace Magic9Game.ViewModels
 {
     public class MainPageViewModel : INotifyPropertyChanged
     {
-
         #region Fields
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -27,7 +27,7 @@ namespace Magic9Game.ViewModels
         private ObservableCollection<string> _interval;
         private ObservableCollection<double> _betLogData;
         private Magic9GameServiceSoapClient _service;
-
+                
         #endregion Fields
 
         #region Properties
@@ -133,13 +133,26 @@ namespace Magic9Game.ViewModels
             _service.GetNumberAsync();
         }
 
+        
 
         /// <summary>
         /// ปิด/เปิด การเล่นอัตโนมัติ
         /// </summary>
-        public void StartStop()
+        public void StartStop(ObservableCollection<string> interval)
         {
-            // TODO : ปิด/เปิด การเล่นอัตโนมัติ
+            DateTime startTime = DateTime.Now;
+            TimeInterval timeInterval = new TimeInterval();
+            TimeSpan timeSpan = timeInterval.CreateTimeInterval(interval);
+            DateTime endTime = startTime.Add(timeSpan);
+
+            for (int i = 1; i <= _amount; i++ ) 
+            {
+
+                for (DateTime begin = startTime; begin <= endTime; begin.Add(timeSpan)) 
+                {
+                    Bet();
+                }
+            }
         }
 
         // ได้รับค่าของ Pot ณ เวลาขณะนั้น
