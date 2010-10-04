@@ -1,0 +1,966 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PerfEx.Infrastructure.Advanced</name>
+    </assembly>
+    <members>
+        <member name="T:PerfEx.Infrastructure.TypeExtensions">
+            <summary>
+            Extension methods for Type.
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.TypeExtensions.IsNullable(System.Type)">
+            <summary>
+            Check if Type is nullable.
+            </summary>
+            <param name="type">The type to check for nullabl.e</param>
+            <returns>True if nullable type.</returns>
+        </member>
+        <member name="T:PerfEx.Infrastructure.ThickTimer.ElapseTime">
+            <summary>
+            ElapseTime information for the ThickTimer.
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.ThickTimer.ElapseTime.#ctor">
+            <summary>
+            Initialize a default instance of ElapseTime(use for serialization).
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.ThickTimer.ElapseTime.#ctor(System.DateTime)">
+            <summary>
+            Initialize an instance of ElapseTime for using the absolute date time specified in due.
+            </summary>
+            <param name="due">The absolute local date time to elapsed.</param>
+        </member>
+        <member name="M:PerfEx.Infrastructure.ThickTimer.ElapseTime.#ctor(System.TimeSpan)">
+            <summary>
+            Initialize an instance of ElapseTime for using the duration specified in duration.
+            </summary>
+            <param name="duration">The duration to elapsed.</param>
+        </member>
+        <member name="P:PerfEx.Infrastructure.ThickTimer.ElapseTime.UseDuration">
+            <summary>
+            True if duration is used. False if absolute due datetime is used instead.
+            </summary>
+        </member>
+        <member name="P:PerfEx.Infrastructure.ThickTimer.ElapseTime.DueDateTime">
+            <summary>
+            The expiration datetime.
+            </summary>
+        </member>
+        <member name="T:PerfEx.Infrastructure.Resources.ErrMsg">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:PerfEx.Infrastructure.Resources.ErrMsg.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:PerfEx.Infrastructure.Resources.ErrMsg.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:PerfEx.Infrastructure.Resources.ErrMsg.Common_InvalidType">
+            <summary>
+              Looks up a localized string similar to Type specified is invalid..
+            </summary>
+        </member>
+        <member name="P:PerfEx.Infrastructure.Resources.ErrMsg.Common_ValueShouldNotNullOrEmpty">
+            <summary>
+              Looks up a localized string similar to The value of {0} can not be null or empty..
+            </summary>
+        </member>
+        <member name="P:PerfEx.Infrastructure.Resources.ErrMsg.LotRetriever_NoUpdateUrl">
+            <summary>
+              Looks up a localized string similar to Url for querying lot data is neither specified in the parameter nor in the service..
+            </summary>
+        </member>
+        <member name="T:PerfEx.Infrastructure.Data.DataParameterCache">
+            <summary>
+            Cache for the data parameter.
+            </summary>
+        </member>
+        <member name="T:PerfEx.Infrastructure.Caching.ReaderWriterCache`2">
+            <summary>
+            Provides permanent cache which never sweep out from memory with proper read/write locking (synchronization).
+            </summary>
+            <typeparam name="TKey">A key type.</typeparam>
+            <typeparam name="TValue">A value type.</typeparam>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Caching.ReaderWriterCache`2.#ctor">
+            <summary>
+            Initializes a new instance of ReaderWriterCache with default comparer.
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Caching.ReaderWriterCache`2.#ctor(System.Collections.Generic.IEqualityComparer{`0})">
+            <summary>
+            Initializes a new instance of ReaderWriterCache with the specified comparer.
+            </summary>
+            <param name="comparer">The comparer used when comparing key.</param>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Caching.ReaderWriterCache`2.FetchOrCreateItem(`0,System.Func{`1})">
+            <summary>
+            Fetch an item from cache, or create a new one if not exists.
+            </summary>
+            <param name="key">The key of an item to retrieve.</param>
+            <param name="creator">An expression use to create a new item if not exists in cache.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Caching.ReaderWriterCache`2.Remove(`0)">
+            <summary>
+            Removes an item from the cache.
+            </summary>
+            <param name="key">A key of the item to remove.</param>
+            <returns>True if success.</returns>
+        </member>
+        <member name="P:PerfEx.Infrastructure.Caching.ReaderWriterCache`2.Cache">
+            <summary>
+            Direct access to cache data.
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.DataParameterCache.#ctor">
+            <summary>
+            Initializes a new DataParameterCache instance.<br />
+            Only the framework are allowed to use this class.
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.DataParameterCache.GetDataParamters(System.String,System.Func{System.Data.IDataParameter[]})">
+            <summary>
+            Get the cached data parameters.
+            </summary>
+            <param name="key">Typically, stored procedure name.</param>
+            <param name="createParameters">Function to create the data parameters.</param>
+            <returns>The array of data parameters.</returns>
+        </member>
+        <member name="T:PerfEx.Infrastructure.CommandPattern.ContextCommandBase">
+            <summary>
+            The base class for command with context attached to it.
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.CommandPattern.ContextCommandBase.GetCommandContext">
+            <summary>
+            Get the attached command context.
+            </summary>
+            <returns>The command context.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.CommandPattern.ContextCommandBase.ReleaseContext">
+            <summary>
+            Destroy the attached command context.
+            </summary>
+        </member>
+        <member name="T:PerfEx.Infrastructure.ThickTimer.NotificationException">
+            <summary>
+            An exception of ThickTimerService, when it fails to send notifications to clients.
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.ThickTimer.NotificationException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of NotificationException class with a specified error message.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="T:PerfEx.Infrastructure.Data.CachedFetchSingleData`2">
+            <summary>
+            The cache proxy for IFetchSingleData
+            </summary>
+            <typeparam name="TEntity">the data entity type.</typeparam>
+            <typeparam name="TCmd">the command type.</typeparam>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.CachedFetchSingleData`2.#ctor(PerfEx.Infrastructure.Data.IFetchSingleData{`0,`1},System.DateTime,System.TimeSpan)">
+            <summary>
+            Initialize the CachedFetchSingleData instance.
+            </summary>
+            <param name="target">The real data access object.</param>
+            <param name="absoluteExpiration">For absolute expiration mode, pass the DateTime to expired here.<br />
+            Use ObjectCache.InfiniteAbsoluteExpiration when data has no absolute expiration.</param>
+            <param name="slidingExpiration">For sliding expiration mode, pass the TimeSpan of the sliding window here.<br />
+            Use ObjectCache.NoSlidingExpiration when data has no sliding expiration time.</param>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.CachedFetchSingleData`2.ClearCache(`1)">
+            <summary>
+            Clear the data in cache for this instance.
+            </summary>
+            <param name="cmd">The command use for generate the cache key.</param>
+        </member>
+        <member name="T:PerfEx.Infrastructure.CommandPattern.CommandContext">
+            <summary>
+            The default implementation of the command context.
+            </summary>
+        </member>
+        <member name="T:PerfEx.Infrastructure.ObjectPropertyDictionary">
+            <summary>
+            A dictionary of object properties use to convert anynomous/ordinary object's properties to the dictionary.
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.ObjectPropertyDictionary.#ctor(System.Object)">
+            <summary>
+            Initializes a new instance of the ObjectPropertyDictionary class and add values that are based on properties from the specified object.
+            </summary>
+            <param name="values">An object that contains properties that will be added as elements to the new collection.</param>
+        </member>
+        <member name="T:PerfEx.Infrastructure.Validation.DataAnnotationValidationHelper">
+            <summary>
+            Validate the model with data annotation attributes
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Validation.DataAnnotationValidationHelper.ValidateModel(System.Object)">
+            Warning: For some reason, DataTypeAttribute.IsValid() always returns "true", regardless of whether
+            it is actually valid. Need to improve this test runner to fix that.
+        </member>
+        <member name="T:PerfEx.Infrastructure.Data.ExecuteCommandAsyncState">
+            <summary>
+            Use for SProcs asynchronous operations.
+            </summary>
+        </member>
+        <member name="T:PerfEx.Infrastructure.Data.CachedFetchData`2">
+            <summary>
+            Cache proxy for IFetchData
+            </summary>
+            <typeparam name="TEntity">the data entity type.</typeparam>
+            <typeparam name="TCmd">the command type.</typeparam>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.CachedFetchData`2.#ctor(PerfEx.Infrastructure.Data.IFetchData{`0,`1},System.DateTime,System.TimeSpan)">
+            <summary>
+            Initialize the CachedFetchData instance.
+            </summary>
+            <param name="target">The real data access object.</param>
+            <param name="absoluteExpiration">For absolute expiration mode, pass the DateTime to expired here.<br />
+            Use ObjectCache.InfiniteAbsoluteExpiration when data has no absolute expiration.</param>
+            <param name="slidingExpiration">For sliding expiration mode, pass the TimeSpan of the sliding window here.<br />
+            Use ObjectCache.NoSlidingExpiration when data has no sliding expiration time.</param>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.CachedFetchData`2.ClearCache(`1)">
+            <summary>
+            Clear the data in cache for this instance.
+            </summary>
+            <param name="cmd">The command use for generate the cache key.</param>
+        </member>
+        <member name="T:PerfEx.Infrastructure.StatusTracking.ITaskTrackerRepository">
+            <summary>
+            An abstract interface to the repository of the task tracking module.
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.StatusTracking.ITaskTrackerRepository.Insert(System.String,System.String)">
+            <summary>
+            Create a new task information in the repository.
+            </summary>
+            <param name="taskId">An id of the task to create.</param>
+            <param name="state">An initial task status.</param>
+            <returns>True if succeed.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.StatusTracking.ITaskTrackerRepository.Get(System.String)">
+            <summary>
+            Gets the task status given the task id.
+            </summary>
+            <param name="taskId">An id of the task which need to get status.</param>
+            <returns>An entity containing the status of the task.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.StatusTracking.ITaskTrackerRepository.Update(System.String,System.String)">
+            <summary>
+            Update a status of a task.
+            </summary>
+            <param name="taskId">An id of the task to update.</param>
+            <param name="state">A new status of the task to update.</param>
+            <returns>True if succeed.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.StatusTracking.ITaskTrackerRepository.CleanUp">
+            <summary>
+            For internal use only, deletes old data from the database.
+            </summary>
+        </member>
+        <member name="T:PerfEx.Infrastructure.Data.PagingInformationExtensions">
+            <summary>
+            Extension methods for PagingInformation
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.PagingInformationExtensions.GetPageCount(PerfEx.Infrastructure.Data.PagingInformation)">
+            <summary>
+            Get the total number of pages.
+            </summary>
+            <param name="pageInfo">paging information contains the information about the current page.</param>
+            <returns>The total number of pages.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.PagingInformationExtensions.HasNextPage(PerfEx.Infrastructure.Data.PagingInformation)">
+            <summary>
+            Check if this page has the next page.
+            </summary>
+            <param name="pageInfo">paging information contains the information about the current page.</param>
+            <returns>true if this page is not the last one.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.PagingInformationExtensions.HasPrevPage(PerfEx.Infrastructure.Data.PagingInformation)">
+            <summary>
+            Check for the previous page.
+            </summary>
+            <param name="pageInfo">paging information contains the information about the current page.</param>
+            <returns>true if this page is not the first one.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.PagingInformationExtensions.GetPageCount(System.Int32,System.Int32)">
+            <summary>
+            Get the total number of pages.
+            </summary>
+            <param name="pageSize">The number of items in one page.</param>
+            <param name="totalCount">The total number of items in all pages.</param>
+            <returns>The number of pages.</returns>
+        </member>
+        <member name="T:PerfEx.Infrastructure.Data.IDatabaseConnectionWrapper">
+            <summary>
+            An abstract interface to the database connection wrapper.
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.IDatabaseConnectionWrapper.GetConnection">
+            <summary>
+            Gets an existing connection to the database or create a new one if not already exists.
+            </summary>
+            <returns>A database connection.</returns>
+        </member>
+        <member name="T:PerfEx.Infrastructure.ContextualCommandExtensions">
+            <summary>
+            Extension methods for accessing the command with context associated.
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.ContextualCommandExtensions.GetServiceObject``1(PerfEx.Infrastructure.CommandPattern.IAttachCommandContext,PerfEx.Infrastructure.IServiceObjectProvider{``0})">
+            <summary>
+            Get the service object.<br />
+            This method will get the service object from the command context, if exists.<br />
+            Otherwise, it will use the service object provider to get access to the object.
+            </summary>
+            <typeparam name="T">The service object type.</typeparam>
+            <param name="commandWithContext">The command which attach the command context.</param>
+            <param name="svcProvider">The service provider for accessing the object if the context doesn't exists<br />
+            or no object associated witht the context.</param>
+            <returns>The service object.</returns>
+        </member>
+        <member name="T:PerfEx.Infrastructure.StatusTracking.TaskStatusConnectionWrapper">
+            <summary>
+            The connection wrapper for the task status tracking database.
+            </summary>
+        </member>
+        <member name="T:PerfEx.Infrastructure.Data.SqlServer.SqlConnectionWrapperBase">
+            <summary>
+            Database Connection Wrapper for SQL Server
+            </summary>
+        </member>
+        <member name="T:PerfEx.Infrastructure.Data.DatabaseConnectionWrapperBase">
+            <summary>
+            Base class for the database connection wrapper.<br />
+            This class abstracts the connection to the database.
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.DatabaseConnectionWrapperBase.GetConnection">
+            <summary>
+            Gets the connection to the database.<br />
+            This will creates a new connection if neccessary or will returns an existing one.
+            </summary>
+            <returns>The connection object.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.DatabaseConnectionWrapperBase.CreateConnection">
+            <summary>
+            Creates a new database connection.
+            </summary>
+            <returns>A new database connection.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.SqlServer.SqlConnectionWrapperBase.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the SqlConnectionWrapperBase witht the connection string name in the configuration.
+            </summary>
+            <param name="configurationName">The connection string name in the configuration file.</param>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.SqlServer.SqlConnectionWrapperBase.GetConnection">
+            <summary>
+            Get the connection to the SQL Server database.
+            </summary>
+            <returns>The connection object.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.SqlServer.SqlConnectionWrapperBase.CreateConnection">
+            <summary>
+            Creates a new connection string.
+            </summary>
+            <returns>A new connection string.</returns>
+        </member>
+        <member name="P:PerfEx.Infrastructure.Data.SqlServer.SqlConnectionWrapperBase.ConnectionString">
+            <summary>
+            Gets the connection string to the SQL Server database.
+            </summary>
+        </member>
+        <member name="F:PerfEx.Infrastructure.StatusTracking.TaskStatusConnectionWrapper.ConnectionKey">
+            <summary>
+            The application setting which store the connection string key name.
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.StatusTracking.TaskStatusConnectionWrapper.#cctor">
+            <summary>
+            Initializes static members.
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.StatusTracking.TaskStatusConnectionWrapper.#ctor">
+            <summary>
+            Initializes a new TaskStatusConnectionWrapper instance.
+            </summary>
+        </member>
+        <member name="P:PerfEx.Infrastructure.StatusTracking.TaskStatusConnectionWrapper.ConfigHelper">
+            <summary>
+            Gets or sets the configuration helper for accessing the application settings.
+            </summary>
+        </member>
+        <member name="T:PerfEx.Infrastructure.ResourceDisplayNameAttribute">
+            <summary>
+            Specifies the display name for a property, event, or public void method which takes no arguments from the string resouce.
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.ResourceDisplayNameAttribute.#ctor(System.Type,System.String)">
+            <summary>
+            Initialize the new instance of ResourceDisplayNameAttribute class.
+            </summary>
+            <param name="resourceType">Type of the string resource.</param>
+            <param name="resourceName">The name of the resource.</param>
+        </member>
+        <member name="P:PerfEx.Infrastructure.ResourceDisplayNameAttribute.DisplayName">
+            <summary>
+            The display name of the target.
+            </summary>
+        </member>
+        <member name="T:PerfEx.Infrastructure.Data.SProcs">
+            <summary>
+            Provides several method for calling stored procedures.
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.SProcs.SetDatabaseWrapper(System.Type,System.Type)">
+            <summary>
+            Sets database wrapper for the specified database family.
+            For SQL Server, we need not call this method because the framework has been provided its information already.
+            </summary>
+            <param name="connectionType">A connection type of the database family, for example System.Data.SqlClient.SqlConnection.</param>
+            <param name="databaseWrapperType">A database wrapper type to use.</param>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.SProcs.ExecuteNonQuery(System.Data.Common.DbConnection,System.String)">
+            <summary>
+            Executes a stored procedure against a connection object.
+            </summary>
+            <param name="conn">The connection to the database.</param>
+            <param name="sprocName">The stored procedure name.</param>
+            <returns>The number of row affected from the command (only if database has this capability turn on).</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.SProcs.ExecuteNonQuery(System.Data.Common.DbConnection,System.String,System.Object)">
+            <summary>
+            Executes a stored procedure against a connection object.
+            </summary>
+            <param name="conn">The connection to the database.</param>
+            <param name="sprocName">The stored procedure name.</param>
+            <param name="parameters">The object whose property will be used as input/output parameters.</param>
+            <returns>The number of row affected from the command (only if database has this capability turn on).</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.SProcs.ExecuteNonQuery``1(System.Data.Common.DbConnection,System.String)">
+            <summary>
+            Executes a stored procedure against a connection object.
+            </summary>
+            <typeparam name="T">The type of return value from the stored procedure.</typeparam>
+            <param name="conn">The connection to the database.</param>
+            <param name="sprocName">The stored procedure name.</param>
+            <returns>The return value from the stored procedure(RETURN_VALUE).</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.SProcs.ExecuteNonQuery``1(System.Data.Common.DbConnection,System.String,System.Object)">
+            <summary>
+            Executes a stored procedure against a connection object.
+            </summary>
+            <typeparam name="T">The type of return value from the stored procedure.</typeparam>
+            <param name="conn">The connection to the database.</param>
+            <param name="sprocName">The stored procedure name.</param>
+            <param name="parameters">The object whose property will be used as input/output parameters.</param>
+            <returns>The return value from the stored procedure(RETURN_VALUE).</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.SProcs.ExecuteReader(System.Data.Common.DbConnection,System.String,System.Data.CommandBehavior)">
+            <summary>
+            Executes a stored procedure and obtains the table result as a DbDataReader.
+            </summary>
+            <param name="conn">The connection to the database.</param>
+            <param name="sprocName">The stored procedure name.</param>
+            <param name="behavior">One of the CommandBehavior values.</param>
+            <returns>The query result from the stored procedure.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.SProcs.ExecuteReader(System.Data.Common.DbConnection,System.String,System.Object,System.Data.CommandBehavior)">
+            <summary>
+            Executes a stored procedure and obtains the table result as a DbDataReader.
+            </summary>
+            <param name="conn">The connection to the database.</param>
+            <param name="sprocName">The stored procedure name.</param>
+            <param name="parameters">The object whose property will be used as input/output parameters.</param>
+            <param name="behavior">One of the CommandBehavior values.</param>
+            <returns>The query result from the stored procedure.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.SProcs.ExecuteScalar(System.Data.Common.DbConnection,System.String)">
+            <summary>
+            Executes a stored procedure and return the first column of the first row. All other columns and rows are ignored.
+            </summary>
+            <param name="conn">The connection to the database.</param>
+            <param name="sprocName">The stored procedure name.</param>
+            <returns>An object result from the stored procedure.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.SProcs.ExecuteScalar(System.Data.Common.DbConnection,System.String,System.Object)">
+            <summary>
+            Executes a stored procedure and return the first column of the first row. All other columns and rows are ignored.
+            </summary>
+            <param name="conn">The connection to the database.</param>
+            <param name="sprocName">The stored procedure name.</param>
+            <param name="parameters">The object whose property will be used as input/output parameters.</param>
+            <returns>An object result from the stored procedure.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.SProcs.BeginExecuteNonQuery(System.Data.SqlClient.SqlConnection,System.String,System.AsyncCallback,System.Object)">
+            <summary>
+            Asynchronously executes a stored procedure against a connection object.
+            </summary>
+            <param name="conn">The connection to the database.</param>
+            <param name="sprocName">The stored procedure name.</param>
+            <param name="callback">A delegate that's invoked when the command execution has completed.</param>
+            <param name="userState">A user-state object to be retrieved from method EndExecuteNonQuery().</param>
+            <returns>IAsyncResult for referencing the asynchronous operation.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.SProcs.BeginExecuteNonQuery(System.Data.SqlClient.SqlConnection,System.String,System.Object,System.AsyncCallback,System.Object)">
+            <summary>
+            Asynchronously executes a stored procedure against a connection object.
+            </summary>
+            <param name="conn">The connection to the database.</param>
+            <param name="sprocName">The stored procedure name.</param>
+            <param name="parameters">The object whose property will be used as input/output parameters.</param>
+            <param name="callback">A delegate that's invoked when the command execution has completed.</param>
+            <param name="userState">A user-state object to be retrieved from method EndExecuteNonQuery().</param>
+            <returns>IAsyncResult for referencing the asynchronous operation.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.SProcs.EndExecuteNonQuery(System.IAsyncResult,System.Object@)">
+            <summary>
+            Retrieve the information of an asynchronous operation.
+            </summary>
+            <param name="ar">The information which pass to the callback method.</param>
+            <param name="userState">An user-state output parameter, which you've send into the method BeginExecuteNonQuery().</param>
+            <returns>The number of row affected from the command (only if database has this capability turn on).</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.SProcs.EndExecuteNonQuery``1(System.IAsyncResult,System.Object@)">
+            <summary>
+            Retrieve the information of an asynchronous operation.
+            </summary>
+            <typeparam name="T">The type of return value from the stored procedure.</typeparam>
+            <param name="ar">The information which pass to the callback method.</param>
+            <param name="userState">An user-state output parameter, which you've send into the method BeginExecuteNonQuery().</param>
+            <returns>The return value from the stored procedure(RETURN_VALUE).</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.SProcs.BeginExecuteReader(System.Data.SqlClient.SqlConnection,System.String,System.Data.CommandBehavior,System.AsyncCallback,System.Object)">
+            <summary>
+            Asynchronously executes a stored procedure and obtains the table result as a DbDataReader.<br />
+            This operation would <b>NOT</b> yield the output parameters and a return value.
+            </summary>
+            <param name="conn">The connection to the database.</param>
+            <param name="sprocName">The stored procedure name.</param>
+            <param name="behavior">One of the CommandBehavior values.</param>
+            <param name="callback">A delegate that's invoked when the command execution has completed.</param>
+            <param name="userState">An user-state output parameter, which you've send into the method BeginExecuteReader().</param>
+            <returns>The query result from the stored procedure.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.SProcs.BeginExecuteReader(System.Data.SqlClient.SqlConnection,System.String,System.Object,System.Data.CommandBehavior,System.AsyncCallback,System.Object)">
+            <summary>
+            Asynchronously executes a stored procedure and obtains the table result as a DbDataReader.<br />
+            This operation would <b>NOT</b> yield the output parameters and a return value.
+            </summary>
+            <param name="conn">The connection to the database.</param>
+            <param name="sprocName">The stored procedure name.</param>
+            <param name="parameters">The object whose property will be used as input/output parameters.</param>
+            <param name="behavior">One of the CommandBehavior values.</param>
+            <param name="callback">A delegate that's invoked when the command execution has completed.</param>
+            <param name="userState">An user-state output parameter, which you've send into the method BeginExecuteReader().</param>
+            <returns>The query result from the stored procedure.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.SProcs.EndExecuteReader(System.IAsyncResult,System.Object@)">
+            <summary>
+            Retrieve DbDataReader from an asynchronous operation.
+            </summary>
+            <param name="ar">The information which pass to the callback method.</param>
+            <param name="userState">An user-state output parameter, which you've send into the method BeginExecuteReader().</param>
+            <returns>A DbDataReader instance.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.SProcs.BeginExecuteScalar(System.Data.SqlClient.SqlConnection,System.String,System.AsyncCallback,System.Object)">
+            <summary>
+            Executes a stored procedure and return the first column of the first row. All other columns and rows are ignored.
+            </summary>
+            <param name="conn">The connection to the database.</param>
+            <param name="sprocName">The stored procedure name.</param>
+            <param name="callback">A delegate that's invoked when the command execution has completed.</param>
+            <param name="userState">A user-state object to be retrieved from method EndExecuteNonQuery().</param>
+            <returns>IAsyncResult for referencing the asynchronous operation.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.SProcs.BeginExecuteScalar(System.Data.SqlClient.SqlConnection,System.String,System.Object,System.AsyncCallback,System.Object)">
+            <summary>
+            Executes a stored procedure and return the first column of the first row. All other columns and rows are ignored.
+            </summary>
+            <param name="conn">The connection to the database.</param>
+            <param name="sprocName">The stored procedure name.</param>
+            <param name="parameters">The object whose property will be used as input/output parameters.</param>
+            <param name="callback">A delegate that's invoked when the command execution has completed.</param>
+            <param name="userState">A user-state object to be retrieved from method EndExecuteNonQuery().</param>
+            <returns>IAsyncResult for referencing the asynchronous operation.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.SProcs.EndExecuteScalar(System.IAsyncResult,System.Object@)">
+            <summary>
+            Retrieve the information of an asynchronous operation.
+            </summary>
+            <param name="ar">The information which pass to the callback method.</param>
+            <param name="userState">An user-state output parameter, which you've send into the method BeginExecuteNonQuery().</param>
+            <returns>An object result from the stored procedure.</returns>
+        </member>
+        <member name="T:PerfEx.Infrastructure.ThickTimer.NotificationChannel">
+            <summary>
+            Notification channel use to send an elapsed message back.
+            </summary>
+        </member>
+        <member name="F:PerfEx.Infrastructure.ThickTimer.NotificationChannel.Http">
+            <summary>
+            Http
+            </summary>
+        </member>
+        <member name="F:PerfEx.Infrastructure.ThickTimer.NotificationChannel.Tcp">
+            <summary>
+            net.tcp
+            </summary>
+        </member>
+        <member name="F:PerfEx.Infrastructure.ThickTimer.NotificationChannel.NamePipe">
+            <summary>
+            Name pipe
+            </summary>
+        </member>
+        <member name="F:PerfEx.Infrastructure.ThickTimer.NotificationChannel.Msmq">
+            <summary>
+            net.msmq
+            </summary>
+        </member>
+        <member name="F:PerfEx.Infrastructure.ThickTimer.NotificationChannel.WebRequest">
+            <summary>
+            Normal web request with tickets in the payload.
+            </summary>
+        </member>
+        <member name="T:PerfEx.Infrastructure.ThickTimer.IThickTimerService">
+            <summary>
+            An abstract interface for the Thick Timer service.<br />
+            This service is acting as a stop watch for other services.<br />
+            The service is not precise you should exepect the latency as high as a few minutes.
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.ThickTimer.IThickTimerService.Register(PerfEx.Infrastructure.ThickTimer.RegisterRequest)">
+            <summary>
+            Register to a timer for elapsed time.
+            </summary>
+            <param name="req">Registration information.</param>
+            <returns>The registration response.</returns>
+        </member>
+        <member name="T:PerfEx.Infrastructure.ThickTimer.RegisterRequest">
+            <summary>
+            The registration request information.
+            </summary>
+        </member>
+        <member name="P:PerfEx.Infrastructure.ThickTimer.RegisterRequest.CustomTicket">
+            <summary>
+            The ticket which specify by the client to track this entry.<br />
+            If null, the system will pick up the new Guid for this entry.
+            </summary>
+        </member>
+        <member name="P:PerfEx.Infrastructure.ThickTimer.RegisterRequest.ElapseTime">
+            <summary>
+            Information of the elapsed time.
+            </summary>
+        </member>
+        <member name="P:PerfEx.Infrastructure.ThickTimer.RegisterRequest.NotificationChannel">
+            <summary>
+            The callback channel to notify when the timer has elapsed.
+            </summary>
+        </member>
+        <member name="P:PerfEx.Infrastructure.ThickTimer.RegisterRequest.NotificationAddressUrl">
+            <summary>
+            The callback url use to notify when the timer has elapsed.
+            </summary>
+        </member>
+        <member name="T:PerfEx.Infrastructure.ThickTimer.RegisterResponse">
+            <summary>
+            The registration response information.
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.ThickTimer.RegisterResponse.#ctor">
+            <summary>
+            Initialize a default instance of RegisterResponse (use for serialization).
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.ThickTimer.RegisterResponse.#ctor(System.DateTime)">
+            <summary>
+            Initialize an instance of RegisterResponse for sending through the service.
+            </summary>
+            <param name="regDateTime">The local registration date time.</param>
+        </member>
+        <member name="P:PerfEx.Infrastructure.ThickTimer.RegisterResponse.Ticket">
+            <summary>
+            The ticket information for this entry.
+            </summary>
+        </member>
+        <member name="P:PerfEx.Infrastructure.ThickTimer.RegisterResponse.Success">
+            <summary>
+            Has the registration succeeded.
+            </summary>
+        </member>
+        <member name="P:PerfEx.Infrastructure.ThickTimer.RegisterResponse.RegistrationDateTime">
+            <summary>
+            Gets the register datetime.
+            </summary>
+        </member>
+        <member name="T:PerfEx.Infrastructure.Data.SqlServer.SqlDatabaseWrapper">
+            <summary>
+            Database wrapper for the SQL Server.
+            </summary>
+        </member>
+        <member name="T:PerfEx.Infrastructure.Data.DatabaseWrapper">
+            <summary>
+            An abstraction for the database operations.
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.DatabaseWrapper.CreateDataParameters(System.Data.Common.DbCommand)">
+            <summary>
+            Create a new data parameter to send to the database.
+            </summary>
+            <param name="command">The command use to create the data parameter.</param>
+            <returns>A data parameter.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.DatabaseWrapper.GetParameterName(System.String)">
+            <summary>
+            Gets the database specific name for the data parameter from the name of the parameter.
+            </summary>
+            <param name="name">The neutral name of the parameter.</param>
+            <returns>The database specific name for the data parameter.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.DatabaseWrapper.GetPropertyName(System.String)">
+            <summary>
+            Gets the property name given the database specific name of the data parameter.
+            </summary>
+            <param name="paramName">The name of the data parameter.</param>
+            <returns>The property name.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.SqlServer.SqlDatabaseWrapper.InitializeWrapper">
+            <summary>
+            Must be called for register the wrapper type to the SProcs registry.
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.SqlServer.SqlDatabaseWrapper.CreateDataParameters(System.Data.Common.DbCommand)">
+            <summary>
+            Create a new data parameter for the database command.
+            </summary>
+            <param name="command">The database command use to create the data parameter.</param>
+            <returns>The new data parameter.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.SqlServer.SqlDatabaseWrapper.GetParameterName(System.String)">
+            <summary>
+            Gets the name for the data parameter to work with SQL Server database.
+            </summary>
+            <param name="name">The name of the parameter to convert to SQL Server specific.</param>
+            <returns>The SQL Server specific name for the data parameter.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Data.SqlServer.SqlDatabaseWrapper.GetPropertyName(System.String)">
+            <summary>
+            Gets the name of the property, given the name of the data parameter.
+            </summary>
+            <param name="paramName">The name of the data parameter.</param>
+            <returns>The property name.</returns>
+        </member>
+        <member name="T:PerfEx.Infrastructure.ThickTimer.IThickTimerNotification">
+            <summary>
+            An abstract interface for receiving the Thick Timer notifications.
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.ThickTimer.IThickTimerNotification.TimerElapsed(PerfEx.Infrastructure.ThickTimer.TimerElapsedRequest)">
+            <summary>
+            Notify the clients that the timer has been elapsed.
+            </summary>
+            <param name="timerInfo">The information about the timer and it's tickets.</param>
+        </member>
+        <member name="T:PerfEx.Infrastructure.ThickTimer.TimerElapsedRequest">
+            <summary>
+            Request information of TimerElapsed, notify the clients that their timer has been elapsed.
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.ThickTimer.TimerElapsedRequest.#ctor">
+            <summary>
+            Initialize a default instance of TimerElaspedRequest (use for serialization purpose).
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.ThickTimer.TimerElapsedRequest.#ctor(System.DateTime)">
+            <summary>
+            Initialize a new instance of TimerElapsedRequest for sending through the service.
+            </summary>
+            <param name="notificationUtcTime">The notification time in UTC.</param>
+        </member>
+        <member name="P:PerfEx.Infrastructure.ThickTimer.TimerElapsedRequest.ElapsedInformations">
+            <summary>
+            The elapsed timer information.
+            </summary>
+        </member>
+        <member name="P:PerfEx.Infrastructure.ThickTimer.TimerElapsedRequest.NotificationTime">
+            <summary>
+            The time on the server when fire the notification.
+            </summary>
+        </member>
+        <member name="T:PerfEx.Infrastructure.ThickTimer.TimerElapsedInformation">
+            <summary>
+            Detailed information of TimerElapsedRequest
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.ThickTimer.TimerElapsedInformation.#ctor">
+            <summary>
+            Initialize a default instance of TimerElapsedInformation (for serialization).
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.ThickTimer.TimerElapsedInformation.#ctor(System.DateTime,System.DateTime)">
+            <summary>
+            Initialize a new instance of TimerElapsedInformation for sending through the service.
+            </summary>
+            <param name="regTime">The registration date time in local format.</param>
+            <param name="dueTime">The local due date time.</param>
+        </member>
+        <member name="P:PerfEx.Infrastructure.ThickTimer.TimerElapsedInformation.Ticket">
+            <summary>
+            The ticket of the elapsed timer entry.
+            </summary>
+        </member>
+        <member name="P:PerfEx.Infrastructure.ThickTimer.TimerElapsedInformation.RegistrationTime">
+            <summary>
+            Gets the registration datetime.
+            </summary>
+        </member>
+        <member name="P:PerfEx.Infrastructure.ThickTimer.TimerElapsedInformation.DueDateTime">
+            <summary>
+            Gets the due datetime.
+            </summary>
+        </member>
+        <member name="T:PerfEx.Infrastructure.StatusTracking.TaskStatusData">
+            <summary>
+            Represent HourLongTaskStatus from the database.
+            </summary>
+        </member>
+        <member name="P:PerfEx.Infrastructure.StatusTracking.TaskStatusData.TaskID">
+            <summary>
+            Map to HourLongTaskStatusID.
+            </summary>
+        </member>
+        <member name="P:PerfEx.Infrastructure.StatusTracking.TaskStatusData.CreationDateTime">
+            <summary>
+            Gets or sets a creation DateTime.
+            </summary>
+        </member>
+        <member name="P:PerfEx.Infrastructure.StatusTracking.TaskStatusData.State">
+            <summary>
+            Gets or sets a state.
+            </summary>
+        </member>
+        <member name="T:PerfEx.Infrastructure.ResourceManagerCache">
+            <summary>
+            ResourceManager Cache
+            </summary>
+        </member>
+        <member name="F:PerfEx.Infrastructure.ResourceManagerCache.Instance">
+            <summary>
+            An instance of the resource manager cache.
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.ResourceManagerCache.GetResourceManager(System.Type)">
+            <summary>
+            Gets resource manager for the current culture.
+            </summary>
+            <param name="resourceType">Type of the resource manager to load.</param>
+            <returns>The resource manager.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.ResourceManagerCache.GetResourceManager(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            Gets resource manager for the specified culture.
+            </summary>
+            <param name="resourceType">Type of the resource manager to load.</param>
+            <param name="culture">The culture to load the resource manager.</param>
+            <returns>The resource manager.</returns>
+        </member>
+        <member name="T:PerfEx.Infrastructure.IExceptionAwareExtensions">
+            <summary>
+            Contains extension methods for IExceptionAware
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.IExceptionAwareExtensions.HasUnhandledException(PerfEx.Infrastructure.IExceptionAware)">
+            <summary>
+            Check if this command has any unhandled exception.
+            </summary>
+            <param name="iea">A command which is IExceptionAware.</param>
+            <returns>True if the command has any unhandled exception.</returns>
+        </member>
+        <member name="T:PerfEx.Infrastructure.StatusTracking.TaskTrackerRepository">
+            <summary>
+            The worker class for accessing the repository data.
+            </summary>
+        </member>
+        <member name="T:PerfEx.Infrastructure.Validation.DataAnnotationValidator`2">
+            <summary>
+            Validate entity using data annotation attributes.
+            </summary>
+            <typeparam name="TEntity">data entity type.</typeparam>
+            <typeparam name="TCmd">command type.</typeparam>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Validation.DataAnnotationValidator`2.Validate(`0,`1,PerfEx.Infrastructure.Validation.ValidationErrorCollection)">
+            <summary>
+            Validate a data entity using it's data annotation attributes.
+            </summary>
+            <param name="entity">The data entity to validate.</param>
+            <param name="command">The optional command.</param>
+            <param name="errors">The error collection.</param>
+        </member>
+        <member name="T:PerfEx.Infrastructure.StatusTracking.UpdateTaskStatusFailedException">
+            <summary>
+            Exception which occured when the task tracker operation has failed.
+            </summary>
+        </member>
+        <member name="T:PerfEx.Infrastructure.StatusTracking.TaskTracker">
+            <summary>
+            Facilitate the task status tracking features.
+            </summary>
+        </member>
+        <member name="F:PerfEx.Infrastructure.StatusTracking.TaskTracker.Repository">
+            <summary>
+            The storage of the task status information.
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.StatusTracking.TaskTracker.NewTaskID(System.String)">
+            <summary>
+            Create a new task id from an userKey. This method won't access to any database.
+            </summary>
+            <param name="userKey">The user provided key use to make sure tasks must be unique, such as service's unique ip address.</param>
+            <returns>An id used to reference the task.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.StatusTracking.TaskTracker.RegisterTask(System.String,System.String)">
+            <summary>
+            Register the task to be tracked.
+            </summary>
+            <param name="taskId">An id reference to the task.</param>
+            <param name="state">Initial state of the registered task.</param>
+        </member>
+        <member name="M:PerfEx.Infrastructure.StatusTracking.TaskTracker.SetTaskState(System.String,System.String)">
+            <summary>
+            Sets the task status.
+            </summary>
+            <param name="taskId">An id reference to the task.</param>
+            <param name="state">The state to set to the task.</param>
+        </member>
+        <member name="M:PerfEx.Infrastructure.StatusTracking.TaskTracker.GetTaskState(System.String)">
+            <summary>
+            Gets the task status.
+            </summary>
+            <param name="taskId">An id reference to the task.</param>
+            <returns>The state of the referenced task.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.StatusTracking.TaskTracker.GetUserKey(System.String)">
+            <summary>
+            Gets the userKey used to generated the task, given the taskId.
+            </summary>
+            <param name="taskId">The taskId to gets the userKey from.</param>
+            <returns>The userKey taken from the given taskId.</returns>
+        </member>
+    </members>
+</doc>

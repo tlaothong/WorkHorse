@@ -1,0 +1,67 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+    </title>
+</head>
+<body>
+    <div id="page">
+        <div id="header">
+            <div id="login"></div>
+            <div id="search-container">
+                <div id="global-search">
+                </div>
+                <div id="avatar-face">
+                </div>
+            </div>
+            <div id="logo">
+                <div id="site-logo">
+                </div>
+            </div>
+        </div>
+        <div id="menu-container">
+            <div id="main-menu">
+                <div class="linkmenu">
+                </div>
+                <div class="linkmenu">
+                </div>
+                <div class="linkmenu">
+                </div>
+            </div>
+        </div>
+        <div id="sub-menu-container">
+            <div id="sub-menu">
+                <div class="sub-menu">
+                    <asp:ContentPlaceHolder ID="SubMenu" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+        <div id="main-container">
+            <div id="main">
+                <div id="main-top">
+                </div>
+                <div id="main-content">
+                    <div id="content-container">
+                        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </div>
+                <div id="avatar-container">
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <div id="footer-bar">
+                <div class="start-menu">
+                </div>
+                <div class="news-marquee">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

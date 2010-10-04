@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3D0695FF-6C70-4B8B-917D-B1E68E588ECA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TheS.sPerf.Club</RootNamespace>
+    <AssemblyName>TheS.sPerf.Club.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DAL\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\TheS.sPerf.Common.Commands\TheS.sPerf.Common.Commands.csproj">
+      <Project>{79BED253-77C4-4A06-BE38-9A62AEF6C060}</Project>
+      <Name>TheS.sPerf.Common.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\TheS.sPerf.Common.Models\TheS.sPerf.Common.Models.csproj">
+      <Project>{0D11D276-067C-4B60-ABCC-67F9A76449AA}</Project>
+      <Name>TheS.sPerf.Common.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.sPerf.Club.Commands\TheS.sPerf.Club.Commands.csproj">
+      <Project>{E167DD8F-DC61-4A6F-812D-DC6F3F7763BB}</Project>
+      <Name>TheS.sPerf.Club.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.sPerf.Club.DAL.BackContracts\TheS.sPerf.Club.DAL.BackContracts.csproj">
+      <Project>{4DC842F6-C3E1-4781-8F1A-C4964EBE7A1E}</Project>
+      <Name>TheS.sPerf.Club.DAL.BackContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.sPerf.Club.DAL.Contracts\TheS.sPerf.Club.DAL.Contracts.csproj">
+      <Project>{155AFB5A-61C6-4EA8-968C-D6ECDC183AF2}</Project>
+      <Name>TheS.sPerf.Club.DAL.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.sPerf.Club.Models\TheS.sPerf.Club.Models.csproj">
+      <Project>{DFAC0394-1F0B-4C37-8A11-4C11FE4864EB}</Project>
+      <Name>TheS.sPerf.Club.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

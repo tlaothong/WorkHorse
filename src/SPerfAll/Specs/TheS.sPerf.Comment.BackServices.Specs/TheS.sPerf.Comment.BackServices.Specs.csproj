@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7F47D814-EAF3-491E-AA40-F691FFD48095}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TheS.sPerf.Comment</RootNamespace>
+    <AssemblyName>TheS.sPerf.Comment.BackServices.Specs</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BackServices\Specs\UnitTest1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Modules\Comment\TheS.sPerf.Comment.BackServices.Contracts\TheS.sPerf.Comment.BackServices.Contracts.csproj">
+      <Project>{FE1D4F22-17FD-4BAF-8176-1956697F21EB}</Project>
+      <Name>TheS.sPerf.Comment.BackServices.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Comment\TheS.sPerf.Comment.BackServices\TheS.sPerf.Comment.BackServices.csproj">
+      <Project>{EE874EA5-B9A7-407F-991A-C4ABE8757709}</Project>
+      <Name>TheS.sPerf.Comment.BackServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Comment\TheS.sPerf.Comment.Commands\TheS.sPerf.Comment.Commands.csproj">
+      <Project>{BFFE1E99-FEC5-4145-83BF-BDE2482C8979}</Project>
+      <Name>TheS.sPerf.Comment.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Comment\TheS.sPerf.Comment.DAL.BackContracts\TheS.sPerf.Comment.DAL.BackContracts.csproj">
+      <Project>{6356D0C2-82A5-4BDF-B68C-EC966A91290F}</Project>
+      <Name>TheS.sPerf.Comment.DAL.BackContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Comment\TheS.sPerf.Comment.Models\TheS.sPerf.Comment.Models.csproj">
+      <Project>{EB8EAA41-B156-4731-813D-08ECEAACAFBB}</Project>
+      <Name>TheS.sPerf.Comment.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Shared\TheS.sPerf.Common.Commands\TheS.sPerf.Common.Commands.csproj">
+      <Project>{79BED253-77C4-4A06-BE38-9A62AEF6C060}</Project>
+      <Name>TheS.sPerf.Common.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Shared\TheS.sPerf.Common.Models\TheS.sPerf.Common.Models.csproj">
+      <Project>{0D11D276-067C-4B60-ABCC-67F9A76449AA}</Project>
+      <Name>TheS.sPerf.Common.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
