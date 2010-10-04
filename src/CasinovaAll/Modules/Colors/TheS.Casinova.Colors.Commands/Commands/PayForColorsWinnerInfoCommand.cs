@@ -11,6 +11,10 @@ namespace TheS.Casinova.Colors.Commands
     /// </summary>
     public class PayForColorsWinnerInfoCommand       
     {
+        public int RoundID { get; set; }
+
+        public string UserName { get; set; }
+
         //ข้อมูลผู้เล่นสำหรับหักเงินค่าดูข้อมูลผู้ชนะขณะนั้น
         public PlayerInformation PlayerInfo { get; set; }
 
@@ -19,8 +23,5 @@ namespace TheS.Casinova.Colors.Commands
 
         //ข้อมูลทั่วไปของโต๊ะเกม
         public GameRoundInformation GameRoundInfo { get; set; }
-       
-        //ประเภทการดำเนินการ(GetWinner)
-        public string ActionType { get; set; }
     }
 }

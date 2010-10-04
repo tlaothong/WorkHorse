@@ -10,21 +10,39 @@ namespace TheS.Casinova.Colors.BackServices.Specs
 {
     public class ColorsGameStepsBase
     {
-        protected IColorsGameDataAccess Dac
+        protected IUpdatePlayerInfo Dac_PayForColorsWinnerInfo
         {
             get
             {
                 return ScenarioContext.Current[
-                    CommonSteps.Key_Dac] as IColorsGameDataAccess;
+                    CommonSteps.Key_Dac_UpdatePlayerInfo] as IUpdatePlayerInfo;
             }
         }
 
-        protected IColorsGameDataBackQuery Dqr
+        protected ICreatePlayerActionInfo Dac_CreatePlayerActionInfo
         {
             get
             {
                 return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr] as IColorsGameDataBackQuery;
+                    CommonSteps.Key_Dac_CreatePlayerActionInfo] as ICreatePlayerActionInfo;
+            }
+        }
+
+        protected IUpdateOnGoingTrackingID Dac_UpdateOnGoingTrackingID
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_Dac_UpdateOnGoingTrackingID] as IUpdateOnGoingTrackingID;
+            }
+        }
+
+        protected IUpdateRoundWinner Dac_UpdateRoundWinner
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_Dac_UpdateRoundWinner] as IUpdateRoundWinner;
             }
         }
 

@@ -49,7 +49,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
                 Assert.AreEqual(_expected.UserName, gamePlayInfo.UserName, "UserName");
                 Assert.AreEqual(_expected.OnGoingTrackingID, gamePlayInfo.OnGoingTrackingID, "OnGoingTrackingID");
             };
-            Dac.ApplyAction(new GamePlayInformation(), new PayForColorsWinnerInfoCommand());
+            Dac_UpdateOnGoingTrackingID.ApplyAction(new GamePlayInformation(), new PayForColorsWinnerInfoCommand());
             LastCall.IgnoreArguments().Do(CheckData);
         }
 
@@ -59,7 +59,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
             Action<GamePlayInformation, PayForColorsWinnerInfoCommand> CheckData = (gamePlayInfo, cmd) => {
                 Assert.IsNull(gamePlayInfo.OnGoingTrackingID);
             };
-            Dac.ApplyAction(new GamePlayInformation(), new PayForColorsWinnerInfoCommand());
+            Dac_UpdateOnGoingTrackingID.ApplyAction(new GamePlayInformation(), new PayForColorsWinnerInfoCommand());
             LastCall.IgnoreArguments().Do(CheckData);
         }
 
@@ -72,7 +72,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
                 OnGoingTrackingID = Guid.Parse(onGoingTrackingID),
             };
 
-            Dac.ApplyAction(_cmd.GamePlayInfo, _cmd);            
+            Dac_UpdateOnGoingTrackingID.ApplyAction(_cmd.GamePlayInfo, _cmd);            
         }
 
         [Then(@"the game play information should be saved by calling IColorsGameDataAccess\.ApplyAction\(GamePlayInformation, PayForWinnerColorsInfoCommand\)")]

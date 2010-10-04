@@ -12,14 +12,14 @@ using TheS.Casinova.Colors.DAL;
 namespace TheS.Casinova.Colors.BackServices.Specs
 {
     [Binding]
-    public class PayForColorsWinnerInfoSteps : ColorsGameStepsBase
+    public class UpdatePlayerInfoToPayForColorsWinnerInfoSteps : ColorsGameStepsBase
     {
         private PayForColorsWinnerInfoCommand _cmd;
         private PlayerInformation _expected;
         private const double _fee = 5;
 
-        [Given(@"sent UserName: '(.*)' and _expected Balance: '(.*)'")]
-        public void GivenUserNameXBalanceX(string userName, double balance)
+        [Given(@"sent UserName: '(.*)' and expected Balance: '(.*)'")]
+        public void GivenSentUserNameXAndExpectedBalanceX(string userName, double balance)
         {
             _expected = new PlayerInformation { UserName = userName, Balance = balance };
 
@@ -27,7 +27,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
                 Assert.AreEqual(_expected.UserName, playerInfo.UserName, "UserName");
                 Assert.AreEqual(_expected.Balance, playerInfo.Balance, "Balance");
             };
-            Dac.ApplyAction(new PlayerInformation(), new PayForColorsWinnerInfoCommand());
+            Dac_PayForColorsWinnerInfo.ApplyAction(new PlayerInformation(), new PayForColorsWinnerInfoCommand());
             LastCall.IgnoreArguments().Do(CheckCallMethod);
         }
 
@@ -41,7 +41,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
             //Simulate that player's money has decrease
             if (_cmd.PlayerInfo.Balance >= _fee) {
                 _cmd.PlayerInfo.Balance -= _fee;
-                Dac.ApplyAction(_cmd.PlayerInfo, _cmd);
+                Dac_PayForColorsWinnerInfo.ApplyAction(_cmd.PlayerInfo, _cmd);
             }
             else {
                 Console.WriteLine("๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑  เงินไม่พอ  ๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑");

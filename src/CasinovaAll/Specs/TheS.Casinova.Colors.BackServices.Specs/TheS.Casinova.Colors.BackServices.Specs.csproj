@@ -61,6 +61,11 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackServices\CreatePlayerActionInfoToPayForColorsWinnerInfo.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreatePlayerActionInfoToPayForColorsWinnerInfo.feature</DependentUpon>
+    </Compile>
     <Compile Include="BackServices\GetPlayerInfoToPayForColorsWinnerInfo.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -76,18 +81,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ListPlayerActionInfoToPayForColorsWinnerInfo.feature</DependentUpon>
     </Compile>
-    <Compile Include="BackServices\PayForColorsWinnerInfo.feature.cs">
+    <Compile Include="BackServices\Specs\UpdatePlayerBalanceToPayForColorsWinnerInfoSteps.cs" />
+    <Compile Include="BackServices\UpdatePlayerBalanceToPayForColorsWinnerInfo.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PayForColorsWinnerInfo.feature</DependentUpon>
+      <DependentUpon>UpdatePlayerBalanceToPayForColorsWinnerInfo.feature</DependentUpon>
+    </Compile>
+    <Compile Include="BackServices\UpdatePlayerInfoToPayForColorsWinnerInfo.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UpdatePlayerInfoToPayForColorsWinnerInfo.feature</DependentUpon>
     </Compile>
     <Compile Include="BackServices\SpecEventDefinitions.cs" />
     <Compile Include="BackServices\Specs\ColorsGameStepsBase.cs" />
     <Compile Include="BackServices\Specs\CommonSteps.cs" />
+    <Compile Include="BackServices\Specs\CreatePlayerActionInfoToPayColorsWinnerInfoSteps.cs" />
     <Compile Include="BackServices\Specs\GetPlayerInfoToPayForColorsWinnerInfoSteps.cs" />
     <Compile Include="BackServices\Specs\GetRoundWinnerSteps.cs" />
     <Compile Include="BackServices\Specs\ListPlayerActionInfoToPayForColorsWinnerInfoSteps.cs" />
-    <Compile Include="BackServices\Specs\PayForColorsWinnerInfoSteps.cs" />
+    <Compile Include="BackServices\Specs\UpdatePlayerInfoToPayForColorsWinnerInfoSteps.cs" />
     <Compile Include="BackServices\Specs\UpdateOnGoingTrackingIDSteps.cs" />
     <Compile Include="BackServices\UpdateOnGoingTrackingID.feature.cs">
       <AutoGen>True</AutoGen>
@@ -128,6 +140,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="BackServices\App.config" />
+    <None Include="BackServices\CreatePlayerActionInfoToPayForColorsWinnerInfo.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CreatePlayerActionInfoToPayForColorsWinnerInfo.feature.cs</LastGenOutput>
+    </None>
     <None Include="BackServices\GetPlayerInfoToPayForColorsWinnerInfo.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>GetPlayerInfoToPayForColorsWinnerInfo.feature.cs</LastGenOutput>
@@ -140,9 +156,13 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ListPlayerActionInfoToPayForColorsWinnerInfo.feature.cs</LastGenOutput>
     </None>
-    <None Include="BackServices\PayForColorsWinnerInfo.feature">
+    <None Include="BackServices\UpdatePlayerBalanceToPayForColorsWinnerInfo.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>PayForColorsWinnerInfo.feature.cs</LastGenOutput>
+      <LastGenOutput>UpdatePlayerBalanceToPayForColorsWinnerInfo.feature.cs</LastGenOutput>
+    </None>
+    <None Include="BackServices\UpdatePlayerInfoToPayForColorsWinnerInfo.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UpdatePlayerInfoToPayForColorsWinnerInfo.feature.cs</LastGenOutput>
     </None>
     <None Include="BackServices\UpdateOnGoingTrackingID.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
