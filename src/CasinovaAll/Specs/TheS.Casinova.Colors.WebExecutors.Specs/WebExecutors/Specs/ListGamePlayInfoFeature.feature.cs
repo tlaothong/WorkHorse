@@ -150,7 +150,7 @@ testRunner.When("Call ListGamePlayInfo(\'Lala\')");
                         "{F0A52B67-DC51-424F-BF2E-CA72D8E07FA8}",
                         "Lala"});
 #line 15
-testRunner.Then("The result should be :", ((string)(null)), table2);
+testRunner.Then("The game play information should be :", ((string)(null)), table2);
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -211,9 +211,9 @@ testRunner.Given("The GamePlayInformation has been created and initialized");
                         "UserName"});
 #line 33
 testRunner.And("The game play information of \'\' is :", ((string)(null)), table4);
-#line 36
+#line 35
 testRunner.When("Call ListGamePlayInfo(\'\')");
-#line 37
+#line 36
 testRunner.Then("The game play information should be null");
 #line hidden
             testRunner.CollectScenarioErrors();
@@ -226,12 +226,23 @@ testRunner.Then("The game play information should be null");
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ใส่ข้อมูล username ที่ไม่มีในระบบ ระบบลิสต์ข้อมูลโต๊ะเกมไม่ได้", new string[] {
                         "record_mock"});
-#line 40
+#line 39
 this.ScenarioSetup(scenarioInfo);
-#line 41
+#line 40
 testRunner.Given("The GamePlayInformation has been created and initialized");
-#line 42
-testRunner.And("The game play information of \'nit\' is null");
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "TableID",
+                        "RoundID",
+                        "TotalBetAmountOfBlack",
+                        "TotalBetAmountOfWhite",
+                        "Winner",
+                        "LastUpdate",
+                        "TrackingID",
+                        "OnGoingTrackingID",
+                        "UserName"});
+#line 41
+testRunner.And("The game play information of \'nit\' is :", ((string)(null)), table5);
 #line 43
 testRunner.When("Call ListGamePlayInfo(\'nit\')");
 #line 44

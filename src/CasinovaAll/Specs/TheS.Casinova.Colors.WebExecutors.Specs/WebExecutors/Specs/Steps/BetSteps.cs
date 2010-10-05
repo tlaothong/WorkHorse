@@ -33,8 +33,8 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
             ScenarioContext.Current.Pending();
         }
 
-        [When(@"Call PlayerBet\(RoundID '(.*)', Amount '(.*)', Color '(.*)'\) by userName 'nit'")]
-        public void WhenCallPlayerBetRoundID_5Amount100ColorBlackByUserNameNit(int roundId, int amount, string color)
+        [When(@"Call PlayerBet\(RoundID '(.*)', Amount '(.*)', Color '(.*)'\) by userName '(.*)'")]
+        public void WhenCallPlayerBetRoundID_5Amount100ColorBlackByUserNameNit(int roundId, int amount, string color, string userName)
         {
             ScenarioContext.Current.Pending();
         }

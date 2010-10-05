@@ -31,8 +31,8 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
             ScenarioContext.Current.Pending();
         }
 
-        [Then(@"The result should be null")]
-        public void ThenTheResultShouldBeNull()
+        [Then(@"The active game rounds should be null")]
+        public void ThenTheActiveGameRoundsShouldBeNull()
         {
             ScenarioContext.Current.Pending();
         }

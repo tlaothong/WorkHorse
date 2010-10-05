@@ -19,20 +19,14 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
             ScenarioContext.Current.Pending();
         }
 
-        [Given(@"The game play information of '(.*)' is null")]
-        public void GivenTheGamePlayInformationOfNitIsNull(string userName)
-        {
-            ScenarioContext.Current.Pending();
-        }
-
         [When(@"Call ListGamePlayInfo\('(.*)'\)")]
         public void WhenCallListGamePlayInfoX(string userName)
         {
             ScenarioContext.Current.Pending();
         }
 
-        [Then(@"The result should be :")]
-        public void ThenTheResultShouldBe(Table table)
+        [Then(@"The game play information should be :")]
+        public void ThenTheGamePlayInformationShouldBe(Table table)
         {
             ScenarioContext.Current.Pending();
         }

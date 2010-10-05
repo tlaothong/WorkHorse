@@ -19,20 +19,20 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
             ScenarioContext.Current.Pending();
         }
 
-        [Given(@"Expected call PayForWinnerInfo")]
-        public void GivenExpectedCallPayForWinnerInfo()
-        {
-            ScenarioContext.Current.Pending();
-        }
-
         [Given(@"TrackingID is '(.*)'")]
         public void GivenTrackingIDIsX(string trackingId)
         {
             ScenarioContext.Current.Pending();
         }
 
-        [When(@"Call PayForWinnerInfo\(RoundID '(.*)'\) by userName 'nit'")]
-        public void WhenCallPayForWinnerInfoRoundID5ByUserNameNit(int roundId)
+        [Given(@"Expected call PayForWinnerInfo")]
+        public void GivenExpectedCallPayForWinnerInfo()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [When(@"Call PayForWinnerInfo\(RoundID '(.*)'\) by userName '(.*)'")]
+        public void WhenCallPayForWinnerInfoRoundID5ByUserNameNit(int roundId, string userName)
         {
             ScenarioContext.Current.Pending();
         }
