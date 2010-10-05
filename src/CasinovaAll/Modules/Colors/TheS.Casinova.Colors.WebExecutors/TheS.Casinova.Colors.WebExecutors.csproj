@@ -47,7 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebExecutors\GetGameResultExecutor.cs" />
+    <Compile Include="WebExecutors\ListGamePlayInfoExecutor.cs" />
     <Compile Include="WebExecutors\ListActiveGameRoundsExecutor.cs" />
+    <Compile Include="WebExecutors\PayForColorsWinnerInfoExecutor.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -9,7 +9,7 @@ namespace TheS.Casinova.Colors.Commands
     /// <summary>
     /// get information data of game playable(active rounds) by username and return GameplayInfos type IEnumarable(GamePlayInformation)
     /// </summary>
-    public class GetGamePlayInfoCommand
+    public class ListGamePlayInfoCommand
     {
         //input
         public string UserName { get; set; } // username of player

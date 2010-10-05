@@ -40,14 +40,16 @@
     <Reference Include="PerfEx.Infrastructure.Advanced">
       <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Advanced.dll</HintPath>
     </Reference>
-    <Reference Include="Rhino.Mocks">
+    <Reference Include="Rhino.Mocks, Version=3.6.0.0, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\lib\Rhino.Mocks.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="TechTalk.SpecFlow">
+    <Reference Include="TechTalk.SpecFlow, Version=1.3.5.2, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\lib\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
   </ItemGroup>
@@ -59,11 +61,6 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebExecutors\SpecsEventDefinitions.cs" />
-    <Compile Include="WebExecutors\Specs\GetGameResultFeature.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GetGameResultFeature.feature</DependentUpon>
-    </Compile>
     <Compile Include="WebExecutors\Specs\ListActiveGameRoundsFeature.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -74,17 +71,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ListGamePlayInfoFeature.feature</DependentUpon>
     </Compile>
-    <Compile Include="WebExecutors\Specs\PayForColorsWinnerInfoFeature.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PayForColorsWinnerInfoFeature.feature</DependentUpon>
-    </Compile>
     <Compile Include="WebExecutors\Specs\Steps\CommonSteps.cs" />
-    <Compile Include="WebExecutors\Specs\Steps\GetGameResultSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\ListActiveGameRoundsSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\ColorsGameStepsBase.cs" />
     <Compile Include="WebExecutors\Specs\Steps\ListGamePlayInfoSteps.cs" />
-    <Compile Include="WebExecutors\Specs\Steps\PayForColorsWinnerInfoSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Modules\Colors\TheS.Casinova.Colors.BackServices.Contracts\TheS.Casinova.Colors.BackServices.Contracts.csproj">
@@ -119,10 +109,6 @@
   <ItemGroup />
   <ItemGroup>
     <None Include="WebExecutors\App.config" />
-    <None Include="WebExecutors\Specs\GetGameResultFeature.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>GetGameResultFeature.feature.cs</LastGenOutput>
-    </None>
     <None Include="WebExecutors\Specs\ListActiveGameRoundsFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ListActiveGameRoundsFeature.feature.cs</LastGenOutput>
@@ -130,10 +116,6 @@
     <None Include="WebExecutors\Specs\ListGamePlayInfoFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ListGamePlayInfoFeature.feature.cs</LastGenOutput>
-    </None>
-    <None Include="WebExecutors\Specs\PayForColorsWinnerInfoFeature.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>PayForColorsWinnerInfoFeature.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
