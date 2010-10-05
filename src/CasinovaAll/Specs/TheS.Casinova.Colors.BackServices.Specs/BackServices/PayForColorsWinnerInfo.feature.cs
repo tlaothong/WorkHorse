@@ -17,20 +17,20 @@ namespace TheS.Casinova.Colors.BackServices
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.3.5.2")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute()]
-    public partial class UpdatePlayerBalanceToPayForColorsWinnerInfoFeature
+    public partial class PayForColorsWinnerInformationFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "UpdatePlayerBalanceToPayForColorsWinnerInfo.feature"
+#line 1 "PayForColorsWinnerInfo.feature"
 #line hidden
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.ClassInitializeAttribute()]
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "UpdatePlayerBalanceToPayForColorsWinnerInfo", "In order to update player balance\r\nAs a back server\r\nI want to be update player b" +
-                    "alance to pay for colors winner information", ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "PayForColorsWinnerInformation", "In order to pay for colors winner information\r\nAs a back server\r\nI want to be tol" +
+                    "d the round winner at this time", ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -155,7 +155,7 @@ testRunner.And("server has round informations as:", ((string)(null)), table3);
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("หักเงินผู้เล่นจากข้อมูลที่ได้รับมา โดยผู้เล่นเคยเสียค่าดูข้อมูลแล้ว และส่งข้อมูลผ" +
             "ู้ชนะกลับ")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "UpdatePlayerBalanceToPayForColorsWinnerInfo")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PayForColorsWinnerInformation")]
         public virtual void หกเงนผเลนจากขอมลทไดรบมาโดยผเลนเคยเสยคาดขอมลแลวและสงขอมลผชนะกลบ()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("หักเงินผู้เล่นจากข้อมูลที่ได้รับมา โดยผู้เล่นเคยเสียค่าดูข้อมูลแล้ว และส่งข้อมูลผ" +
@@ -194,7 +194,7 @@ testRunner.Then("the update player\'s balance part should be updated");
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("หักเงินผู้เล่นจากข้อมูลที่ได้รับมา โดยผู้เล่นยังไม่เคยเสียค่าดูข้อมูล และส่งข้อมู" +
             "ลผู้ชนะกลับ")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "UpdatePlayerBalanceToPayForColorsWinnerInfo")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PayForColorsWinnerInformation")]
         public virtual void หกเงนผเลนจากขอมลทไดรบมาโดยผเลนยงไมเคยเสยคาดขอมลและสงขอมลผชนะกลบ()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("หักเงินผู้เล่นจากข้อมูลที่ได้รับมา โดยผู้เล่นยังไม่เคยเสียค่าดูข้อมูล และส่งข้อมู" +

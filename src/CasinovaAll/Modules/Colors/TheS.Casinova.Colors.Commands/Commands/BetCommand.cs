@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TheS.Casinova.Colors.Models;
 
 namespace TheS.Casinova.Colors.Commands
 {
@@ -15,5 +16,7 @@ namespace TheS.Casinova.Colors.Commands
         public int RoundID { get; set; } //รหัสโต๊ะเกมที่ลงพนัน
         public double Amount { get; set; } //จำนวนเงินลงพนัน
         public string Color { get; set; } //สีที่ลงพนัน
+
+        public PlayerActionInformation PlayerActionInfo { get; set; }
     }
 }

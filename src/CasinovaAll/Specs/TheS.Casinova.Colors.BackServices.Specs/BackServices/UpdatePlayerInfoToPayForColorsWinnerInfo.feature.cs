@@ -69,7 +69,7 @@ testRunner.And("sent UserName: \'OhAe\' and expected Balance: \'95\'");
 testRunner.When("call PayForColorsWinnerInfo(UserName: \'OhAe\', Balance: \'100\')");
 #line 11
 testRunner.Then("the player information should be saved by calling IColorsGameDataAccess.ApplyActi" +
-                    "on(PlayerInformation, cmd)");
+                    "on(PlayerInfo, cmd)");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -91,7 +91,7 @@ testRunner.And("sent UserName: \'OhAe\' and expected Balance: \'0\'");
 testRunner.When("call PayForColorsWinnerInfo(UserName: \'OhAe\', Balance: \'5\')");
 #line 18
 testRunner.Then("the player information should be saved by calling IColorsGameDataAccess.ApplyActi" +
-                    "on(PlayerInformation, cmd)");
+                    "on(PlayerInfo, cmd)");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

@@ -29,5 +29,10 @@ namespace TheS.Casinova.Colors.Models
         /// จำนวนเงินที่ใช้ดำเนินการ
         /// </summary>
         public double Amount { get; set; }
+
+        /// <summary>
+        /// trackingID use to verify
+        /// </summary>
+        public Guid TrackingID { get; set; }
     }
 }

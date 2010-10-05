@@ -14,27 +14,27 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
     {
         private double _payFee;
 
-        private IUpdatePlayerInfo _iPayForColorsWinnerInfo;
+        private IUpdatePlayerInfoBalance _iUpdatePlayerInfoBalance;
         private ICreatePlayerActionInfo _iCreatPlayerActionInfo;
         private IUpdateOnGoingTrackingID _iUpdateOnGoingTrackingID;
         private IUpdateRoundWinner _iUpdateRoundWinner;
 
-        private IGetPlayerInfoQuery _iGetPlayerInfo;
+        private IGetPlayerInfo _iGetPlayerInfo;
         private IListPlayerActionInfoQuery _iListPlayerActionInfo;        
-        private IGetGameRoundInfoQuery _iGetGameRoundInfo;
+        private IGetRoundInfo _iGetRoundInfo;
 
         private string _winner;
         private PlayerActionInformation _playerActionInfo;
 
         public PayForColorsWinnerInfoExecutor(IColorsGameDataAccess dac, IColorsGameDataBackQuery dqr)
         {
-            _iPayForColorsWinnerInfo = dac;
+            _iUpdatePlayerInfoBalance = dac;
             _iUpdateOnGoingTrackingID = dac;
             _iCreatPlayerActionInfo = dac;
             _iUpdateRoundWinner = dac;
 
             _iGetPlayerInfo = dqr;
-            _iGetGameRoundInfo = dqr;
+            _iGetRoundInfo = dqr;
             _iListPlayerActionInfo = dqr;
 
             _winner = null;
@@ -45,7 +45,13 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
         {
             #region Update balance
             //ดึงข้อมูลยอดเงินของผู้เล่น
-            var balance = _iGetPlayerInfo.Get(command);
+            //var balance = _iGetPlayerInfo.Get(command);
+
+            GetPlayerInfoCommand getPlayerInfoCmd = new GetPlayerInfoCommand {
+                PlayerInfo = new PlayerInformation { UserName = command.UserName }
+            };
+
+            getPlayerInfoCmd.PlayerInfo = _iGetPlayerInfo.Get(getPlayerInfoCmd);
 
             //ดึงข้อมูลการลงพนันของผู้เล่นในโต๊ะเกมนั้นๆ
             var betCount = _iListPlayerActionInfo.List(command);
@@ -59,26 +65,29 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
             }
 
             //หักเงินผู้เล่น
-            if (balance >= _payFee) {
-                command.PlayerInfo = new PlayerInformation {
-                    UserName = command.UserName,
-                    Balance = balance -= _payFee,
+            if (getPlayerInfoCmd.PlayerInfo.Balance >= _payFee) {
+                getPlayerInfoCmd.PlayerInfo.Balance -= _payFee;
+
+                UpdatePlayerInfoBalanceCommand updatePlayerInfoBalanceCmd = new UpdatePlayerInfoBalanceCommand {
+                    PlayerInfo = getPlayerInfoCmd.PlayerInfo
                 };
 
-                _iPayForColorsWinnerInfo.ApplyAction(command.PlayerInfo, command);
+                _iUpdatePlayerInfoBalance.ApplyAction(updatePlayerInfoBalanceCmd.PlayerInfo, updatePlayerInfoBalanceCmd);
             }
             else {
                 Console.WriteLine("๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑  เงินไม่พอ  ๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑");
             }
 
-            //บันทึกข้อมูล GamePlayInfo
-            _playerActionInfo = new PlayerActionInformation {
-                RoundID = command.RoundID,
-                UserName = command.UserName,
-                ActionType = "GetWinner",
-                Amount = _payFee,
+            //บันทึกข้อมูล PlayerActionInformation
+            CreatePlayerActionInfoCommand createPlayerActionInfoCmd = new CreatePlayerActionInfoCommand {
+                PlayerActionInfo = new PlayerActionInformation {
+                    RoundID = command.RoundID,
+                    UserName = command.UserName,
+                    ActionType = "GetWinner",
+                    Amount = _payFee,
+                }
             };
-            _iCreatPlayerActionInfo.Create(_playerActionInfo, command);
+            _iCreatPlayerActionInfo.Create(createPlayerActionInfoCmd.PlayerActionInfo, createPlayerActionInfoCmd);
 
             //บันทึก OnGoingTrackingID สำหรับตรวจสอบการ GetRoundWinner
             UpdateOnGoingTrackingIDCommand updateOnGoingTrackingIDCmd = new UpdateOnGoingTrackingIDCommand {
@@ -95,9 +104,12 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
             #region Get round winner
 
             //ดึงข้อมูล Winner
-            var roundInfo = _iGetGameRoundInfo.Get(command);
+            GetRoundInfoCommand getRoundInfoCmd = new GetRoundInfoCommand { 
+                RoundID = command.RoundID
+            };
+            getRoundInfoCmd.RoundInfo = _iGetRoundInfo.Get(getRoundInfoCmd);
 
-            if (roundInfo.WhitePot <= roundInfo.BlackPot) {
+            if (getRoundInfoCmd.RoundInfo.WhitePot <= getRoundInfoCmd.RoundInfo.BlackPot) {
                 _winner = "White";
             }
             else {
@@ -107,6 +119,7 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
             #endregion Get round winner
 
             #region Update game play information
+
             UpdateRoundWinnerCommand updateRoundWinnerCmd = new UpdateRoundWinnerCommand {
                 GamePlayInfo = new GamePlayInformation {
                     RoundID = command.RoundID,

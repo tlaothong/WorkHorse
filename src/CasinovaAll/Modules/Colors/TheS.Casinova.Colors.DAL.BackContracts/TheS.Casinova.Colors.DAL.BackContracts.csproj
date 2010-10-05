@@ -46,7 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\CreatePlayerActionInfoCommand.cs" />
+    <Compile Include="Commands\GetPlayerInfoCommand.cs" />
+    <Compile Include="Commands\GetRoundInfoCommand.cs" />
     <Compile Include="Commands\UpdateOnGoingTrackingIDCommand.cs" />
+    <Compile Include="Commands\UpdatePlayerInfoBalanceCommand.cs" />
     <Compile Include="Commands\UpdateRoundWinnerCommand.cs" />
     <Compile Include="DAL\IColorsGameDataAccess.cs" />
     <Compile Include="DAL\IColorsGameDataBackQuery.cs" />

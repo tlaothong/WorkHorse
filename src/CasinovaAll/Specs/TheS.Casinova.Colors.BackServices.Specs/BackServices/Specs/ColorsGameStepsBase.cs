@@ -10,12 +10,12 @@ namespace TheS.Casinova.Colors.BackServices.Specs
 {
     public class ColorsGameStepsBase
     {
-        protected IUpdatePlayerInfo Dac_PayForColorsWinnerInfo
+        protected IUpdatePlayerInfoBalance Dac_UpdatePlayerInfoBalance
         {
             get
             {
                 return ScenarioContext.Current[
-                    CommonSteps.Key_Dac_UpdatePlayerInfo] as IUpdatePlayerInfo;
+                    CommonSteps.Key_Dac_UpdatePlayerInfoBalance] as IUpdatePlayerInfoBalance;
             }
         }
 
@@ -46,12 +46,12 @@ namespace TheS.Casinova.Colors.BackServices.Specs
             }
         }
 
-        protected IGetPlayerInfoQuery Dqr_GetPlayerInfo
+        protected IGetPlayerInfo Dqr_GetPlayerInfo
         {
             get
             {
                 return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr_GetPlayerInfo] as IGetPlayerInfoQuery;
+                    CommonSteps.Key_Dqr_GetPlayerInfo] as IGetPlayerInfo;
             }
         }
 
@@ -64,12 +64,12 @@ namespace TheS.Casinova.Colors.BackServices.Specs
             }
         }
 
-        protected IGetGameRoundInfoQuery Dqr_GetGameRoundWinner
+        protected IGetRoundInfo Dqr_GetRoundInfo
         {
             get
             {
                 return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr_GetGameRoundWinner] as IGetGameRoundInfoQuery;
+                    CommonSteps.Key_Dqr_GetRoundInfo] as IGetRoundInfo;
             }
         }
 

@@ -11,7 +11,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace TheS.Casinova.Colors.BackServices.Specs
 {
     [Binding]
-    public class UpdatePlayerBalanceToPayForColorsWinnerInfoSteps
+    public class PayForColorsWinnerInfoSteps
         : ColorsGameStepsBase
     {
         private IEnumerable<PlayerInformation> _playerInfos;
@@ -58,7 +58,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
                                  where item.UserName == userName
                                  select item).FirstOrDefault();
 
-            SetupResult.For(Dqr_GetPlayerInfo.Get(new PayForColorsWinnerInfoCommand())).IgnoreArguments().Return(_expectPlayerInfo.Balance);
+            SetupResult.For(Dqr_GetPlayerInfo.Get(new GetPlayerInfoCommand())).IgnoreArguments().Return(_expectPlayerInfo);
         }
 
         [Given(@"the player's action information should recieved, RoundID: '(.*)', UserName: '(.*)'")]
@@ -75,12 +75,12 @@ namespace TheS.Casinova.Colors.BackServices.Specs
         [Given(@"the expected balance should be: '(.*)'")]
         public void GivenTheExpectedBalanceShouldBeX(double balance)
         {
-            Action<PlayerInformation, PayForColorsWinnerInfoCommand> CheckCallMethod = (playerInfo, cmd) => {
+            Action<PlayerInformation, UpdatePlayerInfoBalanceCommand> CheckCallMethod = (playerInfo, cmd) => {
                 Assert.AreEqual(_expectPlayerInfo.UserName, playerInfo.UserName, "UserName");
                 Assert.AreEqual(balance, playerInfo.Balance, "Balance");
             };
 
-            Dac_PayForColorsWinnerInfo.ApplyAction(new PlayerInformation(), new PayForColorsWinnerInfoCommand());
+            Dac_UpdatePlayerInfoBalance.ApplyAction(new PlayerInformation(), new UpdatePlayerInfoBalanceCommand());
             LastCall.IgnoreArguments().Do(CheckCallMethod);
         }
 
@@ -94,7 +94,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
                 Amount = amount,
             };
 
-            Func<PlayerActionInformation, PayForColorsWinnerInfoCommand, PlayerActionInformation> CheckData = (playerActionInfo, cmd) => {
+            Func<PlayerActionInformation, CreatePlayerActionInfoCommand, PlayerActionInformation> CheckData = (playerActionInfo, cmd) => {
                 Assert.AreEqual(_expected.RoundID, playerActionInfo.RoundID, "RoundID");
                 Assert.AreEqual(_expected.UserName, playerActionInfo.UserName, "UserName");
                 Assert.AreEqual(_expected.ActionType, playerActionInfo.ActionType, "ActionType");
@@ -102,7 +102,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
 
                 return playerActionInfo;
             };
-            Dac_CreatePlayerActionInfo.Create(new PlayerActionInformation(), new PayForColorsWinnerInfoCommand());
+            Dac_CreatePlayerActionInfo.Create(new PlayerActionInformation(), new CreatePlayerActionInfoCommand());
             LastCall.IgnoreArguments().Do(CheckData);
         }
 
@@ -131,7 +131,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
                           where item.RoundID == roundID
                           select item).FirstOrDefault();
 
-            SetupResult.For(Dqr_GetGameRoundWinner.Get(new PayForColorsWinnerInfoCommand()))
+            SetupResult.For(Dqr_GetRoundInfo.Get(new GetRoundInfoCommand()))
                 .IgnoreArguments().Return(result);
         }
 

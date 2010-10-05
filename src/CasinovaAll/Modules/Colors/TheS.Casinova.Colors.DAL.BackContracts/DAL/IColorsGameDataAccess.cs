@@ -9,24 +9,24 @@ using PerfEx.Infrastructure.Data;
 namespace TheS.Casinova.Colors.DAL
 {
     public interface IColorsGameDataAccess :
-        IUpdatePlayerInfo,
+        IUpdatePlayerInfoBalance,
         ICreatePlayerActionInfo,
         IUpdateOnGoingTrackingID,
         IUpdateRoundWinner
     { }
 
     /// <summary>
-    /// หักเงินผู้เล่นค่าดูข้อมูลผู้ชนะในเวลานั้น
+    /// อัพเดทข้อมูลผู้เล่น
     /// </summary>
-    public interface IUpdatePlayerInfo
-        : IDataAction<PlayerInformation, PayForColorsWinnerInfoCommand>
+    public interface IUpdatePlayerInfoBalance
+        : IDataAction<PlayerInformation, UpdatePlayerInfoBalanceCommand>
     { }
 
     /// <summary>
-    /// เพิ่มข้อมูลการดูข้อมูลผู้ชนะในเวลานั้น หลังจากหักเงินผู้เล่น
+    /// เพิ่มประวัติการดำเนินงานของผู้เล่น
     /// </summary>
     public interface ICreatePlayerActionInfo
-        : ICreateData<PlayerActionInformation, PayForColorsWinnerInfoCommand>
+        : ICreateData<PlayerActionInformation, CreatePlayerActionInfoCommand>
     { }
 
     /// <summary>

@@ -1,7 +1,7 @@
-﻿Feature: UpdatePlayerBalanceToPayForColorsWinnerInfo
-	In order to update player balance
+﻿Feature: PayForColorsWinnerInformation
+	In order to pay for colors winner information
 	As a back server
-	I want to be update player balance to pay for colors winner information
+	I want to be told the round winner at this time
 
 Background:
 	Given server has player information as:
