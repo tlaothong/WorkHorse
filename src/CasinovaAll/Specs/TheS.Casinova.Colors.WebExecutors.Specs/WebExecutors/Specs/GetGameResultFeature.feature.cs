@@ -53,11 +53,11 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("sent tableId and roundID that available")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ส่งค่า RoundID ที่เพิ่งจบเกมและสามารถตรวจสอบข้อมูลผลเกมได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GetGameResult")]
-        public virtual void SentTableIdAndRoundIDThatAvailable()
+        public virtual void สงคาRoundIDทเพงจบเกมและสามารถตรวจสอบขอมลผลเกมได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("sent tableId and roundID that available", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ส่งค่า RoundID ที่เพิ่งจบเกมและสามารถตรวจสอบข้อมูลผลเกมได้", new string[] {
                         "record_mock"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
@@ -92,11 +92,11 @@ testRunner.Then("the game result should be", ((string)(null)), table2);
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("sent anothor data which available in DB")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ส่งค่า RoundID อื่น ๆ ที่จบเกมแล้วและมีอยู่ใน Database")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GetGameResult")]
-        public virtual void SentAnothorDataWhichAvailableInDB()
+        public virtual void สงคาRoundIDอนๆทจบเกมแลวและมอยในDatabase()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("sent anothor data which available in DB", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ส่งค่า RoundID อื่น ๆ ที่จบเกมแล้วและมีอยู่ใน Database", new string[] {
                         "record_mock"});
 #line 18
 this.ScenarioSetup(scenarioInfo);
@@ -131,11 +131,11 @@ testRunner.Then("the game result should be", ((string)(null)), table4);
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("RoundID is not available")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ส่งค่า RoundID ที่ไม่ถูกต้อง")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GetGameResult")]
-        public virtual void RoundIDIsNotAvailable()
+        public virtual void สงคาRoundIDทไมถกตอง()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("RoundID is not available", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ส่งค่า RoundID ที่ไม่ถูกต้อง", new string[] {
                         "record_mock"});
 #line 29
 this.ScenarioSetup(scenarioInfo);
@@ -149,7 +149,7 @@ testRunner.Given("The GameRoundInformation has been created and initialized");
 #line 31
 testRunner.And("Server has game information", ((string)(null)), table5);
 #line 34
-testRunner.When("Call GetGameResultExecutor(RoundID\'3\')");
+testRunner.When("Call GetGameResultExecutor(RoundID\'-3\')");
 #line 35
 testRunner.Then("the game result should be null");
 #line hidden

@@ -15,5 +15,6 @@ namespace TheS.Casinova.Colors.Commands
         public int RoundID { get; set; } //รหัสโต๊ะเกมที่ลงพนัน
         public double Amount { get; set; } //จำนวนเงินลงพนัน
         public string Color { get; set; } //สีที่ลงพนัน
+        public Guid TrackingID { get; set; } //trackingId ที่ได้จากการ generate
     }
 }

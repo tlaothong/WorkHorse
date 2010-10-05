@@ -59,6 +59,11 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebExecutors\SpecsEventDefinitions.cs" />
+    <Compile Include="WebExecutors\Specs\BetFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BetFeature.feature</DependentUpon>
+    </Compile>
     <Compile Include="WebExecutors\Specs\GetGameResultFeature.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -79,6 +84,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PayForColorsWinnerInfoFeature.feature</DependentUpon>
     </Compile>
+    <Compile Include="WebExecutors\Specs\Steps\BetSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\CommonSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\GetGameResultSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\ListActiveGameRoundsSteps.cs" />
@@ -119,6 +125,10 @@
   <ItemGroup />
   <ItemGroup>
     <None Include="WebExecutors\App.config" />
+    <None Include="WebExecutors\Specs\BetFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>BetFeature.feature.cs</LastGenOutput>
+    </None>
     <None Include="WebExecutors\Specs\GetGameResultFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>GetGameResultFeature.feature.cs</LastGenOutput>

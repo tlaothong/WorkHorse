@@ -13,58 +13,40 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
     [Binding]
     public class PayForColorsWinnerInfoSteps : ColorsGameStepsBase
     {
-        private PayForColorsWinnerInfoCommand _cmd ;
-        private Guid _trackingID;
-        private string _svcTrackingID;
-
-        [Given(@"TrackingID is '(.*)'")]
-        public void GivenTrackingIDIsX(string trackingID)
+        [Given(@"System has userName 'tle','boy','ae','ku','au'")]
+        public void GivenSystemHasUserNameTleBoyAeKuAu()
         {
-            string checkTrack;
-            checkTrack = "00000000-0000-0000-0000-000000000000";
-
-            //ตรวจสอบค่า trackingID
-            if (trackingID != checkTrack) {
-                _trackingID = Guid.Parse(trackingID);
-            }
-            else 
-            {
-                _trackingID = Guid.Parse(checkTrack);
-            }
-
-            _svcTrackingID = trackingID;
+            ScenarioContext.Current.Pending();
         }
 
         [Given(@"Expected call PayForWinnerInfo")]
         public void GivenExpectedCallPayForWinnerInfo()
         {
-            BackDac.PayForWinnerInfo(null);
-            LastCall.IgnoreArguments();
+            ScenarioContext.Current.Pending();
+        }
+
+        [Given(@"TrackingID is '(.*)'")]
+        public void GivenTrackingIDIsX(string trackingId)
+        {
+            ScenarioContext.Current.Pending();
         }
 
         [When(@"Call PayForWinnerInfo\(RoundID '(.*)'\) by userName 'nit'")]
-        public void WhenCallPayForWinnerInfoRoundID5ByUserNameNit(int roundID)
+        public void WhenCallPayForWinnerInfoRoundID5ByUserNameNit(int roundId)
         {
-            _cmd = new PayForColorsWinnerInfoCommand();
-            _cmd.GamePlayInfo = new GamePlayInformation {
-                RoundID = roundID,
-                OnGoingTrackingID = _trackingID,
-            };
+            ScenarioContext.Current.Pending();
+        }
 
-            Action<PayForColorsWinnerInfoCommand> command = (a) => { };
-            PayForWinnerInfo.Execute(_cmd, command);
-        }
-       
-         [Then(@"The result should be called PayForWinnerInfo Succeeded")]
-         public void ThenTheResultShouldBeCalledPayForWinnerInfoSucceeded()
+        [Then(@"TrackingID of PayForWinner should be '(.*)'")]
+        public void ThenTrackingIDShouldBeX(string trackingId)
         {
-            Assert.IsTrue(true, "Expectation has been verified in the end of block When.");
+            ScenarioContext.Current.Pending();
         }
-    
-        [Then(@"TrackingID should be '(.*)'")]
-        public void ThenTrackingIDShouldX(string expecTrackingID)
+
+        [Then(@"TrackingID  of PayForWinner should be null")]
+        public void ThenTrackingIDOfPayForWinnerShouldBeNull()
         {
-            Assert.AreEqual(expecTrackingID,_svcTrackingID,"TrackingID for client and back server");
+            ScenarioContext.Current.Pending();
         }
     }
 }

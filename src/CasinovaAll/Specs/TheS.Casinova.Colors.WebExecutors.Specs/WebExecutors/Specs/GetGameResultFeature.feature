@@ -4,7 +4,7 @@
 	I want to get game result when game finish
 
 @record_mock
-Scenario: sent tableId and roundID that available
+Scenario: ส่งค่า RoundID ที่เพิ่งจบเกมและสามารถตรวจสอบข้อมูลผลเกมได้
 	Given The GameRoundInformation has been created and initialized
 	And Server has game information 
 		|BlackPot	| WhitePot	|HandCount	|
@@ -15,7 +15,7 @@ Scenario: sent tableId and roundID that available
 		|23	     |24	    |13			|
 
 @record_mock
-Scenario: sent anothor data which available in DB
+Scenario: ส่งค่า RoundID อื่น ๆ ที่จบเกมแล้วและมีอยู่ใน Database
 	Given The GameRoundInformation has been created and initialized
 	And Server has game information
 		|BlackPot	| WhitePot	|HandCount	|
@@ -26,12 +26,12 @@ Scenario: sent anothor data which available in DB
 		|50		 |100		|20	        |
 
 @record_mock
-Scenario: RoundID is not available
+Scenario: ส่งค่า RoundID ที่ไม่ถูกต้อง
 	Given The GameRoundInformation has been created and initialized
 	And Server has game information
 		|BlackPot	| WhitePot	|HandCount	|
 		
-	When Call GetGameResultExecutor(RoundID'3')
+	When Call GetGameResultExecutor(RoundID'-3')
 	Then the game result should be null
 		
 	
