@@ -140,18 +140,14 @@ namespace Magic9Game.ViewModels
         /// </summary>
         public void StartStop(ObservableCollection<string> interval)
         {
-            DateTime startTime = DateTime.Now;
-            TimeInterval timeInterval = new TimeInterval();
-            TimeSpan timeSpan = timeInterval.CreateTimeInterval(interval);
-            DateTime endTime = startTime.Add(timeSpan);
+            TimeInterval timeSpan = new TimeInterval();
+            TimeSpan timeInterval = timeSpan.CreateTimeInterval(interval);
 
-            for (int i = 1; i <= _amount; i++ ) 
-            {
+            for (int i = 1; i <= _amount; i++) {
 
-                for (DateTime begin = startTime; begin <= endTime; begin.Add(timeSpan)) 
-                {
-                    Bet();
-                }
+                Bet();
+                System.Threading.Thread.Sleep(timeInterval);
+
             }
         }
 
