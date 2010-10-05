@@ -49,7 +49,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
                 Assert.AreEqual(_expected.UserName, gamePlayInfo.UserName, "UserName");
                 Assert.AreEqual(_expected.OnGoingTrackingID, gamePlayInfo.OnGoingTrackingID, "OnGoingTrackingID");
             };
-            Dac_UpdateOnGoingTrackingID.ApplyAction(new GamePlayInformation(), new PayForColorsWinnerInfoCommand());
+            Dac_UpdateOnGoingTrackingID.ApplyAction(new GamePlayInformation(), new UpdateOnGoingTrackingIDCommand());
             LastCall.IgnoreArguments().Do(CheckData);
         }
 
@@ -59,20 +59,21 @@ namespace TheS.Casinova.Colors.BackServices.Specs
             Action<GamePlayInformation, PayForColorsWinnerInfoCommand> CheckData = (gamePlayInfo, cmd) => {
                 Assert.IsNull(gamePlayInfo.OnGoingTrackingID);
             };
-            Dac_UpdateOnGoingTrackingID.ApplyAction(new GamePlayInformation(), new PayForColorsWinnerInfoCommand());
+            Dac_UpdateOnGoingTrackingID.ApplyAction(new GamePlayInformation(), new UpdateOnGoingTrackingIDCommand());
             LastCall.IgnoreArguments().Do(CheckData);
         }
 
         [When(@"call UpdateOnGoingTrackingID\(GamePlayInformation\(RoundID: '(.*)', UserName: '(.*)', OnGoingTrackingID: '(.*)'\)\)")]
         public void WhenCallUpdateOnGoingTrackingIDGamePlayInformationRoundIDXserNameXOnGoingTrackingIDX(int roundID, string userName, string onGoingTrackingID)
         {
-            _cmd.GamePlayInfo = new GamePlayInformation {
-                RoundID = roundID,
-                UserName = userName,
-                OnGoingTrackingID = Guid.Parse(onGoingTrackingID),
-            };
+            //_cmd.GamePlayInfo = new GamePlayInformation {
+            //    RoundID = roundID,
+            //    UserName = userName,
+            //    OnGoingTrackingID = Guid.Parse(onGoingTrackingID),
+            //};
 
-            Dac_UpdateOnGoingTrackingID.ApplyAction(_cmd.GamePlayInfo, _cmd);            
+            //Dac_UpdateOnGoingTrackingID.ApplyAction(_cmd.GamePlayInfo, _cmd);            
+            ScenarioContext.Current.Pending();
         }
 
         [Then(@"the game play information should be saved by calling IColorsGameDataAccess\.ApplyAction\(GamePlayInformation, PayForWinnerColorsInfoCommand\)")]

@@ -115,12 +115,12 @@ namespace TheS.Casinova.Colors.BackServices.Specs
                 OnGoingTrackingID = Guid.Parse(onGoingTrackingID),
             };
 
-            Action<GamePlayInformation, PayForColorsWinnerInfoCommand> CheckData = (gamePlayInfo, cmd) => {
+            Action<GamePlayInformation, UpdateOnGoingTrackingIDCommand> CheckData = (gamePlayInfo, cmd) => {
                 Assert.AreEqual(_expected.RoundID, gamePlayInfo.RoundID, "RoundID");
                 Assert.AreEqual(_expected.UserName, gamePlayInfo.UserName, "UserName");
                 Assert.AreEqual(_expected.OnGoingTrackingID, gamePlayInfo.OnGoingTrackingID, "OnGoingTrackingID");
             };
-            Dac_UpdateOnGoingTrackingID.ApplyAction(new GamePlayInformation(), new PayForColorsWinnerInfoCommand());
+            Dac_UpdateOnGoingTrackingID.ApplyAction(new GamePlayInformation(), new UpdateOnGoingTrackingIDCommand());
             LastCall.IgnoreArguments().Do(CheckData);
         }
 
@@ -145,14 +145,14 @@ namespace TheS.Casinova.Colors.BackServices.Specs
                 TrackingID = Guid.Parse(trackingID),
             };
 
-            Action<GamePlayInformation, PayForColorsWinnerInfoCommand> CheckData = (gamePlayInfo, cmd) => {
+            Action<GamePlayInformation, UpdateRoundWinnerCommand> CheckData = (gamePlayInfo, cmd) => {
                 Assert.AreEqual(_expected.RoundID, gamePlayInfo.RoundID, "RoundID");
                 Assert.AreEqual(_expected.UserName, gamePlayInfo.UserName, "UserName");
                 Assert.AreEqual(_expected.Winner, gamePlayInfo.Winner, "Winner");
                 Assert.AreEqual(_expected.TrackingID, gamePlayInfo.TrackingID, "TrackingID");
             };
 
-            Dac_UpdateRoundWinner.ApplyAction(new GamePlayInformation(), new PayForColorsWinnerInfoCommand());
+            Dac_UpdateRoundWinner.ApplyAction(new GamePlayInformation(), new UpdateRoundWinnerCommand());
             LastCall.IgnoreArguments().Do(CheckData);
         }
 

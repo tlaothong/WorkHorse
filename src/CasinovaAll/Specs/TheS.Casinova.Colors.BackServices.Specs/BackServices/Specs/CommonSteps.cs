@@ -30,18 +30,17 @@ namespace TheS.Casinova.Colors.BackServices.Specs
         {
             var dac = Mocks.DynamicMock<IColorsGameDataAccess>();
             var dqr = Mocks.DynamicMock<IColorsGameDataBackQuery>();
-            var eektua = Mocks.DynamicMock<IUpdateOnGoingTrackingID>();
 
             ScenarioContext.Current[Key_Dac_UpdatePlayerInfo] = dac; 
             ScenarioContext.Current[Key_Dac_CreatePlayerActionInfo] = dac;
-            ScenarioContext.Current[Key_Dac_UpdateOnGoingTrackingID] = eektua;
             ScenarioContext.Current[Key_Dac_UpdateRoundWinner] = dac;
+            ScenarioContext.Current[Key_Dac_UpdateOnGoingTrackingID] = dac;
 
             ScenarioContext.Current[Key_Dqr_GetPlayerInfo] = dqr;
             ScenarioContext.Current[Key_Dqr_ListPlayerActionInfo] = dqr;
             ScenarioContext.Current[Key_Dqr_GetGameRoundWinner] = dqr;
 
-            ScenarioContext.Current[Key_PayForColorsWinnerInfoExecutor] = new PayForColorsWinnerInfoExecutor(dac, eektua, dqr);
+            ScenarioContext.Current[Key_PayForColorsWinnerInfoExecutor] = new PayForColorsWinnerInfoExecutor(dac, dqr);
         }
     }
 }

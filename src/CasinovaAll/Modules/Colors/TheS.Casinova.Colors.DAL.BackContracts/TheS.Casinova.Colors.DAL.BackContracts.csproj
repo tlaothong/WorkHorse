@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\UpdateOnGoingTrackingIDCommand.cs" />
+    <Compile Include="Commands\UpdateRoundWinnerCommand.cs" />
     <Compile Include="DAL\IColorsGameDataAccess.cs" />
     <Compile Include="DAL\IColorsGameDataBackQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

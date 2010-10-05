@@ -15,6 +15,8 @@ namespace TheS.Casinova.Colors.Commands
 
         public string UserName { get; set; }
 
+        public Guid OnGoingTrackingID { get; set; }
+
         //ข้อมูลผู้เล่นสำหรับหักเงินค่าดูข้อมูลผู้ชนะขณะนั้น
         public PlayerInformation PlayerInfo { get; set; }
 
