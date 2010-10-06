@@ -10,7 +10,8 @@
 <body>
     <div id="page">
         <div id="header">
-            <div id="login"></div>
+            <div id="login">
+            </div>
             <div id="search-container">
                 <div id="global-search">
                 </div>
@@ -25,10 +26,24 @@
         <div id="menu-container">
             <div id="main-menu">
                 <div class="linkmenu">
+                    <div class="menu">
+                        <%= Html.ActionLink("หน้าหลัก", MVC.Home.Index()) %>
+                    </div>
                 </div>
                 <div class="linkmenu">
+                    <div class="menu">
+                        <%= Html.ActionLink("วีดีโอ", MVC.KnowledgeCenter.KnowledgeCenter.Index()) %>
+                    </div>
                 </div>
                 <div class="linkmenu">
+                    <div class="menu">
+                        <%= Html.ActionLink("ชมรม", MVC.Club.Club.Index()) %>
+                    </div>
+                </div>
+                <div class="linkmenu">
+                    <div class="menu">
+                        <%= Html.ActionLink("เกมส์", MVC.Game.Game.Index()) %>
+                    </div>
                 </div>
             </div>
         </div>
@@ -51,6 +66,17 @@
                     </div>
                 </div>
                 <div id="avatar-container">
+                    <object data="data:application/x-silverlight-2," type="application/x-silverlight-2"
+                        width="178px" height="247px">
+                        <param name="source" value="/xap/doyouknow.xap" />
+                        <param name="onerror" value="onSilverlightError" />
+                        <param name="minRuntimeVersion" value="2.0.31005.0" />
+                        <param name="autoUpgrade" value="true" />
+                        <a href="http://go.microsoft.com/fwlink/?LinkID=124807" style="text-decoration: none;">
+                            <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight"
+                                style="border-style: none" />
+                        </a>
+                    </object>
                 </div>
             </div>
         </div>

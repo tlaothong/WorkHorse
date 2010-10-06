@@ -4,19 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace sPerf_Web.Controllers
+namespace sPerf_Web.Areas.Club.Controllers
 {
-    public partial class HomeController : Controller
+    public partial class ClubController : Controller
     {
         //
-        // GET: /Home/
+        // GET: /Club/Club/
 
         public virtual ActionResult Index()
-        {
-            return View();
-        }
-
-        public virtual ActionResult About()
         {
             return View();
         }
