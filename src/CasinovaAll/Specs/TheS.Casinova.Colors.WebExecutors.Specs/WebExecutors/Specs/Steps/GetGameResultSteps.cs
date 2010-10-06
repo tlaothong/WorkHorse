@@ -1,0 +1,40 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using TechTalk.SpecFlow;
+using TheS.Casinova.Colors.Models;
+using Rhino.Mocks;
+using TheS.Casinova.Colors.Commands;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
+{
+    [Binding]
+    public class GetGameResultSteps : ColorsGameStepsBase
+    {
+        [Given(@"Server has game information")]
+        public void GivenServerHasGameInformation(Table table)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [When(@"Call GetGameResultExecutor\(RoundID'(.*)'\)")]
+        public void WhenCallGetGameResultExecutorRoundIDX(int roundId)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"the game result should be")]
+        public void ThenTheGameResultShouldBe(Table table)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"the game result should be null")]
+        public void ThenTheGameResultShouldBeNull()
+        {
+            ScenarioContext.Current.Pending();
+        }
+    }
+}

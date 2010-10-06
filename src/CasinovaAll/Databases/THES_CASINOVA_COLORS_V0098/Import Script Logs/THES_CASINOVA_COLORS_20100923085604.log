@@ -1,0 +1,11 @@
+23/9/2553 15:56:04	This log contains information about the import operation of the script 'THES_CASINOVA_COLORS_V0099.sql' into project 'THES_CASINOVA_COLORS_V0098' on computer 'AGILEONE' by user'One.
+23/9/2553 15:56:05	Started importing file: D:\Downloads\THES_CASINOVA_COLORS_V0099.sql 
+23/9/2553 15:56:05	File name D:\Downloads\THES_CASINOVA_COLORS_V0099.sql (size: 35042)
+23/9/2553 15:56:05	Parsing import script
+23/9/2553 15:56:05	Total number of batches in script: 56
+23/9/2553 15:56:05	Total number of statements in script: 56
+23/9/2553 15:56:05	The script was successfully imported into the project.
+23/9/2553 15:56:07	Analyzing schema objects...
+23/9/2553 15:56:07	In the script that you provided to the import operation, one or more statements were not fully understood. These statements were moved to the D:\repo\git\WorkHorse\src\CasinovaAll\Databases\THES_CASINOVA_COLORS_V0098\Scripts\ScriptsIgnoredOnImport.sql file. Review the file contents for additional information.
+23/9/2553 15:56:07	A summary of the import operation was saved to the log file D:\repo\git\WorkHorse\src\CasinovaAll\Databases\THES_CASINOVA_COLORS_V0098\Import Script Logs\THES_CASINOVA_COLORS_20100923085604.log.
+23/9/2553 15:56:07	Click Finish to continue...
