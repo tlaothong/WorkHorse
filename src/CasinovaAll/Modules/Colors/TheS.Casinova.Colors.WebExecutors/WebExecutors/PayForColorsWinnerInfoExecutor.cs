@@ -14,16 +14,16 @@ namespace TheS.Casinova.Colors.WebExecutors
     public class PayForColorsWinnerInfoExecutor
         : SynchronousCommandExecutorBase<PayForColorsWinnerInfoCommand>
     {
-        private IColorsGameBackService _dac;
+        private IPayForWinner _iPayForWinner;
        
         public PayForColorsWinnerInfoExecutor(IColorsGameBackService dac)
         {
-            _dac = dac;
+            _iPayForWinner = dac;
         }
 
         protected override void ExecuteCommand(PayForColorsWinnerInfoCommand command)
         {
-            _dac.PayForWinnerInfo(command);
+            throw new NotImplementedException();
             //TODO: code for call web service
         } 
     }

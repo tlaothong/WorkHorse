@@ -37,7 +37,7 @@ Scenario: ไม่ใส่ข้อมูล username ระบบลิสต
 	Then The game play information should be throw exception
 
 @record_mock
-Scenario: ใส่ข้อมูล username ที่ไม่มีในระบบ ระบบลิสต์ข้อมูล ไม่มีข้อมูลโต๊ะเกม
+Scenario: ใส่ข้อมูล username ที่ไม่มีในระบบ ระบบทำการลิสต์ข้อมูล ไม่มีข้อมูลโต๊ะเกม
 	Given The GamePlayInformation has been created and initialized
 	And The game play information of 'nit' is :
 		|TableID|RoundID|TotalBetAmountOfBlack|TotalBetAmountOfWhite|Winner|LastUpdate|TrackingID|OnGoingTrackingID|UserName|

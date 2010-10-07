@@ -15,17 +15,17 @@ namespace TheS.Casinova.Colors.WebExecutors
     public class ListActiveGameRoundsExecutor
         : SynchronousCommandExecutorBase<ListActiveGameRoundsCommand>
     {
-         private IColorsGameDataQuery _dac;
+         private IListActiveGameRounds _iListActiveRound;
 
          public ListActiveGameRoundsExecutor(IColorsGameDataQuery dac)
         {
-            _dac = dac;
+            _iListActiveRound = dac;
         }
 
          protected override void ExecuteCommand(ListActiveGameRoundsCommand command)
          {
              command.FromTime = DateTime.Now;
-             command.ActiveRounds = _dac.List(command);
+             command.ActiveRounds = _iListActiveRound.List(command);
          }
     }
 }

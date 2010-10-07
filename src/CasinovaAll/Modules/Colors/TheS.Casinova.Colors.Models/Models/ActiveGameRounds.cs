@@ -32,18 +32,18 @@ namespace TheS.Casinova.Colors.Models
         public DateTime EndTime { get; set; }
     }
 
-    [MetadataType(typeof(MD))]
+   [MetadataType(typeof(MD))]
    partial class ActiveGameRounds
    {
-        public class MD
-        {
-            public int TableID { get; set; }
+       public class MD
+       {
+           public int TableID { get; set; }
 
-            public int RoundID { get; set; }
+           public int RoundID { get; set; }
 
-            public DateTime StartTime { get; set; }
+           public DateTime StartTime { get; set; }
 
-            public DateTime EndTime { get; set; }
-        }
+           public DateTime EndTime { get; set; }
+       }
    }
 }

@@ -220,11 +220,11 @@ testRunner.Then("The game play information should be throw exception");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ใส่ข้อมูล username ที่ไม่มีในระบบ ระบบลิสต์ข้อมูล ไม่มีข้อมูลโต๊ะเกม")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ใส่ข้อมูล username ที่ไม่มีในระบบ ระบบทำการลิสต์ข้อมูล ไม่มีข้อมูลโต๊ะเกม")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListGamePlayInfo")]
-        public virtual void ใสขอมลUsernameทไมมในระบบระบบลสตขอมลไมมขอมลโตะเกม()
+        public virtual void ใสขอมลUsernameทไมมในระบบระบบทำการลสตขอมลไมมขอมลโตะเกม()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ใส่ข้อมูล username ที่ไม่มีในระบบ ระบบลิสต์ข้อมูล ไม่มีข้อมูลโต๊ะเกม", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ใส่ข้อมูล username ที่ไม่มีในระบบ ระบบทำการลิสต์ข้อมูล ไม่มีข้อมูลโต๊ะเกม", new string[] {
                         "record_mock"});
 #line 40
 this.ScenarioSetup(scenarioInfo);

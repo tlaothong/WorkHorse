@@ -15,25 +15,18 @@ namespace TheS.Casinova.Colors.WebExecutors
     public class ListGamePlayInfoExecutor
          : SynchronousCommandExecutorBase<ListGamePlayInfoCommand>
     {
-        private IColorsGameDataQuery _dac;
+        private IListGamePlayInformation _iListGamePlayInfo;
 
         public ListGamePlayInfoExecutor(IColorsGameDataQuery dac)
         {
-            _dac = dac;
+            _iListGamePlayInfo = dac;
         }
 
         protected override void ExecuteCommand(ListGamePlayInfoCommand command)
         {
             //ตรวจสอบค่า username ว่ามีหรือไม่
-            try 
-            {
-                if (!string.IsNullOrEmpty(command.UserName)) 
-                    command.GamePlayInfos = _dac.List(command);
-            }
-            catch
-            {
-                throw new ArgumentNullException();
-            }
+           command.GamePlayInfos = _iListGamePlayInfo.List(command);
+           
         }
     }
 }
