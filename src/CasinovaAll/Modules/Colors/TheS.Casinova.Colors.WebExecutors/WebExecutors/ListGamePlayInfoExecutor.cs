@@ -24,7 +24,16 @@ namespace TheS.Casinova.Colors.WebExecutors
 
         protected override void ExecuteCommand(ListGamePlayInfoCommand command)
         {
-            command.GamePlayInfos = _dac.List(command);
+            //ตรวจสอบค่า username ว่ามีหรือไม่
+            try 
+            {
+                if (!string.IsNullOrEmpty(command.UserName)) 
+                    command.GamePlayInfos = _dac.List(command);
+            }
+            catch
+            {
+                throw new ArgumentNullException();
+            }
         }
     }
 }

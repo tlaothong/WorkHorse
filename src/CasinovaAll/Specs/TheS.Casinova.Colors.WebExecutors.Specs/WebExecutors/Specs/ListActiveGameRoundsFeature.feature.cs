@@ -156,14 +156,8 @@ testRunner.Given("The ActiveGameRound has been created and initialized");
 testRunner.And("The active game rounds are :", ((string)(null)), table3);
 #line 32
 testRunner.When("Call ListActiveGameRoundsExecutor");
-#line hidden
-            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
-                        "TableId",
-                        "RoundId",
-                        "StartTime",
-                        "EndTime"});
 #line 33
-testRunner.Then("The result should be:", ((string)(null)), table4);
+testRunner.Then("The active game rounds should be null:");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

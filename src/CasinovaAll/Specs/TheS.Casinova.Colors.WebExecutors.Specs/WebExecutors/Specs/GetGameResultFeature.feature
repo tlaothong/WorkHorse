@@ -15,7 +15,7 @@ Scenario: ส่งค่า RoundID ที่เพิ่งจบเกมแ�
 		|23	     |24	    |13			|
 
 @record_mock
-Scenario: ส่งค่า RoundID อื่น ๆ ที่จบเกมแล้วและมีอยู่ใน Database
+Scenario: ส่งค่า RoundID อื่น ๆ ที่จบเกมแล้วและมีข้อมูลอยู่ใน Database
 	Given The GameRoundInformation has been created and initialized
 	And Server has game information
 		|BlackPot	| WhitePot	|HandCount	|
@@ -32,6 +32,14 @@ Scenario: ส่งค่า RoundID ที่ไม่ถูกต้อง
 		|BlackPot	| WhitePot	|HandCount	|
 		
 	When Call GetGameResultExecutor(RoundID'-3')
-	Then the game result should be null
+	Then the game result should be throw exception
+
+@record_mock
+Scenario: ไม่ส่งค่า RoundID 
+	Given The GameRoundInformation has been created and initialized
+	And Server has game information
+		|BlackPot	| WhitePot	|HandCount	|
 		
+	When Call GetGameResultExecutor(RoundID'-3')
+	Then the game result should be throw exception		
 	

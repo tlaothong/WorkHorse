@@ -30,5 +30,5 @@ Scenario: ลิสต์ข้อมูลโต๊ะเกมที่กำ�
 		|TableId|RoundId|StartTime|EndTime|
 		
 	When Call ListActiveGameRoundsExecutor
-	Then The active game rounds should be null
+	Then The active game rounds should be null:
 		

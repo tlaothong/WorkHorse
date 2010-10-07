@@ -23,8 +23,13 @@ namespace TheS.Casinova.Colors.WebExecutors
 
          protected override void ExecuteCommand(GetGameResultCommand command)
          {
-             command.GameResult = _dac.Get(command);
+             try {
+                 if (command.RoundID > 0) 
+                     command.GameResult = _dac.Get(command);
+             }
+             catch {
+                 throw new ArgumentNullException();
+             }            
          }
-        
     }
 }
