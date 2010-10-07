@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace TheS.Casinova.Colors.Models
 {
     /// <summary>
     /// ข้อมูลโต๊ะเกมที่ active
     /// </summary>
-   public class ActiveGameRounds
+   public partial class ActiveGameRounds
     {
         /// <summary>
         /// หมายเลขโต๊ะเกมที่ active
@@ -30,4 +31,19 @@ namespace TheS.Casinova.Colors.Models
        /// </summary>
         public DateTime EndTime { get; set; }
     }
+
+    [MetadataType(typeof(MD))]
+   partial class ActiveGameRounds
+   {
+        public class MD
+        {
+            public int TableID { get; set; }
+
+            public int RoundID { get; set; }
+
+            public DateTime StartTime { get; set; }
+
+            public DateTime EndTime { get; set; }
+        }
+   }
 }
