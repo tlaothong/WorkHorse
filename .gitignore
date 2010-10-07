@@ -11,5 +11,6 @@ ClientBin/
 *.dbmdl
 *.dbproj.user
 TestResults/
+NeatUpload_Temp/
 *.dbmdl
 *.dbproj.user
