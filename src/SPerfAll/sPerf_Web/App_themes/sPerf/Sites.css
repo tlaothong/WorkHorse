@@ -60,6 +60,11 @@
     float: left;
     font-weight: bold;
 }
+.linkmenu .menu
+{
+    padding-top: 15px;
+    text-align: center;
+}
 .linkmenu a
 {
     text-align: center;

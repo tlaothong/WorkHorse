@@ -1,0 +1,24 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicWebServiceSoap" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IBasicWcf" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://localhost:49774/wsv/BasicWebService.asmx"
+                binding="basicHttpBinding" bindingConfiguration="BasicWebServiceSoap"
+                contract="BasicWebSerThruWcf.BasicWebServiceSoap" name="BasicWebServiceSoap" />
+            <endpoint address="http://localhost:49774/wsv/BasicWcf.svc" binding="basicHttpBinding"
+                bindingConfiguration="BasicHttpBinding_IBasicWcf" contract="BasicWcfSvc.IBasicWcf"
+                name="BasicHttpBinding_IBasicWcf" />
+        </client>
+    </system.serviceModel>
+</configuration>

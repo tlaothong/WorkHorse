@@ -146,6 +146,7 @@
     <Content Include="NeatUpload\Web.config" />
     <Content Include="NeatUpload\StaticUploadHandler.ashx" />
     <Content Include="Views\Account\Web.config" />
+    <Content Include="Views\Home\Web.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

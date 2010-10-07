@@ -1,0 +1,15 @@
+
+*~
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+ClientBin/
+*.suo
+*.sln.cache
+*.csproj.user
+*.dbmdl
+*.dbproj.user
+TestResults/
+*.dbmdl
+*.dbproj.user

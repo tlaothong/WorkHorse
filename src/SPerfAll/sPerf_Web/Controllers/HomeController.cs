@@ -6,17 +6,17 @@ using System.Web.Mvc;
 
 namespace sPerf_Web.Controllers
 {
-    public class HomeController : Controller
+    public partial class HomeController : Controller
     {
         //
         // GET: /Home/
 
-        public ActionResult Index()
+        public virtual ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult About()
+        public virtual ActionResult About()
         {
             return View();
         }
