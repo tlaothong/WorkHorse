@@ -78,8 +78,18 @@ namespace TheS.Casinova.Colors.BackServices.Specs
             get
             {
                 return ScenarioContext.Current[
-                    CommonSteps.Key_PayForColorsWinnerInfoExecutor] as PayForColorsWinnerInfoExecutor;
+                    CommonSteps.Key_PayForColorsWinnerInfoExecutor] as PayForColorsWinnerInfoExecutor;                
             }
         }
+
+        protected BetColorExecutor BetColorExecutor
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_BetColorExecutor] as BetColorExecutor;
+            }
+        }
+
     }
 }

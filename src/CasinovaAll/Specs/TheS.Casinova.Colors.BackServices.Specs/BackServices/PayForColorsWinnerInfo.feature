@@ -3,7 +3,8 @@
 	As a back server
 	I want to be told the round winner at this time
 
-Background:
+@record_mock
+Background: PayForColorsWinner
 	Given server has player information as:
 	|UserName	|Balance	|
 	|OhAe		|463.61		|
@@ -33,9 +34,9 @@ Background:
 @record_mock
 Scenario: หักเงินผู้เล่นจากข้อมูลที่ได้รับมา โดยผู้เล่นเคยเสียค่าดูข้อมูลแล้ว และส่งข้อมูลผู้ชนะกลับ
 	Given The PayForColorsWinnerInfoExecutor has been created and initialized
-	And the player's balance should recieved, name: 'OhAe'
-	And the player's action information should recieved, RoundID: '12', UserName: 'OhAe'
-	And the round information should recieved, roundID: '12'
+	And sent name: 'OhAe' the player's balance should recieved
+	And sent roundID: '12', userName: 'OhAe' the player's action information should recieved
+	And sent roundID: '12' the round information should recieved
 	And the expected balance should be: '462.61'
 	And the player's action information(RoundID: '12', UserName: 'OhAe', ActionType: 'GetWinner', Amount: '1.0') should be create
 	And the game play information(RoundID: '12', UserName: 'OhAe', OnGoingTrackingID: 'B21F8971-DBAB-400F-9D95-151BA24875C1') should be update
@@ -46,9 +47,9 @@ Scenario: หักเงินผู้เล่นจากข้อมูล�
 @record_mock
 Scenario: หักเงินผู้เล่นจากข้อมูลที่ได้รับมา โดยผู้เล่นยังไม่เคยเสียค่าดูข้อมูล และส่งข้อมูลผู้ชนะกลับ
 	Given The PayForColorsWinnerInfoExecutor has been created and initialized
-	And the player's balance should recieved, name: 'Boy'
-	And the player's action information should recieved, RoundID: '13', UserName: 'Boy'
-	And the round information should recieved, roundID: '13'
+	And sent name: 'Boy' the player's balance should recieved
+	And sent roundID: '13', userName: 'Boy' the player's action information should recieved
+	And sent roundID: '13' the round information should recieved
 	And the expected balance should be: '116.21'
 	And the player's action information(RoundID: '13', UserName: 'Boy', ActionType: 'GetWinner', Amount: '5.0') should be create
 	And the game play information(RoundID: '13', UserName: 'Boy', OnGoingTrackingID: 'B21F8971-DBAB-400F-9D95-151BA24875C1') should be update

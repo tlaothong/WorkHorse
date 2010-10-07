@@ -22,7 +22,7 @@ namespace TheS.Casinova.Colors.BackServices
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "GetPlayerInfoToPayForColorsWinnerInfo.feature"
+#line 1 "GetPlayerInfo.feature"
 #line hidden
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.ClassInitializeAttribute()]

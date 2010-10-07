@@ -71,10 +71,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CreatePlayerActionInfoToPayForColorsWinnerInfo.feature</DependentUpon>
     </Compile>
-    <Compile Include="BackServices\GetPlayerInfoToPayForColorsWinnerInfo.feature.cs">
+    <Compile Include="BackServices\GetPlayerInfo.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GetPlayerInfoToPayForColorsWinnerInfo.feature</DependentUpon>
+      <DependentUpon>GetPlayerInfo.feature</DependentUpon>
     </Compile>
     <Compile Include="BackServices\GetRoundWinner.feature.cs">
       <AutoGen>True</AutoGen>
@@ -91,6 +91,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PayForColorsWinnerInfo.feature</DependentUpon>
     </Compile>
+    <Compile Include="BackServices\Specs\BetColorSteps.cs" />
     <Compile Include="BackServices\Specs\PayForColorsWinnerInfoSteps.cs" />
     <Compile Include="BackServices\UpdatePlayerInfoToPayForColorsWinnerInfo.feature.cs">
       <AutoGen>True</AutoGen>
@@ -147,9 +148,9 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>CreatePlayerActionInfoToPayForColorsWinnerInfo.feature.cs</LastGenOutput>
     </None>
-    <None Include="BackServices\GetPlayerInfoToPayForColorsWinnerInfo.feature">
+    <None Include="BackServices\GetPlayerInfo.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>GetPlayerInfoToPayForColorsWinnerInfo.feature.cs</LastGenOutput>
+      <LastGenOutput>GetPlayerInfo.feature.cs</LastGenOutput>
     </None>
     <None Include="BackServices\GetRoundWinner.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

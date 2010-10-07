@@ -13,54 +13,28 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
     [Binding]
     public class ListActiveGameRoundsSteps : ColorsGameStepsBase
     {
-        private ListActiveGameRoundsCommand cmd;
-
         [Given(@"The active game rounds are :")]
         public void GivenTheActiveGameRoundsAre(Table table)
         {
-            var qry = (from it in table.Rows
-                       select new ActiveGameRounds {
-                           TableID = Convert.ToInt32(it["TableId"]),
-                           RoundID = Convert.ToInt32(it["RoundId"]),
-                           StartTime = DateTime.Today + TimeSpan.Parse(it["StartTime"]),
-                           EndTime = DateTime.Today + TimeSpan.Parse(it["EndTime"]),
-                       });
-
-            Expect.Call(Dac.List(new Commands.ListActiveGameRoundsCommand()))
-                .IgnoreArguments()
-                .Return(qry);
-
+            ScenarioContext.Current.Pending();
         }
 
         [When(@"Call ListActiveGameRoundsExecutor")]
         public void WhenCallListActiveGameRoundsExecutor()
         {
-            cmd = new ListActiveGameRoundsCommand();
-            
-            ActiveGameRoundsExecutor.Execute(cmd, x => {});
+            ScenarioContext.Current.Pending();
         }
 
         [Then(@"The result should be:")]
         public void ThenTheResultShouldBe(Table table)
         {
-            var qryExpected = (from it in table.Rows
-                               select new {
-                                   TableID = Convert.ToInt32(it["TableId"]),
-                                   RoundID = Convert.ToInt32(it["RoundId"]),
-                                   StartTime = DateTime.Today + TimeSpan.Parse(it["StartTime"]),
-                                   EndTime = DateTime.Today + TimeSpan.Parse(it["EndTime"]),
-                               });
-            var result = (from it in cmd.ActiveRounds
-                          select new {
-                              it.TableID,
-                              it.RoundID,
-                              it.StartTime,
-                              it.EndTime,
-                          });
-
-            CollectionAssert.AreEqual(qryExpected.ToArray(), result.ToArray());
+            ScenarioContext.Current.Pending();
         }
 
-       
+        [Then(@"The active game rounds should be null")]
+        public void ThenTheActiveGameRoundsShouldBeNull()
+        {
+            ScenarioContext.Current.Pending();
+        }
     }
 }

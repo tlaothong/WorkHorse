@@ -8,6 +8,13 @@ namespace TheS.Casinova.Colors.Commands
 {
     public class CreatePlayerActionInfoCommand
     {
-        public PlayerActionInformation PlayerActionInfo { get; set; }
+        //input
+        public int RoundID { get; set; }
+
+        public string UserName { get; set; }
+
+        public double Amount { get; set; }
+
+        public string ActionType { get; set; }
     }
 }

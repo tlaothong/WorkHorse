@@ -8,6 +8,9 @@ namespace TheS.Casinova.Colors.Commands
 {
     public class UpdatePlayerInfoBalanceCommand
     {
-        public PlayerInformation PlayerInfo { get; set; }
+        //input
+        public string UserName { get; set; }
+
+        public double Balance { get; set; }
     }
 }

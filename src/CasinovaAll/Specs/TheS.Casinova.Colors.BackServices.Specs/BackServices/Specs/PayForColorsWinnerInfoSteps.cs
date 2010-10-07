@@ -12,12 +12,13 @@ namespace TheS.Casinova.Colors.BackServices.Specs
 {
     [Binding]
     public class PayForColorsWinnerInfoSteps
-        : ColorsGameStepsBase
+        : ColorsGameStepsBase  
     {
-        private IEnumerable<PlayerInformation> _playerInfos;
-        private IEnumerable<PlayerActionInformation> _playerActionInfos;
-        private IEnumerable<GameRoundInformation> _RoundInfos;
-        private PlayerInformation _expectPlayerInfo;
+        public PlayerInformation _expectPlayerInfo;
+
+        public IEnumerable<PlayerInformation> _playerInfos;
+        public IEnumerable<PlayerActionInformation> _playerActionInfos;
+        public IEnumerable<GameRoundInformation> _RoundInfos;
 
         [Given(@"server has player information as:")]
         public void GivenServerHasPlayerInformationAs(Table table)
@@ -51,18 +52,19 @@ namespace TheS.Casinova.Colors.BackServices.Specs
                            });
         }
 
-        [Given(@"the player's balance should recieved, name: '(.*)'")]
-        public void GivenThePlayerSBalanceShouldRecievedNameX(string userName)
+        [Given(@"sent name: '(.*)' the player's balance should recieved")]
+        public void GivenSentNameXThePlayerSBalanceShouldRecieved(string userName)
         {
             _expectPlayerInfo = (from item in _playerInfos
                                  where item.UserName == userName
                                  select item).FirstOrDefault();
 
-            SetupResult.For(Dqr_GetPlayerInfo.Get(new GetPlayerInfoCommand())).IgnoreArguments().Return(_expectPlayerInfo);
+            SetupResult.For(Dqr_GetPlayerInfo.Get(new GetPlayerInfoCommand()))
+                .IgnoreArguments().Return(_expectPlayerInfo);
         }
 
-        [Given(@"the player's action information should recieved, RoundID: '(.*)', UserName: '(.*)'")]
-        public void GivenThePlayerSActionInformationShouldRecievedRoundID12UserNameOhAe(int roundID, string userName)
+        [Given(@"sent roundID: '(.*)', userName: '(.*)' the player's action information should recieved")]
+        public void GivenSentRoundIDXUserNameXThePlayerSActionInformationShouldRecieved(int roundID, string userName)
         {
             var result = (from item in _playerActionInfos
                           where item.RoundID == roundID && item.UserName == userName && item.ActionType == "GetWinner"
@@ -74,7 +76,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
 
         [Given(@"the expected balance should be: '(.*)'")]
         public void GivenTheExpectedBalanceShouldBeX(double balance)
-        {
+        {            
             Action<PlayerInformation, UpdatePlayerInfoBalanceCommand> CheckCallMethod = (playerInfo, cmd) => {
                 Assert.AreEqual(_expectPlayerInfo.UserName, playerInfo.UserName, "UserName");
                 Assert.AreEqual(balance, playerInfo.Balance, "Balance");
@@ -124,8 +126,8 @@ namespace TheS.Casinova.Colors.BackServices.Specs
             LastCall.IgnoreArguments().Do(CheckData);
         }
 
-        [Given(@"the round information should recieved, roundID: '(.*)'")]
-        public void GivenTheRoundInformationShouldRecievedRoundIDX(int roundID)
+        [Given(@"sent roundID: '(.*)' the round information should recieved")]
+        public void GivenSentRoundIDXTheRoundInformationShouldRecieved(int roundID)
         {
             var result = (from item in _RoundInfos
                           where item.RoundID == roundID
@@ -162,7 +164,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
             PayForColorsWinnerInfoCommand cmd = new PayForColorsWinnerInfoCommand { 
                 UserName = userName,
                 RoundID = roundID,
-                GamePlayInfo = new GamePlayInformation { OnGoingTrackingID = Guid.Parse(onGoingTrackingID) } 
+                OnGoingTrackingID = Guid.Parse(onGoingTrackingID),
             };
             PayForColorsWinnerInfoExecutor.Execute(cmd, (x) => { });
         }
