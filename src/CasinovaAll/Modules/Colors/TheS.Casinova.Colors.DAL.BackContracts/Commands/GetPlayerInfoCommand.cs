@@ -12,9 +12,15 @@ namespace TheS.Casinova.Colors.Commands
     public class GetPlayerInfoCommand
     {
         //input
+        /// <summary>
+        /// ชื่อผู้เล่นที่ต้องการข้อมูล
+        /// </summary>
         public string UserName { get; set; }
 
-        //output
+        //output       
+        /// <summary>
+        /// ข้อมูลผู้เล่นที่จะได้รับ
+        /// </summary>
         public PlayerInformation PlayerInfo { get; set; }
     }
 }

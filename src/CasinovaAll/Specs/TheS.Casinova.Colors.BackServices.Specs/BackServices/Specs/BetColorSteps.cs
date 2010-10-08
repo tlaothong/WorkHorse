@@ -29,7 +29,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
                             });
         }
 
-        [Given(@"sent name: '(.*)' the player's balance should recieved, for bet color")]
+        [Given(@"sent name: (.*) the player's balance should recieved, for bet color")]
         public void GivenSentNameXThePlayerSBalanceShouldRecievedForBetColor(string userName)
         {
             _expectPlayerInfo = (from item in _playerInfos
@@ -40,26 +40,27 @@ namespace TheS.Casinova.Colors.BackServices.Specs
                 .IgnoreArguments().Return(_expectPlayerInfo);
         }
 
-        [Given(@"the player's balance should be update as: '(.*)'")]
-        public void GivenThePlayerSBalanceShouldBeUpdateAsX(double balance)
+        [Given(@"the player's balance should be update correct, Amount: (.*)")]
+        public void GivenThePlayerSBalanceShouldBeUpdateCorrectAmountX(double amount)
         {
+            _expectPlayerInfo.Balance -= amount;
             Action<PlayerInformation, UpdatePlayerInfoBalanceCommand> CheckCallMethod = (playerInfo, cmd) => {
                 Assert.AreEqual(_expectPlayerInfo.UserName, playerInfo.UserName, "UserName");
-                Assert.AreEqual(balance, playerInfo.Balance, "Balance");
+                Assert.AreEqual(_expectPlayerInfo.Balance, playerInfo.Balance, "Balance");
             };
 
             Dac_UpdatePlayerInfoBalance.ApplyAction(new PlayerInformation(), new UpdatePlayerInfoBalanceCommand());
             LastCall.IgnoreArguments().Do(CheckCallMethod);
         }
 
-        [Given(@"the player action information should be update as: \(UserName: '(.*)', RoundID: '(.*)', Amount: '(.*)', Color: '(.*)', TrackingID: '(.*)'\)")]
-        public void GivenThePlayerActionInformationShouldBeUpdateAsUserNameXRoundIDXAmountXColorXTrackingIDX(string userName, int roundID, double amount, string color, string trackingID)
+        [Given(@"the player action information should be update as: \(UserName: (.*), RoundID: (.*), Amount: (.*), Color: (.*), TrackingID: (.*)\)")]
+        public void GivenThePlayerActionInformationShouldBeUpdateAsUserNameXRoundIDXAmountXColorXTrackingIDX(string userName, int roundID, string amount, string color, string trackingID)
         {
             PlayerActionInformation _expected = new PlayerActionInformation {
                 RoundID = roundID,
                 UserName = userName,
                 ActionType = color,
-                Amount = amount,
+                Amount = Convert.ToDouble(amount),
                 TrackingID = Guid.Parse(trackingID),
             };
 
@@ -75,7 +76,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
             LastCall.IgnoreArguments().Do(checkdata);
         }
 
-        [When(@"call BetColorExecutor\(UserName: '(.*)', RoundID: '(.*)', Amount: '(.*)', Color: '(.*)', TrackingID: '(.*)'\)")]
+        [When(@"call BetColorExecutor\(UserName: (.*), RoundID: (.*), Amount: (.*), Color: (.*), TrackingID: (.*)\)")]
         public void WhenCallBetColorExecutorUserNameXRoundIDXAmountXColorXTrackingIDX(string userName, int roundID, double amount, string color, string trackingID)
         {
             BetCommand cmd = new BetCommand {

@@ -38,11 +38,12 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
 
             //บันทึกข้อมูลผู้เล่นที่ถูกหักเงิน
             PlayerInformation playerInfo = new PlayerInformation();
+            getPlayerInfoCmd.PlayerInfo.Balance = getPlayerInfoCmd.PlayerInfo.Balance - command.Amount;
             UpdatePlayerInfoBalanceCommand updateBalanceCmd = new UpdatePlayerInfoBalanceCommand {
                 UserName = playerInfo.UserName = command.UserName,
 
                 //หักเงินผู้เล่นตามเงินที่ต้องการลงพนัน
-                Balance = playerInfo.Balance = getPlayerInfoCmd.PlayerInfo.Balance -= command.Amount,
+                Balance = playerInfo.Balance = getPlayerInfoCmd.PlayerInfo.Balance,               
             };
             _iUpdatePlayerInfoBalance.ApplyAction(playerInfo, updateBalanceCmd);
 
