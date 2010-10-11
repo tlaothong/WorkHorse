@@ -64,6 +64,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BetFeature.feature</DependentUpon>
     </Compile>
+    <Compile Include="WebExecutors\Specs\CreateGameRoundconfigFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreateGameRoundconfigFeature.feature</DependentUpon>
+    </Compile>
     <Compile Include="WebExecutors\Specs\GetGameResultFeature.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -128,6 +133,10 @@
     <None Include="WebExecutors\Specs\BetFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>BetFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\CreateGameRoundconfigFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CreateGameRoundconfigFeature.feature.cs</LastGenOutput>
     </None>
     <None Include="WebExecutors\Specs\GetGameResultFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

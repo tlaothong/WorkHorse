@@ -16,6 +16,6 @@ namespace TheS.Casinova.Colors.BackServices
     /// </summary>
     public interface ICreateGameTableConfigurations
     {
-        void Create(CreateGameTableConfigurationsCommand cmd);
+        void Create(CreateGameRoundConfigurationsCommand cmd);
     }
 }
