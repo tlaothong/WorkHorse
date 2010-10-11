@@ -9,9 +9,9 @@ namespace TheS.Casinova.Colors.Commands
     /// <summary>
     /// command สร้างโต๊ะเกมตามที่ผู้ใช้ config
     /// </summary>
-   public class CreateGameTableConfigurationsCommand
+   public class CreateGameRoundConfigurationsCommand
     {
        //input
-        public IEnumerable<GameTableInformation> Tables { get; set; } //ข้อมูลสำหรับสร้างโต๊ะเกม
+        public IEnumerable<GameRoundConfiguration> Tables { get; set; } //ข้อมูลสำหรับสร้างโต๊ะเกม
     }
 }

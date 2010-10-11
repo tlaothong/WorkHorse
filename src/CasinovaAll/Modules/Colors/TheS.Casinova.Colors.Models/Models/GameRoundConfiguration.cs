@@ -8,7 +8,7 @@ namespace TheS.Casinova.Colors.Models
     /// <summary>
     /// Config โต๊ะเกม
     /// </summary>
-   public class GameTableInformation
+   public class GameRoundConfiguration
     {
        /// <summary>
        /// ชื่อโต๊ะเกม
