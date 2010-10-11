@@ -11,12 +11,21 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
     [Binding]
     public class ColorsGameStepsBase
     {
+        protected BetColorsExecutor BetColor
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_Dac_BetColor] as BetColorsExecutor;
+            }
+        }
+
         protected GetGameResultExecutor GetGameResult
         {
             get
             {
                 return ScenarioContext.Current[
-                    CommonSteps.Key_GetGameResult] as GetGameResultExecutor;
+                    CommonSteps.Key_Dqr_GetGameResult] as GetGameResultExecutor;
             }
         }
 
@@ -25,7 +34,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
             get
             {
                 return ScenarioContext.Current[
-                    CommonSteps.Key_PayForWinnerInfo] as PayForColorsWinnerInfoExecutor;
+                    CommonSteps.Key_Dac_PayForWinnerInfo] as PayForColorsWinnerInfoExecutor;
             }
         }
 
@@ -34,7 +43,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
             get
             {
                 return ScenarioContext.Current[
-                    CommonSteps.Key_ListActiveGameRoundsExecutor] as ListActiveGameRoundsExecutor;
+                    CommonSteps.Key_Dqr_ListActiveGameRoundsExecutor] as ListActiveGameRoundsExecutor;
             }
         }
 
@@ -43,7 +52,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
             get
             {
                 return ScenarioContext.Current[
-                    CommonSteps.Key_ListGamePlayInfo] as ListGamePlayInfoExecutor;
+                    CommonSteps.Key_Dqr_ListGamePlayInfo] as ListGamePlayInfoExecutor;
             }
         }
 

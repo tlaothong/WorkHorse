@@ -156,11 +156,11 @@ testRunner.Then("The game play information should be :", ((string)(null)), table
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบลิสต์ข้อมูลโต๊ะเกม แต่ผู้เล่นยังไม่เคยเล่นเกมที่โต๊ะใด ๆ")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบลิสต์ข้อมูลโต๊ะเกมแต่ไม่มีข้อมูล เนื่องจากผู้เล่นยังไม่เคยเล่นเกมที่โต๊ะใด ๆ")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListGamePlayInfo")]
-        public virtual void ระบบลสตขอมลโตะเกมแตผเลนยงไมเคยเลนเกมทโตะใดๆ()
+        public virtual void ระบบลสตขอมลโตะเกมแตไมมขอมลเนองจากผเลนยงไมเคยเลนเกมทโตะใดๆ()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบลิสต์ข้อมูลโต๊ะเกม แต่ผู้เล่นยังไม่เคยเล่นเกมที่โต๊ะใด ๆ", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบลิสต์ข้อมูลโต๊ะเกมแต่ไม่มีข้อมูล เนื่องจากผู้เล่นยังไม่เคยเล่นเกมที่โต๊ะใด ๆ", new string[] {
                         "record_mock"});
 #line 22
 this.ScenarioSetup(scenarioInfo);
@@ -211,24 +211,24 @@ testRunner.Given("The GamePlayInformation has been created and initialized");
                         "UserName"});
 #line 33
 testRunner.And("The game play information of \'\' is :", ((string)(null)), table4);
-#line 35
-testRunner.When("Call ListGamePlayInfo(\'\')");
 #line 36
-testRunner.Then("The game play information should be null");
+testRunner.When("Call ListGamePlayInfo(\'\')");
+#line 37
+testRunner.Then("The game play information should be throw exception");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ใส่ข้อมูล username ที่ไม่มีในระบบ ระบบลิสต์ข้อมูลโต๊ะเกมไม่ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ใส่ข้อมูล username ที่ไม่มีในระบบ ระบบทำการลิสต์ข้อมูล ไม่มีข้อมูลโต๊ะเกม")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListGamePlayInfo")]
-        public virtual void ใสขอมลUsernameทไมมในระบบระบบลสตขอมลโตะเกมไมได()
+        public virtual void ใสขอมลUsernameทไมมในระบบระบบทำการลสตขอมลไมมขอมลโตะเกม()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ใส่ข้อมูล username ที่ไม่มีในระบบ ระบบลิสต์ข้อมูลโต๊ะเกมไม่ได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ใส่ข้อมูล username ที่ไม่มีในระบบ ระบบทำการลิสต์ข้อมูล ไม่มีข้อมูลโต๊ะเกม", new string[] {
                         "record_mock"});
-#line 39
-this.ScenarioSetup(scenarioInfo);
 #line 40
+this.ScenarioSetup(scenarioInfo);
+#line 41
 testRunner.Given("The GamePlayInformation has been created and initialized");
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
@@ -241,11 +241,11 @@ testRunner.Given("The GamePlayInformation has been created and initialized");
                         "TrackingID",
                         "OnGoingTrackingID",
                         "UserName"});
-#line 41
+#line 42
 testRunner.And("The game play information of \'nit\' is :", ((string)(null)), table5);
-#line 43
+#line 45
 testRunner.When("Call ListGamePlayInfo(\'nit\')");
-#line 44
+#line 46
 testRunner.Then("The game play information should be null");
 #line hidden
             testRunner.CollectScenarioErrors();

@@ -13,6 +13,9 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
     [Binding]
     public class GetGameResultSteps : ColorsGameStepsBase
     {
+        private GetGameResultCommand _cmd;
+        private GameRoundInformation _getGameResult;
+
         [Given(@"Server has game information")]
         public void GivenServerHasGameInformation(Table table)
         {
@@ -29,10 +32,10 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         public void ThenTheGameResultShouldBe(Table table)
         {
             ScenarioContext.Current.Pending();
-        }
 
-        [Then(@"the game result should be null")]
-        public void ThenTheGameResultShouldBeNull()
+        }
+        [Then(@"the game result should be throw exception")]
+        public void ThenTheGameResultShouldBeThrowException()
         {
             ScenarioContext.Current.Pending();
         }

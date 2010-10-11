@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace TheS.Casinova.Colors.Models
 {
     /// <summary>
     /// ข้อมูลผู้เล่น
     /// </summary>
-    public class PlayerInformation
+    public partial class PlayerInformation
     {
         /// <summary>
         /// ชื่อผู้เล่นเจ้าของเงิน
@@ -19,5 +20,17 @@ namespace TheS.Casinova.Colors.Models
         /// เงินที่ผ้เล่นใช้ในเกม
         /// </summary>       
         public double Balance { get; set; }
+    }
+
+    [MetadataType(typeof(MD))]
+    partial class PlayerInformation
+    {
+        public class MD
+        {
+            [Required]
+            public string UserName { get; set; }
+
+            public double Balance { get; set; }
+        }
     }
 }

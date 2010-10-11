@@ -41,7 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\BetCommand.cs" />
-    <Compile Include="Commands\CreateGameRoundCommand.cs" />
+    <Compile Include="Commands\CreateGameTableConfigurationsCommand.cs" />
+    <Compile Include="Commands\GetBalanceCommand.cs" />
     <Compile Include="Commands\GetGameResultCommand.cs" />
     <Compile Include="Commands\ListGamePlayInfoCommand.cs" />
     <Compile Include="Commands\PayForColorsWinnerInfoCommand.cs" />

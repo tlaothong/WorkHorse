@@ -13,6 +13,11 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
     [Binding]
     public class ListActiveGameRoundsSteps : ColorsGameStepsBase
     {
+          private ListActiveGameRoundsCommand _cmd;
+          private IEnumerable<GameRoundInformation> expectActiveRound;
+
+
+
         [Given(@"The active game rounds are :")]
         public void GivenTheActiveGameRoundsAre(Table table)
         {
@@ -31,10 +36,11 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
             ScenarioContext.Current.Pending();
         }
 
-        [Then(@"The active game rounds should be null")]
+        [Then(@"The active game rounds should be null:")]
         public void ThenTheActiveGameRoundsShouldBeNull()
         {
             ScenarioContext.Current.Pending();
         }
+
     }
 }

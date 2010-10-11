@@ -76,46 +76,19 @@ testRunner.Then("TrackingID of PayForWinner should be \'6443B518-5F7F-4BE6-8E94-
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบมีค่า TrackingID ไม่ถูกต้อง ระบบส่งค่า null ไปให้ client และไม่ส่งค่าไปให้ ba" +
-            "ckserver")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PayForColorsWinnerInformation")]
-        public virtual void ระบบมคาTrackingIDไมถกตองระบบสงคาNullไปใหClientและไมสงคาไปใหBackserver()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบมีค่า TrackingID ไม่ถูกต้อง ระบบส่งค่า null ไปให้ client และไม่ส่งค่าไปให้ ba" +
-                    "ckserver", new string[] {
-                        "record_mock"});
-#line 15
-this.ScenarioSetup(scenarioInfo);
-#line 16
-testRunner.Given("The PayForcolorsWinnerInfo has been created and initialized");
-#line 17
-testRunner.And("TrackingID is \'00000000-0000-0000-0000-000000000000\'");
-#line 18
-testRunner.And("Expected call PayForWinnerInfo");
-#line 19
-testRunner.When("Call PayForWinnerInfo(RoundID \'5\') by userName \'nit\'");
-#line 20
-testRunner.Then("TrackingID  of PayForWinner should be null");
-#line hidden
-            testRunner.CollectScenarioErrors();
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับค่า RoundID เป็นค่าลบ ระบบไม่สามารถ generate TrackingID ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PayForColorsWinnerInformation")]
         public virtual void ระบบไดรบคาRoundIDเปนคาลบระบบไมสามารถGenerateTrackingIDได()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับค่า RoundID เป็นค่าลบ ระบบไม่สามารถ generate TrackingID ได้", new string[] {
                         "record_mock"});
-#line 23
+#line 15
 this.ScenarioSetup(scenarioInfo);
-#line 24
+#line 16
 testRunner.Given("The PayForcolorsWinnerInfo has been created and initialized");
-#line 25
-testRunner.And("Expected call PayForWinnerInfo");
-#line 26
+#line 17
 testRunner.When("Call PayForWinnerInfo(RoundID \'-5\') by userName \'nit\'");
-#line 27
+#line 18
 testRunner.Then("TrackingID  of PayForWinner should be null");
 #line hidden
             testRunner.CollectScenarioErrors();
@@ -130,17 +103,15 @@ testRunner.Then("TrackingID  of PayForWinner should be null");
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับค่าข้อมูล UserName ที่ไม่มีในระบบ ระบบไม่สามารถ generate TrackingID ได้" +
                     "", new string[] {
                         "record_mock"});
-#line 30
+#line 21
 this.ScenarioSetup(scenarioInfo);
-#line 31
+#line 22
 testRunner.Given("The PayForcolorsWinnerInfo has been created and initialized");
-#line 32
+#line 23
 testRunner.And("System has userName \'tle\',\'boy\',\'ae\',\'ku\',\'au\'");
-#line 33
-testRunner.And("Expected call PayForWinnerInfo");
-#line 34
+#line 24
 testRunner.When("Call PayForWinnerInfo(RoundID \'5\') by userName \'nit\'");
-#line 35
+#line 25
 testRunner.Then("TrackingID  of PayForWinner should be null");
 #line hidden
             testRunner.CollectScenarioErrors();
@@ -153,15 +124,13 @@ testRunner.Then("TrackingID  of PayForWinner should be null");
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบไม่ได้รับค่า UserName ระบบไม่สามารถ generate TrackingID ได้", new string[] {
                         "record_mock"});
-#line 38
+#line 28
 this.ScenarioSetup(scenarioInfo);
-#line 39
+#line 29
 testRunner.Given("The PayForcolorsWinnerInfo has been created and initialized");
-#line 40
-testRunner.And("Expected call PayForWinnerInfo");
-#line 41
+#line 30
 testRunner.When("Call PayForWinnerInfo(RoundID \'5\') by userName \' \'");
-#line 42
+#line 31
 testRunner.Then("TrackingID  of PayForWinner should be null");
 #line hidden
             testRunner.CollectScenarioErrors();

@@ -14,17 +14,16 @@ namespace TheS.Casinova.Colors.WebExecutors
     public class GetGameResultExecutor
         : SynchronousCommandExecutorBase<GetGameResultCommand>
     {
-         private IColorsGameDataQuery _dac;
+         private IGetGameResult _iGameResult;
 
          public GetGameResultExecutor(IColorsGameDataQuery dac)
         {
-            _dac = dac;
+            _iGameResult = dac;
         }
 
          protected override void ExecuteCommand(GetGameResultCommand command)
          {
-             command.GameResult = _dac.Get(command);
+             command.GameResult = _iGameResult.Get(command);                 
          }
-        
     }
 }

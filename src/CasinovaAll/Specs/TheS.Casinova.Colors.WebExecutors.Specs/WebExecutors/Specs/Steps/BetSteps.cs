@@ -3,23 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
+using TheS.Casinova.Colors.Models;
 
 namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
 {
     [Binding]
-    public class BetSteps
+    public class BetSteps : ColorsGameStepsBase
     {
-        [Given(@"The BetInformation has been created and initialized")]
-        public void GivenTheBetInformationHasBeenCreatedAndInitialized()
-        {
-            ScenarioContext.Current.Pending();
-        }
-
-        [Given(@"Balance is '(.*)'")]
-        public void GivenBalanceIs200(int balance)
-        {
-            ScenarioContext.Current.Pending();
-        }
 
         [Given(@"TrackingID of PlayerBet is '(.*)'")]
         public void GivenTrackingIDOfPlayerBetIsX(string trackingId)
@@ -47,12 +37,6 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
 
         [Then(@"TrackingID of PlayerBet should be null")]
         public void ThenTrackingIDOfPlayerBetShouldBeNull()
-        {
-            ScenarioContext.Current.Pending();
-        }
-
-        [Then(@"Balance should be '(.*)'")]
-        public void ThenBalanceShouldBe0(int balance)
         {
             ScenarioContext.Current.Pending();
         }
