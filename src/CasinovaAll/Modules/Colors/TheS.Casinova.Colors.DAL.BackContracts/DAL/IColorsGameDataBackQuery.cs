@@ -11,7 +11,8 @@ namespace TheS.Casinova.Colors.DAL
     public interface IColorsGameDataBackQuery : 
         IGetRoundInfo,
         IListPlayerActionInfoQuery,
-        IGetPlayerInfo
+        IGetPlayerInfo,
+        IListActiveGameRounds
     { }
     
     /// <summary>
@@ -35,4 +36,10 @@ namespace TheS.Casinova.Colors.DAL
         : IFetchData<PlayerActionInformation, PayForColorsWinnerInfoCommand>
     { }
 
+    /// <summary>
+    /// List ข้อมูลโต๊ะเกมที่ active
+    /// </summary>
+    public interface IListActiveGameRounds
+        : IFetchData<GameRoundInformation, ListActiveGameRoundsCommand>
+    { }
 }
