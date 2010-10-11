@@ -14,7 +14,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
     public class ListActiveGameRoundsSteps : ColorsGameStepsBase
     {
           private ListActiveGameRoundsCommand _cmd;
-          private IEnumerable<ActiveGameRounds> expectActiveRound;
+          private IEnumerable<GameRoundInformation> expectActiveRound;
 
 
 

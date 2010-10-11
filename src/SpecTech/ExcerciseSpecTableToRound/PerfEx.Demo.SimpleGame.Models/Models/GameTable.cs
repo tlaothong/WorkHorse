@@ -5,6 +5,9 @@ using System.Text;
 
 namespace PerfEx.Demo.SimpleGame.Models
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class GameTable
     {
         public int TableID { get; set; }

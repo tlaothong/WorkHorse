@@ -13,16 +13,14 @@ namespace TheS.Casinova.Colors.WebExecutors
         : SynchronousCommandExecutorBase<BetCommand>
     {
         private IBet _iBet;
-        private IGetBalance _iGetBalance;
-        public BetColorsExecutor(IColorsGameBackService dac, IColorsGameDataQuery dqr) 
+        public BetColorsExecutor(IColorsGameBackService dac) 
         {
             _iBet = dac;
-            _iGetBalance = dqr;
         }
 
         protected override void ExecuteCommand(BetCommand command) 
         {
-            throw new NotImplementedException();
+            _iBet.PlayerBet(command);
         }
     }
 }

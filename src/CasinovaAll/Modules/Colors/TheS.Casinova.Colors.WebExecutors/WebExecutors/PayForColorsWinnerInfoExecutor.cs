@@ -23,7 +23,7 @@ namespace TheS.Casinova.Colors.WebExecutors
 
         protected override void ExecuteCommand(PayForColorsWinnerInfoCommand command)
         {
-            throw new NotImplementedException();
+            _iPayForWinner.PayForWinnerInfo(command);
             //TODO: code for call web service
         } 
     }
