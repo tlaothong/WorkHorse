@@ -47,6 +47,6 @@ namespace TheS.Casinova.Colors.DAL
     { }
 
     public interface IGetGameRoundConfigurations
-        : IFetchSingleData<GameRoundConfiguration,GetGameRoundConfigurationsCommand> 
+        : IFetchSingleData<GameRoundConfiguration,GetGameRoundConfigurationCommand> 
     {}
 }

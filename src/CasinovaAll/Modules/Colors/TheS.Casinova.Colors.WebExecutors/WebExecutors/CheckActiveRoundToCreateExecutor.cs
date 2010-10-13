@@ -16,7 +16,7 @@ namespace TheS.Casinova.Colors.WebExecutors
        private ICheckActiveRoundToCreate _iCheck;
        private IListActiveGameRounds _iListActiveRound;
        private IGetGameRoundConfigurations _iGetGameRoundConfig;
-       private GetGameRoundConfigurationsCommand _getRoundInfo;
+       private GetGameRoundConfigurationCommand _getRoundInfo;
        private ListActiveGameRoundsCommand _listActive;
        private int _activeRoundCount;           //จำนวน ActiveRound ที่มีอยู่ในขณะนั้น
        private int _sumActiveRound;             //จำนวน ActiveRound ทั้งหมดที่ต้องมี
@@ -31,7 +31,7 @@ namespace TheS.Casinova.Colors.WebExecutors
        protected override void ExecuteCommand(CheckActiveRoundToCreateCommand command)
        {
            _listActive = new ListActiveGameRoundsCommand();
-           _getRoundInfo = new GetGameRoundConfigurationsCommand();
+           _getRoundInfo = new GetGameRoundConfigurationCommand();
 
            //ดึงข้อมูลการ config จากการสร้างจำนวนโต๊ะเกม
            _getRoundInfo.Name = command.Name;

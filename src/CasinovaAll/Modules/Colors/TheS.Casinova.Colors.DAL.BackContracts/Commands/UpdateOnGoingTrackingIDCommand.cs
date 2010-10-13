@@ -5,6 +5,10 @@ using System.Text;
 
 namespace TheS.Casinova.Colors.Commands
 {
-    public class UpdateOnGoingTrackingIDCommand : PayForColorsWinnerInfoCommand
+    /// <summary>
+    /// อัพเดทข้อมูล TrackingID 
+    /// </summary>
+    public class UpdateOnGoingTrackingIDCommand 
+        : PayForColorsWinnerInfoCommand
     { }
 }

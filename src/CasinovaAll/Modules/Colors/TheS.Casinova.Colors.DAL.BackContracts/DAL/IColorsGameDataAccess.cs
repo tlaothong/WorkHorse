@@ -12,7 +12,9 @@ namespace TheS.Casinova.Colors.DAL
         IUpdatePlayerInfoBalance,
         ICreatePlayerActionInfo,
         IUpdateOnGoingTrackingID,
-        IUpdateRoundWinner
+        IUpdateRoundWinner,
+        ICreateGameRoundConfigurations,
+        ICreateGameRound
     { }
 
     /// <summary>
@@ -43,4 +45,17 @@ namespace TheS.Casinova.Colors.DAL
         : IDataAction<GamePlayInformation, UpdateRoundWinnerCommand>
     { }
 
+    /// <summary>
+    /// บันทึกการตั้งค่าสำหรับสร้างโต๊ะเกมใหม่
+    /// </summary>
+    public interface ICreateGameRoundConfigurations
+        : ICreateData<GameRoundConfiguration, CreateGameRoundConfigurationCommand>
+    { }
+
+    /// <summary>
+    /// สร้างโต๊ะเกมใหม่
+    /// </summary>
+    public interface ICreateGameRound
+        : ICreateData<GameRoundInformation, CreateGameRoundsCommand>
+    { }
 }

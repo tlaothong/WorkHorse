@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 namespace TheS.Casinova.Colors.Models
 {
     /// <summary>
-    /// ข้อมูลเงินของผู้เล่น
+    /// ข้อมูลผู้เล่น
     /// </summary>
     public partial class PlayerInformation
     {
@@ -18,7 +18,7 @@ namespace TheS.Casinova.Colors.Models
 
         /// <summary>
         /// เงินที่ผ้เล่นใช้ในเกม
-        /// </summary>
+        /// </summary>       
         public double Balance { get; set; }
     }
 
