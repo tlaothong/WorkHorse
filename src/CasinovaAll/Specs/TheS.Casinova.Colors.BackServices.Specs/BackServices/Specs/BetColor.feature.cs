@@ -9,7 +9,7 @@
 //  </auto-generated>
 // ------------------------------------------------------------------------------
 #region Designer generated code
-namespace TheS.Casinova.Colors.BackServices
+namespace TheS.Casinova.Colors.BackServices.Specs
 {
     using TechTalk.SpecFlow;
     

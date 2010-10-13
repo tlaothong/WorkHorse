@@ -8,8 +8,9 @@ using PerfEx.Infrastructure.Data;
 
 namespace TheS.Casinova.MagicNine.DAL
 {
-    public interface IMagicNineDataBackQuery :
-        IListBetLog
+    public interface IMagicNineGameDataBackQuery :
+        IListBetLog,
+        IGetPlayerInfo
     { }
 
     /// <summary>
@@ -17,5 +18,12 @@ namespace TheS.Casinova.MagicNine.DAL
     /// </summary>
     public interface IListBetLog
         : IFetchData<BetInformation, ListBetLogCommand>
+    { }
+
+    /// <summary>
+    /// ดึงข้อมูลผู้เล่น
+    /// </summary>
+    public interface IGetPlayerInfo
+        : IFetchSingleData<PlayerInformation, GetPlayerInfoCommand>
     { }
 }

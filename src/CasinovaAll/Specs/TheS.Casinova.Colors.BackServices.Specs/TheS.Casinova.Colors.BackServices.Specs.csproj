@@ -61,59 +61,59 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BackServices\BetColor.feature.cs">
+    <Compile Include="BackServices\Specs\BetColor.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BetColor.feature</DependentUpon>
     </Compile>
-    <Compile Include="BackServices\CreateGameRoundConfigurations.feature.cs">
+    <Compile Include="BackServices\Specs\CreateGameRoundConfigurations.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CreateGameRoundConfigurations.feature</DependentUpon>
     </Compile>
-    <Compile Include="BackServices\CreateGamerRounds.feature.cs">
+    <Compile Include="BackServices\Specs\CreateGamerRound.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CreateGamerRounds.feature</DependentUpon>
+      <DependentUpon>CreateGamerRound.feature</DependentUpon>
     </Compile>
-    <Compile Include="BackServices\Specs\CreateGameRoundsSteps.cs" />
-    <Compile Include="BackServices\CreatePlayerActionInfoToPayForColorsWinnerInfo.feature.cs">
+    <Compile Include="BackServices\Specs\Steps\CreateGameRoundsSteps.cs" />
+    <Compile Include="BackServices\Specs\CreatePlayerActionInfoToPayForColorsWinnerInfo.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CreatePlayerActionInfoToPayForColorsWinnerInfo.feature</DependentUpon>
     </Compile>
-    <Compile Include="BackServices\GetPlayerInfo.feature.cs">
+    <Compile Include="BackServices\Specs\GetPlayerInfo.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GetPlayerInfo.feature</DependentUpon>
     </Compile>
-    <Compile Include="BackServices\GetRoundWinner.feature.cs">
+    <Compile Include="BackServices\Specs\GetRoundWinner.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GetRoundWinner.feature</DependentUpon>
     </Compile>
-    <Compile Include="BackServices\ListPlayerActionInfoToPayForColorsWinnerInfo.feature.cs">
+    <Compile Include="BackServices\Specs\ListPlayerActionInfoToPayForColorsWinnerInfo.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ListPlayerActionInfoToPayForColorsWinnerInfo.feature</DependentUpon>
     </Compile>
-    <Compile Include="BackServices\PayForColorsWinnerInfo.feature.cs">
+    <Compile Include="BackServices\Specs\PayForColorsWinnerInfo.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PayForColorsWinnerInfo.feature</DependentUpon>
     </Compile>
-    <Compile Include="BackServices\Specs\BetColorSteps.cs" />
-    <Compile Include="BackServices\Specs\CreateGameRoundConfigurationsSteps.cs" />
-    <Compile Include="BackServices\Specs\PayForColorsWinnerInfoSteps.cs" />
-    <Compile Include="BackServices\UpdatePlayerInfoToPayForColorsWinnerInfo.feature.cs">
+    <Compile Include="BackServices\Specs\Steps\BetColorSteps.cs" />
+    <Compile Include="BackServices\Specs\Steps\CreateGameRoundConfigurationsSteps.cs" />
+    <Compile Include="BackServices\Specs\Steps\PayForColorsWinnerInfoSteps.cs" />
+    <Compile Include="BackServices\Specs\UpdatePlayerInfoToPayForColorsWinnerInfo.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>UpdatePlayerInfoToPayForColorsWinnerInfo.feature</DependentUpon>
     </Compile>
     <Compile Include="BackServices\SpecEventDefinitions.cs" />
-    <Compile Include="BackServices\Specs\ColorsGameStepsBase.cs" />
-    <Compile Include="BackServices\Specs\CommonSteps.cs" />
-    <Compile Include="BackServices\UpdateOnGoingTrackingID.feature.cs">
+    <Compile Include="BackServices\Specs\Steps\ColorsGameStepsBase.cs" />
+    <Compile Include="BackServices\Specs\Steps\CommonSteps.cs" />
+    <Compile Include="BackServices\Specs\UpdateOnGoingTrackingID.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>UpdateOnGoingTrackingID.feature</DependentUpon>
@@ -152,43 +152,43 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="BackServices\App.config" />
-    <None Include="BackServices\BetColor.feature">
+    <None Include="BackServices\Specs\BetColor.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>BetColor.feature.cs</LastGenOutput>
     </None>
-    <None Include="BackServices\CreateGameRoundConfigurations.feature">
+    <None Include="BackServices\Specs\CreateGameRoundConfigurations.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>CreateGameRoundConfigurations.feature.cs</LastGenOutput>
     </None>
-    <None Include="BackServices\CreateGamerRounds.feature">
+    <None Include="BackServices\Specs\CreateGamerRound.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>CreateGamerRounds.feature.cs</LastGenOutput>
+      <LastGenOutput>CreateGamerRound.feature.cs</LastGenOutput>
     </None>
-    <None Include="BackServices\CreatePlayerActionInfoToPayForColorsWinnerInfo.feature">
+    <None Include="BackServices\Specs\CreatePlayerActionInfoToPayForColorsWinnerInfo.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>CreatePlayerActionInfoToPayForColorsWinnerInfo.feature.cs</LastGenOutput>
     </None>
-    <None Include="BackServices\GetPlayerInfo.feature">
+    <None Include="BackServices\Specs\GetPlayerInfo.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>GetPlayerInfo.feature.cs</LastGenOutput>
     </None>
-    <None Include="BackServices\GetRoundWinner.feature">
+    <None Include="BackServices\Specs\GetRoundWinner.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>GetRoundWinner.feature.cs</LastGenOutput>
     </None>
-    <None Include="BackServices\ListPlayerActionInfoToPayForColorsWinnerInfo.feature">
+    <None Include="BackServices\Specs\ListPlayerActionInfoToPayForColorsWinnerInfo.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ListPlayerActionInfoToPayForColorsWinnerInfo.feature.cs</LastGenOutput>
     </None>
-    <None Include="BackServices\PayForColorsWinnerInfo.feature">
+    <None Include="BackServices\Specs\PayForColorsWinnerInfo.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>PayForColorsWinnerInfo.feature.cs</LastGenOutput>
     </None>
-    <None Include="BackServices\UpdatePlayerInfoToPayForColorsWinnerInfo.feature">
+    <None Include="BackServices\Specs\UpdatePlayerInfoToPayForColorsWinnerInfo.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>UpdatePlayerInfoToPayForColorsWinnerInfo.feature.cs</LastGenOutput>
     </None>
-    <None Include="BackServices\UpdateOnGoingTrackingID.feature">
+    <None Include="BackServices\Specs\UpdateOnGoingTrackingID.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>UpdateOnGoingTrackingID.feature.cs</LastGenOutput>
     </None>

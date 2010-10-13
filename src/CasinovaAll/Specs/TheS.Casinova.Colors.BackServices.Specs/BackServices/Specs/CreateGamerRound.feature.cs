@@ -9,7 +9,7 @@
 //  </auto-generated>
 // ------------------------------------------------------------------------------
 #region Designer generated code
-namespace TheS.Casinova.Colors.BackServices
+namespace TheS.Casinova.Colors.BackServices.Specs
 {
     using TechTalk.SpecFlow;
     
@@ -22,7 +22,7 @@ namespace TheS.Casinova.Colors.BackServices
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "CreateGamerRounds.feature"
+#line 1 "CreateGamerRound.feature"
 #line hidden
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.ClassInitializeAttribute()]
@@ -104,7 +104,7 @@ testRunner.Given("server has GameRoundConfiguration information as:", ((string)(
 #line 16
 this.ScenarioSetup(scenarioInfo);
 #line 17
-testRunner.Given("The CreateGameRoundExecutor has been created and initialized");
+testRunner.Given("The CreateGameRoundsExecutor has been created and initialized");
 #line 18
 testRunner.And("sent Name: \'config1\', the GameRoundConfiguration should recieved data as GameRoun" +
                     "dConfiguration(Name: \'config1\', TableAmount: \'4\', GameDuration: \'30\', Inverval: " +
@@ -116,16 +116,16 @@ testRunner.And("sent Name: \'config1\', the GameRoundConfiguration should reciev
                         "EndTime"});
             table2.AddRow(new string[] {
                         "3",
-                        "12/3/2553 10:00",
-                        "12/3/2553 10:30"});
+                        "2553/3/12 10:00",
+                        "2553/3/12 10:30"});
             table2.AddRow(new string[] {
                         "4",
-                        "12/3/2553 10:05",
-                        "12/3/2553 10:35"});
+                        "2553/3/12 10:05",
+                        "2553/3/12 10:35"});
             table2.AddRow(new string[] {
                         "5",
-                        "12/3/2553 10:10",
-                        "12/3/2553 10:40"});
+                        "2553/3/12 10:10",
+                        "2553/3/12 10:40"});
 #line 19
 testRunner.And("server should recieved the active game round data as:", ((string)(null)), table2);
 #line hidden
@@ -135,12 +135,12 @@ testRunner.And("server should recieved the active game round data as:", ((string
                         "EndTime"});
             table3.AddRow(new string[] {
                         "6",
-                        "12/3/2553 10:15",
-                        "12/3/2553 10:45"});
+                        "2553/3/12 10:15",
+                        "2553/3/12 10:45"});
             table3.AddRow(new string[] {
                         "7",
-                        "12/3/2553 10:20",
-                        "12/3/2553 10:50"});
+                        "2553/3/12 10:20",
+                        "2553/3/12 10:50"});
 #line 25
 testRunner.And("Expect result should be create as:", ((string)(null)), table3);
 #line 30
@@ -152,24 +152,24 @@ testRunner.When("call CreateGameRound(ConfigName: \'config1\')");
                         "EndTime"});
             table4.AddRow(new string[] {
                         "3",
-                        "12/3/2553 10:00",
-                        "12/3/2553 10:30"});
+                        "2553/3/12 10:00",
+                        "2553/3/12 10:30"});
             table4.AddRow(new string[] {
                         "4",
-                        "12/3/2553 10:05",
-                        "12/3/2553 10:35"});
+                        "2553/3/12 10:05",
+                        "2553/3/12 10:35"});
             table4.AddRow(new string[] {
                         "5",
-                        "12/3/2553 10:10",
-                        "12/3/2553 10:40"});
+                        "2553/3/12 10:10",
+                        "2553/3/12 10:40"});
             table4.AddRow(new string[] {
                         "6",
-                        "12/3/2553 10:15",
-                        "12/3/2553 10:45"});
+                        "2553/3/12 10:15",
+                        "2553/3/12 10:45"});
             table4.AddRow(new string[] {
                         "7",
-                        "12/3/2553 10:20",
-                        "12/3/2553 10:50"});
+                        "2553/3/12 10:20",
+                        "2553/3/12 10:50"});
 #line 31
 testRunner.Then("the result should be create data as:", ((string)(null)), table4);
 #line hidden
@@ -188,7 +188,7 @@ testRunner.Then("the result should be create data as:", ((string)(null)), table4
 #line 40
 this.ScenarioSetup(scenarioInfo);
 #line 41
-testRunner.Given("The CreateGameRoundExecutor has been created and initialized");
+testRunner.Given("The CreateGameRoundsExecutor has been created and initialized");
 #line 42
 testRunner.And("sent Name: \'config1\', the GameRoundConfiguration should recieved data as GameRoun" +
                     "dConfiguration(Name: \'config1\', TableAmount: \'4\', GameDuration: \'30\', Inverval: " +
@@ -236,23 +236,23 @@ testRunner.When("call CreateGameRound(ConfigName: \'config1\')");
                         "EndTime"});
             table7.AddRow(new string[] {
                         "1",
-                        "12/3/2553 10:00",
+                        "2553/3/12 10:00",
                         "12/3/2553 10:30"});
             table7.AddRow(new string[] {
                         "2",
-                        "12/3/2553 10:05",
+                        "2553/3/12 10:05",
                         "12/3/2553 10:35"});
             table7.AddRow(new string[] {
                         "3",
-                        "12/3/2553 10:10",
+                        "2553/3/12 10:10",
                         "12/3/2553 10:40"});
             table7.AddRow(new string[] {
                         "4",
-                        "12/3/2553 10:15",
+                        "2553/3/12 10:15",
                         "12/3/2553 10:45"});
             table7.AddRow(new string[] {
                         "5",
-                        "12/3/2553 10:20",
+                        "2553/3/12 10:20",
                         "12/3/2553 10:50"});
 #line 55
 testRunner.Then("the result should be create data as:", ((string)(null)), table7);

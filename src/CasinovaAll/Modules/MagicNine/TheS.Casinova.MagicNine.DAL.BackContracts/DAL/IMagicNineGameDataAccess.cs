@@ -18,4 +18,11 @@ namespace TheS.Casinova.MagicNine.DAL
     public interface ISingleBet
         : ICreateData<BetInformation, SingleBetCommand>
     { }
+
+    /// <summary>
+    /// อัพเดทข้อมูลผู้เล่น
+    /// </summary>
+    public interface IUpdatePlayerInfoBalance
+        : IDataAction<PlayerInformation, UpdatePlayerInfoBalanceCommand>
+    { }
 }

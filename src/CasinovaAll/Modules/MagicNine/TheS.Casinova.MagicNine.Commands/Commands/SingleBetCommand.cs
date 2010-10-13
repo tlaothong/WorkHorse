@@ -22,7 +22,7 @@ namespace TheS.Casinova.MagicNine.Commands
         /// </summary>
         public string UserName { get; set; }
 
-        //output
+        //input&output
         /// <summary>
         /// รหัสสำหรับตรวจสอบ
         /// </summary>

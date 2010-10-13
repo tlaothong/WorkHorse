@@ -51,8 +51,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BackServices\BackExecutors\BetColorExecutor.cs" />
-    <Compile Include="BackServices\BackExecutors\CreateGameRoundConfigurationsExecutor.cs" />
-    <Compile Include="BackServices\BackExecutors\CreateGameRoundsExecutor.cs" />
+    <Compile Include="BackServices\BackExecutors\CreateGameRoundConfigurationExecutor.cs" />
+    <Compile Include="BackServices\BackExecutors\CreateGameRoundExecutor.cs" />
     <Compile Include="BackServices\BackExecutors\PayForColorsWinnerInfoExecutor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

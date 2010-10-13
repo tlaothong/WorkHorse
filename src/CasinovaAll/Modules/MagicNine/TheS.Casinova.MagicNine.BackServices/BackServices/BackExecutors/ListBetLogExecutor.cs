@@ -13,7 +13,7 @@ namespace TheS.Casinova.MagicNine.BackServices.BackExecutors
     {
         private IListBetLog _iListBetLog;
 
-        public ListBetLogExecutor(IMagicNineDataBackQuery dqr)
+        public ListBetLogExecutor(IMagicNineGameDataBackQuery dqr)
         {
             _iListBetLog = dqr;
         }

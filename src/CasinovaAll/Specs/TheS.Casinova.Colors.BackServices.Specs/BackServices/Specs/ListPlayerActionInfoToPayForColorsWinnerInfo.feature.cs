@@ -9,7 +9,7 @@
 //  </auto-generated>
 // ------------------------------------------------------------------------------
 #region Designer generated code
-namespace TheS.Casinova.Colors.BackServices
+namespace TheS.Casinova.Colors.BackServices.Specs
 {
     using TechTalk.SpecFlow;
     
@@ -66,42 +66,42 @@ namespace TheS.Casinova.Colors.BackServices
                         "12",
                         "OhAe",
                         "GetWinner",
-                        "12/3/2553 10:00"});
+                        "2553/3/12 10:00"});
             table1.AddRow(new string[] {
                         "12",
                         "Boy",
                         "GetWinner",
-                        "12/3/2553 11:20"});
+                        "2553/3/12 11:20"});
             table1.AddRow(new string[] {
                         "12",
                         "OhAe",
                         "Black",
-                        "12/3/2553 11:22"});
+                        "2553/3/12 11:22"});
             table1.AddRow(new string[] {
                         "12",
                         "OhAe",
                         "GetWinner",
-                        "12/3/2553 11:28"});
+                        "2553/3/12 11:28"});
             table1.AddRow(new string[] {
                         "13",
                         "Nit",
                         "GetWinner",
-                        "13/3/2553 10:00"});
+                        "2553/3/12 10:00"});
             table1.AddRow(new string[] {
                         "13",
                         "Boy",
                         "White",
-                        "13/3/2553 11:20"});
+                        "2553/3/12 11:20"});
             table1.AddRow(new string[] {
                         "14",
                         "OhAe",
                         "GetWinner",
-                        "15/3/2553 11:22"});
+                        "2553/3/12 11:22"});
             table1.AddRow(new string[] {
                         "14",
                         "OhAe",
                         "Black",
-                        "15/3/2553 11:28"});
+                        "2553/3/12 11:28"});
 #line 8
 testRunner.Given("server has player action information as:", ((string)(null)), table1);
 #line hidden
@@ -135,12 +135,12 @@ testRunner.When("call List(PayForColorsWinnerInfoCommand), RoundID: \'12\', User
                         "12",
                         "OhAe",
                         "GetWinner",
-                        "12/3/2553 10:00"});
+                        "2553/3/12 10:00"});
             table2.AddRow(new string[] {
                         "12",
                         "OhAe",
                         "GetWinner",
-                        "12/3/2553 11:28"});
+                        "2553/3/12 11:28"});
 #line 24
 testRunner.Then("player should have PlayerActionInfo on this round as:", ((string)(null)), table2);
 #line hidden

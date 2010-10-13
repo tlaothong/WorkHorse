@@ -14,14 +14,14 @@ Background: PayForColorsWinner
 
 	And server has player action informations as:
 	|RoundID	|UserName	|ActionType	|DateTime(for example, not use this row)			|
-	|12			|OhAe		|GetWinner	|12/3/2553 10:00	|
-	|12			|Boy		|GetWinner	|12/3/2553 11:20	|
-	|12			|OhAe		|Black		|12/3/2553 11:22	|
-	|12			|OhAe		|GetWinner	|12/3/2553 11:28	|
-	|13			|Nit		|GetWinner	|13/3/2553 10:00	|
-	|13			|Boy		|White		|13/3/2553 11:20	|
-	|14			|OhAe		|GetWinner	|15/3/2553 11:22	|
-	|14			|OhAe		|Black		|15/3/2553 11:28	|
+	|12			|OhAe		|GetWinner	|2553/3/12 10:00	|
+	|12			|Boy		|GetWinner	|2553/3/12 11:20	|
+	|12			|OhAe		|Black		|2553/3/12 11:22	|
+	|12			|OhAe		|GetWinner	|2553/3/12 11:28	|
+	|13			|Nit		|GetWinner	|2553/3/12 10:00	|
+	|13			|Boy		|White		|2553/3/12 11:20	|
+	|14			|OhAe		|GetWinner	|2553/3/12 11:22	|
+	|14			|OhAe		|Black		|2553/3/12 11:28	|
 
 	And server has round informations as:
 	|RoundID	|BlackPot	|WhitePot	|
