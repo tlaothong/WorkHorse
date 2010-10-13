@@ -19,7 +19,7 @@ namespace TheS.Casinova.Colors.WebExecutors
         {
             _iCreateRoundConfig = dac;
         }
-
+ 
         protected override void ExecuteCommand(CreateGameRoundConfigurationsCommand command)
         {
             _iCreateRoundConfig.Create(command);

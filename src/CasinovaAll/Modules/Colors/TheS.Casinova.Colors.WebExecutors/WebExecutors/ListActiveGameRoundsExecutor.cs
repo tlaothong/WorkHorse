@@ -17,9 +17,9 @@ namespace TheS.Casinova.Colors.WebExecutors
     {
          private IListActiveGameRounds _iListActiveRound;
 
-         public ListActiveGameRoundsExecutor(IColorsGameDataQuery dac)
+         public ListActiveGameRoundsExecutor(IColorsGameDataQuery dqr)
         {
-            _iListActiveRound = dac;
+            _iListActiveRound = dqr;
         }
 
          protected override void ExecuteCommand(ListActiveGameRoundsCommand command)

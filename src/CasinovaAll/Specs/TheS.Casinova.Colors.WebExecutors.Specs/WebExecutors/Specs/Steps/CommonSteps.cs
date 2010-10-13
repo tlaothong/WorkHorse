@@ -12,7 +12,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
     [Binding]
     public class CommonSteps
     {
-        public const string Key_Dac_CreateTableConfig = "CreateTableConfigExecutotr";
+        public const string Key_Dac_CreateGameRoundConfig = "CreateTableConfigExecutotr";
         public const string Key_Dac_BetColor = "BetExecutor";
         public const string Key_Dqr_GetGameResult = "GetGameResultExecutor";
         public const string Key_Dac_PayForWinnerInfo = "PayForWinnerExecutor";
@@ -70,6 +70,16 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
 
             ScenarioContext.Current[Key_Dac] = dac;
             ScenarioContext.Current[Key_Dac_BetColor] = new BetColorsExecutor(dac);
+        }
+
+        //CreateGameRoundConfigurations information space initialized
+        [Given(@"The GameRoundConfigurations has been created and initialized")]
+        public void GivenTheGameRoundConfigurationsHasBeenCreatedAndInitialized()
+        {
+            var dac = Mocks.DynamicMock<IGameTableBackService>();
+
+            ScenarioContext.Current[Key_Dac] = dac;
+            ScenarioContext.Current[Key_Dac_CreateGameRoundConfig] = new CreateGameRoundConfigExecutor(dac);
         }
 
     }
