@@ -10,7 +10,7 @@ using TheS.Casinova.Colors.Models;
 namespace TheS.Casinova.Colors.BackServices.BackExecutors
 {
     public class CreateGameRoundsExecutor
-        : SynchronousCommandExecutorBase<CreateGameRoundsCommand>
+        : SynchronousCommandExecutorBase<CreateGameRoundCommand>
     {
         private IListActiveGameRounds _iListActiveGameRounds;
         private IGetGameRoundConfiguration _iGetGameRoundConfig;
@@ -25,9 +25,9 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
             _iGetGameRoundConfig = dqr;
         }
 
-        protected override void ExecuteCommand(CreateGameRoundsCommand command)
+        protected override void ExecuteCommand(CreateGameRoundCommand command)
         {
-            ListActiveGameRoundsCommand listActiveGameRoundsCmd = new ListActiveGameRoundsCommand {
+            ListActiveGameRoundCommand listActiveGameRoundsCmd = new ListActiveGameRoundCommand {
                 FromTime = DateTime.Now,
             };
 

@@ -43,13 +43,13 @@
     <Compile Include="Commands\BetCommand.cs" />
     <Compile Include="Commands\CheckActiveRoundToCreateCommand.cs" />
     <Compile Include="Commands\CreateGameRoundConfigurationCommand.cs" />
-    <Compile Include="Commands\CreateGameRoundsCommand.cs" />
+    <Compile Include="Commands\CreateGameRoundCommand.cs" />
     <Compile Include="Commands\GetBalanceCommand.cs" />
     <Compile Include="Commands\GetGameResultCommand.cs" />
     <Compile Include="Commands\GetGameRoundConfigurationCommand.cs" />
     <Compile Include="Commands\ListGamePlayInfoCommand.cs" />
     <Compile Include="Commands\PayForColorsWinnerInfoCommand.cs" />
-    <Compile Include="Commands\ListActiveGameRoundsCommand.cs" />
+    <Compile Include="Commands\ListActiveGameRoundCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

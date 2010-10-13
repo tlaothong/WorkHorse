@@ -56,6 +56,6 @@ namespace TheS.Casinova.Colors.DAL
     /// สร้างโต๊ะเกมใหม่
     /// </summary>
     public interface ICreateGameRound
-        : ICreateData<GameRoundInformation, CreateGameRoundsCommand>
+        : ICreateData<GameRoundInformation, CreateGameRoundCommand>
     { }
 }

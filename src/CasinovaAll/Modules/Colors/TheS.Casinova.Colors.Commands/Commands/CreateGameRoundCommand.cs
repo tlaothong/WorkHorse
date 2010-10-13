@@ -8,7 +8,7 @@ namespace TheS.Casinova.Colors.Commands
     /// <summary>
     /// สร้างโต๊ะเกมเพิ่ม
     /// </summary>
-    public class CreateGameRoundsCommand
+    public class CreateGameRoundCommand
     {
         //input
 

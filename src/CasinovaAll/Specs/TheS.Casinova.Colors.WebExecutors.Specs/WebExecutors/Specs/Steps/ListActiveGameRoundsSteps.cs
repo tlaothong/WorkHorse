@@ -13,8 +13,8 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
     [Binding]
     public class ListActiveGameRoundsSteps : ColorsGameStepsBase
     {
-          private ListActiveGameRoundsCommand _cmd;
-          private IEnumerable<GameRoundInformation> expectActiveRound;
+         // private ListActiveGameRoundCommand _cmd;
+         // private IEnumerable<GameRoundInformation> expectActiveRound;
 
 
 

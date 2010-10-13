@@ -40,7 +40,7 @@ namespace TheS.Casinova.Colors.BackServices
                                 StartTime = DateTime.Parse(item["StartTime"]),
                                 EndTime = DateTime.Parse(item["EndTime"]),
                             });
-            SetupResult.For(Dqr_ListActiveGameRounds.List(new ListActiveGameRoundsCommand()))
+            SetupResult.For(Dqr_ListActiveGameRounds.List(new ListActiveGameRoundCommand()))
                 .IgnoreArguments().Return(_activeRound);
         }
 
@@ -66,7 +66,7 @@ namespace TheS.Casinova.Colors.BackServices
                                       });
 
             Queue<GameRoundInformation> expect = new Queue<GameRoundInformation>(qry);
-            Func<GameRoundInformation, CreateGameRoundsCommand, GameRoundInformation> checkdata = (gameRoundInfo, cmd) => {
+            Func<GameRoundInformation, CreateGameRoundCommand, GameRoundInformation> checkdata = (gameRoundInfo, cmd) => {
                 var exp = expect.Dequeue();
                 Assert.AreEqual(exp.RoundID, gameRoundInfo.RoundID, "RoundID");
                 Assert.AreEqual(exp.StartTime, gameRoundInfo.StartTime, "StartTime");
@@ -74,14 +74,14 @@ namespace TheS.Casinova.Colors.BackServices
                 return gameRoundInfo;
             };
 
-            Dac_CreateGameRound.Create(new GameRoundInformation(), new CreateGameRoundsCommand());
+            Dac_CreateGameRound.Create(new GameRoundInformation(), new CreateGameRoundCommand());
             LastCall.IgnoreArguments().Do(checkdata);
         }
 
         [When(@"call CreateGameRound\(ConfigName: '(.*)'\)")]
         public void WhenCallCreateGameRoundConfigNameX(string configName)
         {
-            CreateGameRoundsCommand cmd = new CreateGameRoundsCommand { ConfigName = configName };
+            CreateGameRoundCommand cmd = new CreateGameRoundCommand { ConfigName = configName };
             CreateGameRoundsExecutor.Execute(cmd, (x) => { });            
         }
 

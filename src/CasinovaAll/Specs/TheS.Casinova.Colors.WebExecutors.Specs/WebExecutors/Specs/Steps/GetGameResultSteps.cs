@@ -13,8 +13,8 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
     [Binding]
     public class GetGameResultSteps : ColorsGameStepsBase
     {
-        private GetGameResultCommand _cmd;
-        private GameRoundInformation _getGameResult;
+        //private GetGameResultCommand _cmd;
+        //private GameRoundInformation _getGameResult;
 
         [Given(@"Server has game information")]
         public void GivenServerHasGameInformation(Table table)

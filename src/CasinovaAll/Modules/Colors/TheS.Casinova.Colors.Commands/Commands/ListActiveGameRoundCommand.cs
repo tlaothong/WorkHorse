@@ -9,7 +9,7 @@ namespace TheS.Casinova.Colors.Commands
     /// <summary>
     /// list ข้อมูลโต๊ะเกมที่กำลัง active
     /// </summary>
-   public class ListActiveGameRoundsCommand
+   public class ListActiveGameRoundCommand
     {
        //Input:
         public DateTime FromTime { get; set; } //เวลาปัจจุบันที่ผู้เล่นเข้าห้องเกม
