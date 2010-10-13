@@ -73,6 +73,42 @@ namespace TheS.Casinova.Colors.BackServices.Specs
             }
         }
 
+        protected ICreateGameRoundConfigurations Dac_CreateGameRoundConfigurations
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_Dac_CreateGameRoundConfigutions] as ICreateGameRoundConfigurations;
+            }
+        }
+
+        protected ICreateGameRound Dac_CreateGameRound
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_Dac_CreateGameRound] as ICreateGameRound;
+            }
+        }
+
+        protected IGetGameRoundConfiguration Dqr_GetGameRoundConfiguration
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_Dqr_GetGameRoundConfiguration] as IGetGameRoundConfiguration;
+            }
+        }
+
+        protected IListActiveGameRounds Dqr_ListActiveGameRounds
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_Dqr_ListActiveGameRound] as IListActiveGameRounds;
+            }
+        }
+
         protected PayForColorsWinnerInfoExecutor PayForColorsWinnerInfoExecutor
         {
             get
@@ -91,5 +127,22 @@ namespace TheS.Casinova.Colors.BackServices.Specs
             }
         }
 
+        protected CreateGameRoundConfigurationsExecutor CreateGameRoundConfigurationsExecutor
+        {
+            get 
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_CreateGameRoundConfigurations] as CreateGameRoundConfigurationsExecutor; 
+            }
+        }
+
+        protected CreateGameRoundsExecutor CreateGameRoundsExecutor
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_CreateGameRound] as CreateGameRoundsExecutor;
+            }
+        }
     }
 }

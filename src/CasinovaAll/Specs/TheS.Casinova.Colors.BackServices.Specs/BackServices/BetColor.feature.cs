@@ -118,7 +118,7 @@ testRunner.Then("the player action information should be created");
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "BetColor")]
         public virtual void ผเลนลงเงนพนนโดยผเลนมเงนพอระบบบนทกประวตการดำเนนการพนนของผเลน_Variant1()
         {
-            this.ผเลนลงเงนพนนโดยผเลนมเงนพอระบบบนทกประวตการดำเนนการพนนของผเลน("12", "Toomy", "7", "White", "B21F8971-DBAB-400F-9D95-151BA24875C1");
+            this.ผเลนลงเงนพนนโดยผเลนมเงนพอระบบบนทกประวตการดำเนนการพนนของผเลน("12", "Toommy", "7", "White", "B21F8971-DBAB-400F-9D95-151BA24875C1");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]

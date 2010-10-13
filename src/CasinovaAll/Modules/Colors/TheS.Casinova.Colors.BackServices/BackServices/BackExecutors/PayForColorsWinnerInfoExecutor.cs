@@ -24,7 +24,6 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
         private IGetRoundInfo _iGetRoundInfo;
 
         private string _winner;
-        private PlayerActionInformation _playerActionInfo;
 
         public PayForColorsWinnerInfoExecutor(IColorsGameDataAccess dac, IColorsGameDataBackQuery dqr)
         {

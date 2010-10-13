@@ -23,7 +23,7 @@ Scenario Outline: ผู้เล่นลงเงินพนัน โดย�
 Examples:
 	|RoundID	|UserName	|Amount		|Color	|TrackingID	|
 	|12			|OhAe		|5			|White	|B21F8971-DBAB-400F-9D95-151BA24875C1|
-	|12			|Toomy		|7			|White	|B21F8971-DBAB-400F-9D95-151BA24875C1|
+	|12			|Toommy		|7			|White	|B21F8971-DBAB-400F-9D95-151BA24875C1|
 	|13			|Boy		|7.99		|Black	|B21F8971-DBAB-400F-9D95-151BA24875C1|
 	|12			|Au			|221.21		|White	|B21F8971-DBAB-400F-9D95-151BA24875C1|
 	|12			|OhAe		|9.99		|White	|B21F8971-DBAB-400F-9D95-151BA24875C1|
