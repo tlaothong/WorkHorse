@@ -8,12 +8,12 @@ using TheS.Casinova.Colors.DAL;
 
 namespace TheS.Casinova.Colors.BackServices.BackExecutors
 {
-    public class CreateGameRoundConfigurationsExecutor
+    public class CreateGameRoundConfigurationExecutor
         : SynchronousCommandExecutorBase<CreateGameRoundConfigurationsCommand>
     {
         private ICreateGameRoundConfigurations _iCreateGameTable;
 
-        public CreateGameRoundConfigurationsExecutor(IColorsGameDataAccess dac)
+        public CreateGameRoundConfigurationExecutor(IColorsGameDataAccess dac)
         {
             _iCreateGameTable = dac;
         }

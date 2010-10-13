@@ -104,7 +104,7 @@ testRunner.Given("server has GameRoundConfiguration information as:", ((string)(
 #line 16
 this.ScenarioSetup(scenarioInfo);
 #line 17
-testRunner.Given("The CreateGameRoundsExecutor has been created and initialized");
+testRunner.Given("The CreateGameRoundExecutor has been created and initialized");
 #line 18
 testRunner.And("sent Name: \'config1\', the GameRoundConfiguration should recieved data as GameRoun" +
                     "dConfiguration(Name: \'config1\', TableAmount: \'4\', GameDuration: \'30\', Inverval: " +
@@ -188,7 +188,7 @@ testRunner.Then("the result should be create data as:", ((string)(null)), table4
 #line 40
 this.ScenarioSetup(scenarioInfo);
 #line 41
-testRunner.Given("The CreateGameRoundsExecutor has been created and initialized");
+testRunner.Given("The CreateGameRoundExecutor has been created and initialized");
 #line 42
 testRunner.And("sent Name: \'config1\', the GameRoundConfiguration should recieved data as GameRoun" +
                     "dConfiguration(Name: \'config1\', TableAmount: \'4\', GameDuration: \'30\', Inverval: " +

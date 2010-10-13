@@ -62,7 +62,7 @@ namespace TheS.Casinova.Colors.BackServices
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
-testRunner.Given("The CreateGameRoundConfigurationsExecutor has been created and initialized");
+testRunner.Given("The CreateGameRoundConfigurationExecutor has been created and initialized");
 #line 9
 testRunner.And("Expect result should be add GameRoundConfiguration(Name: \'config1\', TableAmount: " +
                     "\'4\', GameDuration: \'30\', Interval: \'5\')");

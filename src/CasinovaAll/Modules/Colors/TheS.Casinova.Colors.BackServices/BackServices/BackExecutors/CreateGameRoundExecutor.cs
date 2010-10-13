@@ -9,7 +9,7 @@ using TheS.Casinova.Colors.Models;
 
 namespace TheS.Casinova.Colors.BackServices.BackExecutors
 {
-    public class CreateGameRoundsExecutor
+    public class CreateGameRoundExecutor
         : SynchronousCommandExecutorBase<CreateGameRoundsCommand>
     {
         private IListActiveGameRounds _iListActiveGameRounds;
@@ -18,7 +18,7 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
 
         const int bufferRoundsCount = 1;
 
-        public CreateGameRoundsExecutor(IColorsGameDataAccess dac, IColorsGameDataBackQuery dqr)
+        public CreateGameRoundExecutor(IColorsGameDataAccess dac, IColorsGameDataBackQuery dqr)
         {
             _iCreateGameRound = dac;
             _iListActiveGameRounds = dqr;

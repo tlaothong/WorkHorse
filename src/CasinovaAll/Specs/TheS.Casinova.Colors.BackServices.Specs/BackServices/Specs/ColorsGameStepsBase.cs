@@ -127,21 +127,21 @@ namespace TheS.Casinova.Colors.BackServices.Specs
             }
         }
 
-        protected CreateGameRoundConfigurationsExecutor CreateGameRoundConfigurationsExecutor
+        protected CreateGameRoundConfigurationExecutor CreateGameRoundConfigurationsExecutor
         {
             get 
             {
                 return ScenarioContext.Current[
-                    CommonSteps.Key_CreateGameRoundConfigurations] as CreateGameRoundConfigurationsExecutor; 
+                    CommonSteps.Key_CreateGameRoundConfigurations] as CreateGameRoundConfigurationExecutor; 
             }
         }
 
-        protected CreateGameRoundsExecutor CreateGameRoundsExecutor
+        protected CreateGameRoundExecutor CreateGameRoundsExecutor
         {
             get
             {
                 return ScenarioContext.Current[
-                    CommonSteps.Key_CreateGameRound] as CreateGameRoundsExecutor;
+                    CommonSteps.Key_CreateGameRound] as CreateGameRoundExecutor;
             }
         }
     }

@@ -65,17 +65,17 @@ namespace TheS.Casinova.Colors.BackServices.Specs
             ScenarioContext.Current[Key_BetColorExecutor] = new BetColorExecutor(dac, dqr);
         }
 
-        [Given(@"The CreateGameRoundConfigurationsExecutor has been created and initialized")]
+        [Given(@"The CreateGameRoundConfigurationExecutor has been created and initialized")]
         public void GivenTheCreateGameRoundConfigurationsExecutorHasBeenCreatedAndInitialized()
         {
             var dac = Mocks.DynamicMock<IColorsGameDataAccess>();
 
             ScenarioContext.Current[Key_Dac_CreateGameRoundConfigutions] = dac;
 
-            ScenarioContext.Current[Key_CreateGameRoundConfigurations] = new CreateGameRoundConfigurationsExecutor(dac);
+            ScenarioContext.Current[Key_CreateGameRoundConfigurations] = new CreateGameRoundConfigurationExecutor(dac);
         }
 
-        [Given(@"The CreateGameRoundsExecutor has been created and initialized")]
+        [Given(@"The CreateGameRoundExecutor has been created and initialized")]
         public void GivenTheCreateGameRoundsExecutorHasBeenCreatedAndInitialized()
         {
             var dac = Mocks.DynamicMock<IColorsGameDataAccess>();
@@ -86,7 +86,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
             ScenarioContext.Current[Key_Dqr_ListActiveGameRound] = dqr;
             ScenarioContext.Current[Key_Dqr_GetGameRoundConfiguration] = dqr;
 
-            ScenarioContext.Current[Key_CreateGameRound] = new CreateGameRoundsExecutor(dac, dqr);
+            ScenarioContext.Current[Key_CreateGameRound] = new CreateGameRoundExecutor(dac, dqr);
         }
     }
 }
