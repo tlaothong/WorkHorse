@@ -10,6 +10,9 @@ using TheS.Casinova.Colors.DAL;
 
 namespace TheS.Casinova.Colors.WebExecutors
 {
+    /// <summary>
+    /// ตรวจสอบจำนวน active round
+    /// </summary>
    public class CheckActiveRoundToCreateExecutor
      : SynchronousCommandExecutorBase<CheckActiveRoundToCreateCommand>
     {
