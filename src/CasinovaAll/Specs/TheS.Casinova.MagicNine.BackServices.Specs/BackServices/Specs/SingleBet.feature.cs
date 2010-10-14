@@ -71,7 +71,7 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs
                         "36.99"});
             table1.AddRow(new string[] {
                         "Au",
-                        "234.00"});
+                        "00.00"});
 #line 8
 testRunner.Given("server has player information as:", ((string)(null)), table1);
 #line hidden
@@ -96,9 +96,41 @@ testRunner.And("sent name: \'OhAe\' the player\'s balance should recieved");
 #line 19
 testRunner.And("the expected balance should be: \'462.61\'");
 #line 20
+testRunner.And("the bet information(RoundID: \'12\', UserName: \'OhAe\', TrackingID: \'B21F8971-DBAB-4" +
+                    "00F-9D95-151BA24875C1\') should be create");
+#line 21
 testRunner.When("call SingleBet(RoundID: \'12\', UserName: \'OhAe\', TrackingID: \'B21F8971-DBAB-400F-9" +
                     "D95-151BA24875C1\')");
-#line 21
+#line 22
+testRunner.Then("the result should be create");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ได้รับข้อมูล RoundID, UserName, ระบบตรวจสอบเงินสำหรับลงพนันไม่พอ, ระบบหักเงินผู้เ" +
+            "ล่นและบันทึกข้อมูลการลงพนัน")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SingleBet")]
+        public virtual void ไดรบขอมลRoundIDUserNameระบบตรวจสอบเงนสำหรบลงพนนไมพอระบบหกเงนผเลนและบนทกขอมลการลงพนน()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ได้รับข้อมูล RoundID, UserName, ระบบตรวจสอบเงินสำหรับลงพนันไม่พอ, ระบบหักเงินผู้เ" +
+                    "ล่นและบันทึกข้อมูลการลงพนัน", new string[] {
+                        "record_mock"});
+#line 25
+this.ScenarioSetup(scenarioInfo);
+#line 26
+testRunner.Given("The SingleBetExecutor has been created and initialized");
+#line 27
+testRunner.And("sent name: \'Au\' the player\'s balance should recieved");
+#line 28
+testRunner.And("the expected balance less than bet cost");
+#line 29
+testRunner.And("the bet information(RoundID: \'12\', UserName: \'Au\', TrackingID: \'B21F8971-DBAB-400" +
+                    "F-9D95-151BA24875C1\') should be create");
+#line 30
+testRunner.When("call SingleBet(RoundID: \'12\', UserName: \'Au\', TrackingID: \'B21F8971-DBAB-400F-9D9" +
+                    "5-151BA24875C1\')");
+#line 31
 testRunner.Then("the result should be create");
 #line hidden
             testRunner.CollectScenarioErrors();
