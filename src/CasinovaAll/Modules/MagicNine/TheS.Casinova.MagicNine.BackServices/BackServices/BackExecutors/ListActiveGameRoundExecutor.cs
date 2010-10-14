@@ -8,12 +8,12 @@ using TheS.Casinova.MagicNine.DAL;
 
 namespace TheS.Casinova.MagicNine.BackServices.BackExecutors
 {
-    public class ListGameRoundExecutor
+    public class ListActiveGameRoundExecutor
         : SynchronousCommandExecutorBase<ListGameRoundCommand>
     {
         private IListGameRoundInfo _iListGameRoundInfo;
 
-        public ListGameRoundExecutor(IMagicNineGameDataBackQuery dqr)
+        public ListActiveGameRoundExecutor(IMagicNineGameDataBackQuery dqr)
         {
             _iListGameRoundInfo = dqr;
         }
