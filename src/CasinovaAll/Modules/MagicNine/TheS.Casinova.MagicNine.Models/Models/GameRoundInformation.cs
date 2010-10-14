@@ -33,6 +33,11 @@ namespace TheS.Casinova.MagicNine.Models
         /// <summary>
         /// เงินในกองของเกม
         /// </summary>
-        public double GamePot { get; set; }    
+        public double GamePot { get; set; }
+
+        /// <summary>
+        /// สถานะของห้อง (True = ใช้งาน / False = ไม่ใช่งาน)
+        /// </summary>
+        public bool Active { get; set; }
     }
 }

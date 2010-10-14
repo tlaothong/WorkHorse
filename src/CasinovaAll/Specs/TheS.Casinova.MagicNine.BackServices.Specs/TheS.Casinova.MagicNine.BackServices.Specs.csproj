@@ -64,6 +64,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ListBetLog.feature</DependentUpon>
     </Compile>
+    <Compile Include="BackServices\Specs\ListActiveGameRoundInfo.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListActiveGameRoundInfo.feature</DependentUpon>
+    </Compile>
     <Compile Include="BackServices\Specs\SingleBet.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -108,6 +113,10 @@
     <None Include="BackServices\Specs\ListBetLog.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ListBetLog.feature.cs</LastGenOutput>
+    </None>
+    <None Include="BackServices\Specs\ListActiveGameRoundInfo.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ListActiveGameRoundInfo.feature.cs</LastGenOutput>
     </None>
     <None Include="BackServices\Specs\SingleBet.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
