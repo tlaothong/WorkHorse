@@ -76,6 +76,7 @@
     </Compile>
     <Compile Include="BackServices\Specs\Steps\CommonSteps.cs" />
     <Compile Include="BackServices\Specs\Steps\MagicNineStepsBase.cs" />
+    <Compile Include="BackServices\Specs\Steps\SingleBetSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

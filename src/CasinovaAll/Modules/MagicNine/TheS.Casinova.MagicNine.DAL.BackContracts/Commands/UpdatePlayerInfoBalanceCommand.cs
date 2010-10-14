@@ -8,14 +8,10 @@ namespace TheS.Casinova.MagicNine.Commands
     /// <summary>
     /// อัพเดทยอดเงินของผู้เล่น
     /// </summary>
-    public class UpdatePlayerInfoBalanceCommand
-    {
-        //input
-        /// <summary>
-        /// ชื่อผู้เล่นทีจะอัพเดทยอดเงิน
-        /// </summary>
-        public string UserName { get; set; }
-
+    public class UpdatePlayerInfoBalanceCommand 
+        : SingleBetCommand
+    {        
+        //output
         /// <summary>
         /// จำนวนยอดเงินคงเหลือ
         /// </summary>

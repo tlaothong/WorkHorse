@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using TheS.Casinova.MagicNine.DAL;
 using TechTalk.SpecFlow;
+using TheS.Casinova.MagicNine.BackServices.BackExecutors;
 
 namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
 {
@@ -27,15 +28,6 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
             }
         }
         
-        protected IListBetLog Dqr_ListBetLog
-        {
-            get
-            {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr_ListBetLog] as IListBetLog;
-            }
-        }
-
         protected IGetPlayerInfo Dqr_GetPlayerInfo
         {
             get
@@ -44,5 +36,33 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
                     CommonSteps.Key_Dqr_GetPlayerInfo] as IGetPlayerInfo;
             }
         }
+
+        protected IGetGameRoundPot Dqr_GetGameRoundPot
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_Dqr_GetGameRoundPot] as IGetGameRoundPot;
+            }
+        }
+
+        protected IUpdateGameRoundPot Dac_UpdateGameRoundPot
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_Dac_UpdateGameRoundPot] as IUpdateGameRoundPot;
+            }
+        }
+
+        protected SingleBetExecutor SingleBetExecutor
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_SingleBet] as SingleBetExecutor;
+            }
+        }
+
     }
 }

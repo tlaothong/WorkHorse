@@ -117,13 +117,13 @@ testRunner.Given("server has bet information as:", ((string)(null)), table1);
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ได้รับข้อมูล RoundID, UserName, มีข้อมูลที่ต้องการในระบบ, ระบบดึงประวัติการลงพนัน" +
-            "ของผู้เล่นทั้งหมดในโต๊ะเกมแล้วส่งกลับ")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ได้รับข้อมูล RoundID, UserName, มีข้อมูลที่ต้องการในระบบ 3 รายการ, ระบบดึงประวัติ" +
+            "การลงพนันของผู้เล่นทั้งหมดในโต๊ะเกมแล้วส่งกลับ")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListBetLog")]
-        public virtual void ไดรบขอมลRoundIDUserNameมขอมลทตองการในระบบระบบดงประวตการลงพนนของผเลนทงหมดในโตะเกมแลวสงกลบ()
+        public virtual void ไดรบขอมลRoundIDUserNameมขอมลทตองการในระบบ3รายการระบบดงประวตการลงพนนของผเลนทงหมดในโตะเกมแลวสงกลบ()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ได้รับข้อมูล RoundID, UserName, มีข้อมูลที่ต้องการในระบบ, ระบบดึงประวัติการลงพนัน" +
-                    "ของผู้เล่นทั้งหมดในโต๊ะเกมแล้วส่งกลับ", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ได้รับข้อมูล RoundID, UserName, มีข้อมูลที่ต้องการในระบบ 3 รายการ, ระบบดึงประวัติ" +
+                    "การลงพนันของผู้เล่นทั้งหมดในโต๊ะเกมแล้วส่งกลับ", new string[] {
                         "record_mock",
                         "record_mock"});
 #line 20
@@ -166,13 +166,13 @@ testRunner.Then("the result should be list bet information(s) as:", ((string)(nu
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ได้รับข้อมูลโต๊ะเกมและชื่อผู้เล่น, ไม่มีข้อมูลที่ต้องการในระบบ, ระบบดึงประวัติการ" +
-            "ลงพนันของผู้เล่นทั้งหมดในโต๊ะเกมแล้วส่งกลับ")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ได้รับข้อมูล RoundID, UserName, ไม่มีข้อมูลที่ต้องการในระบบ, ระบบเสมือนทำงานเสร็จ" +
+            " ส่งข้อมูลเปล่ากลับ")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListBetLog")]
-        public virtual void ไดรบขอมลโตะเกมและชอผเลนไมมขอมลทตองการในระบบระบบดงประวตการลงพนนของผเลนทงหมดในโตะเกมแลวสงกลบ()
+        public virtual void ไดรบขอมลRoundIDUserNameไมมขอมลทตองการในระบบระบบเสมอนทำงานเสรจสงขอมลเปลากลบ()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ได้รับข้อมูลโต๊ะเกมและชื่อผู้เล่น, ไม่มีข้อมูลที่ต้องการในระบบ, ระบบดึงประวัติการ" +
-                    "ลงพนันของผู้เล่นทั้งหมดในโต๊ะเกมแล้วส่งกลับ", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ได้รับข้อมูล RoundID, UserName, ไม่มีข้อมูลที่ต้องการในระบบ, ระบบเสมือนทำงานเสร็จ" +
+                    " ส่งข้อมูลเปล่ากลับ", new string[] {
                         "record_mock"});
 #line 31
 this.ScenarioSetup(scenarioInfo);
