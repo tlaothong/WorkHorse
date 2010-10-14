@@ -78,34 +78,32 @@ testRunner.Given("The ListActiveRoundExecutor has been created and initialized")
                         "2553/3/12 10:00",
                         "",
                         "9",
-                        "4328",
+                        "4328.00",
                         "True"});
             table1.AddRow(new string[] {
                         "2",
                         "2553/3/12 10:00",
                         "",
                         "99",
-                        "272",
+                        "272.00",
                         "True"});
             table1.AddRow(new string[] {
                         "3",
                         "2553/3/12 10:00",
                         "",
                         "999",
-                        "712",
+                        "712.00",
                         "True"});
             table1.AddRow(new string[] {
                         "4",
                         "2553/3/12 10:00",
                         "",
                         "9999",
-                        "432",
+                        "432.00",
                         "True"});
 #line 9
-testRunner.And("server has 4 game round information as:", ((string)(null)), table1);
+testRunner.And("server has 4 game round information  in data", ((string)(null)), table1);
 #line 16
-testRunner.And("expected recieved 4 active GameRoundInformation(s)");
-#line 17
 testRunner.When("call ListActiveGameRoundExecutor()");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -120,30 +118,30 @@ testRunner.When("call ListActiveGameRoundExecutor()");
                         "2553/3/12 10:00",
                         "",
                         "9",
-                        "4328",
+                        "4328.00",
                         "True"});
             table2.AddRow(new string[] {
                         "2",
                         "2553/3/12 10:00",
                         "",
                         "99",
-                        "272",
+                        "272.00",
                         "True"});
             table2.AddRow(new string[] {
                         "3",
                         "2553/3/12 10:00",
                         "",
                         "999",
-                        "712",
+                        "712.00",
                         "True"});
             table2.AddRow(new string[] {
                         "4",
                         "2553/3/12 10:00",
                         "",
                         "9999",
-                        "432",
+                        "432.00",
                         "True"});
-#line 18
+#line 17
 testRunner.Then("the result should be as:", ((string)(null)), table2);
 #line hidden
             testRunner.CollectScenarioErrors();
@@ -158,9 +156,9 @@ testRunner.Then("the result should be as:", ((string)(null)), table2);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบมีข้อมูลโต๊ะเกมที่เปิดใช้งานอยู่ 2 โต๊ะ, ระบบดึงข้อมูลโต๊ะเกมทั้งหมดที่เปิดใช" +
                     "้งาน", new string[] {
                         "record_mock"});
-#line 26
+#line 25
 this.ScenarioSetup(scenarioInfo);
-#line 27
+#line 26
 testRunner.Given("The ListActiveRoundExecutor has been created and initialized");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
@@ -175,33 +173,46 @@ testRunner.Given("The ListActiveRoundExecutor has been created and initialized")
                         "2553/3/12 10:00",
                         "2553/3/12 10:30",
                         "9",
-                        "4328",
+                        "4328.00",
                         "False"});
             table3.AddRow(new string[] {
                         "2",
                         "2553/3/12 10:00",
                         "",
                         "99",
-                        "272",
+                        "272.00",
                         "True"});
             table3.AddRow(new string[] {
                         "3",
                         "2553/3/12 10:00",
                         "",
                         "999",
-                        "712",
+                        "712.00",
                         "True"});
             table3.AddRow(new string[] {
                         "4",
                         "2553/3/12 10:00",
                         "2553/3/12 10:40",
                         "9999",
-                        "432",
+                        "432.00",
                         "False"});
-#line 28
-testRunner.And("server has 2 game round information and expect recieved 2 active GameRoundInforma" +
-                    "tion(s)", ((string)(null)), table3);
-#line 35
+            table3.AddRow(new string[] {
+                        "5",
+                        "2553/3/12 10:31",
+                        "",
+                        "0.9",
+                        "272.32",
+                        "True"});
+            table3.AddRow(new string[] {
+                        "6",
+                        "2553/3/12 10:41",
+                        "",
+                        "0.99",
+                        "712.45",
+                        "True"});
+#line 27
+testRunner.And("server has 6 active game round information  in data", ((string)(null)), table3);
+#line 37
 testRunner.When("call ListActiveGameRoundExecutor()");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
@@ -216,16 +227,30 @@ testRunner.When("call ListActiveGameRoundExecutor()");
                         "2553/3/12 10:00",
                         "",
                         "99",
-                        "272",
+                        "272.00",
                         "True"});
             table4.AddRow(new string[] {
                         "3",
                         "2553/3/12 10:00",
                         "",
                         "999",
-                        "712",
+                        "712.00",
                         "True"});
-#line 36
+            table4.AddRow(new string[] {
+                        "5",
+                        "2553/3/12 10:31",
+                        "",
+                        "0.9",
+                        "272.32",
+                        "True"});
+            table4.AddRow(new string[] {
+                        "6",
+                        "2553/3/12 10:41",
+                        "",
+                        "0.99",
+                        "712.45",
+                        "True"});
+#line 38
 testRunner.Then("the result should be as:", ((string)(null)), table4);
 #line hidden
             testRunner.CollectScenarioErrors();

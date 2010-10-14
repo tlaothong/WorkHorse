@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
 using Rhino.Mocks;
+using TheS.Casinova.MagicNine.DAL;
+using TheS.Casinova.MagicNine.BackServices.BackExecutors;
 
 namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
 {
@@ -15,7 +17,6 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
 
         public const string Key_Dqr_ListBetLog = "mockDqr_ListBetLog";
         public const string Key_Dqr_GetPlayerInfo = "mockDqr_GetPlayerInfo";
-        public const string Key_Dqr_ListGameRoundInfo = "mockDqr_ListGameRoundInfo";       
 
         MockRepository Mocks { get { return SpecEventDefinitions.Mocks; } }
     }

@@ -44,14 +44,5 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
                     CommonSteps.Key_Dqr_GetPlayerInfo] as IGetPlayerInfo;
             }
         }
-
-        protected IListGameRoundInfo Dqr_ListGameRoundInfo
-        {
-            get
-            {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr_ListGameRoundInfo] as IListGameRoundInfo;
-            }
-        }
     }
 }
