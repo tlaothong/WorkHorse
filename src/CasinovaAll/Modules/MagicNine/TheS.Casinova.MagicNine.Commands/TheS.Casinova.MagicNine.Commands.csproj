@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\ListBetLogCommand.cs" />
-    <Compile Include="Commands\ListGameRoundCommand.cs" />
+    <Compile Include="Commands\ListActiveGameRoundCommand.cs" />
     <Compile Include="Commands\SingleBetCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

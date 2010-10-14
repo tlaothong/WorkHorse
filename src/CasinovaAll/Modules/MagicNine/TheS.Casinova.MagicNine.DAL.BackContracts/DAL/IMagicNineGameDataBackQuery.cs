@@ -10,8 +10,7 @@ namespace TheS.Casinova.MagicNine.DAL
 {
     public interface IMagicNineGameDataBackQuery :
         IListBetLog,
-        IGetPlayerInfo,
-        IListGameRoundInfo
+        IGetPlayerInfo
     { }
 
     /// <summary>
@@ -26,12 +25,5 @@ namespace TheS.Casinova.MagicNine.DAL
     /// </summary>
     public interface IGetPlayerInfo
         : IFetchSingleData<PlayerInformation, GetPlayerInfoCommand>
-    { }
-
-    /// <summary>
-    /// ดึงข้อมูลโต๊ะเกมทั้งหมด
-    /// </summary>
-    public interface IListGameRoundInfo
-        : IFetchData<GameRoundInformation, ListGameRoundCommand>
     { }
 }
