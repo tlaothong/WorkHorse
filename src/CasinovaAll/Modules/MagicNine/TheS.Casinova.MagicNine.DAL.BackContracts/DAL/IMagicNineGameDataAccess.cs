@@ -9,7 +9,8 @@ using PerfEx.Infrastructure.Data;
 namespace TheS.Casinova.MagicNine.DAL
 {
     public interface IMagicNineGameDataAccess :
-        ISingleBet
+        ISingleBet,
+        IUpdatePlayerInfoBalance
     { }
 
     /// <summary>

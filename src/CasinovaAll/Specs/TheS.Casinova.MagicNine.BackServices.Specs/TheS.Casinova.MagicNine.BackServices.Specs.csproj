@@ -34,6 +34,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="PerfEx.Infrastructure, Version=1.7910.905.2789, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="PerfEx.Infrastructure.Advanced">
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Advanced.dll</HintPath>
+    </Reference>
     <Reference Include="Rhino.Mocks">
       <HintPath>..\..\..\..\lib\Rhino.Mocks.dll</HintPath>
     </Reference>
@@ -51,6 +58,7 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackServices\SpecEventDefinitions.cs" />
     <Compile Include="BackServices\Specs\ListBetLog.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -61,6 +69,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SingleBet.feature</DependentUpon>
     </Compile>
+    <Compile Include="BackServices\Specs\Steps\CommonSteps.cs" />
+    <Compile Include="BackServices\Specs\Steps\MagicNineStepsBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
