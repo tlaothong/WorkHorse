@@ -43,6 +43,8 @@
     <Compile Include="Commands\ListBetLogCommand.cs" />
     <Compile Include="Commands\ListActiveGameRoundCommand.cs" />
     <Compile Include="Commands\SingleBetCommand.cs" />
+    <Compile Include="Commands\StartAutoBetCommand.cs" />
+    <Compile Include="Commands\StopAutoBetCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
