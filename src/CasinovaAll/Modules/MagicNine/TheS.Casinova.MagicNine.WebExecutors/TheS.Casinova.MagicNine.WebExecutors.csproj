@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebExecutors\ListActiveGameRoundExecutor.cs" />
     <Compile Include="WebExecutors\ListBetLogExecutor.cs" />
     <Compile Include="WebExecutors\SingleBetExecutor.cs" />
   </ItemGroup>

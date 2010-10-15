@@ -11,6 +11,15 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
     [Binding]
     public class MagicNineGameStepsBase
     {
+        protected IListActiveGameRound Dqr_ListActiveGameRound
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_Dqr_ListActiveGameRound] as IListActiveGameRound;
+            }
+        }
+
         protected IListBetLog Dqr_ListBetLog
         {
             get
@@ -29,7 +38,16 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
             }
         }
 
-        protected ListBetLogExecutor ListBetLogExecutor
+        protected ListActiveGameRoundExecutor ListActiveGameRound
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_ListActiveGameRound] as ListActiveGameRoundExecutor;
+            }
+        }
+
+        protected ListBetLogExecutor ListBetLog
         {
             get
             {

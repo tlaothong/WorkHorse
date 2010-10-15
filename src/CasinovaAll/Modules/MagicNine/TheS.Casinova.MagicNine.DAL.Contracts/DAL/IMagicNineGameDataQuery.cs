@@ -9,13 +9,21 @@ using PerfEx.Infrastructure.Data;
 namespace TheS.Casinova.MagicNine.DAL
 {
     public interface IMagicNineGameDataQuery :
-                       IListBetLog
+                       IListBetLog,
+                       IListActiveGameRound
     { }
 
     /// <summary>
-    /// List ข้อมูลผลการลงเดิมพันของผู้เล่น
+    /// ดึงข้อมูลผลการลงเดิมพันของผู้เล่น
     /// </summary>
     public interface IListBetLog
          : IFetchData<BetInformation, ListBetLogCommand>
+    { }
+
+    /// <summary>
+    /// ดึงข้อมูลโต๊ะเกมที่กำลัง active
+    /// </summary>
+    public interface IListActiveGameRound
+         : IFetchData<GameRoundInformation, ListActiveGameRoundCommand>
     { }
 }

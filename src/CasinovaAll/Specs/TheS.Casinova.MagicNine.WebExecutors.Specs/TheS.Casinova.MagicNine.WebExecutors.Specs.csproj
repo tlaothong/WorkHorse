@@ -60,6 +60,11 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebExecutors\SpecsEventDefinitions.cs" />
+    <Compile Include="WebExecutors\Specs\ListActiveGameRoundFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListActiveGameRoundFeature.feature</DependentUpon>
+    </Compile>
     <Compile Include="WebExecutors\Specs\SingleBetFeature.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -71,6 +76,7 @@
       <DependentUpon>ListBetLogFeature.feature</DependentUpon>
     </Compile>
     <Compile Include="WebExecutors\Specs\Steps\CommonSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\ListActiveGameRoundSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\ListBetLogSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\MagicNineGameStepsBase.cs" />
     <Compile Include="WebExecutors\Specs\Steps\SingleBetSteps.cs" />
@@ -112,6 +118,10 @@
   <ItemGroup />
   <ItemGroup>
     <None Include="WebExecutors\App.config" />
+    <None Include="WebExecutors\Specs\ListActiveGameRoundFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ListActiveGameRoundFeature.feature.cs</LastGenOutput>
+    </None>
     <None Include="WebExecutors\Specs\SingleBetFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>SingleBetFeature.feature.cs</LastGenOutput>

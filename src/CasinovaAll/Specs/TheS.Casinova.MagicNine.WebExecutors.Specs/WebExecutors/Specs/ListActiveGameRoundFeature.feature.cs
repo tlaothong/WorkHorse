@@ -9,7 +9,7 @@
 //  </auto-generated>
 // ------------------------------------------------------------------------------
 #region Designer generated code
-namespace TheS.Casinova.MagicNine.BackServices.Specs
+namespace TheS.Casinova.MagicNine.WebExecutors.Specs
 {
     using TechTalk.SpecFlow;
     
@@ -22,7 +22,7 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "ListActiveGameRoundInfo.feature"
+#line 1 "ListActiveGameRoundFeature.feature"
 #line hidden
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.ClassInitializeAttribute()]
@@ -64,7 +64,7 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
-testRunner.Given("The ListActiveRoundExecutor has been created and initialized");
+testRunner.Given("The GameRoundInformation has been created and initialized");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "RoundID",
@@ -75,29 +75,29 @@ testRunner.Given("The ListActiveRoundExecutor has been created and initialized")
                         "Active"});
             table1.AddRow(new string[] {
                         "1",
-                        "2553/3/12 10:00",
-                        "",
+                        "10/14/2010 10:00",
+                        "10/14/2010 11:00",
                         "9",
                         "4328.00",
                         "True"});
             table1.AddRow(new string[] {
                         "2",
-                        "2553/3/12 10:00",
-                        "",
+                        "10/14/2010 10:00",
+                        "10/14/2010 11:00",
                         "99",
                         "272.00",
                         "True"});
             table1.AddRow(new string[] {
                         "3",
-                        "2553/3/12 10:00",
-                        "",
+                        "10/14/2010 10:00",
+                        "10/14/2010 11:00",
                         "999",
                         "712.00",
                         "True"});
             table1.AddRow(new string[] {
                         "4",
-                        "2553/3/12 10:00",
-                        "",
+                        "10/14/2010 10:00",
+                        "10/14/2010 11:00",
                         "9999",
                         "432.00",
                         "True"});
@@ -115,29 +115,29 @@ testRunner.When("call ListActiveGameRoundExecutor()");
                         "Active"});
             table2.AddRow(new string[] {
                         "1",
-                        "2553/3/12 10:00",
-                        "",
+                        "10/14/2010 10:00",
+                        "10/14/2010 11:00",
                         "9",
                         "4328.00",
                         "True"});
             table2.AddRow(new string[] {
                         "2",
-                        "2553/3/12 10:00",
-                        "",
+                        "10/14/2010 10:00",
+                        "10/14/2010 11:00",
                         "99",
                         "272.00",
                         "True"});
             table2.AddRow(new string[] {
                         "3",
-                        "2553/3/12 10:00",
-                        "",
+                        "10/14/2010 10:00",
+                        "10/14/2010 11:00",
                         "999",
                         "712.00",
                         "True"});
             table2.AddRow(new string[] {
                         "4",
-                        "2553/3/12 10:00",
-                        "",
+                        "10/14/2010 10:00",
+                        "10/14/2010 11:00",
                         "9999",
                         "432.00",
                         "True"});
@@ -159,7 +159,7 @@ testRunner.Then("the result should be as:", ((string)(null)), table2);
 #line 25
 this.ScenarioSetup(scenarioInfo);
 #line 26
-testRunner.Given("The ListActiveRoundExecutor has been created and initialized");
+testRunner.Given("The GameRoundInformation has been created and initialized");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "RoundID",
@@ -170,49 +170,35 @@ testRunner.Given("The ListActiveRoundExecutor has been created and initialized")
                         "Active"});
             table3.AddRow(new string[] {
                         "1",
-                        "2553/3/12 10:00",
-                        "2553/3/12 10:30",
+                        "10/14/2010 10:00",
+                        "10/14/2010 10:30",
                         "9",
                         "4328.00",
                         "False"});
             table3.AddRow(new string[] {
                         "2",
-                        "2553/3/12 10:00",
-                        "",
+                        "10/14/2010 10:00",
+                        "10/14/2010 11:00",
                         "99",
                         "272.00",
                         "True"});
             table3.AddRow(new string[] {
                         "3",
-                        "2553/3/12 10:00",
-                        "",
+                        "10/14/2010 10:00",
+                        "10/14/2010 11:00",
                         "999",
                         "712.00",
                         "True"});
             table3.AddRow(new string[] {
                         "4",
-                        "2553/3/12 10:00",
-                        "2553/3/12 10:40",
+                        "10/14/2010 10:00",
+                        "10/14/2010 10:30",
                         "9999",
                         "432.00",
                         "False"});
-            table3.AddRow(new string[] {
-                        "5",
-                        "2553/3/12 10:31",
-                        "",
-                        "0.9",
-                        "272.32",
-                        "True"});
-            table3.AddRow(new string[] {
-                        "6",
-                        "2553/3/12 10:41",
-                        "",
-                        "0.99",
-                        "712.45",
-                        "True"});
 #line 27
-testRunner.And("server has 6 active game round information  in data", ((string)(null)), table3);
-#line 37
+testRunner.And("server has 4 active game round information  in data", ((string)(null)), table3);
+#line 34
 testRunner.When("call ListActiveGameRoundExecutor()");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
@@ -224,34 +210,77 @@ testRunner.When("call ListActiveGameRoundExecutor()");
                         "Active"});
             table4.AddRow(new string[] {
                         "2",
-                        "2553/3/12 10:00",
-                        "",
+                        "10/14/2010 10:00",
+                        "10/14/2010 11:00",
                         "99",
                         "272.00",
                         "True"});
             table4.AddRow(new string[] {
                         "3",
-                        "2553/3/12 10:00",
-                        "",
+                        "10/14/2010 10:00",
+                        "10/14/2010 11:00",
                         "999",
                         "712.00",
                         "True"});
-            table4.AddRow(new string[] {
-                        "5",
-                        "2553/3/12 10:31",
-                        "",
-                        "0.9",
-                        "272.32",
-                        "True"});
-            table4.AddRow(new string[] {
-                        "6",
-                        "2553/3/12 10:41",
-                        "",
-                        "0.99",
-                        "712.45",
-                        "True"});
-#line 38
+#line 35
 testRunner.Then("the result should be as:", ((string)(null)), table4);
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบไม่มีข้อมูลโต๊ะเกมที่เปิดใช้งานอยู่")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListActiveGameRoundInfo")]
+        public virtual void ระบบไมมขอมลโตะเกมทเปดใชงานอย()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบไม่มีข้อมูลโต๊ะเกมที่เปิดใช้งานอยู่", new string[] {
+                        "record_mock"});
+#line 41
+this.ScenarioSetup(scenarioInfo);
+#line 42
+testRunner.Given("The GameRoundInformation has been created and initialized");
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "RoundID",
+                        "StartTime",
+                        "EndTime",
+                        "WinnerPoint",
+                        "GamePot",
+                        "Active"});
+            table5.AddRow(new string[] {
+                        "1",
+                        "10/14/2010 10:00",
+                        "10/14/2010 10:00",
+                        "9",
+                        "4328.00",
+                        "False"});
+            table5.AddRow(new string[] {
+                        "2",
+                        "10/14/2010 10:00",
+                        "10/14/2010 10:00",
+                        "99",
+                        "272.00",
+                        "False"});
+            table5.AddRow(new string[] {
+                        "3",
+                        "10/14/2010 10:00",
+                        "10/14/2010 10:00",
+                        "999",
+                        "712.00",
+                        "False"});
+            table5.AddRow(new string[] {
+                        "4",
+                        "10/14/2010 10:00",
+                        "10/14/2010 10:00",
+                        "9999",
+                        "432.00",
+                        "False"});
+#line 43
+testRunner.And("server has 4 active game round information  in data", ((string)(null)), table5);
+#line 50
+testRunner.When("call ListActiveGameRoundExecutor()");
+#line 51
+testRunner.Then("the result should be null");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
