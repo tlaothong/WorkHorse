@@ -14,9 +14,9 @@ namespace TheS.Casinova.Colors.BackServices.Specs
     public class BetColorSteps
         : ColorsGameStepsBase
     {
-        public PlayerInformation _expectPlayerInfo;
+        private PlayerInformation _expectPlayerInfo;
 
-        public IEnumerable<PlayerInformation> _playerInfos;
+        private IEnumerable<PlayerInformation> _playerInfos;
 
 
         [Given(@"\(BetColor\)server has player information as:")]
@@ -71,7 +71,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
                 Assert.AreEqual(_expected.Amount, playerActionInfo.Amount, "Amount");
 
                 return playerActionInfo;
-            };
+            };            
             Dac_CreatePlayerActionInfo.Create(new PlayerActionInformation(), new CreatePlayerActionInfoCommand());
             LastCall.IgnoreArguments().Do(checkdata);
         }

@@ -8,7 +8,7 @@ namespace TheS.Casinova.MagicNine.BackServices
 {
     public interface IAutoBetEngine
     {
-        public void StartAutoBet(StartAutoBetCommand command);
-        public void StopAutoBet(StopAutoBetCommand command);
+        void StartAutoBet(StartAutoBetCommand command);
+        void StopAutoBet(StopAutoBetCommand command);
     }
 }
