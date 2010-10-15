@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\GetGameRoundPotCommand.cs" />
     <Compile Include="Commands\GetPlayerInfoCommand.cs" />
+    <Compile Include="Commands\UpdateGameRoundPotCommand.cs" />
     <Compile Include="Commands\UpdatePlayerInfoBalanceCommand.cs" />
     <Compile Include="DAL\IMagicNineGameDataBackQuery.cs" />
     <Compile Include="DAL\IMagicNineGameDataAccess.cs" />

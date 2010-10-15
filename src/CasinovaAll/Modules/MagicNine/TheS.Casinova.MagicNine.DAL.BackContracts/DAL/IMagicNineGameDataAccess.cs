@@ -10,7 +10,8 @@ namespace TheS.Casinova.MagicNine.DAL
 {
     public interface IMagicNineGameDataAccess :
         ISingleBet,
-        IUpdatePlayerInfoBalance
+        IUpdatePlayerInfoBalance,
+        IUpdateGameRoundPot
     { }
 
     /// <summary>
@@ -25,5 +26,12 @@ namespace TheS.Casinova.MagicNine.DAL
     /// </summary>
     public interface IUpdatePlayerInfoBalance
         : IDataAction<PlayerInformation, UpdatePlayerInfoBalanceCommand>
+    { }
+
+    /// <summary>
+    /// อัพเดทเงินกองกลางในโต๊ะเกม
+    /// </summary>
+    public interface IUpdateGameRoundPot
+        : IDataAction<GameRoundInformation, UpdateGameRoundPotCommand>
     { }
 }

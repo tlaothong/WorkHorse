@@ -141,6 +141,10 @@
       <Project>{D6D472FB-4D74-4852-A0C7-AF4558B46C29}</Project>
       <Name>TheS.Casinova.Colors.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Modules\MagicNine\TheS.Casinova.MagicNine.Models\TheS.Casinova.MagicNine.Models.csproj">
+      <Project>{F2779163-1D6E-4E6B-B070-65B09328854A}</Project>
+      <Name>TheS.Casinova.MagicNine.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Modules\Shared\TheS.Casinova.Common.Commands\TheS.Casinova.Common.Commands.csproj">
       <Project>{B0BA601A-7B65-4973-9E00-4F9035883877}</Project>
       <Name>TheS.Casinova.Common.Commands</Name>
