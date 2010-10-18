@@ -83,6 +83,12 @@
     <Compile Include="BackServices\Specs\Steps\MagicNineStepsBase.cs" />
     <Compile Include="BackServices\Specs\Steps\SingleBetSteps.cs" />
     <Compile Include="BackServices\Specs\Steps\StartAutoBetSteps.cs" />
+    <Compile Include="BackServices\Specs\Steps\StopAutoBetSteps.cs" />
+    <Compile Include="BackServices\Specs\StopAutoBet.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StopAutoBet.feature</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -132,6 +138,10 @@
     <None Include="BackServices\Specs\StartAutoBet.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>StartAutoBet.feature.cs</LastGenOutput>
+    </None>
+    <None Include="BackServices\Specs\StopAutoBet.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>StopAutoBet.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

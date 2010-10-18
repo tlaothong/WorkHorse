@@ -11,7 +11,7 @@ namespace TheS.Casinova.MagicNine.BackServices.BackExecutors
     public class StopAutoBetExecutor
         : SynchronousCommandExecutorBase<StopAutoBetCommand>
     {
-        private IAutoBetEngine _iAutoBetEngine;
+        private IAutoBetEngine _iAutoBetEngine;        
 
         public StopAutoBetExecutor(IAutoBetEngine svc)
         {

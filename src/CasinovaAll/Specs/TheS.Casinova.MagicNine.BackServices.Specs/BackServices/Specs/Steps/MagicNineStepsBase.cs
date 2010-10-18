@@ -81,5 +81,14 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
                     CommonSteps.Key_StartAutoBet] as StartAutoBetExecutor;
             }
         }
+
+        protected StopAutoBetExecutor StopAutoBetExecutor
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_StopAutoBet] as StopAutoBetExecutor;
+            }
+        }
     }
 }

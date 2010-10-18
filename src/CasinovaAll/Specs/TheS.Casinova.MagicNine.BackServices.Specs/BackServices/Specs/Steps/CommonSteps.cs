@@ -22,6 +22,7 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
         public const string Key_SingleBet = "SingleBet";
 
         public const string Key_StartAutoBet = "StartAutoBet";
+        public const string Key_StopAutoBet = "StopAutoBet";
         public const string Key_AutoBetEngine = "AutoBetEngine";
 
         MockRepository Mocks { get { return SpecEventDefinitions.Mocks; } }
@@ -56,6 +57,18 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
             ScenarioContext.Current[Key_AutoBetEngine] = svc;
 
             ScenarioContext.Current[Key_StartAutoBet] = new StartAutoBetExecutor(svc, dac, dqr);
+        }
+
+        [Given(@"The StopAutoBetExecutor has been created and initialized")]
+        public void GivenTheStนยAutoBetExecutorHasBeenCreatedAndInitialized()
+        {
+            var dac = Mocks.DynamicMock<IMagicNineGameDataAccess>();
+            var dqr = Mocks.DynamicMock<IMagicNineGameDataBackQuery>();
+            var svc = Mocks.DynamicMock<IAutoBetEngine>();
+
+            ScenarioContext.Current[Key_AutoBetEngine] = svc;
+
+            ScenarioContext.Current[Key_StopAutoBet] = new StopAutoBetExecutor(svc);
         }
     }
 }

@@ -51,7 +51,7 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
             LastCall.IgnoreArguments().Do(CheckCallMethod);
         }
 
-        [Given(@"the AutoBetEngine shoule be call as: \(UserName: '(.*)', RoundID: '(.*)', Amount: '(.*)', Interval: '(.*)', TrackingID: '(.*)'\)")]
+        [Given(@"the StartAutoBet shoule be call as: \(UserName: '(.*)', RoundID: '(.*)', Amount: '(.*)', Interval: '(.*)', TrackingID: '(.*)'\)")]
         public void GivenTheAutoBetEngineShouleBeCallAsUserNameXRoundID1AmountXIntervalXTrackingIDX(string userName, int roundID, int amount, int interval, string trackingID)
         {
             Action<StartAutoBetCommand> checkData = (cmd) => {
@@ -80,7 +80,7 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
             StartAutoBetExecutor.Execute(cmd, (x) => { });
         }
 
-        [Then(@"the player action information should be created")]
+        [Then(@"the player information should be update and call StartAutoBet")]
         public void ThenThePlayerActionInformationShouldBeCreated()
         {
             Assert.IsTrue(true, "Expectation has been verified in the end of block When.");
