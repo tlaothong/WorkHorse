@@ -75,10 +75,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Modules\MagicNine\TheS.Casinova.MagicNine.BackServices.Contracts\TheS.Casinova.MagicNine.BackServices.Contracts.csproj">
-      <Project>{98BA85E8-CA35-4C19-A70A-A2C150816FE3}</Project>
-      <Name>TheS.Casinova.MagicNine.BackServices.Contracts</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Modules\MagicNine\TheS.Casinova.MagicNine.BackServices\TheS.Casinova.MagicNine.BackServices.csproj">
       <Project>{06EC360F-FCE4-4A09-9B74-39E5AEDC9159}</Project>
       <Name>TheS.Casinova.MagicNine.BackServices</Name>

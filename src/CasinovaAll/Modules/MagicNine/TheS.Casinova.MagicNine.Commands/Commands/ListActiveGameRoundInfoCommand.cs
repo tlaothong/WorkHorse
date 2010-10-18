@@ -9,7 +9,7 @@ namespace TheS.Casinova.MagicNine.Commands
     /// <summary>
     /// ดึงข้อมูลโต๊ะเกม
     /// </summary>
-    public class ListActiveGameRoundCommand
+    public class ListActiveGameRoundInfoCommand
     {
         //input
         /// <summary>

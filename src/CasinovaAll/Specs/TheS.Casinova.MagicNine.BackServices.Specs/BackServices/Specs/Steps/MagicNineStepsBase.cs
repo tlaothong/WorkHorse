@@ -6,6 +6,7 @@ using TheS.Casinova.MagicNine.DAL;
 using TechTalk.SpecFlow;
 using TheS.Casinova.MagicNine.BackServices.BackExecutors;
 
+
 namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
 {
     public class MagicNineStepsBase

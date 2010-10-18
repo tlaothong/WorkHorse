@@ -102,7 +102,7 @@ testRunner.Given("server has player information as:", ((string)(null)), table1);
 #line 16
 this.ScenarioSetup(scenarioInfo);
 #line 17
-testRunner.Given("The BetInformation has been created and initialized");
+testRunner.Given("The ListBetLogExecutor has been created and initialized");
 #line 18
 testRunner.And("Expect execute ListBetLogCommand");
 #line 19
@@ -154,7 +154,7 @@ testRunner.Then("The result of BetLog should be :", ((string)(null)), table2);
 #line 28
 this.ScenarioSetup(scenarioInfo);
 #line 29
-testRunner.Given("The BetInformation has been created and initialized");
+testRunner.Given("The ListBetLogExecutor has been created and initialized");
 #line 30
 testRunner.When("Call ListBetLogExecutor(userName\'\', roundId \'1\')");
 #line 31
@@ -173,7 +173,7 @@ testRunner.Then("The result of BetLog should be null");
 #line 34
 this.ScenarioSetup(scenarioInfo);
 #line 35
-testRunner.Given("The BetInformation has been created and initialized");
+testRunner.Given("The ListBetLogExecutor has been created and initialized");
 #line 36
 testRunner.When("Call ListBetLogExecutor(userName\'Nit\', roundId \'-1\')");
 #line 37
@@ -192,7 +192,7 @@ testRunner.Then("The result of BetLog should be null");
 #line 40
 this.ScenarioSetup(scenarioInfo);
 #line 41
-testRunner.Given("The BetInformation has been created and initialized");
+testRunner.Given("The ListBetLogExecutor has been created and initialized");
 #line 42
 testRunner.When("Call ListBetLogExecutor(userName\'\', roundId \'-1\')");
 #line 43
@@ -213,7 +213,7 @@ testRunner.Then("The result of BetLog should be null");
 #line 46
 this.ScenarioSetup(scenarioInfo);
 #line 47
-testRunner.Given("The BetInformation has been created and initialized");
+testRunner.Given("The ListBetLogExecutor has been created and initialized");
 #line 48
 testRunner.When("Call ListBetLogExecutor(userName\'Ae\', roundId \'2\')");
 #line 49

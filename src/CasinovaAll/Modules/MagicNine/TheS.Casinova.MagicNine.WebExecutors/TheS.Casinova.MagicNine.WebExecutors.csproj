@@ -48,9 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebExecutors\ListActiveGameRoundExecutor.cs" />
+    <Compile Include="WebExecutors\ListActiveGameRoundInfoExecutor.cs" />
     <Compile Include="WebExecutors\ListBetLogExecutor.cs" />
+    <Compile Include="WebExecutors\ListGamePlayAutoBetInfoExecutor.cs" />
     <Compile Include="WebExecutors\SingleBetExecutor.cs" />
+    <Compile Include="WebExecutors\StartAutoBetExecutor.cs" />
+    <Compile Include="WebExecutors\StopAutoBetExecutor.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

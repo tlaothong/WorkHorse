@@ -61,7 +61,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
-testRunner.Given("The BetInformation has been created and initialized");
+testRunner.Given("The SingleBetExecutor has been created and initialized");
 #line 9
 testRunner.And("Web service has TrackingID : \'DA1FE75E-9042-4FC5-B3CF-1E973D2152F7\'");
 #line 10
@@ -85,7 +85,7 @@ testRunner.Then("TrackingID for client and back server should be : \'DA1FE75E-90
 #line 15
 this.ScenarioSetup(scenarioInfo);
 #line 16
-testRunner.Given("The BetInformation has been created and initialized");
+testRunner.Given("The SingleBetExecutor has been created and initialized");
 #line 17
 testRunner.When("Call SingleBetExecutor(userName\'\', roundId \'1\')");
 #line 18
@@ -104,7 +104,7 @@ testRunner.Then("TrackingID for client and back server should be null");
 #line 21
 this.ScenarioSetup(scenarioInfo);
 #line 22
-testRunner.Given("The BetInformation has been created and initialized");
+testRunner.Given("The SingleBetExecutor has been created and initialized");
 #line 23
 testRunner.When("Call SingleBetExecutor(userName\'Nit\', roundId \'-1\')");
 #line 24
@@ -123,7 +123,7 @@ testRunner.Then("TrackingID for client and back server should be null");
 #line 27
 this.ScenarioSetup(scenarioInfo);
 #line 28
-testRunner.Given("The BetInformation has been created and initialized");
+testRunner.Given("The SingleBetExecutor has been created and initialized");
 #line 29
 testRunner.When("Call SingleBetExecutor(userName\' \', roundId \'-1\')");
 #line 30

@@ -11,12 +11,12 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
     [Binding]
     public class MagicNineGameStepsBase
     {
-        protected IListActiveGameRound Dqr_ListActiveGameRound
+        protected IListActiveGameRoundInfo Dqr_ListActiveGameRound
         {
             get
             {
                 return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr_ListActiveGameRound] as IListActiveGameRound;
+                    CommonSteps.Key_Dqr_ListActiveGameRound] as IListActiveGameRoundInfo;
             }
         }
 
@@ -38,12 +38,12 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
             }
         }
 
-        protected ListActiveGameRoundExecutor ListActiveGameRound
+        protected ListActiveGameRoundInfoExecutor ListActiveGameRound
         {
             get
             {
                 return ScenarioContext.Current[
-                    CommonSteps.Key_ListActiveGameRound] as ListActiveGameRoundExecutor;
+                    CommonSteps.Key_ListActiveGameRound] as ListActiveGameRoundInfoExecutor;
             }
         }
 
