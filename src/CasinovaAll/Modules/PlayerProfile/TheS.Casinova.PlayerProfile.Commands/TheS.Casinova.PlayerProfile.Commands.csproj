@@ -40,11 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\ChangeEmailCommand.cs" />
+    <Compile Include="Commands\ChangePasswordCommand.cs" />
+    <Compile Include="Commands\GetUserProfileCommand.cs" />
+    <Compile Include="Commands\ListLogEventCommand.cs" />
+    <Compile Include="Commands\RegisterUserCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Commands\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\Shared\TheS.Casinova.Common.Commands\TheS.Casinova.Common.Commands.csproj">
       <Project>{B0BA601A-7B65-4973-9E00-4F9035883877}</Project>
