@@ -54,12 +54,12 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล userName ถูกต้อง และใน server มีข้อมูลการลงเดิมพันแบบอัตโนมัติไว" +
-            "้")]
+            "้ #ListGamePlayAutoBetInfo")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListGamePlayAutoBetInfo")]
-        public virtual void ระบบไดรบขอมลUserNameถกตองและในServerมขอมลการลงเดมพนแบบอตโนมตไว()
+        public virtual void ระบบไดรบขอมลUserNameถกตองและในServerมขอมลการลงเดมพนแบบอตโนมตไวListGamePlayAutoBetInfo()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล userName ถูกต้อง และใน server มีข้อมูลการลงเดิมพันแบบอัตโนมัติไว" +
-                    "้", new string[] {
+                    "้ #ListGamePlayAutoBetInfo", new string[] {
                         "record_mock"});
 #line 9
 this.ScenarioSetup(scenarioInfo);
@@ -127,12 +127,12 @@ testRunner.Then("The GamePlayAutoBetInformation should be as :", ((string)(null)
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล userName ถูกต้อง แต่ใน server ไม่มีข้อมูลการลงเดิมพันแบบอัตโนมัต" +
-            "ิไว้")]
+            "ิไว้ #ListGamePlayAutoBetInfo")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListGamePlayAutoBetInfo")]
-        public virtual void ระบบไดรบขอมลUserNameถกตองแตในServerไมมขอมลการลงเดมพนแบบอตโนมตไว()
+        public virtual void ระบบไดรบขอมลUserNameถกตองแตในServerไมมขอมลการลงเดมพนแบบอตโนมตไวListGamePlayAutoBetInfo()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล userName ถูกต้อง แต่ใน server ไม่มีข้อมูลการลงเดิมพันแบบอัตโนมัต" +
-                    "ิไว้", new string[] {
+                    "ิไว้ #ListGamePlayAutoBetInfo", new string[] {
                         "record_mock"});
 #line 22
 this.ScenarioSetup(scenarioInfo);
@@ -158,11 +158,11 @@ testRunner.Then("The GamePlayAutoBetInformation should be null");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล userName ไม่ถูกต้อง")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล userName ไม่ถูกต้อง #ListGamePlayAutoBetInfo")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListGamePlayAutoBetInfo")]
-        public virtual void ระบบไดรบขอมลUserNameไมถกตอง()
+        public virtual void ระบบไดรบขอมลUserNameไมถกตองListGamePlayAutoBetInfo()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล userName ไม่ถูกต้อง", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล userName ไม่ถูกต้อง #ListGamePlayAutoBetInfo", new string[] {
                         "record_mock"});
 #line 31
 this.ScenarioSetup(scenarioInfo);

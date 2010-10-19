@@ -13,12 +13,14 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
     [Binding]
     public class CommonSteps
     {
-        public const string Key_Dqr_ListActiveGameRound = "ListActiveGameRound";
-        public const string Key_ListActiveGameRound = "ListActiveGameRoundInfoExecutor";
-        public const string Key_Dac_Singlebet = "SingleBet";
-        public const string Key_SingleBetExecutor = "SingleBetExecutor";
-        public const string Key_Dqr_ListBetLog = "ListBetLog";
-        public const string Key_ListBetLogExecutor = "ListBetLogExecutor";
+        public const string Key_Dqr_ListGamePlayAutoBetInfo = "mockDqr_ListGamePlayAutoBetInfo";
+        public const string Key_ListGamePlayAutoBetInfo = "ListGamePlayAutoBetInfo";
+        public const string Key_Dqr_ListActiveGameRound = "mockDqr_ListActiveGameRound";
+        public const string Key_ListActiveGameRound = "ListActiveGameRoundInfo";
+        public const string Key_Dac_Singlebet = "mockDac_SingleBet";
+        public const string Key_SingleBet = "SingleBet";
+        public const string Key_Dqr_ListBetLog = "mockDqr_ListBetLog";
+        public const string Key_ListBetLog = "ListBetLog";
   
 
         MockRepository Mocks { get { return SpecEventDefinitions.Mocks; } }
@@ -30,7 +32,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
              var dqr = Mocks.DynamicMock<IMagicNineGameDataQuery>();
 
              ScenarioContext.Current[Key_Dqr_ListBetLog] = dqr;
-             ScenarioContext.Current[Key_ListBetLogExecutor] = new ListBetLogExecutor(dqr);
+             ScenarioContext.Current[Key_ListBetLog] = new ListBetLogExecutor(dqr);
         }
 
         //Single bet specs initialized
@@ -40,7 +42,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
             var dac = Mocks.DynamicMock<IMagicNineGameBackService>();
 
             ScenarioContext.Current[Key_Dac_Singlebet] = dac;
-            ScenarioContext.Current[Key_SingleBetExecutor] = new SingleBetExecutor(dac);
+            ScenarioContext.Current[Key_SingleBet] = new SingleBetExecutor(dac);
  
         }
 
@@ -52,6 +54,16 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
 
             ScenarioContext.Current[Key_Dqr_ListActiveGameRound] = dqr;
             ScenarioContext.Current[Key_ListActiveGameRound] = new ListActiveGameRoundInfoExecutor(dqr);
+        }
+
+        //List game play auto bet information specs initialized
+        [Given(@"The ListGamePlayAutoBetInfoExecutor has been created and initialized")]
+        public void GivenTheListGamePlayAutoBetInfoExecutorHasBeenCreatedAndInitialized()
+        {
+            var dqr = Mocks.DynamicMock<IMagicNineGameDataQuery>();
+
+            ScenarioContext.Current[Key_Dqr_ListGamePlayAutoBetInfo] = dqr;
+            ScenarioContext.Current[Key_ListGamePlayAutoBetInfo] = new ListGamePlayAutoBetInfoExecutor(dqr);
         }
     }
 }

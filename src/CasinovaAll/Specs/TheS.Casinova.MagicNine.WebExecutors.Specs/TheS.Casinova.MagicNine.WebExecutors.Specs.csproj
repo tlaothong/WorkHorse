@@ -80,9 +80,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ListBetLogFeature.feature</DependentUpon>
     </Compile>
+    <Compile Include="WebExecutors\Specs\StartAutoBetFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StartAutoBetFeature.feature</DependentUpon>
+    </Compile>
     <Compile Include="WebExecutors\Specs\Steps\CommonSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\ListActiveGameRoundInfoSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\ListBetLogSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\ListGamePlayAutoBetInfoSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\MagicNineGameStepsBase.cs" />
     <Compile Include="WebExecutors\Specs\Steps\SingleBetSteps.cs" />
   </ItemGroup>
@@ -138,6 +144,10 @@
     <None Include="WebExecutors\Specs\ListBetLogFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ListBetLogFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\StartAutoBetFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>StartAutoBetFeature.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

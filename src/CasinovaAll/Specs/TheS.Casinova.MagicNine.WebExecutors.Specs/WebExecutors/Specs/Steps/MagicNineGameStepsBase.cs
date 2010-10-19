@@ -52,7 +52,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
             get
             {
                 return ScenarioContext.Current[
-                    CommonSteps.Key_ListBetLogExecutor] as ListBetLogExecutor;
+                    CommonSteps.Key_ListBetLog] as ListBetLogExecutor;
             }
         }
 
@@ -61,7 +61,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
             get
             {
                 return ScenarioContext.Current[
-                    CommonSteps.Key_SingleBetExecutor] as SingleBetExecutor;
+                    CommonSteps.Key_SingleBet] as SingleBetExecutor;
             }
         }
     }

@@ -6,7 +6,7 @@
 
 
 @record_mock
-Scenario: ระบบได้รับข้อมูล userName ถูกต้อง และใน server มีข้อมูลการลงเดิมพันแบบอัตโนมัติไว้
+Scenario: ระบบได้รับข้อมูล userName ถูกต้อง และใน server มีข้อมูลการลงเดิมพันแบบอัตโนมัติไว้ #ListGamePlayAutoBetInfo
 	Given The ListGamePlayAutoBetInfoExecutor has been created and initialized
 	And  server has game play auto bet information as:
 		|UserName|RoundID|Amount|Interval|MoneyRefund|StartTrackingID						|StopTrackingID						 |
@@ -19,7 +19,7 @@ Scenario: ระบบได้รับข้อมูล userName ถูกต
 		|Nit	 |2		 |300	|10		 |	100		 |A92343C8-2484-4928-A95E-9BD3BAE17FD9	|8AF03309-CA2C-4781-9012-146003746309|
 
 @record_mock
-Scenario: ระบบได้รับข้อมูล userName ถูกต้อง แต่ใน server ไม่มีข้อมูลการลงเดิมพันแบบอัตโนมัติไว้
+Scenario: ระบบได้รับข้อมูล userName ถูกต้อง แต่ใน server ไม่มีข้อมูลการลงเดิมพันแบบอัตโนมัติไว้ #ListGamePlayAutoBetInfo
 	Given The ListGamePlayAutoBetInfoExecutor has been created and initialized
 	And  server has game play auto bet information as:
 		|UserName	|RoundID	|Amount	|Interval	|MoneyRefund	|StartTrackingID	|StopTrackingID		|
@@ -28,7 +28,7 @@ Scenario: ระบบได้รับข้อมูล userName ถูกต
 	Then The GamePlayAutoBetInformation should be null
 	   
 @record_mock
-Scenario: ระบบได้รับข้อมูล userName ไม่ถูกต้อง
+Scenario: ระบบได้รับข้อมูล userName ไม่ถูกต้อง #ListGamePlayAutoBetInfo
 	Given The ListGamePlayAutoBetInfoExecutor has been created and initialized
 	And  server has game play auto bet information as:
 		|UserName	|RoundID	|Amount	|Interval	|MoneyRefund	|StartTrackingID	|StopTrackingID		|
