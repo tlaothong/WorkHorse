@@ -62,34 +62,6 @@
     							</DiscreteObjectKeyFrame.Value>
     						</DiscreteObjectKeyFrame>
     					</ObjectAnimationUsingKeyFrames>
-    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock1">
-    						<DiscreteObjectKeyFrame KeyTime="0">
-    							<DiscreteObjectKeyFrame.Value>
-    								<Visibility>Collapsed</Visibility>
-    							</DiscreteObjectKeyFrame.Value>
-    						</DiscreteObjectKeyFrame>
-    					</ObjectAnimationUsingKeyFrames>
-    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Amount_Copy">
-    						<DiscreteObjectKeyFrame KeyTime="0">
-    							<DiscreteObjectKeyFrame.Value>
-    								<Visibility>Collapsed</Visibility>
-    							</DiscreteObjectKeyFrame.Value>
-    						</DiscreteObjectKeyFrame>
-    					</ObjectAnimationUsingKeyFrames>
-    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock2">
-    						<DiscreteObjectKeyFrame KeyTime="0">
-    							<DiscreteObjectKeyFrame.Value>
-    								<Visibility>Collapsed</Visibility>
-    							</DiscreteObjectKeyFrame.Value>
-    						</DiscreteObjectKeyFrame>
-    					</ObjectAnimationUsingKeyFrames>
-    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Amount_Copy1">
-    						<DiscreteObjectKeyFrame KeyTime="0">
-    							<DiscreteObjectKeyFrame.Value>
-    								<Visibility>Collapsed</Visibility>
-    							</DiscreteObjectKeyFrame.Value>
-    						</DiscreteObjectKeyFrame>
-    					</ObjectAnimationUsingKeyFrames>
     					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock">
     						<DiscreteObjectKeyFrame KeyTime="0">
     							<DiscreteObjectKeyFrame.Value>
@@ -139,34 +111,6 @@
     							</DiscreteObjectKeyFrame.Value>
     						</DiscreteObjectKeyFrame>
     					</ObjectAnimationUsingKeyFrames>
-    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock1">
-    						<DiscreteObjectKeyFrame KeyTime="0">
-    							<DiscreteObjectKeyFrame.Value>
-    								<Visibility>Collapsed</Visibility>
-    							</DiscreteObjectKeyFrame.Value>
-    						</DiscreteObjectKeyFrame>
-    					</ObjectAnimationUsingKeyFrames>
-    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Amount_Copy">
-    						<DiscreteObjectKeyFrame KeyTime="0">
-    							<DiscreteObjectKeyFrame.Value>
-    								<Visibility>Collapsed</Visibility>
-    							</DiscreteObjectKeyFrame.Value>
-    						</DiscreteObjectKeyFrame>
-    					</ObjectAnimationUsingKeyFrames>
-    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock2">
-    						<DiscreteObjectKeyFrame KeyTime="0">
-    							<DiscreteObjectKeyFrame.Value>
-    								<Visibility>Collapsed</Visibility>
-    							</DiscreteObjectKeyFrame.Value>
-    						</DiscreteObjectKeyFrame>
-    					</ObjectAnimationUsingKeyFrames>
-    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Amount_Copy1">
-    						<DiscreteObjectKeyFrame KeyTime="0">
-    							<DiscreteObjectKeyFrame.Value>
-    								<Visibility>Collapsed</Visibility>
-    							</DiscreteObjectKeyFrame.Value>
-    						</DiscreteObjectKeyFrame>
-    					</ObjectAnimationUsingKeyFrames>
     					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextBlock.Text)" Storyboard.TargetName="MenuTitle">
     						<DiscreteObjectKeyFrame KeyTime="0" Value="Change"/>
     					</ObjectAnimationUsingKeyFrames>
@@ -174,6 +118,13 @@
     						<DiscreteObjectKeyFrame KeyTime="0">
     							<DiscreteObjectKeyFrame.Value>
     								<Visibility>Visible</Visibility>
+    							</DiscreteObjectKeyFrame.Value>
+    						</DiscreteObjectKeyFrame>
+    					</ObjectAnimationUsingKeyFrames>
+    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Option">
+    						<DiscreteObjectKeyFrame KeyTime="0">
+    							<DiscreteObjectKeyFrame.Value>
+    								<Visibility>Collapsed</Visibility>
     							</DiscreteObjectKeyFrame.Value>
     						</DiscreteObjectKeyFrame>
     					</ObjectAnimationUsingKeyFrames>
@@ -192,6 +143,34 @@
     				<Storyboard>
     					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(ContentControl.Content)" Storyboard.TargetName="Option">
     						<DiscreteObjectKeyFrame KeyTime="0" Value="Range"/>
+    					</ObjectAnimationUsingKeyFrames>
+    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock1">
+    						<DiscreteObjectKeyFrame KeyTime="0">
+    							<DiscreteObjectKeyFrame.Value>
+    								<Visibility>Visible</Visibility>
+    							</DiscreteObjectKeyFrame.Value>
+    						</DiscreteObjectKeyFrame>
+    					</ObjectAnimationUsingKeyFrames>
+    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="AmountFrom">
+    						<DiscreteObjectKeyFrame KeyTime="0">
+    							<DiscreteObjectKeyFrame.Value>
+    								<Visibility>Visible</Visibility>
+    							</DiscreteObjectKeyFrame.Value>
+    						</DiscreteObjectKeyFrame>
+    					</ObjectAnimationUsingKeyFrames>
+    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock2">
+    						<DiscreteObjectKeyFrame KeyTime="0">
+    							<DiscreteObjectKeyFrame.Value>
+    								<Visibility>Visible</Visibility>
+    							</DiscreteObjectKeyFrame.Value>
+    						</DiscreteObjectKeyFrame>
+    					</ObjectAnimationUsingKeyFrames>
+    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="AmountTo">
+    						<DiscreteObjectKeyFrame KeyTime="0">
+    							<DiscreteObjectKeyFrame.Value>
+    								<Visibility>Visible</Visibility>
+    							</DiscreteObjectKeyFrame.Value>
+    						</DiscreteObjectKeyFrame>
     					</ObjectAnimationUsingKeyFrames>
     				</Storyboard>
     			</VisualState>
@@ -233,7 +212,7 @@
     		<Rectangle Fill="#FFF4F4F5" Stroke="Black" Height="215" VerticalAlignment="Top" Width="489"/>
     		<Rectangle Fill="Gainsboro" Stroke="Black" Height="22" VerticalAlignment="Top" Width="489"/>
     		<TextBlock x:Name="MenuTitle" TextWrapping="Wrap" Text="Menu Title" TextAlignment="Center" FontWeight="Bold" Canvas.Top="3" Width="489"/>
-    		<TextBlock x:Name="textBlock" HorizontalAlignment="Right" TextWrapping="Wrap" Text="Original" VerticalAlignment="Bottom" FontWeight="Bold" FontSize="13.333" Canvas.Left="67" Canvas.Top="134" RenderTransformOrigin="0.5,0.5">
+    		<TextBlock x:Name="textBlock" HorizontalAlignment="Right" TextWrapping="Wrap" Text="Original" VerticalAlignment="Bottom" FontWeight="Bold" FontSize="13.333" Canvas.Left="67" Canvas.Top="134" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
     			<TextBlock.RenderTransform>
     				<CompositeTransform/>
     			</TextBlock.RenderTransform>
@@ -244,30 +223,39 @@
     			</TextBlock.RenderTransform>
     		</TextBlock>
     		<Slider x:Name="SingleSlider" Canvas.Left="67" Canvas.Top="33" Width="410"/>
-    		<TextBlock x:Name="Original" HorizontalAlignment="Right" TextWrapping="Wrap" Text="Amount" VerticalAlignment="Bottom" Width="347" FontSize="13.333" Canvas.Left="130" Canvas.Top="134" RenderTransformOrigin="0.5,0.5">
+    		<TextBlock x:Name="Original" HorizontalAlignment="Right" TextWrapping="Wrap" Text="Amount" VerticalAlignment="Bottom" Width="347" FontSize="13.333" Canvas.Left="130" Canvas.Top="134" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
     			<TextBlock.RenderTransform>
     				<CompositeTransform/>
     			</TextBlock.RenderTransform>
     		</TextBlock>
     		<TextBlock x:Name="Minimum" TextWrapping="Wrap" Text="Minimum" FontSize="13.333" Canvas.Left="67" Canvas.Top="55" Width="134"/>
     		<TextBlock x:Name="Maximum" TextWrapping="Wrap" Text="Maximum" FontSize="13.333" Width="134" TextAlignment="Right" Canvas.Left="343" Canvas.Top="55"/>
-    		<Button x:Name="Option" Content="Single" Width="52" Height="41" Canvas.Left="11" Canvas.Top="33"/>
+    		<Button x:Name="Option" Content="Single" Width="52" Height="41" Canvas.Left="11" Canvas.Top="33" Click="Option_Click" />
     		<TextBox x:Name="Amount" TextWrapping="Wrap" Width="347" Canvas.Left="130" Canvas.Top="106" RenderTransformOrigin="0.5,0.5">
     			<TextBox.RenderTransform>
     				<CompositeTransform/>
     			</TextBox.RenderTransform>
     		</TextBox>
-    		<Button x:Name="Submit" Content="Submit" Height="46" Canvas.Left="11" Canvas.Top="157" Width="466">
+    		<Button x:Name="Submit" Content="Submit" Height="46" Canvas.Left="11" Canvas.Top="157" Width="230" Click="ChangeStateToSingle">
     			<i:Interaction.Triggers>
     				<i:EventTrigger EventName="Click">
     					<ei:GoToStateAction StateName="Disable"/>
+    					<ei:GoToStateAction StateName="Single"/>
     				</i:EventTrigger>
     			</i:Interaction.Triggers>
     		</Button>
-    		<TextBlock x:Name="textBlock1" HorizontalAlignment="Right" TextWrapping="Wrap" Text="From" VerticalAlignment="Bottom" FontWeight="Bold" FontSize="13.333" Canvas.Left="67" Canvas.Top="79"/>
-    		<TextBox x:Name="Amount_Copy" TextWrapping="Wrap" Width="159" Canvas.Left="130" Canvas.Top="78"/>
-    		<TextBlock x:Name="textBlock2" HorizontalAlignment="Right" TextWrapping="Wrap" Text="to" VerticalAlignment="Bottom" FontWeight="Bold" FontSize="13.333" Canvas.Left="293" Canvas.Top="79" Width="21" TextAlignment="Center"/>
-    		<TextBox x:Name="Amount_Copy1" TextWrapping="Wrap" Width="159" Canvas.Left="318" Canvas.Top="78"/>
+    		<Button x:Name="Cancel" Content="Cancel" Height="46" Canvas.Left="245" Canvas.Top="157" Width="232" Click="ChangeStateToSingle">
+    			<i:Interaction.Triggers>
+    				<i:EventTrigger EventName="Click">
+    					<ei:GoToStateAction StateName="Disable"/>
+    					<ei:GoToStateAction StateName="Single"/>
+    				</i:EventTrigger>
+    			</i:Interaction.Triggers>
+    		</Button>
+    		<TextBlock x:Name="textBlock1" HorizontalAlignment="Right" TextWrapping="Wrap" Text="From" VerticalAlignment="Bottom" FontWeight="Bold" FontSize="13.333" Canvas.Left="67" Canvas.Top="79" Visibility="Collapsed"/>
+    		<TextBox x:Name="AmountFrom" TextWrapping="Wrap" Width="159" Canvas.Left="130" Canvas.Top="78" Visibility="Collapsed"/>
+    		<TextBlock x:Name="textBlock2" HorizontalAlignment="Right" TextWrapping="Wrap" Text="to" VerticalAlignment="Bottom" FontWeight="Bold" FontSize="13.333" Canvas.Left="293" Canvas.Top="79" Width="21" TextAlignment="Center" Visibility="Collapsed"/>
+    		<TextBox x:Name="AmountTo" TextWrapping="Wrap" Width="159" Canvas.Left="318" Canvas.Top="78" Visibility="Collapsed"/>
     	</Canvas>
 	</Grid>
 </UserControl>

@@ -28,6 +28,7 @@ namespace Magic9Game
         #endregion Fields
 
         #region Constructor
+
 		public Magic9Page()
 		{
 			// Required to initialize variables
@@ -37,6 +38,7 @@ namespace Magic9Game
             AutoBet.Click += new RoutedEventHandler(AutoBet_Click);
             StartStop.Click += new RoutedEventHandler(StartStop_Click);
 		}
+
 		#endregion Constructor
 		
 		#region Methods
@@ -57,8 +59,10 @@ namespace Magic9Game
             _autoBetStart = !_autoBetStart;
             if (_autoBetStart) changeState(AutoBetStop);
             else {
+                // Stop has clicked
                 changeState(AutoBetStart);
                 changeState(AutoBetOff);
+                _autoBetOn = !_autoBetOn;
             }
         }
 
