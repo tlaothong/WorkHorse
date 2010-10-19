@@ -17,7 +17,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
         [Given(@"Expect result should be add GameRoundConfiguration\(Name: '(.*)', TableAmount: '(.*)', GameDuration: '(.*)', Interval: '(.*)'\)")]
         public void GivenExpectResultShouldBeAddGameRoundConfigurationNameXTableAmountXGameDurationXIntervalX(string name, int tableAmount, int gameDuration, int interval)
         {
-            Func<GameRoundConfiguration, CreateGameRoundConfigurationsCommand, GameRoundConfiguration> checkdata = (gameRoundConf, cmd) => {
+            Func<GameRoundConfiguration, CreateGameRoundConfigurationCommand, GameRoundConfiguration> checkdata = (gameRoundConf, cmd) => {
                 Assert.AreEqual(name, gameRoundConf.Name, "Config name");
                 Assert.AreEqual(tableAmount, gameRoundConf.TableAmount, "Table amount");
                 Assert.AreEqual(gameDuration, gameRoundConf.GameDuration, "Game duration");
@@ -25,14 +25,14 @@ namespace TheS.Casinova.Colors.BackServices.Specs
                 return gameRoundConf;
             };
 
-            Dac_CreateGameRoundConfigurations.Create(new GameRoundConfiguration(), new CreateGameRoundConfigurationsCommand());
+            Dac_CreateGameRoundConfigurations.Create(new GameRoundConfiguration(), new CreateGameRoundConfigurationCommand());
             LastCall.IgnoreArguments().Do(checkdata);
         }
 
         [When(@"call CreateGameRoundConfiguration\(GameRoundConfiguration\(Name: '(.*)', TableAmount: '(.*)', GameDuration: '(.*)', Interval: '(.*)'\)\)")]
         public void WhenCallCreateGameRoundConfigurationGameRoundConfigurationNameXTableAmountXGameDurationXIntervalX(string name, int tableAmount, int gameDuration, int interval)
         {
-            CreateGameRoundConfigurationsCommand cmd = new CreateGameRoundConfigurationsCommand {
+            CreateGameRoundConfigurationCommand cmd = new CreateGameRoundConfigurationCommand {
                 Tables = new GameRoundConfiguration {
                     Name = name,
                     TableAmount = tableAmount,
@@ -44,7 +44,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
             CreateGameRoundConfigurationsExecutor.Execute(cmd, (x) => { });
         }
 
-        [Then(@"the GameRoundConfiguration should be saved to the ICreateGameRoundConfigurations\.Create\(GameRoundConfiguration, CreateGameRoundConfigurationsCommand\) with expected data")]
+        [Then(@"the GameRoundConfiguration should be saved to the ICreateGameRoundConfigurations\.Create\(GameRoundConfiguration, CreateGameRoundConfigurationCommand\) with expected data")]
         public void ThenTheGameRoundConfigurationShouldBeSavedToTheICreateGameRoundConfigurations_CreateGameRoundConfigurationCreateGameRoundConfigurationsCommandWithExpectedData()
         {
             Assert.IsTrue(true, "Expectation has been verified in the end of block When.");

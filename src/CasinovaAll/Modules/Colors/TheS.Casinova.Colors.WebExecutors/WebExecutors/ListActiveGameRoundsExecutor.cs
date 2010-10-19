@@ -13,16 +13,16 @@ namespace TheS.Casinova.Colors.WebExecutors
     /// list ข้อมูลโต๊ะเกมที่ active
     /// </summary>
     public class ListActiveGameRoundsExecutor
-        : SynchronousCommandExecutorBase<ListActiveGameRoundsCommand>
+        : SynchronousCommandExecutorBase<ListActiveGameRoundCommand>
     {
          private IListActiveGameRounds _iListActiveRound;
 
-         public ListActiveGameRoundsExecutor(IColorsGameDataQuery dac)
+         public ListActiveGameRoundsExecutor(IColorsGameDataQuery dqr)
         {
-            _iListActiveRound = dac;
+            _iListActiveRound = dqr;
         }
 
-         protected override void ExecuteCommand(ListActiveGameRoundsCommand command)
+         protected override void ExecuteCommand(ListActiveGameRoundCommand command)
          {
              command.FromTime = DateTime.Now;
              command.ActiveRounds = _iListActiveRound.List(command);

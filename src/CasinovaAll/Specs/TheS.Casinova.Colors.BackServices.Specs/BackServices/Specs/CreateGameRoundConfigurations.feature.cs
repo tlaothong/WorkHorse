@@ -71,7 +71,7 @@ testRunner.When("call CreateGameRoundConfiguration(GameRoundConfiguration(Name: 
                     "ount: \'4\', GameDuration: \'30\', Interval: \'5\'))");
 #line 11
 testRunner.Then("the GameRoundConfiguration should be saved to the ICreateGameRoundConfigurations." +
-                    "Create(GameRoundConfiguration, CreateGameRoundConfigurationsCommand) with expect" +
+                    "Create(GameRoundConfiguration, CreateGameRoundConfigurationCommand) with expect" +
                     "ed data");
 #line hidden
             testRunner.CollectScenarioErrors();

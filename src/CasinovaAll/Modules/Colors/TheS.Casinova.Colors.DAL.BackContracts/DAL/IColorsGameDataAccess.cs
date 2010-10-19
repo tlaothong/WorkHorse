@@ -49,13 +49,13 @@ namespace TheS.Casinova.Colors.DAL
     /// บันทึกการตั้งค่าสำหรับสร้างโต๊ะเกมใหม่
     /// </summary>
     public interface ICreateGameRoundConfigurations
-        : ICreateData<GameRoundConfiguration, CreateGameRoundConfigurationsCommand>
+        : ICreateData<GameRoundConfiguration, CreateGameRoundConfigurationCommand>
     { }
 
     /// <summary>
     /// สร้างโต๊ะเกมใหม่
     /// </summary>
     public interface ICreateGameRound
-        : ICreateData<GameRoundInformation, CreateGameRoundsCommand>
+        : ICreateData<GameRoundInformation, CreateGameRoundCommand>
     { }
 }

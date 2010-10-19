@@ -12,15 +12,15 @@ namespace TheS.Casinova.Colors.WebExecutors
     /// สร้าง active round
     /// </summary>
     public class CreateGameRoundConfigExecutor
-        : SynchronousCommandExecutorBase<CreateGameRoundConfigurationsCommand>
+        : SynchronousCommandExecutorBase<CreateGameRoundConfigurationCommand>
     {
         private ICreateGameTableConfigurations _iCreateRoundConfig;
         public CreateGameRoundConfigExecutor(IGameTableBackService dac)
         {
             _iCreateRoundConfig = dac;
         }
-
-        protected override void ExecuteCommand(CreateGameRoundConfigurationsCommand command)
+ 
+        protected override void ExecuteCommand(CreateGameRoundConfigurationCommand command)
         {
             _iCreateRoundConfig.Create(command);
         }

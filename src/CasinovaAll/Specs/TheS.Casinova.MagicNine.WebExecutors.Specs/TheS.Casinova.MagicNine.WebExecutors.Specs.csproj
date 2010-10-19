@@ -34,9 +34,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="PerfEx.Infrastructure, Version=1.7910.905.2789, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="PerfEx.Infrastructure.Advanced">
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Advanced.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\..\..\..\lib\Rhino.Mocks.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="TechTalk.SpecFlow">
+      <HintPath>..\..\..\..\lib\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -46,7 +59,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebExecutors\Specs\UnitTest1.cs" />
+    <Compile Include="WebExecutors\SpecsEventDefinitions.cs" />
+    <Compile Include="WebExecutors\Specs\ListActiveGameRoundFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListActiveGameRoundFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\SingleBetFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SingleBetFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\ListBetLogFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListBetLogFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\Steps\CommonSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\ListActiveGameRoundSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\ListBetLogSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\MagicNineGameStepsBase.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\SingleBetSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Modules\Chat\TheS.Casinova.Chat.BackProviders\TheS.Casinova.Chat.BackProviders.csproj">
@@ -81,6 +114,22 @@
       <Project>{6079CFCD-811A-4962-B021-8D3D14C0C45B}</Project>
       <Name>TheS.Casinova.Common.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="WebExecutors\App.config" />
+    <None Include="WebExecutors\Specs\ListActiveGameRoundFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ListActiveGameRoundFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\SingleBetFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SingleBetFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\ListBetLogFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ListBetLogFeature.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

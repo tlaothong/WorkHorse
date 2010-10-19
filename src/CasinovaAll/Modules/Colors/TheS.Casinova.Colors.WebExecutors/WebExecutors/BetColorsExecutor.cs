@@ -9,6 +9,9 @@ using TheS.Casinova.Colors.DAL;
 
 namespace TheS.Casinova.Colors.WebExecutors
 {
+    /// <summary>
+    /// ลงเดิมพัน
+    /// </summary>
     public class BetColorsExecutor
         : SynchronousCommandExecutorBase<BetCommand>
     {

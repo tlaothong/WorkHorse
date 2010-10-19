@@ -11,6 +11,12 @@ namespace TheS.Casinova.MagicNine.Commands
     /// </summary>
     public class ListActiveGameRoundCommand
     {
+        //input
+        /// <summary>
+        /// โต๊ะเกมที่ active
+        /// </summary>
+        public bool Active { get; set; }
+         
         //output
 
         /// <summary>

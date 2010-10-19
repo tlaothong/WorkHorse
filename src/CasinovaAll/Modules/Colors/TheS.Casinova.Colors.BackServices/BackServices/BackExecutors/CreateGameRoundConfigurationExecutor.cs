@@ -9,7 +9,7 @@ using TheS.Casinova.Colors.DAL;
 namespace TheS.Casinova.Colors.BackServices.BackExecutors
 {
     public class CreateGameRoundConfigurationExecutor
-        : SynchronousCommandExecutorBase<CreateGameRoundConfigurationsCommand>
+        : SynchronousCommandExecutorBase<CreateGameRoundConfigurationCommand>
     {
         private ICreateGameRoundConfigurations _iCreateGameTable;
 
@@ -18,7 +18,7 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
             _iCreateGameTable = dac;
         }
 
-        protected override void ExecuteCommand(CreateGameRoundConfigurationsCommand command)
+        protected override void ExecuteCommand(CreateGameRoundConfigurationCommand command)
         {
             _iCreateGameTable.Create(command.Tables, command);
         }

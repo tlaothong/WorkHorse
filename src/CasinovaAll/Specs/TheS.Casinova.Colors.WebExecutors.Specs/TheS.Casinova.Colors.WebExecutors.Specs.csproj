@@ -64,6 +64,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BetFeature.feature</DependentUpon>
     </Compile>
+    <Compile Include="WebExecutors\Specs\CheckActiveRoundFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CheckActiveRoundFeature.feature</DependentUpon>
+    </Compile>
     <Compile Include="WebExecutors\Specs\CreateGameRoundconfigFeature.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -90,7 +95,9 @@
       <DependentUpon>PayForColorsWinnerInfoFeature.feature</DependentUpon>
     </Compile>
     <Compile Include="WebExecutors\Specs\Steps\BetSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\CheckActiveRoundSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\CommonSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\CreateGameRoundConfigSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\GetGameResultSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\ListActiveGameRoundsSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\ColorsGameStepsBase.cs" />
@@ -133,6 +140,10 @@
     <None Include="WebExecutors\Specs\BetFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>BetFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\CheckActiveRoundFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CheckActiveRoundFeature.feature.cs</LastGenOutput>
     </None>
     <None Include="WebExecutors\Specs\CreateGameRoundconfigFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

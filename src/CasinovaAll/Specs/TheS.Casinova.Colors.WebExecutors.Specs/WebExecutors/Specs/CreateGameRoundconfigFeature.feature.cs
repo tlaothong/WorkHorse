@@ -17,7 +17,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.3.5.2")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute()]
-    public partial class AdditionFeature
+    public partial class CreateGameRoundConfigurationFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -29,8 +29,8 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Addition", "In order to avoid silly mistakes\r\nAs a math idiot\r\nI want to be told the sum of t" +
-                    "wo numbers", ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "CreateGameRoundConfiguration", "In order to sent game round configurations\r\nAs a math system\r\nI want to sent game" +
+                    " round configurations to create", ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -52,25 +52,70 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs
             testRunner.OnScenarioEnd();
         }
         
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Add two numbers")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Addition")]
-        public virtual void AddTwoNumbers()
+        public virtual void ระบบไดรบขอมลGameRoundConfigurationsและทำการสงขอมลปยงBackServer(string name, string tableAmount, string gameDuration, string interval)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add two numbers", new string[] {
-                        "mytag"});
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล GameRoundConfigurations และทำการส่งข้อมูลปยัง BackServer", new string[] {
+                        "record_mock"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
-testRunner.Given("I have entered 50 into the calculator");
+testRunner.Given("The GameRoundConfigurations has been created and initialized");
 #line 9
-testRunner.And("I have entered 70 into the calculator");
+testRunner.When(string.Format("Call Create(Name\'{0}\',TableAmount\'{1}\', GameDuration\'{2}\', Interval\'{3}\')", name, tableAmount, gameDuration, interval));
 #line 10
-testRunner.When("I press add");
+testRunner.Then("The system can sent GameRoundConfigurations to back server");
 #line 11
-testRunner.Then("the result should be 120 on the screen");
+testRunner.Then("The system can\'t sent GameRoundConfigurations to back server");
 #line hidden
             testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล GameRoundConfigurations และทำการส่งข้อมูลปยัง BackServer")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CreateGameRoundConfiguration")]
+        public virtual void ระบบไดรบขอมลGameRoundConfigurationsและทำการสงขอมลปยงBackServer_Variant0()
+        {
+            this.ระบบไดรบขอมลGameRoundConfigurationsและทำการสงขอมลปยงBackServer("Config1", "5", "30", "10");
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล GameRoundConfigurations และทำการส่งข้อมูลปยัง BackServer")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CreateGameRoundConfiguration")]
+        public virtual void ระบบไดรบขอมลGameRoundConfigurationsและทำการสงขอมลปยงBackServer_Variant1()
+        {
+            this.ระบบไดรบขอมลGameRoundConfigurationsและทำการสงขอมลปยงBackServer("", "5", "30", "10");
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล GameRoundConfigurations และทำการส่งข้อมูลปยัง BackServer")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CreateGameRoundConfiguration")]
+        public virtual void ระบบไดรบขอมลGameRoundConfigurationsและทำการสงขอมลปยงBackServer_Variant2()
+        {
+            this.ระบบไดรบขอมลGameRoundConfigurationsและทำการสงขอมลปยงBackServer("config2", "-2", "30", "10");
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล GameRoundConfigurations และทำการส่งข้อมูลปยัง BackServer")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CreateGameRoundConfiguration")]
+        public virtual void ระบบไดรบขอมลGameRoundConfigurationsและทำการสงขอมลปยงBackServer_Variant3()
+        {
+            this.ระบบไดรบขอมลGameRoundConfigurationsและทำการสงขอมลปยงBackServer("config3", "5", "0", "10");
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล GameRoundConfigurations และทำการส่งข้อมูลปยัง BackServer")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CreateGameRoundConfiguration")]
+        public virtual void ระบบไดรบขอมลGameRoundConfigurationsและทำการสงขอมลปยงBackServer_Variant4()
+        {
+            this.ระบบไดรบขอมลGameRoundConfigurationsและทำการสงขอมลปยงBackServer("config4", "5", "30", "-10");
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล GameRoundConfigurations และทำการส่งข้อมูลปยัง BackServer")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CreateGameRoundConfiguration")]
+        public virtual void ระบบไดรบขอมลGameRoundConfigurationsและทำการสงขอมลปยงBackServer_Variant5()
+        {
+            this.ระบบไดรบขอมลGameRoundConfigurationsและทำการสงขอมลปยงBackServer("", "0", "0", "0");
         }
     }
 }

@@ -7,7 +7,8 @@ using TheS.Casinova.Colors.Commands;
 namespace TheS.Casinova.Colors.BackServices
 {
     public interface IGameTableBackService :
-        ICreateGameTableConfigurations
+        ICreateGameTableConfigurations,
+        ICheckActiveRoundToCreate 
 
     {}
 
@@ -16,6 +17,15 @@ namespace TheS.Casinova.Colors.BackServices
     /// </summary>
     public interface ICreateGameTableConfigurations
     {
-        void Create(CreateGameRoundConfigurationsCommand cmd);
+        void Create(CreateGameRoundConfigurationCommand cmd);
     }
+
+    /// <summary>
+    /// ตรวจสอบจำนวน round ที่ active เพื่อสร้าง ActiveRound เพิ่ม
+    /// </summary>
+    public interface ICheckActiveRoundToCreate 
+    {
+        void Check(CheckActiveRoundToCreateCommand cmd);
+    }
+
 }

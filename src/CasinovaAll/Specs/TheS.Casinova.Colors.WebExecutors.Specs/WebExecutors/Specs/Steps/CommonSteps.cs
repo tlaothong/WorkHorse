@@ -12,13 +12,14 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
     [Binding]
     public class CommonSteps
     {
-        public const string Key_Dac_CreateTableConfig = "CreateTableConfigExecutotr";
+        public const string Key_Dac_CreateGameRoundConfig = "CreateTableConfigExecutotr";
         public const string Key_Dac_BetColor = "BetExecutor";
         public const string Key_Dqr_GetGameResult = "GetGameResultExecutor";
         public const string Key_Dac_PayForWinnerInfo = "PayForWinnerExecutor";
         public const string Key_Dqr_ListActiveGameRoundsExecutor = "ActiveGameRoundsExecutor";
         public const string Key_Dqr_ListGamePlayInfo = "GamePlayInfoExecutor";
         public const string Key_Dac = "mockColorGameDataAccess";
+        public const string Key_Dqr = "mockColorGameDataQuery";
 
         MockRepository Mocks { get { return SpecEventDefinitions.Mocks; } }
 
@@ -26,20 +27,20 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         [Given(@"The ActiveGameRound has been created and initialized")]
         public void GivenTheActiveGameRoundHasBeenCreatedAndInitialized()
         {
-            var dac = Mocks.DynamicMock<IColorsGameDataQuery>();
+            var dqr = Mocks.DynamicMock<IColorsGameDataQuery>();
 
-            ScenarioContext.Current[Key_Dac] = dac;
-            ScenarioContext.Current[Key_Dqr_ListActiveGameRoundsExecutor] = new ListActiveGameRoundsExecutor(dac);
+            ScenarioContext.Current[Key_Dqr] = dqr;
+            ScenarioContext.Current[Key_Dqr_ListActiveGameRoundsExecutor] = new ListActiveGameRoundsExecutor(dqr);
         }
 
         //List game play information specs initialized
         [Given(@"The GamePlayInformation has been created and initialized")]
         public void GivenTheGamePlayInformationHasBeenCreatedAndInitialized()
         {
-            var dac = Mocks.DynamicMock<IColorsGameDataQuery>();
+            var dqr = Mocks.DynamicMock<IColorsGameDataQuery>();
 
-            ScenarioContext.Current[Key_Dac] = dac;
-            ScenarioContext.Current[Key_Dqr_ListGamePlayInfo] = new ListGamePlayInfoExecutor(dac);
+            ScenarioContext.Current[Key_Dqr] = dqr;
+            ScenarioContext.Current[Key_Dqr_ListGamePlayInfo] = new ListGamePlayInfoExecutor(dqr);
         }
 
         //Pay For Colors Winner Information specs initialized
@@ -56,10 +57,10 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         [Given(@"The GameRoundInformation has been created and initialized")]
         public void GivenTheGameRoundInformationHasBeenCreatedAndInitialized()
         {
-            var dac = Mocks.DynamicMock<IColorsGameDataQuery>();
+            var dqr = Mocks.DynamicMock<IColorsGameDataQuery>();
 
-            ScenarioContext.Current[Key_Dac] = dac;
-            ScenarioContext.Current[Key_Dqr_GetGameResult] = new GetGameResultExecutor(dac);
+            ScenarioContext.Current[Key_Dqr] = dqr;
+            ScenarioContext.Current[Key_Dqr_GetGameResult] = new GetGameResultExecutor(dqr);
         }
 
         //Bet information space initialized
@@ -70,6 +71,16 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
 
             ScenarioContext.Current[Key_Dac] = dac;
             ScenarioContext.Current[Key_Dac_BetColor] = new BetColorsExecutor(dac);
+        }
+
+        //CreateGameRoundConfigurations information space initialized
+        [Given(@"The GameRoundConfigurations has been created and initialized")]
+        public void GivenTheGameRoundConfigurationsHasBeenCreatedAndInitialized()
+        {
+            var dac = Mocks.DynamicMock<IGameTableBackService>();
+
+            ScenarioContext.Current[Key_Dac] = dac;
+            ScenarioContext.Current[Key_Dac_CreateGameRoundConfig] = new CreateGameRoundConfigExecutor(dac);
         }
 
     }

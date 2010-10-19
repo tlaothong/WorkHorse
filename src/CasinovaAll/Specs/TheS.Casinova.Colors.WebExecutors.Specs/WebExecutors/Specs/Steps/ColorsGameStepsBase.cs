@@ -11,6 +11,15 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
     [Binding]
     public class ColorsGameStepsBase
     {
+        protected CreateGameRoundConfigExecutor CreateGameRound 
+        {
+            get 
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_Dac_CreateGameRoundConfig] as CreateGameRoundConfigExecutor;
+            }
+        }
+
         protected BetColorsExecutor BetColor
         {
             get
@@ -71,6 +80,15 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
             {
                 return ScenarioContext.Current[
                     CommonSteps.Key_Dac] as IColorsGameBackService;
+            }
+        }
+
+        protected IGameTableBackService BackDac_GameTable
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_Dac] as IGameTableBackService;
             }
         }
     }

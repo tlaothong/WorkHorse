@@ -41,7 +41,7 @@ namespace TheS.Casinova.Colors.DAL
     /// List ข้อมูลโต๊ะเกมที่ active
     /// </summary>
     public interface IListActiveGameRounds
-        : IFetchData<GameRoundInformation, ListActiveGameRoundsCommand>
+        : IFetchData<GameRoundInformation, ListActiveGameRoundCommand>
     { }
 
     /// <summary>

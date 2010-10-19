@@ -14,9 +14,9 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
     [Binding]
     public class ListGamePlayInfoSteps : ColorsGameStepsBase
     {
-        private ListGamePlayInfoCommand _cmd;
-        private IEnumerable<GamePlayInformation> _expectGamePlayInfo;
-        private string _userName;
+        //private ListGamePlayInfoCommand _cmd;
+        //private IEnumerable<GamePlayInformation> _expectGamePlayInfo;
+        //private string _userName;
 
         [Given(@"The game play information of '(.*)' is :")]
         public void GivenTheGamePlayInformationOfXIs(string userName, Table table)
