@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BackServices\BackExecutors\SingleBetExecutor.cs" />
+    <Compile Include="BackServices\IAutoBetEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
