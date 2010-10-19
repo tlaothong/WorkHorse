@@ -91,6 +91,13 @@
     <Compile Include="WebExecutors\Specs\Steps\ListGamePlayAutoBetInfoSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\MagicNineGameStepsBase.cs" />
     <Compile Include="WebExecutors\Specs\Steps\SingleBetSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\StartAutoBetSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\StopAutoBetSteps.cs" />
+    <Compile Include="WebExecutors\Specs\StopAutoBetFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StopAutoBetFeature.feature</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Modules\Chat\TheS.Casinova.Chat.BackProviders\TheS.Casinova.Chat.BackProviders.csproj">
@@ -148,6 +155,10 @@
     <None Include="WebExecutors\Specs\StartAutoBetFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>StartAutoBetFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\StopAutoBetFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>StopAutoBetFeature.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

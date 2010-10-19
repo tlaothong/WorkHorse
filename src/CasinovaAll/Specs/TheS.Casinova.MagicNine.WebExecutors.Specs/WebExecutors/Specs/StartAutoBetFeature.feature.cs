@@ -29,8 +29,8 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "StartAutoBet", "In order to start autobet\r\nAs a sysytem\r\nI want to sent autobet information to ba" +
-                    "ck server", ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "StartAutoBet", "In order to start auto bet\r\nAs a sysytem\r\nI want to sent StartAutoBet information" +
+                    " to back server", ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -52,11 +52,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs
             testRunner.OnScenarioEnd();
         }
         
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลการลงเดิมพันแบบอัตโนมัติจาก client และทำการส่งข้อมูลไปยัง back se" +
-            "rver")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StartAutoBet")]
-        public virtual void ระบบไดรบขอมลการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer()
+        public virtual void ระบบไดรบขอมลการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer(string userName, string roundID, string amount, string interval)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูลการลงเดิมพันแบบอัตโนมัติจาก client และทำการส่งข้อมูลไปยัง back se" +
                     "rver", new string[] {
@@ -66,14 +62,66 @@ this.ScenarioSetup(scenarioInfo);
 #line 8
 testRunner.Given("The StartAutoBetExecutor has been created and initialized");
 #line 9
-testRunner.And("Web service has TrackingID : \'DA1FE75E-9042-4FC5-B3CF-1E973D2152F7\'");
+testRunner.And(string.Format("Sent StartAutoBetInformation userName\'{0}\', roundId \'{1}\',amount \'{2}\', Interval " +
+                        "\'{3}\'", userName, roundID, amount, interval));
 #line 10
-testRunner.When("Call StartAutoBetExecutor(userName\'Nit\', roundId \'1\',amount \'100\', Interval \'5\')");
+testRunner.And("Web service has TrackingID for start auto bet: \'DA1FE75E-9042-4FC5-B3CF-1E973D215" +
+                    "2F7\'");
 #line 11
-testRunner.Then("TrackingID for client and back server should be : \'DA1FE75E-9042-4FC5-B3CF-1E973D" +
-                    "2152F7\'");
+testRunner.When(string.Format("Call StartAutoBetExecutor(userName\'{0}\', roundId \'{1}\',amount \'{2}\', Interval \'{3" +
+                        "}\')", userName, roundID, amount, interval));
+#line 12
+testRunner.Then("TrackingID of  start auto bet for client and back server should be : \'DA1FE75E-90" +
+                    "42-4FC5-B3CF-1E973D2152F7\'");
+#line 13
+testRunner.Then("The system can\'t sent StartAutoBetInformation to back server");
 #line hidden
             testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลการลงเดิมพันแบบอัตโนมัติจาก client และทำการส่งข้อมูลไปยัง back se" +
+            "rver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StartAutoBet")]
+        public virtual void ระบบไดรบขอมลการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer_Variant0()
+        {
+            this.ระบบไดรบขอมลการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer("Nit", "1", "100", "10");
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลการลงเดิมพันแบบอัตโนมัติจาก client และทำการส่งข้อมูลไปยัง back se" +
+            "rver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StartAutoBet")]
+        public virtual void ระบบไดรบขอมลการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer_Variant1()
+        {
+            this.ระบบไดรบขอมลการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer("", "1", "100", "10");
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลการลงเดิมพันแบบอัตโนมัติจาก client และทำการส่งข้อมูลไปยัง back se" +
+            "rver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StartAutoBet")]
+        public virtual void ระบบไดรบขอมลการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer_Variant2()
+        {
+            this.ระบบไดรบขอมลการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer("Nit", "0", "100", "10");
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลการลงเดิมพันแบบอัตโนมัติจาก client และทำการส่งข้อมูลไปยัง back se" +
+            "rver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StartAutoBet")]
+        public virtual void ระบบไดรบขอมลการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer_Variant3()
+        {
+            this.ระบบไดรบขอมลการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer("Nit", "1", "0", "10");
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลการลงเดิมพันแบบอัตโนมัติจาก client และทำการส่งข้อมูลไปยัง back se" +
+            "rver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StartAutoBet")]
+        public virtual void ระบบไดรบขอมลการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer_Variant4()
+        {
+            this.ระบบไดรบขอมลการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer("Nit", "1", "100", "0");
         }
     }
 }

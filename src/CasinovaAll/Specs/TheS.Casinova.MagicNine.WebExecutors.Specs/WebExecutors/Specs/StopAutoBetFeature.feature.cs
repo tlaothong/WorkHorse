@@ -17,7 +17,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.3.5.2")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute()]
-    public partial class AdditionFeature
+    public partial class StopAutoBetFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -29,8 +29,8 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Addition", "In order to avoid silly mistakes\r\nAs a math idiot\r\nI want to be told the sum of t" +
-                    "wo numbers", ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "StopAutoBet", "In order to stop auto bet\r\nAs a sysytem\r\nI want to sent StopAutoBet information t" +
+                    "o back server", ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -52,25 +52,47 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs
             testRunner.OnScenarioEnd();
         }
         
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Add two numbers")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Addition")]
-        public virtual void AddTwoNumbers()
+        public virtual void ระบบไดรบขอมลใหหยดการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer(string userName)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add two numbers", new string[] {
-                        "mytag"});
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูลให้หยุดการลงเดิมพันแบบอัตโนมัติจาก client และทำการส่งข้อมูลไปยัง " +
+                    "back server", new string[] {
+                        "record_mock"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
-testRunner.Given("I have entered 50 into the calculator");
+testRunner.Given("The StopAutoBetExecutor has been created and initialized");
 #line 9
-testRunner.And("I have entered 70 into the calculator");
+testRunner.And(string.Format("Sent StopAutoBetInformation userName\'{0}\'", userName));
 #line 10
-testRunner.When("I press add");
+testRunner.And("Web service has TrackingID for stop auto bet: \'DA1FE75E-9042-4FC5-B3CF-1E973D2152" +
+                    "F7\'");
 #line 11
-testRunner.Then("the result should be 120 on the screen");
+testRunner.When(string.Format("Call StopAutoBetExecutor(userName\'{0}\')", userName));
+#line 12
+testRunner.Then("TrackingID of  stop auto bet for client and back server should be : \'DA1FE75E-904" +
+                    "2-4FC5-B3CF-1E973D2152F7\'");
+#line 13
+testRunner.Then("The system can\'t sent StopAutoBetInformation to back server");
 #line hidden
             testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลให้หยุดการลงเดิมพันแบบอัตโนมัติจาก client และทำการส่งข้อมูลไปยัง " +
+            "back server")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StopAutoBet")]
+        public virtual void ระบบไดรบขอมลใหหยดการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer_Nit()
+        {
+            this.ระบบไดรบขอมลใหหยดการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer("Nit");
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลให้หยุดการลงเดิมพันแบบอัตโนมัติจาก client และทำการส่งข้อมูลไปยัง " +
+            "back server")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StopAutoBet")]
+        public virtual void ระบบไดรบขอมลใหหยดการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer_()
+        {
+            this.ระบบไดรบขอมลใหหยดการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer("");
         }
     }
 }

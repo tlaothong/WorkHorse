@@ -11,6 +11,35 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
     [Binding]
     public class MagicNineGameStepsBase
     {
+
+        protected IStopAutoBet Dac_StopAutoBet
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_StopAutoBet] as IStopAutoBet;
+            }
+        }
+
+
+        protected IStartAutoBet Dac_StartAutoBet
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_StartAutoBet] as IStartAutoBet;
+            }
+        }
+
+        protected IListGamePlayAutoBetInfo Dqr_ListGamePlayAutoBetInfo
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_ListGamePlayAutoBetInfo] as IListGamePlayAutoBetInfo;
+            }
+        }
+
         protected IListActiveGameRoundInfo Dqr_ListActiveGameRound
         {
             get
@@ -35,6 +64,33 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
             {
                 return ScenarioContext.Current[
                     CommonSteps.Key_Dac_Singlebet] as ISingleBet;
+            }
+        }
+
+        protected ListGamePlayAutoBetInfoExecutor ListGamePlayAutoBetInfo
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_ListGamePlayAutoBetInfo] as ListGamePlayAutoBetInfoExecutor;
+            }
+        }
+
+        protected StopAutoBetExecutor StopAutoBet
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_StopAutoBet] as StopAutoBetExecutor;
+            }
+        }
+
+        protected StartAutoBetExecutor StartAutoBet
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_StartAutoBet] as StartAutoBetExecutor;
             }
         }
 
