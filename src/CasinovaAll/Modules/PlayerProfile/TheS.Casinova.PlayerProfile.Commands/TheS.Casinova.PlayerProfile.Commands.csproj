@@ -43,7 +43,7 @@
     <Compile Include="Commands\ChangeEmailCommand.cs" />
     <Compile Include="Commands\ChangePasswordCommand.cs" />
     <Compile Include="Commands\GetUserProfileCommand.cs" />
-    <Compile Include="Commands\ListLogEventCommand.cs" />
+    <Compile Include="Commands\ListActionLogCommand.cs" />
     <Compile Include="Commands\RegisterUserCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
