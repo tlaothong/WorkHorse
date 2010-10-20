@@ -21,6 +21,10 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
 
         public const string Key_SingleBet = "SingleBet";
 
+        public const string Key_StartAutoBet = "StartAutoBet";
+        public const string Key_StopAutoBet = "StopAutoBet";
+        public const string Key_AutoBetEngine = "AutoBetEngine";
+
         MockRepository Mocks { get { return SpecEventDefinitions.Mocks; } }
 
         [Given(@"The SingleBetExecutor has been created and initialized")]
@@ -37,6 +41,34 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
             ScenarioContext.Current[Key_Dqr_GetGameRoundPot] = dqr;
 
             ScenarioContext.Current[Key_SingleBet] = new SingleBetExecutor(dac, dqr);
+        }
+
+        [Given(@"The StartAutoBetExecutor has been created and initialized")]
+        public void GivenTheStartAutoBetExecutorHasBeenCreatedAndInitialized()
+        {
+            var dac = Mocks.DynamicMock<IMagicNineGameDataAccess>();
+            var dqr = Mocks.DynamicMock<IMagicNineGameDataBackQuery>();
+            var svc = Mocks.DynamicMock<IAutoBetEngine>();
+
+            ScenarioContext.Current[Key_Dac_UpdatePlayerInfoBalance] = dac;
+
+            ScenarioContext.Current[Key_Dqr_GetPlayerInfo] = dqr;
+
+            ScenarioContext.Current[Key_AutoBetEngine] = svc;
+
+            ScenarioContext.Current[Key_StartAutoBet] = new StartAutoBetExecutor(svc, dac, dqr);
+        }
+
+        [Given(@"The StopAutoBetExecutor has been created and initialized")]
+        public void GivenTheStนยAutoBetExecutorHasBeenCreatedAndInitialized()
+        {
+            var dac = Mocks.DynamicMock<IMagicNineGameDataAccess>();
+            var dqr = Mocks.DynamicMock<IMagicNineGameDataBackQuery>();
+            var svc = Mocks.DynamicMock<IAutoBetEngine>();
+
+            ScenarioContext.Current[Key_AutoBetEngine] = svc;
+
+            ScenarioContext.Current[Key_StopAutoBet] = new StopAutoBetExecutor(svc);
         }
     }
 }

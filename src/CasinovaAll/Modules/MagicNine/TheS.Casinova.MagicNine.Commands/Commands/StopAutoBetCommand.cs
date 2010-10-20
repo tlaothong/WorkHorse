@@ -22,6 +22,6 @@ namespace TheS.Casinova.MagicNine.Commands
         /// <summary>
         /// รหัสสำหรับตรวจสอบ
         /// </summary>
-        public Guid StartTracking { get; set; }
+        public Guid StopTrackingID { get; set; }
     }
 }

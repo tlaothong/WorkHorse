@@ -60,8 +60,7 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
                 Assert.AreEqual(amount, cmd.Amount, "Amount");
                 Assert.AreEqual(interval, cmd.Interval, "Interval");
                 Assert.AreEqual(Guid.Parse(trackingID), cmd.StartTrackingID, "StartTrackingID");
-            };
-
+            };                   
             Svc_AutoBetEngine.StartAutoBet(new StartAutoBetCommand());
             LastCall.IgnoreArguments().Do(checkData);
         }
@@ -76,7 +75,7 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
                 Interval = interval,
                 StartTrackingID = Guid.Parse(trackingID),
             };
-
+            
             StartAutoBetExecutor.Execute(cmd, (x) => { });
         }
 
