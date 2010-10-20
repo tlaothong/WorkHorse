@@ -5,17 +5,20 @@ using System.Text;
 
 namespace TheS.Casinova.PlayerProfile.Commands
 {
-    public class ChangeEmailCommand
+    /// <summary>
+    /// ยืนยันการสมัครสมาชิก
+    /// </summary>
+    public class VeriflyUserCommand
     {
         //input
         /// <summary>
-        /// ชื่อของผู้เล่น
+        /// ชื่อผู้เล่น
         /// </summary>
         public string UserName { get; set; }
 
         /// <summary>
-        /// อีเมลล์ใหม่ผู้เล่น
+        /// รหัสสำหรับยืนยัน
         /// </summary>
-        public string NewEmail { get; set; }
+        public string VeriflyCode { get; set; }
     }
 }
