@@ -78,8 +78,11 @@
     <Compile Include="WebExecutors\Specs\Steps\CommonSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\ListActiveGameRoundSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\ListBetLogSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\ListGamePlayAutoBetInfoSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\MagicNineGameStepsBase.cs" />
     <Compile Include="WebExecutors\Specs\Steps\SingleBetSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\StartAutoBetSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\StopAutoBetSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Modules\Chat\TheS.Casinova.Chat.BackProviders\TheS.Casinova.Chat.BackProviders.csproj">
@@ -122,6 +125,14 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ListActiveGameRoundFeature.feature.cs</LastGenOutput>
     </None>
+    <None Include="WebExecutors\Specs\ListActiveGameRoundInfoFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ListActiveGameRoundInfoFeature1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\ListGamePlayAutoBetInfoFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ListGamePlayAutoBetInfoFeature1.feature.cs</LastGenOutput>
+    </None>
     <None Include="WebExecutors\Specs\SingleBetFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>SingleBetFeature.feature.cs</LastGenOutput>
@@ -129,6 +140,14 @@
     <None Include="WebExecutors\Specs\ListBetLogFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ListBetLogFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\StartAutoBetFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>StartAutoBetFeature1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\StopAutoBetFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>StopAutoBetFeature1.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
