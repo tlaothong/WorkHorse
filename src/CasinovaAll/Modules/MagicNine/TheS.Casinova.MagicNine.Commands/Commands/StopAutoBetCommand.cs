@@ -5,24 +5,23 @@ using System.Text;
 
 namespace TheS.Casinova.MagicNine.Commands
 {
-    /// <summary>
-    /// หยุดการลงพนันอัตโนมัติ
-    /// </summary>
     public class StopAutoBetCommand
     {
+        //input
         /// <summary>
-        /// รหัสโต๊ะเกมที่ลงพนัน
-        /// </summary>
-        public int RoundID { get; set; }
-
-        /// <summary>
-        /// ชื่อผู้เล่นที่ลงพนัน
+        /// ชื่อผู้เล่น
         /// </summary>
         public string UserName { get; set; }
 
         /// <summary>
-        /// รหัสตรวจสอบการหยุดของการลงพนันอัตโนมัติ
+        /// รหัสโต๊ะเกมที่ลงเดิมพัน
         /// </summary>
-        public Guid StopTrackingID { get; set; }
+        public int RoundID { get; set; }
+
+        //input&output
+        /// <summary>
+        /// รหัสสำหรับตรวจสอบ
+        /// </summary>
+        public Guid StartTracking { get; set; }
     }
 }

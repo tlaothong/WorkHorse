@@ -21,8 +21,8 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
             ScenarioContext.Current.Pending();
         }
 
-        [When(@"Call SingleBetExecutor\(userName'Nit', roundId '1'\)")]
-        public void WhenCallSingleBetExecutorUserNameNitRoundId1()
+        [When(@"Call SingleBetExecutor\(userName'(.*)', roundId '(.*)'\)")]
+        public void WhenCallSingleBetExecutorUserNameNitRoundId1(string userName, int roundId)
         {
             ScenarioContext.Current.Pending();
         }

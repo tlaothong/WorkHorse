@@ -2,38 +2,37 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using TheS.Casinova.MagicNine.Models;
 
 namespace TheS.Casinova.MagicNine.Commands
 {
-    /// <summary>
-    /// เริ่มการลงพนันอัตโนมัติ
-    /// </summary>
-    public class StartAutoBetCommand
+   public class StartAutoBetCommand
     {
-        /// <summary>
-        /// รหัสโต๊ะเกมที่ลงพนัน
-        /// </summary>
-        public int RoundID { get; set; }
-
-        /// <summary>
-        /// ชื่อผู้เล่นที่ลงพนัน
-        /// </summary>
+       //input
+       /// <summary>
+       /// ชื่อผู้เล่น
+       /// </summary>
         public string UserName { get; set; }
 
-        /// <summary>
-        /// รหัสตรวจสอบการเริ่มต้นของการลงพนันอัตโนมัติ
-        /// </summary>
-        public Guid StartTrackingID { get; set; }
+       /// <summary>
+       /// รหัสโต๊ะเกมที่ลงเดิมพัน
+       /// </summary>
+        public int RoundID { get; set; }
 
-        /// <summary>
-        /// จำนวนเงินที่ลงพนันอัตโนมัติ
-        /// </summary>
+       /// <summary>
+       /// จำนวนเงินทั้งหมดที่ลงเดิมพันแบบอัตโนมัติ
+       /// </summary>
         public int Amount { get; set; }
 
         /// <summary>
-        /// ระยะห่างในการลงพนันแต่ละครั้ง
+        /// ระยะห่างของเวลาในการลงเดิมพันแต่ละครั้ง
         /// </summary>
         public int Interval { get; set; }
+
+        //input&output
+        /// <summary>
+        /// รหัสสำหรับตรวจสอบ
+        /// </summary>
+        public Guid StartTracking { get; set; }
+
     }
 }

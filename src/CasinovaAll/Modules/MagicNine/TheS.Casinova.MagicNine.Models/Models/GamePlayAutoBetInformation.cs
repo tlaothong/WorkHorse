@@ -6,43 +6,43 @@ using System.Text;
 namespace TheS.Casinova.MagicNine.Models
 {
     /// <summary>
-    /// ข้อมูลการลงพนันอัตโนมัติของผู้เล่นในโต๊ะนั้นๆ
+    /// ข้อมูลการลงเดิมพันแบบอัตโนมัติ
     /// </summary>
     public class GamePlayAutoBetInformation
     {
+        /// <summary>
+        /// ชื่อผู้เล่นที่ลงเดิมพัน
+        /// </summary>
+        public string UserName { get; set; }
+
         /// <summary>
         /// รหัสโต๊ะเกมที่ลงพนัน
         /// </summary>
         public int RoundID { get; set; }
 
         /// <summary>
-        /// ชื่อผู้เล่นที่ลงพนัน
-        /// </summary>
-        public string UserName { get; set; }
-
-        /// <summary>
-        /// รหัสตรวจสอบการเริ่มต้นของการลงพนันอัตโนมัติ
-        /// </summary>
-        public Guid StartTrackingID { get; set; }
-
-        /// <summary>
-        /// รหัสตรวจสอบการหยุดของการลงพนันอัตโนมัติ
-        /// </summary>
-        public Guid StopTrackingID { get; set; }
-
-        /// <summary>
-        /// จำนวนเงินที่ลงพนันอัตโนมัติ
+        /// จำนวนเงินทั้งหมดที่ลงเดิมพันแบบอัตโนมัติ
         /// </summary>
         public int Amount { get; set; }
 
         /// <summary>
-        /// ระยะห่างในการลงพนันแต่ละครั้ง
+        /// ระยะห่างของเวลาในการลงเดิมพันแต่ละครั้ง
         /// </summary>
         public int Interval { get; set; }
 
         /// <summary>
-        /// จำนวนเงินที่ได้รับคืน เมื่อหยุดโปรแกรมก่อน
+        /// จำนวนเงินที่ได้คืน
         /// </summary>
-        public int Return { get; set; }
+        public int MoneyRefund { get; set; }
+
+        /// <summary>
+        /// tracking id เมื่อเริ่ม autobet
+        /// </summary>
+        public Guid StratTrackingID { get; set; }
+
+        /// <summary>
+        /// tracking id เมื่อหยุด autobet
+        /// </summary>
+        public Guid StopTrackingID { get; set; }
     }
 }

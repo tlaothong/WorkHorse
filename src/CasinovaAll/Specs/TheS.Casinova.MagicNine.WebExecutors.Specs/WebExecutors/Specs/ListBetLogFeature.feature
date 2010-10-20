@@ -14,7 +14,7 @@ Background: ListBetLog
 
 @record_mock
 Scenario:ระบบได้รับ userName และ roundId ถูกต้อง
-	Given The BetInformation has been created and initialized
+	Given The ListBetLogExecutor has been created and initialized
 	And Expect execute ListBetLogCommand
 	When Call ListBetLogExecutor(userName'Nit', roundId '1')
 	Then The result of BetLog should be :
@@ -26,24 +26,24 @@ Scenario:ระบบได้รับ userName และ roundId ถูกต�
 
 @record_mock
 Scenario:ระบบได้รับ userName ไม่ถูกต้อง #ListBetLog
-	Given The BetInformation has been created and initialized
+	Given The ListBetLogExecutor has been created and initialized
 	When Call ListBetLogExecutor(userName'', roundId '1')
 	Then The result of BetLog should be null
 
 @record_mock
 Scenario:ระบบได้รับ roundId  ไม่ถูกต้อง #ListBetLog
-	Given The BetInformation has been created and initialized
+	Given The ListBetLogExecutor has been created and initialized
 	When Call ListBetLogExecutor(userName'Nit', roundId '-1')
 	Then The result of BetLog should be null
 
 @record_mock
 Scenario:ระบบได้รับ userName และ roundId  ไม่ถูกต้อง #ListBetLog
-	Given The BetInformation has been created and initialized
+	Given The ListBetLogExecutor has been created and initialized
 	When Call ListBetLogExecutor(userName'', roundId '-1')
 	Then The result of BetLog should be null
 
 @record_mock
 Scenario:ระบบได้รับ userName และ roundId แต่ใน database ยังไม่มีบันทึกการลงเดิมพันของผู้เล่น #ListBetLog
-	Given The BetInformation has been created and initialized
+	Given The ListBetLogExecutor has been created and initialized
 	When Call ListBetLogExecutor(userName'Ae', roundId '2')
 	Then The result of BetLog should be null

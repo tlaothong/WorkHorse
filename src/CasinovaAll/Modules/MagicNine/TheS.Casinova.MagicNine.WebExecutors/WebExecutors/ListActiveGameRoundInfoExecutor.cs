@@ -11,17 +11,17 @@ namespace TheS.Casinova.MagicNine.WebExecutors
     /// <summary>
     /// ดึงข้อมูลโต๊ะเกมที่ active
     /// </summary>
-    public class ListActiveGameRoundExecutor
-        : SynchronousCommandExecutorBase<ListActiveGameRoundCommand>
+    public class ListActiveGameRoundInfoExecutor
+        : SynchronousCommandExecutorBase<ListActiveGameRoundInfoCommand>
     {
-       private IListActiveGameRound _iListActiveGameRound;
+       private IListActiveGameRoundInfo _iListActiveGameRound;
 
-       public ListActiveGameRoundExecutor(IMagicNineGameDataQuery dqr) 
+       public ListActiveGameRoundInfoExecutor(IMagicNineGameDataQuery dqr) 
        {
            _iListActiveGameRound = dqr;
        }
 
-       protected override void ExecuteCommand(ListActiveGameRoundCommand command)
+       protected override void ExecuteCommand(ListActiveGameRoundInfoCommand command)
        {
            command.Active = true;
            command.GameRoundInfos = _iListActiveGameRound.List(command);
