@@ -8,16 +8,15 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.ComponentModel.Composition;
-using TheS.Casinova.Common;
+using System.Windows.Navigation;
+using CasinovaAllStars.ViewModels;
 
-namespace CasinovaAllStars
+namespace CasinovaAllStars.Views
 {
-    public partial class Home : Page
+    public partial class Page1 : Page
     {
-        public Home()
+        public Page1()
         {
             InitializeComponent();
         }
@@ -25,12 +24,14 @@ namespace CasinovaAllStars
         // Executes when the user navigates to this page.
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            //txt.Text = ((Page1ViewModel)DataContext).Popups.Count.ToString();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ShowWindow_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            //placeHolder.Content = Loader.Games[0].GetInformationContent();
-            NavigationService.Navigate(App.ModuleLoader.Games[0].GameUri);
+        	// TODO: Add event handler implementation here.
+            ((Page1ViewModel)DataContext).ShowWindow();
         }
+
     }
 }

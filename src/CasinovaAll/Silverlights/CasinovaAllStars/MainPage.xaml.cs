@@ -10,6 +10,8 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.ComponentModel.Composition;
+using TheS.Casinova.Common;
 
 namespace CasinovaAllStars
 {

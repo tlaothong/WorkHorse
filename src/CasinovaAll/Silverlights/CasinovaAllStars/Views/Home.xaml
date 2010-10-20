@@ -16,6 +16,9 @@
                                    Text="Home"/>
                 <TextBlock x:Name="ContentText" Style="{StaticResource ContentTextStyle}" 
                                    Text="Home page content"/>
+                
+                <Button Content="Show" Click="Button_Click" />
+                <ContentPresenter x:Name="placeHolder" />
 
             </StackPanel>
 

@@ -8,11 +8,15 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 
 namespace TheS.Casinova.Common
 {
-    public class Class1
+    public interface IModuleLoader
     {
+        ObservableCollection<IGameApplicationInformation> Games { get; }
+        ObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> PopupContents { get; }
 
+        UserControl GetNavigableContent(string naviationCode);
     }
 }

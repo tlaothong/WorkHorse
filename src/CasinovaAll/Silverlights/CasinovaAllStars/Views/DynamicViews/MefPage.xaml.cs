@@ -8,16 +8,15 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.ComponentModel.Composition;
+using System.Windows.Navigation;
 using TheS.Casinova.Common;
 
-namespace CasinovaAllStars
+namespace CasinovaAllStars.Views.DynamicViews
 {
-    public partial class Home : Page
+    public partial class MefPage : Page
     {
-        public Home()
+        public MefPage()
         {
             InitializeComponent();
         }
@@ -25,12 +24,14 @@ namespace CasinovaAllStars
         // Executes when the user navigates to this page.
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            Content = App.ModuleLoader.GetNavigableContent(NavigableContentHelper.ParseNavigationCode(e.Uri));
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
-            //placeHolder.Content = Loader.Games[0].GetInformationContent();
-            NavigationService.Navigate(App.ModuleLoader.Games[0].GameUri);
+            Content = null;
+            base.OnNavigatedFrom(e);
         }
+
     }
 }

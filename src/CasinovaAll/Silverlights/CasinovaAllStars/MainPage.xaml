@@ -12,11 +12,12 @@
         <Border x:Name="ContentBorder" Style="{StaticResource ContentBorderStyle}">
 
             <navigation:Frame x:Name="ContentFrame" Style="{StaticResource ContentFrameStyle}" 
-                              Source="/Home" Navigated="ContentFrame_Navigated" NavigationFailed="ContentFrame_NavigationFailed">
+                              Source="/Page1" Navigated="ContentFrame_Navigated" NavigationFailed="ContentFrame_NavigationFailed">
                 <navigation:Frame.UriMapper>
                   <uriMapper:UriMapper>
                     <uriMapper:UriMapping Uri="" MappedUri="/Views/Home.xaml"/>
-                    <uriMapper:UriMapping Uri="/{pageName}" MappedUri="/Views/{pageName}.xaml"/>
+                        <uriMapper:UriMapping Uri="/mef/nav/{navigationCode}" MappedUri="/Views/DynamicViews/MefPage.xaml" />
+                        <uriMapper:UriMapping Uri="/{pageName}" MappedUri="/Views/{pageName}.xaml"/>
                   </uriMapper:UriMapper>
                 </navigation:Frame.UriMapper>
             </navigation:Frame>
@@ -44,6 +45,11 @@
 					
                     <HyperlinkButton x:Name="Link2" Style="{StaticResource LinkStyle}" 
                                      NavigateUri="/About" TargetName="ContentFrame" Content="about"/>
+
+                    <Rectangle x:Name="Divider2" Style="{StaticResource DividerStyle}"/>
+
+                    <HyperlinkButton x:Name="Link3" Style="{StaticResource LinkStyle}" 
+                                     NavigateUri="/mef/nav/colors_gameInfo" TargetName="ContentFrame" Content="game info"/>
 
                 </StackPanel>
             </Border>

@@ -8,16 +8,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.ComponentModel.Composition;
+using System.Windows.Navigation;
 using TheS.Casinova.Common;
 
-namespace CasinovaAllStars
+namespace TheS.Casinova.Colors
 {
-    public partial class Home : Page
+    [ExportContentNavigation(GameApplicationInformation.GameInfoNavigationCode)]
+    public partial class Page1 : Page
     {
-        public Home()
+        public Page1()
         {
             InitializeComponent();
         }
@@ -25,12 +25,6 @@ namespace CasinovaAllStars
         // Executes when the user navigates to this page.
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            //placeHolder.Content = Loader.Games[0].GetInformationContent();
-            NavigationService.Navigate(App.ModuleLoader.Games[0].GameUri);
         }
     }
 }
