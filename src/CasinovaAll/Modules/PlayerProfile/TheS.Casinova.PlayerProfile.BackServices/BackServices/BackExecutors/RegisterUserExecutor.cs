@@ -31,6 +31,8 @@ namespace TheS.Casinova.PlayerProfile.BackServices.BackExecutors
             };
 
             _iRegisterUser.Create(userProfile, command);
+
+            //TODO: ขาดการบันทึกชื่อผู้เล่นเป็น donwline ให้กับคนที่แนะนำ(MLN module)
         }
     }
 }
