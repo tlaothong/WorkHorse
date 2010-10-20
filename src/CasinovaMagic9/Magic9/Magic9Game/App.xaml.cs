@@ -10,7 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace ColorsGame
+namespace Magic9Game
 {
     public partial class App : Application
     {
@@ -26,7 +26,7 @@ namespace ColorsGame
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            this.RootVisual = new GamePlayPage();
+            this.RootVisual = new Magic9Page();
         }
 
         private void Application_Exit(object sender, EventArgs e)
