@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TheS.Casinova.PlayerProfile.Commands
 {
-   public class ListLogEventCommand
+   public class ListActionLogCommand
     {
     }
 }
