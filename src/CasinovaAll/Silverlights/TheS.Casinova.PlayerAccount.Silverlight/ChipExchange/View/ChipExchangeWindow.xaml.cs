@@ -10,13 +10,19 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace CasinovaAllStars
+namespace TheS.Casinova.ChipExchange.View
 {
-    public partial class ChatPage : UserControl
+    public partial class ChipExchangeWindow : ChildWindow
     {
-        public ChatPage()
+        public ChipExchangeWindow()
         {
             InitializeComponent();
         }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = false;
+        }
     }
 }
+

@@ -30,6 +30,8 @@
     <UsePlatformExtensions>false</UsePlatformExtensions>
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
     <LinkedServerProject>..\SilverlightWeb\SilverlightWeb.csproj</LinkedServerProject>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>4.0.20525.0</ExpressionBlendVersion>
   </PropertyGroup>
   <!-- This property group is only here to support building this project using the 
        MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
@@ -78,6 +80,12 @@
     <Reference Include="System.Windows.Browser" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChipExchange\Controls\ChipAmountUI.xaml.cs">
+      <DependentUpon>ChipAmountUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChipExchange\View\ChipExchangeWindow.xaml.cs">
+      <DependentUpon>ChipExchangeWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PlayerAccount\Silverlight\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -91,6 +99,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="ChipExchange\Controls\ChipAmountUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChipExchange\View\ChipExchangeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PlayerAccount\Silverlight\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -100,7 +116,6 @@
     <None Include="Properties\AppManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ChipExchange\" />
     <Folder Include="MLN\" />
     <Folder Include="PlayerProfile\" />
   </ItemGroup>
@@ -109,6 +124,9 @@
       <Project>{3613EAFB-E876-47F0-BFE9-7E9D8DCF5E5A}</Project>
       <Name>TheS.Casinova.Common.Silverlight</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ChipExchange\View\Image3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

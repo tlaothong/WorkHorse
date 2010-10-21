@@ -5,6 +5,7 @@
     xmlns:uriMapper="clr-namespace:System.Windows.Navigation;assembly=System.Windows.Controls.Navigation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:local="clr-namespace:CasinovaAllStars"
+    xmlns:TheS_Casinova_Chat_Controls="clr-namespace:TheS.Casinova.Chat.Controls;assembly=TheS.Casinova.Chat.Silverlight"
     x:Class="CasinovaAllStars.MainPage" 
     mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="480">
 
@@ -26,6 +27,8 @@
 
         <Grid x:Name="NavigationGrid" Style="{StaticResource NavigationGridStyle}">
 
+            <HyperlinkButton x:Name="LogoutHyperlinkButton" Style="{StaticResource LinkStyle}" TargetName="ContentFrame" Content="Logout" HorizontalAlignment="Right" Margin="0,7,8,7" d:LayoutOverrides="Height"/>
+
             <Border x:Name="BrandingBorder" Style="{StaticResource BrandingBorderStyle}">
                 <StackPanel x:Name="BrandingStackPanel" Style="{StaticResource BrandingStackPanelStyle}">
 
@@ -36,7 +39,7 @@
                 </StackPanel>
             </Border>
 
-            <Border x:Name="LinksBorder" Style="{StaticResource LinksBorderStyle}">
+            <Border x:Name="LinksBorder" Style="{StaticResource LinksBorderStyle}" Margin="0,0,90,0">
                 <StackPanel x:Name="LinksStackPanel" Style="{StaticResource LinksStackPanelStyle}">
 
                     <Button Content="Button 01" Style="{StaticResource MenuButtonStyle}" Foreground="White" Width="75"/>
@@ -63,7 +66,7 @@
 
         </Grid>
 
-    	<local:ChatPage VerticalAlignment="Bottom" d:LayoutOverrides="Width" Height="150"/>
+    	<TheS_Casinova_Chat_Controls:ChatUI VerticalAlignment="Bottom" Width="Auto" Height="150" Margin="0"/>
 
     </Grid>
 

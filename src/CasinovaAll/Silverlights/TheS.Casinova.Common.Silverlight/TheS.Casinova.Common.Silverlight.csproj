@@ -63,6 +63,7 @@
     <Compile Include="Common\IContentNavigationMetadata.cs" />
     <Compile Include="Common\IGameApplicationInformation.cs" />
     <Compile Include="Common\IModuleLoader.cs" />
+    <Compile Include="Common\INavigablePage.cs" />
     <Compile Include="Common\IPopupContentMetadata.cs" />
     <Compile Include="Common\NavigableContentHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
