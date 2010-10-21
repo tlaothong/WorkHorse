@@ -115,6 +115,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CreateGameRoundN2N.feature</DependentUpon>
     </Compile>
+    <Compile Include="CheckGamePlayInfo.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CheckGamePlayInfo.feature</DependentUpon>
+    </Compile>
     <Compile Include="GetWinnerN2N.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -122,11 +127,20 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\IColorsGameService.cs" />
+    <Compile Include="RequestGamePlayInfo.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RequestGamePlayInfo.feature</DependentUpon>
+    </Compile>
     <Compile Include="SpecEventDefinitions.cs" />
+    <Compile Include="Steps\CheckGamePlayInfoStep.cs" />
+    <Compile Include="Steps\CheckGamePlayInfoStepBase.cs" />
     <Compile Include="Steps\CommonSteps.cs" />
     <Compile Include="Steps\CreateGameRoundStep.cs" />
     <Compile Include="Steps\GetWinnerStep.cs" />
     <Compile Include="Steps\GetWinnerStepsBase.cs" />
+    <Compile Include="Steps\RequestGamePlayInfoStep.cs" />
+    <Compile Include="Steps\RequestGamePlayInfoStepBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -140,11 +154,19 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>CreateGameRoundN2N.feature.cs</LastGenOutput>
     </None>
+    <None Include="CheckGamePlayInfo.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CheckGamePlayInfo.feature.cs</LastGenOutput>
+    </None>
     <None Include="GetWinnerN2N.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>GetWinnerN2N.feature.cs</LastGenOutput>
     </None>
     <None Include="Properties\AppManifest.xml" />
+    <None Include="RequestGamePlayInfo.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>RequestGamePlayInfo.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

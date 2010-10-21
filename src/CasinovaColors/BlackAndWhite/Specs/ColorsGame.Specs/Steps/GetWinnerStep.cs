@@ -34,7 +34,12 @@ namespace ColorsGame.Specs.Steps
             Expect.Call(Dac.PayForWinnerInformation(0, 0))
                 .IgnoreArguments().Do(getGameInformation);
 
+            
+            //SetupResult.For(Dac.PayForWinnerInformationAsync(7, 11)).Return(
+            //    gameInfo.FirstOrDefault(c=>c.TableID.Equals(7)&&c.RoundID.Equals
+            //    );
         }
+
 
         [When(@"I press GetWinner\( TableID: (.*), RoundID: (.*) \)")]
         public void WhenIPressGetWinnerTableIDRoundID(int tableID, int roundID)
