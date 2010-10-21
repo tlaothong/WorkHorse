@@ -15,10 +15,18 @@
 	</UserControl.DataContext>
     
     <Grid x:Name="LayoutRoot">
-    	<Rectangle Fill="#FFF4F4F5" Stroke="Black"/>
-    	<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Name, Mode=OneWay}" VerticalAlignment="Top" Margin="8,124,0,0" FontWeight="Bold" FontSize="13.333"/>
-    	<TextBlock TextWrapping="Wrap" Text="Color or colour (see spelling differences) is the visual perceptual property corresponding in humans to the categories called red, green, blue and others. Color derives from the spectrum of light (distribution of light energy versus wavelength) interacting in the eye with the spectral sensitivities of the light receptors. Color categories and physical specifications of color are also associated with objects, materials, light sources, etc., based on their physical properties such as light absorption, reflection, or emission spectra. By defining a color space, colors can be identified numerically by their coordinates." Margin="30,147,30,0" VerticalAlignment="Top"/>
-    	<Rectangle Fill="#FFABABFF" Height="112" Stroke="Black" VerticalAlignment="Top" Margin="8,8,8,0"/>
-    	<HyperlinkButton Content="Play" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="160,0,0,80" Foreground="Red" NavigateUri="{Binding GameUri, Mode=OneWay}"/>
+    	<Rectangle Fill="#FFF4F4F5" Stroke="Black" d:IsLocked="True"/>
+    	<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Name, Mode=OneWay}" VerticalAlignment="Bottom" Margin="8,0,0,200" FontWeight="Bold" FontSize="13.333"/>
+    	<TextBlock TextWrapping="Wrap" Text="Color or colour (see spelling differences) is the visual perceptual property corresponding in humans to the categories called red, green, blue and others. Color derives from the spectrum of light (distribution of light energy versus wavelength) interacting in the eye with the spectral sensitivities of the light receptors. Color categories and physical specifications of color are also associated with objects, materials, light sources, etc., based on their physical properties such as light absorption, reflection, or emission spectra. By defining a color space, colors can be identified numerically by their coordinates." Margin="30,0,30,100" VerticalAlignment="Bottom"/>
+    	<Rectangle Stroke="Black" Margin="8,8,8,223">
+    		<Rectangle.Fill>
+    			<RadialGradientBrush>
+    				<GradientStop Color="#FFE24444" Offset="0.123"/>
+    				<GradientStop Color="#FFFFAF00" Offset="1"/>
+    			</RadialGradientBrush>
+    		</Rectangle.Fill>
+    	</Rectangle>
+    	<HyperlinkButton Content="Play" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="176,0,0,60" Foreground="Red" NavigateUri="{Binding GameUri, Mode=OneWay}"/>
+    	<Button Content="How to play" HorizontalAlignment="Right" Height="56" Margin="0,0,176,40" VerticalAlignment="Bottom" Width="104"/>
     </Grid>
 </UserControl>
