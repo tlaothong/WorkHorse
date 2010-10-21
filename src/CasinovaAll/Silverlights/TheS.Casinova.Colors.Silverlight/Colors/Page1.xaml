@@ -9,5 +9,6 @@
            Title="Page1 Page">
     <Grid x:Name="LayoutRoot">
         <TextBlock Text="Hello?" />
+        <Button x:Name="btn" Content="Go" Click="btn_Click" />
     </Grid>
 </navigation:Page>

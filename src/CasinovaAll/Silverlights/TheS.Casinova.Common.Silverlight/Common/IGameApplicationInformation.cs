@@ -15,6 +15,7 @@ namespace TheS.Casinova.Common
     /// Information of the Game Application.
     /// This information links games together.
     /// </summary>
+    
     public interface IGameApplicationInformation
     {
         /// <summary>

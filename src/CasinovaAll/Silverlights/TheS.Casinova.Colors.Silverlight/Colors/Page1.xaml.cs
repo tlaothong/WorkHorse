@@ -14,17 +14,41 @@ using TheS.Casinova.Common;
 
 namespace TheS.Casinova.Colors
 {
+<<<<<<< HEAD
     //[ExportContentNavigation(GameApplicationInformation.GameInfoNavigationCode)]
     public partial class Page1 : Page
+=======
+    [ExportContentNavigation(GameApplicationInformation.GameInfoNavigationCode)]
+    public partial class Page1 : Page, INavigablePage
+>>>>>>> b333ceabf9e9d2d4016704ba05f4bacda2c78794
     {
         public Page1()
         {
             InitializeComponent();
         }
 
-        // Executes when the user navigates to this page.
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        private void btn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Page1", UriKind.Relative));
+        }
+
+        #region INavigablePage Members
+
+        public new NavigationService NavigationService
+        { get; set; }
+
+        public new void OnNavigatedTo(NavigationEventArgs e)
         {
         }
+
+        public new void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        {
+        }
+
+        public new void OnNavigatedFrom(NavigationEventArgs e)
+        {
+        }
+
+        #endregion
     }
 }
