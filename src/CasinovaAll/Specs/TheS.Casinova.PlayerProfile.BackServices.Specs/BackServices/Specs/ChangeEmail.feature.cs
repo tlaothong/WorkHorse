@@ -43,6 +43,7 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs
         public virtual void ScenarioSetup(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioStart(scenarioInfo);
+            this.FeatureBackground();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCleanupAttribute()]
@@ -51,23 +52,55 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs
             testRunner.OnScenarioEnd();
         }
         
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ได้รับรหัส E-mail ที่ต้องการเปลี่ยน, ระบบเปลี่ยนแปลงรหัส E-mail ของผู้เล่นในระบบ")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ChangeEmail")]
-        public virtual void ไดรบรหสE_MailทตองการเปลยนระบบเปลยนแปลงรหสE_Mailของผเลนในระบบ()
+        public virtual void FeatureBackground()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ได้รับรหัส E-mail ที่ต้องการเปลี่ยน, ระบบเปลี่ยนแปลงรหัส E-mail ของผู้เล่นในระบบ", new string[] {
-                        "record_mock"});
+#line 6
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "UserName",
+                        "E-mail"});
+            table1.AddRow(new string[] {
+                        "OhAe",
+                        "aaa@aaa.com"});
+            table1.AddRow(new string[] {
+                        "Boy",
+                        "bbb@bbb.com"});
+            table1.AddRow(new string[] {
+                        "Nittaya",
+                        "ccc@ccc.com"});
+            table1.AddRow(new string[] {
+                        "Au",
+                        "ddd@ddd.com"});
 #line 7
+testRunner.Given("(ChangeEmail)server has user profile information as:", ((string)(null)), table1);
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ได้รับข้อมูล E-mail ที่ต้องการเปลี่ยน, E-mail เก่าถูกต้องและ E-mail ใหม่ไม่ซ้ำกับ" +
+            " E-mail ที่มีอยู่่ในระบบ, ระบบเปลี่ยนแปลงรหัส E-mail ของผู้เล่นในระบบ")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ChangeEmail")]
+        public virtual void ไดรบขอมลE_MailทตองการเปลยนE_MailเกาถกตองและE_MailใหมไมซำกบE_MailทมอยในระบบระบบเปลยนแปลงรหสE_Mailของผเลนในระบบ()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ได้รับข้อมูล E-mail ที่ต้องการเปลี่ยน, E-mail เก่าถูกต้องและ E-mail ใหม่ไม่ซ้ำกับ" +
+                    " E-mail ที่มีอยู่่ในระบบ, ระบบเปลี่ยนแปลงรหัส E-mail ของผู้เล่นในระบบ", new string[] {
+                        "record_mock"});
+#line 15
 this.ScenarioSetup(scenarioInfo);
-#line 8
+#line 16
 testRunner.Given("The ChangeEmail has been created and initialized");
-#line 9
-testRunner.And("the user profile should be update(UserName: \'OhAe\', E-mail: \'def@def.com\')");
-#line 10
-testRunner.When("call ChangeEmailExecutor(UserName: \'OhAe\', E-mail: \'def@def.com\')");
-#line 11
-testRunner.Then("the result should be update");
+#line 17
+testRunner.And("the old email should be correct(UserName: \'OhAe\', OldE-mail: \'aaa@aaa.com\')");
+#line 18
+testRunner.And("the new email should be unique(NewE-mail: \'a@a.com\')");
+#line 19
+testRunner.And("the user profile should be update(UserName: \'OhAe\', OldE-mail: \'aaa@aaa.com\', New" +
+                    "E-mail: \'a@a.com\')");
+#line 20
+testRunner.When("call ChangeEmailExecutor(UserName: \'OhAe\', OldE-mail: \'aaa@aaa.com\', NewE-mail: \'" +
+                    "a@a.com\')");
+#line 21
+testRunner.Then("the e-mail should be update in user profile");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

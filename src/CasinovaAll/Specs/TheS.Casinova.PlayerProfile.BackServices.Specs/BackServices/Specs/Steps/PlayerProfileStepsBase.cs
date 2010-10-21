@@ -37,7 +37,7 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
             }
         }
 
-        protected IChangePassword Dqr_ChangePassword
+        protected IChangePassword Dac_ChangePassword
         {
             get
             {
@@ -46,12 +46,12 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
             }
         }
 
-        protected IChangeEmail Dqr_ChangeEmail
+        protected IChangeEmail Dac_ChangeEmail
         {
             get
             {
                 return ScenarioContext.Current[
-                    CommonSteps.Key_ChangeEmail] as IChangeEmail;
+                    CommonSteps.Key_Dac_ChangeEmail] as IChangeEmail;
             }
         }
 

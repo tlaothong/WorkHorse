@@ -26,7 +26,7 @@ namespace TheS.Casinova.PlayerProfile.Commands
         /// <summary>
         /// เบอร์โทรศัพท์
         /// </summary>
-        public string CellPhone { get; set; }
+        public int CellPhone { get; set; }
 
         /// <summary>
         /// username ของคนแนะนำเกม

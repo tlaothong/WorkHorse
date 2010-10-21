@@ -19,7 +19,7 @@ Scenario: ผู้เล่นยืนยันการสมัคร, ต�
 	When call VeriflyUserExecutor(UserName: 'OhAe', VeriflyCode: 'A2SK')
 	Then the result should be update
 
-	@record_mock
+@record_mock
 Scenario: ผู้เล่นยืนยันการสมัคร, ตรวจสอบรหัสถูกต้อง, ระบบเปิดการใช้งานให้ผู้เล่น2
 	Given The VeriflyUserExecutor has been created and initialized
 	And sent name: 'Boy' and VeriflyCode: '3DS1' the verifly code should be correct
@@ -27,7 +27,7 @@ Scenario: ผู้เล่นยืนยันการสมัคร, ต�
 	When call VeriflyUserExecutor(UserName: 'Boy', VeriflyCode: '3DS1')
 	Then the result should be update
 
-	@record_mock
+@record_mock
 Scenario: ผู้เล่นยืนยันการสมัคร, ตรวจสอบรหัสไม่ถูกต้อง, ระบบแจ้งเตือน
 	Given The VeriflyUserExecutor has been created and initialized
 	And sent name: 'Au' and VeriflyCode: 'XXXX' the verifly code should be correct

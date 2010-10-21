@@ -26,7 +26,9 @@ namespace TheS.Casinova.PlayerProfile.BackServices.BackExecutors
             GetUserProfileCommand getUserProfileCmd = new GetUserProfileCommand { UserName = command.UserName };
             getUserProfileCmd.PlayerProfile = _iGetUserProfile.Get(getUserProfileCmd);
 
+            //ตรวจสอบรหัสยืนยันว่าถูกต้องหรือไม่
             if (command.VeriflyCode == getUserProfileCmd.PlayerProfile.VeriflyCode) {
+                //ระบบยืนยันการสมัคร
                 _iVeriflyUser.ApplyAction(command.UserName, command);
             }
             else {

@@ -37,11 +37,10 @@ namespace TheS.Casinova.PlayerProfile.BackServices.BackExecutors
                 Active = false,
             };
 
-            if (command.Upline != null) { //สมัครสมาชิกโดนมีผู้แนะน
+            if (command.Upline != null) { //สมัครสมาชิกโดยมีผู้แนะนำ
                 getUserProfileCmd.PlayerProfile = _iGetUserProfile.Get(getUserProfileCmd);
 
-                if (getUserProfileCmd.PlayerProfile != null) {  //ตรวจสอบ upline ที่ส่งมาว่ามีอยู่จริง
-
+                if (getUserProfileCmd.PlayerProfile != null) {  //ตรวจสอบ upline ที่ระบุมาว่ามีอยู่จริง
                     //บันทึกข้อมูลการสมัคร
                     _iRegisterUser.Create(userProfile, command);
 
@@ -51,7 +50,7 @@ namespace TheS.Casinova.PlayerProfile.BackServices.BackExecutors
                     Console.WriteLine("################### ไม่มีชื่อ Upline ในระบบ ##################");
                 }
             }
-            else { //สมัครสมาชิกโดนไม่มีผู้แนะน
+            else { //สมัครสมาชิกโดนไม่มีผู้แนะนำ
                 //บันทึกข้อมูลการสมัคร
                 _iRegisterUser.Create(userProfile, command);
             }

@@ -14,7 +14,12 @@ namespace TheS.Casinova.PlayerProfile.Commands
         public string UserName { get; set; }
 
         /// <summary>
-        /// อีเมลล์ใหม่ผู้เล่น
+        /// อีเมลล์เดิมของผู้เล่น
+        /// </summary>
+        public string OldEmail { get; set; }
+        
+        /// <summary>
+        /// อีเมลล์ใหม่ของผู้เล่น
         /// </summary>
         public string NewEmail { get; set; }
     }

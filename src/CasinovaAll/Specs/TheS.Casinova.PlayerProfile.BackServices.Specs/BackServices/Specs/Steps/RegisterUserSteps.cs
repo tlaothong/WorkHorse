@@ -37,7 +37,7 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
         }
 
         [Given(@"the user profile should be create\(UserName: '(.*)', Password: '(.*)', E-mail: '(.*)', CellPhone: '(.*)', Upline: '(.*)', VeriflyCode: '(.*)'\)")]
-        public void GivenTheUserProfileShouldBeCreateUserNameXPasswordXE_MailXCellPhoneXUplineXVeriflyCodeX(string userName, string password, string email, string cellPhone, string upline, string veriflyCode)
+        public void GivenTheUserProfileShouldBeCreateUserNameXPasswordXE_MailXCellPhoneXUplineXVeriflyCodeX(string userName, string password, string email, int cellPhone, string upline, string veriflyCode)
         {
             Func<UserProfile, RegisterUserCommand, UserProfile> checkData = (userProfile, cmd) => 
             {
@@ -55,7 +55,7 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
         }
 
         [When(@"call RegisterUserExecutor\(UserName: '(.*)', Password: '(.*)', E-mail: '(.*)', CellPhone: '(.*)', Upline: '(.*)', VeriflyCode: '(.*)'\)")]
-        public void WhenCallRegisterUserExecutorUserNameXPasswordXE_MailXCellPhoneXUplineXVeriflyCodeX(string userName, string password, string email, string cellPhone, string upline, string veriflyCode)
+        public void WhenCallRegisterUserExecutorUserNameXPasswordXE_MailXCellPhoneXUplineXVeriflyCodeX(string userName, string password, string email, int cellPhone, string upline, string veriflyCode)
         {
             RegisterUserCommand cmd = new RegisterUserCommand {
                 UserName = userName,

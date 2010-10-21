@@ -43,12 +43,37 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs
         public virtual void ScenarioSetup(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioStart(scenarioInfo);
+            this.FeatureBackground();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCleanupAttribute()]
         public virtual void ScenarioTearDown()
         {
             testRunner.OnScenarioEnd();
+        }
+        
+        public virtual void FeatureBackground()
+        {
+#line 6
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "UserName",
+                        "Password"});
+            table1.AddRow(new string[] {
+                        "OhAe",
+                        "ugmK"});
+            table1.AddRow(new string[] {
+                        "Boy",
+                        "23sG"});
+            table1.AddRow(new string[] {
+                        "Nittaya",
+                        "2sS1"});
+            table1.AddRow(new string[] {
+                        "Au",
+                        "2ka3"});
+#line 7
+testRunner.Given("(ChangePassword)server has user profile information as:", ((string)(null)), table1);
+#line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
@@ -58,16 +83,45 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ได้รับรหัสผ่านที่ต้องการเปลี่ยน, ระบบเปลี่ยนแปลงรหัสผ่านของผู้เล่นในระบบ", new string[] {
                         "record_mock"});
-#line 7
+#line 15
 this.ScenarioSetup(scenarioInfo);
-#line 8
+#line 16
 testRunner.Given("The ChangePassword has been created and initialized");
-#line 9
-testRunner.And("the user profile should be update(UserName: \'OhAe\', Password: \'5321\')");
-#line 10
-testRunner.When("call ChangePasswordExecutor(UserName: \'OhAe\', Password: \'5321\')");
-#line 11
-testRunner.Then("the result should be update");
+#line 17
+testRunner.And("the old password should be correct(UserName: \'OhAe\', OldPassword: \'ugmK\')");
+#line 18
+testRunner.And("the user profile should be update(UserName: \'OhAe\', OldPassword: \'ugmK\', NewPassw" +
+                    "ord: \'5321\')");
+#line 19
+testRunner.When("call ChangePasswordExecutor(UserName: \'OhAe\', OldPassword: \'ugmK\', NewPassword: \'" +
+                    "5321\')");
+#line 20
+testRunner.Then("the password should be update in user profile");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ได้รับรหัสผ่านที่ต้องการเปลี่ยน, ระบบเปลี่ยนแปลงรหัสผ่านของผู้เล่นในระบบ2")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ChangePassword")]
+        public virtual void ไดรบรหสผานทตองการเปลยนระบบเปลยนแปลงรหสผานของผเลนในระบบ2()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ได้รับรหัสผ่านที่ต้องการเปลี่ยน, ระบบเปลี่ยนแปลงรหัสผ่านของผู้เล่นในระบบ2", new string[] {
+                        "record_mock"});
+#line 23
+this.ScenarioSetup(scenarioInfo);
+#line 24
+testRunner.Given("The ChangePassword has been created and initialized");
+#line 25
+testRunner.And("the old password should be correct(UserName: \'Boy\', OldPassword: \'ugmK\')");
+#line 26
+testRunner.And("the user profile should be update(UserName: \'Boy\', OldPassword: \'ugmK\', NewPasswo" +
+                    "rd: \'5321\')");
+#line 27
+testRunner.When("call ChangePasswordExecutor(UserName: \'Boy\', OldPassword: \'ugmK\', NewPassword: \'5" +
+                    "321\')");
+#line 28
+testRunner.Then("the password should be update in user profile");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

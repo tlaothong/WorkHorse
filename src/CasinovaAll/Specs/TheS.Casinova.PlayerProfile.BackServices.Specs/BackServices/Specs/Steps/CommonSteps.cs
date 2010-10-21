@@ -19,6 +19,7 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
         public const string Key_Dac_ChangeEmail = "mockDac_ChangeEmail";
 
         public const string Key_Dqr_GetUserProfile = "mockDqr_GetUserProfile";
+        public const string Key_Dqr_GetUserProfileByEmail = "mockDqr_GetUserProfileByEmail";
 
         public const string Key_RegisterUser = "RegisterUser";
         public const string Key_VeriflyUser = "VeriflyUser";
@@ -55,20 +56,25 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
         public void GivenTheChangePasswordHasBeenCreatedAndInitialized()
         {
             var dac = Mocks.DynamicMock<IPlayerProfileDataAccess>();
+            var dqr = Mocks.DynamicMock<IPlayerProfileDataBackQuery>();
 
             ScenarioContext.Current[Key_Dac_ChangePassword] = dac;
+            ScenarioContext.Current[Key_Dqr_GetUserProfile] = dqr;
 
-            ScenarioContext.Current[Key_ChangePassword] = new ChangePasswordExecutor(dac);
+            ScenarioContext.Current[Key_ChangePassword] = new ChangePasswordExecutor(dac, dqr);
         }
 
         [Given(@"The ChangeEmail has been created and initialized")]
         public void GivenTheChangeEmailHasBeenCreatedAndInitialized()
         {
             var dac = Mocks.DynamicMock<IPlayerProfileDataAccess>();
+            var dqr = Mocks.DynamicMock<IPlayerProfileDataBackQuery>();
 
             ScenarioContext.Current[Key_Dac_ChangeEmail] = dac;
+            ScenarioContext.Current[Key_Dqr_GetUserProfile] = dqr;
+            ScenarioContext.Current[Key_Dqr_GetUserProfileByEmail] = dqr;
 
-            ScenarioContext.Current[Key_ChangeEmail] = new ChangeEmailExecutor(dac);
+            ScenarioContext.Current[Key_ChangeEmail] = new ChangeEmailExecutor(dac, dqr);
         }
     }
 }

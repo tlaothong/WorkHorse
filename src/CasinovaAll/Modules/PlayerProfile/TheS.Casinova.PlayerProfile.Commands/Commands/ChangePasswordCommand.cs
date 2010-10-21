@@ -14,6 +14,11 @@ namespace TheS.Casinova.PlayerProfile.Commands
         public string UserName { get; set; }
 
         /// <summary>
+        /// รหัสผ่านเดิม
+        /// </summary>
+        public string OldPassword { get; set; }
+        
+        /// <summary>
         /// รหัสผ่านที่ต้องการเปลี่ยน
         /// </summary>
         public string NewPassword { get; set; }
