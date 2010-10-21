@@ -12,12 +12,12 @@ using System.Windows.Shapes;
 using System.Windows.Navigation;
 using TheS.Casinova.Common;
 
-namespace TheS.Casinova.Colors
+namespace TheS.Casinova.Colors.Views
 {
-    //[ExportContentNavigation(GameApplicationInformation.GameInfoNavigationCode)]
-    public partial class Page1 : Page
+    [ExportContentNavigation(GameApplicationInformation.GameInfoNavigationCode)]
+    public partial class GamePlayPage : Page
     {
-        public Page1()
+        public GamePlayPage()
         {
             InitializeComponent();
         }
@@ -26,5 +26,6 @@ namespace TheS.Casinova.Colors
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
         }
+
     }
 }

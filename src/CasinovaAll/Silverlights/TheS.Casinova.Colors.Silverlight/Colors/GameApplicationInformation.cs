@@ -39,7 +39,7 @@ namespace TheS.Casinova.Colors
             {
                 if (_infoContent == null)
                 {
-                    _infoContent = new TheS.Casinova.Colors.Silverlight.MainPage();
+                    _infoContent = new TheS.Casinova.Colors.Controls.GameInformationsUI();
                 }
                 return _infoContent;
             }

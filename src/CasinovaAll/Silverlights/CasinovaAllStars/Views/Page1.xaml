@@ -15,9 +15,13 @@
 				<TextBlock Height="28" Margin="8,0" TextWrapping="Wrap" Text="{Binding Metadata.DisplayText}"/>
 			</StackPanel>
 		</DataTemplate>
+		<DataTemplate x:Key="GameRoomsListTemplate">
+			<StackPanel>
+                <TextBlock Text="{Binding Name}"/>
+			</StackPanel>
+		</DataTemplate>
 		<DataTemplate x:Key="IGameApplicationInformationTemplate">
 			<StackPanel>
-				<TextBlock Text="{Binding GameApplicationID, Mode=OneWay}"/>
 				<TextBlock Text="{Binding Name, Mode=OneWay}"/>
 			</StackPanel>
 		</DataTemplate>
@@ -26,9 +30,10 @@
 		<Binding Source="{StaticResource Page1ViewModelDataSource}"/>
 	</navigation:Page.DataContext>
     <Grid x:Name="LayoutRoot" DataContext="{Binding Source={StaticResource Page1ViewModelDataSource}}">
-        <TextBlock x:Name="txt" />
-    	<ListBox ItemTemplate="{StaticResource DataTemplate}" Margin="135,120,305,60" ItemsSource="{Binding Popups}" SelectedItem="{Binding SelectedWindow, Mode=TwoWay}"/>
-    	<ListBox HorizontalAlignment="Right" ItemTemplate="{StaticResource IGameApplicationInformationTemplate}" ItemsSource="{Binding Games}" Margin="0,101,65,79" Width="200"/>
-    	<Button x:Name="ShowWindow" Content="Button" HorizontalAlignment="Left" Height="39" Margin="34,37,0,0" VerticalAlignment="Top" Width="144" Click="ShowWindow_Click"/>
+        <ListBox ItemTemplate="{StaticResource DataTemplate}" Margin="8,0,212,8" ItemsSource="{Binding Popups}" SelectedItem="{Binding SelectedWindow, Mode=TwoWay}" Height="80" VerticalAlignment="Bottom"/>
+        <ListBox x:Name="GameRoomListBox" HorizontalAlignment="Right" Margin="0,8,8,8" Width="200" ItemsSource="{Binding Games}" ItemTemplate="{StaticResource GameRoomsListTemplate}" ItemContainerStyle="{StaticResource GameRoomsItemContainerStyle}"/>
+        <Grid DataContext="{Binding SelectedItem, ElementName=GameRoomListBox}" Margin="8,8,212,92" >
+            <ContentPresenter Content="{Binding InformationContent, Mode=OneWay}"/>
+        </Grid>
     </Grid>
 </navigation:Page>

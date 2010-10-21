@@ -1,0 +1,19 @@
+﻿<controls:ChildWindow x:Class="TheS.Casinova.SupportContent.Views.PolicyWindow"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           Width="640" Height="550" 
+           Title="Policy" FontSize="21.333">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Button x:Name="CloseButton" Content="Close" Click="CloseButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" FontSize="11" />
+        <ScrollViewer Margin="0,23,0,0">
+        	<TextBlock x:Name="InformationTextBlock" TextWrapping="Wrap" FontSize="11"><Run Text="&#x9;A policy is typically described as a principle or rule to guide decisions and achieve rational outcome(s). The term is not normally used to denote what is actually done, this is normally referred to as either procedure or protocol. Whereas a policy will contain the 'what' and the 'why', procedures or protocols contain the 'what', the 'how', the 'where', and the 'when'. Policies are generally adopted by the Board of or senior governance body within an organisation where as procedures or protocols would be developed and adopted by senior executive officers."/><LineBreak/><Run/><LineBreak/><Run Text="&#x9;The term may apply to government, private sector organizations and groups, and individuals. Presidential executive orders, corporate privacy policies, and parliamentary rules of order are all examples of policy. Policy differs from rules or law. While law can compel or prohibit behaviors (e.g. a law requiring the payment of taxes on income), policy merely guides actions toward those that are most likely to achieve a desired outcome."/><LineBreak/><Run Text="Policy or policy study may also refer to the process of making important organizational decisions, including the identification of different alternatives such as programs or spending priorities, and choosing among them on the basis of the impact they will have. Policies can be understood as political, management, financial, and administrative mechanisms arranged to reach explicit goals."/></TextBlock>
+        </ScrollViewer>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Information." VerticalAlignment="Top" FontWeight="Bold" FontSize="13.333"/>
+    </Grid>
+</controls:ChildWindow>

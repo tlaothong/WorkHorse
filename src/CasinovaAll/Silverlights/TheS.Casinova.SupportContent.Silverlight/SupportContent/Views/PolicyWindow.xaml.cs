@@ -9,22 +9,20 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
-using System.Windows.Navigation;
-using TheS.Casinova.Common;
 
-namespace TheS.Casinova.Colors
+namespace TheS.Casinova.SupportContent.Views
 {
-    //[ExportContentNavigation(GameApplicationInformation.GameInfoNavigationCode)]
-    public partial class Page1 : Page
+    public partial class PolicyWindow : ChildWindow
     {
-        public Page1()
+        public PolicyWindow()
         {
             InitializeComponent();
         }
-
-        // Executes when the user navigates to this page.
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
+            this.DialogResult = false;
         }
     }
 }
+

@@ -27,35 +27,31 @@ namespace CasinovaAllStars.ViewModels
             }
         }
 
-        void App_SupportDownloadedCompleted(object sender, EventArgs e)
-        {
-            PropertyChangedEventHandler temp = PropertyChanged;
-            if (temp != null)
-            {
-                temp(this, new PropertyChangedEventArgs("Popups"));
-            }
-        }
-
         public ObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> Popups
         {
-            get
-            {
-                return App.ModuleLoader.PopupContents;
-            }
+            get { return App.ModuleLoader.PopupContents; }
         }
 
-        public Lazy<ChildWindow, IPopupContentMetadata> SelectedWindow
+        public ObservableCollection<IGameApplicationInformation> Games
         {
-            get;
-            set;
+            get { return App.ModuleLoader.Games; }
         }
+
+        public Lazy<ChildWindow, IPopupContentMetadata> SelectedWindow { get; set; }
 
         public void ShowWindow()
         {
             SelectedWindow.Value.Show();
         }
 
-        public ObservableCollection<IGameApplicationInformation> Games { get { return App.ModuleLoader.Games; } }
+        private void App_SupportDownloadedCompleted(object sender, EventArgs e)
+        {
+            PropertyChangedEventHandler temp = PropertyChanged;
+            if (temp != null) {
+                temp(this, new PropertyChangedEventArgs("Popups"));
+                temp(this, new PropertyChangedEventArgs("Games"));
+            }
+        }
 
         #region INotifyPropertyChanged Members
 
