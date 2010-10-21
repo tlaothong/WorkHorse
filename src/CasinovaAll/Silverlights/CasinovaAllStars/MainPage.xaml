@@ -54,7 +54,7 @@
                     <Rectangle x:Name="Divider1" Style="{StaticResource DividerStyle}"/>
 					
                     <HyperlinkButton x:Name="Link2" Style="{StaticResource LinkStyle}" 
-                                     NavigateUri="/About" TargetName="ContentFrame" Content="about"/>
+                                     NavigateUri="/Page1" TargetName="ContentFrame" Content="about"/>
 
                     <Rectangle x:Name="Divider2" Style="{StaticResource DividerStyle}"/>
 

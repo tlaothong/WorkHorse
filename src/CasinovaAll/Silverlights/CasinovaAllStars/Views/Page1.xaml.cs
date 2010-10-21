@@ -24,13 +24,12 @@ namespace CasinovaAllStars.Views
         // Executes when the user navigates to this page.
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            //txt.Text = ((Page1ViewModel)DataContext).Popups.Count.ToString();
         }
 
-        private void ShowWindow_Click(object sender, System.Windows.RoutedEventArgs e)
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
-        	// TODO: Add event handler implementation here.
-            ((Page1ViewModel)DataContext).ShowWindow();
+            infoContentPresenter.Content = null;
+            base.OnNavigatedFrom(e);
         }
 
     }

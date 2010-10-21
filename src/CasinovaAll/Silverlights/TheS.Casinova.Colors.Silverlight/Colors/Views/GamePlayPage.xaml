@@ -7,5 +7,26 @@
            xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
            d:DesignWidth="640" d:DesignHeight="480"
            Title="Colors GamePlayPage Page">
-    <Grid x:Name="LayoutRoot"/>
+    <Grid x:Name="LayoutRoot" Background="White">
+    	<Grid Height="40" VerticalAlignment="Top">
+    		<Rectangle Fill="Black" Stroke="Black"/>
+    		<TextBlock x:Name="TitleTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TitleTextBlock" VerticalAlignment="Center" Margin="8,0,0,0" FontSize="26.667" Foreground="White"/>
+    	</Grid>
+    	<Grid Margin="0,40,0,0">
+    		<TextBlock x:Name="GameTimeTextBlock" TextWrapping="Wrap" Text="GameTimeTextBlock" VerticalAlignment="Top" FontSize="21.333" Margin="268,24,268,0" HorizontalAlignment="Center" FontWeight="Bold"/>
+    		<Grid Height="70" Margin="216,144,224,0" VerticalAlignment="Top">
+    			<Rectangle Fill="#FFEBEBEB" Stroke="Black" Height="70" RadiusX="4" RadiusY="4" d:LayoutOverrides="VerticalAlignment"/>
+    			<TextBlock x:Name="WinnerTextBlock" HorizontalAlignment="Center" TextWrapping="Wrap" Text="WinnerTextBlock" FontSize="16" Margin="0,18,0,0" VerticalAlignment="Top"/>
+    			<TextBlock x:Name="InformationMessageTextBlock" TextWrapping="Wrap" Text="InformationMessageTextBlock" Margin="8,45,8,0" VerticalAlignment="Top" TextAlignment="Center"/>
+    		</Grid>
+    		<Grid HorizontalAlignment="Left" Height="66" Margin="100,0,0,100" VerticalAlignment="Bottom" Width="147">
+    			<Button x:Name="BetBlack" Content="Black" Height="46" VerticalAlignment="Top"/>
+    			<TextBlock x:Name="TotalAmountOfBlack" TextWrapping="Wrap" Text="TotalAmountOfBlack" VerticalAlignment="Bottom" TextAlignment="Center"/>
+    		</Grid>
+    		<Grid HorizontalAlignment="Right" Height="66" Margin="0,0,100,100" VerticalAlignment="Bottom" Width="147">
+    			<Button x:Name="BetWhite" Content="White" Height="46" VerticalAlignment="Top"/>
+    			<TextBlock x:Name="TotalAmountOfWhite" TextWrapping="Wrap" Text="TotalAmountOfWhite" VerticalAlignment="Bottom" TextAlignment="Center"/>
+    		</Grid>
+    	</Grid>
+    </Grid>
 </navigation:Page>

@@ -14,13 +14,8 @@ using TheS.Casinova.Common;
 
 namespace TheS.Casinova.Colors
 {
-<<<<<<< HEAD
     //[ExportContentNavigation(GameApplicationInformation.GameInfoNavigationCode)]
-    public partial class Page1 : Page
-=======
-    [ExportContentNavigation(GameApplicationInformation.GameInfoNavigationCode)]
     public partial class Page1 : Page, INavigablePage
->>>>>>> b333ceabf9e9d2d4016704ba05f4bacda2c78794
     {
         public Page1()
         {
