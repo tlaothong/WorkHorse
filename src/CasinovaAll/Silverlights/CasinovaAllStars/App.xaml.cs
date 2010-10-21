@@ -14,7 +14,7 @@ using TheS.Casinova.Common;
 
 namespace CasinovaAllStars
 {
-    public partial class App : Application
+    public partial class App : Application, IPartImportsSatisfiedNotification
     {
         private static System.ComponentModel.Composition.Hosting.CompositionContainer _compositionContainer;
         private static bool _supportDownloaded = false;
@@ -43,11 +43,17 @@ namespace CasinovaAllStars
             InitializeComponent();
 
             var cat = new System.ComponentModel.Composition.Hosting.DeploymentCatalog("TheS.Casinova.SupportContent.Silverlight.xap");
-            var acat = new System.ComponentModel.Composition.Hosting.AggregateCatalog(cat,
-                new System.ComponentModel.Composition.Hosting.DeploymentCatalog());
+            var acat = new System.ComponentModel.Composition.Hosting.AggregateCatalog(cat, new System.ComponentModel.Composition.Hosting.DeploymentCatalog());
             _compositionContainer = new System.ComponentModel.Composition.Hosting.CompositionContainer(acat);
             cat.DownloadCompleted += new EventHandler<System.ComponentModel.AsyncCompletedEventArgs>(catalog_DownloadCompleted);
             cat.DownloadAsync();
+        }
+
+        public void OnImportsSatisfied()
+        {
+            _ModuleLoader = _instanceModuleLoader;
+            _supportDownloaded = true;
+            OnSupportContentDownloadCompleted();
         }
 
         private void catalog_DownloadCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
@@ -64,9 +70,6 @@ namespace CasinovaAllStars
                 return;
             }
             _compositionContainer.ComposeParts(this);
-            _ModuleLoader = _instanceModuleLoader;
-            _supportDownloaded = true;
-            OnSupportContentDownloadCompleted();
         }
 
         protected virtual void OnSupportContentDownloadCompleted()
