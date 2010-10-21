@@ -76,6 +76,8 @@
     </Compile>
     <Compile Include="BackServices\Specs\Steps\CommonSteps.cs" />
     <Compile Include="BackServices\Specs\Steps\PlayerProfileStepsBase.cs" />
+    <Compile Include="BackServices\Specs\Steps\RegisterUserSteps.cs" />
+    <Compile Include="BackServices\Specs\Steps\VeriflyUserSteps.cs" />
     <Compile Include="BackServices\Specs\VeriflyUser.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

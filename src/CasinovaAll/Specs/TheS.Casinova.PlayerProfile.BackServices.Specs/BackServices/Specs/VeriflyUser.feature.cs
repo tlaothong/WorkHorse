@@ -73,7 +73,7 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs
                         "Au",
                         "UY8I"});
 #line 7
-testRunner.Given("server has player information as:", ((string)(null)), table1);
+testRunner.Given("(VeriflyUser) server has user profile information as:", ((string)(null)), table1);
 #line hidden
         }
         
@@ -91,11 +91,57 @@ testRunner.Given("The VeriflyUserExecutor has been created and initialized");
 #line 17
 testRunner.And("sent name: \'OhAe\' and VeriflyCode: \'A2SK\' the verifly code should be correct");
 #line 18
-testRunner.And("the user profile(UserName: \'OhAe\') should be activate");
+testRunner.And("the user profile(UserName: \'OhAe\', VeriflyCode: \'A2SK\') should be activate");
 #line 19
-testRunner.When("call VeriflyUserExecutor(UserName: \'OhAe\')");
+testRunner.When("call VeriflyUserExecutor(UserName: \'OhAe\', VeriflyCode: \'A2SK\')");
 #line 20
 testRunner.Then("the result should be update");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้เล่นยืนยันการสมัคร, ตรวจสอบรหัสถูกต้อง, ระบบเปิดการใช้งานให้ผู้เล่น2")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "VeriflyUser")]
+        public virtual void ผเลนยนยนการสมครตรวจสอบรหสถกตองระบบเปดการใชงานใหผเลน2()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้เล่นยืนยันการสมัคร, ตรวจสอบรหัสถูกต้อง, ระบบเปิดการใช้งานให้ผู้เล่น2", new string[] {
+                        "record_mock"});
+#line 23
+this.ScenarioSetup(scenarioInfo);
+#line 24
+testRunner.Given("The VeriflyUserExecutor has been created and initialized");
+#line 25
+testRunner.And("sent name: \'Boy\' and VeriflyCode: \'3DS1\' the verifly code should be correct");
+#line 26
+testRunner.And("the user profile(UserName: \'Boy\', VeriflyCode: \'3DS1\') should be activate");
+#line 27
+testRunner.When("call VeriflyUserExecutor(UserName: \'Boy\', VeriflyCode: \'3DS1\')");
+#line 28
+testRunner.Then("the result should be update");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้เล่นยืนยันการสมัคร, ตรวจสอบรหัสไม่ถูกต้อง, ระบบแจ้งเตือน")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "VeriflyUser")]
+        public virtual void ผเลนยนยนการสมครตรวจสอบรหสไมถกตองระบบแจงเตอน()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้เล่นยืนยันการสมัคร, ตรวจสอบรหัสไม่ถูกต้อง, ระบบแจ้งเตือน", new string[] {
+                        "record_mock"});
+#line 31
+this.ScenarioSetup(scenarioInfo);
+#line 32
+testRunner.Given("The VeriflyUserExecutor has been created and initialized");
+#line 33
+testRunner.And("sent name: \'Au\' and VeriflyCode: \'XXXX\' the verifly code should be correct");
+#line 34
+testRunner.And("the user profile(UserName: \'Au\', VeriflyCode: \'XXXX\') should be activate");
+#line 35
+testRunner.When("call VeriflyUserExecutor(UserName: \'Au\', VeriflyCode: \'XXXX\')");
+#line 36
+testRunner.Then("the server should throw an error");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

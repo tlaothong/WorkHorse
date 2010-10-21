@@ -43,12 +43,32 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs
         public virtual void ScenarioSetup(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioStart(scenarioInfo);
+            this.FeatureBackground();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCleanupAttribute()]
         public virtual void ScenarioTearDown()
         {
             testRunner.OnScenarioEnd();
+        }
+        
+        public virtual void FeatureBackground()
+        {
+#line 6
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "UserName"});
+            table1.AddRow(new string[] {
+                        "OhAe"});
+            table1.AddRow(new string[] {
+                        "Boy"});
+            table1.AddRow(new string[] {
+                        "Nittaya"});
+            table1.AddRow(new string[] {
+                        "Au"});
+#line 7
+testRunner.Given("server has user profile information as:", ((string)(null)), table1);
+#line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
@@ -60,17 +80,46 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้เล่นสมัครโดยมีผู้แนะนำมาด้วย, ระบบบันทึกข้อมูล และส่งรหัสยืนยันให้ EmailSender" +
                     " ส่ง E-mail รหัสยืนยันให้ผู้เล่น", new string[] {
                         "record_mock"});
-#line 7
+#line 15
 this.ScenarioSetup(scenarioInfo);
-#line 8
+#line 16
 testRunner.Given("The RegisterUserExecutor has been created and initialized");
-#line 9
+#line 17
+testRunner.And("the upline should be avaliable(UserName: \'Nittaya\')");
+#line 18
 testRunner.And("the user profile should be create(UserName: \'OhAe\', Password: \'1234\', E-mail: \'ab" +
-                    "c@abc.com\', CellPhone: \'0812345678\', Upline: \'Nittaya\')");
-#line 10
+                    "c@abc.com\', CellPhone: \'0812345678\', Upline: \'Nittaya\', VeriflyCode: \'A2SK\')");
+#line 19
 testRunner.When("call RegisterUserExecutor(UserName: \'OhAe\', Password: \'1234\', E-mail: \'abc@abc.co" +
-                    "m\', CellPhone: \'0812345678\', Upline: \'Nittaya\')");
-#line 11
+                    "m\', CellPhone: \'0812345678\', Upline: \'Nittaya\', VeriflyCode: \'A2SK\')");
+#line 20
+testRunner.Then("the result should be create");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้เล่นสมัครโดยมีผู้แนะนำมาด้วย, ระบบบันทึกข้อมูล และส่งรหัสยืนยันให้ EmailSender" +
+            " ส่ง E-mail รหัสยืนยันให้ผู้เล่น2")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "RegisterUser")]
+        public virtual void ผเลนสมครโดยมผแนะนำมาดวยระบบบนทกขอมลและสงรหสยนยนใหEmailSenderสงE_Mailรหสยนยนใหผเลน2()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้เล่นสมัครโดยมีผู้แนะนำมาด้วย, ระบบบันทึกข้อมูล และส่งรหัสยืนยันให้ EmailSender" +
+                    " ส่ง E-mail รหัสยืนยันให้ผู้เล่น2", new string[] {
+                        "record_mock"});
+#line 23
+this.ScenarioSetup(scenarioInfo);
+#line 24
+testRunner.Given("The RegisterUserExecutor has been created and initialized");
+#line 25
+testRunner.And("the upline should be avaliable(UserName: \'Boy\')");
+#line 26
+testRunner.And("the user profile should be create(UserName: \'OhAe\', Password: \'1234\', E-mail: \'ab" +
+                    "c@abc.com\', CellPhone: \'0812345678\', Upline: \'Boy\', VeriflyCode: \'A2SK\')");
+#line 27
+testRunner.When("call RegisterUserExecutor(UserName: \'OhAe\', Password: \'1234\', E-mail: \'abc@abc.co" +
+                    "m\', CellPhone: \'0812345678\', Upline: \'Boy\', VeriflyCode: \'A2SK\')");
+#line 28
 testRunner.Then("the result should be create");
 #line hidden
             testRunner.CollectScenarioErrors();

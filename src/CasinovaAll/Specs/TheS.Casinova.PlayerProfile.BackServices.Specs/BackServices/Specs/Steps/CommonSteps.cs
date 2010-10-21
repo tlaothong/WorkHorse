@@ -31,10 +31,12 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
         public void GivenTheRegisterUserExecutorHasBeenCreatedAndInitialized()
         {
             var dac = Mocks.DynamicMock<IPlayerProfileDataAccess>();
+            var dqr = Mocks.DynamicMock<IPlayerProfileDataBackQuery>();
 
             ScenarioContext.Current[Key_Dac_RegisterUser] = dac;
+            ScenarioContext.Current[Key_Dqr_GetUserProfile] = dqr;
 
-            ScenarioContext.Current[Key_RegisterUser] = new RegisterUserExecutor(dac);
+            ScenarioContext.Current[Key_RegisterUser] = new RegisterUserExecutor(dac, dqr);
         }
 
         [Given(@"The VeriflyUserExecutor has been created and initialized")]
@@ -44,7 +46,7 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
             var dqr = Mocks.DynamicMock<IPlayerProfileDataBackQuery>();
 
             ScenarioContext.Current[Key_Dac_VeriflyUser] = dac;
-            ScenarioContext.Current[Key_Dac_VeriflyUser] = dqr;
+            ScenarioContext.Current[Key_Dqr_GetUserProfile] = dqr;
 
             ScenarioContext.Current[Key_VeriflyUser] = new VeriflyUserExecutor(dac, dqr);
         }

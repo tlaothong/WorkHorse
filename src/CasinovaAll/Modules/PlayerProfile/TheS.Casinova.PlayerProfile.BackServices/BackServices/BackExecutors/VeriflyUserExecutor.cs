@@ -5,6 +5,7 @@ using System.Text;
 using TheS.Casinova.PlayerProfile.Commands;
 using PerfEx.Infrastructure.CommandPattern;
 using TheS.Casinova.PlayerProfile.DAL;
+using TheS.Casinova.PlayerProfile.Models;
 
 namespace TheS.Casinova.PlayerProfile.BackServices.BackExecutors
 {
