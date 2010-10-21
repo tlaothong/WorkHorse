@@ -27,7 +27,7 @@
 	</navigation:Page.DataContext>
     <Grid x:Name="LayoutRoot" DataContext="{Binding Source={StaticResource Page1ViewModelDataSource}}">
         <TextBlock x:Name="txt" />
-    	<ListBox ItemTemplate="{StaticResource DataTemplate}" Margin="135,120,305,60" ItemsSource="{Binding Popups}" SelectedItem="{Binding SelectedWindow, Mode=TwoWay}"/>
+        <ListBox ItemTemplate="{StaticResource DataTemplate}" Margin="140,101,300,79" ItemsSource="{Binding Popups}" SelectedItem="{Binding SelectedWindow, Mode=TwoWay}" DataContext="{Binding}"/>
     	<ListBox HorizontalAlignment="Right" ItemTemplate="{StaticResource IGameApplicationInformationTemplate}" ItemsSource="{Binding Games}" Margin="0,101,65,79" Width="200"/>
     	<Button x:Name="ShowWindow" Content="Button" HorizontalAlignment="Left" Height="39" Margin="34,37,0,0" VerticalAlignment="Top" Width="144" Click="ShowWindow_Click"/>
     </Grid>
