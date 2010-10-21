@@ -7,6 +7,6 @@
     d:DesignHeight="300" d:DesignWidth="400">
 
     <Grid x:Name="LayoutRoot" Background="White">
-        <TextBlock>Test</TextBlock>
+        <TextBlock>Colors !</TextBlock>
     </Grid>
 </UserControl>

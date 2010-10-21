@@ -8,8 +8,8 @@ namespace MefFactory
 {
     public class SimpleFactory
     {
-        [ImportMany]
-        IEnumerable<Lazy<ExportClass, IFactoryMetadata>> Targets { get; set; }
+        [ImportMany(AllowRecomposition = true)]
+        internal System.Collections.ObjectModel.ObservableCollection<Lazy<ExportClass, IFactoryMetadata>> Targets;
 
         public T GetObject<T>()
             where T : ExportClass

@@ -25,6 +25,13 @@ namespace MefFactory
 
             var msop = new MefServiceObjectProvider<ExportClass, ExportClass>(container);
             Console.WriteLine(msop.ServiceProxy);
+
+            SimpleFactory sf = new SimpleFactory();
+            container.ComposeParts(sf);
+            foreach (var item in sf.Targets)
+            {
+                Console.WriteLine(item.Metadata.TargetType);
+            }
         }
     }
 }
