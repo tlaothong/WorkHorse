@@ -26,10 +26,9 @@ namespace TheS.Casinova.Common
         /// </summary>
         string Name { get; }
         /// <summary>
-        /// The user control of the game information.
+        /// The game information user control.
         /// </summary>
-        /// <returns>The game information user control.</returns>
-        UserControl GetInformationContent();
+        UserControl InformationContent { get; }
         /// <summary>
         /// The URI links to the game play page.
         /// </summary>
