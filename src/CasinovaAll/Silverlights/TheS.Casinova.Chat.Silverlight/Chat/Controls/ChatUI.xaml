@@ -3,10 +3,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" x:Class="TheS.Casinova.Chat.Silverlight.MainPage"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" x:Class="TheS.Casinova.Chat.Controls.ChatUI"
     mc:Ignorable="d"
-    d:DesignHeight="300" d:DesignWidth="400">
-
+    d:DesignHeight="300" d:DesignWidth="400" Width="640" Height="150">
+    
 	<UserControl.Resources>
 		<Style x:Key="MenuButtonStyle" TargetType="Button">
 			<Setter Property="Background" Value="#FF1F3B53"/>
@@ -90,6 +90,37 @@
 		</Style>
 
 	</UserControl.Resources>
+    
+    <Grid x:Name="LayoutRoot">
 
-    <Grid x:Name="LayoutRoot"/>
+    	<sdk:TabControl Margin="0,0,160,0">
+    		<sdk:TabItem Header="Chat">
+    			<Grid>
+    				<Grid.ColumnDefinitions>
+    					<ColumnDefinition Width="0.808*"/>
+    					<ColumnDefinition Width="0.192*"/>
+    				</Grid.ColumnDefinitions>
+    				<ScrollViewer Margin="0,0,8,28">
+    					<TextBlock x:Name="MessageTextBlock" TextWrapping="Wrap" Text="MessageTextBlock"/>
+    				</ScrollViewer>
+    				<TextBox x:Name="MessageTextBox" TextWrapping="Wrap" Text="MessageTextBox" VerticalAlignment="Bottom" Margin="0,0,62,0"/>
+    				<Button x:Name="SendButton" Content="Send" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,8,0" Height="24" Width="50"/>
+    				<ListBox x:Name="PlayerListBox" Grid.Column="1"/>
+    			</Grid>
+    		</sdk:TabItem>
+    	</sdk:TabControl>
+    	<Grid HorizontalAlignment="Right" Margin="0,22,0,0" Width="156">
+    		<StackPanel x:Name="LinksStackPanel" Style="{StaticResource LinksStackPanelStyle}" HorizontalAlignment="Stretch" Margin="8,0,8,8" VerticalAlignment="Bottom">
+
+    			<Button Content="Button 01" Style="{StaticResource MenuButtonStyle}" Foreground="Black" Width="75"/>
+    			<Button Content="Button 01" Style="{StaticResource MenuButtonStyle}" Foreground="Black" Width="75"/>
+    			<Button Content="Button 01" Style="{StaticResource MenuButtonStyle}" Foreground="Black" Width="75"/>
+    			<Button Content="Button 01" Style="{StaticResource MenuButtonStyle}" Foreground="Black" Width="75"/>                    
+
+    		</StackPanel>
+    		<Rectangle RadiusY="2" RadiusX="2" Stroke="#FF646464" StrokeThickness="2"/>
+
+    	</Grid>
+
+    </Grid>
 </UserControl>
