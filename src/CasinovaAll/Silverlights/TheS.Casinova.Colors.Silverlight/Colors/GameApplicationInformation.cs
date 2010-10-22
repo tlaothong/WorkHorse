@@ -33,13 +33,16 @@ namespace TheS.Casinova.Colors
             get { return "Demo Colors!"; }
         }
 
-        public UserControl GetInformationContent()
+        public UserControl InformationContent
         {
-            if (_infoContent == null)
+            get
             {
-                _infoContent = new TheS.Casinova.Colors.Silverlight.MainPage();
+                if (_infoContent == null)
+                {
+                    _infoContent = new TheS.Casinova.Colors.Controls.GameInformationsUI();
+                }
+                return _infoContent;
             }
-            return _infoContent;
         }
 
         public Uri GameUri

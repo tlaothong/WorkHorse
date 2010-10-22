@@ -10,13 +10,15 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Windows.Navigation;
-using CasinovaAllStars.ViewModels;
+using TheS.Casinova.Common;
+using PerfEx.Infrastructure.Mvvm;
 
-namespace CasinovaAllStars.Views
+namespace TheS.Casinova.Colors.Views
 {
-    public partial class Page1 : Page
+    [ExportContentNavigation(GameApplicationInformation.GameInfoNavigationCode)]
+    public partial class GamePlayPage : Page
     {
-        public Page1()
+        public GamePlayPage()
         {
             InitializeComponent();
         }
@@ -24,12 +26,6 @@ namespace CasinovaAllStars.Views
         // Executes when the user navigates to this page.
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-        }
-
-        protected override void OnNavigatedFrom(NavigationEventArgs e)
-        {
-            infoContentPresenter.Content = null;
-            base.OnNavigatedFrom(e);
         }
 
     }

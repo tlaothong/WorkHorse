@@ -10,11 +10,11 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace CasinovaAllStars
+namespace TheS.Casinova.TwoWins.Controls
 {
-    public partial class ChatPage : UserControl
+    public partial class GameUI : UserControl
     {
-        public ChatPage()
+        public GameUI()
         {
             InitializeComponent();
         }
