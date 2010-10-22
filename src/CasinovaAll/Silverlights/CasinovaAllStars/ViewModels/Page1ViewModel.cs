@@ -36,7 +36,7 @@ namespace CasinovaAllStars.ViewModels
             }
         }
 
-        public ObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> Popups
+        public ReadOnlyObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> Popups
         {
             get
             {
@@ -55,7 +55,7 @@ namespace CasinovaAllStars.ViewModels
             SelectedWindow.Value.Show();
         }
 
-        public ObservableCollection<IGameApplicationInformation> Games { get { return App.ModuleLoader.Games; } }
+        public ReadOnlyObservableCollection<IGameApplicationInformation> Games { get { return App.ModuleLoader.Games; } }
 
         #region INotifyPropertyChanged Members
 

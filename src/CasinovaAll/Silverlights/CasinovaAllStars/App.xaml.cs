@@ -104,21 +104,31 @@ namespace CasinovaAllStars
 
         private class NullModuleLoader : IModuleLoader
         {
-            private static readonly System.Collections.ObjectModel.ObservableCollection<IGameApplicationInformation> _emptyGames =
-                new System.Collections.ObjectModel.ObservableCollection<IGameApplicationInformation>();
-            private static readonly System.Collections.ObjectModel.ObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> _emptyPopups =
-                new System.Collections.ObjectModel.ObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>>();
+            private static readonly System.Collections.ObjectModel.ReadOnlyObservableCollection<IGameApplicationInformation> _emptyGames =
+                new System.Collections.ObjectModel.ReadOnlyObservableCollection<IGameApplicationInformation>(
+                    new System.Collections.ObjectModel.ObservableCollection<IGameApplicationInformation>());
+            private static readonly System.Collections.ObjectModel.ReadOnlyObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> _emptyPopups =
+                new System.Collections.ObjectModel.ReadOnlyObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>>(
+                    new System.Collections.ObjectModel.ObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>>());
+            private static readonly System.Collections.ObjectModel.ReadOnlyObservableCollection<Lazy<UserControl, IGameStatContentMetadata>> _emptyStats =
+                new System.Collections.ObjectModel.ReadOnlyObservableCollection<Lazy<UserControl, IGameStatContentMetadata>>(
+                    new System.Collections.ObjectModel.ObservableCollection<Lazy<UserControl, IGameStatContentMetadata>>());
 
             #region IModuleLoader Members
 
-            public System.Collections.ObjectModel.ObservableCollection<IGameApplicationInformation> Games
+            public System.Collections.ObjectModel.ReadOnlyObservableCollection<IGameApplicationInformation> Games
             {
                 get { return _emptyGames; }
             }
 
-            public System.Collections.ObjectModel.ObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> PopupContents
+            public System.Collections.ObjectModel.ReadOnlyObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> PopupContents
             {
                 get { return _emptyPopups; }
+            }
+
+            public System.Collections.ObjectModel.ReadOnlyObservableCollection<Lazy<UserControl, IGameStatContentMetadata>> GameStatContents
+            {
+                get { return _emptyStats; }
             }
 
             public UserControl GetNavigableContent(string naviationCode)
