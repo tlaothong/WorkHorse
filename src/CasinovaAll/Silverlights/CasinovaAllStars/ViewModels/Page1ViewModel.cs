@@ -27,35 +27,37 @@ namespace CasinovaAllStars.ViewModels
             }
         }
 
-        void App_SupportDownloadedCompleted(object sender, EventArgs e)
-        {
-            PropertyChangedEventHandler temp = PropertyChanged;
-            if (temp != null)
-            {
-                temp(this, new PropertyChangedEventArgs("Popups"));
-            }
-        }
-
         public ReadOnlyObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> Popups
         {
-            get
-            {
-                return App.ModuleLoader.PopupContents;
-            }
+            get { return App.ModuleLoader.PopupContents; }
         }
 
-        public Lazy<ChildWindow, IPopupContentMetadata> SelectedWindow
+        public ReadOnlyObservableCollection<IGameApplicationInformation> Games
         {
-            get;
-            set;
+            get { return App.ModuleLoader.Games; }
         }
+
+        // TODO: Copy and use wherever you want to use game statistics list.
+        public ReadOnlyObservableCollection<Lazy<UserControl, IGameStatContentMetadata>> StatContents
+        {
+            get { return App.ModuleLoader.GameStatContents; }
+        }
+
+        public Lazy<ChildWindow, IPopupContentMetadata> SelectedWindow { get; set; }
 
         public void ShowWindow()
         {
             SelectedWindow.Value.Show();
         }
 
-        public ReadOnlyObservableCollection<IGameApplicationInformation> Games { get { return App.ModuleLoader.Games; } }
+        private void App_SupportDownloadedCompleted(object sender, EventArgs e)
+        {
+            PropertyChangedEventHandler temp = PropertyChanged;
+            if (temp != null) {
+                temp(this, new PropertyChangedEventArgs("Popups"));
+                temp(this, new PropertyChangedEventArgs("Games"));
+            }
+        }
 
         #region INotifyPropertyChanged Members
 

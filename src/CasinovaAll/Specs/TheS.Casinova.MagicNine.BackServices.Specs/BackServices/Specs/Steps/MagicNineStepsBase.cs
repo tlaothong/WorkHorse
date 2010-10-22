@@ -56,6 +56,15 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
             }
         }
 
+        protected IAutoBetEngine Svc_AutoBetEngine
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_AutoBetEngine] as IAutoBetEngine;
+            }
+        }
+
         protected SingleBetExecutor SingleBetExecutor
         {
             get
@@ -65,5 +74,22 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
             }
         }
 
+        protected StartAutoBetExecutor StartAutoBetExecutor
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_StartAutoBet] as StartAutoBetExecutor;
+            }
+        }
+
+        protected StopAutoBetExecutor StopAutoBetExecutor
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_StopAutoBet] as StopAutoBetExecutor;
+            }
+        }
     }
 }

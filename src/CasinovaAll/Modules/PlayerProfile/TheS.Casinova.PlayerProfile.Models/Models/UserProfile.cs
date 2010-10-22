@@ -28,7 +28,7 @@ namespace TheS.Casinova.PlayerProfile.Models
         /// <summary>
         /// เบอร์โทรศัพท์
         /// </summary>
-        public string CallPhone { get; set; }
+        public int CellPhone { get; set; }
 
         /// <summary>
         /// username ของคนแนะนำเกม
@@ -49,5 +49,15 @@ namespace TheS.Casinova.PlayerProfile.Models
         /// สถานะการเปิดใช้งาน account
         /// </summary>
         public bool Active { get; set; }
+
+        /// <summary>
+        /// รหัสยืนยันการสมัคร
+        /// </summary>
+        public string VeriflyCode { get; set; }
+
+        /// <summary>
+        /// รหัสตรวจสอบการทำงาน
+        /// </summary>
+        public Guid TrackingID { get; set; }
     }
 }

@@ -45,6 +45,7 @@
     <Compile Include="Commands\GetUserProfileCommand.cs" />
     <Compile Include="Commands\ListActionLogCommand.cs" />
     <Compile Include="Commands\RegisterUserCommand.cs" />
+    <Compile Include="Commands\VeriflyUserCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

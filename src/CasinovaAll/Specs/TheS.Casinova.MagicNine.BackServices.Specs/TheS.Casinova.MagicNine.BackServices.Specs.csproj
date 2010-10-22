@@ -59,19 +59,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BackServices\SpecEventDefinitions.cs" />
-    <Compile Include="BackServices\Specs\ListBetLog.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ListBetLog.feature</DependentUpon>
-    </Compile>
     <Compile Include="BackServices\Specs\SingleBet.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SingleBet.feature</DependentUpon>
     </Compile>
+    <Compile Include="BackServices\Specs\StartAutoBet.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StartAutoBet.feature</DependentUpon>
+    </Compile>
     <Compile Include="BackServices\Specs\Steps\CommonSteps.cs" />
     <Compile Include="BackServices\Specs\Steps\MagicNineStepsBase.cs" />
     <Compile Include="BackServices\Specs\Steps\SingleBetSteps.cs" />
+    <Compile Include="BackServices\Specs\Steps\StartAutoBetSteps.cs" />
+    <Compile Include="BackServices\Specs\Steps\StopAutoBetSteps.cs" />
+    <Compile Include="BackServices\Specs\StopAutoBet.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StopAutoBet.feature</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -102,13 +109,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="BackServices\App.config" />
-    <None Include="BackServices\Specs\ListBetLog.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>ListBetLog.feature.cs</LastGenOutput>
-    </None>
     <None Include="BackServices\Specs\SingleBet.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>SingleBet.feature.cs</LastGenOutput>
+    </None>
+    <None Include="BackServices\Specs\StartAutoBet.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>StartAutoBet.feature.cs</LastGenOutput>
+    </None>
+    <None Include="BackServices\Specs\StopAutoBet.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>StopAutoBet.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
