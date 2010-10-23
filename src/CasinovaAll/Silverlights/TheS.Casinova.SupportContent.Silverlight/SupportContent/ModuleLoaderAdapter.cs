@@ -24,14 +24,19 @@ namespace TheS.Casinova.SupportContent
 
         #region IModuleLoader Members
 
-        public System.Collections.ObjectModel.ObservableCollection<IGameApplicationInformation> Games
+        public System.Collections.ObjectModel.ReadOnlyObservableCollection<IGameApplicationInformation> Games
         {
             get { return _loader.Games; }
         }
 
-        public System.Collections.ObjectModel.ObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> PopupContents
+        public System.Collections.ObjectModel.ReadOnlyObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> PopupContents
         {
             get { return _loader.PopupContents; }
+        }
+
+        public System.Collections.ObjectModel.ReadOnlyObservableCollection<Lazy<UserControl, IGameStatContentMetadata>> GameStatContents
+        {
+            get { return _loader.GameStatContents; }
         }
 
         public UserControl GetNavigableContent(string naviationCode)

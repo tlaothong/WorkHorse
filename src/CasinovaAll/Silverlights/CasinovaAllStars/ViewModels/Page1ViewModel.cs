@@ -27,14 +27,20 @@ namespace CasinovaAllStars.ViewModels
             }
         }
 
-        public ObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> Popups
+        public ReadOnlyObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> Popups
         {
             get { return App.ModuleLoader.PopupContents; }
         }
 
-        public ObservableCollection<IGameApplicationInformation> Games
+        public ReadOnlyObservableCollection<IGameApplicationInformation> Games
         {
             get { return App.ModuleLoader.Games; }
+        }
+
+        // TODO: Copy and use wherever you want to use game statistics list.
+        public ReadOnlyObservableCollection<Lazy<UserControl, IGameStatContentMetadata>> StatContents
+        {
+            get { return App.ModuleLoader.GameStatContents; }
         }
 
         public Lazy<ChildWindow, IPopupContentMetadata> SelectedWindow { get; set; }
