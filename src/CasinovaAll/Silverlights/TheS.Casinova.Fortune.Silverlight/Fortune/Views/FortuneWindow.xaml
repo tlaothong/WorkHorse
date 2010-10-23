@@ -10,9 +10,6 @@
         	<RowDefinition />
         	<RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-    	<VisualStateManager.CustomVisualStateManager>
-    		<ei:ExtendedVisualStateManager/>
-    	</VisualStateManager.CustomVisualStateManager>
     	<VisualStateManager.VisualStateGroups>
     		<VisualStateGroup x:Name="CardSelectedState">
     			<VisualState x:Name="Disable"/>
