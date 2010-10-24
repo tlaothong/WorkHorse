@@ -10,7 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace TheS.Casinova.ChipExchange.View
+namespace TheS.Casinova.ChipExchange.Views
 {
     public partial class ChipExchangeWindow : ChildWindow
     {
