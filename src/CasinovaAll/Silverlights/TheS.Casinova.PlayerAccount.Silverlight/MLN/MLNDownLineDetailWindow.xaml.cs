@@ -12,9 +12,9 @@ using System.Windows.Shapes;
 
 namespace TheS.Casinova.MLN
 {
-    public partial class MultiLevelNetworkWindow : ChildWindow
+    public partial class MLNDownLineDetailWindow : ChildWindow
     {
-        public MultiLevelNetworkWindow()
+        public MLNDownLineDetailWindow()
         {
             InitializeComponent();
         }

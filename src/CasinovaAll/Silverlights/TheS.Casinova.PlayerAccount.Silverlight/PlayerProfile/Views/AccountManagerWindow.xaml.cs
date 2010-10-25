@@ -42,11 +42,6 @@ namespace TheS.Casinova.PlayerProfile.Views
             dw.MenuTabControl.SelectedIndex = menuTablSelected;
             dw.Show();
         }
-
-        private void MLNDepositButton_Click(object sender, RoutedEventArgs e)
-        {
-            showChipExchangWindow();
-        }
     }
 }
 
