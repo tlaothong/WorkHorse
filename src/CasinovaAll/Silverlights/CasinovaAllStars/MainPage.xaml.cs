@@ -49,5 +49,12 @@ namespace CasinovaAllStars
             ChildWindow errorWin = new ErrorWindow(e.Uri);
             errorWin.Show();
         }
+
+        // TODO : For test statistics
+        private void StatisticsButton_Click(object sender, RoutedEventArgs e)
+        {
+            CasinovaAllStars.Views.StatisticsWindow sw = new Views.StatisticsWindow();
+            sw.Show();
+        }
     }
 }

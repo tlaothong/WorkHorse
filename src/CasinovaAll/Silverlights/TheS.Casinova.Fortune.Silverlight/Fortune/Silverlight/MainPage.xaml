@@ -8,5 +8,6 @@
 
     <Grid x:Name="LayoutRoot" Background="White">
         <TextBlock Text="Fortune Teller!" />
+        <Button Content="Fortune" Height="23" HorizontalAlignment="Left" Margin="12,44,0,0" Name="FortuneButton" VerticalAlignment="Top" Width="75" Click="FortuneButton_Click" />
     </Grid>
 </UserControl>

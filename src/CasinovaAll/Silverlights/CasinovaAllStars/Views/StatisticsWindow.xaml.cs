@@ -10,11 +10,11 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace TheS.Casinova.ChipExchange.View
+namespace CasinovaAllStars.Views
 {
-    public partial class ChipExchangeWindow : ChildWindow
+    public partial class StatisticsWindow : ChildWindow
     {
-        public ChipExchangeWindow()
+        public StatisticsWindow()
         {
             InitializeComponent();
         }
