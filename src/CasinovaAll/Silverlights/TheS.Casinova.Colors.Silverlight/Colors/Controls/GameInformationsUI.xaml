@@ -5,7 +5,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:TheS_Casinova_Colors="clr-namespace:TheS.Casinova.Colors" x:Class="TheS.Casinova.Colors.Controls.GameInformationsUI"
     mc:Ignorable="d"
-    d:DesignHeight="300" d:DesignWidth="400" Width="640" Height="480">
+    d:DesignHeight="300" d:DesignWidth="400" Width="500" Height="300">
     
 	<UserControl.Resources>
 		<TheS_Casinova_Colors:GameApplicationInformation x:Key="GameApplicationInformationDataSource" d:IsDataSource="True"/>
@@ -16,9 +16,9 @@
     
     <Grid x:Name="LayoutRoot">
     	<Rectangle Fill="#FFF4F4F5" Stroke="Black" d:IsLocked="True"/>
-    	<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Name, Mode=OneWay}" VerticalAlignment="Bottom" Margin="8,0,0,200" FontWeight="Bold" FontSize="13.333"/>
-    	<TextBlock TextWrapping="Wrap" Text="Color or colour (see spelling differences) is the visual perceptual property corresponding in humans to the categories called red, green, blue and others. Color derives from the spectrum of light (distribution of light energy versus wavelength) interacting in the eye with the spectral sensitivities of the light receptors. Color categories and physical specifications of color are also associated with objects, materials, light sources, etc., based on their physical properties such as light absorption, reflection, or emission spectra. By defining a color space, colors can be identified numerically by their coordinates." Margin="30,0,30,100" VerticalAlignment="Bottom"/>
-    	<Rectangle Stroke="Black" Margin="8,8,8,223">
+    	<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Name, Mode=OneWay}" VerticalAlignment="Top" Margin="8,109,0,0" FontWeight="Bold" FontSize="13.333"/>
+    	<TextBlock TextWrapping="Wrap" Text="Color or colour (see spelling differences) is the visual perceptual property corresponding in humans to the categories called red, green, blue and others. Color derives from the spectrum of light (distribution of light energy versus wavelength) interacting in the eye with the spectral sensitivities of the light receptors. Color categories and physical specifications of color are also associated with objects, materials, light sources, etc., based on their physical properties such as light absorption, reflection, or emission spectra. By defining a color space, colors can be identified numerically by their coordinates." Margin="20,132,20,0" VerticalAlignment="Top"/>
+    	<Rectangle Stroke="Black" Margin="8,8,8,195">
     		<Rectangle.Fill>
     			<RadialGradientBrush>
     				<GradientStop Color="#FFE24444" Offset="0.123"/>
@@ -26,7 +26,7 @@
     			</RadialGradientBrush>
     		</Rectangle.Fill>
     	</Rectangle>
-    	<HyperlinkButton Content="Play" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="176,0,0,60" Foreground="Red" NavigateUri="{Binding GameUri, Mode=OneWay}"/>
-    	<Button Content="How to play" HorizontalAlignment="Right" Height="56" Margin="0,0,176,40" VerticalAlignment="Bottom" Width="104"/>
+    	<HyperlinkButton Content="Play" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="170,0,0,16" Foreground="Red" NavigateUri="{Binding GameUri, Mode=OneWay}"/>
+    	<HyperlinkButton x:Name="HowToPlayHyperlinkButton" Content="How to play" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,170,16" Foreground="Red" Click="HowToPlayHyperlinkButton_Click" />
     </Grid>
 </UserControl>
