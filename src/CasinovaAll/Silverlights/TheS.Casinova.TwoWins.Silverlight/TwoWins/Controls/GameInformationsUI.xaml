@@ -5,7 +5,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:TheS_Casinova_TwoWins="clr-namespace:TheS.Casinova.TwoWins" x:Class="TheS.Casinova.TwoWins.Controls.GameInformationsUI"
     mc:Ignorable="d"
-    d:DesignHeight="300" d:DesignWidth="400" Width="500" Height="300">
+    d:DesignHeight="300" d:DesignWidth="500" Width="Auto" Height="Auto">
     
 	<UserControl.Resources>
 		<TheS_Casinova_TwoWins:GameApplicationInformation x:Key="GameApplicationInformationDataSource" d:IsDataSource="True"/>
@@ -16,8 +16,7 @@
     
     <Grid x:Name="LayoutRoot" Background="White">
     	<Rectangle Fill="#FFF4F4F5" Stroke="Black"/>
-    	<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Name, Mode=OneWay}" VerticalAlignment="Top" Margin="8,109,0,0" FontWeight="Bold" FontSize="13.333"/>
-    	<TextBlock TextWrapping="Wrap" Margin="20,132,20,0" VerticalAlignment="Top"><Run Text="Strongly correlated materials are a wide class of materials that show unusual (often technologically useful) electronic and magnetic properties, such as metal-insulator transitions or half-metallicity. The essential feature that defines these materials is that their behavior cannot be described effectively in terms of non-interacting entities [1]"/><LineBreak/><Run Text="The most commonly known strongly correlated materials are high-temperature superconductors(high-Tc) which exhibit interesting conductive properties."/></TextBlock>
+    	<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Name, Mode=OneWay}" Margin="8,0,0,172" FontWeight="Bold" FontSize="13.333" VerticalAlignment="Bottom"/>
     	<Rectangle Stroke="Black" Margin="8,8,8,195">
     		<Rectangle.Fill>
     			<RadialGradientBrush>
@@ -26,8 +25,11 @@
     			</RadialGradientBrush>
     		</Rectangle.Fill>
     	</Rectangle>
-    	<HyperlinkButton Content="Play" HorizontalAlignment="Left" Margin="170,268,0,16" Foreground="Red" NavigateUri="{Binding GameUri, Mode=OneWay}" d:LayoutOverrides="Height"/>
-    	<HyperlinkButton x:Name="HowToPlayHyperlinkButton" Content="How to play" HorizontalAlignment="Right" Margin="0,268,170,16" Foreground="Red" Click="HowToPlayHyperlinkButton_Click" d:LayoutOverrides="Height" />
+    	<HyperlinkButton Content="Play" HorizontalAlignment="Left" Margin="170,0,0,8" Foreground="Red" NavigateUri="{Binding GameUri, Mode=OneWay}" VerticalAlignment="Bottom"/>
+    	<HyperlinkButton x:Name="HowToPlayHyperlinkButton" Content="How to play" HorizontalAlignment="Right" Margin="0,0,170,8" Foreground="Red" Click="HowToPlayHyperlinkButton_Click" VerticalAlignment="Bottom" />
+    	<ScrollViewer Margin="8,0,8,28" Height="140" VerticalAlignment="Bottom">
+    		<TextBlock TextWrapping="Wrap"><Run Text="Strongly correlated materials are a wide class of materials that show unusual (often technologically useful) electronic and magnetic properties, such as metal-insulator transitions or half-metallicity. The essential feature that defines these materials is that their behavior cannot be described effectively in terms of non-interacting entities [1]"/><LineBreak/><Run Text="The most commonly known strongly correlated materials are high-temperature superconductors(high-Tc) which exhibit interesting conductive properties."/></TextBlock>
+    	</ScrollViewer>
 
     </Grid>
 </UserControl>

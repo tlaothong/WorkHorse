@@ -5,7 +5,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:TheS_Casinova_DevilSix="clr-namespace:TheS.Casinova.DevilSix" x:Class="TheS.Casinova.DevilSix.Controls.GameInformationsUI"
     mc:Ignorable="d"
-    d:DesignHeight="300" d:DesignWidth="400" Width="500" Height="300">
+    d:DesignHeight="300" d:DesignWidth="500" Width="Auto" Height="Auto">
     
 	<UserControl.Resources>
 		<TheS_Casinova_DevilSix:GameApplicationInformation x:Key="GameApplicationInformationDataSource" d:IsDataSource="True"/>
@@ -16,8 +16,7 @@
     
     <Grid x:Name="LayoutRoot" Background="White">
     	<Rectangle Fill="#FFF4F4F5" Stroke="Black"/>
-    	<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Name, Mode=OneWay}" VerticalAlignment="Top" Margin="8,109,0,0" FontWeight="Bold" FontSize="13.333"/>
-    	<TextBlock TextWrapping="Wrap" Text="The Devil (Greek: διάβολος or diávolos = 'slanderer' or 'accuser'[1]) is believed in many religions and cultures to be a powerful, supernatural entity that is the personification of evil and the enemy of God and humankind. The Devil is commonly associated with heretics, infidels, and other unbelievers. The Abrahamic religions have variously regarded the Devil as a rebellious fallen angel or demon that tempts humans to sin or commit evil deeds. Others regard the Devil as an allegory that represents a crisis of faith, individualism, free will, wisdom and enlightenment." Margin="20,132,20,0" VerticalAlignment="Top"/>
+    	<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Name, Mode=OneWay}" Margin="8,0,0,172" FontWeight="Bold" FontSize="13.333" VerticalAlignment="Bottom"/>
     	<Rectangle Stroke="Black" Margin="8,8,8,195">
     		<Rectangle.Fill>
     			<RadialGradientBrush>
@@ -26,8 +25,11 @@
     			</RadialGradientBrush>
     		</Rectangle.Fill>
     	</Rectangle>
-    	<HyperlinkButton Content="Play" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="170,0,0,16" Foreground="Red" NavigateUri="{Binding GameUri, Mode=OneWay}"/>
-    	<HyperlinkButton x:Name="HowToPlayHyperlinkButton" Content="How to play" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,170,16" Foreground="Red" Click="HowToPlayHyperlinkButton_Click" />
+    	<HyperlinkButton Content="Play" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="170,0,0,8" Foreground="Red" NavigateUri="{Binding GameUri, Mode=OneWay}"/>
+    	<HyperlinkButton x:Name="HowToPlayHyperlinkButton" Content="How to play" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,170,8" Foreground="Red" Click="HowToPlayHyperlinkButton_Click" />
+    	<ScrollViewer Margin="8,0,8,28" Height="140" VerticalAlignment="Bottom">
+    		<TextBlock TextWrapping="Wrap" Text="The Devil (Greek: διάβολος or diávolos = 'slanderer' or 'accuser'[1]) is believed in many religions and cultures to be a powerful, supernatural entity that is the personification of evil and the enemy of God and humankind. The Devil is commonly associated with heretics, infidels, and other unbelievers. The Abrahamic religions have variously regarded the Devil as a rebellious fallen angel or demon that tempts humans to sin or commit evil deeds. Others regard the Devil as an allegory that represents a crisis of faith, individualism, free will, wisdom and enlightenment."/>
+    	</ScrollViewer>
 
     </Grid>
 </UserControl>
