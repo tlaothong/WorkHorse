@@ -21,12 +21,12 @@ namespace TheS.Casinova.Colors.Popups
             InitializeComponent();
         }
 
-        private void OKButton_Click(object sender, RoutedEventArgs e)
+        private void BetDataButton_Click(object sender, RoutedEventArgs e)
         {
             this.DialogResult = true;
         }
 
-        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        private void GraphButton_Click(object sender, RoutedEventArgs e)
         {
             this.DialogResult = false;
         }
