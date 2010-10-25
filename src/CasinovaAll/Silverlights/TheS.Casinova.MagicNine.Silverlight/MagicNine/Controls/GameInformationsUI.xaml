@@ -3,30 +3,31 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:TheS_Casinova_Colors="clr-namespace:TheS.Casinova.Colors" x:Class="TheS.Casinova.Colors.Controls.GameInformationsUI"
+    xmlns:TheS_Casinova_MagicNine="clr-namespace:TheS.Casinova.MagicNine" x:Class="TheS.Casinova.MagicNine.Controls.GameInformationsUI"
     mc:Ignorable="d"
     d:DesignHeight="300" d:DesignWidth="400" Width="500" Height="300">
     
 	<UserControl.Resources>
-		<TheS_Casinova_Colors:GameApplicationInformation x:Key="GameApplicationInformationDataSource" d:IsDataSource="True"/>
+		<TheS_Casinova_MagicNine:GameApplicationInformation x:Key="GameApplicationInformationDataSource" d:IsDataSource="True"/>
 	</UserControl.Resources>
 	<UserControl.DataContext>
 		<Binding Source="{StaticResource GameApplicationInformationDataSource}"/>
 	</UserControl.DataContext>
     
-    <Grid x:Name="LayoutRoot">
+    <Grid x:Name="LayoutRoot" Background="White">
     	<Rectangle Fill="#FFF4F4F5" Stroke="Black"/>
     	<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Name, Mode=OneWay}" VerticalAlignment="Top" Margin="8,109,0,0" FontWeight="Bold" FontSize="13.333"/>
-    	<TextBlock TextWrapping="Wrap" Text="Color or colour (see spelling differences) is the visual perceptual property corresponding in humans to the categories called red, green, blue and others. Color derives from the spectrum of light (distribution of light energy versus wavelength) interacting in the eye with the spectral sensitivities of the light receptors. Color categories and physical specifications of color are also associated with objects, materials, light sources, etc., based on their physical properties such as light absorption, reflection, or emission spectra. By defining a color space, colors can be identified numerically by their coordinates." Margin="20,132,20,0" VerticalAlignment="Top"/>
+    	<TextBlock TextWrapping="Wrap" Text="Magic often utilizes symbols that are thought to be intrinsically efficacious. Anthropologists, such as Sir James Frazer (1854–1938), have characterized the implementation of symbols into two primary categories: the “principle of similarity,” and the “principle of contagion.” Frazer further categorized these principles as falling under “sympathetic magic,” and “contagious magic.” Frazer asserted that these concepts were “general or generic laws of thought, which were misapplied in magic.”[10]" Margin="20,132,20,0" VerticalAlignment="Top"/>
     	<Rectangle Stroke="Black" Margin="8,8,8,195">
     		<Rectangle.Fill>
     			<RadialGradientBrush>
-    				<GradientStop Color="#FFE24444" Offset="0.123"/>
-    				<GradientStop Color="#FFFFAF00" Offset="1"/>
+    				<GradientStop Color="#FFD244E2" Offset="0.123"/>
+    				<GradientStop Color="#FF00CAFF" Offset="1"/>
     			</RadialGradientBrush>
     		</Rectangle.Fill>
     	</Rectangle>
     	<HyperlinkButton Content="Play" HorizontalAlignment="Left" Margin="170,268,0,16" Foreground="Red" NavigateUri="{Binding GameUri, Mode=OneWay}" d:LayoutOverrides="Height"/>
     	<HyperlinkButton x:Name="HowToPlayHyperlinkButton" Content="How to play" HorizontalAlignment="Right" Margin="0,268,170,16" Foreground="Red" Click="HowToPlayHyperlinkButton_Click" d:LayoutOverrides="Height" />
+
     </Grid>
 </UserControl>

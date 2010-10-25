@@ -10,13 +10,19 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace TheS.Casinova.TwoWins.Controls
+namespace TheS.Casinova.MagicNine.Controls
 {
-    public partial class GameUI : UserControl
+    public partial class GameInformationsUI : UserControl
     {
-        public GameUI()
+        public GameInformationsUI()
         {
             InitializeComponent();
+        }
+
+        private void HowToPlayHyperlinkButton_Click(object sender, RoutedEventArgs e)
+        {
+            Views.HowToPlayWindow htpw = new Views.HowToPlayWindow();
+            htpw.Show();
         }
     }
 }

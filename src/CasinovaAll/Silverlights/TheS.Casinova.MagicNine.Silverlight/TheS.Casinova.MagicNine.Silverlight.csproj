@@ -64,6 +64,7 @@
     <Reference Include="PerfEx.Infrastructure.Silverlight">
       <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Silverlight.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.Composition, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Windows" />
     <Reference Include="system" />
     <Reference Include="System.Core" />
@@ -76,6 +77,10 @@
     <Reference Include="System.Windows.Browser" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MagicNine\Controls\GameInformationsUI.xaml.cs">
+      <DependentUpon>GameInformationsUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MagicNine\GameApplicationInformation.cs" />
     <Compile Include="MagicNine\Silverlight\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -94,6 +99,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="MagicNine\Controls\GameInformationsUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MagicNine\Silverlight\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
