@@ -10,16 +10,14 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace TheS.Casinova.PlayerAccount.Views
+namespace TheS.Casinova.PlayerProfile.Views
 {
-    public partial class PlayerAccountManagerWindow : ChildWindow
+    public partial class AccountManagerWindow : ChildWindow
     {
-        private bool _isSingleSearchOption;
-
-        public PlayerAccountManagerWindow()
+        public AccountManagerWindow()
         {
             InitializeComponent();
-            AccountInformationContentPresenter.Content = new PlayerInformationPage();
+            AccountInformationContentPresenter.Content= new AccountManagerInformationPage();
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
@@ -40,21 +38,14 @@ namespace TheS.Casinova.PlayerAccount.Views
 
         private void showChipExchangWindow(int menuTablSelected = 0)
         {
-            ChipExchange.Views.ChipExchangeWindow cew = new ChipExchange.Views.ChipExchangeWindow();
-            cew.MenuTabControl.SelectedIndex = menuTablSelected;
-            cew.Show();
+            ChipExchange.Views.DepositWindow dw = new ChipExchange.Views.DepositWindow();
+            dw.MenuTabControl.SelectedIndex = menuTablSelected;
+            dw.Show();
         }
 
-        private void LogEventOptionButton_Click(object sender, RoutedEventArgs e)
+        private void MLNDepositButton_Click(object sender, RoutedEventArgs e)
         {
-            // TODO : Change search option state
-            const string SingleSearchOption = "Single";
-            const string RangeSearchOption = "Range";
-
-            if (!_isSingleSearchOption) VisualStateManager.GoToState(this, RangeSearchOption, false);
-            else VisualStateManager.GoToState(this, SingleSearchOption, false);
-
-            _isSingleSearchOption = !_isSingleSearchOption;
+            showChipExchangWindow();
         }
     }
 }

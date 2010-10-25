@@ -88,8 +88,8 @@
     <Compile Include="ChipExchange\Controls\ChipAmountUI.xaml.cs">
       <DependentUpon>ChipAmountUI.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ChipExchange\Views\ChipExchangeWindow.xaml.cs">
-      <DependentUpon>ChipExchangeWindow.xaml</DependentUpon>
+    <Compile Include="ChipExchange\Views\DepositWindow.xaml.cs">
+      <DependentUpon>DepositWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MLN\MultiLevelNetworkWindow.xaml.cs">
       <DependentUpon>MultiLevelNetworkWindow.xaml</DependentUpon>
@@ -100,14 +100,14 @@
     <Compile Include="PlayerAccount\Silverlight\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PlayerAccount\Views\PlayerAccountManagerWindow.xaml.cs">
-      <DependentUpon>PlayerAccountManagerWindow.xaml</DependentUpon>
+    <Compile Include="PlayerProfile\Views\AccountManagerEditPage.xaml.cs">
+      <DependentUpon>AccountManagerEditPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PlayerAccount\Views\PlayerInformationEditPage.xaml.cs">
-      <DependentUpon>PlayerInformationEditPage.xaml</DependentUpon>
+    <Compile Include="PlayerProfile\Views\AccountManagerInformationPage.xaml.cs">
+      <DependentUpon>AccountManagerInformationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PlayerAccount\Views\PlayerInformationPage.xaml.cs">
-      <DependentUpon>PlayerInformationPage.xaml</DependentUpon>
+    <Compile Include="PlayerProfile\Views\AccountManagerWindow.xaml.cs">
+      <DependentUpon>AccountManagerWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -120,7 +120,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ChipExchange\Views\ChipExchangeWindow.xaml">
+    <Page Include="ChipExchange\Views\DepositWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -132,15 +132,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PlayerAccount\Views\PlayerAccountManagerWindow.xaml">
+    <Page Include="PlayerProfile\Views\AccountManagerEditPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PlayerAccount\Views\PlayerInformationEditPage.xaml">
+    <Page Include="PlayerProfile\Views\AccountManagerInformationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PlayerAccount\Views\PlayerInformationPage.xaml">
+    <Page Include="PlayerProfile\Views\AccountManagerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -149,7 +149,7 @@
     <None Include="Properties\AppManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="PlayerProfile\" />
+    <Folder Include="PlayerAccount\Views\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TheS.Casinova.Common.Silverlight\TheS.Casinova.Common.Silverlight.csproj">

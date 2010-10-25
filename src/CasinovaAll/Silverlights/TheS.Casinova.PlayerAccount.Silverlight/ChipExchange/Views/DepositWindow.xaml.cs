@@ -12,9 +12,9 @@ using System.Windows.Shapes;
 
 namespace TheS.Casinova.ChipExchange.Views
 {
-    public partial class ChipExchangeWindow : ChildWindow
+    public partial class DepositWindow : ChildWindow
     {
-        public ChipExchangeWindow()
+        public DepositWindow()
         {
             InitializeComponent();
         }

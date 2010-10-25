@@ -11,11 +11,11 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Windows.Navigation;
 
-namespace TheS.Casinova.PlayerAccount.Views
+namespace TheS.Casinova.PlayerProfile.Views
 {
-    public partial class PlayerInformationPage : Page
+    public partial class AccountManagerEditPage : Page
     {
-        public PlayerInformationPage()
+        public AccountManagerEditPage()
         {
             InitializeComponent();
         }
