@@ -86,7 +86,7 @@
     <Compile Include="Fortune\Silverlight\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Fortune\ViewModels\FortuneWindowViewModel.cs" />
+    <Compile Include="Fortune\ViewModels\FortuneViewModel.cs" />
     <Compile Include="Fortune\Views\FortuneWindow.xaml.cs">
       <DependentUpon>FortuneWindow.xaml</DependentUpon>
     </Compile>

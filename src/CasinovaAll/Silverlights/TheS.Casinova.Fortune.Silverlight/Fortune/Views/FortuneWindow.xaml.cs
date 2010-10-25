@@ -29,7 +29,7 @@ namespace TheS.Casinova.Fortune.Views
 
         private void CardButton_Click(object sender, RoutedEventArgs e)
         {
-            ((FortuneWindowViewModel)DataContext).GetCardInformation();
+            ((FortuneViewModel)DataContext).GetCardInformation();
         }
     }
 }

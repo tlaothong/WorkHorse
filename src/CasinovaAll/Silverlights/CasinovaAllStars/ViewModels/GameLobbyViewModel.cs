@@ -14,9 +14,9 @@ using TheS.Casinova.Common;
 
 namespace CasinovaAllStars.ViewModels
 {
-    public class GameLobbyPageViewModel : INotifyPropertyChanged
+    public class GameLobbyViewModel : INotifyPropertyChanged
     {
-        public GameLobbyPageViewModel()
+        public GameLobbyViewModel()
         {
             if (App.SupportContentDownloaded == false)
             {

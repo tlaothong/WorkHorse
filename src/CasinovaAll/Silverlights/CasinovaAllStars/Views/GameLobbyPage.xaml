@@ -9,7 +9,7 @@
            d:DesignWidth="640" d:DesignHeight="480"
            Title="GameLobbyPage Page">
 	<navigation:Page.Resources>
-		<CasinovaAllStars_ViewModels:GameLobbyPageViewModel x:Key="GameLobbyPageViewModelDataSource" d:IsDataSource="True"/>
+		<CasinovaAllStars_ViewModels:GameLobbyViewModel x:Key="GameLobbyPageViewModelDataSource" d:IsDataSource="True"/>
 		<DataTemplate x:Key="GameRoomsListTemplate">
 			<StackPanel>
 				<TextBlock Text="{Binding Name}"/>

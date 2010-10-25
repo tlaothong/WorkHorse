@@ -13,7 +13,7 @@ using PerfEx.Infrastructure;
 
 namespace TheS.Casinova.Fortune.ViewModels
 {
-    public class FortuneWindowViewModel : INotifyPropertyChanged
+    public class FortuneViewModel : INotifyPropertyChanged
     {
 
         private PropertyChangedNotifier _notify;
@@ -44,7 +44,7 @@ namespace TheS.Casinova.Fortune.ViewModels
             }
         }
 
-        public FortuneWindowViewModel()
+        public FortuneViewModel()
         {
             _notify = new PropertyChangedNotifier(this, () => PropertyChanged);
         }
