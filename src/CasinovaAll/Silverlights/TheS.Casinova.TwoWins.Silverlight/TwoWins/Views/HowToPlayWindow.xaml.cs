@@ -9,27 +9,19 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
-using TheS.Casinova.Fortune.ViewModels;
-using PerfEx.Infrastructure.Mvvm;
 
-namespace TheS.Casinova.Fortune.Views
+namespace TheS.Casinova.TwoWins.Views
 {
-    public partial class FortuneWindow : ChildWindow
+    public partial class HowToPlayWindow : ChildWindow
     {
-        public FortuneWindow()
+        public HowToPlayWindow()
         {
             InitializeComponent();
-            MvvmBinder.Bind(this, DataContext);
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = true;
-        }
-
-        private void CardButton_Click(object sender, RoutedEventArgs e)
-        {
-            ((FortuneWindowViewModel)DataContext).GetCardInformation();
+            this.DialogResult = false;
         }
     }
 }

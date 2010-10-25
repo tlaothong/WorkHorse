@@ -91,6 +91,9 @@
     <Compile Include="ChipExchange\Views\ChipExchangeWindow.xaml.cs">
       <DependentUpon>ChipExchangeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MLN\MultiLevelNetworkWindow.xaml.cs">
+      <DependentUpon>MultiLevelNetworkWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PlayerAccount\Silverlight\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -99,6 +102,12 @@
     </Compile>
     <Compile Include="PlayerAccount\Views\PlayerAccountManagerWindow.xaml.cs">
       <DependentUpon>PlayerAccountManagerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerAccount\Views\PlayerInformationEditPage.xaml.cs">
+      <DependentUpon>PlayerInformationEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerAccount\Views\PlayerInformationPage.xaml.cs">
+      <DependentUpon>PlayerInformationPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -115,6 +124,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MLN\MultiLevelNetworkWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PlayerAccount\Silverlight\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -123,12 +136,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PlayerAccount\Views\PlayerInformationEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlayerAccount\Views\PlayerInformationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="MLN\" />
     <Folder Include="PlayerProfile\" />
   </ItemGroup>
   <ItemGroup>
@@ -138,7 +158,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ChipExchange\Views\Image3.png" />
+    <Resource Include="Assets\Images\mln.png" />
+    <Resource Include="Assets\Images\question.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

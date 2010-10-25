@@ -86,6 +86,9 @@
     <Compile Include="DevilSix\ViewModels\PageThreeViewModel.cs" />
     <Compile Include="DevilSix\ViewModels\PageTwoViewModel.cs" />
     <Compile Include="DevilSix\ViewModels\MainPageViewModel.cs" />
+    <Compile Include="DevilSix\Views\HowToPlayWindow.xaml.cs">
+      <DependentUpon>HowToPlayWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -94,6 +97,10 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="DevilSix\Silverlight\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DevilSix\Views\HowToPlayWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

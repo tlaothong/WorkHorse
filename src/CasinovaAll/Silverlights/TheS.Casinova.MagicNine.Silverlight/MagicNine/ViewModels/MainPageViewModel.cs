@@ -64,8 +64,10 @@ namespace TheS.Casinova.MagicNine.ViewModels
             get { return _amount; }
             set
             {
-                _amount = value;
-                _notify.Raise(() => Amount);
+                if (_amount!=value) {
+                    _amount = value;
+                    _notify.Raise(() => Amount); 
+                }
             }
         }
 
@@ -77,8 +79,10 @@ namespace TheS.Casinova.MagicNine.ViewModels
             get { return _pot; }
             set
             {
-                _pot = value;
-                _notify.Raise(() => Pot);
+                if (_pot!=value) {
+                    _pot = value;
+                    _notify.Raise(() => Pot); 
+                }
             }
         }
 

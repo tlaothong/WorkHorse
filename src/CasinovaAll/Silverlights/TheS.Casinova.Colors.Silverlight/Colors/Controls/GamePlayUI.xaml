@@ -9,7 +9,7 @@
 	d:DesignWidth="640" d:DesignHeight="480">
 
 	<UserControl.Resources>
-		<TheS_Casinova_Colors_ViewModels:GamePlayModel x:Key="GamePlayModelDataSource" d:IsDataSource="True"/>
+		<TheS_Casinova_Colors_ViewModels:GamePlayPageViewModel x:Key="GamePlayModelDataSource" d:IsDataSource="True"/>
 	</UserControl.Resources>
 	<UserControl.DataContext>
 		<Binding Source="{StaticResource GamePlayModelDataSource}"/>

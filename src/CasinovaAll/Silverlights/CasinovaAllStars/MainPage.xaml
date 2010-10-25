@@ -14,7 +14,7 @@
         <Border x:Name="ContentBorder" Style="{StaticResource ContentBorderStyle}" Margin="0,42,0,150">
 
             <navigation:Frame x:Name="ContentFrame" Style="{StaticResource ContentFrameStyle}" 
-                              Source="/Page1" Navigated="ContentFrame_Navigated" NavigationFailed="ContentFrame_NavigationFailed">
+                              Source="/GameLobbyPage" Navigated="ContentFrame_Navigated" NavigationFailed="ContentFrame_NavigationFailed">
                 <navigation:Frame.UriMapper>
                   <uriMapper:UriMapper>
                     <uriMapper:UriMapping Uri="" MappedUri="/Views/Home.xaml"/>
@@ -40,27 +40,14 @@
             </Border>
 
             <Border x:Name="LinksBorder" Style="{StaticResource LinksBorderStyle}" Margin="0,0,90,0">
-                <StackPanel x:Name="LinksStackPanel" Style="{StaticResource LinksStackPanelStyle}">
-
-                    <Button Content="Button 01" Style="{StaticResource MenuButtonStyle}" Foreground="White" Width="75"/>
-                    <Rectangle Style="{StaticResource DividerStyle}"/>
-                    
-                    <Button Content="Button 02" Style="{StaticResource MenuButtonStyle}" Foreground="White" Width="75"/>
-                    <Rectangle Style="{StaticResource DividerStyle}"/>
-                    
-                    <HyperlinkButton x:Name="Link1" Style="{StaticResource LinkStyle}" 
-                                     NavigateUri="/Home" TargetName="ContentFrame" Content="home"/>
+                <StackPanel x:Name="LinksStackPanel" Style="{StaticResource LinksStackPanelStyle}">                 
+                    <HyperlinkButton x:Name="DepositHyperlinkButton" Style="{StaticResource LinkStyle}" Content="Deposit" Click="DepositHyperlinkButton_Click" />
 									 
                     <Rectangle x:Name="Divider1" Style="{StaticResource DividerStyle}"/>
-					
-                    <HyperlinkButton x:Name="Link2" Style="{StaticResource LinkStyle}" 
-                                     NavigateUri="/Page1" TargetName="ContentFrame" Content="about"/>
+
+                    <HyperlinkButton x:Name="AccountManagerHyperlinkButton" Style="{StaticResource LinkStyle}" Content="Account manager" Click="AccountManagerHyperlinkButton_Click" />
 
                     <Rectangle x:Name="Divider2" Style="{StaticResource DividerStyle}"/>
-
-                    <HyperlinkButton x:Name="Link3" Style="{StaticResource LinkStyle}" 
-                                     NavigateUri="/mef/nav/colors_gameInfo" TargetName="ContentFrame" Content="game info"/>
-                    <Button Content="Statistics" Height="23" Name="StatisticsButton" Width="75" Click="StatisticsButton_Click" />
                 </StackPanel>
             </Border>
 

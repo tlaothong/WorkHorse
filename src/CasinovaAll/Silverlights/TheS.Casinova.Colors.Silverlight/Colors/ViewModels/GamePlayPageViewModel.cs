@@ -13,7 +13,7 @@ using PerfEx.Infrastructure;
 
 namespace TheS.Casinova.Colors.ViewModels
 {
-    public class GamePlayModel : INotifyPropertyChanged
+    public class GamePlayPageViewModel : INotifyPropertyChanged
     {
         private PropertyChangedNotifier _notify;
         private TimeSpan _gameTime;
@@ -27,8 +27,10 @@ namespace TheS.Casinova.Colors.ViewModels
             get { return _totalAmountOfWhite; }
             set
             {
-                _totalAmountOfWhite = value;
-                _notify.Raise(() => TotalAmountOfWhite);
+                if (_totalAmountOfWhite!=value) {
+                    _totalAmountOfWhite = value;
+                    _notify.Raise(() => TotalAmountOfWhite); 
+                }
             }
         }
 
@@ -37,8 +39,10 @@ namespace TheS.Casinova.Colors.ViewModels
             get { return _totalAmountOfBlack; }
             set
             {
-                _totalAmountOfBlack = value;
-                _notify.Raise(() => TotalAmountOfBlack);
+                if (_totalAmountOfBlack!=value) {
+                    _totalAmountOfBlack = value;
+                    _notify.Raise(() => TotalAmountOfBlack); 
+                }
             }
         }
 
@@ -47,8 +51,10 @@ namespace TheS.Casinova.Colors.ViewModels
             get { return _winnerInformation; }
             set
             {
-                _winnerInformation = value;
-                _notify.Raise(() => WinnerInformation);
+                if (_winnerInformation!=value) {
+                    _winnerInformation = value;
+                    _notify.Raise(() => WinnerInformation); 
+                }
             }
         }
 
@@ -58,8 +64,10 @@ namespace TheS.Casinova.Colors.ViewModels
             get { return _winner; }
             set
             {
-                _winner = value;
-                _notify.Raise(() => Winner);
+                if (_winner!=value) {
+                    _winner = value;
+                    _notify.Raise(() => Winner); 
+                }
             }
         }
 
@@ -73,7 +81,7 @@ namespace TheS.Casinova.Colors.ViewModels
             }
         }
 
-        public GamePlayModel()
+        public GamePlayPageViewModel()
         {
             _notify = new PropertyChangedNotifier(this, () => PropertyChanged);
         }

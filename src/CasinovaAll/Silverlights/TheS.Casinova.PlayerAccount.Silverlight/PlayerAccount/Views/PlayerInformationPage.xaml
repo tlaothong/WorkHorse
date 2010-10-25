@@ -1,0 +1,20 @@
+﻿<navigation:Page x:Class="TheS.Casinova.PlayerAccount.Views.PlayerInformationPage" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="PlayerInformationPage Page" Width="600" Height="200">
+    <Grid x:Name="LayoutRoot">
+    	<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" Margin="8,8,0,0" FontWeight="Bold"/>
+    	<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Gender:" VerticalAlignment="Top" Margin="8,28,0,0" FontWeight="Bold"/>
+    	<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top" Margin="8,48,0,0" FontWeight="Bold"/>
+    	<TextBlock x:Name="NameTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="NameTextBlock" VerticalAlignment="Top" Margin="52,8,0,0"/>
+    	<TextBlock x:Name="GenderTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="GenderTextBlock" VerticalAlignment="Top" Margin="61,28,0,0"/>
+    	<TextBlock x:Name="EmailTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="EmailTextBlock" VerticalAlignment="Top" Margin="50,48,0,0"/>
+    	<HyperlinkButton x:Name="EditHyperlinkButton" Content="Edit" HorizontalAlignment="Right" Margin="0,0,8,8" VerticalAlignment="Bottom" NavigateUri="/TheS.Casinova.PlayerAccount.Silverlight;component/PlayerAccount/Views/PlayerInformationEditPage.xaml"/>
+
+    </Grid>
+</navigation:Page>

@@ -10,13 +10,12 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Windows.Navigation;
-using CasinovaAllStars.ViewModels;
 
-namespace CasinovaAllStars.Views
+namespace TheS.Casinova.PlayerAccount.Views
 {
-    public partial class Page1 : Page
+    public partial class PlayerInformationEditPage : Page
     {
-        public Page1()
+        public PlayerInformationEditPage()
         {
             InitializeComponent();
         }
@@ -24,12 +23,6 @@ namespace CasinovaAllStars.Views
         // Executes when the user navigates to this page.
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-        }
-
-        protected override void OnNavigatedFrom(NavigationEventArgs e)
-        {
-            infoContentPresenter.Content = null;
-            base.OnNavigatedFrom(e);
         }
 
     }

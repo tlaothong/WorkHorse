@@ -14,14 +14,16 @@ using System.Collections.ObjectModel;
 
 namespace CasinovaAllStars.ViewModels
 {
-    public class StatisticsModel : INotifyPropertyChanged
+    public class StatisticsViewModel : INotifyPropertyChanged
     {
+        #region Properties
+
         public ReadOnlyObservableCollection<Lazy<UserControl, IGameStatContentMetadata>> StatContents
         {
             get { return App.ModuleLoader.GameStatContents; }
         }
 
-        public StatisticsModel()
+        public StatisticsViewModel()
         {
             if (App.SupportContentDownloaded == false) {
                 App.SupportContentDownloadCompleted += new EventHandler(App_SupportContentDownloadCompleted);
@@ -35,6 +37,8 @@ namespace CasinovaAllStars.ViewModels
                 temp(this, new PropertyChangedEventArgs("StatContents"));
             }
         }
+
+        #endregion Properties
 
         #region INotifyPropertyChanged member
 

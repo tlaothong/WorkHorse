@@ -6,7 +6,7 @@
            Width="640" Height="550" 
            Title="FortuneWindow" FontSize="21.333">
 	<controls:ChildWindow.Resources>
-		<TheS_Casinova_Fortune_ViewModels:FortuneModel x:Key="FortuneModelDataSource" d:IsDataSource="True"/>
+		<TheS_Casinova_Fortune_ViewModels:FortuneWindowViewModel x:Key="FortuneModelDataSource" d:IsDataSource="True"/>
 		<Style x:Key="CardButton" TargetType="Button">
 			<Setter Property="Template">
 				<Setter.Value>

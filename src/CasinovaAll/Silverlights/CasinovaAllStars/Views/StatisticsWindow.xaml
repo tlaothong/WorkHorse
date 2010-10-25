@@ -6,7 +6,7 @@
            Width="640" Height="550" 
            Title="StatisticsWindow" FontSize="21.333">
 	<controls:ChildWindow.Resources>
-		<CasinovaAllStars_ViewModels:StatisticsModel x:Key="StatisticsModelDataSource" d:IsDataSource="True"/>
+		<CasinovaAllStars_ViewModels:StatisticsViewModel x:Key="StatisticsModelDataSource" d:IsDataSource="True"/>
 		<DataTemplate x:Key="DataTemplate">
 			<StackPanel>
 				<CheckBox IsChecked="{Binding IsValueCreated, Mode=OneWay}"/>

@@ -56,5 +56,17 @@ namespace CasinovaAllStars
             CasinovaAllStars.Views.StatisticsWindow sw = new Views.StatisticsWindow();
             sw.Show();
         }
+
+        private void DepositHyperlinkButton_Click(object sender, RoutedEventArgs e)
+        {
+            // TODO : Display Deposit child windows
+            MessageBox.Show("Display 'Deposit' child windows");
+        }
+
+        private void AccountManagerHyperlinkButton_Click(object sender, RoutedEventArgs e)
+        {
+            // TODO : Display Account manager child windows
+            MessageBox.Show("Display 'Account manager' child windows");
+        }
     }
 }

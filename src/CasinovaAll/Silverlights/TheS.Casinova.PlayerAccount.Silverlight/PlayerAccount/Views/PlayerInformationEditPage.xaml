@@ -1,0 +1,34 @@
+﻿<navigation:Page x:Class="TheS.Casinova.PlayerAccount.Views.PlayerInformationEditPage" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="PlayerInformationEditPage Page" Width="600" Height="200">
+    <Grid x:Name="LayoutRoot">
+    	<Grid Height="93" VerticalAlignment="Top">
+    		<Rectangle Fill="#FFF4F4F5" Stroke="Black"/>
+
+    		<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" Margin="8,12,0,0" FontWeight="Bold" Width="62"/>
+    		<TextBox x:Name="NameTextBlock" TextWrapping="Wrap" Text="NameTextBlock" VerticalAlignment="Top" Margin="74,8,8,0"/>
+    		<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Gender:" Margin="8,0,0,11" FontWeight="Bold" Width="62" VerticalAlignment="Bottom"/>
+    		<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Email:" Margin="8,40,0,37" FontWeight="Bold" Width="62" d:LayoutOverrides="Height"/>
+    		<TextBox x:Name="EmailTextBlock" TextWrapping="Wrap" Text="EmailTextBlock" Margin="74,36,8,33" d:LayoutOverrides="Height"/>
+    		<ComboBox x:Name="GenderComboBox" Margin="74,0,8,9" VerticalAlignment="Bottom"/>
+    	</Grid>
+    	<Grid Margin="0,97,0,0">
+    		<Rectangle Fill="#FFDADADA" Stroke="Black"/>
+    		<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Current password:" VerticalAlignment="Bottom" Margin="8,0,0,19" FontWeight="Bold"/>
+    		<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="New password:" Margin="8,12,0,0" FontWeight="Bold" VerticalAlignment="Top"/>
+    		<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Confirm password:" Margin="7,39,0,48" FontWeight="Bold" d:LayoutOverrides="Height"/>
+    		<TextBox x:Name="NewPasswordTextBlock" TextWrapping="Wrap" Text="NewPasswordTextBlock" VerticalAlignment="Top" Margin="128,8,100,0"/>
+    		<TextBox x:Name="ConfirmPasswordTextBlock" TextWrapping="Wrap" Text="ConfirmPasswordTextBlock" Margin="128,36,100,43" d:LayoutOverrides="Height"/>
+    		<TextBox x:Name="CurrentPasswordTextBlock" TextWrapping="Wrap" Text="CurrentPasswordTextBlock" Margin="128,0,100,15" VerticalAlignment="Bottom"/>
+    		<HyperlinkButton x:Name="SaveHyperlinkButton" Content="Save" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,8,8" NavigateUri="/TheS.Casinova.PlayerAccount.Silverlight;component/PlayerAccount/Views/PlayerInformationPage.xaml"/>
+
+    	</Grid>
+
+    </Grid>
+</navigation:Page>

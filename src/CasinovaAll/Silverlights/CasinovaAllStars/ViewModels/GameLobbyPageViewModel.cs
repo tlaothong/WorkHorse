@@ -8,18 +8,15 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using System.ComponentModel;
 using System.Collections.ObjectModel;
 using TheS.Casinova.Common;
-using System.ComponentModel.Composition;
-using System.ComponentModel;
-using System.Linq;
-using System.Collections.Generic;
 
 namespace CasinovaAllStars.ViewModels
 {
-    public class Page1ViewModel : INotifyPropertyChanged
+    public class GameLobbyPageViewModel : INotifyPropertyChanged
     {
-        public Page1ViewModel()
+        public GameLobbyPageViewModel()
         {
             if (App.SupportContentDownloaded == false)
             {

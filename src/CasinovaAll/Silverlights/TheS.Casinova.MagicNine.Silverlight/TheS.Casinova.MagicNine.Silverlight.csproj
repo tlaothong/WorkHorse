@@ -84,6 +84,9 @@
     </Compile>
     <Compile Include="MagicNine\ViewModels\MainPageViewModel.cs" />
     <Compile Include="MagicNine\ViewModels\TimeIntervalViewModel.cs" />
+    <Compile Include="MagicNine\Views\HowToPlayWindow.xaml.cs">
+      <DependentUpon>HowToPlayWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -92,6 +95,10 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="MagicNine\Silverlight\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MagicNine\Views\HowToPlayWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -105,9 +112,7 @@
       <Name>TheS.Casinova.Common.Silverlight</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="MagicNine\ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

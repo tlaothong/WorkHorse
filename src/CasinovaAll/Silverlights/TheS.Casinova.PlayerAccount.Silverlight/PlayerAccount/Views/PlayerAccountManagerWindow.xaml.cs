@@ -19,6 +19,7 @@ namespace TheS.Casinova.PlayerAccount.Views
         public PlayerAccountManagerWindow()
         {
             InitializeComponent();
+            AccountInformationContentPresenter.Content = new PlayerInformationPage();
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
