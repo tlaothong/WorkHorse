@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using TheS.Casinova.Colors.Models;
+using TheS.Casinova.TwoWins.Models;
 
-namespace TheS.Casinova.Colors.Commands
+namespace TheS.Casinova.TwoWins.Commands
 {
     /// <summary>
     /// list ข้อมูลโต๊ะเกมที่กำลัง active

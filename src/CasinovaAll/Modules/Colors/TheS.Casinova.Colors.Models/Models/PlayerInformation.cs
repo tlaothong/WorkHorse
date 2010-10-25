@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
 
-namespace TheS.Casinova.Colors.Models
+namespace TheS.Casinova.TwoWins.Models
 {
     /// <summary>
     /// ข้อมูลผู้เล่น

@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using TheS.Casinova.Colors.Commands;
+using TheS.Casinova.TwoWins.Commands;
 using PerfEx.Infrastructure.CommandPattern;
-using TheS.Casinova.Colors.DAL;
+using TheS.Casinova.TwoWins.DAL;
 
-namespace TheS.Casinova.Colors.BackServices.BackExecutors
+namespace TheS.Casinova.TwoWins.BackServices.BackExecutors
 {
     public class CreateGameRoundConfigurationExecutor
         : SynchronousCommandExecutorBase<CreateGameRoundConfigurationCommand>

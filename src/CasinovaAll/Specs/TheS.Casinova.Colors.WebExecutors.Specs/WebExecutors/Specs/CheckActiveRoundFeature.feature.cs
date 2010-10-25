@@ -9,7 +9,7 @@
 //  </auto-generated>
 // ------------------------------------------------------------------------------
 #region Designer generated code
-namespace TheS.Casinova.Colors.WebExecutors.Specs
+namespace TheS.Casinova.TwoWins.WebExecutors.Specs
 {
     using TechTalk.SpecFlow;
     

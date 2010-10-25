@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
 
-namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
+namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
 {
     [Binding]
     public class CheckActiveRoundSteps

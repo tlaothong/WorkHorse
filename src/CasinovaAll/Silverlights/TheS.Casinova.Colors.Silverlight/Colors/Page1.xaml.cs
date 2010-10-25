@@ -12,7 +12,7 @@ using System.Windows.Shapes;
 using System.Windows.Navigation;
 using TheS.Casinova.Common;
 
-namespace TheS.Casinova.Colors
+namespace TheS.Casinova.TwoWins
 {
     //[ExportContentNavigation(GameApplicationInformation.GameInfoNavigationCode)]
     public partial class Page1 : Page, INavigablePage

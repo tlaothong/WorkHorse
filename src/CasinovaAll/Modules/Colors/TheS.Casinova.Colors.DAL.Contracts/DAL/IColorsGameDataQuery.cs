@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using TheS.Casinova.Colors.Commands;
-using TheS.Casinova.Colors.Models;
+using TheS.Casinova.TwoWins.Commands;
+using TheS.Casinova.TwoWins.Models;
 using PerfEx.Infrastructure.Data;
 
-namespace TheS.Casinova.Colors.DAL
+namespace TheS.Casinova.TwoWins.DAL
 {
     public interface IColorsGameDataQuery :
         IListActiveGameRounds,
