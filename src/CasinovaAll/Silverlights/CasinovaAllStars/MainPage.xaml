@@ -59,8 +59,8 @@
                     <Rectangle x:Name="Divider2" Style="{StaticResource DividerStyle}"/>
 
                     <HyperlinkButton x:Name="Link3" Style="{StaticResource LinkStyle}" 
-                                     NavigateUri="/mef/nav/colors_gameInfo" TargetName="ContentFrame" Content="game info"/>                    
-
+                                     NavigateUri="/mef/nav/colors_gameInfo" TargetName="ContentFrame" Content="game info"/>
+                    <Button Content="Statistics" Height="23" Name="StatisticsButton" Width="75" Click="StatisticsButton_Click" />
                 </StackPanel>
             </Border>
 
