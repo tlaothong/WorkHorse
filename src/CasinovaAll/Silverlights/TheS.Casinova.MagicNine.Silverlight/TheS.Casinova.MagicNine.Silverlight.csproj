@@ -80,6 +80,9 @@
     <Compile Include="MagicNine\Controls\GameInformationsUI.xaml.cs">
       <DependentUpon>GameInformationsUI.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MagicNine\Controls\GamePlayUI.xaml.cs">
+      <DependentUpon>GamePlayUI.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MagicNine\GameApplicationInformation.cs" />
     <Compile Include="MagicNine\Silverlight\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -100,6 +103,10 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="MagicNine\Controls\GameInformationsUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MagicNine\Controls\GamePlayUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

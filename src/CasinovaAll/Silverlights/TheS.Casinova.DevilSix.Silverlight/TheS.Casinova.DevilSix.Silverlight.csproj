@@ -80,6 +80,9 @@
     <Compile Include="DevilSix\Controls\GameInformationsUI.xaml.cs">
       <DependentUpon>GameInformationsUI.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DevilSix\Controls\GamePlayUI.xaml.cs">
+      <DependentUpon>GamePlayUI.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DevilSix\GameApplicationInformation.cs" />
     <Compile Include="DevilSix\Silverlight\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -102,6 +105,10 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="DevilSix\Controls\GameInformationsUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DevilSix\Controls\GamePlayUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
