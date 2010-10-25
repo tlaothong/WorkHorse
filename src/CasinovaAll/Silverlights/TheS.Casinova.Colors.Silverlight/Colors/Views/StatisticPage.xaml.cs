@@ -9,15 +9,21 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using System.Windows.Navigation;
 
-namespace TheS.Casinova.Colors.Popups
+namespace TheS.Casinova.Colors.Views
 {
-    public partial class BetData : ChildWindow
+    public partial class StatisticPage : Page
     {
-        public BetData()
+        public StatisticPage()
         {
             InitializeComponent();
         }
+
+        // Executes when the user navigates to this page.
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+        }
+
     }
 }
-

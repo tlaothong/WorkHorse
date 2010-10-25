@@ -10,14 +10,13 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace TheS.Casinova.Colors.Popups
+namespace TheS.Casinova.Colors.Controls
 {
-    public partial class BetData : ChildWindow
+    public partial class StatisticUI : UserControl
     {
-        public BetData()
+        public StatisticUI()
         {
             InitializeComponent();
         }
     }
 }
-
