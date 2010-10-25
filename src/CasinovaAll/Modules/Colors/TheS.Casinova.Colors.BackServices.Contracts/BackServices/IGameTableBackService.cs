@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using TheS.Casinova.Colors.Commands;
+using TheS.Casinova.TwoWins.Commands;
 
-namespace TheS.Casinova.Colors.BackServices
+namespace TheS.Casinova.TwoWins.BackServices
 {
     public interface IGameTableBackService :
         ICreateGameTableConfigurations,

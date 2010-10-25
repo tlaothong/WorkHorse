@@ -11,7 +11,7 @@ using System.Windows.Shapes;
 using TheS.Casinova.Common;
 using System.ComponentModel.Composition;
 
-namespace TheS.Casinova.Colors
+namespace TheS.Casinova.TwoWins
 {
     [Export(typeof(IGameApplicationInformation))]
     public class GameApplicationInformation : IGameApplicationInformation
@@ -39,7 +39,7 @@ namespace TheS.Casinova.Colors
             {
                 if (_infoContent == null)
                 {
-                    _infoContent = new TheS.Casinova.Colors.Controls.GameInformationsUI();
+                    _infoContent = new TheS.Casinova.TwoWins.Controls.GameInformationsUI();
                 }
                 return _infoContent;
             }

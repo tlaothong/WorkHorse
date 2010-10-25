@@ -11,7 +11,7 @@ using System.Windows.Shapes;
 using System.ComponentModel;
 using PerfEx.Infrastructure;
 
-namespace TheS.Casinova.Colors.ViewModels
+namespace TheS.Casinova.TwoWins.ViewModels
 {
     public class GamePlayModel : INotifyPropertyChanged
     {

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using PerfEx.Infrastructure.Data;
-using TheS.Casinova.Colors.Commands;
-using TheS.Casinova.Colors.Models;
+using TheS.Casinova.TwoWins.Commands;
+using TheS.Casinova.TwoWins.Models;
 
-namespace TheS.Casinova.Colors.DAL
+namespace TheS.Casinova.TwoWins.DAL
 {
     public interface IColorsGameDataBackQuery : 
         IGetRoundInfo,

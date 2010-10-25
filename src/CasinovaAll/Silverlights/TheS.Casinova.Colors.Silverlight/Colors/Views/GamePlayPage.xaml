@@ -4,7 +4,7 @@
                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
                  xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation" 
                  xmlns:TheS_Casinova="clr-namespace:TheS.Casinova"
-                 x:Class="TheS.Casinova.Colors.Views.GamePlayPage"
+                 x:Class="TheS.Casinova.TwoWins.Views.GamePlayPage"
            d:DesignWidth="640" d:DesignHeight="480"
            Title="Colors GamePlayPage Page" mc:Ignorable="d">
     <Grid x:Name="LayoutRoot">

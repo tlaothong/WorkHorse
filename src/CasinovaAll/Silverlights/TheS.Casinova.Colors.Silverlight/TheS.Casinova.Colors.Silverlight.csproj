@@ -95,8 +95,8 @@
     <Compile Include="Colors\Page1.xaml.cs">
       <DependentUpon>Page1.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Colors\Popups\ChildWindow1.xaml.cs">
-      <DependentUpon>ChildWindow1.xaml</DependentUpon>
+    <Compile Include="Colors\Popups\BetData.xaml.cs">
+      <DependentUpon>BetData.xaml</DependentUpon>
     </Compile>
     <Compile Include="Colors\Silverlight\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -127,7 +127,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Colors\Popups\ChildWindow1.xaml">
+    <Page Include="Colors\Popups\BetData.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

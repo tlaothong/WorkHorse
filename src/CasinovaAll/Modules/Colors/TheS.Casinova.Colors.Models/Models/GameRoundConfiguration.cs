@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace TheS.Casinova.Colors.Models
+namespace TheS.Casinova.TwoWins.Models
 {
     /// <summary>
     /// Config โต๊ะเกม

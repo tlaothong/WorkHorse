@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
 using Rhino.Mocks;
-using TheS.Casinova.Colors.Commands;
-using TheS.Casinova.Colors.Models;
+using TheS.Casinova.TwoWins.Commands;
+using TheS.Casinova.TwoWins.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
+namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
 {
     [Binding]
     public class PayForColorsWinnerInfoSteps : ColorsGameStepsBase
