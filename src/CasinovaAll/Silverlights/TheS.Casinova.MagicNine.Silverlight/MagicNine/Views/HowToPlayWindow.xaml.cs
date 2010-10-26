@@ -10,11 +10,11 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace TheS.Casinova.ChipExchange.Views
+namespace TheS.Casinova.MagicNine.Views
 {
-    public partial class ChipExchangeWindow : ChildWindow
+    public partial class HowToPlayWindow : ChildWindow
     {
-        public ChipExchangeWindow()
+        public HowToPlayWindow()
         {
             InitializeComponent();
         }

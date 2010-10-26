@@ -1,0 +1,33 @@
+﻿<navigation:Page 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:CasinovaAllStars_ViewModels="clr-namespace:CasinovaAllStars.ViewModels" x:Class="CasinovaAllStars.Views.GameLobbyPage"
+           mc:Ignorable="d"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="GameLobbyPage Page">
+	<navigation:Page.Resources>
+		<CasinovaAllStars_ViewModels:GameLobbyViewModel x:Key="GameLobbyPageViewModelDataSource" d:IsDataSource="True"/>
+		<DataTemplate x:Key="GameRoomsListTemplate">
+			<StackPanel>
+				<TextBlock Text="{Binding Name}"/>
+			</StackPanel>
+		</DataTemplate>
+		<DataTemplate x:Key="DataTemplate">
+			<StackPanel>
+				<TextBlock Text="{Binding Metadata.DisplayText, Mode=OneWay}"/>
+			</StackPanel>
+		</DataTemplate>
+	</navigation:Page.Resources>
+	<navigation:Page.DataContext>
+		<Binding Source="{StaticResource GameLobbyPageViewModelDataSource}"/>
+	</navigation:Page.DataContext>
+    <Grid x:Name="LayoutRoot">
+    	<ListBox x:Name="GameRoomListBox" HorizontalAlignment="Right" Margin="0,8,8,8" Width="200" ItemsSource="{Binding Games}" ItemTemplate="{StaticResource GameRoomsListTemplate}" ItemContainerStyle="{StaticResource GameRoomsItemContainerStyle}"/>
+    	<Grid DataContext="{Binding SelectedItem, ElementName=GameRoomListBox}" Margin="8,8,212,8" >
+    		<ContentPresenter x:Name="infoContentPresenter" Content="{Binding InformationContent, Mode=OneWay}"/>
+    	</Grid>
+    </Grid>
+</navigation:Page>

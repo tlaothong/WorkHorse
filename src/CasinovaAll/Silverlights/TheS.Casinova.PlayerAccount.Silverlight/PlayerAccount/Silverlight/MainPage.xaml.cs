@@ -9,7 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
-using TheS.Casinova.PlayerAccount.Views;
+using TheS.Casinova.PlayerProfile.Views;
 
 namespace TheS.Casinova.PlayerAccount.Silverlight
 {
@@ -22,8 +22,8 @@ namespace TheS.Casinova.PlayerAccount.Silverlight
 
         private void AccountManagerButton_Click(object sender, RoutedEventArgs e)
         {
-            PlayerAccountManagerWindow pcm = new PlayerAccountManagerWindow();
-            pcm.Show();
+            AccountManagerWindow amw = new AccountManagerWindow();
+            amw.Show();
         }
     }
 }

@@ -84,6 +84,12 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SupportContent\Views\AbountUsWindow.xaml.cs">
+      <DependentUpon>AbountUsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SupportContent\Views\FAQWindow.xaml.cs">
+      <DependentUpon>FAQWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SupportContent\Views\PolicyWindow.xaml.cs">
       <DependentUpon>PolicyWindow.xaml</DependentUpon>
     </Compile>
@@ -94,6 +100,14 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="SupportContent\Silverlight\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SupportContent\Views\AbountUsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SupportContent\Views\FAQWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

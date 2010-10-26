@@ -10,13 +10,12 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Windows.Navigation;
-using CasinovaAllStars.ViewModels;
 
 namespace CasinovaAllStars.Views
 {
-    public partial class Page1 : Page
+    public partial class GameLobbyPage : Page
     {
-        public Page1()
+        public GameLobbyPage()
         {
             InitializeComponent();
         }
@@ -32,5 +31,9 @@ namespace CasinovaAllStars.Views
             base.OnNavigatedFrom(e);
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ((ViewModels.GameLobbyViewModel)DataContext).ShowWindow();
+        }
     }
 }

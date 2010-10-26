@@ -9,14 +9,21 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using TheS.Casinova.Common;
 
-namespace TheS.Casinova.Colors.Popups
+namespace TheS.Casinova.SupportContent.Views
 {
-    public partial class BetData : ChildWindow
+    [ExportPopupContent(DisplayText = "FAQ", GroupName = "buttom", Order = 1)]
+    public partial class FAQWindow : ChildWindow
     {
-        public BetData()
+        public FAQWindow()
         {
             InitializeComponent();
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = false;
         }
     }
 }

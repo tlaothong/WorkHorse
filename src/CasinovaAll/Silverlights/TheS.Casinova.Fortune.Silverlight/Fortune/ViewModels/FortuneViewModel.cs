@@ -13,7 +13,7 @@ using PerfEx.Infrastructure;
 
 namespace TheS.Casinova.Fortune.ViewModels
 {
-    public class FortuneModel : INotifyPropertyChanged
+    public class FortuneViewModel : INotifyPropertyChanged
     {
 
         private PropertyChangedNotifier _notify;
@@ -25,8 +25,10 @@ namespace TheS.Casinova.Fortune.ViewModels
             get { return _subtitle; }
             set
             {
-                _subtitle = value;
-                _notify.Raise(() => Subtitle);
+                if (_subtitle!=value) {
+                    _subtitle = value;
+                    _notify.Raise(() => Subtitle); 
+                }
             }
         }
 
@@ -35,12 +37,14 @@ namespace TheS.Casinova.Fortune.ViewModels
             get { return _informations; }
             set
             {
-                _informations = value;
-                _notify.Raise(() => Informations);
+                if (_informations!=value) {
+                    _informations = value;
+                    _notify.Raise(() => Informations); 
+                }
             }
         }
 
-        public FortuneModel()
+        public FortuneViewModel()
         {
             _notify = new PropertyChangedNotifier(this, () => PropertyChanged);
         }

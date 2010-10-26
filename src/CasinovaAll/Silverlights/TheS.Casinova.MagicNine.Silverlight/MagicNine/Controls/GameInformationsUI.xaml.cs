@@ -10,24 +10,19 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace TheS.Casinova.TwoWins.Popups
+namespace TheS.Casinova.MagicNine.Controls
 {
-    public partial class BetData : ChildWindow
+    public partial class GameInformationsUI : UserControl
     {
-        public BetData()
+        public GameInformationsUI()
         {
             InitializeComponent();
         }
 
-        private void OKButton_Click(object sender, RoutedEventArgs e)
+        private void HowToPlayHyperlinkButton_Click(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = true;
-        }
-
-        private void CancelButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.DialogResult = false;
+            Views.HowToPlayWindow htpw = new Views.HowToPlayWindow();
+            htpw.Show();
         }
     }
 }
-
