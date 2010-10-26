@@ -9,9 +9,11 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using TheS.Casinova.Common;
 
 namespace TheS.Casinova.ChipExchange.Views
 {
+    [ExportPopupContent(DisplayText = "Deposit", GroupName = "top", Order = 1)]
     public partial class DepositWindow : ChildWindow
     {
         public DepositWindow()

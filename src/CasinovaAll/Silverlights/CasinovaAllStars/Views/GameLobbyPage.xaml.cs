@@ -30,5 +30,10 @@ namespace CasinovaAllStars.Views
             infoContentPresenter.Content = null;
             base.OnNavigatedFrom(e);
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ((ViewModels.GameLobbyViewModel)DataContext).ShowWindow();
+        }
     }
 }

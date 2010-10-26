@@ -6,8 +6,40 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:local="clr-namespace:CasinovaAllStars"
     xmlns:TheS_Casinova_Chat_Controls="clr-namespace:TheS.Casinova.Chat.Controls;assembly=TheS.Casinova.Chat.Silverlight"
+    xmlns:CasinovaAllStars_ViewModels="clr-namespace:CasinovaAllStars.ViewModels"
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
     x:Class="CasinovaAllStars.MainPage" 
     mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="480">
+
+	<UserControl.Resources>
+		<CasinovaAllStars_ViewModels:MainViewModel x:Key="MainViewModelDataSource" d:IsDataSource="True"/>
+		<DataTemplate x:Key="DataTemplate">
+			<StackPanel Orientation="Horizontal">
+                <HyperlinkButton x:Name="LinkMenu" Style="{StaticResource LinkStyle}" Content="{Binding Metadata.DisplayText, Mode=OneWay}" Click="LinkMenu_Click" CommandParameter="{Binding Value, Mode=TwoWay}"/>
+			</StackPanel>
+		</DataTemplate>
+		<Style x:Key="LinkListBoxItemStyle" TargetType="ListBoxItem">
+			<Setter Property="Padding" Value="3"/>
+			<Setter Property="HorizontalContentAlignment" Value="Right"/>
+			<Setter Property="VerticalContentAlignment" Value="Top"/>
+			<Setter Property="Background" Value="Transparent"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="ListBoxItem">
+						<Grid Background="{TemplateBinding Background}">
+							<ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}"/>
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<ItemsPanelTemplate x:Key="ItemsPanelTemplate1">
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right"/>
+		</ItemsPanelTemplate>
+	</UserControl.Resources>
+	<UserControl.DataContext>
+		<Binding Source="{StaticResource MainViewModelDataSource}"/>
+	</UserControl.DataContext>
 
     <Grid x:Name="LayoutRoot" Style="{StaticResource LayoutRootGridStyle}">
 
@@ -39,22 +71,13 @@
                 </StackPanel>
             </Border>
 
-            <Border x:Name="LinksBorder" Style="{StaticResource LinksBorderStyle}" Margin="0,0,90,0">
-                <StackPanel x:Name="LinksStackPanel" Style="{StaticResource LinksStackPanelStyle}">                 
-                    <HyperlinkButton x:Name="DepositHyperlinkButton" Style="{StaticResource LinkStyle}" Content="Deposit" Click="DepositHyperlinkButton_Click" />
-									 
-                    <Rectangle x:Name="Divider1" Style="{StaticResource DividerStyle}"/>
-
-                    <HyperlinkButton x:Name="AccountManagerHyperlinkButton" Style="{StaticResource LinkStyle}" Content="Account manager" Click="AccountManagerHyperlinkButton_Click" />
-
-                    <Rectangle x:Name="Divider2" Style="{StaticResource DividerStyle}"/>
-                </StackPanel>
+            <Border x:Name="LinksBorder" Style="{StaticResource LinksBorderStyle}" Margin="202,0,90,0" HorizontalAlignment="Stretch" Height="Auto">
+                <ListBox x:Name="LinkListBox" ItemTemplate="{StaticResource DataTemplate}" ItemsSource="{Binding Popups}" Margin="0" Background="{x:Null}" BorderBrush="{x:Null}" ItemContainerStyle="{StaticResource LinkListBoxItemStyle}" ItemsPanel="{StaticResource ItemsPanelTemplate1}"/>
             </Border>
 
         </Grid>
 
     	<TheS_Casinova_Chat_Controls:ChatUI VerticalAlignment="Bottom" Width="Auto" Height="150" Margin="0"/>
-
     </Grid>
 
 </UserControl>

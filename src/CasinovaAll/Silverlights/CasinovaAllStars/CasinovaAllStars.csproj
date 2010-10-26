@@ -80,6 +80,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\GameLobbyViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\StatisticsViewModel.cs" />
     <Compile Include="Views\DynamicViews\MefPage.xaml.cs">
       <DependentUpon>MefPage.xaml</DependentUpon>

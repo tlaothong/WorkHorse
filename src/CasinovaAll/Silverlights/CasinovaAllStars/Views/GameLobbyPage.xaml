@@ -15,6 +15,11 @@
 				<TextBlock Text="{Binding Name}"/>
 			</StackPanel>
 		</DataTemplate>
+		<DataTemplate x:Key="DataTemplate">
+			<StackPanel>
+				<TextBlock Text="{Binding Metadata.DisplayText, Mode=OneWay}"/>
+			</StackPanel>
+		</DataTemplate>
 	</navigation:Page.Resources>
 	<navigation:Page.DataContext>
 		<Binding Source="{StaticResource GameLobbyPageViewModelDataSource}"/>
