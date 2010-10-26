@@ -91,9 +91,6 @@
     <Compile Include="Colors\Controls\GamePlayUI.xaml.cs">
       <DependentUpon>GamePlayUI.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Colors\Controls\StatisticUI.xaml.cs">
-      <DependentUpon>StatisticUI.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Colors\GameApplicationInformation.cs" />
     <Compile Include="Colors\Page1.xaml.cs">
       <DependentUpon>Page1.xaml</DependentUpon>
@@ -108,8 +105,14 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Colors\ViewModels\GamePlayModel.cs" />
+    <Compile Include="Colors\Views\BetDataPage.xaml.cs">
+      <DependentUpon>BetDataPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Colors\Views\GamePlayPage.xaml.cs">
       <DependentUpon>GamePlayPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Colors\Views\GraphPage.xaml.cs">
+      <DependentUpon>GraphPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Colors\Views\StatisticPage.xaml.cs">
       <DependentUpon>StatisticPage.xaml</DependentUpon>
@@ -129,10 +132,6 @@
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Colors\Controls\StatisticUI.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Colors\Page1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -145,7 +144,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Colors\Views\BetDataPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Colors\Views\GamePlayPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Colors\Views\GraphPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -9,14 +9,21 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using System.Windows.Navigation;
 
-namespace TheS.Casinova.Colors.Controls
+namespace TheS.Casinova.MagicNine.Views
 {
-    public partial class StatisticUI : UserControl
+    public partial class GraphPage : Page
     {
-        public StatisticUI()
+        public GraphPage()
         {
             InitializeComponent();
         }
+
+        // Executes when the user navigates to this page.
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+        }
+
     }
 }
