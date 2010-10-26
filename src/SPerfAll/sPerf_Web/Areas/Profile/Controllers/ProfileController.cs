@@ -43,5 +43,13 @@ namespace sPerf_Web.Areas.Profile.Controllers
         {
             return View();
         }
+        public virtual ActionResult Banners()
+        {
+            return View();
+        }
+        public virtual ActionResult AdvanceSearch()
+        {
+            return View();
+        }
     }
 }

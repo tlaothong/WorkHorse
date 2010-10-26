@@ -14,8 +14,15 @@
 		<div><img src="${BoxArt.LargeUrl}" /> </div>
 		<strong>${Name}</strong>
 		<p>{{html Synopsis}}</p>
-		<input type="button" title="Buy tickets for '${Name}'" value="Bookmark" class="buyButton"/>  
-        <input type="checkbox" id="toggle1"/><label>Like</label><label>Unlike</label>  
+        <div>
+            <input type="checkbox" class="toggle1"/>
+        </div>
+        <div>
+            <label>UnLike</label>
+        </div>
+        <div>         
+            <button class="bookmark" type="button">Bookmark</button>
+        </div>
 	</div>        
     </script>
     <script id="cartTmpl" type="text/x-jquery-tmpl">
@@ -44,19 +51,6 @@
 		<td>
 			${quantity}
 			<span class="ui-icon close"></span>
-		</td>
-	</tr>
-    </script>
-    <script id="bookingEditTmpl" type="text/x-jquery-tmpl">
-	{{tmpl($data, {mode: "Edit"}) "#bookingTitleTmpl"}}
-	<tr class="bookingEdit">
-		<td colspan="4">
-			<div class="fields">
-				<span>Movie Theater: </span><input class="theater" type="text" value="${movieTheater}" /><br/>
-				<span>Date: </span><input class="date" type="text" value="${formatDate(date)}" /><br/>
-				<span>Quantity: </span><input class="quantity" type="text" value="${quantity}" />
-			</div>
-			<div><img src="${movie.BoxArt.LargeUrl}" /></div>
 		</td>
 	</tr>
     </script>
@@ -167,11 +161,25 @@
 			    buyTickets($(this).tmplItem().data);
 			});
 
-            $("#movieList").fadeIn("medium")
-
-            
-        }
-
+			$("#movieList").fadeIn("medium")
+			Sys.require(Sys.components.toggleButton, function () {
+			    $().toggleButton.defaults = {
+			        CheckedImageUrl: "/Content/images/Unchecked_gray.gif",
+			        UncheckedImageUrl: "/Content/images/checked.gif",
+			        ImageWidth: 20,
+			        ImageHeight: 20
+			    };
+			    $(".toggle1").toggleButton();
+			});
+			$(".bookmark").click(function () {
+			    $(this).slideUp();
+			});
+			$("#bookmark").hover(function () {
+			    $(this).addClass("hilite");
+			}, function () {
+			    $(this).removeClass("hilite");
+			});
+        }   
         function buyTickets(movie) {
             // Add item to cart
             var booking = cart.bookings[movie.Id];
@@ -315,27 +323,7 @@
         function removeContext(item) {
             $(item.nodes).remove();
         }
-    </script>
-    <script type="text/javascript">
-        Sys.require(Sys.components.toggleButton, function () {
-            $().toggleButton.defaults = {
-                CheckedImageUrl: "/Content/images/checked.gif",
-                ImageWidth: 20,
-                ImageHeight: 20
-            };
-            $("#toggle1").toggleButton();
-        });
-    </script>
-
-    <!--Script For HoverScroll-->
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#movieList').hoverscroll({ vertical: true, height: 440, width: 595 });
-        });        
-    </script>
-
-    <div id="listContent"></div>
-    <br />
+    </script>   
     <div id="pager"></div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="SubMenu" runat="server">

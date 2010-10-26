@@ -151,7 +151,9 @@
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\PostNewVideo.aspx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\SubmenuVideo.ascx" />
     <Content Include="Areas\Map\Views\Map\Index.aspx" />
+    <Content Include="Areas\Profile\Views\Profile\AdvanceSearch.ascx" />
     <Content Include="Areas\Profile\Views\Profile\Archievement.aspx" />
+    <Content Include="Areas\Profile\Views\Profile\Banners.ascx" />
     <Content Include="Areas\Profile\Views\Profile\Blog.aspx" />
     <Content Include="Areas\Profile\Views\Profile\Friends.aspx" />
     <Content Include="Areas\Profile\Views\Profile\Inbox.aspx" />
@@ -170,12 +172,17 @@
     <Content Include="Content\images\banner3.jpg" />
     <Content Include="Content\images\c1.gif" />
     <Content Include="Content\images\Checked.gif" />
+    <Content Include="Content\images\Logomonk.jpg" />
+    <Content Include="Content\images\onepeople.JPG" />
     <Content Include="Content\images\searchbutton.png" />
+    <Content Include="Content\images\topfriend.JPG" />
     <Content Include="Content\images\Unchecked_gray.gif" />
     <Content Include="Content\jquery-ui-1.8.1.custom.css" />
     <Content Include="Content\movies.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="profile.html" />
+    <Content Include="profile.txt" />
     <Content Include="Scripts\ajaxScripts\Date.HijriCalendar.debug.js" />
     <Content Include="Scripts\ajaxScripts\Date.HijriCalendar.js" />
     <Content Include="Scripts\ajaxScripts\Date.UmAlQuraCalendar.debug.js" />

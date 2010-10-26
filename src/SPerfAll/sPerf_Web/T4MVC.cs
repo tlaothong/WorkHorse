@@ -814,7 +814,10 @@ namespace Links {
             public static readonly string banner3_jpg = Url("banner3.jpg");
             public static readonly string c1_gif = Url("c1.gif");
             public static readonly string Checked_gif = Url("Checked.gif");
+            public static readonly string Logomonk_jpg = Url("Logomonk.jpg");
+            public static readonly string onepeople_JPG = Url("onepeople.JPG");
             public static readonly string searchbutton_png = Url("searchbutton.png");
+            public static readonly string topfriend_JPG = Url("topfriend.JPG");
             public static readonly string Unchecked_gray_gif = Url("Unchecked_gray.gif");
         }
     

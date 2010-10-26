@@ -16,7 +16,7 @@
     <script src="../../Scripts/ajaxScripts/Start.debug.js" type="text/javascript"></script>
     <script src="../../Scripts/ajaxScripts/extended/ExtendedControls.debug.js" type="text/javascript"></script>
     <script src="../../Scripts/jquery.hoverscroll-0.2.2.js" type="text/javascript"></script>
-
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 </head>
 <body>
     <div id="page">

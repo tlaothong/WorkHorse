@@ -54,6 +54,8 @@ namespace sPerf_Web.Areas.Profile.Controllers {
             public readonly string Archievement = "Archievement";
             public readonly string Friends = "Friends";
             public readonly string Inbox = "Inbox";
+            public readonly string Banners = "Banners";
+            public readonly string AdvanceSearch = "AdvanceSearch";
         }
 
 
@@ -62,7 +64,9 @@ namespace sPerf_Web.Areas.Profile.Controllers {
         public ViewNames Views { get { return s_views; } }
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ViewNames {
+            public readonly string AdvanceSearch = "~/Areas/Profile/Views/Profile/AdvanceSearch.ascx";
             public readonly string Archievement = "~/Areas/Profile/Views/Profile/Archievement.aspx";
+            public readonly string Banners = "~/Areas/Profile/Views/Profile/Banners.ascx";
             public readonly string Blog = "~/Areas/Profile/Views/Profile/Blog.aspx";
             public readonly string Friends = "~/Areas/Profile/Views/Profile/Friends.aspx";
             public readonly string Inbox = "~/Areas/Profile/Views/Profile/Inbox.aspx";
@@ -115,6 +119,16 @@ namespace sPerf_Web.Areas.Profile.Controllers {
 
         public override System.Web.Mvc.ActionResult Inbox() {
             var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Inbox);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult Banners() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Banners);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult AdvanceSearch() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.AdvanceSearch);
             return callInfo;
         }
 
