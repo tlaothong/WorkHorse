@@ -6,6 +6,17 @@
     <title>
         <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
     </title>
+    <link href="../../Content/jquery-ui-1.8.1.custom.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/movies.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/jquery.hoverscroll-0.2.2.css" rel="stylesheet" type="text/css" />
+    <script src="../../Scripts/jquery-1.4.2.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery-ui-1.8.1.custom.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.pager.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.tmpl.js" type="text/javascript"></script>
+    <script src="../../Scripts/ajaxScripts/Start.debug.js" type="text/javascript"></script>
+    <script src="../../Scripts/ajaxScripts/extended/ExtendedControls.debug.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.hoverscroll-0.2.2.js" type="text/javascript"></script>
+
 </head>
 <body>
     <div id="page">
@@ -27,22 +38,37 @@
             <div id="main-menu">
                 <div class="linkmenu">
                     <div class="menu">
-                        <%= Html.ActionLink("หน้าหลัก", MVC.Home.Index()) %>
+                        <%= Html.ActionLink("Home", MVC.Home.Index()) %>
                     </div>
                 </div>
                 <div class="linkmenu">
                     <div class="menu">
-                        <%= Html.ActionLink("วีดีโอ", MVC.KnowledgeCenter.KnowledgeCenter.Index()) %>
+                        <%= Html.ActionLink("Profile", MVC.Profile.Profile.Index()) %>
                     </div>
                 </div>
                 <div class="linkmenu">
                     <div class="menu">
-                        <%= Html.ActionLink("ชมรม", MVC.Club.Club.Index()) %>
+                        <%= Html.ActionLink("Scholarship", MVC.Scholarship.Scholarship.Index()) %>
                     </div>
                 </div>
                 <div class="linkmenu">
                     <div class="menu">
-                        <%= Html.ActionLink("เกมส์", MVC.Game.Game.Index()) %>
+                        <%= Html.ActionLink("Club", MVC.Club.Club.Index()) %>
+                    </div>
+                </div>
+                <div class="linkmenu">
+                    <div class="menu">
+                        <%= Html.ActionLink("Game", MVC.Game.Game.Index()) %>
+                    </div>
+                </div>
+                <div class="linkmenu">
+                    <div class="menu">
+                        <%= Html.ActionLink("Video", MVC.KnowledgeCenter.KnowledgeCenter.Index()) %>
+                    </div>
+                </div>
+                <div class="linkmenu">
+                    <div class="menu">
+                        <%= Html.ActionLink("Map", MVC.Map.Map.Index()) %>
                     </div>
                 </div>
             </div>
@@ -64,19 +90,39 @@
                         <asp:ContentPlaceHolder ID="MainContent" runat="server">
                         </asp:ContentPlaceHolder>
                     </div>
+                    <%--div for side-bar--%>
+                    <div id="side-bar">
+                        <asp:ContentPlaceHolder ID="SideBar" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
                 </div>
                 <div id="avatar-container">
-                    <object data="data:application/x-silverlight-2," type="application/x-silverlight-2"
-                        width="178px" height="247px">
-                        <param name="source" value="/xap/doyouknow.xap" />
-                        <param name="onerror" value="onSilverlightError" />
-                        <param name="minRuntimeVersion" value="2.0.31005.0" />
-                        <param name="autoUpgrade" value="true" />
-                        <a href="http://go.microsoft.com/fwlink/?LinkID=124807" style="text-decoration: none;">
-                            <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight"
-                                style="border-style: none" />
-                        </a>
-                    </object>
+                    <div class="avatar-bar">
+                        <object data="data:application/x-silverlight-2," type="application/x-silverlight-2"
+                            width="167px" height="238px">
+                            <param name="source" value="/xap/Avatar_Silver.xap" />
+                            <param name="onerror" value="onSilverlightError" />
+                            <param name="minRuntimeVersion" value="2.0.31005.0" />
+                            <param name="autoUpgrade" value="true" />
+                            <a href="http://go.microsoft.com/fwlink/?LinkID=124807" style="text-decoration: none;">
+                                <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight"
+                                    style="border-style: none" />
+                            </a>
+                        </object>
+                    </div>
+                    <div class="doyouknow-bar">
+                        <object data="data:application/x-silverlight-2," type="application/x-silverlight-2"
+                            width="200px" height="260px">
+                            <param name="source" value="/xap/doyouknow.xap" />
+                            <param name="onerror" value="onSilverlightError" />
+                            <param name="minRuntimeVersion" value="2.0.31005.0" />
+                            <param name="autoUpgrade" value="true" />
+                            <a href="http://go.microsoft.com/fwlink/?LinkID=124807" style="text-decoration: none;">
+                                <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight"
+                                    style="border-style: none" />
+                            </a>
+                        </object>
+                    </div>
                 </div>
             </div>
         </div>

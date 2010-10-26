@@ -15,6 +15,17 @@ namespace sPerf_Web.Areas.Club.Controllers
         {
             return View();
         }
-
+        public virtual ActionResult SubMenu()
+        {
+            return View();
+        }
+        public virtual ActionResult NewClub()
+        {
+            return View();
+        }
+        public virtual ActionResult OptionClub()
+        {
+            return View();
+        }
     }
 }
