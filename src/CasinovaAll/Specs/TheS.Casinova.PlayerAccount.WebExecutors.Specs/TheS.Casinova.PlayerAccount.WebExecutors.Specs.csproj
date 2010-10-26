@@ -34,9 +34,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="PerfEx.Infrastructure, Version=1.7910.905.2789, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="PerfEx.Infrastructure.Advanced">
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Advanced.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\..\..\..\lib\Rhino.Mocks.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="TechTalk.SpecFlow">
+      <HintPath>..\..\..\..\lib\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -46,30 +59,57 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebExecutors\SpecsEventDefinitions.cs" />
+    <Compile Include="WebExecutors\Specs\CancelPlayerAccountFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CancelPlayerAccountFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\CreatePlayerAccountFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreatePlayerAccountFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\EditPlayerAccountFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditPlayerAccountFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\GetPlayerAccountFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GetPlayerAccountFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\ListPlayerAccountFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListPlayerAccountFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\Steps\CancelPlayerAccountSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\CommonSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\CreatePlayerAccountSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\EditPlayerAccountSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\GetPlayerAccountSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\ListPlayerAccountSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\PlayerAccountModuleStepsBase.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="WebExecutors\Specs\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Modules\PlayerProfile\TheS.Casinova.PlayerProfile.BackServices.Contracts\TheS.Casinova.PlayerProfile.BackServices.Contracts.csproj">
-      <Project>{E27F1E2B-59E2-497F-B963-F6E52BAA5442}</Project>
-      <Name>TheS.Casinova.PlayerProfile.BackServices.Contracts</Name>
+    <ProjectReference Include="..\..\Modules\PlayerAccount\TheS.Casinova.PlayerAccount.BackServices.Contracts\TheS.Casinova.PlayerAccount.BackServices.Contracts.csproj">
+      <Project>{71089D2E-913D-43E9-A714-F358E2DA68B2}</Project>
+      <Name>TheS.Casinova.PlayerAccount.BackServices.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Modules\PlayerProfile\TheS.Casinova.PlayerProfile.Commands\TheS.Casinova.PlayerProfile.Commands.csproj">
-      <Project>{E1364683-30DC-4225-8185-991D5DDF4F3A}</Project>
-      <Name>TheS.Casinova.PlayerProfile.Commands</Name>
+    <ProjectReference Include="..\..\Modules\PlayerAccount\TheS.Casinova.PlayerAccount.Commands\TheS.Casinova.PlayerAccount.Commands.csproj">
+      <Project>{0A6CBBEC-3B10-4DB1-9F4B-AF472B79801C}</Project>
+      <Name>TheS.Casinova.PlayerAccount.Commands</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Modules\PlayerProfile\TheS.Casinova.PlayerProfile.DAL.Contracts\TheS.Casinova.PlayerProfile.DAL.Contracts.csproj">
-      <Project>{2E2B321A-2F2E-4B5A-BFC5-6D08211FADD0}</Project>
-      <Name>TheS.Casinova.PlayerProfile.DAL.Contracts</Name>
+    <ProjectReference Include="..\..\Modules\PlayerAccount\TheS.Casinova.PlayerAccount.DAL.Contracts\TheS.Casinova.PlayerAccount.DAL.Contracts.csproj">
+      <Project>{EB1862A8-F099-4BC4-80D6-7597FF268B92}</Project>
+      <Name>TheS.Casinova.PlayerAccount.DAL.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Modules\PlayerProfile\TheS.Casinova.PlayerProfile.Models\TheS.Casinova.PlayerProfile.Models.csproj">
-      <Project>{96BBA83F-EAA6-4EEA-BEC5-98F6AC39B943}</Project>
-      <Name>TheS.Casinova.PlayerProfile.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Modules\PlayerProfile\TheS.Casinova.PlayerProfile.WebExecutors\TheS.Casinova.PlayerProfile.WebExecutors.csproj">
-      <Project>{3CCE230D-A959-4F53-9DD7-1571847FD39E}</Project>
-      <Name>TheS.Casinova.PlayerProfile.WebExecutors</Name>
+    <ProjectReference Include="..\..\Modules\PlayerAccount\TheS.Casinova.PlayerAccount.WebExecutors\TheS.Casinova.PlayerAccount.WebExecutors.csproj">
+      <Project>{BD9FE8E7-09DC-42D6-93BD-EAE32FD27540}</Project>
+      <Name>TheS.Casinova.PlayerAccount.WebExecutors</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Modules\Shared\TheS.Casinova.Common.Commands\TheS.Casinova.Common.Commands.csproj">
       <Project>{B0BA601A-7B65-4973-9E00-4F9035883877}</Project>
@@ -79,6 +119,29 @@
       <Project>{6079CFCD-811A-4962-B021-8D3D14C0C45B}</Project>
       <Name>TheS.Casinova.Common.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="WebExecutors\App.config" />
+    <None Include="WebExecutors\Specs\CancelPlayerAccountFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CancelPlayerAccountFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\CreatePlayerAccountFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CreatePlayerAccountFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\EditPlayerAccountFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>EditPlayerAccountFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\GetPlayerAccountFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>GetPlayerAccountFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\ListPlayerAccountFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ListPlayerAccountFeature.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
