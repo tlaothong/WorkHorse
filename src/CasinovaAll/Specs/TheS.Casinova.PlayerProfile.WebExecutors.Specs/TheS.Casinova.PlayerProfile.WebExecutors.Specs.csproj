@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6227E4EB-D357-4C1E-8309-B215D96A3706}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TheS.Casinova.PlayerProfile</RootNamespace>
+    <AssemblyName>TheS.Casinova.PlayerProfile.WebExecutors.Specs</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="PerfEx.Infrastructure">
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="PerfEx.Infrastructure.Advanced">
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Advanced.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\..\..\..\lib\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="TechTalk.SpecFlow">
+      <HintPath>..\..\..\..\lib\TechTalk.SpecFlow.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebExecutors\SpecEventDefinitions.cs" />
+    <Compile Include="WebExecutors\Specs\ChangeEmailFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChangeEmailFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\ChangePasswordFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChangePasswordFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\GetUserProfileFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GetUserProfileFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\ListActionLogFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListActionLogFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\RegisterUserFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegisterUserFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\Steps\ChangeEmailSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\ChangePasswordSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\CommonSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\GetUserProfileSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\ListActionLogSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\PlayerProfileModuleStepsBase.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\RegisterUserSteps.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Modules\PlayerProfile\TheS.Casinova.PlayerProfile.BackServices.Contracts\TheS.Casinova.PlayerProfile.BackServices.Contracts.csproj">
+      <Project>{E27F1E2B-59E2-497F-B963-F6E52BAA5442}</Project>
+      <Name>TheS.Casinova.PlayerProfile.BackServices.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\PlayerProfile\TheS.Casinova.PlayerProfile.Commands\TheS.Casinova.PlayerProfile.Commands.csproj">
+      <Project>{E1364683-30DC-4225-8185-991D5DDF4F3A}</Project>
+      <Name>TheS.Casinova.PlayerProfile.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\PlayerProfile\TheS.Casinova.PlayerProfile.DAL.Contracts\TheS.Casinova.PlayerProfile.DAL.Contracts.csproj">
+      <Project>{2E2B321A-2F2E-4B5A-BFC5-6D08211FADD0}</Project>
+      <Name>TheS.Casinova.PlayerProfile.DAL.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\PlayerProfile\TheS.Casinova.PlayerProfile.Models\TheS.Casinova.PlayerProfile.Models.csproj">
+      <Project>{96BBA83F-EAA6-4EEA-BEC5-98F6AC39B943}</Project>
+      <Name>TheS.Casinova.PlayerProfile.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\PlayerProfile\TheS.Casinova.PlayerProfile.WebExecutors\TheS.Casinova.PlayerProfile.WebExecutors.csproj">
+      <Project>{3CCE230D-A959-4F53-9DD7-1571847FD39E}</Project>
+      <Name>TheS.Casinova.PlayerProfile.WebExecutors</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Shared\TheS.Casinova.Common.Commands\TheS.Casinova.Common.Commands.csproj">
+      <Project>{B0BA601A-7B65-4973-9E00-4F9035883877}</Project>
+      <Name>TheS.Casinova.Common.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Shared\TheS.Casinova.Common.Models\TheS.Casinova.Common.Models.csproj">
+      <Project>{6079CFCD-811A-4962-B021-8D3D14C0C45B}</Project>
+      <Name>TheS.Casinova.Common.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="WebExecutors\App.config" />
+    <None Include="WebExecutors\Specs\ChangeEmailFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ChangeEmailFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\ChangePasswordFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ChangePasswordFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\GetUserProfileFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>GetUserProfileFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\ListActionLogFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ListActionLogFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\RegisterUserFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>RegisterUserFeature.feature.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

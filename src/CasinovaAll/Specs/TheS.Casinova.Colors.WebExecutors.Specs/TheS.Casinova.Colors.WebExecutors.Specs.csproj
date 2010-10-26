@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DF4C7078-AB69-435A-A612-C568D53D942B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TheS.Casinova.Colors</RootNamespace>
+    <AssemblyName>TheS.Casinova.Colors.WebExecutors.Specs</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="PerfEx.Infrastructure">
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="PerfEx.Infrastructure.Advanced">
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Advanced.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\..\..\..\lib\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="TechTalk.SpecFlow">
+      <HintPath>..\..\..\..\lib\TechTalk.SpecFlow.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebExecutors\SpecsEventDefinitions.cs" />
+    <Compile Include="WebExecutors\Specs\BetFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BetFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\CheckActiveRoundFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CheckActiveRoundFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\CreateGameRoundconfigFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreateGameRoundconfigFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\GetGameResultFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GetGameResultFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\ListActiveGameRoundsFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListActiveGameRoundsFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\ListGamePlayInfoFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListGamePlayInfoFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\PayForColorsWinnerInfoFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PayForColorsWinnerInfoFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\Steps\BetSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\CheckActiveRoundSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\CommonSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\CreateGameRoundConfigSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\GetGameResultSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\ListActiveGameRoundsSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\ColorsGameStepsBase.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\ListGamePlayInfoSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\PayForColorsWinnerInfoSteps.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Modules\Colors\TheS.Casinova.Colors.BackServices.Contracts\TheS.Casinova.Colors.BackServices.Contracts.csproj">
+      <Project>{886E0C88-2499-4DA9-98E2-253BDC0ABE5B}</Project>
+      <Name>TheS.Casinova.Colors.BackServices.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Colors\TheS.Casinova.Colors.Commands\TheS.Casinova.Colors.Commands.csproj">
+      <Project>{D96B565C-21E4-4D24-9084-B4E5B89A8AB4}</Project>
+      <Name>TheS.Casinova.Colors.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Colors\TheS.Casinova.Colors.DAL.Contracts\TheS.Casinova.Colors.DAL.Contracts.csproj">
+      <Project>{269D16C2-3BF3-44A0-98F4-33AD173A29B6}</Project>
+      <Name>TheS.Casinova.Colors.DAL.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Colors\TheS.Casinova.Colors.Models\TheS.Casinova.Colors.Models.csproj">
+      <Project>{D6D472FB-4D74-4852-A0C7-AF4558B46C29}</Project>
+      <Name>TheS.Casinova.Colors.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Colors\TheS.Casinova.Colors.WebExecutors\TheS.Casinova.Colors.WebExecutors.csproj">
+      <Project>{581AA00E-0D6B-4923-950B-8F97609209D1}</Project>
+      <Name>TheS.Casinova.Colors.WebExecutors</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Shared\TheS.Casinova.Common.Commands\TheS.Casinova.Common.Commands.csproj">
+      <Project>{B0BA601A-7B65-4973-9E00-4F9035883877}</Project>
+      <Name>TheS.Casinova.Common.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Shared\TheS.Casinova.Common.Models\TheS.Casinova.Common.Models.csproj">
+      <Project>{6079CFCD-811A-4962-B021-8D3D14C0C45B}</Project>
+      <Name>TheS.Casinova.Common.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="WebExecutors\App.config" />
+    <None Include="WebExecutors\Specs\BetFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>BetFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\CheckActiveRoundFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CheckActiveRoundFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\CreateGameRoundconfigFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CreateGameRoundconfigFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\GetGameResultFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>GetGameResultFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\ListActiveGameRoundsFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ListActiveGameRoundsFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\ListGamePlayInfoFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ListGamePlayInfoFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\PayForColorsWinnerInfoFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>PayForColorsWinnerInfoFeature.feature.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

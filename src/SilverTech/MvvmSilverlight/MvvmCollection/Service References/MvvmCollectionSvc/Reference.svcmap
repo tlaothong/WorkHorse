@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5af8410c-fdbc-48a6-a119-52c1bc4a7b68" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:49856/MvvmCollectionService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MvvmCollectionService.xsd" MetadataType="Schema" ID="dee42242-2ed6-4049-a91f-9f4bd0b31bd8" SourceId="1" SourceUrl="http://localhost:49856/MvvmCollectionService.svc?xsd=xsd1" />
+    <MetadataFile FileName="MvvmCollectionService.disco" MetadataType="Disco" ID="bec7ed4c-9876-4239-8385-626e79018678" SourceId="1" SourceUrl="http://localhost:49856/MvvmCollectionService.svc?disco" />
+    <MetadataFile FileName="MvvmCollectionService1.xsd" MetadataType="Schema" ID="43af7238-036b-4efd-a82d-9bcd39deb65a" SourceId="1" SourceUrl="http://localhost:49856/MvvmCollectionService.svc?xsd=xsd2" />
+    <MetadataFile FileName="MvvmCollectionService.wsdl" MetadataType="Wsdl" ID="b09ed08c-abd8-41ae-a403-c2f677e2bd9a" SourceId="1" SourceUrl="http://localhost:49856/MvvmCollectionService.svc?wsdl" />
+    <MetadataFile FileName="MvvmCollectionService2.xsd" MetadataType="Schema" ID="94de42b7-a7be-410c-9a19-78bcc96dcda2" SourceId="1" SourceUrl="http://localhost:49856/MvvmCollectionService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

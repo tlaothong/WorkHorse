@@ -1,0 +1,34 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:TheS_Casinova_Colors="clr-namespace:TheS.Casinova.TwoWins" x:Class="TheS.Casinova.TwoWins.Controls.GameInformationsUI"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="500" Width="Auto" Height="Auto">
+    
+	<UserControl.Resources>
+		<TheS_Casinova_Colors:GameApplicationInformation x:Key="GameApplicationInformationDataSource" d:IsDataSource="True"/>
+	</UserControl.Resources>
+	<UserControl.DataContext>
+		<Binding Source="{StaticResource GameApplicationInformationDataSource}"/>
+	</UserControl.DataContext>
+    
+    <Grid x:Name="LayoutRoot">
+    	<Rectangle Fill="#FFF4F4F5" Stroke="Black"/>
+    	<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Name, Mode=OneWay}" Margin="8,0,0,172" FontWeight="Bold" FontSize="13.333" VerticalAlignment="Bottom"/>
+    	<Rectangle Stroke="Black" Margin="8,8,8,195">
+    		<Rectangle.Fill>
+    			<RadialGradientBrush>
+    				<GradientStop Color="#FFE24444" Offset="0.123"/>
+    				<GradientStop Color="#FFFFAF00" Offset="1"/>
+    			</RadialGradientBrush>
+    		</Rectangle.Fill>
+    	</Rectangle>
+    	<HyperlinkButton Content="Play" HorizontalAlignment="Left" Margin="170,0,0,8" Foreground="Red" NavigateUri="{Binding GameUri, Mode=OneWay}" VerticalAlignment="Bottom"/>
+    	<HyperlinkButton x:Name="HowToPlayHyperlinkButton" Content="How to play" HorizontalAlignment="Right" Margin="0,0,170,8" Foreground="Red" Click="HowToPlayHyperlinkButton_Click" VerticalAlignment="Bottom" />
+    	<ScrollViewer Margin="8,0,8,28" Height="140" VerticalAlignment="Bottom">
+    		<TextBlock TextWrapping="Wrap" Text="Color or colour (see spelling differences) is the visual perceptual property corresponding in humans to the categories called red, green, blue and others. Color derives from the spectrum of light (distribution of light energy versus wavelength) interacting in the eye with the spectral sensitivities of the light receptors. Color categories and physical specifications of color are also associated with objects, materials, light sources, etc., based on their physical properties such as light absorption, reflection, or emission spectra. By defining a color space, colors can be identified numerically by their coordinates."/>
+    	</ScrollViewer>
+    </Grid>
+</UserControl>

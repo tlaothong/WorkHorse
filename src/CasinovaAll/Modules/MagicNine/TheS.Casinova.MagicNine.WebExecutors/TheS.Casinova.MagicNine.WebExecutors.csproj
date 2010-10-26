@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9A5D9D94-E38E-41BC-A424-922A47D3D741}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TheS.Casinova.MagicNine</RootNamespace>
+    <AssemblyName>TheS.Casinova.MagicNine.WebExecutors</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PerfEx.Infrastructure, Version=1.7910.905.2789, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\PerfEx.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="PerfEx.Infrastructure.Advanced">
+      <HintPath>..\..\..\..\..\lib\PerfEx.Infrastructure.Advanced.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebExecutors\ListActiveGameRoundInfoExecutor.cs" />
+    <Compile Include="WebExecutors\ListBetLogExecutor.cs" />
+    <Compile Include="WebExecutors\ListGamePlayAutoBetInfoExecutor.cs" />
+    <Compile Include="WebExecutors\SingleBetExecutor.cs" />
+    <Compile Include="WebExecutors\StartAutoBetExecutor.cs" />
+    <Compile Include="WebExecutors\StopAutoBetExecutor.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\TheS.Casinova.Common.Commands\TheS.Casinova.Common.Commands.csproj">
+      <Project>{B0BA601A-7B65-4973-9E00-4F9035883877}</Project>
+      <Name>TheS.Casinova.Common.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\TheS.Casinova.Common.Models\TheS.Casinova.Common.Models.csproj">
+      <Project>{6079CFCD-811A-4962-B021-8D3D14C0C45B}</Project>
+      <Name>TheS.Casinova.Common.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.Casinova.MagicNine.BackServices.Contracts\TheS.Casinova.MagicNine.BackServices.Contracts.csproj">
+      <Project>{98BA85E8-CA35-4C19-A70A-A2C150816FE3}</Project>
+      <Name>TheS.Casinova.MagicNine.BackServices.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.Casinova.MagicNine.Commands\TheS.Casinova.MagicNine.Commands.csproj">
+      <Project>{1F2B601A-3E92-4904-8609-5D59E62A5DB1}</Project>
+      <Name>TheS.Casinova.MagicNine.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.Casinova.MagicNine.DAL.Contracts\TheS.Casinova.MagicNine.DAL.Contracts.csproj">
+      <Project>{CD498B49-9955-4F3F-AD0F-279474C06947}</Project>
+      <Name>TheS.Casinova.MagicNine.DAL.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.Casinova.MagicNine.Models\TheS.Casinova.MagicNine.Models.csproj">
+      <Project>{F2779163-1D6E-4E6B-B070-65B09328854A}</Project>
+      <Name>TheS.Casinova.MagicNine.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

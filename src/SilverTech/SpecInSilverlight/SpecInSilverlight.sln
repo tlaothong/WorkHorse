@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoSpecFlow", "DemoSpecFlow\DemoSpecFlow.csproj", "{65403E97-DE68-4E39-A718-E20B0BD67EE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoSpecFlow.Web", "DemoSpecFlow.Web\DemoSpecFlow.Web.csproj", "{AE0416B3-349A-4A17-9D3B-2AF105BA9420}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoSpecFlow.Specs", "DemoSpecFlow.Specs\DemoSpecFlow.Specs.csproj", "{0F42F200-5092-4C7D-B4BF-14009C46EA41}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65403E97-DE68-4E39-A718-E20B0BD67EE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65403E97-DE68-4E39-A718-E20B0BD67EE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65403E97-DE68-4E39-A718-E20B0BD67EE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65403E97-DE68-4E39-A718-E20B0BD67EE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE0416B3-349A-4A17-9D3B-2AF105BA9420}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE0416B3-349A-4A17-9D3B-2AF105BA9420}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE0416B3-349A-4A17-9D3B-2AF105BA9420}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE0416B3-349A-4A17-9D3B-2AF105BA9420}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F42F200-5092-4C7D-B4BF-14009C46EA41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F42F200-5092-4C7D-B4BF-14009C46EA41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F42F200-5092-4C7D-B4BF-14009C46EA41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F42F200-5092-4C7D-B4BF-14009C46EA41}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
