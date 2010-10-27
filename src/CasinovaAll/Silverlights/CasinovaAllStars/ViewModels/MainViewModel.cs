@@ -12,6 +12,7 @@ using System.ComponentModel;
 using System.Collections.ObjectModel;
 using TheS.Casinova.Common;
 using System.Collections.Specialized;
+using System.Linq;
 
 namespace CasinovaAllStars.ViewModels
 {
@@ -48,7 +49,12 @@ namespace CasinovaAllStars.ViewModels
             }
         }
 
-        public ReadOnlyObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> Popups
+        public ReadOnlyObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> PopupsTop
+        {
+            get { return _readOnlyPopups; }
+        }
+
+        public ReadOnlyObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> PopupsBottom
         {
             get { return _readOnlyPopups; }
         }

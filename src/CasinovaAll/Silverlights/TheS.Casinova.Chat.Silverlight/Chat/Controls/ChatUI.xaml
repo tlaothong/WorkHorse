@@ -93,7 +93,7 @@
     
     <Grid x:Name="LayoutRoot">
 
-    	<sdk:TabControl Margin="0,0,160,0">
+    	<sdk:TabControl>
     		<sdk:TabItem Header="Chat">
     			<Grid>
     				<Grid.ColumnDefinitions>
@@ -110,18 +110,6 @@
     			</Grid>
     		</sdk:TabItem>
     	</sdk:TabControl>
-    	<Grid HorizontalAlignment="Right" Margin="0,22,0,0" Width="156">
-    		<StackPanel x:Name="LinksStackPanel" Style="{StaticResource LinksStackPanelStyle}" HorizontalAlignment="Stretch" Margin="8,0,8,8" VerticalAlignment="Bottom">
-
-    			<Button Content="Button 01" Style="{StaticResource MenuButtonStyle}" Foreground="Black" Width="75"/>
-    			<Button Content="Button 01" Style="{StaticResource MenuButtonStyle}" Foreground="Black" Width="75"/>
-    			<Button Content="Button 01" Style="{StaticResource MenuButtonStyle}" Foreground="Black" Width="75"/>
-    			<Button Content="Button 01" Style="{StaticResource MenuButtonStyle}" Foreground="Black" Width="75"/>                    
-
-    		</StackPanel>
-    		<Rectangle RadiusY="2" RadiusX="2" Stroke="#FF646464" StrokeThickness="2"/>
-
-    	</Grid>
 
     </Grid>
 </UserControl>
