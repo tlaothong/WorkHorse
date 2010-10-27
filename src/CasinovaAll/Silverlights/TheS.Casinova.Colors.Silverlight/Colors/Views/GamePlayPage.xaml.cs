@@ -15,7 +15,7 @@ using PerfEx.Infrastructure.Mvvm;
 
 namespace TheS.Casinova.TwoWins.Views
 {
-    //[ExportContentNavigation(GameApplicationInformation.GameInfoNavigationCode)]
+    [ExportContentNavigation(GameApplicationInformation.GameInfoNavigationCode)]
     public partial class GamePlayPage : Page
     {
         public GamePlayPage()

@@ -14,26 +14,20 @@ using TheS.Casinova.Common;
 
 namespace CasinovaAllStars.ViewModels
 {
+    // TODO : Error navigation when using this viewmodel
     public class MainViewModel : INotifyPropertyChanged
     {
         public MainViewModel()
         {
             if (App.SupportContentDownloaded == false)
             {
-                App.SupportContentDownloadCompleted += new EventHandler(App_SupportDownloadedCompleted);
+                //App.SupportContentDownloadCompleted += new EventHandler(App_SupportDownloadedCompleted);
             }
         }
 
         public ReadOnlyObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> Popups
         {
             get { return App.ModuleLoader.PopupContents; }
-        }
-
-        public Lazy<ChildWindow, IPopupContentMetadata> SelectedWindow { get; set; }
-
-        public void ShowWindow()
-        {
-            SelectedWindow.Value.Show();
         }
 
         private void App_SupportDownloadedCompleted(object sender, EventArgs e)
