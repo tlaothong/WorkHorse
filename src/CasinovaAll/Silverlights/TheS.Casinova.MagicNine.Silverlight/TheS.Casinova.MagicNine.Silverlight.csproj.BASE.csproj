@@ -89,15 +89,6 @@
     </Compile>
     <Compile Include="MagicNine\ViewModels\MainPageViewModel.cs" />
     <Compile Include="MagicNine\ViewModels\TimeIntervalViewModel.cs" />
-    <Compile Include="MagicNine\Views\BetDataPage.xaml.cs">
-      <DependentUpon>BetDataPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MagicNine\Views\GraphPage.xaml.cs">
-      <DependentUpon>GraphPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MagicNine\Views\StatisticPage.xaml.cs">
-      <DependentUpon>StatisticPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -106,22 +97,10 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="MagicNine\Popups\BetData.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MagicNine\Silverlight\MainPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MagicNine\Views\BetDataPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MagicNine\Views\GraphPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="MagicNine\Views\StatisticPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

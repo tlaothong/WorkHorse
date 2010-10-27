@@ -5,12 +5,12 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C8789CB7-3EB0-44FE-BC6C-5B530E80D15A}</ProjectGuid>
+    <ProjectGuid>{0DFECD7E-1363-406E-A492-3ABFD06E18D7}</ProjectGuid>
     <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TheS.Casinova</RootNamespace>
-    <AssemblyName>TheS.Casinova.MagicNine.Silverlight</AssemblyName>
+    <AssemblyName>TheS.Casinova.TwoWins.Silverlight</AssemblyName>
     <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
@@ -19,10 +19,10 @@
     </SupportedCultures>
     <XapOutputs>true</XapOutputs>
     <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
-    <XapFilename>TheS.Casinova.MagicNine.Silverlight.xap</XapFilename>
+    <XapFilename>TheS.Casinova.TwoWins.Silverlight.xap</XapFilename>
     <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
-    <SilverlightAppEntry>TheS.Casinova.MagicNine.Silverlight.App</SilverlightAppEntry>
-    <TestPageFileName>TheS.Casinova.MagicNine.SilverlightTestPage.html</TestPageFileName>
+    <SilverlightAppEntry>TheS.Casinova.TwoWins.Silverlight.App</SilverlightAppEntry>
+    <TestPageFileName>TheS.Casinova.TwoWins.SilverlightTestPage.html</TestPageFileName>
     <CreateTestPage>true</CreateTestPage>
     <ValidateXaml>true</ValidateXaml>
     <EnableOutOfBrowser>false</EnableOutOfBrowser>
@@ -61,9 +61,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
-    <Reference Include="PerfEx.Infrastructure.Silverlight">
-      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Silverlight.dll</HintPath>
-    </Reference>
+    <Reference Include="System.ComponentModel.Composition, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Windows" />
     <Reference Include="system" />
     <Reference Include="System.Core" />
@@ -78,52 +76,44 @@
     <Reference Include="System.Windows.Browser" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MagicNine\Popups\BetData.xaml.cs">
-      <DependentUpon>BetData.xaml</DependentUpon>
+    <Compile Include="TwoWins\Controls\GameInformationsUI.xaml.cs">
+      <DependentUpon>GameInformationsUI.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MagicNine\Silverlight\App.xaml.cs">
+    <Compile Include="TwoWins\Controls\GamePlayUI.xaml.cs">
+      <DependentUpon>GamePlayUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TwoWins\GameApplicationInformation.cs" />
+    <Compile Include="TwoWins\Silverlight\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MagicNine\Silverlight\MainPage.xaml.cs">
+    <Compile Include="TwoWins\Silverlight\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MagicNine\ViewModels\MainPageViewModel.cs" />
-    <Compile Include="MagicNine\ViewModels\TimeIntervalViewModel.cs" />
-    <Compile Include="MagicNine\Views\BetDataPage.xaml.cs">
-      <DependentUpon>BetDataPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MagicNine\Views\GraphPage.xaml.cs">
-      <DependentUpon>GraphPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MagicNine\Views\StatisticPage.xaml.cs">
-      <DependentUpon>StatisticPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TwoWins\Views\HowToPlayWindow.xaml.cs">
+      <DependentUpon>HowToPlayWindow.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="MagicNine\Silverlight\App.xaml">
+    <ApplicationDefinition Include="TwoWins\Silverlight\App.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="MagicNine\Popups\BetData.xaml">
+    <Page Include="TwoWins\Controls\GameInformationsUI.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="MagicNine\Silverlight\MainPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MagicNine\Views\BetDataPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MagicNine\Views\GraphPage.xaml">
+    <Page Include="TwoWins\Controls\GamePlayUI.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="MagicNine\Views\StatisticPage.xaml">
+    <Page Include="TwoWins\Silverlight\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TwoWins\Views\HowToPlayWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -135,7 +125,9 @@
       <Name>TheS.Casinova.Common.Silverlight</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="TwoWins\Popups\" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

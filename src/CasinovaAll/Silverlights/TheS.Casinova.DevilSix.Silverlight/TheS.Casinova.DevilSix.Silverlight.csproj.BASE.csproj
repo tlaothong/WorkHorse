@@ -5,12 +5,12 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C8789CB7-3EB0-44FE-BC6C-5B530E80D15A}</ProjectGuid>
+    <ProjectGuid>{1621C1D1-A6CE-4327-84FD-E89241BB6D56}</ProjectGuid>
     <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TheS.Casinova</RootNamespace>
-    <AssemblyName>TheS.Casinova.MagicNine.Silverlight</AssemblyName>
+    <AssemblyName>TheS.Casinova.DevilSix.Silverlight</AssemblyName>
     <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
@@ -19,10 +19,10 @@
     </SupportedCultures>
     <XapOutputs>true</XapOutputs>
     <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
-    <XapFilename>TheS.Casinova.MagicNine.Silverlight.xap</XapFilename>
+    <XapFilename>TheS.Casinova.DevilSix.Silverlight.xap</XapFilename>
     <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
-    <SilverlightAppEntry>TheS.Casinova.MagicNine.Silverlight.App</SilverlightAppEntry>
-    <TestPageFileName>TheS.Casinova.MagicNine.SilverlightTestPage.html</TestPageFileName>
+    <SilverlightAppEntry>TheS.Casinova.DevilSix.Silverlight.App</SilverlightAppEntry>
+    <TestPageFileName>TheS.Casinova.DevilSix.SilverlightTestPage.html</TestPageFileName>
     <CreateTestPage>true</CreateTestPage>
     <ValidateXaml>true</ValidateXaml>
     <EnableOutOfBrowser>false</EnableOutOfBrowser>
@@ -74,54 +74,36 @@
     <Reference Include="System.Windows.Controls.Navigation, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Windows.Controls.Theming.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Windows.Controls.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Data, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Windows.Browser" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MagicNine\Popups\BetData.xaml.cs">
+    <Compile Include="DevilSix\Popups\BetData.xaml.cs">
       <DependentUpon>BetData.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MagicNine\Silverlight\App.xaml.cs">
+    <Compile Include="DevilSix\Silverlight\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MagicNine\Silverlight\MainPage.xaml.cs">
+    <Compile Include="DevilSix\Silverlight\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MagicNine\ViewModels\MainPageViewModel.cs" />
-    <Compile Include="MagicNine\ViewModels\TimeIntervalViewModel.cs" />
-    <Compile Include="MagicNine\Views\BetDataPage.xaml.cs">
-      <DependentUpon>BetDataPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MagicNine\Views\GraphPage.xaml.cs">
-      <DependentUpon>GraphPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MagicNine\Views\StatisticPage.xaml.cs">
-      <DependentUpon>StatisticPage.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="DevilSix\ViewModels\PageFourViewModel.cs" />
+    <Compile Include="DevilSix\ViewModels\PageThreeViewModel.cs" />
+    <Compile Include="DevilSix\ViewModels\PageTwoViewModel.cs" />
+    <Compile Include="DevilSix\ViewModels\MainPageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="MagicNine\Silverlight\App.xaml">
+    <ApplicationDefinition Include="DevilSix\Silverlight\App.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="MagicNine\Popups\BetData.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="MagicNine\Silverlight\MainPage.xaml">
+    <Page Include="DevilSix\Popups\BetData.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MagicNine\Views\BetDataPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MagicNine\Views\GraphPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="MagicNine\Views\StatisticPage.xaml">
+    <Page Include="DevilSix\Silverlight\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
