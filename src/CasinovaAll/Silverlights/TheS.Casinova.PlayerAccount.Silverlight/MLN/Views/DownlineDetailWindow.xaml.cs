@@ -10,16 +10,21 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace TheS.Casinova.MLN
+namespace TheS.Casinova.MLN.Views
 {
-    public partial class AnotherPlayerInformationWindow : ChildWindow
+    public partial class DownlineDetailWindow : ChildWindow
     {
-        public AnotherPlayerInformationWindow()
+        public DownlineDetailWindow()
         {
             InitializeComponent();
         }
 
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        private void OKButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = true;
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             this.DialogResult = false;
         }

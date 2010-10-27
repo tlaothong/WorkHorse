@@ -10,19 +10,13 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace TheS.Casinova.MLN
+namespace TheS.Casinova.MLN.Controls
 {
-    public partial class MLNDownLineDetailWindow : ChildWindow
+    public partial class DownlineLevelDetailUI : UserControl
     {
-        public MLNDownLineDetailWindow()
+        public DownlineLevelDetailUI()
         {
             InitializeComponent();
         }
-
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.DialogResult = false;
-        }
     }
 }
-
