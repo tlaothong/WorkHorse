@@ -12,24 +12,24 @@
     	<Grid Height="104" VerticalAlignment="Top">
     		<Rectangle Fill="#FFFFB4B4" Stroke="Black"/>
     		<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Current bonus available:" VerticalAlignment="Top" Margin="8,8,0,0" FontWeight="Bold" FontSize="16"/>
-    		<TextBlock x:Name="CurrentBunusAvailableTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="CurrentBunusAvailableTextBlock" VerticalAlignment="Top" Margin="233,8,0,0" FontSize="16"/>
-    		<Button x:Name="DepositButton" Content="Deposit" HorizontalAlignment="Right" VerticalAlignment="Top" Width="75" Margin="0,8,8,0" Click="MLNDepositButton_Click" />
-    		<sdk:DataGrid x:Name="MLNDataGrid" Margin="8,36,8,7"/>
+    		<TextBlock x:Name="CurrentBunusAvailable" HorizontalAlignment="Left" TextWrapping="Wrap" Text="CurrentBunusAvailable" VerticalAlignment="Top" Margin="233,8,0,0" FontSize="16"/>
+    		<Button x:Name="Deposit" Content="Deposit" HorizontalAlignment="Right" VerticalAlignment="Top" Width="75" Margin="0,8,8,0" Click="MLNDepositButton_Click" />
+    		<sdk:DataGrid x:Name="MLNInformation" Margin="8,36,8,7"/>
     	</Grid>
     	<Grid Margin="0,108,0,0">
     		<Rectangle Fill="White" Stroke="Black"/>
-    		<Image HorizontalAlignment="Left" Source="/TheS.Casinova.PlayerAccount.Silverlight;component/Assets/Images/mln.png" Stretch="Fill" Width="271" Margin="8,76,0,41"/>
+    		<Image HorizontalAlignment="Left" Source="/TheS.Casinova.PlayerAccount.Silverlight;component/Assets/Images/mln.png" Stretch="None" Width="271" Margin="8,82,0,35"/>
     		<Grid Margin="283,132,9,32">
     			<Rectangle Fill="White" Stroke="Black" RadiusY="16" RadiusX="16" Margin="0"/>
     			<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Level 1:" VerticalAlignment="Top" Margin="8,32,0,0" FontWeight="Bold"/>
     			<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Level 2:" VerticalAlignment="Top" Margin="8,64,0,0" FontWeight="Bold"/>
     			<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Level 3:" VerticalAlignment="Top" Margin="8,96,0,0" FontWeight="Bold"/>
-    			<TextBlock x:Name="MLNFirstLevelTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="FirstLevelTextBlock" VerticalAlignment="Top" Margin="61,32,0,0"/>
-    			<TextBlock x:Name="MLNSecondLevelTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="SecondLevelTextBlock" VerticalAlignment="Top" Margin="61,64,0,0"/>
-    			<TextBlock x:Name="MLNThirdLevelTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="ThirdLevelTextBlock" VerticalAlignment="Top" Margin="61,96,0,0"/>
-    			<Button x:Name="FirstViewButton" Content="View" HorizontalAlignment="Right" VerticalAlignment="Top" Width="75" Margin="0,29,8,0" Click="FirstViewButton_Click" />
-    			<Button x:Name="SecondViewButton" Content="View" HorizontalAlignment="Right" Width="75" Margin="0,61,8,0" VerticalAlignment="Top" Click="SecondViewButton_Click" />
-    			<Button x:Name="ThirdViewButton" Content="View" HorizontalAlignment="Right" Width="75" Margin="0,93,8,0" VerticalAlignment="Top" Click="ThirdViewButton_Click" />
+    			<TextBlock x:Name="MLNFirstLevel" HorizontalAlignment="Left" TextWrapping="Wrap" Text="MLNFirstLevel" VerticalAlignment="Top" Margin="61,32,0,0"/>
+    			<TextBlock x:Name="SecondLevel" HorizontalAlignment="Left" TextWrapping="Wrap" Text="SecondLevel" VerticalAlignment="Top" Margin="61,64,0,0"/>
+    			<TextBlock x:Name="ThirdLevel" HorizontalAlignment="Left" TextWrapping="Wrap" Text="ThirdLevel" VerticalAlignment="Top" Margin="61,96,0,0"/>
+    			<Button x:Name="FirstView" Content="View" HorizontalAlignment="Right" VerticalAlignment="Top" Width="75" Margin="0,29,8,0" Click="FirstViewButton_Click" />
+    			<Button x:Name="SecondView" Content="View" HorizontalAlignment="Right" Width="75" Margin="0,61,8,0" VerticalAlignment="Top" Click="SecondViewButton_Click" />
+    			<Button x:Name="ThirdView" Content="View" HorizontalAlignment="Right" Width="75" Margin="0,93,8,0" VerticalAlignment="Top" Click="ThirdViewButton_Click" />
     		</Grid>
     	</Grid>
 

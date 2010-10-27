@@ -11,5 +11,16 @@
         </Grid.RowDefinitions>
 
         <Button x:Name="CloseButton" Content="Close" Click="CloseButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" FontSize="11" />
+        <controls:TabControl FontSize="11">
+        	<controls:TabItem x:Name="FirstTabItem" Header="Level 1">
+        		<Grid Background="#FFE5E5E5"/>
+        	</controls:TabItem>
+        	<controls:TabItem x:Name="SecondTabItem" Header="Level 2">
+        		<Grid Background="#FFE5E5E5"/>
+        	</controls:TabItem>
+        	<controls:TabItem x:Name="ThirdTabItem" Header="Level 3">
+        		<Grid Background="#FFE5E5E5"/>
+        	</controls:TabItem>
+        </controls:TabControl>
     </Grid>
 </controls:ChildWindow>

@@ -92,6 +92,9 @@
     <Compile Include="ChipExchange\Views\DepositWindow.xaml.cs">
       <DependentUpon>DepositWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MLN\AnotherPlayerInformationWindow.xaml.cs">
+      <DependentUpon>AnotherPlayerInformationWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MLN\MLNUI.xaml.cs">
       <DependentUpon>MLNUI.xaml</DependentUpon>
     </Compile>
@@ -125,6 +128,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ChipExchange\Views\DepositWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MLN\AnotherPlayerInformationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

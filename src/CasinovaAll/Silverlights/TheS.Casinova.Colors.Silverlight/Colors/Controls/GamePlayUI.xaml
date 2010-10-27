@@ -18,7 +18,7 @@
 	<Grid x:Name="LayoutRoot">
 		<Grid Height="40" VerticalAlignment="Top">
 			<Rectangle Fill="Black" Stroke="Black"/>
-			<TextBlock x:Name="Title" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Title" VerticalAlignment="Center" Margin="8,0,0,0" FontSize="26.667" Foreground="White"/>
+			<TextBlock x:Name="Title" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Title" VerticalAlignment="Center" Margin="8,0,0,0" FontSize="26.667" Foreground="White" FontWeight="Bold"/>
 		</Grid>
 		<Grid Margin="0,40,0,0">
 			<TextBlock x:Name="GameTime" TextWrapping="Wrap" Text="GameTime" VerticalAlignment="Top" FontSize="21.333" Margin="8,8,8,0" FontWeight="Bold" TextAlignment="Center"/>

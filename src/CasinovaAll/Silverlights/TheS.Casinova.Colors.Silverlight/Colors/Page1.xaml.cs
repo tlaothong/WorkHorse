@@ -14,7 +14,7 @@ using TheS.Casinova.Common;
 
 namespace TheS.Casinova.TwoWins
 {
-    //[ExportContentNavigation(GameApplicationInformation.GameInfoNavigationCode)]
+    [ExportContentNavigation(GameApplicationInformation.GameInfoNavigationCode)]
     public partial class Page1 : Page, INavigablePage
     {
         public Page1()
