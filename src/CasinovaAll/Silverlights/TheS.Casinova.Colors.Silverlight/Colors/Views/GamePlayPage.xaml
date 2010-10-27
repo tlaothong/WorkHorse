@@ -9,9 +9,10 @@
            Title="Colors GamePlayPage Page" mc:Ignorable="d">
     <Grid x:Name="LayoutRoot">
     	<Grid.ColumnDefinitions>
-    		<ColumnDefinition/>
+    		<ColumnDefinition Width="0.725*"/>
+    		<ColumnDefinition Width="0.275*"/>
     	</Grid.ColumnDefinitions>
-    	<TheS_Casinova:GamePlayUI Width="Auto" Height="Auto" Margin="0,0,132,0"/>
-    	<ListBox x:Name="GameTables" HorizontalAlignment="Right" Width="128"/>
+    	<TheS_Casinova:GamePlayUI Width="Auto" Height="Auto"/>
+    	<ListBox x:Name="GameTables" Grid.Column="1" Margin="8,0,0,0"/>
     </Grid>
 </navigation:Page>

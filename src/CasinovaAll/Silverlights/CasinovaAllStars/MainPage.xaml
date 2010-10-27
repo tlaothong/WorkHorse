@@ -14,7 +14,7 @@
 	<UserControl.Resources>
 		<CasinovaAllStars_ViewModels:MainViewModel x:Key="MainViewModelDataSource" d:IsDataSource="True"/>
 		<DataTemplate x:Key="DataTemplate">
-			<StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" Style="{StaticResource LinksStackPanelStyle}">
                 <HyperlinkButton x:Name="LinkMenu" Style="{StaticResource LinkStyle}" Content="{Binding Metadata.DisplayText, Mode=OneWay}" Click="LinkMenu_Click" CommandParameter="{Binding Value, Mode=TwoWay}"/>
 			</StackPanel>
 		</DataTemplate>
@@ -59,7 +59,7 @@
 
         <Grid x:Name="NavigationGrid" Style="{StaticResource NavigationGridStyle}">
 
-            <HyperlinkButton x:Name="LogoutHyperlinkButton" Style="{StaticResource LinkStyle}" TargetName="ContentFrame" Content="Logout" HorizontalAlignment="Right" Margin="0,7,8,7" d:LayoutOverrides="Height"/>
+            <HyperlinkButton x:Name="LogoutHyperlinkButton" NavigateUri="/GameLobbyPage" Style="{StaticResource LinkStyle}" TargetName="ContentFrame" Content="Logout" HorizontalAlignment="Right" Margin="0,7,8,7" d:LayoutOverrides="Height"/>
 
             <Border x:Name="BrandingBorder" Style="{StaticResource BrandingBorderStyle}">
                 <StackPanel x:Name="BrandingStackPanel" Style="{StaticResource BrandingStackPanelStyle}">
@@ -72,7 +72,7 @@
             </Border>
 
             <Border x:Name="LinksBorder" Style="{StaticResource LinksBorderStyle}" Margin="202,0,90,0" HorizontalAlignment="Stretch" Height="Auto">
-                <ListBox x:Name="LinkListBox" ItemTemplate="{StaticResource DataTemplate}" ItemsSource="{Binding Popups}" Margin="0" Background="{x:Null}" BorderBrush="{x:Null}" ItemContainerStyle="{StaticResource LinkListBoxItemStyle}" ItemsPanel="{StaticResource ItemsPanelTemplate1}"/>
+                <ListBox x:Name="LinkListBox" ItemTemplate="{StaticResource DataTemplate}" ItemsSource="{Binding Popups, Mode=OneWay}" Background="Transparent" BorderBrush="Transparent" Margin="0" ItemContainerStyle="{StaticResource LinkListBoxItemStyle}" ItemsPanel="{StaticResource ItemsPanelTemplate1}"/>
             </Border>
 
         </Grid>
