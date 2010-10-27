@@ -25,7 +25,7 @@ namespace CasinovaAllStars
         // After the Frame navigates, ensure the HyperlinkButton representing the current page is selected
         private void ContentFrame_Navigated(object sender, NavigationEventArgs e)
         {
-            foreach (UIElement child in LinksStackPanel.Children)
+            foreach (UIElement child in LinkListBox.Items)
             {
                 HyperlinkButton hb = child as HyperlinkButton;
                 if (hb != null && hb.NavigateUri != null)
@@ -50,10 +50,15 @@ namespace CasinovaAllStars
             errorWin.Show();
         }
 
-        // TODO : For test statistics
-        private void StatisticsButton_Click(object sender, RoutedEventArgs e)
+        private void LinkMenu_Click(object sender, RoutedEventArgs e)
         {
-            CasinovaAllStars.Views.StatisticsWindow sw = new Views.StatisticsWindow();
+            ((ChildWindow)((HyperlinkButton)sender).CommandParameter).Show();
+        }
+
+        // TODO : Test statistics core
+        private void TestStatisticsButton_Click(object sender, RoutedEventArgs e)
+        {
+            Views.StatisticsWindow sw = new Views.StatisticsWindow();
             sw.Show();
         }
     }

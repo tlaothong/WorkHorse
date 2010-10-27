@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using Rhino.Mocks;
 using TechTalk.SpecFlow;
-using TheS.Casinova.Colors.DAL;
-using TheS.Casinova.Colors.BackServices.BackExecutors;
-using TheS.Casinova.Colors.Models;
+using TheS.Casinova.TwoWins.DAL;
+using TheS.Casinova.TwoWins.BackServices.BackExecutors;
+using TheS.Casinova.TwoWins.Models;
 
-namespace TheS.Casinova.Colors.BackServices.Specs
+namespace TheS.Casinova.TwoWins.BackServices.Specs
 {
     [Binding]
     public class CommonSteps

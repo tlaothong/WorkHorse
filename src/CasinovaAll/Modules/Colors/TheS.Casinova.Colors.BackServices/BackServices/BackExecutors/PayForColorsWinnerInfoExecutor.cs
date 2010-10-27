@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using PerfEx.Infrastructure.CommandPattern;
-using TheS.Casinova.Colors.Commands;
-using TheS.Casinova.Colors.DAL;
-using TheS.Casinova.Colors.Models;
+using TheS.Casinova.TwoWins.Commands;
+using TheS.Casinova.TwoWins.DAL;
+using TheS.Casinova.TwoWins.Models;
 
-namespace TheS.Casinova.Colors.BackServices.BackExecutors
+namespace TheS.Casinova.TwoWins.BackServices.BackExecutors
 {
     public class PayForColorsWinnerInfoExecutor 
         : SynchronousCommandExecutorBase<PayForColorsWinnerInfoCommand>

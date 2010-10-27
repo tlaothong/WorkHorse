@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
-using TheS.Casinova.Colors.Models;
+using TheS.Casinova.TwoWins.Models;
 using Rhino.Mocks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TheS.Casinova.Colors.Commands;
+using TheS.Casinova.TwoWins.Commands;
 
-namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
+namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
 {
     [Binding]
     public class ListActiveGameRoundsSteps : ColorsGameStepsBase

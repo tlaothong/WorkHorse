@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace TheS.Casinova.Colors.Commands
+namespace TheS.Casinova.TwoWins.Commands
 {
     /// <summary>
     /// อัพเดทข้อมูลผู้ชนะในโต๊ะเกมที่ผู้เล่นลงพนันไว้

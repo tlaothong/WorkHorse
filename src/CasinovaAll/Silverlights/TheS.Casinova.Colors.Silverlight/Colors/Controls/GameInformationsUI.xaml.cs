@@ -9,14 +9,21 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using TheS.Casinova.Colors.Views;
 
-namespace TheS.Casinova.Colors.Controls
+namespace TheS.Casinova.TwoWins.Controls
 {
     public partial class GameInformationsUI : UserControl
     {
         public GameInformationsUI()
         {
             InitializeComponent();
+        }
+
+        private void HowToPlayHyperlinkButton_Click(object sender, RoutedEventArgs e)
+        {
+            HowToPlayWindow htpw = new HowToPlayWindow();
+            htpw.Show();
         }
     }
 }

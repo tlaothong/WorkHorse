@@ -106,6 +106,7 @@
     				<TextBox x:Name="MessageTextBox" TextWrapping="Wrap" Text="MessageTextBox" VerticalAlignment="Bottom" Margin="0,0,62,0"/>
     				<Button x:Name="SendButton" Content="Send" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,8,0" Height="24" Width="50"/>
     				<ListBox x:Name="PlayerListBox" Grid.Column="1"/>
+    				<ComboBox x:Name="Channel" VerticalAlignment="Top" Margin="42,-28,-6,0" Grid.ColumnSpan="2"/>
     			</Grid>
     		</sdk:TabItem>
     	</sdk:TabControl>
