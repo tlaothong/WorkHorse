@@ -104,7 +104,6 @@
     <Compile Include="Colors\Silverlight\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Colors\ViewModels\GamePlayModel.cs" />
     <Compile Include="Colors\Views\BetDataPage.xaml.cs">
       <DependentUpon>BetDataPage.xaml</DependentUpon>
     </Compile>
@@ -137,8 +136,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Colors\Popups\BetData.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Colors\Silverlight\MainPage.xaml">
       <SubType>Designer</SubType>
@@ -169,6 +168,9 @@
       <Project>{3613EAFB-E876-47F0-BFE9-7E9D8DCF5E5A}</Project>
       <Name>TheS.Casinova.Common.Silverlight</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Colors\ViewModels\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
