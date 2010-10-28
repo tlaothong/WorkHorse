@@ -22,8 +22,8 @@
     					<Rectangle Fill="Black" Stroke="Black" Height="17" VerticalAlignment="Top"/>
     					<Rectangle Fill="White" Stroke="Black" Margin="0,17,0,0"/>
     					<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Pay type" VerticalAlignment="Top" Foreground="White" Margin="8,1,0,0"/>
-    					<ComboBox x:Name="DepositPayTypePayByComboBox" Margin="114,25,87,0" Height="22" VerticalAlignment="Top"/>
-    					<Button x:Name="DepositPayTypeEditButton" Content="Edit" HorizontalAlignment="Right" Width="75" Margin="0,25,8,0" VerticalAlignment="Top"/>
+    					<ComboBox x:Name="DepositPayTypePayByComboBox" Margin="114,25,95,0" Height="22" VerticalAlignment="Top"/>
+    					<Button x:Name="DepositPayTypeEditButton" Content="Edit" HorizontalAlignment="Right" Width="83" Margin="0,25,8,0" VerticalAlignment="Top"/>
     					<Grid Margin="8,70,8,0" Height="58" VerticalAlignment="Top">
     						<Rectangle Fill="#FF5E5E5E" Stroke="Black" Height="17" VerticalAlignment="Top"/>
     						<Rectangle Fill="White" Stroke="Black" Margin="0,17,0,0"/>

@@ -14,7 +14,7 @@
 	<UserControl.Resources>
 		<CasinovaAllStars_ViewModels:MainViewModel x:Key="MainViewModelDataSource" d:IsDataSource="True"/>
 		<DataTemplate x:Key="DataTemplate">
-			<StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" Style="{StaticResource LinksStackPanelStyle}">
                 <HyperlinkButton x:Name="LinkMenu" Style="{StaticResource LinkStyle}" Content="{Binding Metadata.DisplayText, Mode=OneWay}" Click="LinkMenu_Click" CommandParameter="{Binding Value, Mode=TwoWay}"/>
 			</StackPanel>
 		</DataTemplate>
@@ -42,8 +42,16 @@
 	</UserControl.DataContext>
 
     <Grid x:Name="LayoutRoot" Style="{StaticResource LayoutRootGridStyle}">
+    	<Grid.ColumnDefinitions>
+    		<ColumnDefinition Width="0.725*"/>
+    		<ColumnDefinition Width="0.275*"/>
+    	</Grid.ColumnDefinitions>
+    	<Grid.RowDefinitions>
+    		<RowDefinition Height="0.688*"/>
+    		<RowDefinition Height="0.312*"/>
+    	</Grid.RowDefinitions>
 
-        <Border x:Name="ContentBorder" Style="{StaticResource ContentBorderStyle}" Margin="0,42,0,150">
+        <Border x:Name="ContentBorder" Style="{StaticResource ContentBorderStyle}" Margin="0,42,0,0" Grid.ColumnSpan="2">
 
             <navigation:Frame x:Name="ContentFrame" Style="{StaticResource ContentFrameStyle}" 
                               Source="/GameLobbyPage" Navigated="ContentFrame_Navigated" NavigationFailed="ContentFrame_NavigationFailed">
@@ -57,9 +65,9 @@
             </navigation:Frame>
         </Border>
 
-        <Grid x:Name="NavigationGrid" Style="{StaticResource NavigationGridStyle}">
+        <Grid x:Name="NavigationGrid" Style="{StaticResource NavigationGridStyle}" Grid.ColumnSpan="2">
 
-            <HyperlinkButton x:Name="LogoutHyperlinkButton" Style="{StaticResource LinkStyle}" TargetName="ContentFrame" Content="Logout" HorizontalAlignment="Right" Margin="0,7,8,7" d:LayoutOverrides="Height"/>
+            <HyperlinkButton x:Name="LogoutHyperlinkButton" NavigateUri="/GameLobbyPage" Style="{StaticResource LinkStyle}" TargetName="ContentFrame" Content="Logout" HorizontalAlignment="Right" Margin="0,7,8,7" d:LayoutOverrides="Height"/>
 
             <Border x:Name="BrandingBorder" Style="{StaticResource BrandingBorderStyle}">
                 <StackPanel x:Name="BrandingStackPanel" Style="{StaticResource BrandingStackPanelStyle}">
@@ -72,13 +80,17 @@
             </Border>
 
             <Border x:Name="LinksBorder" Style="{StaticResource LinksBorderStyle}" Margin="202,0,90,0" HorizontalAlignment="Stretch" Height="Auto">
-                <ListBox x:Name="LinkListBox" ItemTemplate="{StaticResource DataTemplate}" ItemsSource="{Binding Popups}" Margin="0" Background="{x:Null}" BorderBrush="{x:Null}" ItemContainerStyle="{StaticResource LinkListBoxItemStyle}" ItemsPanel="{StaticResource ItemsPanelTemplate1}"/>
+                <ListBox x:Name="LinkMenuTop" ItemTemplate="{StaticResource DataTemplate}" ItemsSource="{Binding PopupsTop, Mode=OneWay}" Background="Transparent" BorderBrush="Transparent" Margin="0" ItemContainerStyle="{StaticResource LinkListBoxItemStyle}" ItemsPanel="{StaticResource ItemsPanelTemplate1}"/>
             </Border>
 
         </Grid>
 
-    	<TheS_Casinova_Chat_Controls:ChatUI VerticalAlignment="Bottom" Width="Auto" Height="150" Margin="0"/>
-        <Button Content="Test Statistics" HorizontalAlignment="Left" Margin="522,308,0,0" Name="TestStatisticsButton" Click="TestStatisticsButton_Click" VerticalAlignment="Top" Width="106" />
+    	<TheS_Casinova_Chat_Controls:ChatUI Width="Auto" Height="Auto" Grid.Row="1" Margin="0,0,4,0"/>
+        <Button Content="Test Statistics" Margin="58,45,12,0" Name="TestStatisticsButton" Click="TestStatisticsButton_Click" Height="22" VerticalAlignment="Top" Grid.Column="1" />
+        <Grid Grid.Column="1" Grid.Row="1">
+        	<Rectangle Fill="#FF484848" RadiusX="1" RadiusY="1" StrokeThickness="2" Stroke="#FF646464" d:LayoutOverrides="GridBox"/>
+        	<ListBox x:Name="LinkMenuBottom" ItemTemplate="{StaticResource DataTemplate}" ItemsSource="{Binding PopupsBottom, Mode=OneWay}" BorderBrush="Transparent" Margin="8,0,8,8" ItemContainerStyle="{StaticResource LinkListBoxItemStyle}" ItemsPanel="{StaticResource ItemsPanelTemplate1}" Height="55" VerticalAlignment="Bottom" Background="{x:Null}"/>
+        </Grid>
     </Grid>
 
 </UserControl>

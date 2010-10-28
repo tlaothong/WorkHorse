@@ -16,7 +16,7 @@ namespace TheS.Casinova.TwoWins
     [Export(typeof(IGameApplicationInformation))]
     public class GameApplicationInformation : IGameApplicationInformation
     {
-        public const string GameInfoNavigationCode = "colors_gameInfo";
+        public const string GameInfoNavigationCode = "colors_gamePlay";
 
         private Uri _gameUri = NavigableContentHelper.GetNavigationUri(GameInfoNavigationCode);
         private UserControl _infoContent;

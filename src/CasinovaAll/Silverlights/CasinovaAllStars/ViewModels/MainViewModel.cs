@@ -11,37 +11,52 @@ using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using TheS.Casinova.Common;
+using System.Collections.Specialized;
+using System.Linq;
 
 namespace CasinovaAllStars.ViewModels
 {
+    // TODO : Error navigation when using this viewmodel
     public class MainViewModel : INotifyPropertyChanged
     {
+        private ObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> _popups;
+        private ReadOnlyObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> _readOnlyPopups;
+
         public MainViewModel()
         {
             if (App.SupportContentDownloaded == false)
             {
-                App.SupportContentDownloadCompleted += new EventHandler(App_SupportDownloadedCompleted);
+                App.SupportContentDownloadCompleted += new EventHandler(App_SupportContentDownloadCompleted);
             }
+            _popups = new ObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>>();
+            _readOnlyPopups = new ReadOnlyObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>>(_popups);
         }
 
-        public ReadOnlyObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> Popups
+        void App_SupportContentDownloadCompleted(object sender, EventArgs e)
         {
-            get { return App.ModuleLoader.PopupContents; }
-        }
-
-        public Lazy<ChildWindow, IPopupContentMetadata> SelectedWindow { get; set; }
-
-        public void ShowWindow()
-        {
-            SelectedWindow.Value.Show();
-        }
-
-        private void App_SupportDownloadedCompleted(object sender, EventArgs e)
-        {
+            ((INotifyCollectionChanged)App.ModuleLoader.PopupContents).CollectionChanged += new NotifyCollectionChangedEventHandler(MainViewModel_CollectionChanged);
             PropertyChangedEventHandler temp = PropertyChanged;
             if (temp != null) {
                 temp(this, new PropertyChangedEventArgs("Popups"));
             }
+        }
+
+        void MainViewModel_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            _popups.Clear();
+            foreach (var item in App.ModuleLoader.PopupContents) {
+                _popups.Add(item);
+            }
+        }
+
+        public ReadOnlyObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> PopupsTop
+        {
+            get { return _readOnlyPopups; }
+        }
+
+        public ReadOnlyObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> PopupsBottom
+        {
+            get { return _readOnlyPopups; }
         }
 
         #region INotifyPropertyChanged Members
