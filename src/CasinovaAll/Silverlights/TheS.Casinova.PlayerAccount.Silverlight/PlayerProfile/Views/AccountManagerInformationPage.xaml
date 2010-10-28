@@ -5,10 +5,10 @@
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            mc:Ignorable="d"
            xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
-           d:DesignWidth="600" d:DesignHeight="200"
-           Title="AccountManagerInformationPage Page" Height="200">
+           d:DesignWidth="600" d:DesignHeight="91"
+           Title="AccountManagerInformationPage Page" Height="Auto">
     <Grid x:Name="LayoutRoot">
-    	<Grid Height="93" VerticalAlignment="Top">
+    	<Grid VerticalAlignment="Top">
     		<Rectangle Fill="#FFF4F4F5" Stroke="Black"/>
 
     		<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" Margin="8,12,0,0" FontWeight="Bold" Width="62"/>
