@@ -5,6 +5,7 @@ using System.Text;
 using TheS.Casinova.PlayerAccount.Commands;
 using PerfEx.Infrastructure.CommandPattern;
 using TheS.Casinova.PlayerAccount.DAL;
+using TheS.Casinova.PlayerAccount.Models;
 
 namespace TheS.Casinova.PlayerAccount.BackServices.BackExecutors
 {
@@ -20,7 +21,12 @@ namespace TheS.Casinova.PlayerAccount.BackServices.BackExecutors
 
         protected override void ExecuteCommand(CancelPlayerAccountCommand command)
         {
-            throw new NotImplementedException();
+            PlayerAccountInformation playerAccountInfo = new PlayerAccountInformation {
+                UserName = command.UserName,
+                PlayerAccoundID = command.PlayerAccoundID,
+            };
+
+            _iCancelPlayerAccount.ApplyAction(playerAccountInfo, command);
         }
     }
 }

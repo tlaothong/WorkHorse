@@ -63,5 +63,11 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
         {
             Assert.IsTrue(true, "Expectation has been verified in the end of block When.");
         }
+
+        [Then(@"the server should throw an error")]
+        public void ThenTheServerShouldThrowAnError()
+        {
+            ScenarioContext.Current.Pending();
+        }
     }
 }
