@@ -40,11 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\ChequeInformation.cs" />
+    <Compile Include="Models\ExchangeInformation.cs" />
+    <Compile Include="Models\ExchangeSetting.cs" />
+    <Compile Include="Models\MultilevelNetWorkInformation.cs" />
+    <Compile Include="Models\VoucherInformation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\Shared\TheS.Casinova.Common.Models\TheS.Casinova.Common.Models.csproj">
       <Project>{6079CFCD-811A-4962-B021-8D3D14C0C45B}</Project>

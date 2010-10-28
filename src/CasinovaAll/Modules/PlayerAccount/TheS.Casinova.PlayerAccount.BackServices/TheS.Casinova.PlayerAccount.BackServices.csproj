@@ -68,10 +68,6 @@
       <Project>{6079CFCD-811A-4962-B021-8D3D14C0C45B}</Project>
       <Name>TheS.Casinova.Common.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TheS.Casinova.PlayerAccount.BackServices.Contracts\TheS.Casinova.PlayerAccount.BackServices.Contracts.csproj">
-      <Project>{71089D2E-913D-43E9-A714-F358E2DA68B2}</Project>
-      <Name>TheS.Casinova.PlayerAccount.BackServices.Contracts</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TheS.Casinova.PlayerAccount.Commands\TheS.Casinova.PlayerAccount.Commands.csproj">
       <Project>{0A6CBBEC-3B10-4DB1-9F4B-AF472B79801C}</Project>
       <Name>TheS.Casinova.PlayerAccount.Commands</Name>

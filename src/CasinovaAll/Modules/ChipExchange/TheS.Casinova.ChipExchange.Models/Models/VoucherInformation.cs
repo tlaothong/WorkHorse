@@ -15,7 +15,7 @@ namespace TheS.Casinova.ChipExchange.Models
         /// <summary>
         /// หมายเลขคูปอง
         /// </summary>
-        public int VoucherCode { get; set; }
+        public string VoucherCode { get; set; }
 
         /// <summary>
         /// จำนวนเงิน
