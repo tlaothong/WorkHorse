@@ -15,6 +15,29 @@ namespace sPerf_Web.Areas.KnowledgeCenter.Controllers
         {
             return View();
         }
-
+        public virtual ActionResult SubmenuVideo()
+        {
+            return View();
+        }
+        public virtual ActionResult MyVideo()
+        {
+            return View();
+        }
+        public virtual ActionResult Option()
+        {
+            return View();
+        }
+        public virtual ActionResult AdvanceSearch()
+        {
+            return View();
+        }
+        public virtual ActionResult Banners()
+        {
+            return View();
+        }
+        public virtual ActionResult PostNewVideos()
+        {
+            return View();
+        }
     }
 }

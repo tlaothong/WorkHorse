@@ -15,6 +15,21 @@ namespace sPerf_Web.Areas.Game.Controllers
         {
             return View();
         }
-
+        public virtual ActionResult SubMenu()
+        {
+            return View();
+        }
+        public virtual ActionResult Tournament()
+        {
+            return View();
+        }
+        public virtual ActionResult Upload()
+        {
+            return View();
+        }
+        public virtual ActionResult GameOption()
+        {
+            return View();
+        }
     }
 }

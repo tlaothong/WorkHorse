@@ -6,14 +6,18 @@ using System.Text;
 namespace TheS.Casinova.PlayerAccount.Commands
 {
     /// <summary>
-    /// command ยกเลิกการใช้งานบัตรเครดิต
+    /// ยกเลิกบัญชีของผู้เล่น
     /// </summary>
     public class CancelPlayerAccountCommand
     {
-        //input
         /// <summary>
-        /// รหัสบัญชีของผู้เล่น
+        /// ชื่อผู้เล่นที่จะยกเลิกบัญชี
         /// </summary>
-        public int PlayerAccountID { get; set; }
+        public string UserName { get; set; }
+
+        /// <summary>
+        /// รหัสบัญชีที่จะยกเลิก
+        /// </summary>
+        public int PlayerAccoundID { get; set; }
     }
 }

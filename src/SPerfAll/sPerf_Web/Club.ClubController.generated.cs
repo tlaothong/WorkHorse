@@ -47,6 +47,9 @@ namespace sPerf_Web.Areas.Club.Controllers {
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionNamesClass {
             public readonly string Index = "Index";
+            public readonly string SubMenu = "SubMenu";
+            public readonly string NewClub = "NewClub";
+            public readonly string OptionClub = "OptionClub";
         }
 
 
@@ -56,6 +59,9 @@ namespace sPerf_Web.Areas.Club.Controllers {
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ViewNames {
             public readonly string Index = "~/Areas/Club/Views/Club/Index.aspx";
+            public readonly string NewClub = "~/Areas/Club/Views/Club/NewClub.aspx";
+            public readonly string OptionClub = "~/Areas/Club/Views/Club/OptionClub.aspx";
+            public readonly string SubMenu = "~/Areas/Club/Views/Club/SubMenu.ascx";
         }
     }
 
@@ -65,6 +71,21 @@ namespace sPerf_Web.Areas.Club.Controllers {
 
         public override System.Web.Mvc.ActionResult Index() {
             var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Index);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult SubMenu() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.SubMenu);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult NewClub() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.NewClub);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult OptionClub() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.OptionClub);
             return callInfo;
         }
 

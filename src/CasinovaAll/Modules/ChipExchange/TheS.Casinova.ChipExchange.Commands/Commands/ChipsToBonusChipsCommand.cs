@@ -5,6 +5,9 @@ using System.Text;
 
 namespace TheS.Casinova.ChipExchange.Commands
 {
+    /// <summary>
+    /// command แลกชิพตายด้วยชิพเป็น
+    /// </summary>
     public class ChipsToBonusChipsCommand
     {
         //input
