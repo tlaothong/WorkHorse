@@ -5,7 +5,17 @@ using System.Text;
 
 namespace TheS.Casinova.ChipExchange.Commands
 {
-    class ChipsToBonusChipsCommand
+    public class ChipsToBonusChipsCommand
     {
+        //input
+        /// <summary>
+        /// ชื่อผู้เล่น
+        /// </summary>
+        public string UserName { get; set; }
+
+        /// <summary>
+        /// จำนวนชิพเป็น
+        /// </summary>
+        public int Amount { get; set; }
     }
 }
