@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace TheS.Casinova.PlayerAccount.Commands
+namespace TheS.Casinova.ChipExchange.Models
 {
-    /// <summary>
-    /// command แก้ไขบัญชีของผู้เล่น
-    /// </summary>
-    public class EditPlayerAccountCommand
+   public class ExchangeInformation
     {
-        //input
+       /// <summary>
+       /// จำนวนเงิน
+       /// </summary>
+        public int Amount { get; set; }
+
         /// <summary>
         /// ชื่อผู้เล่น
         /// </summary>
@@ -19,7 +20,7 @@ namespace TheS.Casinova.PlayerAccount.Commands
         /// <summary>
         /// ประเภทบัญชี
         /// </summary>
-        public string AccountType { get; set; }
+        public string CardType { get; set; }
 
         /// <summary>
         /// หมายเลขบัญชี
@@ -36,5 +37,14 @@ namespace TheS.Casinova.PlayerAccount.Commands
         /// </summary>
         public DateTime ExpireDate { get; set; }
 
+        /// <summary>
+        /// ชื่อจริง
+        /// </summary>
+        public string FirstName { get; set; }
+
+        /// <summary>
+        /// นามสกุล
+        /// </summary>
+        public string LastName { get; set; }
     }
 }

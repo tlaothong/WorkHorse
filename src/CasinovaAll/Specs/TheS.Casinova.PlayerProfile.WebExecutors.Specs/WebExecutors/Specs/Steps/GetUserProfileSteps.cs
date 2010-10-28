@@ -28,7 +28,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
         }
 
         [Then(@"User Profile information should be :")]
-        public void ThenUserProfileInformationShouldBe(Table table)
+        public void ThenUserProfileInformationShouldBe()
         {
             ScenarioContext.Current.Pending();
         }

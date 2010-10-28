@@ -114,27 +114,10 @@ testRunner.Given("The GetUserProfileExecutor has been created and initialized");
 testRunner.And("Sent UserName: \'OhAe\'");
 #line 18
 testRunner.When("Call GetUserProfileExecutor");
-#line hidden
-            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                        "UserName",
-                        "Password",
-                        "Email",
-                        "CellPhone",
-                        "Upline",
-                        "Refundable",
-                        "NonRefundable",
-                        "Active"});
-            table2.AddRow(new string[] {
-                        "OhAe",
-                        "1234",
-                        "sirinarin@hotmail.com",
-                        "0892165437",
-                        "Nit",
-                        "500",
-                        "200",
-                        "True"});
 #line 19
-testRunner.Then("User Profile information should be :", ((string)(null)), table2);
+testRunner.Then("User Profile information should be UserName \'OhAe\' Password \'1234\' Email \'sirinar" +
+                    "in@hotmail.com\' CellPhone \'0892165437\' Upline \'Nit\'Refundable \'500\' NonRefundabl" +
+                    "e \'200\' Active \'True\'");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -148,15 +131,15 @@ testRunner.Then("User Profile information should be :", ((string)(null)), table2
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล username ไม่ถูกต้อง ระบบไม่สามารถดึงข้อมูล user profile ของผู้เล" +
                     "่นได้", new string[] {
                         "record_mock"});
-#line 24
+#line 23
 this.ScenarioSetup(scenarioInfo);
-#line 25
+#line 24
 testRunner.Given("The GetUserProfileExecutor has been created and initialized");
-#line 26
+#line 25
 testRunner.And("Sent UserName: \'\'");
-#line 27
+#line 26
 testRunner.When("Call GetUserProfileExecutor");
-#line 28
+#line 27
 testRunner.Then("User Profile information should be null");
 #line hidden
             testRunner.CollectScenarioErrors();

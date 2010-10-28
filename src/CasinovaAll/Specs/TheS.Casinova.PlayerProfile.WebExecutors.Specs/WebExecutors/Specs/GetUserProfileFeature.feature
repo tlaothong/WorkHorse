@@ -16,9 +16,8 @@ Scenario: ระบบได้รับข้อมูล username ถูกต
 	Given The GetUserProfileExecutor has been created and initialized
 	And   Sent UserName: 'OhAe'
 	When  Call GetUserProfileExecutor
-	Then User Profile information should be :
-	|UserName	|Password	|Email					|CellPhone	 | Upline |Refundable|NonRefundable|Active|
-	|OhAe		|1234		|sirinarin@hotmail.com	|0892165437	 |Nit	  |500		 |200		   |True  |
+	Then User Profile information should be UserName 'OhAe' Password '1234' Email 'sirinarin@hotmail.com' CellPhone '0892165437' Upline 'Nit'Refundable '500' NonRefundable '200' Active 'True'
+	
 
 @record_mock
 Scenario: ระบบได้รับข้อมูล username ไม่ถูกต้อง ระบบไม่สามารถดึงข้อมูล user profile ของผู้เล่นได้
