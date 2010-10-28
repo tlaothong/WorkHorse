@@ -5,7 +5,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:TheS_Casinova_Colors="clr-namespace:TheS.Casinova.TwoWins" x:Class="TheS.Casinova.TwoWins.Controls.GameInformationsUI"
     mc:Ignorable="d"
-    d:DesignHeight="300" d:DesignWidth="500" Width="Auto" Height="Auto">
+    d:DesignHeight="400" d:DesignWidth="500" Width="Auto" Height="Auto">
     
 	<UserControl.Resources>
 		<TheS_Casinova_Colors:GameApplicationInformation x:Key="GameApplicationInformationDataSource" d:IsDataSource="True"/>
@@ -16,22 +16,27 @@
     
     <Grid x:Name="LayoutRoot">
     	<Grid.RowDefinitions>
-    		<RowDefinition Height="0.521*"/>
-    		<RowDefinition Height="0.479*"/>
+    		<RowDefinition Height="0.1*"/>
+    		<RowDefinition Height="0.9*"/>
     	</Grid.RowDefinitions>
     	<Rectangle Fill="#FFF4F4F5" Stroke="Black" Grid.RowSpan="2"/>
-    	<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Name, Mode=OneWay}" Margin="8,8,0,0" FontWeight="Bold" FontSize="13.333" Grid.Row="1" VerticalAlignment="Top"/>
-    	<Rectangle Stroke="Black" Margin="8,8,8,-1" d:LayoutOverrides="VerticalAlignment">
-    		<Rectangle.Fill>
-    			<RadialGradientBrush>
-    				<GradientStop Color="#FFE24444" Offset="0.123"/>
-    				<GradientStop Color="#FFFFAF00" Offset="1"/>
-    			</RadialGradientBrush>
-    		</Rectangle.Fill>
-    	</Rectangle>
-    	<HyperlinkButton Content="Play" HorizontalAlignment="Left" Margin="170,0,0,8" Foreground="Red" NavigateUri="{Binding GameUri, Mode=OneWay}" VerticalAlignment="Bottom" Grid.Row="1"/>
-        <HyperlinkButton x:Name="HowToPlayHyperlinkButton" Content="How to play" HorizontalAlignment="Right" Margin="0,0,170,8" Foreground="Red" Click="HowToPlayHyperlinkButton_Click" VerticalAlignment="Bottom" Grid.Row="1" />
-    	<ScrollViewer Margin="8,31,8,28" Grid.Row="1" d:LayoutOverrides="VerticalAlignment">
+    	<Grid>
+    		<Rectangle Fill="Black" Stroke="Black"/>
+    		<TextBlock TextWrapping="Wrap" Text="{Binding Name, Mode=OneWay}" FontWeight="Bold" FontSize="16" VerticalAlignment="Center" d:LayoutOverrides="HorizontalAlignment" HorizontalAlignment="Left" Margin="8,0,0,0" Foreground="White"/>
+    	</Grid>
+    	<Grid HorizontalAlignment="Left" Height="170" Margin="8,8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="130">
+    		<Rectangle Stroke="Black" Height="130" VerticalAlignment="Top" d:LayoutOverrides="GridBox">
+    			<Rectangle.Fill>
+    				<RadialGradientBrush>
+    					<GradientStop Color="#FFFDFF00" Offset="0.6"/>
+    					<GradientStop Color="#FFFFAF00" Offset="1"/>
+    				</RadialGradientBrush>
+    			</Rectangle.Fill>
+    		</Rectangle>
+    		<HyperlinkButton Content="Play" HorizontalAlignment="Left" Foreground="Red" NavigateUri="{Binding GameUri, Mode=OneWay}" VerticalAlignment="Bottom" d:LayoutOverrides="GridBox"/>
+    		<HyperlinkButton x:Name="HowToPlayHyperlinkButton" Content="How to play" Margin="0,0,60,20" Foreground="Red" Click="HowToPlayHyperlinkButton_Click" VerticalAlignment="Bottom" d:LayoutOverrides="Width, GridBox" />
+    	</Grid>
+    	<ScrollViewer Margin="142,8,8,8" d:LayoutOverrides="VerticalAlignment" Grid.Row="1">
     		<TextBlock TextWrapping="Wrap" Text="Color or colour (see spelling differences) is the visual perceptual property corresponding in humans to the categories called red, green, blue and others. Color derives from the spectrum of light (distribution of light energy versus wavelength) interacting in the eye with the spectral sensitivities of the light receptors. Color categories and physical specifications of color are also associated with objects, materials, light sources, etc., based on their physical properties such as light absorption, reflection, or emission spectra. By defining a color space, colors can be identified numerically by their coordinates."/>
     	</ScrollViewer>
     </Grid>

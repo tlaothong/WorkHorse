@@ -3,6 +3,5 @@
              x:Class="TheS.Casinova.TwoWins.Silverlight.App"
              >
     <Application.Resources>
-        
     </Application.Resources>
 </Application>
