@@ -16,24 +16,36 @@
 	</UserControl.DataContext>
 
 	<Grid x:Name="LayoutRoot">
-		<Grid Height="40" VerticalAlignment="Top">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="0.1*"/>
+			<RowDefinition Height="0.9*"/>
+		</Grid.RowDefinitions>
+		<Rectangle Stroke="Black" Grid.RowSpan="2"/>
+		<Grid>
 			<Rectangle Fill="Black" Stroke="Black"/>
-			<TextBlock x:Name="Title" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Title" VerticalAlignment="Center" Margin="8,0,0,0" FontSize="26.667" Foreground="White"/>
+			<TextBlock x:Name="Title" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Title" VerticalAlignment="Center" Margin="8,0,0,0" FontSize="21.333" Foreground="White" FontWeight="Bold"/>
 		</Grid>
-		<Grid Margin="0,40,0,0">
-			<TextBlock x:Name="GameTime" TextWrapping="Wrap" Text="GameTime" VerticalAlignment="Top" FontSize="21.333" Margin="8,8,8,0" FontWeight="Bold" TextAlignment="Center"/>
-			<Grid Height="70" Margin="150,64,150,0" VerticalAlignment="Top">
-				<Rectangle Fill="#FFEBEBEB" RadiusY="4" RadiusX="4" Stroke="Black"/>
-				<TextBlock x:Name="Winner" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Winner" FontSize="16" Margin="0,18,0,0" VerticalAlignment="Top"/>
-				<TextBlock x:Name="WinnerInformation" TextWrapping="Wrap" Text="WinnerInformation" Margin="0,45,0,0" VerticalAlignment="Top" TextAlignment="Center"/>
+		<Grid Grid.Row="1">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="0.156*"/>
+				<RowDefinition Height="0.489*"/>
+				<RowDefinition Height="0.356*"/>
+			</Grid.RowDefinitions>
+			<TextBlock x:Name="GameTime" TextWrapping="Wrap" Text="GameTime" FontSize="21.333" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+			<Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+				<Rectangle Fill="#FFEBEBEB" RadiusY="4" RadiusX="4" Stroke="Black" VerticalAlignment="Center" Height="45"/>
+				<StackPanel VerticalAlignment="Center">
+					<TextBlock x:Name="Winner" TextWrapping="Wrap" Text="Winner" FontSize="16" Margin="72,0,71,0" d:LayoutOverrides="Width" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+					<TextBlock x:Name="WinnerInformation" TextWrapping="Wrap" Text="WinnerInformation" TextAlignment="Center"/>
+				</StackPanel>
 			</Grid>
-			<Grid HorizontalAlignment="Left" Height="66" Margin="100,194,0,0" VerticalAlignment="Top" Width="147">
-				<Button x:Name="BetBlack" Content="Black" Height="46" VerticalAlignment="Top"/>
-				<TextBlock x:Name="TotalAmountOfBlack" TextWrapping="Wrap" Text="TotalAmountOfBlack" VerticalAlignment="Bottom" TextAlignment="Center"/>
+			<Grid HorizontalAlignment="Left" Width="140" Grid.Row="2" VerticalAlignment="Top" Margin="95,0,0,0">
+				<Button x:Name="BetBlack" Content="Black" Margin="0,0,0,20" Height="46" VerticalAlignment="Bottom"/>
+				<TextBlock x:Name="TotalAmountOfBlack" TextWrapping="Wrap" Text="TotalAmountOfBlack" TextAlignment="Center" Margin="0,50,0,0" d:LayoutOverrides="Height" VerticalAlignment="Bottom"/>
 			</Grid>
-			<Grid HorizontalAlignment="Right" Height="66" Margin="0,194,100,0" VerticalAlignment="Top" Width="147">
-				<Button x:Name="BetWhite" Content="White" Height="46" VerticalAlignment="Top"/>
-				<TextBlock x:Name="TotalAmountOfWhite" TextWrapping="Wrap" Text="TotalAmountOfWhite" VerticalAlignment="Bottom" TextAlignment="Center"/>
+			<Grid HorizontalAlignment="Right" Width="140" Grid.Row="2" Margin="0,0,95,0" VerticalAlignment="Top">
+				<Button x:Name="BetWhite" Content="White" Margin="0,0,0,20" VerticalAlignment="Bottom" Height="46"/>
+				<TextBlock x:Name="TotalAmountOfWhite" TextWrapping="Wrap" Text="TotalAmountOfWhite" TextAlignment="Center" Margin="0,50,0,0" d:LayoutOverrides="Height" VerticalAlignment="Bottom"/>
 			</Grid>
 		</Grid>
 	</Grid>

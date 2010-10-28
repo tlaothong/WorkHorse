@@ -63,6 +63,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.Expression.Interactions" />
     <Reference Include="mscorlib" />
+    <Reference Include="System.ComponentModel.Composition, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.ComponentModel.DataAnnotations, Version=2.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217, processorArchitecture=MSIL" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -91,11 +92,17 @@
     <Compile Include="ChipExchange\Views\DepositWindow.xaml.cs">
       <DependentUpon>DepositWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MLN\MLNUI.xaml.cs">
+    <Compile Include="MLN\Controls\DownlineLevelDetailUI.xaml.cs">
+      <DependentUpon>DownlineLevelDetailUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MLN\Controls\MLNUI.xaml.cs">
       <DependentUpon>MLNUI.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MLN\MLNDownLineDetailWindow.xaml.cs">
-      <DependentUpon>MLNDownLineDetailWindow.xaml</DependentUpon>
+    <Compile Include="MLN\Views\AnotherPlayerInformationWindow.xaml.cs">
+      <DependentUpon>AnotherPlayerInformationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MLN\Views\DownlineDetailWindow.xaml.cs">
+      <DependentUpon>DownlineDetailWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="PlayerAccount\Silverlight\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -127,11 +134,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MLN\MLNUI.xaml">
+    <Page Include="MLN\Controls\DownlineLevelDetailUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MLN\MLNDownLineDetailWindow.xaml">
+    <Page Include="MLN\Controls\MLNUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MLN\Views\AnotherPlayerInformationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MLN\Views\DownlineDetailWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

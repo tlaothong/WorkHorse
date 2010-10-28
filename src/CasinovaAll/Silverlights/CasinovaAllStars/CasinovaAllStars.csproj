@@ -80,6 +80,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\GameLobbyViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\StatisticsViewModel.cs" />
     <Compile Include="Views\DynamicViews\MefPage.xaml.cs">
       <DependentUpon>MefPage.xaml</DependentUpon>
@@ -109,6 +110,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Resource Include="Assets\CasinovaStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Resource>
     <Page Include="Views\DynamicViews\MefPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

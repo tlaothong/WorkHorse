@@ -5,14 +5,13 @@
                  xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation" 
                  xmlns:TheS_Casinova="clr-namespace:TheS.Casinova"
                  x:Class="TheS.Casinova.TwoWins.Views.GamePlayPage"
-           d:DesignWidth="640" d:DesignHeight="480"
+           d:DesignWidth="600" d:DesignHeight="400"
            Title="Colors GamePlayPage Page" mc:Ignorable="d">
     <Grid x:Name="LayoutRoot">
     	<Grid.ColumnDefinitions>
-    		<ColumnDefinition Width="0.788*"/>
-    		<ColumnDefinition Width="0.212*"/>
+    		<ColumnDefinition/>
     	</Grid.ColumnDefinitions>
-    	<TheS_Casinova:GamePlayUI/>
-    	<ListBox x:Name="GameTables" Grid.Column="1" Margin="8,0,0,0"/>
+    	<TheS_Casinova:GamePlayUI Width="Auto" Height="Auto" Margin="0,0,204,0"/>
+    	<ListBox x:Name="GameTables" Width="200" HorizontalAlignment="Right" d:LayoutOverrides="HorizontalAlignment, Width"/>
     </Grid>
 </navigation:Page>

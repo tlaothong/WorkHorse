@@ -100,8 +100,17 @@
     <Compile Include="DevilSix\ViewModels\PageThreeViewModel.cs" />
     <Compile Include="DevilSix\ViewModels\PageTwoViewModel.cs" />
     <Compile Include="DevilSix\ViewModels\MainPageViewModel.cs" />
+    <Compile Include="DevilSix\Views\BetDataPage.xaml.cs">
+      <DependentUpon>BetDataPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevilSix\Views\GraphPage.xaml.cs">
+      <DependentUpon>GraphPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DevilSix\Views\HowToPlayWindow.xaml.cs">
       <DependentUpon>HowToPlayWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevilSix\Views\SatatisticPage.xaml.cs">
+      <DependentUpon>SatatisticPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -126,9 +135,21 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DevilSix\Views\BetDataPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DevilSix\Views\GraphPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="DevilSix\Views\HowToPlayWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DevilSix\Views\SatatisticPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

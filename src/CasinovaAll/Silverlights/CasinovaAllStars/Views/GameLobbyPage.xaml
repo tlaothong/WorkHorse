@@ -15,13 +15,22 @@
 				<TextBlock Text="{Binding Name}"/>
 			</StackPanel>
 		</DataTemplate>
+		<DataTemplate x:Key="DataTemplate">
+			<StackPanel>
+				<TextBlock Text="{Binding Metadata.DisplayText, Mode=OneWay}"/>
+			</StackPanel>
+		</DataTemplate>
 	</navigation:Page.Resources>
 	<navigation:Page.DataContext>
 		<Binding Source="{StaticResource GameLobbyPageViewModelDataSource}"/>
 	</navigation:Page.DataContext>
     <Grid x:Name="LayoutRoot">
-    	<ListBox x:Name="GameRoomListBox" HorizontalAlignment="Right" Margin="0,8,8,8" Width="200" ItemsSource="{Binding Games}" ItemTemplate="{StaticResource GameRoomsListTemplate}" ItemContainerStyle="{StaticResource GameRoomsItemContainerStyle}"/>
-    	<Grid DataContext="{Binding SelectedItem, ElementName=GameRoomListBox}" Margin="8,8,212,8" >
+    	<Grid.ColumnDefinitions>
+    		<ColumnDefinition Width="0.75*"/>
+    		<ColumnDefinition Width="0.25*"/>
+    	</Grid.ColumnDefinitions>
+    	<ListBox x:Name="GameRoomListBox" Margin="8,0,0,0" ItemsSource="{Binding Games}" ItemTemplate="{StaticResource GameRoomsListTemplate}" ItemContainerStyle="{StaticResource GameRoomsItemContainerStyle}" Grid.Column="1"/>
+    	<Grid DataContext="{Binding SelectedItem, ElementName=GameRoomListBox}" Margin="0" >
     		<ContentPresenter x:Name="infoContentPresenter" Content="{Binding InformationContent, Mode=OneWay}"/>
     	</Grid>
     </Grid>

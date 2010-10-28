@@ -91,15 +91,12 @@
     <Compile Include="Colors\Controls\GamePlayUI.xaml.cs">
       <DependentUpon>GamePlayUI.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Colors\Controls\StatisticUI.xaml.cs">
-      <DependentUpon>StatisticUI.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Colors\GameApplicationInformation.cs" />
     <Compile Include="Colors\Page1.xaml.cs">
       <DependentUpon>Page1.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Colors\Popups\ChildWindow1.xaml.cs">
-      <DependentUpon>ChildWindow1.xaml</DependentUpon>
+    <Compile Include="Colors\Popups\BetData.xaml.cs">
+      <DependentUpon>BetData.xaml</DependentUpon>
     </Compile>
     <Compile Include="Colors\Silverlight\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -108,8 +105,14 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Colors\ViewModels\GamePlayViewModel.cs" />
+    <Compile Include="Colors\Views\BetDataPage.xaml.cs">
+      <DependentUpon>BetDataPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Colors\Views\GamePlayPage.xaml.cs">
       <DependentUpon>GamePlayPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Colors\Views\GraphPage.xaml.cs">
+      <DependentUpon>GraphPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Colors\Views\HowToPlayWindow.xaml.cs">
       <DependentUpon>HowToPlayWindow.xaml</DependentUpon>
@@ -132,15 +135,11 @@
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Colors\Controls\StatisticUI.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Colors\Page1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Colors\Popups\ChildWindow1.xaml">
+    <Page Include="Colors\Popups\BetData.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -148,7 +147,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Colors\Views\BetDataPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Colors\Views\GamePlayPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Colors\Views\GraphPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -170,6 +177,7 @@
       <Name>TheS.Casinova.Common.Silverlight</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -263,6 +263,7 @@
               <TextBlock x:Name="InteractiveElement" Foreground="{StaticResource HoverHyperlinkForegroundColorBrush}" FontSize="{TemplateBinding FontSize}" FontWeight="{TemplateBinding FontWeight}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}" Text="{TemplateBinding Content}"/>
             </Border>
             <TextBlock x:Name="DisabledOverlay" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}" Text="{TemplateBinding Content}" Foreground="#FFAAAAAA" Visibility="Collapsed"/>
+            <Rectangle x:Name="Divider" Fill="#1EFFFFFF" Width="1" HorizontalAlignment="Right" d:LayoutOverrides="Width, HorizontalMargin"/>
           </Grid>
         </ControlTemplate>
       </Setter.Value>

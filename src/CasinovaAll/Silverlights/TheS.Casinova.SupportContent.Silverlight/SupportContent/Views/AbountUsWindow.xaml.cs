@@ -9,9 +9,11 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using TheS.Casinova.Common;
 
 namespace TheS.Casinova.SupportContent.Views
 {
+    [ExportPopupContent(DisplayText = "About us", GroupName = "buttom", Order = 3)]
     public partial class AbountUsWindow : ChildWindow
     {
         public AbountUsWindow()
