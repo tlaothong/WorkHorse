@@ -30,7 +30,7 @@
                 </td>
                 <td>
                     <div id="Popup">
-                        | <%=Html.ActionLink("Post New Video",MVC.KnowledgeCenter.KnowledgeCenter.PostNewVideo()) %>
+                        | <a href="#">Post New Video</a>
                     </div>
                 </td>
                 <td>

@@ -323,8 +323,18 @@
         function removeContext(item) {
             $(item.nodes).remove();
         }
-    </script>   
+        
+    </script>
+    <%--<script type="text/javascript">
+        $(document).ready(function () {
+            $('#movieList').hoverscroll({ vertical: true, height: 550, width: 595 });
+        });        
+    </script> --%>  
+    
     <div id="pager"></div>
+    
+        <% Html.RenderPartial("PostNewVideos"); %>
+    
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="SubMenu" runat="server">
     <% Html.RenderPartial("SubmenuVideo"); %>

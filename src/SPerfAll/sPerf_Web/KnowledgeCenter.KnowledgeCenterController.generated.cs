@@ -49,10 +49,10 @@ namespace sPerf_Web.Areas.KnowledgeCenter.Controllers {
             public readonly string Index = "Index";
             public readonly string SubmenuVideo = "SubmenuVideo";
             public readonly string MyVideo = "MyVideo";
-            public readonly string PostNewVideo = "PostNewVideo";
             public readonly string Option = "Option";
             public readonly string AdvanceSearch = "AdvanceSearch";
             public readonly string Banners = "Banners";
+            public readonly string PostNewVideos = "PostNewVideos";
         }
 
 
@@ -66,7 +66,7 @@ namespace sPerf_Web.Areas.KnowledgeCenter.Controllers {
             public readonly string Index = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/Index.aspx";
             public readonly string MyVideo = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/MyVideo.aspx";
             public readonly string Option = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/Option.aspx";
-            public readonly string PostNewVideo = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/PostNewVideo.aspx";
+            public readonly string PostNewVideos = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/PostNewVideos.ascx";
             public readonly string SubmenuVideo = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/SubmenuVideo.ascx";
         }
     }
@@ -90,11 +90,6 @@ namespace sPerf_Web.Areas.KnowledgeCenter.Controllers {
             return callInfo;
         }
 
-        public override System.Web.Mvc.ActionResult PostNewVideo() {
-            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.PostNewVideo);
-            return callInfo;
-        }
-
         public override System.Web.Mvc.ActionResult Option() {
             var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Option);
             return callInfo;
@@ -107,6 +102,11 @@ namespace sPerf_Web.Areas.KnowledgeCenter.Controllers {
 
         public override System.Web.Mvc.ActionResult Banners() {
             var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Banners);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult PostNewVideos() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.PostNewVideos);
             return callInfo;
         }
 

@@ -148,7 +148,7 @@
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\Index.aspx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\MyVideo.aspx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\Option.aspx" />
-    <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\PostNewVideo.aspx" />
+    <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\PostNewVideos.ascx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\SubmenuVideo.ascx" />
     <Content Include="Areas\Map\Views\Map\Index.aspx" />
     <Content Include="Areas\Profile\Views\Profile\AdvanceSearch.ascx" />
@@ -178,7 +178,10 @@
     <Content Include="Content\images\topfriend.JPG" />
     <Content Include="Content\images\Unchecked_gray.gif" />
     <Content Include="Content\jquery-ui-1.8.1.custom.css" />
+    <Content Include="Content\jquery-ui-1.8.2.custom.css" />
+    <Content Include="Content\jquery.ui.dialog.css" />
     <Content Include="Content\movies.css" />
+    <Content Include="Content\ui.dialog.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="profile.html" />
@@ -396,8 +399,11 @@
     <Content Include="Scripts\jquery-1.4.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.1.custom.js" />
     <Content Include="Content\jquery.hoverscroll-0.2.2.css" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\jquery.hoverscroll-0.2.2.js" />
     <Content Include="Scripts\jquery.pager.js" />
+    <Content Include="Scripts\jquery.popupWindow.js" />
     <Content Include="Scripts\jquery.tmpl.js" />
     <Content Include="Views\Home\AboutUs.aspx" />
     <Content Include="Views\Home\AdvanceSearch.ascx" />

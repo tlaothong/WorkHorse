@@ -23,10 +23,6 @@ namespace sPerf_Web.Areas.KnowledgeCenter.Controllers
         {
             return View();
         }
-        public virtual ActionResult PostNewVideo()
-        {
-            return View();
-        }
         public virtual ActionResult Option()
         {
             return View();
@@ -36,6 +32,10 @@ namespace sPerf_Web.Areas.KnowledgeCenter.Controllers
             return View();
         }
         public virtual ActionResult Banners()
+        {
+            return View();
+        }
+        public virtual ActionResult PostNewVideos()
         {
             return View();
         }
