@@ -156,3 +156,15 @@
     width: 815px;
     bottom: 0px;
 }
+/*=======Fieldset======*/
+#el02 { /* Text and background colour, blue on light gray */
+    color:#00f;
+    background-color:#fff
+}
+#el03 { /* Text and background colour, blue on light gray */
+    color:#00f;
+    background-color:#fff
+}
+#el07 {font-family:"Courier New",Courier} /* Different font */
+
+

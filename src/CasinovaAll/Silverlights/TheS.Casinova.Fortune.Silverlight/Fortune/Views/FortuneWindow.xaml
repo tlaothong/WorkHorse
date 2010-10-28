@@ -3,7 +3,7 @@
            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
            xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
            xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:TheS_Casinova_Fortune_ViewModels="clr-namespace:TheS.Casinova.Fortune.ViewModels" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" mc:Ignorable="d" x:Class="TheS.Casinova.Fortune.Views.FortuneWindow"
-           Width="640" Height="550" 
+           Width="600" Height="400" 
            Title="FortuneWindow" FontSize="21.333">
 	<controls:ChildWindow.Resources>
 		<TheS_Casinova_Fortune_ViewModels:FortuneViewModel x:Key="FortuneModelDataSource" d:IsDataSource="True"/>
@@ -48,7 +48,7 @@
 									<CompositeTransform/>
 								</Grid.RenderTransform>
 								<Rectangle x:Name="rectangle" Stroke="#FF4663A6" RadiusX="1" RadiusY="1"/>
-								<Image x:Name="image" Source="/TheS.Casinova.Fortune.Silverlight;component/Image1.png" Stretch="Fill" Margin="1,1,1,0"/>
+								<Image x:Name="image" Source="/TheS.Casinova.Fortune.Silverlight;component/Fortune/Assets/Images/Image1.png" Stretch="Fill" Margin="1,1,1,0"/>
 								<Rectangle x:Name="rectangle1" RadiusY="1" RadiusX="1" Fill="Black" Opacity="0.3" Margin="1,1,1,0"/>
 							</Grid>
 						</Grid>
@@ -174,16 +174,9 @@
         			</i:EventTrigger>
         		</i:Interaction.Triggers>
         	</Button>
-            <Button Content="Button" HorizontalAlignment="Left" Style="{StaticResource CardButton}" Width="80" Margin="520,0,0,0" Click="CardButton_Click">
-        		<i:Interaction.Triggers>
-        			<i:EventTrigger EventName="Click">
-        				<ei:GoToStateAction StateName="Enable"/>
-        			</i:EventTrigger>
-        		</i:Interaction.Triggers>
-        	</Button>
         </Grid>
         <Grid x:Name="grid" Margin="9,153,9,8" Visibility="Collapsed">
-        	<Image HorizontalAlignment="Left" Margin="0,23,0,0" Width="80" d:LayoutOverrides="HorizontalAlignment" Height="120" VerticalAlignment="Top"/>
+        	<Image HorizontalAlignment="Left" Margin="0,23,0,0" Width="80" d:LayoutOverrides="HorizontalAlignment" Height="120" VerticalAlignment="Top" Source="/TheS.Casinova.Fortune.Silverlight;component/Fortune/Assets/Images/Image1.png" Stretch="Fill"/>
         	<TextBlock x:Name="Subtitle" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Subtitle" VerticalAlignment="Top" FontSize="13.333" FontWeight="Bold"/>
         	<ScrollViewer Margin="84,23,0,0">
         		<TextBlock x:Name="Informations" TextWrapping="Wrap" Text="Informations" FontSize="11"/>

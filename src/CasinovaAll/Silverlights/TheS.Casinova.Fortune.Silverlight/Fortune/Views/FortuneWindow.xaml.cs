@@ -11,9 +11,11 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using TheS.Casinova.Fortune.ViewModels;
 using PerfEx.Infrastructure.Mvvm;
+using TheS.Casinova.Common;
 
 namespace TheS.Casinova.Fortune.Views
 {
+    [ExportPopupContent(DisplayText = "Fortune", GroupName = "buttom", Order = 4)]
     public partial class FortuneWindow : ChildWindow
     {
         public FortuneWindow()

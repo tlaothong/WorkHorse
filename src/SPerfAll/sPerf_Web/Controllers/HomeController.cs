@@ -16,10 +16,41 @@ namespace sPerf_Web.Controllers
             return View();
         }
 
-        public virtual ActionResult About()
+        public virtual ActionResult Today()
         {
             return View();
         }
-
+        public virtual ActionResult Cartoon()
+        {
+            return View();
+        }
+        public virtual ActionResult AdvanceSearch()
+        {
+            return View();
+        }
+        public virtual ActionResult Banners()
+        {
+            return View();
+        }
+        public virtual ActionResult SubMenu()
+        {
+            return View();
+        }
+        public virtual ActionResult HightLight()
+        {
+            return View();
+        }
+        public virtual ActionResult FAQTutorial()
+        {
+            return View();
+        }
+        public virtual ActionResult AboutUs()
+        {
+            return View();
+        }
+        public virtual ActionResult Option()
+        {
+            return View();
+        }
     }
 }

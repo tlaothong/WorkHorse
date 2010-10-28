@@ -11,4 +11,5 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="SubMenu" runat="server">
+<% Html.RenderPartial("SubMenu"); %>
 </asp:Content>

@@ -104,6 +104,7 @@
     <Compile Include="Colors\Silverlight\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Colors\ViewModels\GamePlayViewModel.cs" />
     <Compile Include="Colors\Views\BetDataPage.xaml.cs">
       <DependentUpon>BetDataPage.xaml</DependentUpon>
     </Compile>
@@ -176,9 +177,7 @@
       <Name>TheS.Casinova.Common.Silverlight</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Colors\ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
