@@ -113,6 +113,9 @@
     <Compile Include="Colors\Views\GraphPage.xaml.cs">
       <DependentUpon>GraphPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Colors\Views\HowToPlayWindow.xaml.cs">
+      <DependentUpon>HowToPlayWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Colors\Views\StatisticPage.xaml.cs">
       <DependentUpon>StatisticPage.xaml</DependentUpon>
     </Compile>
@@ -154,6 +157,10 @@
     <Page Include="Colors\Views\GraphPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Colors\Views\HowToPlayWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Colors\Views\StatisticPage.xaml">
       <SubType>Designer</SubType>
