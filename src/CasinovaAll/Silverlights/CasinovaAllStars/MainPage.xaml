@@ -6,15 +6,55 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:local="clr-namespace:CasinovaAllStars"
     xmlns:TheS_Casinova_Chat_Controls="clr-namespace:TheS.Casinova.Chat.Controls;assembly=TheS.Casinova.Chat.Silverlight"
+    xmlns:CasinovaAllStars_ViewModels="clr-namespace:CasinovaAllStars.ViewModels"
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
     x:Class="CasinovaAllStars.MainPage" 
     mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="480">
 
-    <Grid x:Name="LayoutRoot" Style="{StaticResource LayoutRootGridStyle}">
+	<UserControl.Resources>
+		<CasinovaAllStars_ViewModels:MainViewModel x:Key="MainViewModelDataSource" d:IsDataSource="True"/>
+		<DataTemplate x:Key="DataTemplate">
+            <StackPanel Orientation="Horizontal" Style="{StaticResource LinksStackPanelStyle}">
+                <HyperlinkButton x:Name="LinkMenu" Style="{StaticResource LinkStyle}" Content="{Binding Metadata.DisplayText, Mode=OneWay}" Click="LinkMenu_Click" CommandParameter="{Binding Value, Mode=TwoWay}"/>
+			</StackPanel>
+		</DataTemplate>
+		<Style x:Key="LinkListBoxItemStyle" TargetType="ListBoxItem">
+			<Setter Property="Padding" Value="3"/>
+			<Setter Property="HorizontalContentAlignment" Value="Right"/>
+			<Setter Property="VerticalContentAlignment" Value="Top"/>
+			<Setter Property="Background" Value="Transparent"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="ListBoxItem">
+						<Grid Background="{TemplateBinding Background}">
+							<ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}"/>
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<ItemsPanelTemplate x:Key="ItemsPanelTemplate1">
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right"/>
+		</ItemsPanelTemplate>
+	</UserControl.Resources>
+	<UserControl.DataContext>
+		<Binding Source="{StaticResource MainViewModelDataSource}"/>
+	</UserControl.DataContext>
 
-        <Border x:Name="ContentBorder" Style="{StaticResource ContentBorderStyle}" Margin="0,42,0,150">
+    <Grid x:Name="LayoutRoot" Style="{StaticResource LayoutRootGridStyle}">
+    	<Grid.ColumnDefinitions>
+    		<ColumnDefinition Width="0.725*"/>
+    		<ColumnDefinition Width="0.275*"/>
+    	</Grid.ColumnDefinitions>
+    	<Grid.RowDefinitions>
+    		<RowDefinition Height="0.688*"/>
+    		<RowDefinition Height="0.312*"/>
+    	</Grid.RowDefinitions>
+
+        <Border x:Name="ContentBorder" Style="{StaticResource ContentBorderStyle}" Margin="0,42,0,0" Grid.ColumnSpan="2">
 
             <navigation:Frame x:Name="ContentFrame" Style="{StaticResource ContentFrameStyle}" 
-                              Source="/Page1" Navigated="ContentFrame_Navigated" NavigationFailed="ContentFrame_NavigationFailed">
+                              Source="/GameLobbyPage" Navigated="ContentFrame_Navigated" NavigationFailed="ContentFrame_NavigationFailed">
                 <navigation:Frame.UriMapper>
                   <uriMapper:UriMapper>
                     <uriMapper:UriMapping Uri="" MappedUri="/Views/Home.xaml"/>
@@ -25,9 +65,9 @@
             </navigation:Frame>
         </Border>
 
-        <Grid x:Name="NavigationGrid" Style="{StaticResource NavigationGridStyle}">
+        <Grid x:Name="NavigationGrid" Style="{StaticResource NavigationGridStyle}" Grid.ColumnSpan="2">
 
-            <HyperlinkButton x:Name="LogoutHyperlinkButton" Style="{StaticResource LinkStyle}" TargetName="ContentFrame" Content="Logout" HorizontalAlignment="Right" Margin="0,7,8,7" d:LayoutOverrides="Height"/>
+            <HyperlinkButton x:Name="LogoutHyperlinkButton" NavigateUri="/GameLobbyPage" Style="{StaticResource LinkStyle}" TargetName="ContentFrame" Content="Logout" HorizontalAlignment="Right" Margin="0,7,8,7" d:LayoutOverrides="Height"/>
 
             <Border x:Name="BrandingBorder" Style="{StaticResource BrandingBorderStyle}">
                 <StackPanel x:Name="BrandingStackPanel" Style="{StaticResource BrandingStackPanelStyle}">
@@ -39,35 +79,18 @@
                 </StackPanel>
             </Border>
 
-            <Border x:Name="LinksBorder" Style="{StaticResource LinksBorderStyle}" Margin="0,0,90,0">
-                <StackPanel x:Name="LinksStackPanel" Style="{StaticResource LinksStackPanelStyle}">
-
-                    <Button Content="Button 01" Style="{StaticResource MenuButtonStyle}" Foreground="White" Width="75"/>
-                    <Rectangle Style="{StaticResource DividerStyle}"/>
-                    
-                    <Button Content="Button 02" Style="{StaticResource MenuButtonStyle}" Foreground="White" Width="75"/>
-                    <Rectangle Style="{StaticResource DividerStyle}"/>
-                    
-                    <HyperlinkButton x:Name="Link1" Style="{StaticResource LinkStyle}" 
-                                     NavigateUri="/Home" TargetName="ContentFrame" Content="home"/>
-									 
-                    <Rectangle x:Name="Divider1" Style="{StaticResource DividerStyle}"/>
-					
-                    <HyperlinkButton x:Name="Link2" Style="{StaticResource LinkStyle}" 
-                                     NavigateUri="/Page1" TargetName="ContentFrame" Content="about"/>
-
-                    <Rectangle x:Name="Divider2" Style="{StaticResource DividerStyle}"/>
-
-                    <HyperlinkButton x:Name="Link3" Style="{StaticResource LinkStyle}" 
-                                     NavigateUri="/mef/nav/colors_gameInfo" TargetName="ContentFrame" Content="game info"/>                    
-
-                </StackPanel>
+            <Border x:Name="LinksBorder" Style="{StaticResource LinksBorderStyle}" Margin="202,0,90,0" HorizontalAlignment="Stretch" Height="Auto">
+                <ListBox x:Name="LinkMenuTop" ItemTemplate="{StaticResource DataTemplate}" ItemsSource="{Binding PopupsTop, Mode=OneWay}" Background="Transparent" BorderBrush="Transparent" Margin="0" ItemContainerStyle="{StaticResource LinkListBoxItemStyle}" ItemsPanel="{StaticResource ItemsPanelTemplate1}"/>
             </Border>
 
         </Grid>
 
-    	<TheS_Casinova_Chat_Controls:ChatUI VerticalAlignment="Bottom" Width="Auto" Height="150" Margin="0"/>
-
+    	<TheS_Casinova_Chat_Controls:ChatUI Width="Auto" Height="Auto" Grid.Row="1" Margin="0,0,4,0"/>
+        <Button Content="Test Statistics" Margin="58,45,12,0" Name="TestStatisticsButton" Click="TestStatisticsButton_Click" Height="22" VerticalAlignment="Top" Grid.Column="1" />
+        <Grid Grid.Column="1" Grid.Row="1">
+        	<Rectangle Fill="#FF484848" RadiusX="1" RadiusY="1" StrokeThickness="2" Stroke="#FF646464" d:LayoutOverrides="GridBox"/>
+        	<ListBox x:Name="LinkMenuBottom" ItemTemplate="{StaticResource DataTemplate}" ItemsSource="{Binding PopupsBottom, Mode=OneWay}" BorderBrush="Transparent" Margin="8,0,8,8" ItemContainerStyle="{StaticResource LinkListBoxItemStyle}" ItemsPanel="{StaticResource ItemsPanelTemplate1}" Height="55" VerticalAlignment="Bottom" Background="{x:Null}"/>
+        </Grid>
     </Grid>
 
 </UserControl>

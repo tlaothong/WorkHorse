@@ -25,21 +25,62 @@ namespace TheS.Casinova.SupportContent
 
         private readonly ComposablePartCatalog[] _catalogs;
 
-        [ImportMany(typeof(IGameApplicationInformation), AllowRecomposition = true)]
-        public ObservableCollection<IGameApplicationInformation> _games;
-        [ImportMany(typeof(ChildWindow), AllowRecomposition = true)]
-        public ObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> _popups;
-        [ImportMany(typeof(UserControl), AllowRecomposition = true)]
-        public ObservableCollection<Lazy<UserControl, IContentNavigationMetadata>> _navigableContents;
+        private ReadOnlyObservableCollection<IGameApplicationInformation> _games;
+        private ReadOnlyObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> _popups;
+        private ReadOnlyObservableCollection<Lazy<UserControl, IGameStatContentMetadata>> _statContents;
 
-        public ObservableCollection<IGameApplicationInformation> Games
+        private ObservableCollection<IGameApplicationInformation> __importedGames;
+        [ImportMany(typeof(IGameApplicationInformation), AllowRecomposition = true)]
+        public ObservableCollection<IGameApplicationInformation> _ImportedGames
+        {
+            get { return __importedGames; }
+            set
+            {
+                __importedGames = value;
+                _games = new ReadOnlyObservableCollection<IGameApplicationInformation>(value);
+            }
+        }
+
+        private ObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> __importedPopups;
+        [ImportMany(typeof(ChildWindow), AllowRecomposition = true)]
+        public ObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> _ImportedPopups
+        {
+            get { return __importedPopups; }
+            set
+            {
+                __importedPopups = value;
+                _popups = new ReadOnlyObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>>(value);
+            }
+        }
+
+        private ObservableCollection<Lazy<UserControl, IGameStatContentMetadata>> __importedStatContents;
+        [ImportMany(typeof(UserControl), AllowRecomposition = true)]
+        public ObservableCollection<Lazy<UserControl, IGameStatContentMetadata>> _ImportedStatContents
+        {
+            get { return __importedStatContents; }
+            set
+            {
+                __importedStatContents = value;
+                _statContents = new ReadOnlyObservableCollection<Lazy<UserControl, IGameStatContentMetadata>>(value);
+            }
+        }
+
+        [ImportMany(typeof(UserControl), AllowRecomposition = true)]
+        public ObservableCollection<Lazy<UserControl, IContentNavigationMetadata>> _ImportedNavigableContents;
+
+        public ReadOnlyObservableCollection<IGameApplicationInformation> Games
         {
             get { return _games; }
         }
 
-        public ObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> PopupContents
+        public ReadOnlyObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> PopupContents
         {
             get { return _popups; }
+        }
+
+        public ReadOnlyObservableCollection<Lazy<UserControl, IGameStatContentMetadata>> GameStatContents
+        {
+            get { return _statContents; }
         }
 
         private GameApplicationLoader()
@@ -52,6 +93,8 @@ namespace TheS.Casinova.SupportContent
                 new DeploymentCatalog("TheS.Casinova.MagicNine.Silverlight.xap"),
                 new DeploymentCatalog("TheS.Casinova.PlayerAccount.Silverlight.xap"),
                 new DeploymentCatalog("TheS.Casinova.TwoWins.Silverlight.xap"),
+                // TODO : test include support content for faq, about us, policy
+                new DeploymentCatalog("TheS.Casinova.SupportContent.Silverlight.xap"),
             };
             var acat = new AggregateCatalog(cats);
             _catalogs = cats;
@@ -71,11 +114,11 @@ namespace TheS.Casinova.SupportContent
 
         public UserControl GetNavigableContent(string naviationCode)
         {
-            if (_navigableContents == null)
+            if (_ImportedNavigableContents == null)
             {
                 return null;
             }
-            var qry = (from it in _navigableContents
+            var qry = (from it in _ImportedNavigableContents
                        where it.Metadata != null && it.Metadata.NavigationCode == naviationCode
                        select it);
             if (qry.Any())

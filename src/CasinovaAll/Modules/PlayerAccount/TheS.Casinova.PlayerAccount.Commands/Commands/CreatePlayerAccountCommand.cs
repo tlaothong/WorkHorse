@@ -6,10 +6,11 @@ using System.Text;
 namespace TheS.Casinova.PlayerAccount.Commands
 {
     /// <summary>
-    /// สร้างบัญชีใหม่
+    /// command สร้างข้อมูลบัญชีของผู้เล่น
     /// </summary>
     public class CreatePlayerAccountCommand
     {
+        //input
         /// <summary>
         /// ชื่อผู้เล่น
         /// </summary>
@@ -24,18 +25,17 @@ namespace TheS.Casinova.PlayerAccount.Commands
         /// หมายเลขบัญชี
         /// </summary>
         public int AccountNo { get; set; }
-        
+
         /// <summary>
-        /// หมายเลขตรวจสอบ
+        /// รหัสตรวจสอบหมายเลขบัญชี
         /// </summary>
         public int CVV { get; set; }
 
         /// <summary>
-        /// วันหมดอายุ
+        /// วันหมดอายุของบัญชี
         /// </summary>
         public DateTime ExpireDate { get; set; }
 
-        /// <summary>
         /// สถานะการทำงาน
         /// </summary>
         public bool Active { get; set; }

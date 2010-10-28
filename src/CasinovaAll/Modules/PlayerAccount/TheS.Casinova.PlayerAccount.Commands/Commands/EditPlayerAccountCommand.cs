@@ -6,7 +6,7 @@ using System.Text;
 namespace TheS.Casinova.PlayerAccount.Commands
 {
     /// <summary>
-    /// แก้ไขข้อมูลบัญชี
+    /// command แก้ไขบัญชีของผู้เล่น
     /// </summary>
     public class EditPlayerAccountCommand
     {
@@ -14,7 +14,7 @@ namespace TheS.Casinova.PlayerAccount.Commands
         /// รหัสบัญชีของผู้เล่น
         /// </summary>
         public int PlayerAccoundID { get; set; }
-
+        //input
         /// <summary>
         /// ชื่อผู้เล่น
         /// </summary>
@@ -39,5 +39,6 @@ namespace TheS.Casinova.PlayerAccount.Commands
         /// วันหมดอายุของบัญชี
         /// </summary>
         public DateTime ExpireDate { get; set; }
+
     }
 }

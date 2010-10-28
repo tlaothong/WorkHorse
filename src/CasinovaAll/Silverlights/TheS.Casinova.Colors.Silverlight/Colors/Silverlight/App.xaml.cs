@@ -10,7 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace TheS.Casinova.Colors.Silverlight
+namespace TheS.Casinova.TwoWins.Silverlight
 {
     public partial class App : Application
     {

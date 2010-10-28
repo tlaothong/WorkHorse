@@ -13,7 +13,7 @@ using System.Windows.Navigation;
 using TheS.Casinova.Common;
 using PerfEx.Infrastructure.Mvvm;
 
-namespace TheS.Casinova.Colors.Views
+namespace TheS.Casinova.TwoWins.Views
 {
     [ExportContentNavigation(GameApplicationInformation.GameInfoNavigationCode)]
     public partial class GamePlayPage : Page

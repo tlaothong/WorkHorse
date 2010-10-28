@@ -5,7 +5,10 @@ using System.Text;
 
 namespace TheS.Casinova.PlayerProfile.Commands
 {
-    public class ChangePasswordCommand
+    /// <summary>
+    /// command เปลี่ยนรหัสผ่าน
+    /// </summary>
+   public class ChangePasswordCommand
     {
         //input
         /// <summary>

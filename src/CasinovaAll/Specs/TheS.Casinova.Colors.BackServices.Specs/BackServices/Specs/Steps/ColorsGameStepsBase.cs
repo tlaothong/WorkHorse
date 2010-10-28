@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using TheS.Casinova.Colors.DAL;
+using TheS.Casinova.TwoWins.DAL;
 using TechTalk.SpecFlow;
-using TheS.Casinova.Colors.BackServices.BackExecutors;
+using TheS.Casinova.TwoWins.BackServices.BackExecutors;
 
-namespace TheS.Casinova.Colors.BackServices.Specs
+namespace TheS.Casinova.TwoWins.BackServices.Specs
 {
     public class ColorsGameStepsBase
     {

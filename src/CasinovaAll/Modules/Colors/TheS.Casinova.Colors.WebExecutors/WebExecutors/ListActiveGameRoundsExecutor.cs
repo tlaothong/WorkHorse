@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using TheS.Casinova.Colors.DAL;
-using TheS.Casinova.Colors.Models;
-using TheS.Casinova.Colors.Commands;
+using TheS.Casinova.TwoWins.DAL;
+using TheS.Casinova.TwoWins.Models;
+using TheS.Casinova.TwoWins.Commands;
 using PerfEx.Infrastructure.CommandPattern;
 
-namespace TheS.Casinova.Colors.WebExecutors
+namespace TheS.Casinova.TwoWins.WebExecutors
 {
     /// <summary>
     /// list ข้อมูลโต๊ะเกมที่ active

@@ -9,6 +9,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using TheS.Casinova.Fortune.ViewModels;
+using PerfEx.Infrastructure.Mvvm;
 
 namespace TheS.Casinova.Fortune.Views
 {
@@ -17,11 +19,17 @@ namespace TheS.Casinova.Fortune.Views
         public FortuneWindow()
         {
             InitializeComponent();
+            MvvmBinder.Bind(this, DataContext);
         }
 
-        private void OKButton_Click(object sender, RoutedEventArgs e)
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             this.DialogResult = true;
+        }
+
+        private void CardButton_Click(object sender, RoutedEventArgs e)
+        {
+            ((FortuneViewModel)DataContext).GetCardInformation();
         }
     }
 }

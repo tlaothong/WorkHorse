@@ -11,12 +11,12 @@ using System.Windows.Shapes;
 using TheS.Casinova.Common;
 using System.ComponentModel.Composition;
 
-namespace TheS.Casinova.Colors
+namespace TheS.Casinova.TwoWins
 {
     [Export(typeof(IGameApplicationInformation))]
     public class GameApplicationInformation : IGameApplicationInformation
     {
-        public const string GameInfoNavigationCode = "colors_gameInfo";
+        public const string GameInfoNavigationCode = "colors_gamePlay";
 
         private Uri _gameUri = NavigableContentHelper.GetNavigationUri(GameInfoNavigationCode);
         private UserControl _infoContent;
@@ -39,7 +39,7 @@ namespace TheS.Casinova.Colors
             {
                 if (_infoContent == null)
                 {
-                    _infoContent = new TheS.Casinova.Colors.Controls.GameInformationsUI();
+                    _infoContent = new TheS.Casinova.TwoWins.Controls.GameInformationsUI();
                 }
                 return _infoContent;
             }

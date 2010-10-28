@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using TheS.Casinova.Colors.Models;
+using TheS.Casinova.TwoWins.Models;
 
-namespace TheS.Casinova.Colors.Commands
+namespace TheS.Casinova.TwoWins.Commands
 {
     /// <summary>
     /// command สร้างโต๊ะเกมตามที่ผู้ใช้ config

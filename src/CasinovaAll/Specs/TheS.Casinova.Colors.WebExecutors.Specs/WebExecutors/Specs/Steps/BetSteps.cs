@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
-using TheS.Casinova.Colors.Models;
+using TheS.Casinova.TwoWins.Models;
 
-namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
+namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
 {
     [Binding]
     public class BetSteps : ColorsGameStepsBase

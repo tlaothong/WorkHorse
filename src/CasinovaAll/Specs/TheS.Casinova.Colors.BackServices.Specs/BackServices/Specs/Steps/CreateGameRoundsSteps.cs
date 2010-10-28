@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
-using TheS.Casinova.Colors.Models;
+using TheS.Casinova.TwoWins.Models;
 using Rhino.Mocks;
-using TheS.Casinova.Colors.BackServices.Specs;
-using TheS.Casinova.Colors.Commands;
+using TheS.Casinova.TwoWins.BackServices.Specs;
+using TheS.Casinova.TwoWins.Commands;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TheS.Casinova.Colors.BackServices
+namespace TheS.Casinova.TwoWins.BackServices
 {
     [Binding]
     public class CreateGameRoundsSteps
