@@ -5,7 +5,20 @@ using System.Text;
 
 namespace TheS.Casinova.ChipExchange.Commands
 {
-    class PayVoucherCommand
+    /// <summary>
+    /// command ซื้อคูปองด้วยชิพ
+    /// </summary>
+    public class PayVoucherCommand
     {
+        //input
+        /// <summary>
+        /// ชื่อผู้เล่น
+        /// </summary>
+        public string UserName { get; set; }
+
+        /// <summary>
+        /// จำนวนเงิน
+        /// </summary>
+        public int Amount { get; set; }
     }
 }

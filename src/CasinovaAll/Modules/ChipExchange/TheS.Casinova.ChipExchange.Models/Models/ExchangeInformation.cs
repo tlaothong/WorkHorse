@@ -18,7 +18,7 @@ namespace TheS.Casinova.ChipExchange.Models
         public string UserName { get; set; }
 
         /// <summary>
-        /// ประเภทบัญชี
+        /// ประเภทของบัตรเครดิต
         /// </summary>
         public string CardType { get; set; }
 
