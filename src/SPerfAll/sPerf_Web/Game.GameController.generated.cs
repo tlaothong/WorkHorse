@@ -47,6 +47,10 @@ namespace sPerf_Web.Areas.Game.Controllers {
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionNamesClass {
             public readonly string Index = "Index";
+            public readonly string SubMenu = "SubMenu";
+            public readonly string Tournament = "Tournament";
+            public readonly string Upload = "Upload";
+            public readonly string GameOption = "GameOption";
         }
 
 
@@ -55,7 +59,11 @@ namespace sPerf_Web.Areas.Game.Controllers {
         public ViewNames Views { get { return s_views; } }
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ViewNames {
+            public readonly string GameOption = "~/Areas/Game/Views/Game/GameOption.aspx";
             public readonly string Index = "~/Areas/Game/Views/Game/Index.aspx";
+            public readonly string SubMenu = "~/Areas/Game/Views/Game/SubMenu.ascx";
+            public readonly string Tournament = "~/Areas/Game/Views/Game/Tournament.aspx";
+            public readonly string Upload = "~/Areas/Game/Views/Game/Upload.aspx";
         }
     }
 
@@ -65,6 +73,26 @@ namespace sPerf_Web.Areas.Game.Controllers {
 
         public override System.Web.Mvc.ActionResult Index() {
             var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Index);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult SubMenu() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.SubMenu);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult Tournament() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Tournament);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult Upload() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Upload);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult GameOption() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.GameOption);
             return callInfo;
         }
 
