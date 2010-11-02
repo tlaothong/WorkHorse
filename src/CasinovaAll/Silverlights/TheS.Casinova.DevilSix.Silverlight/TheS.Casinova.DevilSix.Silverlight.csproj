@@ -96,9 +96,6 @@
     <Compile Include="DevilSix\Silverlight\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DevilSix\ViewModels\PageFourViewModel.cs" />
-    <Compile Include="DevilSix\ViewModels\PageThreeViewModel.cs" />
-    <Compile Include="DevilSix\ViewModels\PageTwoViewModel.cs" />
     <Compile Include="DevilSix\ViewModels\GamePlayViewModel.cs" />
     <Compile Include="DevilSix\Views\BetDataPage.xaml.cs">
       <DependentUpon>BetDataPage.xaml</DependentUpon>

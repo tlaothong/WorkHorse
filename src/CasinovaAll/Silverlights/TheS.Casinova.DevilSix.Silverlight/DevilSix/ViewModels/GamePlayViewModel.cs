@@ -17,17 +17,54 @@ namespace TheS.Casinova.DevilSix.ViewModels
     public class GamePlayViewModel : INotifyPropertyChanged
     {
         #region Fields
-        
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected double _amount;
-        protected ObservableCollection<string> _repetiton;
-        protected ObservableCollection<string> _interval;
-        protected ObservableCollection<double> _betLogData;
-        protected PropertyChangedNotifier _notify;
+
+        private PropertyChangedNotifier _notify;
+        private double _pot;
+        private double _amount;
+        private ObservableCollection<string> _interval;
+        private ObservableCollection<string> _reception;
+        private ObservableCollection<double> _betLogData;
 
         #endregion Fields
 
         #region Properties
+
+
+        public ObservableCollection<string> Reception
+        {
+            get { return _reception; }
+            set
+            {
+                _reception = value;
+                _notify.Raise(() => Reception);
+            }
+        }
+
+        /// <summary>
+        /// ข้อมูลเงินลงพนันที่ได้รับมาทั้งหมด
+        /// </summary>
+        public ObservableCollection<double> BetLogData
+        {
+            get { return _betLogData; }
+            set
+            {
+                _betLogData = value;
+                _notify.Raise(() => BetLogData);
+            }
+        }
+
+        /// <summary>
+        /// เวลาที่จะทำการลงพนัน Config Auto bet
+        /// </summary>
+        public ObservableCollection<string> Interval
+        {
+            get { return _interval; }
+            set
+            {
+                _interval = value;
+                _notify.Raise(() => Interval);
+            }
+        }
 
         /// <summary>
         /// Config ของ Auto bet
@@ -37,53 +74,31 @@ namespace TheS.Casinova.DevilSix.ViewModels
             get { return _amount; }
             set
             {
-                _amount = value;
-                _notify.Raise(() => _amount);
+                if (_amount != value) {
+                    _amount = value;
+                    _notify.Raise(() => Amount);
+                }
             }
         }
 
         /// <summary>
-        /// จำนวนรอบที่ต้องการให้ repeate auto bet
+        /// ค่าของ Pot ที่ได้จากการลงพนัน
         /// </summary>
-        protected ObservableCollection<string> Repetiton
+        public double Pot
         {
-            get { return _repetiton; }
+            get { return _pot; }
             set
             {
-                _repetiton = value;
-                _notify.Raise(() => _repetiton);
+                if (_pot != value) {
+                    _pot = value;
+                    _notify.Raise(() => Pot);
+                }
             }
         }
-
-
-        /// <summary>
-        /// เวลาที่จะทำการลงพนัน Config Auto bet
-        /// </summary>
-        protected ObservableCollection<string> Interval
-        {
-            get { return _interval; }
-            set
-            {
-                _interval = value;
-                _notify.Raise(() => _interval);
-            }
-        }
-        
-        /// <summary>
-        /// ข้อมูลเงินลงพนันที่ได้รับมาทั้งหมด
-        /// </summary>
-        protected ObservableCollection<double> BetLogData
-        {
-            get { return _betLogData; }
-            set
-            {
-                _betLogData = value;
-                _notify.Raise(() => _betLogData);
-            }
-        }
-
 
         #endregion Properties
+
+        #region Constructor
 
         /// <summary>
         /// กำหนดค่าเริ่มต้นของ Main page view model
@@ -91,60 +106,64 @@ namespace TheS.Casinova.DevilSix.ViewModels
         public GamePlayViewModel()
         {
             _notify = new PropertyChangedNotifier(this, () => PropertyChanged);
+            _betLogData = new ObservableCollection<double>();
+            Interval = new ObservableCollection<string>();
+            Reception = new ObservableCollection<string>();
 
+            // Sample interval time
+            Interval.Add("1 second");
+            Interval.Add("2 second");
+            Interval.Add("5 second");
+            Interval.Add("10 second");
+            Interval.Add("30 second");
+
+            Interval.Add("1 minute");
+            Interval.Add("2 minute");
+            Interval.Add("5 minute");
+            Interval.Add("10 minute");
+            Interval.Add("30 minute");
+
+            Interval.Add("1 hours");
+            Interval.Add("2 hours");
+            Interval.Add("3 hours");
+            Interval.Add("5 hours");
+            Interval.Add("12 hours");
+            Interval.Add("24 hours");
+
+            // Sample reception options
+            Reception.Add("$1");
+            Reception.Add("$2");
         }
 
-        #region Method
+        #endregion Constructor
+
+        #region Methods
+
 
         /// <summary>
-        /// แสดงผลข้อมูลการ bet
+        /// ปิด/เปิด การเล่นอัตโนมัติ
         /// </summary>
-        public void ShowBetLogData()
+        public void StartStop(ObservableCollection<string> interval)
         {
-            //TODO : Create method for show information of bet log
         }
-        
-        /// <summary>
-        /// Bet หมายเลข 1
-        /// </summary>
+
         public void BetOne()
         {
-            //TODO : Create method bet for No.1's button
+            // TODO : Bet $1
         }
 
-        /// <summary>
-        /// Bet หมายเลข 5
-        /// </summary>
-        public void BetFive()
+        public void BetTwo()
         {
-            //TODO : Create method bet for No.5's button
+            // TODO : Bet $2
         }
 
-        /// <summary>
-        /// แสดงผลเมนู auto bet
-        /// </summary>
-        public void ShowAutoBet()
-        {
-            //TODO : Create method bet for show auto bet menu
-        }
+        #endregion Methods
 
-        /// <summary>
-        /// เริ่มการ auto bet
-        /// </summary>
-        public void StartAutoBet()
-        {
-            //TODO : Create method bet for start auto bet feature
-        }
+        #region INotifyPropertyChanged members
 
-        /// <summary>
-        /// หยุดการ auto bet
-        /// </summary>
-        public void StopAutoBet()
-        {
-            //TODO : Create method bet for stop auto bet feature
-        }
+        public event PropertyChangedEventHandler PropertyChanged;
 
-        #endregion Method
+        #endregion INotifyPropertyChanged members
 
     }
 }

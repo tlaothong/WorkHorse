@@ -19,7 +19,6 @@ namespace TheS.Casinova.MagicNine.ViewModels
     {
         #region Fields
 
-        public event PropertyChangedEventHandler PropertyChanged;
         private PropertyChangedNotifier _notify;
         private double _pot;
         private double _amount;
@@ -157,5 +156,11 @@ namespace TheS.Casinova.MagicNine.ViewModels
             //TODO: Create Medthods GetNumberCompleted
         }
         #endregion Methods
+
+        #region INotifyPropertyChanged members
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion INotifyPropertyChanged members
     }
 }
