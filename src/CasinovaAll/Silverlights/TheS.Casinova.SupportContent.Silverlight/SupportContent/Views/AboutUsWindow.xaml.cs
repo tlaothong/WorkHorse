@@ -14,9 +14,9 @@ using TheS.Casinova.Common;
 namespace TheS.Casinova.SupportContent.Views
 {
     [ExportPopupContent(DisplayText = "About us", GroupName = "buttom", Order = 3)]
-    public partial class AbountUsWindow : ChildWindow
+    public partial class AboutUsWindow : ChildWindow
     {
-        public AbountUsWindow()
+        public AboutUsWindow()
         {
             InitializeComponent();
         }
