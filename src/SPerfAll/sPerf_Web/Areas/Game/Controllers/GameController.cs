@@ -31,5 +31,13 @@ namespace sPerf_Web.Areas.Game.Controllers
         {
             return View();
         }
+        public virtual ActionResult AdvanceSearch()
+        {
+            return View();
+        }
+        public virtual ActionResult Banners()
+        {
+            return View();
+        }
     }
 }

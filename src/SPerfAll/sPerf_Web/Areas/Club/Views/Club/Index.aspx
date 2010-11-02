@@ -5,11 +5,19 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
-    <h2>Index</h2>
-
+<%--script for load content from db--%>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#myClub").load("club.html");
+    });
+</script>
+<div id="myClub"></div>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="SubMenu" runat="server">
 <% Html.RenderPartial("SubMenu"); %>
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="SideBar" runat="server">
+<% Html.RenderPartial("AdvanceSearch"); %>
+<% Html.RenderPartial("Banners"); %>
 </asp:Content>
