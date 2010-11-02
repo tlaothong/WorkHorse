@@ -25,7 +25,7 @@ namespace TheS.Casinova.MLN.ViewModels
             set
             {
                 _includePerday = value;
-                OnChange("IncludePerday");
+                RaisePropertyChanged("IncludePerday");
             }
         }
 
@@ -35,7 +35,7 @@ namespace TheS.Casinova.MLN.ViewModels
             set
             {
                 _incomePerday = value;
-                OnChange("IncomePerday");
+                RaisePropertyChanged("IncomePerday");
             }
         }
 
@@ -45,7 +45,7 @@ namespace TheS.Casinova.MLN.ViewModels
             set
             {
                 _level = value;
-                OnChange("Level");
+                RaisePropertyChanged("Level");
             }
         }
 
@@ -55,12 +55,12 @@ namespace TheS.Casinova.MLN.ViewModels
             set
             {
                 _total = value;
-                OnChange("Total");
+                RaisePropertyChanged("Total");
             }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        public void OnChange(string propertyName)
+        public void RaisePropertyChanged(string propertyName)
         {
             PropertyChangedEventHandler temp = PropertyChanged;
             if (temp != null) {
