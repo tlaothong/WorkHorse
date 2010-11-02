@@ -11,30 +11,13 @@
         </Grid.RowDefinitions>
 
         <Button x:Name="CloseButton" Content="Close" Click="CloseButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" FontSize="11" />
-        <ScrollViewer Margin="0,23,0,0">
-            <RichTextBox HorizontalAlignment="Left" Name="contentBox" 
-        VerticalAlignment="Top" Height="431" Width="594" IsReadOnly="True">
-                <Paragraph FontFamily="Georgia" FontSize="12" TextAlignment="Justify">
-                    This photograph depicting a
-                    <Run Text=" flower closeup " 
-                         FontStyle="Italic" 
-                         FontWeight="ExtraBold" /> belongs to the
-                    <Run Text=" macro "
-                         Foreground="Red" 
-                         FontWeight="ExtraBold"/> genre of photography. 
-                    Macro photography requires a great deal of precision. 
-                    You need a sharp pair of lenses to capture
-                    <Run Text=" high quality closeups. " 
-             Foreground="DarkBlue" FontWeight="ExtraBold"/>
-                    <LineBreak/>
-                    <InlineUIContainer></InlineUIContainer>
-                    <LineBreak/>
-                    <LineBreak/>
-                    <Hyperlink NavigateUri="http://en.wikipedia.org/wiki/Macro_photography">
-                        Click here to read about macro photography</Hyperlink>
-                </Paragraph>
-            </RichTextBox>
-        </ScrollViewer>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Information." VerticalAlignment="Top" FontWeight="Bold" FontSize="13.333"/>
+        <RichTextBox x:Name="contentBox" IsReadOnly="True">
+        	<Paragraph FontFamily="Georgia" FontSize="12" TextAlignment="Justify"><Run Text="This photograph depicting a "/><Run Text=" flower closeup " 
+        			FontStyle="Italic" 
+        			FontWeight="ExtraBold" /><Run Text=" belongs to the "/><Run Text=" macro "
+        			Foreground="Red" 
+        			FontWeight="ExtraBold"/><Run Text=" genre of photography. Macro photography requires a great deal of precision. You need a sharp pair of lenses to capture "/><Run Text=" high quality closeups. " 
+        			Foreground="DarkBlue" FontWeight="ExtraBold"/><Run Text=" "/><LineBreak/><Run Text=" "/><InlineUIContainer/><Run Text=" "/><LineBreak/><Run Text=" "/><LineBreak/><Run Text=" "/><Hyperlink NavigateUri="http://en.wikipedia.org/wiki/Macro_photography"><Run Text="Click here to read about macro photography"/></Hyperlink></Paragraph>
+        </RichTextBox>
     </Grid>
 </controls:ChildWindow>
