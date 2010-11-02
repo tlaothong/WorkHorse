@@ -39,5 +39,10 @@ namespace TheS.Casinova.ChipExchange.Models
         /// อัตราแลกเปลี่ยนของการแลกชิปเป็น เป็นชิปตาย
         /// </summary>
         public double ChipToBonusChipRate { get; set; }
+
+        /// <summary>
+        /// อัตราแลกเปลี่ยนของการแลกชิปเป็น เป็นชิปตาย
+        /// </summary>
+        public double VoucherToBonusChipRate { get; set; }
     }
 }
