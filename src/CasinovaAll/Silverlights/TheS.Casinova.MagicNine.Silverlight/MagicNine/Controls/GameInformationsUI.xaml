@@ -24,11 +24,11 @@
     		<Rectangle Fill="Black" Stroke="Black"/>
     		<TextBlock TextWrapping="Wrap" Text="{Binding Name, Mode=OneWay}" FontWeight="Bold" FontSize="16" VerticalAlignment="Center" d:LayoutOverrides="HorizontalAlignment" HorizontalAlignment="Left" Margin="8,0,0,0" Foreground="White"/>
     	</Grid>
-    	<Grid HorizontalAlignment="Left" Height="170" Margin="8,8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="130">
-    		<HyperlinkButton Content="Play" HorizontalAlignment="Left" Foreground="Red" NavigateUri="{Binding GameUri, Mode=OneWay}" VerticalAlignment="Bottom" d:LayoutOverrides="GridBox"/>
-    		<HyperlinkButton x:Name="HowToPlayHyperlinkButton" Content="How to play" Margin="0,0,60,20" Foreground="Red" Click="HowToPlayHyperlinkButton_Click" VerticalAlignment="Bottom" d:LayoutOverrides="Width, GridBox" />
+    	<StackPanel HorizontalAlignment="Left" Margin="8,8,0,8" Grid.Row="1" Width="130">
     		<Image Width="130" Height="130" VerticalAlignment="Top" Source="/TheS.Casinova.MagicNine.Silverlight;component/MagicNine/Assets/Images/Logo.jpg" Stretch="Fill"/>
-    	</Grid>
+    		<HyperlinkButton Content="Play" HorizontalAlignment="Left" Foreground="Red" NavigateUri="{Binding GameUri, Mode=OneWay}" d:LayoutOverrides="GridBox"/>
+    		<HyperlinkButton x:Name="HowToPlayHyperlinkButton" Content="How to play" Margin="0,0,60,0" Foreground="Red" Click="HowToPlayHyperlinkButton_Click" d:LayoutOverrides="Width, GridBox" />
+    	</StackPanel>
     	<RichTextBox Margin="142,8,8,8" Grid.Row="1">
     		<Paragraph>
     			<Run Text="Game: Magic 9" FontWeight="Bold" FontSize="12"/>

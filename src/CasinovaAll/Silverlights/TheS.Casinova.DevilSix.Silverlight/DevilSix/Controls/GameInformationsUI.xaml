@@ -24,13 +24,25 @@
     		<Rectangle Fill="Black" Stroke="Black"/>
     		<TextBlock TextWrapping="Wrap" Text="{Binding Name, Mode=OneWay}" FontWeight="Bold" FontSize="16" VerticalAlignment="Center" d:LayoutOverrides="HorizontalAlignment" HorizontalAlignment="Left" Margin="8,0,0,0" Foreground="White"/>
     	</Grid>
-    	<Grid HorizontalAlignment="Left" Height="170" Margin="8,8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="130">
-    		<HyperlinkButton Content="Play" HorizontalAlignment="Left" Foreground="Red" NavigateUri="{Binding GameUri, Mode=OneWay}" VerticalAlignment="Bottom" d:LayoutOverrides="GridBox"/>
-    		<HyperlinkButton x:Name="HowToPlayHyperlinkButton" Content="How to play" Margin="0,0,60,20" Foreground="Red" Click="HowToPlayHyperlinkButton_Click" VerticalAlignment="Bottom" d:LayoutOverrides="Width, GridBox" />
+    	<StackPanel HorizontalAlignment="Left" Margin="8,8,0,8" Grid.Row="1" Width="130">
     		<Image VerticalAlignment="Top" Source="/TheS.Casinova.DevilSix.Silverlight;component/DevilSix/Assets/Images/Logo.jpg" Stretch="Fill" Width="130" Height="130"/>
-    	</Grid>
+    		<HyperlinkButton Content="Play" HorizontalAlignment="Left" Foreground="Red" NavigateUri="{Binding GameUri, Mode=OneWay}" d:LayoutOverrides="GridBox"/>
+    		<HyperlinkButton x:Name="HowToPlayHyperlinkButton" Content="How to play" Margin="0,0,60,0" Foreground="Red" Click="HowToPlayHyperlinkButton_Click" d:LayoutOverrides="Width, GridBox" />
+    	</StackPanel>
     	<RichTextBox Margin="142,8,8,8" Grid.Row="1">
-    		<Paragraph></Paragraph>
+    		<Paragraph>
+    			<Run Text="Game: Devil 6" FontWeight="Bold" FontSize="12"/>
+<LineBreak/><LineBreak/>
+<Run Text="Standard Rules" FontWeight="Bold"/><LineBreak/>
+- Each click on Bet button place amount of bet equivalent to the coresponding display on the button.<LineBreak/>
+- Each time a player click a Bet button, the Display will show the total number of money bet.<LineBreak/>
+- Player's Displays will only be updated when the player click the Play button.<LineBreak/>
+- Player may not click faster than five times per second.<LineBreak/>
+- When someone wins the pot, the amount of bet is reset to 0.<LineBreak/>
+<LineBreak/><LineBreak/>
+<Run Text="Tools" FontWeight="Bold"/><LineBreak/>
+- For 1 dollar, you may use Auto Play function by telling the program how much and how often you want it to auto click for you. 		
+			</Paragraph>
     	</RichTextBox>
 
     </Grid>

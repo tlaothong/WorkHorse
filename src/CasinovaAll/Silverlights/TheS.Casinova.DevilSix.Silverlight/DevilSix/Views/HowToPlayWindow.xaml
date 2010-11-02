@@ -14,7 +14,21 @@
         <Grid Margin="0,0,0,16">
         	<RichTextBox FontSize="11">
         		<Paragraph>
-        			    		
+        			<Run Text="Game: Devil 6" FontWeight="Bold" FontSize="12"/>
+<LineBreak/><LineBreak/>
+<Run Text="Standard Rules" FontWeight="Bold"/><LineBreak/>
+- Each click on Bet button place amount of bet equivalent to the coresponding display on the button.<LineBreak/>
+- Each time a player click a Bet button, the Display will show the total number of money bet.<LineBreak/>
+- Player's Displays will only be updated when the player click the Play button.<LineBreak/>
+- Player may not click faster than five times per second.<LineBreak/>
+- When someone wins the pot, the amount of bet is reset to 0.<LineBreak/>
+<LineBreak/><LineBreak/>
+<Run Text="Tools" FontWeight="Bold"/><LineBreak/>
+- For 1 dollar, you may use Auto Play function by telling the program how much and how often you want it to auto click for you.<LineBreak/><LineBreak/>
+
+<Run Text="Winners" FontWeight="Bold"/><LineBreak/>
+- Player who place any amount of Bet that cause the amount of money in the pot to exceed 66 wins 60 dollars back.
+
 				</Paragraph>
         	</RichTextBox>
         </Grid>

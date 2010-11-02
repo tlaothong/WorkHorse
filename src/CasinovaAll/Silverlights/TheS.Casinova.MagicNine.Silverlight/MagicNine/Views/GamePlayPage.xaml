@@ -1,0 +1,17 @@
+﻿<navigation:Page 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:TheS_Casinova_MagicNine_Controls="clr-namespace:TheS.Casinova.MagicNine.Controls" x:Class="TheS.Casinova.MagicNine.Views.GamePlayPage"
+           mc:Ignorable="d"
+           d:DesignWidth="600" d:DesignHeight="400"
+           Title="GamePlayPage Page">
+    <Grid x:Name="LayoutRoot">
+
+    	<TheS_Casinova_MagicNine_Controls:GamePlayUI Margin="0,0,204,0" Width="Auto" Height="Auto"/>
+    	<ListBox HorizontalAlignment="Right" Width="200"/>
+
+    </Grid>
+</navigation:Page>

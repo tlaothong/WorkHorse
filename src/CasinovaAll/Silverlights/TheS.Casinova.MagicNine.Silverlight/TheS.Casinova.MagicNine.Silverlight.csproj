@@ -95,10 +95,13 @@
     <Compile Include="MagicNine\Silverlight\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MagicNine\ViewModels\MainPageViewModel.cs" />
+    <Compile Include="MagicNine\ViewModels\GamePlayViewModel.cs" />
     <Compile Include="MagicNine\ViewModels\TimeIntervalViewModel.cs" />
     <Compile Include="MagicNine\Views\BetDataPage.xaml.cs">
       <DependentUpon>BetDataPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MagicNine\Views\GamePlayPage.xaml.cs">
+      <DependentUpon>GamePlayPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MagicNine\Views\GraphPage.xaml.cs">
       <DependentUpon>GraphPage.xaml</DependentUpon>
@@ -133,6 +136,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MagicNine\Views\BetDataPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MagicNine\Views\GamePlayPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

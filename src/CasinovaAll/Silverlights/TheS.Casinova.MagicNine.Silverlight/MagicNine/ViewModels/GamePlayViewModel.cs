@@ -15,7 +15,7 @@ using System.Globalization;
 
 namespace TheS.Casinova.MagicNine.ViewModels
 {
-    public class MainPageViewModel : INotifyPropertyChanged
+    public class GamePlayViewModel : INotifyPropertyChanged
     {
         #region Fields
 
@@ -93,7 +93,7 @@ namespace TheS.Casinova.MagicNine.ViewModels
         /// <summary>
         /// กำหนดค่าเริ่มต้นของ Main page view model
         /// </summary>
-        public MainPageViewModel()
+        public GamePlayViewModel()
         {
             _notify = new PropertyChangedNotifier(this, () => PropertyChanged);
             _betLogData = new ObservableCollection<double>();
