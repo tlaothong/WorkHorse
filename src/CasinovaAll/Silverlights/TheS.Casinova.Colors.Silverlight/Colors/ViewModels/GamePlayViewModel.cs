@@ -15,6 +15,8 @@ namespace TheS.Casinova.TwoWins.ViewModels
 {
     public class GamePlayPageViewModel : INotifyPropertyChanged
     {
+        #region Fields
+        
         private PropertyChangedNotifier _notify;
         private TimeSpan _gameTime;
         private string _winner;
@@ -22,14 +24,18 @@ namespace TheS.Casinova.TwoWins.ViewModels
         private string _totalAmountOfBlack;
         private string _totalAmountOfWhite;
 
+        #endregion Fields
+
+        #region Properties
+
         public string TotalAmountOfWhite
         {
             get { return _totalAmountOfWhite; }
             set
             {
-                if (_totalAmountOfWhite!=value) {
+                if (_totalAmountOfWhite != value) {
                     _totalAmountOfWhite = value;
-                    _notify.Raise(() => TotalAmountOfWhite); 
+                    _notify.Raise(() => TotalAmountOfWhite);
                 }
             }
         }
@@ -39,9 +45,9 @@ namespace TheS.Casinova.TwoWins.ViewModels
             get { return _totalAmountOfBlack; }
             set
             {
-                if (_totalAmountOfBlack!=value) {
+                if (_totalAmountOfBlack != value) {
                     _totalAmountOfBlack = value;
-                    _notify.Raise(() => TotalAmountOfBlack); 
+                    _notify.Raise(() => TotalAmountOfBlack);
                 }
             }
         }
@@ -51,9 +57,9 @@ namespace TheS.Casinova.TwoWins.ViewModels
             get { return _winnerInformation; }
             set
             {
-                if (_winnerInformation!=value) {
+                if (_winnerInformation != value) {
                     _winnerInformation = value;
-                    _notify.Raise(() => WinnerInformation); 
+                    _notify.Raise(() => WinnerInformation);
                 }
             }
         }
@@ -64,9 +70,9 @@ namespace TheS.Casinova.TwoWins.ViewModels
             get { return _winner; }
             set
             {
-                if (_winner!=value) {
+                if (_winner != value) {
                     _winner = value;
-                    _notify.Raise(() => Winner); 
+                    _notify.Raise(() => Winner);
                 }
             }
         }
@@ -81,10 +87,18 @@ namespace TheS.Casinova.TwoWins.ViewModels
             }
         }
 
+        #endregion Properties
+
+        #region Constructors
+        
         public GamePlayPageViewModel()
         {
             _notify = new PropertyChangedNotifier(this, () => PropertyChanged);
         }
+
+        #endregion Constructors
+
+        #region Methods
 
         public void BetBlack()
         {
@@ -96,6 +110,8 @@ namespace TheS.Casinova.TwoWins.ViewModels
         {
             // TODO : BetWhite clicked
         }
+
+        #endregion Methods
 
         #region INotifyPropertyChanged member
 

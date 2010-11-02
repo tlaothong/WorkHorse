@@ -15,8 +15,14 @@ namespace TheS.Casinova.Chat.ViewModels
 {
     public class ChatViewModel : INotifyPropertyChanged
     {
+        #region Fields
+        
         private ObservableCollection<string> _channels;
         private ObservableCollection<string> _players;
+
+        #endregion Fields
+
+        #region Properties
 
         public ObservableCollection<string> Players
         {
@@ -38,13 +44,22 @@ namespace TheS.Casinova.Chat.ViewModels
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        #endregion Properties
+
+        #region Methods
         public void RaisePropertyChanged(string propertyName)
         {
             var temp = PropertyChanged;
             if (temp != null) {
-                temp(this,new PropertyChangedEventArgs(propertyName));
+                temp(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+        #endregion Methods
+
+        #region INotifyPropertiesChanged members
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion INotifyPropertiesChanged members
     }
 }

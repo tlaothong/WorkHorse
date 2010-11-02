@@ -14,18 +14,24 @@ namespace TheS.Casinova.MLN.ViewModels
 {
     public class AnotherPlayerInformationModel : INotifyPropertyChanged
     {
+        #region Fields
+
         private double _currentBunusAvailable;
         private int _firstLevel;
         private int _secondLevel;
         private int _thirdLevel;
         private object _informations;
 
+        #endregion Fields
+
+        #region Properties
+
         public object Informations
         {
             get { return _informations; }
             set
             {
-                _informations = value; 
+                _informations = value;
                 RaisePropertyChanged("Informations");
             }
         }
@@ -67,15 +73,24 @@ namespace TheS.Casinova.MLN.ViewModels
             }
         }
 
+        #endregion Properties
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        #region Methods
 
         public void RaisePropertyChanged(string propertyName)
         {
             var temp = PropertyChanged;
             if (temp != null) {
-                temp(this,new PropertyChangedEventArgs(propertyName));
+                temp(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
+        #endregion Methods
+
+        #region INotifyPropertyChanged members
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion INotifyPropertyChanged members
     }
 }

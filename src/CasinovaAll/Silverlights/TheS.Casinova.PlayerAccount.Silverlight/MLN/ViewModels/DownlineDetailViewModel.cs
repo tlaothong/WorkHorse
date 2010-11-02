@@ -14,10 +14,16 @@ namespace TheS.Casinova.MLN.ViewModels
 {
     public class DownlineDetailViewModel : INotifyPropertyChanged
     {
+        #region Fields
+        
         private int _total;
         private int _level;
         private double _incomePerday;
         private double _includePerday;
+
+        #endregion Fields
+
+        #region Properties
 
         public double IncludePerday
         {
@@ -59,7 +65,10 @@ namespace TheS.Casinova.MLN.ViewModels
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        #endregion Properties
+
+        #region Methods
+        
         public void RaisePropertyChanged(string propertyName)
         {
             PropertyChangedEventHandler temp = PropertyChanged;
@@ -67,5 +76,13 @@ namespace TheS.Casinova.MLN.ViewModels
                 temp(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
+        #endregion Methods
+
+        #region INotifyPropertyChanged members
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion INotifyPropertyChanged members
     }
 }

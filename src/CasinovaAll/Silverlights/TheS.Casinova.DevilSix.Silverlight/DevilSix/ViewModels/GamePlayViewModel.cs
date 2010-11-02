@@ -29,7 +29,6 @@ namespace TheS.Casinova.DevilSix.ViewModels
 
         #region Properties
 
-
         public ObservableCollection<string> Reception
         {
             get { return _reception; }
@@ -65,7 +64,7 @@ namespace TheS.Casinova.DevilSix.ViewModels
                 _notify.Raise(() => Interval);
             }
         }
-
+        
         /// <summary>
         /// Config ของ Auto bet
         /// </summary>
