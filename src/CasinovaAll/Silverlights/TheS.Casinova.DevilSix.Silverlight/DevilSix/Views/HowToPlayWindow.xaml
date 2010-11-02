@@ -12,11 +12,11 @@
 
         <Button x:Name="CloseButton" Content="Close" Click="CloseButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" FontSize="11" />
         <Grid Margin="0,0,0,16">
-        	<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Game:" VerticalAlignment="Top" FontSize="13.333" FontWeight="Bold"/>
-        	<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Devil 6" VerticalAlignment="Top" FontSize="13.333" Margin="52,0,0,0"/>
-        	<ScrollViewer Margin="0,23,0,0">
-        		<TextBlock x:Name="Information" TextWrapping="Wrap" Text="Information" FontSize="11"/>
-        	</ScrollViewer>
+        	<RichTextBox FontSize="11">
+        		<Paragraph>
+        			    		
+				</Paragraph>
+        	</RichTextBox>
         </Grid>
     </Grid>
 </controls:ChildWindow>

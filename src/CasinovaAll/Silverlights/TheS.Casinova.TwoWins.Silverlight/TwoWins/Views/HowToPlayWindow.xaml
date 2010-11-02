@@ -12,11 +12,46 @@
 
         <Button x:Name="CloseButton" Content="Close" Click="CloseButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" FontSize="11" />
         <Grid>
-        	<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Game:" VerticalAlignment="Top" FontSize="13.333" FontWeight="Bold"/>
-        	<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Two wins" VerticalAlignment="Top" FontSize="13.333" Margin="52,0,0,0"/>
-        	<ScrollViewer Margin="0,23,0,0">
-        		<TextBlock x:Name="Information" TextWrapping="Wrap" Text="Information" FontSize="11"/>
-        	</ScrollViewer>
+        	<RichTextBox FontSize="11">
+        		<Paragraph>
+        			<Run Text="Game: Two Wins" FontWeight="Bold" FontSize="12"/>
+<LineBreak/><LineBreak/>
+<Run Text="Standard Rules" FontWeight="Bold"/><LineBreak/>
+- Each game period last 12 hours, with 1 hour "Critical Time Period" during the last hour.<LineBreak/>
+- Each player has an infinite number of hands on which to place their bets. For each hand, players may place any number of whole-dollar bets.<LineBreak/>
+- Players may increase the amount of the bet in any of their hands as many times as they want, at any time before the critical time period occurs.<LineBreak/>
+- Players may neither decrease nor withdraw the amount of a bet in any of their hands during gameplay.<LineBreak/>
+- The bets each player places will be updated in the Main Pot in real time.<LineBreak/>
+- During a "Critical Time Period," each player may only update each of their hands once.<LineBreak/>
+* The bets on new hands within the "Critical Time Period" will not be available until the "critical time period" elapses.<LineBreak/>
+
+<LineBreak/><LineBreak/>
+<Run Text="Information Shown (In real time)" FontWeight="Bold"/><LineBreak/>
+- Remaining Time<LineBreak/>
+- Main Pot (the amount of the Main Pot will be frozen once a "Critical Time Period" occurs)<LineBreak/>
+- Name of the player winning the Low Bet, and the value of his winning bet<LineBreak/>
+- Name of the player winning the High Bet, and the value of his winning bet<LineBreak/>
+- Number of betting hands played in the game<LineBreak/>
+
+<LineBreak/><LineBreak/>
+<Run Text="Winners" FontWeight="Bold"/><LineBreak/>
+- High Bet winner is the person who, in any hand, places the highest number of one-hand non-duplicate-amount* of bets in the pot.<LineBreak/>
+- Low Bet winner is the person who, in any hand, places the lowest number of one-hand non-duplicate-amount* of bets in the pot.<LineBreak/>
+*The winning hand must be the only hand in the game with such amount.  In case there is no non-duplicate-amount (more than 1 winner), the game will choose whomever placed the bet first as a winner.<LineBreak/>
+
+<LineBreak/><LineBreak/>
+<Run Text="Payouts" FontWeight="Bold"/><LineBreak/>
+- If the highest one-hand non-duplicate-amount was placed before the "Critical Time Period," then The High Bet Winner takes 70% of the money from the Main Pot of that game.<LineBreak/>
+- However, in a case where the highest one-hand non-duplicate-amount was updated or placed during the "Critical Time Period," then the High Bet Winner takes 50% of the money from the Main Pot of that game.<LineBreak/>
+  The 20% reduction in this instance will be awarded to the Player who placed the highest one-hand non-dupicate-amount before the "Critical Time Period."<LineBreak/>
+- If the lowest one-hand non-duplicate-amount was placed before the "Critical Time Period," then The Low Bet Winner takes 25% of the money from the Main Pot of that game.<LineBreak/>
+- However, in the cast where the lowest one-hand non-duplicate-amount was updated or placed during the "Critical Time Period," then the Low Bet Winner takes 20% of the money from the Main Pot of that game.<LineBreak/>
+  The 5% reduction in this instance will be given to the Player who placed the lowest one-hand non-dupicate-amount before the "Critical Time Period."<LineBreak/>
+
+
+    		
+				</Paragraph>
+        	</RichTextBox>
         </Grid>
     </Grid>
 </controls:ChildWindow>
