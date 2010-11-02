@@ -44,7 +44,7 @@
     			<Rectangle Fill="#FFF4F4F5" Stroke="Black" d:LayoutOverrides="GridBox"/>
     			<TextBlock x:Name="POT" TextWrapping="Wrap" Text="POT" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8,0"/>
     		</Grid>
-    		<Button Content="Play" VerticalAlignment="Top" Grid.Row="1" Margin="0,68,0,0" Width="100" Height="40" HorizontalAlignment="Center"/>
+    		<Button x:Name="Play" Content="Play" VerticalAlignment="Top" Grid.Row="1" Margin="0,68,0,0" Width="100" Height="40" HorizontalAlignment="Center"/>
     		<Grid Grid.Row="1" Margin="8,0,8,8" Height="40" VerticalAlignment="Bottom">
     			<Grid.ColumnDefinitions>
     				<ColumnDefinition Width="0.2*"/>

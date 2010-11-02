@@ -13,7 +13,7 @@ using PerfEx.Infrastructure;
 
 namespace TheS.Casinova.DevilSix.ViewModels
 {
-    public class PageTwoViewModel : MainPageViewModel
+    public class PageTwoViewModel : GamePlayViewModel
     {
        public event PropertyChangedEventHandler PropertyChanged;
 

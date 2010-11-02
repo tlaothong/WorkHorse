@@ -32,7 +32,7 @@
 				<RowDefinition Height="0.356*"/>
 			</Grid.RowDefinitions>
 			<TextBlock x:Name="GameTime" TextWrapping="Wrap" Text="GameTime" FontSize="21.333" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-			<Grid Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="150,0,0,0">
+			<Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
 				<Rectangle Fill="#FFEBEBEB" RadiusY="4" RadiusX="4" Stroke="Black" VerticalAlignment="Center" Height="45"/>
 				<StackPanel VerticalAlignment="Center">
 					<TextBlock x:Name="Winner" TextWrapping="Wrap" Text="Winner" FontSize="16" Margin="72,0,71,0" d:LayoutOverrides="Width" VerticalAlignment="Top" HorizontalAlignment="Center"/>

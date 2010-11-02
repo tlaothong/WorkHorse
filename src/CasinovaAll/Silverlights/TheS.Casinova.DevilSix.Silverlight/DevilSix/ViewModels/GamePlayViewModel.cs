@@ -14,7 +14,7 @@ using PerfEx.Infrastructure;
 
 namespace TheS.Casinova.DevilSix.ViewModels
 {
-    public class MainPageViewModel : INotifyPropertyChanged
+    public class GamePlayViewModel : INotifyPropertyChanged
     {
         #region Fields
         
@@ -24,7 +24,7 @@ namespace TheS.Casinova.DevilSix.ViewModels
         protected ObservableCollection<string> _interval;
         protected ObservableCollection<double> _betLogData;
         protected PropertyChangedNotifier _notify;
-        
+
         #endregion Fields
 
         #region Properties
@@ -88,7 +88,7 @@ namespace TheS.Casinova.DevilSix.ViewModels
         /// <summary>
         /// กำหนดค่าเริ่มต้นของ Main page view model
         /// </summary>
-        public MainPageViewModel()
+        public GamePlayViewModel()
         {
             _notify = new PropertyChangedNotifier(this, () => PropertyChanged);
 
