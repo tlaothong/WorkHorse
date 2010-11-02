@@ -47,7 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\GetExchangeSettingCommand.cs" />
+    <Compile Include="Commands\GetMLNInfoCommand.cs" />
     <Compile Include="Commands\GetPlayerAccountInfoCommand.cs" />
+    <Compile Include="Commands\GetVoucherInfoCommand.cs" />
+    <Compile Include="Commands\UpdateUsedVoucherCommand.cs" />
     <Compile Include="DAL\IChipExchangeDataAccess.cs" />
     <Compile Include="DAL\IChipExchangeDataBackQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -58,13 +61,13 @@
       <Project>{28B48276-2905-4A6C-9BBA-09007F7E7084}</Project>
       <Name>TheS.Casinova.PlayerAccount.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Shared\TheS.Casinova.Common.Commands\TheS.Casinova.Common.Commands.csproj">
-      <Project>{B0BA601A-7B65-4973-9E00-4F9035883877}</Project>
-      <Name>TheS.Casinova.Common.Commands</Name>
+    <ProjectReference Include="..\..\PlayerProfile\TheS.Casinova.PlayerProfile.Models\TheS.Casinova.PlayerProfile.Models.csproj">
+      <Project>{96BBA83F-EAA6-4EEA-BEC5-98F6AC39B943}</Project>
+      <Name>TheS.Casinova.PlayerProfile.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Shared\TheS.Casinova.Common.Models\TheS.Casinova.Common.Models.csproj">
-      <Project>{6079CFCD-811A-4962-B021-8D3D14C0C45B}</Project>
-      <Name>TheS.Casinova.Common.Models</Name>
+    <ProjectReference Include="..\TheS.Casinova.ChipExchange.Commands\TheS.Casinova.ChipExchange.Commands.csproj">
+      <Project>{783249CD-793F-4C2C-BE6C-980C70FAB6DD}</Project>
+      <Name>TheS.Casinova.ChipExchange.Commands</Name>
     </ProjectReference>
     <ProjectReference Include="..\TheS.Casinova.ChipExchange.Models\TheS.Casinova.ChipExchange.Models.csproj">
       <Project>{4D33D4E0-40CE-4AF2-A30F-53FCAE1A2886}</Project>
