@@ -3,9 +3,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" x:Class="TheS.Casinova.TwoWins.Controls.GamePlayUI"
+    xmlns:TheS_Casinova_TwoWins_ViewModels="clr-namespace:TheS.Casinova.TwoWins.ViewModels" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" x:Class="TheS.Casinova.TwoWins.Controls.GamePlayUI"
     mc:Ignorable="d"
     d:DesignHeight="400" d:DesignWidth="500">
+    
+	<UserControl.Resources>
+		<TheS_Casinova_TwoWins_ViewModels:GamePlayViewModel x:Key="GamePlayViewModelDataSource" d:IsDataSource="True"/>
+	</UserControl.Resources>
+	<UserControl.DataContext>
+		<Binding Source="{StaticResource GamePlayViewModelDataSource}"/>
+	</UserControl.DataContext>
     
     <Grid x:Name="LayoutRoot" Background="White">
     	<Grid.RowDefinitions>
@@ -124,35 +131,35 @@
     				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="High" VerticalAlignment="Top" Margin="8,8,0,0" FontWeight="Bold"/>
     				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Low" Margin="8,28,0,28" FontWeight="Bold" d:LayoutOverrides="Height"/>
     				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hands" VerticalAlignment="Bottom" Margin="8,0,0,8" FontWeight="Bold"/>
-    				<TextBlock x:Name="GameHandsRange" TextWrapping="Wrap" Text="GameHandsRange" VerticalAlignment="Bottom" Margin="51,0,8,8"/>
+    				<TextBlock x:Name="GameHandsRange" TextWrapping="Wrap" Text="{Binding GameHandsRange}" VerticalAlignment="Bottom" Margin="51,0,8,8"/>
     				<Grid Height="16" Margin="40,8,13,0" VerticalAlignment="Top">
     					<Grid.ColumnDefinitions>
     						<ColumnDefinition Width="0.5*"/>
     						<ColumnDefinition Width="0.5*"/>
     					</Grid.ColumnDefinitions>
-    					<TextBlock x:Name="WinnerHighName" TextWrapping="Wrap" Text="WinnerHighName" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
-    					<TextBlock x:Name="WinnerHighRange" HorizontalAlignment="Left" TextWrapping="Wrap" Text="WinnerHighRange" Margin="4,0,0,0" d:LayoutOverrides="Height" Grid.Column="1" VerticalAlignment="Center"/>
+    					<TextBlock x:Name="WinnerHighName" TextWrapping="Wrap" Text="{Binding WinnerHighName}" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+    					<TextBlock x:Name="WinnerHighRange" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding WinnerHighRange}" Margin="4,0,0,0" d:LayoutOverrides="Height" Grid.Column="1" VerticalAlignment="Center"/>
     				</Grid>
     				<Grid Margin="40,28,24,28">
     					<Grid.ColumnDefinitions>
     						<ColumnDefinition Width="0.5*"/>
     						<ColumnDefinition Width="0.5*"/>
     					</Grid.ColumnDefinitions>
-    					<TextBlock x:Name="WinnerLowName" TextWrapping="Wrap" Text="WinnerLowName" d:LayoutOverrides="Width, Height" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-    					<TextBlock x:Name="WinnerLowRange" HorizontalAlignment="Left" TextWrapping="Wrap" Text="WinnerLowRange" Margin="4,0,0,0" d:LayoutOverrides="Height" Grid.Column="1" VerticalAlignment="Center"/>
+    					<TextBlock x:Name="WinnerLowName" TextWrapping="Wrap" Text="{Binding WinnerLowName}" d:LayoutOverrides="Width, Height" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+    					<TextBlock x:Name="WinnerLowRange" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding WinnerLowRange}" Margin="4,0,0,0" d:LayoutOverrides="Height" Grid.Column="1" VerticalAlignment="Center"/>
     				</Grid>
     			</Grid>
     			<Grid Grid.Column="1" Margin="28,0,0,0">
     				<Rectangle Fill="#FFF4F4F5" Stroke="Black"/>
     				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Game state:" VerticalAlignment="Top" Margin="4,8,0,0" FontWeight="Bold"/>
-    				<TextBlock x:Name="GameStatus" TextWrapping="Wrap" Text="GameStatus" VerticalAlignment="Top" Margin="83,8,4,0"/>
+    				<TextBlock x:Name="GameStatus" TextWrapping="Wrap" Text="{Binding GameStatus}" VerticalAlignment="Top" Margin="83,8,4,0"/>
     				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Game time:" Margin="4,28,0,28" d:LayoutOverrides="Height" FontWeight="Bold"/>
-    				<TextBlock x:Name="GameTime" TextWrapping="Wrap" Text="GameTime" Margin="83,28,4,28" d:LayoutOverrides="Height"/>
-    				<TextBlock x:Name="POT" TextWrapping="Wrap" Text="POT" Margin="8,0,8,1" FontWeight="Bold" VerticalAlignment="Bottom" FontSize="16"/>
+    				<TextBlock x:Name="GameTime" TextWrapping="Wrap" Text="{Binding GameTime}" Margin="83,28,4,28" d:LayoutOverrides="Height"/>
+    				<TextBlock x:Name="POT" TextWrapping="Wrap" Text="{Binding POT}" Margin="8,0,8,1" FontWeight="Bold" VerticalAlignment="Bottom" FontSize="16"/>
     			</Grid>
     		</Grid>
     		<Rectangle x:Name="rectangle" Stroke="Black" Fill="Black" Opacity="0.6" Visibility="Collapsed"/>
-    		<ListBox x:Name="BetLog" Margin="8,84,236,8"/>
+    		<ListBox x:Name="BetLog" Margin="8,84,236,8" ItemsSource="{Binding BetLog}"/>
     		<Grid x:Name="grid" HorizontalAlignment="Right" Margin="0,84,8,0" Width="224" Height="120" VerticalAlignment="Top" Visibility="Collapsed">
     			<Rectangle Fill="#FFF4F4F5" Stroke="Black"/>
     			<Grid Height="15" VerticalAlignment="Top">

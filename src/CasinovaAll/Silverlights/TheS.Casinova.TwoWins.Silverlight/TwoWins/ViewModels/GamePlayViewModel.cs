@@ -18,42 +18,42 @@ namespace TheS.Casinova.TwoWins.ViewModels
     {
         #region Fields
 
-        public event PropertyChangedEventHandler PropertyChanged;
         private PropertyChangedNotifier _notify;
-        private string _winnerHigh;
-        private string _winnerLow;
-        private int _handRange;
-        private double _pot;
-        private DateTime _gameTime;
-        private ObservableCollection<DateTime> _handTime;
-        private ObservableCollection<double> _hand;
-        private ObservableCollection<bool> _status;
+        private string _winnerHighName;
+        private string _winnerHighRange;
+        private string _winnerLowName;
+        private string _winnerLowRange;
+        private string _gameHandsRange;
+        private string _gameStatus;
+        private TimeSpan _gameTime;
+        private ObservableCollection<Object> _betLog;
+        private double _POT;
 
         #endregion Fields
 
         #region Properties
 
-        public string WinnerHigh
+        public double POT
         {
-            get { return _winnerHigh; }
+            get { return _POT; }
             set
             {
-                _winnerHigh = value;
-                _notify.Raise(() => WinnerHigh);
+                _POT = value;
+                _notify.Raise(() => POT);
             }
         }
 
-        public string WinnerLow
+        public ObservableCollection<Object> BetLog
         {
-            get { return _winnerLow; }
+            get { return _betLog; }
             set
             {
-                _winnerLow = value;
-                _notify.Raise(() => WinnerLow);
+                _betLog = value;
+                _notify.Raise(() => BetLog);
             }
         }
 
-        public DateTime GameTime
+        public TimeSpan GameTime
         {
             get { return _gameTime; }
             set
@@ -63,70 +63,87 @@ namespace TheS.Casinova.TwoWins.ViewModels
             }
         }
 
-        public int HandRange
+        public string GameStatus
         {
-            get { return _handRange; }
+            get { return _gameStatus; }
             set
             {
-                _handRange = value;
-                _notify.Raise(() => HandRange);
-
+                _gameStatus = value;
+                _notify.Raise(() => GameStatus);
             }
         }
 
-        public double Pot
+        public string GameHandsRange
         {
-            get { return _pot; }
+            get { return _gameHandsRange; }
             set
             {
-                _pot = value;
-                _notify.Raise(() => Pot);
+                _gameHandsRange = value;
+                _notify.Raise(() => GameHandsRange);
             }
         }
 
-
-        public ObservableCollection<DateTime> HandTime
+        public string WinnerLowRange
         {
-            get { return _handTime; }
+            get { return _winnerLowRange; }
             set
             {
-                _handTime = value;
-                _notify.Raise(() => HandTime);
+                _winnerLowRange = value;
+                _notify.Raise(() => WinnerLowRange);
             }
         }
 
-
-        public ObservableCollection<double> Hand
+        public string WinnerHighRange
         {
-            get { return _hand; }
+            get { return _winnerHighRange; }
             set
             {
-                _hand = value;
-                _notify.Raise(() => Hand);
+                _winnerHighRange = value;
+                _notify.Raise(() => WinnerHighRange);
             }
         }
 
-
-        public ObservableCollection<bool> Status
+        public string WinnerLowName
         {
-            get { return _status; }
+            get { return _winnerLowName; }
             set
             {
-                _status = value;
-                _notify.Raise(() => Status);
+                _winnerLowName = value;
+                _notify.Raise(() => WinnerLowName);
+            }
+        }
+
+        public string WinnerHighName
+        {
+            get { return _winnerHighName; }
+            set
+            {
+                _winnerHighName = value;
+                _notify.Raise(() => WinnerHighName);
             }
         }
 
         #endregion Properties
 
+        #region Methods
+
         public GamePlayViewModel()
         {
             _notify = new PropertyChangedNotifier(this, () => PropertyChanged);
+            _betLog = new ObservableCollection<object>();
         }
 
         public void Bet()
         {
             //TODO: Create method for Bet 
         }
+
+        #endregion Methods
+
+        #region INotifyPropertyChanged members
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion INotifyPropertyChanged members
     }
 }
