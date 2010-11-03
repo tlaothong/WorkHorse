@@ -4,14 +4,55 @@
            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
-           xmlns:TheS_Casinova_TwoWins_Controls="clr-namespace:TheS.Casinova.TwoWins.Controls" x:Class="TheS.Casinova.TwoWins.Views.GamePlayPage"
+           xmlns:TheS_Casinova_TwoWins_Controls="clr-namespace:TheS.Casinova.TwoWins.Controls" xmlns:PerfEx_Infrastructure="clr-namespace:PerfEx.Infrastructure;assembly=PerfEx.Infrastructure.Silverlight" xmlns:TheS_Casinova_TwoWins_ViewModels="clr-namespace:TheS.Casinova.TwoWins.ViewModels" x:Class="TheS.Casinova.TwoWins.Views.GamePlayPage"
            mc:Ignorable="d"
            d:DesignWidth="640" d:DesignHeight="480"
            Title="GamePlayPage Page">
+	<navigation:Page.Resources>
+		<PerfEx_Infrastructure:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+		<TheS_Casinova_TwoWins_ViewModels:GamePlayViewModel x:Key="GamePlayViewModelDataSource" d:IsDataSource="True"/>
+		<DataTemplate x:Key="GameTableTemplate">
+			<Grid>
+				<Rectangle Stroke="Black" RadiusX="1" RadiusY="1">
+					<Rectangle.Fill>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="#FF8B8B8B" Offset="0"/>
+							<GradientStop Color="White" Offset="1"/>
+							<GradientStop Color="#FEA1A1A1" Offset="0.255"/>
+						</LinearGradientBrush>
+					</Rectangle.Fill>
+				</Rectangle>
+				<StackPanel d:LayoutOverrides="Width, Height" Margin="3">
+					<Grid Height="16" Width="182">
+						<TextBlock Text="{Binding Name}" d:LayoutOverrides="Height" FontWeight="Bold" HorizontalAlignment="Left"/>
+						<TextBlock TextWrapping="Wrap" Text="#" FontWeight="Bold" HorizontalAlignment="Left" Margin="59,0,0,0" d:LayoutOverrides="Height"/>
+						<TextBlock Text="{Binding Round}" d:LayoutOverrides="Height" FontWeight="Bold" HorizontalAlignment="Left" Margin="69,0,0,0"/>
+						<TextBlock TextWrapping="Wrap" Text="(" Margin="81,0,0,0" HorizontalAlignment="Left" d:LayoutOverrides="Height"/>
+						<TextBlock Text="{Binding GameTime.Hours, Mode=OneWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="86,0,0,0"/>
+						<TextBlock TextWrapping="Wrap" Text=":" HorizontalAlignment="Right" Margin="0,0,84,0" d:LayoutOverrides="Height"/>
+						<TextBlock Text="{Binding GameTime.Minutes, Mode=OneWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="98,0,0,0"/>
+						<TextBlock TextWrapping="Wrap" Text=":" HorizontalAlignment="Right" Margin="0,0,65,0" d:LayoutOverrides="Height"/>
+						<TextBlock Text="{Binding GameTime.Seconds, Mode=OneWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="117,0,0,0"/>
+						<TextBlock TextWrapping="Wrap" Text=")" HorizontalAlignment="Right" Margin="0,0,46,0" d:LayoutOverrides="Height"/>
+						<TextBlock TextWrapping="Wrap" Text="$" Margin="0,0,35,0" HorizontalAlignment="Right" d:LayoutOverrides="Height"/>
+						<TextBlock Text="{Binding Amount}" d:LayoutOverrides="Height" Margin="147,0,0,0" HorizontalAlignment="Left"/>
+					</Grid>
+					<Grid Height="16" Width="182" Visibility="{Binding IsPlaying, Converter={StaticResource BooleanToVisibilityConverter}}">
+						<Rectangle RadiusY="1" RadiusX="1" Stroke="Black" Fill="#FFF5FFB7"/>
+						<TextBlock TextWrapping="Wrap" Text="Sum:" d:LayoutOverrides="Height" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,2,0,2"/>
+						<TextBlock Text="{Binding Pot}" Margin="36,2,0,2" VerticalAlignment="Center"/>
+					</Grid>
+				</StackPanel>
+			</Grid>
+		</DataTemplate>
+	</navigation:Page.Resources>
+	<navigation:Page.DataContext>
+		<Binding Source="{StaticResource GamePlayViewModelDataSource}"/>
+	</navigation:Page.DataContext>
     <Grid x:Name="LayoutRoot">
 
     	<TheS_Casinova_TwoWins_Controls:GamePlayUI Margin="0,0,204,0"/>
-    	<ListBox HorizontalAlignment="Right" Width="200"/>
+    	<ListBox HorizontalAlignment="Right" Width="200" ItemTemplate="{StaticResource GameTableTemplate}" ItemsSource="{Binding Tables}"/>
 
     </Grid>
 </navigation:Page>

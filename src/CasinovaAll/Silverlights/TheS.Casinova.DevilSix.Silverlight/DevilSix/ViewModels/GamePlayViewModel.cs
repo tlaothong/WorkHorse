@@ -11,6 +11,7 @@ using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using PerfEx.Infrastructure;
+using TheS.Casinova.DevilSix.Models;
 
 namespace TheS.Casinova.DevilSix.ViewModels
 {
@@ -24,10 +25,21 @@ namespace TheS.Casinova.DevilSix.ViewModels
         private ObservableCollection<string> _interval;
         private ObservableCollection<string> _reception;
         private ObservableCollection<double> _betLogData;
+        private ObservableCollection<GameTable> _tables;
 
         #endregion Fields
 
         #region Properties
+
+        public ObservableCollection<GameTable> Tables
+        {
+            get { return _tables; }
+            set
+            {
+                _tables = value;
+                _notify.Raise(() => Tables);
+            }
+        }
 
         public ObservableCollection<string> Reception
         {
@@ -108,30 +120,54 @@ namespace TheS.Casinova.DevilSix.ViewModels
             _betLogData = new ObservableCollection<double>();
             Interval = new ObservableCollection<string>();
             Reception = new ObservableCollection<string>();
+            _tables = new ObservableCollection<GameTable>();
 
-            // Sample interval time
-            Interval.Add("1 second");
-            Interval.Add("2 second");
-            Interval.Add("5 second");
-            Interval.Add("10 second");
-            Interval.Add("30 second");
+            if (DesignerProperties.IsInDesignTool) {
+                // Sample interval time
+                Interval.Add("1 second");
+                Interval.Add("2 second");
+                Interval.Add("5 second");
+                Interval.Add("10 second");
+                Interval.Add("30 second");
 
-            Interval.Add("1 minute");
-            Interval.Add("2 minute");
-            Interval.Add("5 minute");
-            Interval.Add("10 minute");
-            Interval.Add("30 minute");
+                Interval.Add("1 minute");
+                Interval.Add("2 minute");
+                Interval.Add("5 minute");
+                Interval.Add("10 minute");
+                Interval.Add("30 minute");
 
-            Interval.Add("1 hours");
-            Interval.Add("2 hours");
-            Interval.Add("3 hours");
-            Interval.Add("5 hours");
-            Interval.Add("12 hours");
-            Interval.Add("24 hours");
+                Interval.Add("1 hours");
+                Interval.Add("2 hours");
+                Interval.Add("3 hours");
+                Interval.Add("5 hours");
+                Interval.Add("12 hours");
+                Interval.Add("24 hours");
 
-            // Sample reception options
-            Reception.Add("$1");
-            Reception.Add("$2");
+                // Sample reception options
+                Reception.Add("$1");
+                Reception.Add("$2"); 
+
+
+                // Sample tables
+                Tables.Add(new GameTable {
+                    Name = "6",
+                    Reception = new ObservableCollection<int> {
+                        1,2,
+                    }
+                });
+                Tables.Add(new GameTable {
+                    Name = "66",
+                    Reception = new ObservableCollection<int> {
+                        1,2,5
+                    }
+                });
+                Tables.Add(new GameTable {
+                    Name = "666",
+                    Reception = new ObservableCollection<int> {
+                        1,2,5,10
+                    }
+                });
+            }
         }
 
         #endregion Constructor

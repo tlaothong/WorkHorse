@@ -3,16 +3,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:TheS_Casinova_TwoWins_ViewModels="clr-namespace:TheS.Casinova.TwoWins.ViewModels" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" x:Class="TheS.Casinova.TwoWins.Controls.GamePlayUI"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" x:Class="TheS.Casinova.TwoWins.Controls.GamePlayUI"
     mc:Ignorable="d"
     d:DesignHeight="400" d:DesignWidth="500">
-    
-	<UserControl.Resources>
-		<TheS_Casinova_TwoWins_ViewModels:GamePlayViewModel x:Key="GamePlayViewModelDataSource" d:IsDataSource="True"/>
-	</UserControl.Resources>
-	<UserControl.DataContext>
-		<Binding Source="{StaticResource GamePlayViewModelDataSource}"/>
-	</UserControl.DataContext>
     
     <Grid x:Name="LayoutRoot" Background="White">
     	<Grid.RowDefinitions>

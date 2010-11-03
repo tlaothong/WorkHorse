@@ -11,6 +11,7 @@ using System.Windows.Shapes;
 using System.ComponentModel;
 using PerfEx.Infrastructure;
 using System.Collections.ObjectModel;
+using TheS.Casinova.TwoWins.Models;
 
 namespace TheS.Casinova.TwoWins.ViewModels
 {
@@ -27,19 +28,19 @@ namespace TheS.Casinova.TwoWins.ViewModels
         private string _gameStatus;
         private TimeSpan _gameTime;
         private ObservableCollection<Object> _betLog;
-        private double _POT;
+        private ObservableCollection<GameTable> _tables;
 
         #endregion Fields
 
         #region Properties
 
-        public double POT
+        public ObservableCollection<GameTable> Tables
         {
-            get { return _POT; }
+            get { return _tables; }
             set
             {
-                _POT = value;
-                _notify.Raise(() => POT);
+                _tables = value;
+                _notify.Raise(() => Tables);
             }
         }
 
@@ -125,13 +126,59 @@ namespace TheS.Casinova.TwoWins.ViewModels
 
         #endregion Properties
 
-        #region Methods
+        #region Constructor
 
         public GamePlayViewModel()
         {
             _notify = new PropertyChangedNotifier(this, () => PropertyChanged);
             _betLog = new ObservableCollection<object>();
+            _tables = new ObservableCollection<GameTable>();
+
+            if (DesignerProperties.IsInDesignTool) {
+                Tables.Add(new GameTable {
+                    Name = "Two wins",
+                    Round = 1,
+                    GameTime = new TimeSpan(01,42,35),
+                    Pot = 8541234,
+                    Amount = 35122,
+                    IsPlaying = true
+                });
+                Tables.Add(new GameTable {
+                    Name = "Two wins",
+                    Round = 2,
+                    GameTime = new TimeSpan(02, 42, 35),
+                    Pot = 45923,
+                    Amount = 0,
+                    IsPlaying = false
+                });
+                Tables.Add(new GameTable {
+                    Name = "Two wins",
+                    Round = 3,
+                    GameTime = new TimeSpan(03, 42, 35),
+                    Pot = 550,
+                    IsPlaying = true
+                });
+                Tables.Add(new GameTable {
+                    Name = "Two wins",
+                    Round = 4,
+                    GameTime = new TimeSpan(04, 42, 35),
+                    Pot = 302,
+                    IsPlaying = false
+                });
+                Tables.Add(new GameTable {
+                    Name = "Two wins",
+                    Round = 5,
+                    GameTime = new TimeSpan(05, 42, 35),
+                    Pot = 17,
+                    Amount = 2,
+                    IsPlaying = true
+                });
+            }
         }
+
+        #endregion Constructor
+
+        #region Methods
 
         public void Bet()
         {

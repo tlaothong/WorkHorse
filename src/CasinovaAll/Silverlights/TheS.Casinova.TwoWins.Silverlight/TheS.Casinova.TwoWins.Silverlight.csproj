@@ -90,6 +90,7 @@
       <DependentUpon>GamePlayUI.xaml</DependentUpon>
     </Compile>
     <Compile Include="TwoWins\GameApplicationInformation.cs" />
+    <Compile Include="TwoWins\Models\GameTable.cs" />
     <Compile Include="TwoWins\Popups\BetData.xaml.cs">
       <DependentUpon>BetData.xaml</DependentUpon>
     </Compile>

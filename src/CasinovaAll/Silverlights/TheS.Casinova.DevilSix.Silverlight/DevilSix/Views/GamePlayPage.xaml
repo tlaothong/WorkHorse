@@ -4,14 +4,29 @@
            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
-           xmlns:TheS_Casinova_DevilSix_Controls="clr-namespace:TheS.Casinova.DevilSix.Controls" x:Class="TheS.Casinova.DevilSix.Views.GamePlayPage"
+           xmlns:TheS_Casinova_DevilSix_Controls="clr-namespace:TheS.Casinova.DevilSix.Controls" xmlns:TheS_Casinova_DevilSix_ViewModels="clr-namespace:TheS.Casinova.DevilSix.ViewModels" x:Class="TheS.Casinova.DevilSix.Views.GamePlayPage"
            mc:Ignorable="d"
            d:DesignWidth="600" d:DesignHeight="400"
            Title="GamePlayPage Page">
+	<navigation:Page.Resources>
+		<TheS_Casinova_DevilSix_ViewModels:GamePlayViewModel x:Key="GamePlayViewModelDataSource" d:IsDataSource="True"/>
+		<DataTemplate x:Key="GameTableTemplate">
+			<StackPanel>
+				<TextBlock x:Name="Name" Text="{Binding Name}" FontSize="13.333" FontWeight="Bold"/>
+				<StackPanel Orientation="Horizontal">
+					<TextBlock TextWrapping="Wrap" Text="Auto bet:" d:LayoutOverrides="Width"/>
+					<TextBlock x:Name="Amount" Text="{Binding Amount}" d:LayoutOverrides="Width" Margin="8,0,0,0"/>
+				</StackPanel>
+			</StackPanel>
+		</DataTemplate>
+	</navigation:Page.Resources>
+	<navigation:Page.DataContext>
+		<Binding Source="{StaticResource GamePlayViewModelDataSource}"/>
+	</navigation:Page.DataContext>
     <Grid x:Name="LayoutRoot">
 
     	<TheS_Casinova_DevilSix_Controls:GamePlayUI Margin="0,0,204,0"/>
-    	<ListBox HorizontalAlignment="Right" Width="200"/>
+    	<ListBox HorizontalAlignment="Right" Width="200" ItemTemplate="{StaticResource GameTableTemplate}" ItemsSource="{Binding Tables}" ItemContainerStyle="{StaticResource GameTableStyle}"/>
 
     </Grid>
 </navigation:Page>
