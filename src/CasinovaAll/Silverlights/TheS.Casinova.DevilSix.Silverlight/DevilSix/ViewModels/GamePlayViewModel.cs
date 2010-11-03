@@ -157,6 +157,8 @@ namespace TheS.Casinova.DevilSix.ViewModels
                 });
                 Tables.Add(new GameTable {
                     Name = "66",
+                    Amount = 100,
+                    IsPlaying = true,
                     Reception = new ObservableCollection<int> {
                         1,2,5
                     }

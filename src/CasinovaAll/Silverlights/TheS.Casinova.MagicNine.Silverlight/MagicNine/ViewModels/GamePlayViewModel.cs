@@ -12,6 +12,7 @@ using System.ComponentModel;
 using PerfEx.Infrastructure;
 using System.Collections.ObjectModel;
 using System.Globalization;
+using TheS.Casinova.MagicNine.Models;
 
 namespace TheS.Casinova.MagicNine.ViewModels
 {
@@ -24,10 +25,24 @@ namespace TheS.Casinova.MagicNine.ViewModels
         private double _amount;
         private ObservableCollection<string> _interval;
         private ObservableCollection<double> _betLogData;
+        private ObservableCollection<GameTable> _tables;
 
         #endregion Fields
 
         #region Properties
+
+        /// <summary>
+        /// รายชื่อโต๊ะเกมที่สามารถเข้าเล่นได้
+        /// </summary>
+        public ObservableCollection<GameTable> Tables
+        {
+            get { return _tables; }
+            set
+            {
+                _tables = value;
+                _notify.Raise(() => Tables);
+            }
+        }
 
         /// <summary>
         /// ข้อมูลเงินลงพนันที่ได้รับมาทั้งหมด
@@ -96,27 +111,48 @@ namespace TheS.Casinova.MagicNine.ViewModels
         {
             _notify = new PropertyChangedNotifier(this, () => PropertyChanged);
             _betLogData = new ObservableCollection<double>();
-            Interval = new ObservableCollection<string>();
+            _interval = new ObservableCollection<string>();
+            _tables = new ObservableCollection<GameTable>();
 
-            // Sample interval time
-            Interval.Add("1 second");
-            Interval.Add("2 second");
-            Interval.Add("5 second");
-            Interval.Add("10 second");
-            Interval.Add("30 second");
+            if (DesignerProperties.IsInDesignTool) {
+                // Sample interval time
+                Interval.Add("1 second");
+                Interval.Add("2 second");
+                Interval.Add("5 second");
+                Interval.Add("10 second");
+                Interval.Add("30 second");
 
-            Interval.Add("1 minute");
-            Interval.Add("2 minute");
-            Interval.Add("5 minute");
-            Interval.Add("10 minute");
-            Interval.Add("30 minute");
+                Interval.Add("1 minute");
+                Interval.Add("2 minute");
+                Interval.Add("5 minute");
+                Interval.Add("10 minute");
+                Interval.Add("30 minute");
 
-            Interval.Add("1 hours");
-            Interval.Add("2 hours");
-            Interval.Add("3 hours");
-            Interval.Add("5 hours");
-            Interval.Add("12 hours");
-            Interval.Add("24 hours");
+                Interval.Add("1 hours");
+                Interval.Add("2 hours");
+                Interval.Add("3 hours");
+                Interval.Add("5 hours");
+                Interval.Add("12 hours");
+                Interval.Add("24 hours"); 
+
+                // Sample tables
+                Tables.Add(new GameTable {
+                    Name = "9",
+                });
+                Tables.Add(new GameTable {
+                    Name = "99",
+                    Amount = 200,
+                    IsPlaying = true
+                });
+                Tables.Add(new GameTable {
+                    Name = "999",
+                    Amount = 73,
+                    IsPlaying = true
+                });
+                Tables.Add(new GameTable {
+                    Name = "9999",
+                });
+            }
         }
 
         #endregion Constructor
@@ -155,6 +191,7 @@ namespace TheS.Casinova.MagicNine.ViewModels
         {
             //TODO: Create Medthods GetNumberCompleted
         }
+
         #endregion Methods
 
         #region INotifyPropertyChanged members
