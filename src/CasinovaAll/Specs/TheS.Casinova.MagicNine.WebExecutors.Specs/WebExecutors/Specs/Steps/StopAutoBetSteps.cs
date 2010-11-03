@@ -21,8 +21,8 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
             ScenarioContext.Current.Pending();
         }
 
-        [When(@"Call StopAutoBetExecutor\(userName'Nit'\)")]
-        public void WhenCallStopAutoBetExecutorUserNameNit()
+        [When(@"Call StopAutoBetExecutor\(userName'(.*)'\)")]
+        public void WhenCallStopAutoBetExecutorUserNameNit(string userName)
         {
             ScenarioContext.Current.Pending();
         }

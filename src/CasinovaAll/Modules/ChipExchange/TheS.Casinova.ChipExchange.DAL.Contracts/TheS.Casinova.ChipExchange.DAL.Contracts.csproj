@@ -31,6 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PerfEx.Infrastructure">
+      <HintPath>..\..\..\..\..\lib\PerfEx.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="PerfEx.Infrastructure.Advanced">
+      <HintPath>..\..\..\..\..\lib\PerfEx.Infrastructure.Advanced.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,11 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Command\GetMultiLevelNetworkInfoCommand.cs" />
+    <Compile Include="Command\GetPlayerAccountInfoCommand.cs" />
+    <Compile Include="Command\GetVoucherInfoCommand.cs" />
+    <Compile Include="DAL\IChipsExchangeModuleDataQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DAL\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\Chat\TheS.Casinova.Chat.Commands\TheS.Casinova.Chat.Commands.csproj">
       <Project>{D2D7DFFA-E259-4E8F-A505-E9F68E39E234}</Project>
@@ -54,6 +62,14 @@
       <Project>{8E50F3B7-4F44-49BE-A5CE-2CDF66EF4D9C}</Project>
       <Name>TheS.Casinova.Chat.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\PlayerAccount\TheS.Casinova.PlayerAccount.Models\TheS.Casinova.PlayerAccount.Models.csproj">
+      <Project>{28B48276-2905-4A6C-9BBA-09007F7E7084}</Project>
+      <Name>TheS.Casinova.PlayerAccount.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\PlayerProfile\TheS.Casinova.PlayerProfile.Models\TheS.Casinova.PlayerProfile.Models.csproj">
+      <Project>{96BBA83F-EAA6-4EEA-BEC5-98F6AC39B943}</Project>
+      <Name>TheS.Casinova.PlayerProfile.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Shared\TheS.Casinova.Common.Commands\TheS.Casinova.Common.Commands.csproj">
       <Project>{B0BA601A-7B65-4973-9E00-4F9035883877}</Project>
       <Name>TheS.Casinova.Common.Commands</Name>
@@ -61,6 +77,14 @@
     <ProjectReference Include="..\..\Shared\TheS.Casinova.Common.Models\TheS.Casinova.Common.Models.csproj">
       <Project>{6079CFCD-811A-4962-B021-8D3D14C0C45B}</Project>
       <Name>TheS.Casinova.Common.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.Casinova.ChipExchange.Commands\TheS.Casinova.ChipExchange.Commands.csproj">
+      <Project>{783249CD-793F-4C2C-BE6C-980C70FAB6DD}</Project>
+      <Name>TheS.Casinova.ChipExchange.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.Casinova.ChipExchange.Models\TheS.Casinova.ChipExchange.Models.csproj">
+      <Project>{4D33D4E0-40CE-4AF2-A30F-53FCAE1A2886}</Project>
+      <Name>TheS.Casinova.ChipExchange.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -65,7 +65,7 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs
                         "ExpireDate",
                         "Active"});
             table1.AddRow(new string[] {
-                        "001",
+                        "Primary",
                         "OhAe",
                         "Visa",
                         "1802345673888921",
@@ -73,7 +73,7 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs
                         "10/31/2010",
                         "True"});
             table1.AddRow(new string[] {
-                        "002",
+                        "Primary",
                         "Boy",
                         "Master\tCard",
                         "0019342567188211",
@@ -81,7 +81,7 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs
                         "11/30/2010",
                         "True"});
             table1.AddRow(new string[] {
-                        "003",
+                        "Primary",
                         "Nit",
                         "Visa",
                         "0012214544543212",

@@ -34,9 +34,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="PerfEx.Infrastructure, Version=1.7910.905.2789, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="PerfEx.Infrastructure.Advanced">
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Advanced.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\..\..\..\lib\Rhino.Mocks.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="TechTalk.SpecFlow">
+      <HintPath>..\..\..\..\lib\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -46,7 +59,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebExecutors\Specs\UnitTest1.cs" />
+    <Compile Include="WebExecutors\SpecsEventDefinitions.cs" />
+    <Compile Include="WebExecutors\Specs\MoneyToBonusChipsFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MoneyToBonusChipsFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\MoneyToChipsFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MoneyToChipsFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\Steps\ChipsExchangeModuleStepsBase.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\CommonSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\MoneyToBonusChipsSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\MoneyToChipsSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\VoucherToBonusChipsSteps.cs" />
+    <Compile Include="WebExecutors\Specs\VoucherToBonusChipsFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VoucherToBonusChipsFeature.feature</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Modules\ChipExchange\TheS.Casinova.ChipExchange.BackServices.Contracts\TheS.Casinova.ChipExchange.BackServices.Contracts.csproj">
@@ -78,6 +111,22 @@
       <Name>TheS.Casinova.Common.Models</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="WebExecutors\App.config" />
+    <None Include="WebExecutors\Specs\MoneyToBonusChipsFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>MoneyToBonusChipsFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\MoneyToChipsFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>MoneyToChipsFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\VoucherToBonusChipsFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>VoucherToBonusChipsFeature.feature.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

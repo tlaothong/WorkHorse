@@ -10,7 +10,7 @@ namespace TheS.Casinova.ChipExchange.Models
        /// <summary>
        /// จำนวนเงิน
        /// </summary>
-        public int Amount { get; set; }
+        public double Amount { get; set; }
 
         /// <summary>
         /// ชื่อผู้เล่น
@@ -25,12 +25,12 @@ namespace TheS.Casinova.ChipExchange.Models
         /// <summary>
         /// หมายเลขบัญชี
         /// </summary>
-        public int AccountNo { get; set; }
+        public string AccountNo { get; set; }
 
         /// <summary>
         /// รหัสตรวจสอบหมายเลขบัญชี
         /// </summary>
-        public int CVV { get; set; }
+        public string CVV { get; set; }
 
         /// <summary>
         /// วันหมดอายุของบัญชี

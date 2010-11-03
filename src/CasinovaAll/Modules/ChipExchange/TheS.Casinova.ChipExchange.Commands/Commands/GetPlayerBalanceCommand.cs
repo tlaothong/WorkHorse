@@ -21,6 +21,6 @@ namespace TheS.Casinova.ChipExchange.Commands
         /// <summary>
         /// ข้อมูลชิพเป็น-ชิพตาย
         /// </summary>
-        public UserProfile ChipsBalanc { get; set; }
+        public UserProfile ChipsBalance { get; set; }
     }
 }
