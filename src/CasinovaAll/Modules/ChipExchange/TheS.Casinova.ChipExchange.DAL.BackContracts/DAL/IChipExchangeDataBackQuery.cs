@@ -18,7 +18,7 @@ namespace TheS.Casinova.ChipExchange.DAL
     { }
 
     public interface IGetExchangeSetting
-        : IFetchSingleData<ExchangeSetting, GetExchangeSettingCommand>
+        : IFetchSingleData<ExchangeSettingInformation, GetExchangeSettingCommand>
     { }
 
     public interface IGetPlayerAccountInfo

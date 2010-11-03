@@ -32,7 +32,7 @@ namespace TheS.Casinova.ChipExchange.BackServices.BackExecutors
             getVoucherInfoCmd.VoucherInfo = _iGetVoucherInfo.Get(getVoucherInfoCmd);
 
             //เพิ่มชิปตายให้ผู้เล่นหาก รหัสคูปองถูกต้อง และยังไม่ถูกใช้
-            if ((getVoucherInfoCmd.VoucherInfo != null) || (getVoucherInfoCmd.VoucherInfo.IsUse != true)) {
+            if ((getVoucherInfoCmd.VoucherInfo != null) || (getVoucherInfoCmd.VoucherInfo.CanUse != true)) {
                 //Get exchange setting
                 GetExchangeSettingCommand getExchangeSettingCmd = new GetExchangeSettingCommand { Name = "Exchange1" };
                 getExchangeSettingCmd.ExchangeSetting = _iGetExchangeSetting.Get(getExchangeSettingCmd);
@@ -46,8 +46,7 @@ namespace TheS.Casinova.ChipExchange.BackServices.BackExecutors
                 ExchangeInformation exchangeInfo = new ExchangeInformation { 
                     UserName = command.UserName, 
                     Amount = getExchangeSettingCmd.ExchangeSetting.MoneyToBonusChipRate * getVoucherInfoCmd.VoucherInfo.Amount,
-                };                
-
+                };                                
                 _iIncreasePlayerBonusChipByVoucher.ApplyAction(exchangeInfo, command);                
             }
             else {

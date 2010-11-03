@@ -23,8 +23,8 @@ namespace TheS.Casinova.ChipExchange.Models
         public int Amount { get; set; }
 
         /// <summary>
-        /// สถานะการถูกใช้
+        /// สถานะการถูกใช้ (true : สามารถใช้ได้, false : ถูกใช้ไปแล้ว)
         /// </summary>
-        public bool IsUse { get; set; }
+        public bool CanUse { get; set; }
     }
 }

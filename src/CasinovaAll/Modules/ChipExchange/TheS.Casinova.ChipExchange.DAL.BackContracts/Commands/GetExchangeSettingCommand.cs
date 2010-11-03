@@ -21,6 +21,6 @@ namespace TheS.Casinova.ChipExchange.Commands
         /// <summary>
         /// ข้อมูลการตั้งค่า
         /// </summary>       
-        public ExchangeSetting ExchangeSetting { get; set; }
+        public ExchangeSettingInformation ExchangeSetting { get; set; }
     }
 }

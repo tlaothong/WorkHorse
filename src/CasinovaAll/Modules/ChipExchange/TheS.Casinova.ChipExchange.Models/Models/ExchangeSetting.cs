@@ -8,7 +8,7 @@ namespace TheS.Casinova.ChipExchange.Models
     /// <summary>
     /// การตั้งค่าของการแลกเปลี่ยนชิป
     /// </summary>
-    public class ExchangeSetting
+    public class ExchangeSettingInformation
     {
         /// <summary>
         /// ชื่อของการตั้งค่า
@@ -21,7 +21,7 @@ namespace TheS.Casinova.ChipExchange.Models
         public double MinChipToMoneyExchange { get; set; }
 
         /// <summary>
-        /// จำนวนเงินขั้นต่ำที่จะแลกเป็นชิปได้
+        /// จำนวนเงินขั้นต่ำที่จะแลกเป็นชิปเป็นได้
         /// </summary>
         public double MinMoneyToChipExchange { get; set; }
 

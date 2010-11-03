@@ -77,6 +77,8 @@
     <Compile Include="BackServices\Specs\Steps\CommonSteps.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BackServices\Specs\Steps\MoneyToBonusChipsSteps.cs" />
+    <Compile Include="BackServices\Specs\Steps\MoneyToChipsSteps.cs" />
     <Compile Include="BackServices\Specs\VoucherToBonusChips.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -105,6 +107,10 @@
     <ProjectReference Include="..\..\Modules\ChipExchange\TheS.Casinova.ChipExchange.Models\TheS.Casinova.ChipExchange.Models.csproj">
       <Project>{4D33D4E0-40CE-4AF2-A30F-53FCAE1A2886}</Project>
       <Name>TheS.Casinova.ChipExchange.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\PlayerAccount\TheS.Casinova.PlayerAccount.Models\TheS.Casinova.PlayerAccount.Models.csproj">
+      <Project>{28B48276-2905-4A6C-9BBA-09007F7E7084}</Project>
+      <Name>TheS.Casinova.PlayerAccount.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Modules\Shared\TheS.Casinova.Common.Commands\TheS.Casinova.Common.Commands.csproj">
       <Project>{B0BA601A-7B65-4973-9E00-4F9035883877}</Project>

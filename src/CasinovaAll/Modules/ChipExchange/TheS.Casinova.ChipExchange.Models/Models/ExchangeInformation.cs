@@ -25,7 +25,7 @@ namespace TheS.Casinova.ChipExchange.Models
         /// <summary>
         /// หมายเลขบัญชี
         /// </summary>
-        public int AccountNo { get; set; }
+        public double AccountNo { get; set; }
 
         /// <summary>
         /// รหัสตรวจสอบหมายเลขบัญชี
