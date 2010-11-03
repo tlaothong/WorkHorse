@@ -21,9 +21,24 @@ namespace TheS.Casinova.PlayerAccount.Models
         public string UserName { get; set; }
 
         /// <summary>
+        /// ชื่อเจ้าของบัตร
+        /// </summary>
+        public string FirstName { get; set; }
+
+        /// <summary>
+        /// นามสกุลเจ้าของบัตร
+        /// </summary>
+        public string LastName { get; set; }
+
+        /// <summary>
         /// ประเภทบัญชี
         /// </summary>
         public string AccountType { get; set; }
+
+        /// <summary>
+        /// ประเภทบัตร
+        /// </summary>
+        public string CardType { get; set; }
 
         /// <summary>
         /// หมายเลขบัญชี

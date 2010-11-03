@@ -9,26 +9,35 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.ComponentModel;
-using PerfEx.Infrastructure;
 using System.Collections.ObjectModel;
-using System.Globalization;
+using PerfEx.Infrastructure;
 
-namespace TheS.Casinova.MagicNine.ViewModels
+namespace TheS.Casinova.DevilSix.ViewModels
 {
-    public class MainPageViewModel : INotifyPropertyChanged
+    public class GamePlayViewModel : INotifyPropertyChanged
     {
         #region Fields
 
-        public event PropertyChangedEventHandler PropertyChanged;
         private PropertyChangedNotifier _notify;
         private double _pot;
         private double _amount;
         private ObservableCollection<string> _interval;
+        private ObservableCollection<string> _reception;
         private ObservableCollection<double> _betLogData;
 
         #endregion Fields
 
         #region Properties
+
+        public ObservableCollection<string> Reception
+        {
+            get { return _reception; }
+            set
+            {
+                _reception = value;
+                _notify.Raise(() => Reception);
+            }
+        }
 
         /// <summary>
         /// ข้อมูลเงินลงพนันที่ได้รับมาทั้งหมด
@@ -55,7 +64,7 @@ namespace TheS.Casinova.MagicNine.ViewModels
                 _notify.Raise(() => Interval);
             }
         }
-
+        
         /// <summary>
         /// Config ของ Auto bet
         /// </summary>
@@ -64,9 +73,9 @@ namespace TheS.Casinova.MagicNine.ViewModels
             get { return _amount; }
             set
             {
-                if (_amount!=value) {
+                if (_amount != value) {
                     _amount = value;
-                    _notify.Raise(() => Amount); 
+                    _notify.Raise(() => Amount);
                 }
             }
         }
@@ -79,9 +88,9 @@ namespace TheS.Casinova.MagicNine.ViewModels
             get { return _pot; }
             set
             {
-                if (_pot!=value) {
+                if (_pot != value) {
                     _pot = value;
-                    _notify.Raise(() => Pot); 
+                    _notify.Raise(() => Pot);
                 }
             }
         }
@@ -93,11 +102,12 @@ namespace TheS.Casinova.MagicNine.ViewModels
         /// <summary>
         /// กำหนดค่าเริ่มต้นของ Main page view model
         /// </summary>
-        public MainPageViewModel()
+        public GamePlayViewModel()
         {
             _notify = new PropertyChangedNotifier(this, () => PropertyChanged);
             _betLogData = new ObservableCollection<double>();
             Interval = new ObservableCollection<string>();
+            Reception = new ObservableCollection<string>();
 
             // Sample interval time
             Interval.Add("1 second");
@@ -118,20 +128,15 @@ namespace TheS.Casinova.MagicNine.ViewModels
             Interval.Add("5 hours");
             Interval.Add("12 hours");
             Interval.Add("24 hours");
+
+            // Sample reception options
+            Reception.Add("$1");
+            Reception.Add("$2");
         }
 
         #endregion Constructor
 
         #region Methods
-
-        /// <summary>
-        /// ลงเงินพนัน
-        /// </summary>
-        public void Bet()
-        {
-            //TODO: Create method for Bet 
-        }
-
 
 
         /// <summary>
@@ -139,23 +144,25 @@ namespace TheS.Casinova.MagicNine.ViewModels
         /// </summary>
         public void StartStop(ObservableCollection<string> interval)
         {
-            TimeIntervalViewModel timeSpan = new TimeIntervalViewModel();
-            TimeSpan timeInterval = timeSpan.CreateTimeInterval(interval);
-
-            for (int i = 1; i <= _amount; i++) {
-
-                Bet();
-                System.Threading.Thread.Sleep(timeInterval);
-
-            }
         }
 
-        
-        // ได้รับค่าของ Pot ณ เวลาขณะนั้น
-        public void GetNumberCompleted()
+        public void BetOne()
         {
-            //TODO: Create Medthods GetNumberCompleted
+            // TODO : Bet $1
         }
+
+        public void BetTwo()
+        {
+            // TODO : Bet $2
+        }
+
         #endregion Methods
+
+        #region INotifyPropertyChanged members
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion INotifyPropertyChanged members
+
     }
 }

@@ -95,10 +95,13 @@
     <Compile Include="MagicNine\Silverlight\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MagicNine\ViewModels\MainPageViewModel.cs" />
+    <Compile Include="MagicNine\ViewModels\GamePlayViewModel.cs" />
     <Compile Include="MagicNine\ViewModels\TimeIntervalViewModel.cs" />
     <Compile Include="MagicNine\Views\BetDataPage.xaml.cs">
       <DependentUpon>BetDataPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MagicNine\Views\GamePlayPage.xaml.cs">
+      <DependentUpon>GamePlayPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MagicNine\Views\GraphPage.xaml.cs">
       <DependentUpon>GraphPage.xaml</DependentUpon>
@@ -136,6 +139,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MagicNine\Views\GamePlayPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MagicNine\Views\GraphPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -158,7 +165,9 @@
       <Name>TheS.Casinova.Common.Silverlight</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="MagicNine\Assets\Images\Logo.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

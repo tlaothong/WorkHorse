@@ -3,7 +3,7 @@
            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
            xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
            xmlns:CasinovaAllStars_ViewModels="clr-namespace:CasinovaAllStars.ViewModels" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="CasinovaAllStars.Views.StatisticsWindow"
-           Width="640" Height="550" 
+           Width="600" Height="400" 
            Title="StatisticsWindow" FontSize="21.333">
 	<controls:ChildWindow.Resources>
 		<CasinovaAllStars_ViewModels:StatisticsViewModel x:Key="StatisticsModelDataSource" d:IsDataSource="True"/>

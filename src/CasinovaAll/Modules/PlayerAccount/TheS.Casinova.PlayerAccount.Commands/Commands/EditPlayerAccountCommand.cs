@@ -10,6 +10,10 @@ namespace TheS.Casinova.PlayerAccount.Commands
     /// </summary>
     public class EditPlayerAccountCommand
     {
+        /// <summary>
+        /// รหัสบัญชีของผู้เล่น
+        /// </summary>
+        public int PlayerAccoundID { get; set; }
         //input
         /// <summary>
         /// ชื่อผู้เล่น

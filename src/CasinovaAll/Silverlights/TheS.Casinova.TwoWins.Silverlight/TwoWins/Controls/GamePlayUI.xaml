@@ -1,61 +1,201 @@
-﻿<UserControl x:Class="TheS.Casinova.TwoWins.Controls.GamePlayUI"
+﻿<UserControl
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:TheS_Casinova_TwoWins_ViewModels="clr-namespace:TheS.Casinova.TwoWins.ViewModels" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" x:Class="TheS.Casinova.TwoWins.Controls.GamePlayUI"
     mc:Ignorable="d"
-    d:DesignHeight="300" d:DesignWidth="400" Width="500" Height="400">
+    d:DesignHeight="400" d:DesignWidth="500">
+    
+	<UserControl.Resources>
+		<TheS_Casinova_TwoWins_ViewModels:GamePlayViewModel x:Key="GamePlayViewModelDataSource" d:IsDataSource="True"/>
+	</UserControl.Resources>
+	<UserControl.DataContext>
+		<Binding Source="{StaticResource GamePlayViewModelDataSource}"/>
+	</UserControl.DataContext>
     
     <Grid x:Name="LayoutRoot" Background="White">
+    	<Grid.RowDefinitions>
+    		<RowDefinition Height="0.1*"/>
+    		<RowDefinition Height="0.9*"/>
+    	</Grid.RowDefinitions>
     	<VisualStateManager.VisualStateGroups>
     		<VisualStateGroup x:Name="BetState">
+    			<VisualState x:Name="Bet">
+    				<Storyboard>
+    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="grid">
+    						<DiscreteObjectKeyFrame KeyTime="0">
+    							<DiscreteObjectKeyFrame.Value>
+    								<Visibility>Visible</Visibility>
+    							</DiscreteObjectKeyFrame.Value>
+    						</DiscreteObjectKeyFrame>
+    					</ObjectAnimationUsingKeyFrames>
+    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="rectangle">
+    						<DiscreteObjectKeyFrame KeyTime="0">
+    							<DiscreteObjectKeyFrame.Value>
+    								<Visibility>Visible</Visibility>
+    							</DiscreteObjectKeyFrame.Value>
+    						</DiscreteObjectKeyFrame>
+    					</ObjectAnimationUsingKeyFrames>
+    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="BetButton">
+    						<DiscreteObjectKeyFrame KeyTime="0">
+    							<DiscreteObjectKeyFrame.Value>
+    								<Visibility>Collapsed</Visibility>
+    							</DiscreteObjectKeyFrame.Value>
+    						</DiscreteObjectKeyFrame>
+    					</ObjectAnimationUsingKeyFrames>
+    				</Storyboard>
+    			</VisualState>
+    			<VisualState x:Name="Change">
+    				<Storyboard>
+    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextBlock.Text)" Storyboard.TargetName="Title1">
+    						<DiscreteObjectKeyFrame KeyTime="0" Value="Change"/>
+    					</ObjectAnimationUsingKeyFrames>
+    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock">
+    						<DiscreteObjectKeyFrame KeyTime="0">
+    							<DiscreteObjectKeyFrame.Value>
+    								<Visibility>Visible</Visibility>
+    							</DiscreteObjectKeyFrame.Value>
+    						</DiscreteObjectKeyFrame>
+    					</ObjectAnimationUsingKeyFrames>
+    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Current">
+    						<DiscreteObjectKeyFrame KeyTime="0">
+    							<DiscreteObjectKeyFrame.Value>
+    								<Visibility>Visible</Visibility>
+    							</DiscreteObjectKeyFrame.Value>
+    						</DiscreteObjectKeyFrame>
+    					</ObjectAnimationUsingKeyFrames>
+    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock1">
+    						<DiscreteObjectKeyFrame KeyTime="0">
+    							<DiscreteObjectKeyFrame.Value>
+    								<Visibility>Visible</Visibility>
+    							</DiscreteObjectKeyFrame.Value>
+    						</DiscreteObjectKeyFrame>
+    					</ObjectAnimationUsingKeyFrames>
+    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ChangeTo">
+    						<DiscreteObjectKeyFrame KeyTime="0">
+    							<DiscreteObjectKeyFrame.Value>
+    								<Visibility>Visible</Visibility>
+    							</DiscreteObjectKeyFrame.Value>
+    						</DiscreteObjectKeyFrame>
+    					</ObjectAnimationUsingKeyFrames>
+    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="grid">
+    						<DiscreteObjectKeyFrame KeyTime="0">
+    							<DiscreteObjectKeyFrame.Value>
+    								<Visibility>Visible</Visibility>
+    							</DiscreteObjectKeyFrame.Value>
+    						</DiscreteObjectKeyFrame>
+    					</ObjectAnimationUsingKeyFrames>
+    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="BetButton">
+    						<DiscreteObjectKeyFrame KeyTime="0">
+    							<DiscreteObjectKeyFrame.Value>
+    								<Visibility>Collapsed</Visibility>
+    							</DiscreteObjectKeyFrame.Value>
+    						</DiscreteObjectKeyFrame>
+    					</ObjectAnimationUsingKeyFrames>
+    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="rectangle">
+    						<DiscreteObjectKeyFrame KeyTime="0">
+    							<DiscreteObjectKeyFrame.Value>
+    								<Visibility>Visible</Visibility>
+    							</DiscreteObjectKeyFrame.Value>
+    						</DiscreteObjectKeyFrame>
+    					</ObjectAnimationUsingKeyFrames>
+    				</Storyboard>
+    			</VisualState>
     			<VisualState x:Name="Default"/>
-    			<VisualState x:Name="Change"/>
     		</VisualStateGroup>
     		<VisualStateGroup x:Name="BetOptionState">
     			<VisualState x:Name="Single"/>
+    			<VisualState x:Name="Range">
+    				<Storyboard>
+    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(ContentControl.Content)" Storyboard.TargetName="OptionButton">
+    						<DiscreteObjectKeyFrame KeyTime="0" Value="Range"/>
+    					</ObjectAnimationUsingKeyFrames>
+    				</Storyboard>
+    			</VisualState>
     		</VisualStateGroup>
     	</VisualStateManager.VisualStateGroups>
-    	<Grid Height="40" VerticalAlignment="Top">
+    	<Rectangle Stroke="Black" Grid.RowSpan="2" d:IsLocked="True"/>
+    	<Grid>
     		<Rectangle Fill="Black" Stroke="Black"/>
     		<TextBlock x:Name="Title" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Title" VerticalAlignment="Center" Margin="8,0,0,0" FontSize="26.667" Foreground="White"/>
     	</Grid>
-    	<Grid Margin="0,44,0,0">
-    		<Grid Height="72" Margin="8,8,236,0" VerticalAlignment="Top">
-    			<Rectangle Fill="#FFF4F4F5" Stroke="Black"/>
-    			<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="High" VerticalAlignment="Top" Margin="8,8,0,0" FontWeight="Bold"/>
-    			<TextBlock x:Name="WinnerHighName" TextWrapping="Wrap" Text="WinnerHighName" VerticalAlignment="Top" Margin="40,8,116,0"/>
-    			<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Low" Margin="8,28,0,28" FontWeight="Bold" d:LayoutOverrides="Height"/>
-    			<TextBlock x:Name="WinnerLowName" TextWrapping="Wrap" Text="WinnerLowName" Margin="40,28,123,28" d:LayoutOverrides="Width, Height"/>
-    			<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hands" VerticalAlignment="Bottom" Margin="8,0,0,8" FontWeight="Bold"/>
-    			<TextBlock x:Name="GameHandsRange" TextWrapping="Wrap" Text="GameHandsRange" VerticalAlignment="Bottom" Margin="51,0,8,8"/>
-    			<TextBlock x:Name="WinnerHighRange" HorizontalAlignment="Right" TextWrapping="Wrap" Text="WinnerHighRange" VerticalAlignment="Top" Margin="0,8,13,0"/>
-    			<TextBlock x:Name="WinnerLowRange" HorizontalAlignment="Right" TextWrapping="Wrap" Text="WinnerLowRange" Margin="0,28,24,28" d:LayoutOverrides="Height"/>
-    		</Grid>
-    		<Grid HorizontalAlignment="Right" Height="72" Margin="0,8,8,0" VerticalAlignment="Top" Width="224">
-    			<Rectangle Fill="#FFF4F4F5" Stroke="Black"/>
-    			<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Game state:" VerticalAlignment="Top" Margin="4,8,0,0" FontWeight="Bold"/>
-    			<TextBlock x:Name="GameStatus" TextWrapping="Wrap" Text="GameStatus" VerticalAlignment="Top" Margin="83,8,4,0"/>
-    			<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Game time:" Margin="4,28,0,28" d:LayoutOverrides="Height" FontWeight="Bold"/>
-    			<TextBlock x:Name="GameTime" TextWrapping="Wrap" Text="GameTime" Margin="83,28,4,28" d:LayoutOverrides="Height"/>
-    			<TextBlock x:Name="POT" TextWrapping="Wrap" Text="POT" Margin="8,0,8,1" FontWeight="Bold" VerticalAlignment="Bottom" FontSize="16" TextAlignment="Center"/>
-    		</Grid>
-    		<ListBox x:Name="BetLog" Margin="8,84,236,8"/>
-    		<Grid HorizontalAlignment="Right" Margin="0,84,8,136" Width="224">
-    			<Rectangle Fill="#FFF4F4F5" Stroke="Black"/>
-    			<Grid Height="25" VerticalAlignment="Top">
-    				<Rectangle Fill="Black" Stroke="Black"/>
-    				<TextBlock x:Name="Title1" HorizontalAlignment="Center" Margin="8,4,0,5" TextWrapping="Wrap" Text="Title" d:LayoutOverrides="Height" Foreground="White" VerticalAlignment="Center"/>
+    	<Grid Grid.Row="1">
+    		<Grid Height="72" Margin="8,8,8,0" VerticalAlignment="Top">
+    			<Grid.ColumnDefinitions>
+    				<ColumnDefinition Width="0.5*"/>
+    				<ColumnDefinition Width="0.5*"/>
+    			</Grid.ColumnDefinitions>
+    			<Grid Margin="0,0,-24,0">
+    				<Rectangle Fill="#FFF4F4F5" Stroke="Black"/>
+    				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="High" VerticalAlignment="Top" Margin="8,8,0,0" FontWeight="Bold"/>
+    				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Low" Margin="8,28,0,28" FontWeight="Bold" d:LayoutOverrides="Height"/>
+    				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hands" VerticalAlignment="Bottom" Margin="8,0,0,8" FontWeight="Bold"/>
+    				<TextBlock x:Name="GameHandsRange" TextWrapping="Wrap" Text="{Binding GameHandsRange}" VerticalAlignment="Bottom" Margin="51,0,8,8"/>
+    				<Grid Height="16" Margin="40,8,13,0" VerticalAlignment="Top">
+    					<Grid.ColumnDefinitions>
+    						<ColumnDefinition Width="0.5*"/>
+    						<ColumnDefinition Width="0.5*"/>
+    					</Grid.ColumnDefinitions>
+    					<TextBlock x:Name="WinnerHighName" TextWrapping="Wrap" Text="{Binding WinnerHighName}" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+    					<TextBlock x:Name="WinnerHighRange" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding WinnerHighRange}" Margin="4,0,0,0" d:LayoutOverrides="Height" Grid.Column="1" VerticalAlignment="Center"/>
+    				</Grid>
+    				<Grid Margin="40,28,24,28">
+    					<Grid.ColumnDefinitions>
+    						<ColumnDefinition Width="0.5*"/>
+    						<ColumnDefinition Width="0.5*"/>
+    					</Grid.ColumnDefinitions>
+    					<TextBlock x:Name="WinnerLowName" TextWrapping="Wrap" Text="{Binding WinnerLowName}" d:LayoutOverrides="Width, Height" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+    					<TextBlock x:Name="WinnerLowRange" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding WinnerLowRange}" Margin="4,0,0,0" d:LayoutOverrides="Height" Grid.Column="1" VerticalAlignment="Center"/>
+    				</Grid>
     			</Grid>
-    			<Button x:Name="OptionButton" Content="Single" HorizontalAlignment="Left" Margin="8,29,0,0" Width="50" VerticalAlignment="Top"/>
-    			<Slider Margin="62,29,8,0" Height="22" VerticalAlignment="Top"/>
-    			<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Current:" Margin="8,64,0,56" d:LayoutOverrides="Height" FontWeight="Bold" Width="56" TextAlignment="Right"/>
-    			<TextBlock x:Name="TotalBet" TextWrapping="Wrap" Text="Total" Margin="68,64,8,56" d:LayoutOverrides="Height"/>
-    			<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="New value:" Margin="8,0,0,36" FontWeight="Bold" Width="76" TextAlignment="Right" VerticalAlignment="Bottom"/>
-    			<TextBlock x:Name="TotalBet_Copy" TextWrapping="Wrap" Text="Total" Margin="88,0,8,36" VerticalAlignment="Bottom"/>
-    			<Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Margin="0,0,8,10"/>
-    			<Button x:Name="OKButton" Content="OK" VerticalAlignment="Bottom" Margin="62,0,87,10"/>
+    			<Grid Grid.Column="1" Margin="28,0,0,0">
+    				<Rectangle Fill="#FFF4F4F5" Stroke="Black"/>
+    				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Game state:" VerticalAlignment="Top" Margin="4,8,0,0" FontWeight="Bold"/>
+    				<TextBlock x:Name="GameStatus" TextWrapping="Wrap" Text="{Binding GameStatus}" VerticalAlignment="Top" Margin="83,8,4,0"/>
+    				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Game time:" Margin="4,28,0,28" d:LayoutOverrides="Height" FontWeight="Bold"/>
+    				<TextBlock x:Name="GameTime" TextWrapping="Wrap" Text="{Binding GameTime}" Margin="83,28,4,28" d:LayoutOverrides="Height"/>
+    				<TextBlock x:Name="POT" TextWrapping="Wrap" Text="{Binding POT}" Margin="8,0,8,1" FontWeight="Bold" VerticalAlignment="Bottom" FontSize="16"/>
+    			</Grid>
     		</Grid>
+    		<Rectangle x:Name="rectangle" Stroke="Black" Fill="Black" Opacity="0.6" Visibility="Collapsed"/>
+    		<ListBox x:Name="BetLog" Margin="8,84,236,8" ItemsSource="{Binding BetLog}"/>
+    		<Grid x:Name="grid" HorizontalAlignment="Right" Margin="0,84,8,0" Width="224" Height="120" VerticalAlignment="Top" Visibility="Collapsed">
+    			<Rectangle Fill="#FFF4F4F5" Stroke="Black"/>
+    			<Grid Height="15" VerticalAlignment="Top">
+    				<Rectangle Fill="Black" Stroke="Black"/>
+    				<TextBlock x:Name="Title1" TextWrapping="Wrap" Text="Bet" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    			</Grid>
+    			<Button x:Name="OptionButton" Content="Single" HorizontalAlignment="Left" Margin="8,19,0,0" Width="50" VerticalAlignment="Top"/>
+    			<Slider Margin="62,19,8,0" Height="22" VerticalAlignment="Top"/>
+    			<TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Current:" Margin="8,45,0,59" FontWeight="Bold" d:LayoutOverrides="Height" Visibility="Collapsed"/>
+    			<TextBlock x:Name="Current" TextWrapping="Wrap" Text="Current" Margin="63,45,8,59" d:LayoutOverrides="Height" Visibility="Collapsed"/>
+    			<TextBlock x:Name="textBlock1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Change to:" Margin="8,0,0,43" FontWeight="Bold" VerticalAlignment="Bottom" Visibility="Collapsed"/>
+    			<TextBlock x:Name="ChangeTo" TextWrapping="Wrap" Text="ChangeTo" Margin="79,0,8,43" VerticalAlignment="Bottom" Visibility="Collapsed"/>
+    			<Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Margin="0,0,8,4">
+    				<i:Interaction.Triggers>
+    					<i:EventTrigger EventName="Click">
+    						<ei:GoToStateAction StateName="Default"/>
+    					</i:EventTrigger>
+    				</i:Interaction.Triggers>
+    			</Button>
+    			<Button x:Name="OK" Content="OK" VerticalAlignment="Bottom" Margin="62,0,87,4">
+    				<i:Interaction.Triggers>
+    					<i:EventTrigger EventName="Click">
+    						<ei:GoToStateAction StateName="Default"/>
+    					</i:EventTrigger>
+    				</i:Interaction.Triggers>
+    			</Button>
+    			<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Total:" Margin="8,0,0,27" FontWeight="Bold" VerticalAlignment="Bottom"/>
+    			<TextBlock x:Name="Total" TextWrapping="Wrap" Text="Total" Margin="48,0,8,27" VerticalAlignment="Bottom"/>
+    		</Grid>
+    		<Button x:Name="BetButton" Content="Bet" HorizontalAlignment="Right" VerticalAlignment="Top" Width="224" Margin="0,85,8,0" Height="40">
+    			<i:Interaction.Triggers>
+    				<i:EventTrigger EventName="Click">
+    					<ei:GoToStateAction StateName="Bet"/>
+    				</i:EventTrigger>
+    			</i:Interaction.Triggers>
+    		</Button>
     	</Grid>
     </Grid>
 </UserControl>
