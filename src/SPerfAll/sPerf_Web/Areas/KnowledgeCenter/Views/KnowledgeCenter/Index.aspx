@@ -333,7 +333,7 @@
     
     <div id="pager"></div>
     
-        <% Html.RenderPartial("PostNewVideos"); %>
+    <% Html.RenderPartial("PostNewVideos"); %>
     
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="SubMenu" runat="server">

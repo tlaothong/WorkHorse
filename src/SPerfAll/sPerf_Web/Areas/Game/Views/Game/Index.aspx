@@ -5,8 +5,6 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
-
     <div id="pageBody">
         <div id="movieList"></div>
     </div>

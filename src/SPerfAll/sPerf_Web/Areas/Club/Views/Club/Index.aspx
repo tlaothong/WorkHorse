@@ -5,6 +5,27 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<div>
+        <button onclick="popupModal('profile.html',500,200);">Log Post</button>
+        <script type="text/javascript">
+            function popupModal(url, width, height) {
+                var myDate = new Date();
+                var setUniqe = myDate.getTime(); // ใช้สำหรับ ป้องกันการ cache กรณีกำลังทดสอบ   
+                var diaxFeature = "dialogWidth:" + width + "px;"
+        + "dialogHeight:" + height + "px;"
+                /*  +"dialogLeft:"+width+"px;"  
+                +"dialogTop:"+width+"px;"       */
+            + "center:yes;"
+            + "edge:raised;" // sunken | raised    
+            + "resizable:no;"
+            + "status:no;"
+            + "scroll:no;";
+                window.showModalDialog(url + "?" + setUniqe, "", diaxFeature);
+                // กรณีไม่ใช้ setUniqe   
+                //  window.showModalDialog(url,"", diaxFeature);    
+            }   
+        </script> 
+    </div>
 <%--script for load content from db--%>
 <script type="text/javascript">
     $(document).ready(function () {
