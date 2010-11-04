@@ -11,11 +11,6 @@ namespace TheS.Casinova.PlayerAccount.Models
     public class PlayerAccountInformation
     {
         /// <summary>
-        /// รหัสบัญชีของผู้เล่น
-        /// </summary>
-        public string CardType { get; set; }
-
-        /// <summary>
         /// ชื่อผู้เล่น
         /// </summary>
         public string UserName { get; set; }
@@ -54,16 +49,6 @@ namespace TheS.Casinova.PlayerAccount.Models
         /// วันหมดอายุของบัญชี
         /// </summary>
         public DateTime ExpireDate { get; set; }
-
-        /// <summary>
-        /// ชื่อจริง
-        /// </summary>
-        public string FirstName { get; set; }
-
-        /// <summary>
-        /// นามสกุล
-        /// </summary>
-        public string LastName { get; set; }
 
         /// <summary>
         /// สถานะการใช้งาน

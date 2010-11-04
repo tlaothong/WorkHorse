@@ -36,8 +36,8 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
         }
 
 
-        [Given(@"Sent CardType 'Primary' UserName'Boy' the player's account for money to bonus chips should recieve")]
-        public void GivenSentCardTypePrimaryUserNameBoyThePlayerSAccountForMoneyToBonusChipsShouldRecieve()
+        [Given(@"Sent AccountType 'Primary' UserName'Boy' the player's account for money to bonus chips should recieve")]
+        public void GivenSentAccountTypePrimaryUserNameBoyThePlayerSAccountForMoneyToBonusChipsShouldRecieve()
         {
             ScenarioContext.Current.Pending();
         }
@@ -48,8 +48,8 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
             ScenarioContext.Current.Pending();
         }
 
-        [When(@"Call MoneyToBonusChipsExecutor \(CardType '(.*)' Amonut '(.*)' UserName'(.*)'\) for money to bonus chips")]
-        public void WhenCallMoneyToBonusChipsExecutorCardTypePrimaryAmonut1000UserNameForMoneyToBonusChips(string cardType, string amount, string userName)
+        [When(@"Call MoneyToBonusChipsExecutor \(AccountType '(.*)' Amonut '(.*)' UserName'(.*)'\) for money to bonus chips")]
+        public void WhenCallMoneyToBonusChipsExecutorAccountTypePrimaryAmonut1000UserNameForMoneyToBonusChips(string cardType, string amount, string userName)
         {
             ScenarioContext.Current.Pending();
         }

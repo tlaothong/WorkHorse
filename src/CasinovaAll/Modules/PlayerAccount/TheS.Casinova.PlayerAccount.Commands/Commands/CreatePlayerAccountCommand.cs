@@ -24,7 +24,7 @@ namespace TheS.Casinova.PlayerAccount.Commands
         /// <summary>
         /// หมายเลขบัญชี
         /// </summary>
-        public int AccountNo { get; set; }
+        public string AccountNo { get; set; }
 
         /// <summary>
         /// รหัสตรวจสอบหมายเลขบัญชี

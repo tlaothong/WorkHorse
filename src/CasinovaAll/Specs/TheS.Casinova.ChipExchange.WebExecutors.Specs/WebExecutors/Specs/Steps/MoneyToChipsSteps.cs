@@ -16,8 +16,8 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
             ScenarioContext.Current.Pending();
         }
 
-        [Given(@"Sent CardType 'Primary' UserName'Boy' the player's account should recieve")]
-        public void GivenSentCardTypePrimaryUserNameBoyThePlayerSAccountShouldRecieve()
+        [Given(@"Sent AccountType 'Primary' UserName'Boy' the player's account should recieve")]
+        public void GivenSentAccountTypePrimaryUserNameBoyThePlayerSAccountShouldRecieve()
         {
             ScenarioContext.Current.Pending();
         }
@@ -34,8 +34,8 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
             ScenarioContext.Current.Pending();
         }
 
-        [When(@"Call MoneyToChipsExecutor \(CardType '(.*)' Amonut '(.*)' UserName'(.*)'\) for money to chips")]
-        public void WhenCallMoneyToChipsExecutorCardTypePrimaryAmonutUserNameBoyForMoneyToChips(string cardType, string amount, string userName)
+        [When(@"Call MoneyToChipsExecutor \(AccountType '(.*)' Amonut '(.*)' UserName'(.*)'\) for money to chips")]
+        public void WhenCallMoneyToChipsExecutorAccountTypePrimaryAmonutUserNameBoyForMoneyToChips(string cardType, string amount, string userName)
         {
             ScenarioContext.Current.Pending();
         }

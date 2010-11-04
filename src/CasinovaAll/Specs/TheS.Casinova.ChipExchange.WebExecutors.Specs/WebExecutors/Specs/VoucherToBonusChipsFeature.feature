@@ -6,9 +6,9 @@
 @record_mock
 Background:
 	Given Server has voucher information as :
-		|UserName	|VoucherCode						|Amount	|CanUse	|
-		|Nit		|0A15D2C519764BF4B698E31B9F77FE90	| 100	|True	|
-		|Ae			|16F67B16ABDF469FA42D6D3BFC380745	| 200	|false	|
+		|UserName	|VoucherCode	|Amount	|CanUse	|
+		|Nit		|0A15D			| 100	|True	|
+		|Ae			|16F67			| 200	|false	|
 		
 @record_mock
 Scenario: ระบบได้รับข้อมูล voucher code และ userName ครบ  ระบบตรวจสอบการใช้งาน คูปองสามารถใช้งานได้ ระบบส่งข้อมูลไป back server ได้  

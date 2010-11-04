@@ -30,7 +30,7 @@ namespace TheS.Casinova.ChipExchange.Models
         /// <summary>
         /// รหัสตรวจสอบหมายเลขบัญชี
         /// </summary>
-        public string CVV { get; set; }
+        public int CVV { get; set; }
 
         /// <summary>
         /// วันหมดอายุของบัญชี

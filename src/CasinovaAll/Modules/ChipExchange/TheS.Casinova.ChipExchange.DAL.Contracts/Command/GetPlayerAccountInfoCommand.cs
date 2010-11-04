@@ -13,9 +13,9 @@ namespace TheS.Casinova.ChipExchange.Command
     {
         //input
         /// <summary>
-        /// ชนิดของบัญชี
+        /// ประเภทของบัญชี
         /// </summary>
-        public string CardType { get; set; }
+        public string AccountType { get; set; }
 
         /// <summary>
         /// ชื่อผู้เล่น

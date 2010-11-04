@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TheS.Casinova.ChipExchange.Models;
 
 namespace TheS.Casinova.ChipExchange.Command
 {
@@ -20,6 +21,6 @@ namespace TheS.Casinova.ChipExchange.Command
         /// <summary>
         /// จำนวนโบนัส
         /// </summary>
-        public int Bunus { get; set; }
+        public MultiLevelNetworkInformation MultiLevelNetwork { get; set; }
     }
 }

@@ -64,12 +64,12 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs
                         "CanUse"});
             table1.AddRow(new string[] {
                         "Nit",
-                        "0A15D2C519764BF4B698E31B9F77FE90",
+                        "0A15D",
                         "100",
                         "True"});
             table1.AddRow(new string[] {
                         "Ae",
-                        "16F67B16ABDF469FA42D6D3BFC380745",
+                        "16F67",
                         "200",
                         "false"});
 #line 8
