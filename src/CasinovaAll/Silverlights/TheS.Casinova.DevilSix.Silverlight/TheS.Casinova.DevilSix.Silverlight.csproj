@@ -88,8 +88,13 @@
     <Compile Include="DevilSix\Controls\GamePlayUI.xaml.cs">
       <DependentUpon>GamePlayUI.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DevilSix\Controls\GameStatisticsUI.xaml.cs">
+      <DependentUpon>GameStatisticsUI.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DevilSix\GameApplicationInformation.cs" />
+    <Compile Include="DevilSix\Models\BetdataInfo.cs" />
     <Compile Include="DevilSix\Models\GameTable.cs" />
+    <Compile Include="DevilSix\Models\WinnerInfo.cs" />
     <Compile Include="DevilSix\Popups\BetData.xaml.cs">
       <DependentUpon>BetData.xaml</DependentUpon>
     </Compile>
@@ -99,12 +104,17 @@
     <Compile Include="DevilSix\Silverlight\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DevilSix\ViewModels\BetdataViewModel.cs" />
     <Compile Include="DevilSix\ViewModels\GamePlayViewModel.cs" />
+    <Compile Include="DevilSix\ViewModels\GameStatisticsViewModel.cs" />
     <Compile Include="DevilSix\Views\BetDataPage.xaml.cs">
       <DependentUpon>BetDataPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="DevilSix\Views\GamePlayPage.xaml.cs">
       <DependentUpon>GamePlayPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevilSix\Views\GameStatisticsWindow.xaml.cs">
+      <DependentUpon>GameStatisticsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="DevilSix\Views\GraphPage.xaml.cs">
       <DependentUpon>GraphPage.xaml</DependentUpon>
@@ -130,6 +140,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="DevilSix\Controls\GameStatisticsUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DevilSix\Popups\BetData.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -143,6 +157,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DevilSix\Views\GamePlayPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DevilSix\Views\GameStatisticsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -87,8 +87,13 @@
     <Compile Include="MagicNine\Controls\GamePlayUI.xaml.cs">
       <DependentUpon>GamePlayUI.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MagicNine\Controls\GameStatisticsUI.xaml.cs">
+      <DependentUpon>GameStatisticsUI.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MagicNine\GameApplicationInformation.cs" />
+    <Compile Include="MagicNine\Models\BetdataInfo.cs" />
     <Compile Include="MagicNine\Models\GameTable.cs" />
+    <Compile Include="MagicNine\Models\WinnerInfo.cs" />
     <Compile Include="MagicNine\Popups\BetData.xaml.cs">
       <DependentUpon>BetData.xaml</DependentUpon>
     </Compile>
@@ -98,13 +103,18 @@
     <Compile Include="MagicNine\Silverlight\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MagicNine\ViewModels\BetdataViewModel.cs" />
     <Compile Include="MagicNine\ViewModels\GamePlayViewModel.cs" />
+    <Compile Include="MagicNine\ViewModels\GameStatisticsViewModel.cs" />
     <Compile Include="MagicNine\ViewModels\TimeIntervalViewModel.cs" />
     <Compile Include="MagicNine\Views\BetDataPage.xaml.cs">
       <DependentUpon>BetDataPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MagicNine\Views\GamePlayPage.xaml.cs">
       <DependentUpon>GamePlayPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MagicNine\Views\GameStatisticsWindow.xaml.cs">
+      <DependentUpon>GameStatisticsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MagicNine\Views\GraphPage.xaml.cs">
       <DependentUpon>GraphPage.xaml</DependentUpon>
@@ -130,6 +140,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="MagicNine\Controls\GameStatisticsUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MagicNine\Popups\BetData.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -143,6 +157,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MagicNine\Views\GamePlayPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MagicNine\Views\GameStatisticsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

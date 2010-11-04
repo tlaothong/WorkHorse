@@ -1,0 +1,73 @@
+﻿<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:TheS_Casinova_DevilSix_ViewModels="clr-namespace:TheS.Casinova.DevilSix.ViewModels" x:Class="TheS.Casinova.DevilSix.Controls.GameStatisticsUI"
+    d:DesignHeight="270" d:DesignWidth="560" mc:Ignorable="d">
+    
+	<UserControl.Resources>
+		<TheS_Casinova_DevilSix_ViewModels:GameStatisticsViewModel x:Key="GameStatisticsViewModelDataSource" d:IsDataSource="True"/>
+		<DataTemplate x:Key="StringTemplate">
+			<StackPanel>
+				<TextBlock Text="{Binding Mode=OneWay}"/>
+			</StackPanel>
+		</DataTemplate>
+	</UserControl.Resources>
+	<UserControl.DataContext>
+		<Binding Source="{StaticResource GameStatisticsViewModelDataSource}"/>
+	</UserControl.DataContext>
+    
+    <Grid x:Name="LayoutRoot" Background="White">
+    	<VisualStateManager.VisualStateGroups>
+    		<VisualStateGroup x:Name="OptionState">
+    			<VisualState x:Name="Single"/>
+    			<VisualState x:Name="Range">
+    				<Storyboard>
+    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="SecondData">
+    						<DiscreteObjectKeyFrame KeyTime="0">
+    							<DiscreteObjectKeyFrame.Value>
+    								<Visibility>Visible</Visibility>
+    							</DiscreteObjectKeyFrame.Value>
+    						</DiscreteObjectKeyFrame>
+    					</ObjectAnimationUsingKeyFrames>
+    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock">
+    						<DiscreteObjectKeyFrame KeyTime="0">
+    							<DiscreteObjectKeyFrame.Value>
+    								<Visibility>Visible</Visibility>
+    							</DiscreteObjectKeyFrame.Value>
+    						</DiscreteObjectKeyFrame>
+    					</ObjectAnimationUsingKeyFrames>
+    				</Storyboard>
+    			</VisualState>
+    		</VisualStateGroup>
+    	</VisualStateManager.VisualStateGroups>
+    	<Grid.RowDefinitions>
+    		<RowDefinition Height="0.15*"/>
+    		<RowDefinition Height="0.75*"/>
+    		<RowDefinition Height="0.1*"/>
+    	</Grid.RowDefinitions>
+    	<Button x:Name="GraphButton" Content="Graph" HorizontalAlignment="Right" Width="75" Margin="0,0,8,0" Grid.Row="2" VerticalAlignment="Bottom" Click="GraphButton_Click" />
+    	<Button x:Name="BetDataButton" Content="BetData" Margin="0,0,87,0" HorizontalAlignment="Right" Grid.Row="2" Width="75" VerticalAlignment="Bottom" Click="BetDataButton_Click" />
+    	<sdk:DataGrid x:Name="Contents" Grid.Row="1" Margin="8,0" AutoGenerateColumns="False" ItemsSource="{Binding Informations}" HorizontalAlignment="Center" VerticalAlignment="Center">
+    		<sdk:DataGrid.Columns>
+    			<sdk:DataGridTextColumn Binding="{Binding Round}" Header="Round"/>
+				<sdk:DataGridTextColumn Binding="{Binding Time}" Header="Time"/>
+				<sdk:DataGridTextColumn Binding="{Binding Winner}" Header="Winner"/>
+				<sdk:DataGridTextColumn Binding="{Binding Pot}" Header="Pot"/>
+    		</sdk:DataGrid.Columns>
+    	</sdk:DataGrid>
+    	<Grid Margin="8" VerticalAlignment="Center">
+    		<Grid.ColumnDefinitions>
+    			<ColumnDefinition Width="0.15*"/>
+    			<ColumnDefinition Width="0.27*"/>
+    			<ColumnDefinition Width="0.05*"/>
+    			<ColumnDefinition Width="0.27*"/>
+    			<ColumnDefinition Width="0.26*"/>
+    		</Grid.ColumnDefinitions>
+    		<Button x:Name="OptionButton" Content="Single" Margin="0,0,5,0"/>
+
+    		<sdk:DatePicker x:Name="FirstData" d:LayoutOverrides="Height" Grid.Column="1"/>
+    		<sdk:DatePicker x:Name="SecondData" d:LayoutOverrides="Height" Grid.Column="3" Visibility="Collapsed"/>
+    		<TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="to" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Collapsed"/>
+    		<ComboBox x:Name="Games" d:LayoutOverrides="Height" Grid.Column="4" Margin="4,0,0,0" ItemTemplate="{StaticResource StringTemplate}" ItemsSource="{Binding Games}"/>
+
+    	</Grid>
+
+    </Grid>
+</UserControl>
