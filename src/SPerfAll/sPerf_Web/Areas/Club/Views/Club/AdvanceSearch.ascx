@@ -6,7 +6,7 @@
         });
     });
 </script>
-<div style="padding-left: 660px; float: left;">
+<div>
      <div>
      <a href="#"><label>Advance Search</label></a>
         <span id="dropCategory_dropWrapper" style="cursor: default;"><span id="dropclubsSearch"

@@ -113,6 +113,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Acomment.html" />
     <Content Include="App_themes\sPerf\aspnet_ajax.css" />
     <Content Include="App_themes\sPerf\Sites.css" />
     <Content Include="App_themes\sPerf\images\avatar.png" />
@@ -174,10 +175,12 @@
     <Content Include="Areas\Scholarship\Views\Scholarship\SubMenu.ascx" />
     <Content Include="Areas\Scholarship\Views\Scholarship\Tournament.aspx" />
     <Content Include="club.html" />
+    <Content Include="Content\images\comment.png" />
     <Content Include="Content\images\next-horizontal.png" />
     <Content Include="Content\images\next-vertical.png" />
     <Content Include="Content\images\prev-horizontal.png" />
     <Content Include="Content\images\prev-vertical.png" />
+    <Content Include="Content\images\start.png" />
     <Content Include="Content\skin.css" />
     <Content Include="Content\images\wanida.jpg" />
     <Content Include="Content\images\avartar.png" />
@@ -427,13 +430,13 @@
     <Content Include="Scripts\jquery-1.4.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.1.custom.js" />
     <Content Include="Content\jquery.hoverscroll-0.2.2.css" />
-    <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\jquery.hoverscroll-0.2.2.js" />
     <Content Include="Scripts\jquery.jcarousel.min.js" />
     <Content Include="Scripts\jquery.pager.js" />
     <Content Include="Scripts\jquery.popupWindow.js" />
     <Content Include="Scripts\jquery.tmpl.js" />
+    <Content Include="test.txt" />
     <Content Include="Views\Home\AboutUs.aspx" />
     <Content Include="Views\Home\AdvanceSearch.ascx" />
     <Content Include="Views\Home\Banners.ascx" />

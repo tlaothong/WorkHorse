@@ -101,3 +101,9 @@
 {
     width: 180px;
 }
+#side-bar
+{
+    position: absolute;
+    width: 187px;
+    margin-left: 670px;
+}
