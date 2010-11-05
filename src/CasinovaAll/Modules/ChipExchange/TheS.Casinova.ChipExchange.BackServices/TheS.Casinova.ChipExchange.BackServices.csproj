@@ -52,8 +52,10 @@
   <ItemGroup>
     <Compile Include="BackServices\BackExecutors\MoneyToBonusChipsExecutor.cs" />
     <Compile Include="BackServices\BackExecutors\MoneyToChipsExecutor.cs" />
+    <Compile Include="BackServices\BackExecutors\PayVoucherExecutor.cs" />
     <Compile Include="BackServices\BackExecutors\VoucherToBonusChipsExecutor.cs" />
     <Compile Include="BackServices\Commands\PayExchangeCommand.cs" />
+    <Compile Include="BackServices\IGenerateVoucherCode.cs" />
     <Compile Include="BackServices\IPayExchangeEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -65,6 +67,10 @@
     <ProjectReference Include="..\..\PlayerAccount\TheS.Casinova.PlayerAccount.Models\TheS.Casinova.PlayerAccount.Models.csproj">
       <Project>{28B48276-2905-4A6C-9BBA-09007F7E7084}</Project>
       <Name>TheS.Casinova.PlayerAccount.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\PlayerProfile\TheS.Casinova.PlayerProfile.Models\TheS.Casinova.PlayerProfile.Models.csproj">
+      <Project>{96BBA83F-EAA6-4EEA-BEC5-98F6AC39B943}</Project>
+      <Name>TheS.Casinova.PlayerProfile.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Shared\TheS.Casinova.Common.Commands\TheS.Casinova.Common.Commands.csproj">
       <Project>{B0BA601A-7B65-4973-9E00-4F9035883877}</Project>

@@ -7,6 +7,8 @@ using TheS.Casinova.ChipExchange.Models;
 using TheS.Casinova.PlayerAccount.Models;
 using Rhino.Mocks;
 using TheS.Casinova.ChipExchange.Commands;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TheS.Casinova.ChipExchange.BackServices.Commands;
 
 namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
 {
@@ -17,6 +19,9 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
         private IEnumerable<ExchangeSettingInformation> _exchangeSettingInfos;
         private IEnumerable<PlayerAccountInformation> _playerAccountInfos;
         private IEnumerable<MultiLevelNetworkInformation> _multiLevelNetworkInfos;
+        private MultiLevelNetworkInformation _multiLevelNetworkInfo;
+        private ExchangeSettingInformation _exchangeSettingInfo;
+        private PlayerAccountInformation _playerAccountInfo;
 
         [Given(@"\(MoneyToBonusChips\)server has exchange setting information as:")]
         public void GivenMoneyToBonusChipsServerHasExchangeSettingInformationAs(Table table)
@@ -60,39 +65,110 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
                                    });
         }
 
-        [Given(@"sent UserName: '(.*)' the MLN information should recieved")]
+        [Given(@"\(MoneyToBonusChips\)sent UserName: '(.*)' the MLN information should recieved")]
         public void GivenSentUserNameXTheMLNInformationShouldRecieved(string userName)
         {
-            var qry = (from item in _multiLevelNetworkInfos
-                       where item.Username == userName
-                       select item).FirstOrDefault();
+            _multiLevelNetworkInfo = (from item in _multiLevelNetworkInfos
+                                      where item.Username == userName
+                                      select item).FirstOrDefault();
 
             SetupResult.For(Dqr_GetMLNInfo.Get(new GetMLNInfoCommand()))
-                .IgnoreArguments().Return(qry);
+                .IgnoreArguments().Return(_multiLevelNetworkInfo);
         }
 
-        [Given(@"\(MoneyToBonusChips\)exchange amount: '2000' should be more than minimum exchange rate")]
-        public void GivenMoneyToBonusChipsExchangeAmount2000ShouldBeMoreThanMinimumExchangeRate()
+        [Given(@"\(MoneyToBonusChips\)exchange amount: '(.*)' should be more than player bonus")]
+        public void GivenMoneyToBonusChipsExchangeAmountXShouldBeMoreThanPlayerBonus(double amount)
         {
-            ScenarioContext.Current.Pending();
+            Assert.IsTrue(_multiLevelNetworkInfo.Bonus >= amount, "Bonus");
         }
 
-        [Given(@"\(MoneyToBonusChips\)sent ExchangeSettingName: 'exchange1' the exchange setting should recieved")]
-        public void GivenMoneyToBonusChipsSentExchangeSettingNameExchange1TheExchangeSettingShouldRecieved()
+        [Given(@"\(MoneyToBonusChips\)sent ExchangeSettingName: '(.*)' the exchange setting should recieved")]
+        public void GivenMoneyToBonusChipsSentExchangeSettingNameXTheExchangeSettingShouldRecieved(string exchangeSettingName)
         {
-            ScenarioContext.Current.Pending();
+            _exchangeSettingInfo = (from item in _exchangeSettingInfos
+                                    where item.Name == exchangeSettingName
+                                    select item).FirstOrDefault();
+
+            SetupResult.For(Dqr_GetExchangeSetting.Get(new GetExchangeSettingCommand()))
+                .IgnoreArguments().Return(_exchangeSettingInfo);
         }
 
-        [Given(@"the user bonus chips should be adding\(UserName: 'OhAe', Amount:'8000'\)")]
-        public void GivenTheUserBonusChipsShouldBeAddingUserNameOhAeAmount8000()
+        [Given(@"\(MoneyToBonusChips\)exchange amount: '(.*)' should be more than minimum exchange rate")]
+        public void GivenMoneyToBonusChipsExchangeAmountXShouldBeMoreThanMinimumExchangeRate(double amount)
         {
-            ScenarioContext.Current.Pending();
+            Assert.IsTrue(amount >= _exchangeSettingInfo.ChipToBonusChipRate);
         }
 
-        [When(@"call MoneyToBonusChipsExecutor\(UserName: 'OhAe', Amount: '4000', AccountType: 'Secondary'\)")]
-        public void WhenCallMoneyToBonusChipsExecutorUserNameOhAeAmount4000AccountTypeSecondary()
+        [Given(@"\(MoneyToBonusChips\)exchange amount: '(.*)' should be less than minimum exchange rate")]
+        public void GivenMoneyToBonusChipsExchangeAmountXShouldBeLessThanMinimumExchangeRate(double amount)
         {
-            ScenarioContext.Current.Pending();
+            Assert.IsTrue(amount < _exchangeSettingInfo.MinMoneyToChipExchange);
+        }
+
+        [Given(@"\(MoneyToBonusChips\)sent UserName: '(.*)', AccountType: '(.*)' the player account information should recieved")]
+        public void GivenMoneyToBonusChipsSentUserNameXAccountTypeXThePlayerAccountInformationShouldRecieved(string userName, string accountType)
+        {
+            _playerAccountInfo = (from item in _playerAccountInfos
+                                  where item.UserName == userName && item.AccountType == accountType
+                                  select item).FirstOrDefault();
+
+            SetupResult.For(Dqr_GetPlayerAccountInfo.Get(new GetPlayerAccountInfoCommand()))
+                .IgnoreArguments().Return(_playerAccountInfo);
+        }
+
+        [Given(@"\(MoneyToBonusChips\)the PayExchangeEngine should be call and complete transaction sent UserName: '(.*)', Amount: '(.*)', CardType: '(.*)', FistName: '(.*)', LastName: '(.*)', AccountNo: '(.*)', CVV: '(.*)', ExpireDate: '(.*)'")]
+        public void GivenMoneyToBonusChipsThePayExchangeEngineShouldBeCallAndCompleteTransactionSentUserNameXAmountXCardTypeXFistNameXLastNameXAccountNoXCVVXExpireDateX(string userName, double amount, string cardType, string firstName, string lastName, double accountNo, int cvv, DateTime expireDate)
+        {
+            Func<PayExchangeCommand, bool> checkData = (cmd) => {
+                Assert.AreEqual(cmd.ExchangeInfo.UserName, userName, "UserName");
+                Assert.AreEqual(cmd.ExchangeInfo.Amount, amount, "Amount");
+                Assert.AreEqual(cmd.ExchangeInfo.CardType, cardType, "cardType");
+                Assert.AreEqual(cmd.ExchangeInfo.FirstName, firstName, "FirstName");
+                Assert.AreEqual(cmd.ExchangeInfo.LastName, lastName, "LastName");
+                Assert.AreEqual(cmd.ExchangeInfo.AccountNo, accountNo, "AccountNo");
+                Assert.AreEqual(cmd.ExchangeInfo.CVV, cvv, "CVV");
+                Assert.AreEqual(cmd.ExchangeInfo.ExpireDate, expireDate, "ExpireDate");
+
+                return true;
+            };
+
+            Svc_PayExchangeEngine.PayExchange(new PayExchangeCommand());
+            LastCall.IgnoreArguments().Do(checkData);
+        }
+
+        [Given(@"\(MoneyToBonusChips\)the user bonus chips should be adding\(UserName: '(.*)', Amount:'(.*)'\)")]
+        public void GivenTheUserBonusChipsShouldBeAddingUserNameXAmountX(string userName, double amount)
+        {
+            Action<ExchangeInformation, MoneyToBonusChipsCommand> checkData = (exchangeInfo, cmd) => {
+                Assert.AreEqual(userName, exchangeInfo.UserName, "UserName");
+                Assert.AreEqual(amount, exchangeInfo.Amount, "Amount");
+            };
+
+            Dac_IncreasePlayerBonusChipsByMoney.ApplyAction(new ExchangeInformation(), new MoneyToBonusChipsCommand());
+            LastCall.IgnoreArguments().Do(checkData);
+        }
+
+        [When(@"call MoneyToBonusChipsExecutor\(UserName: '(.*)', Amount: '(.*)', AccountType: '(.*)'\)")]
+        public void WhenCallMoneyToBonusChipsExecutorUserNameXAmountXAccountTypeSecondary(string userName, double amount, string accountType)
+        {
+            MoneyToBonusChipsCommand cmd = new MoneyToBonusChipsCommand {
+                UserName = userName,
+                Amount = amount,
+                AccountType = accountType,
+            };
+            MoneyToBonusChipsExecutor.Execute(cmd, (x) => { });
+        }
+
+        [Then(@"\(MoneyToBonusChips\)the result should be update")]
+        public void ThenMoneyToBonusChipsTheResultShouldBeUpdate()
+        {
+            Assert.IsTrue(true, "Expectation has been verified in the end of block When.");
+        }
+
+        [Then(@"abort operation")]
+        public void ThenAbortOperation()
+        {
+            Assert.IsTrue(true, "Expectation has been verified in the end of block When.");
         }
     }
 }

@@ -33,12 +33,12 @@ namespace TheS.Casinova.ChipExchange.BackServices.BackExecutors
             GetMLNInfoCommand getMLNInfoCmd = new GetMLNInfoCommand { UserName = command.UserName };
             getMLNInfoCmd.MLNInfo = _iGetMLNInfo.Get(getMLNInfoCmd);
 
-            if (getMLNInfoCmd.MLNInfo.Bonus >= command.Amount) {
+            if (getMLNInfoCmd.MLNInfo.Bonus >= command.Amount) { //Request amount should more than bonus
                 //Get exchange setting
                 GetExchangeSettingCommand getExchangeSettingCmd = new GetExchangeSettingCommand { Name = "Exchange1" };
                 getExchangeSettingCmd.ExchangeSetting = _iGetExchangeSetting.Get(getExchangeSettingCmd);
 
-                //Request amount sholde more than minimum exchange rate
+                //Request amount should more than minimum exchange rate
                 if (command.Amount >= getExchangeSettingCmd.ExchangeSetting.MinMoneyToChipExchange) {
                     //Get player account information
                     GetPlayerAccountInfoCommand getPlayerAccountInfoCmd = new GetPlayerAccountInfoCommand {

@@ -7,19 +7,19 @@ using TheS.Casinova.ChipExchange.Models;
 namespace TheS.Casinova.ChipExchange.Commands
 {
     /// <summary>
-    /// ดึงข้อมูลคูปองจากรหัสคูปอง
+    /// ดึงข้อมูลคูปอง
     /// </summary>
     public class GetVoucherInfoCommand
     {
         //input
         /// <summary>
-        /// หมายเลขคูปอง
+        /// รหัสคูปองที่ต้องการข้อมูล
         /// </summary>
         public string VoucherCode { get; set; }
 
         //output
         /// <summary>
-        /// ข้อมูลคูปอง
+        /// ข้อมูลคูปองที่ต้องการ
         /// </summary>
         public VoucherInformation VoucherInfo { get; set; }
     }

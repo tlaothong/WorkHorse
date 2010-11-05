@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TheS.Casinova.PlayerProfile.Models;
 
 namespace TheS.Casinova.ChipExchange.Commands
 {
     /// <summary>
-    /// command แลกชิพตายด้วยเงิน
+    /// ดึงข้อมูล user profile
     /// </summary>
-    public class MoneyToBonusChipsCommand
+    public class GetUserProfileCommand
     {
         //input
         /// <summary>
@@ -17,13 +18,8 @@ namespace TheS.Casinova.ChipExchange.Commands
         public string UserName { get; set; }
 
         /// <summary>
-        /// จำนวนเงิน
+        /// ข้อมูล user profile
         /// </summary>
-        public double Amount { get; set; }
-
-        /// <summary>
-        /// ประเภทบัญชี
-        /// </summary>
-        public string AccountType { get; set; }
+        public UserProfile UserProfile { get; set; }
     }
 }

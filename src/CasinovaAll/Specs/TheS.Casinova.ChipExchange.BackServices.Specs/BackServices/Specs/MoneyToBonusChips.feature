@@ -18,26 +18,31 @@ Background:
 
 	And (MoneyToBonusChips)server has MLN information as:
 	|UserName	|Bonus		|
-	|OhAe		|200		|
+	|OhAe		|20000		|
 	|Nit		|2000		|
 	|Boy		|420		|
 
 @record_mock
-Scenario: ผู้เล่นแลกเงินเป็นชิฟตาย บัตรเครดิตของผู้เล่นถูกต้อง ระบุจำนวนเงินมากกว่าจำนวนขั้นต่ำ, ระบบตรวจสอบบัตรเครดิตเพื่อชำระเงินและเพิ่มชิฟตายให้กับผู้เล่น
+Scenario: ผู้เล่นแลกเงินเป็นชิฟตาย บัตรเครดิตของผู้เล่นถูกต้อง ระบุจำนวนเงินมากกว่าจำนวนขั้นต่ำ และมีโบนัสพอ, ระบบตรวจสอบบัตรเครดิตเพื่อชำระเงินและเพิ่มชิฟตายให้กับผู้เล่น
 	Given The MoneyToBonusChipsExecutor has been created and initialized
-	And sent UserName: 'OhAe' the MLN information should recieved
+	And (MoneyToBonusChips)sent UserName: 'OhAe' the MLN information should recieved
+	And (MoneyToBonusChips)exchange amount: '2000' should be more than player bonus
 	And (MoneyToBonusChips)sent ExchangeSettingName: 'exchange1' the exchange setting should recieved 
 	And (MoneyToBonusChips)exchange amount: '2000' should be more than minimum exchange rate
-	And sent UserName: 'OhAe', AccountType: 'Primary' the player account information should recieved
-	And the PayExchangeEngine should be call and complete transaction sent UserName: 'OhAe', Amount: '2000', CardType: 'VISA', FistName: 'Sirinarin', LastName: 'AAA', AccountNo: '123445677891', CVV: '1234', ExpireDate: '2009/12'
-	And the user bonus chips should be adding(UserName: 'OhAe', Amount:'8000')
-	When call MoneyToBonusChipsExecutor(UserName: 'OhAe', Amount: '4000', AccountType: 'Secondary')
-	Then the result should be update
+	And (MoneyToBonusChips)sent UserName: 'OhAe', AccountType: 'Primary' the player account information should recieved
+	And (MoneyToBonusChips)the PayExchangeEngine should be call and complete transaction sent UserName: 'OhAe', Amount: '2000', CardType: 'VISA', FistName: 'Sirinarin', LastName: 'AAA', AccountNo: '123445677891', CVV: '1234', ExpireDate: '2009/12'
+	And (MoneyToBonusChips)the user bonus chips should be adding(UserName: 'OhAe', Amount:'4000')
+	When call MoneyToBonusChipsExecutor(UserName: 'OhAe', Amount: '2000', AccountType: 'Secondary')
+	Then (MoneyToBonusChips)the result should be update
 
-Scenario: ผู้เล่นแลกเงินเป็นชิฟตาย บัตรเครดิตของผู้เล่นถูกต้อง ระบุจำนวนน้อยกว่าจำนวนขั้นต่ำ, ระบบไม่อนุญาติให้แลกเงิน
+@record_mock
+Scenario: ผู้เล่นแลกเงินเป็นชิฟตาย บัตรเครดิตของผู้เล่นถูกต้อง ระบุจำนวนน้อยกว่าจำนวนขั้นต่ำ และมีโบนัสพอ, ระบบไม่อนุญาติให้แลกเงิน
 	Given The MoneyToBonusChipsExecutor has been created and initialized
-	When Pending for next task
-	Then Pending for next task
+	And (MoneyToBonusChips)sent UserName: 'OhAe' the MLN information should recieved
+	And (MoneyToBonusChips)sent ExchangeSettingName: 'exchange1' the exchange setting should recieved 
+	And (MoneyToBonusChips)exchange amount: '500' should be less than minimum exchange rate
+	When call MoneyToBonusChipsExecutor(UserName: 'OhAe', Amount: '500', AccountType: 'Secondary')
+	Then abort operation
 
 Scenario: ผู้เล่นแลกเงินเป็นชิฟตาย บัตรเครดิตของผู้เล่นไม่ถูกต้อง ระบบไม่อนุญาติให้แลกเงิน
 	Given The MoneyToBonusChipsExecutor has been created and initialized

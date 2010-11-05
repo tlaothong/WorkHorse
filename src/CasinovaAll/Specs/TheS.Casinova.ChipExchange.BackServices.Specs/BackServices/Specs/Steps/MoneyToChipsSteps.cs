@@ -16,24 +16,24 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
     public class MoneyToChipsSteps
         : ChipExchangeStepsBase
     {
-        IEnumerable<ExchangeSettingInformation> _exchangeSettingInfos;
-        IEnumerable<PlayerAccountInformation> _playerAccountInfos;
-        PlayerAccountInformation _playerAccountInfo;
-        ExchangeSettingInformation _exchangeSettingInfo;
+        private IEnumerable<ExchangeSettingInformation> _exchangeSettingInfos;
+        private IEnumerable<PlayerAccountInformation> _playerAccountInfos;
+        private PlayerAccountInformation _playerAccountInfo;
+        private ExchangeSettingInformation _exchangeSettingInfo;
 
         [Given(@"\(MoneyToChips\)server has exchange setting information as:")]
         public void GivenMoneyToChipsServerHasExchangeSettingInformationAs(Table table)
         {
             _exchangeSettingInfos = (from item in table.Rows
-                       select new ExchangeSettingInformation {
-                           Name = item["Name"],
-                           MinChipToMoneyExchange = Convert.ToDouble(item["MinChipToMoneyExchange"]),
-                           MinMoneyToChipExchange = Convert.ToDouble(item["MinMoneyToChipExchange"]),
-                           MoneyToChipRate = Convert.ToDouble(item["MoneyToChipRate"]),
-                           MoneyToBonusChipRate = Convert.ToDouble(item["MoneyToBonusChipRate"]),
-                           ChipToBonusChipRate = Convert.ToDouble(item["ChipToBonusChipRate"]),
-                           VoucherToBonusChipRate = Convert.ToDouble(item["VoucherToBonusChipRate"]),
-                       });
+                                     select new ExchangeSettingInformation {
+                                         Name = item["Name"],
+                                         MinChipToMoneyExchange = Convert.ToDouble(item["MinChipToMoneyExchange"]),
+                                         MinMoneyToChipExchange = Convert.ToDouble(item["MinMoneyToChipExchange"]),
+                                         MoneyToChipRate = Convert.ToDouble(item["MoneyToChipRate"]),
+                                         MoneyToBonusChipRate = Convert.ToDouble(item["MoneyToBonusChipRate"]),
+                                         ChipToBonusChipRate = Convert.ToDouble(item["ChipToBonusChipRate"]),
+                                         VoucherToBonusChipRate = Convert.ToDouble(item["VoucherToBonusChipRate"]),
+                                     });
         }
 
         [Given(@"\(MoneyToChips\)server has player account information as:")]

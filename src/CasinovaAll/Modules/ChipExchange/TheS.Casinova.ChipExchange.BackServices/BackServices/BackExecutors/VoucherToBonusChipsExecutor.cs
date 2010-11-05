@@ -32,20 +32,24 @@ namespace TheS.Casinova.ChipExchange.BackServices.BackExecutors
             getVoucherInfoCmd.VoucherInfo = _iGetVoucherInfo.Get(getVoucherInfoCmd);
 
             //เพิ่มชิปตายให้ผู้เล่นหาก รหัสคูปองถูกต้อง และยังไม่ถูกใช้
-            if ((getVoucherInfoCmd.VoucherInfo != null) || (getVoucherInfoCmd.VoucherInfo.CanUse != true)) {
+            if ((getVoucherInfoCmd.VoucherInfo != null) && (getVoucherInfoCmd.VoucherInfo.CanUse == true)) {
                 //Get exchange setting
                 GetExchangeSettingCommand getExchangeSettingCmd = new GetExchangeSettingCommand { Name = "Exchange1" };
                 getExchangeSettingCmd.ExchangeSetting = _iGetExchangeSetting.Get(getExchangeSettingCmd);
 
                 //Update used voucher
-                VoucherInformation voucherInfo = new VoucherInformation { UserName = getVoucherInfoCmd.VoucherInfo.UserName, VoucherCode = getVoucherInfoCmd.VoucherInfo.VoucherCode };
+                VoucherInformation voucherInfo = new VoucherInformation { 
+                    UserName = getVoucherInfoCmd.VoucherInfo.UserName, 
+                    VoucherCode = getVoucherInfoCmd.VoucherInfo.VoucherCode,
+                    CanUse = false 
+                };
                 UpdateUsedVoucherCommand updateUsedVoucherCmd = new UpdateUsedVoucherCommand { VoucherInfo = voucherInfo };
                 _iUpdateUsedVoucher.ApplyAction(voucherInfo, updateUsedVoucherCmd);
 
                 //Update player bonus chips by exchange rate
                 ExchangeInformation exchangeInfo = new ExchangeInformation { 
                     UserName = command.UserName, 
-                    Amount = getExchangeSettingCmd.ExchangeSetting.MoneyToBonusChipRate * getVoucherInfoCmd.VoucherInfo.Amount,
+                    Amount = getExchangeSettingCmd.ExchangeSetting.VoucherToBonusChipRate * getVoucherInfoCmd.VoucherInfo.Amount,
                 };                                
                 _iIncreasePlayerBonusChipByVoucher.ApplyAction(exchangeInfo, command);                
             }

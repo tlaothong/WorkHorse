@@ -132,7 +132,7 @@ testRunner.And("(MoneyToBonusChips)server has player account information as:", (
                         "Bonus"});
             table3.AddRow(new string[] {
                         "OhAe",
-                        "200"});
+                        "20000"});
             table3.AddRow(new string[] {
                         "Nit",
                         "2000"});
@@ -146,12 +146,14 @@ testRunner.And("(MoneyToBonusChips)server has MLN information as:", ((string)(nu
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้เล่นแลกเงินเป็นชิฟตาย บัตรเครดิตของผู้เล่นถูกต้อง ระบุจำนวนเงินมากกว่าจำนวนขั้" +
-            "นต่ำ, ระบบตรวจสอบบัตรเครดิตเพื่อชำระเงินและเพิ่มชิฟตายให้กับผู้เล่น")]
+            "นต่ำ และมีโบนัสพอ, ระบบตรวจสอบบัตรเครดิตเพื่อชำระเงินและเพิ่มชิฟตายให้กับผู้เล่น" +
+            "")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "MoneyToBonusChips")]
-        public virtual void ผเลนแลกเงนเปนชฟตายบตรเครดตของผเลนถกตองระบจำนวนเงนมากกวาจำนวนขนตำระบบตรวจสอบบตรเครดตเพอชำระเงนและเพมชฟตายใหกบผเลน()
+        public virtual void ผเลนแลกเงนเปนชฟตายบตรเครดตของผเลนถกตองระบจำนวนเงนมากกวาจำนวนขนตำและมโบนสพอระบบตรวจสอบบตรเครดตเพอชำระเงนและเพมชฟตายใหกบผเลน()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้เล่นแลกเงินเป็นชิฟตาย บัตรเครดิตของผู้เล่นถูกต้อง ระบุจำนวนเงินมากกว่าจำนวนขั้" +
-                    "นต่ำ, ระบบตรวจสอบบัตรเครดิตเพื่อชำระเงินและเพิ่มชิฟตายให้กับผู้เล่น", new string[] {
+                    "นต่ำ และมีโบนัสพอ, ระบบตรวจสอบบัตรเครดิตเพื่อชำระเงินและเพิ่มชิฟตายให้กับผู้เล่น" +
+                    "", new string[] {
                         "record_mock",
                         "record_mock"});
 #line 26
@@ -159,47 +161,60 @@ this.ScenarioSetup(scenarioInfo);
 #line 27
 testRunner.Given("The MoneyToBonusChipsExecutor has been created and initialized");
 #line 28
-testRunner.And("sent UserName: \'OhAe\' the MLN information should recieved");
+testRunner.And("(MoneyToBonusChips)sent UserName: \'OhAe\' the MLN information should recieved");
 #line 29
+testRunner.And("(MoneyToBonusChips)exchange amount: \'2000\' should be more than player bonus");
+#line 30
 testRunner.And("(MoneyToBonusChips)sent ExchangeSettingName: \'exchange1\' the exchange setting sho" +
                     "uld recieved");
-#line 30
+#line 31
 testRunner.And("(MoneyToBonusChips)exchange amount: \'2000\' should be more than minimum exchange r" +
                     "ate");
-#line 31
-testRunner.And("sent UserName: \'OhAe\', AccountType: \'Primary\' the player account information shou" +
-                    "ld recieved");
 #line 32
-testRunner.And("the PayExchangeEngine should be call and complete transaction sent UserName: \'OhA" +
-                    "e\', Amount: \'2000\', CardType: \'VISA\', FistName: \'Sirinarin\', LastName: \'AAA\', Ac" +
-                    "countNo: \'123445677891\', CVV: \'1234\', ExpireDate: \'2009/12\'");
+testRunner.And("(MoneyToBonusChips)sent UserName: \'OhAe\', AccountType: \'Primary\' the player accou" +
+                    "nt information should recieved");
 #line 33
-testRunner.And("the user bonus chips should be adding(UserName: \'OhAe\', Amount:\'8000\')");
+testRunner.And("(MoneyToBonusChips)the PayExchangeEngine should be call and complete transaction " +
+                    "sent UserName: \'OhAe\', Amount: \'2000\', CardType: \'VISA\', FistName: \'Sirinarin\', " +
+                    "LastName: \'AAA\', AccountNo: \'123445677891\', CVV: \'1234\', ExpireDate: \'2009/12\'");
 #line 34
-testRunner.When("call MoneyToBonusChipsExecutor(UserName: \'OhAe\', Amount: \'4000\', AccountType: \'Se" +
-                    "condary\')");
+testRunner.And("(MoneyToBonusChips)the user bonus chips should be adding(UserName: \'OhAe\', Amount" +
+                    ":\'4000\')");
 #line 35
-testRunner.Then("the result should be update");
+testRunner.When("call MoneyToBonusChipsExecutor(UserName: \'OhAe\', Amount: \'2000\', AccountType: \'Se" +
+                    "condary\')");
+#line 36
+testRunner.Then("(MoneyToBonusChips)the result should be update");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้เล่นแลกเงินเป็นชิฟตาย บัตรเครดิตของผู้เล่นถูกต้อง ระบุจำนวนน้อยกว่าจำนวนขั้นต่" +
-            "ำ, ระบบไม่อนุญาติให้แลกเงิน")]
+            "ำ และมีโบนัสพอ, ระบบไม่อนุญาติให้แลกเงิน")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "MoneyToBonusChips")]
-        public virtual void ผเลนแลกเงนเปนชฟตายบตรเครดตของผเลนถกตองระบจำนวนนอยกวาจำนวนขนตำระบบไมอนญาตใหแลกเงน()
+        public virtual void ผเลนแลกเงนเปนชฟตายบตรเครดตของผเลนถกตองระบจำนวนนอยกวาจำนวนขนตำและมโบนสพอระบบไมอนญาตใหแลกเงน()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้เล่นแลกเงินเป็นชิฟตาย บัตรเครดิตของผู้เล่นถูกต้อง ระบุจำนวนน้อยกว่าจำนวนขั้นต่" +
-                    "ำ, ระบบไม่อนุญาติให้แลกเงิน", ((string[])(null)));
-#line 37
-this.ScenarioSetup(scenarioInfo);
-#line 38
-testRunner.Given("The MoneyToBonusChipsExecutor has been created and initialized");
+                    "ำ และมีโบนัสพอ, ระบบไม่อนุญาติให้แลกเงิน", new string[] {
+                        "record_mock"});
 #line 39
-testRunner.When("Pending for next task");
+this.ScenarioSetup(scenarioInfo);
 #line 40
-testRunner.Then("Pending for next task");
+testRunner.Given("The MoneyToBonusChipsExecutor has been created and initialized");
+#line 41
+testRunner.And("(MoneyToBonusChips)sent UserName: \'OhAe\' the MLN information should recieved");
+#line 42
+testRunner.And("(MoneyToBonusChips)sent ExchangeSettingName: \'exchange1\' the exchange setting sho" +
+                    "uld recieved");
+#line 43
+testRunner.And("(MoneyToBonusChips)exchange amount: \'500\' should be less than minimum exchange ra" +
+                    "te");
+#line 44
+testRunner.When("call MoneyToBonusChipsExecutor(UserName: \'OhAe\', Amount: \'500\', AccountType: \'Sec" +
+                    "ondary\')");
+#line 45
+testRunner.Then("abort operation");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -210,13 +225,13 @@ testRunner.Then("Pending for next task");
         public virtual void ผเลนแลกเงนเปนชฟตายบตรเครดตของผเลนไมถกตองระบบไมอนญาตใหแลกเงน()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้เล่นแลกเงินเป็นชิฟตาย บัตรเครดิตของผู้เล่นไม่ถูกต้อง ระบบไม่อนุญาติให้แลกเงิน", ((string[])(null)));
-#line 42
+#line 47
 this.ScenarioSetup(scenarioInfo);
-#line 43
+#line 48
 testRunner.Given("The MoneyToBonusChipsExecutor has been created and initialized");
-#line 44
+#line 49
 testRunner.When("Pending for next task");
-#line 45
+#line 50
 testRunner.Then("Pending for next task");
 #line hidden
             testRunner.CollectScenarioErrors();

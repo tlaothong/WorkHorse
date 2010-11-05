@@ -20,7 +20,7 @@ namespace TheS.Casinova.ChipExchange.Models
         /// <summary>
         /// จำนวนเงิน
         /// </summary>
-        public int Amount { get; set; }
+        public double Amount { get; set; }
 
         /// <summary>
         /// สถานะการถูกใช้ (true : สามารถใช้ได้, false : ถูกใช้ไปแล้ว)
