@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using TheS.Casinova.PlayerAccount.Views;
 
 namespace TheS.Casinova.PlayerAccount.Controls {
     public partial class InformationUI : UserControl {
@@ -29,6 +30,24 @@ namespace TheS.Casinova.PlayerAccount.Controls {
             ChipExchange.Views.DepositWindow dw = new ChipExchange.Views.DepositWindow();
             dw.MenuTabControl.SelectedIndex = menuTablSelected;
             dw.Show();
+        }
+
+        private void CreditsCardEditHyperlinkButton_Click(object sender, RoutedEventArgs e)
+        {
+            showPayment();
+        }
+
+        private void OtherEditHyperlinkButton_Click(object sender, RoutedEventArgs e)
+        {
+            const int OtherEdit = 1;
+            showPayment(OtherEdit);
+        }
+
+        private void showPayment(int tabSelected = 0)
+        {
+            var cw = new PaymentWindow();
+            cw.PaymentTabControl.SelectedIndex = tabSelected;
+            cw.Show();
         }
     }
 }

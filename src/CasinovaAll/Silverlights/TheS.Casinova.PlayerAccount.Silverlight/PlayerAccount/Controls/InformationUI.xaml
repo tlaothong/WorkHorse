@@ -31,32 +31,32 @@
     		<ContentPresenter x:Name="AccountInfo"/>
     	</Grid>
     	<Grid Height="100" VerticalAlignment="Bottom">
-    		<sdk:TabControl VerticalAlignment="Top">
+    		<sdk:TabControl VerticalAlignment="Top" Height="100">
     			<sdk:TabItem x:Name="InformationCreditCard" Header="Credits card">
     				<Grid Background="#FFE5E5E5">
     					<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Card type:" VerticalAlignment="Top" Margin="8,8,0,0" FontWeight="Bold"/>
     					<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Card number:" VerticalAlignment="Top" Margin="8,28,0,0" FontWeight="Bold"/>
-    					<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Expire Date:" VerticalAlignment="Top" Margin="8,48,0,0" FontWeight="Bold"/>
-    					<TextBlock x:Name="CardType" HorizontalAlignment="Left" TextWrapping="Wrap" Text="CardType" VerticalAlignment="Top" Margin="76,8,0,0"/>
-    					<TextBlock x:Name="CardNumber" HorizontalAlignment="Left" TextWrapping="Wrap" Text="CardNumber" VerticalAlignment="Top" Margin="96,28,0,0"/>
-    					<TextBlock x:Name="ExpireDate" HorizontalAlignment="Left" TextWrapping="Wrap" Text="ExpireDate" VerticalAlignment="Top" Margin="88,48,0,0"/>
-    					<TextBlock TextWrapping="Wrap" Text="Owner name:" VerticalAlignment="Top" Margin="0,28,166,0" FontWeight="Bold" HorizontalAlignment="Right" d:LayoutOverrides="VerticalAlignment"/>
-    					<TextBlock TextWrapping="Wrap" Text="Card validation number:" Margin="0,48,96,0" FontWeight="Bold" HorizontalAlignment="Right" Width="153" VerticalAlignment="Top"/>
-    					<TextBlock x:Name="InformationCreditCardOwnerNameTextBlock" HorizontalAlignment="Right" TextWrapping="Wrap" Text="ICCON" VerticalAlignment="Top" Margin="0,28,125,0" d:LayoutOverrides="HorizontalAlignment"/>
-    					<TextBlock x:Name="InformationCreditCardCardValidationNumberTextBlock" HorizontalAlignment="Right" TextWrapping="Wrap" Text="ICCCVN" VerticalAlignment="Top" Margin="0,48,49,0"/>
-    					<HyperlinkButton x:Name="InformationCreditsCardEditButton" Content="Edit" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,8,8,0"/>
+    					<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Expire Date:" VerticalAlignment="Top" Margin="8,47,0,0" FontWeight="Bold"/>
+    					<TextBlock x:Name="CreditCardCardType" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding CreditCardCardType}" VerticalAlignment="Top" Margin="76,8,0,0"/>
+    					<TextBlock x:Name="CardNumber" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding CardNumber}" VerticalAlignment="Top" Margin="96,28,0,0"/>
+    					<TextBlock x:Name="ExpireDate" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding ExpireDate}" VerticalAlignment="Top" Margin="88,47,0,0"/>
+    					<TextBlock TextWrapping="Wrap" Text="Owner name:" VerticalAlignment="Top" Margin="300,28,0,0" FontWeight="Bold" HorizontalAlignment="Left" Width="87"/>
+    					<TextBlock TextWrapping="Wrap" Text="Card validation number:" Margin="300,47,0,0" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+    					<TextBlock x:Name="OwnerName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding OwnerName}" VerticalAlignment="Top" Margin="391,28,0,0" Width="149"/>
+    					<TextBlock x:Name="CardValidationNumber" HorizontalAlignment="Right" TextWrapping="Wrap" Text="{Binding CardValidationNumber}" VerticalAlignment="Top" Margin="0,47,8,0" Width="87"/>
+    					<HyperlinkButton x:Name="CreditsCardEditHyperlinkButton" Content="Edit" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,8,8,0" FontWeight="Bold" Click="CreditsCardEditHyperlinkButton_Click" />
     				</Grid>
     			</sdk:TabItem>
     			<sdk:TabItem x:Name="InformationOther" Header="Other" Margin="-4,0,4,0">
     				<Grid Background="#FFE5E5E5">
     					<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Card type:" VerticalAlignment="Top" Margin="8,8,0,0" FontWeight="Bold"/>
-    					<TextBlock x:Name="InformationOtherCardTypeTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="InformationOtherCardTypeTextBlock" VerticalAlignment="Top" Margin="76,8,0,0"/>
-    					<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Identity number:" VerticalAlignment="Top" Margin="8,28,0,0" FontWeight="Bold"/>
-    					<TextBlock x:Name="InformationOtherIdentityNumberTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="InformationOtherIdentityNumberTextBlock" VerticalAlignment="Top" Margin="118,28,0,0"/>
-    					<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Paypal email address:" VerticalAlignment="Bottom" Margin="8,0,0,28" FontWeight="Bold"/>
-    					<TextBlock x:Name="PaymentEmailAddress" HorizontalAlignment="Left" TextWrapping="Wrap" Text="PaymentEmailAddress" VerticalAlignment="Bottom" Margin="148,0,0,28"/>
-    					<CheckBox x:Name="RequireImmediateCheckBox" Content="Require immediate payment when buyer use buy it now." HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="137,0,0,7"/>
-    					<HyperlinkButton x:Name="InformationOtherEditButton" Content="Edit" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,8,8"/>
+    					<TextBlock x:Name="OtherCardType" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding OtherCardType}" VerticalAlignment="Top" Margin="76,8,0,0"/>
+    					<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Identity number:" VerticalAlignment="Top" Margin="300,28,0,0" FontWeight="Bold"/>
+    					<TextBlock x:Name="IdentityNumber" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding IdentityNumber}" VerticalAlignment="Top" Margin="410,28,0,0" Width="130"/>
+    					<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Paypal email address:" VerticalAlignment="Bottom" Margin="8,0,0,19" FontWeight="Bold"/>
+    					<TextBlock x:Name="PaymentEmailAddress" TextWrapping="Wrap" Text="{Binding PaymentEmailAddress}" VerticalAlignment="Bottom" Margin="148,0,0,19" HorizontalAlignment="Left"/>
+    					<CheckBox x:Name="OtherRequire" Content="Require immediate payment when buyer use buy it now." HorizontalAlignment="Left" Margin="8,0,0,0" VerticalAlignment="Bottom" IsChecked="{Binding OtherRequire, Mode=TwoWay}"/>
+    					<HyperlinkButton x:Name="OtherEditHyperlinkButton" Content="Edit" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,8,8,0" FontWeight="Bold" Click="OtherEditHyperlinkButton_Click" />
     				</Grid>
     			</sdk:TabItem>
     		</sdk:TabControl>
