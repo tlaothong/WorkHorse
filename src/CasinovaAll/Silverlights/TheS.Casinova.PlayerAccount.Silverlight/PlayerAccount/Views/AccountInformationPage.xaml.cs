@@ -11,18 +11,14 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Windows.Navigation;
 
-namespace TheS.Casinova.PlayerProfile.Views
-{
-    public partial class AccountManagerEditPage : Page
-    {
-        public AccountManagerEditPage()
-        {
+namespace TheS.Casinova.PlayerAccount.Views {
+    public partial class AccountInformationPage : Page {
+        public AccountInformationPage() {
             InitializeComponent();
         }
 
         // Executes when the user navigates to this page.
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
+        protected override void OnNavigatedTo(NavigationEventArgs e) {
         }
 
     }

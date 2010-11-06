@@ -107,17 +107,20 @@
     <Compile Include="MLN\Views\DownlineDetailWindow.xaml.cs">
       <DependentUpon>DownlineDetailWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PlayerAccount\Controls\InformationUI.xaml.cs">
+      <DependentUpon>InformationUI.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PlayerAccount\Silverlight\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="PlayerAccount\Silverlight\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PlayerProfile\Views\AccountManagerEditPage.xaml.cs">
-      <DependentUpon>AccountManagerEditPage.xaml</DependentUpon>
+    <Compile Include="PlayerAccount\Views\AccountInformationEditPage.xaml.cs">
+      <DependentUpon>AccountInformationEditPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PlayerProfile\Views\AccountManagerInformationPage.xaml.cs">
-      <DependentUpon>AccountManagerInformationPage.xaml</DependentUpon>
+    <Compile Include="PlayerAccount\Views\AccountInformationPage.xaml.cs">
+      <DependentUpon>AccountInformationPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PlayerProfile\Views\AccountManagerWindow.xaml.cs">
       <DependentUpon>AccountManagerWindow.xaml</DependentUpon>
@@ -153,15 +156,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PlayerAccount\Controls\InformationUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PlayerAccount\Silverlight\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PlayerProfile\Views\AccountManagerEditPage.xaml">
+    <Page Include="PlayerAccount\Views\AccountInformationEditPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PlayerProfile\Views\AccountManagerInformationPage.xaml">
+    <Page Include="PlayerAccount\Views\AccountInformationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -174,7 +181,7 @@
     <None Include="Properties\AppManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="PlayerAccount\Views\" />
+    <Folder Include="PlayerAccount\ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TheS.Casinova.Common.Silverlight\TheS.Casinova.Common.Silverlight.csproj">
