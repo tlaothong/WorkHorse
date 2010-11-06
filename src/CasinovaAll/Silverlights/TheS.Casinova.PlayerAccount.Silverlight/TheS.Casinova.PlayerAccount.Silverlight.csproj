@@ -127,6 +127,11 @@
     <Compile Include="PlayerAccount\Views\AccountInformationPage.xaml.cs">
       <DependentUpon>AccountInformationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PlayerAccount\Views\PaymentWindow.xaml.cs">
+      <DependentUpon>PaymentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerProfile\Models\LogEvent.cs" />
+    <Compile Include="PlayerProfile\ViewModels\AccountManagerViewModel.cs" />
     <Compile Include="PlayerProfile\Views\AccountManagerWindow.xaml.cs">
       <DependentUpon>AccountManagerWindow.xaml</DependentUpon>
     </Compile>
@@ -174,6 +179,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PlayerAccount\Views\AccountInformationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlayerAccount\Views\PaymentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
