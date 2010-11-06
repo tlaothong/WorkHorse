@@ -63,6 +63,9 @@
   <ItemGroup>
     <Reference Include="Microsoft.Expression.Interactions" />
     <Reference Include="mscorlib" />
+    <Reference Include="PerfEx.Infrastructure.Silverlight">
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Silverlight.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.Composition, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.ComponentModel.DataAnnotations, Version=2.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217, processorArchitecture=MSIL" />
     <Reference Include="System.Runtime.Serialization" />
@@ -116,6 +119,8 @@
     <Compile Include="PlayerAccount\Silverlight\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PlayerAccount\ViewModels\AccountInformationViewModel.cs" />
+    <Compile Include="PlayerAccount\ViewModels\InformationViewModel.cs" />
     <Compile Include="PlayerAccount\Views\AccountInformationEditPage.xaml.cs">
       <DependentUpon>AccountInformationEditPage.xaml</DependentUpon>
     </Compile>
@@ -180,9 +185,7 @@
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PlayerAccount\ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\TheS.Casinova.Common.Silverlight\TheS.Casinova.Common.Silverlight.csproj">
       <Project>{3613EAFB-E876-47F0-BFE9-7E9D8DCF5E5A}</Project>

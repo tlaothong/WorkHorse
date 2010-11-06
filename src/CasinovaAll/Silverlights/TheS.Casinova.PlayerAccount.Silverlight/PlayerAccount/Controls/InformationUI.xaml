@@ -3,9 +3,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" x:Class="TheS.Casinova.PlayerAccount.Controls.InformationUI"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:TheS_Casinova_PlayerAccount_ViewModels="clr-namespace:TheS.Casinova.PlayerAccount.ViewModels" x:Class="TheS.Casinova.PlayerAccount.Controls.InformationUI"
     mc:Ignorable="d"
     d:DesignHeight="270" d:DesignWidth="560">
+    
+	<UserControl.Resources>
+		<TheS_Casinova_PlayerAccount_ViewModels:InformationViewModel x:Key="InformationViewModelDataSource" d:IsDataSource="True"/>
+	</UserControl.Resources>
+	<UserControl.DataContext>
+		<Binding Source="{StaticResource InformationViewModelDataSource}"/>
+	</UserControl.DataContext>
     
     <Grid x:Name="LayoutRoot" Background="White">
 
@@ -14,9 +21,9 @@
     		<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Current totla:" VerticalAlignment="Top" Margin="8,8,0,0" FontWeight="Bold"/>
     		<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Refundable:" Margin="8,28,0,30" FontWeight="Bold" d:LayoutOverrides="Height"/>
     		<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Non-refundable:" VerticalAlignment="Bottom" Margin="8,0,0,10" FontWeight="Bold"/>
-    		<TextBlock x:Name="CurrentTotal" HorizontalAlignment="Left" TextWrapping="Wrap" Text="CurrentTotal" VerticalAlignment="Top" Margin="96,8,0,0"/>
-    		<TextBlock x:Name="Refundable" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Refundable" Margin="86,28,0,30" d:LayoutOverrides="Height"/>
-    		<TextBlock x:Name="NonRefundable" HorizontalAlignment="Left" TextWrapping="Wrap" Text="NonRefundable" VerticalAlignment="Bottom" Margin="113,0,0,10"/>
+    		<TextBlock x:Name="CurrentTotal" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding CurrentTotal}" VerticalAlignment="Top" Margin="96,8,0,0"/>
+    		<TextBlock x:Name="Refundable" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Refundable}" Margin="86,28,0,30" d:LayoutOverrides="Height"/>
+    		<TextBlock x:Name="NonRefundable" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding NonRefundable}" VerticalAlignment="Bottom" Margin="113,0,0,10"/>
     		<Button x:Name="Cashback" Content="Cashback" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Margin="0,0,8,7" Click="InformationCashbackButton_Click" />
     		<Button x:Name="Deposit" Content="Deposit" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Margin="0,0,87,7" Click="InformationDepositButton_Click" />
     	</Grid>
