@@ -98,6 +98,7 @@
     <Compile Include="MLN\Controls\MLNUI.xaml.cs">
       <DependentUpon>MLNUI.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MLN\Models\DownlineDetail.cs" />
     <Compile Include="MLN\ViewModels\AnotherPlayerInformationModel.cs" />
     <Compile Include="MLN\ViewModels\DownlineDetailViewModel.cs" />
     <Compile Include="MLN\Views\AnotherPlayerInformationWindow.xaml.cs">

@@ -27,9 +27,11 @@
 							<sdk:DataGridTextColumn Binding="{Binding Round}" Header="Round"/>
 							<sdk:DataGridTextColumn Binding="{Binding Player}" Header="Player"/>
 							<sdk:DataGridTextColumn Binding="{Binding Bet}" Header="Bet"/>
-        					<sdk:DataGridTextColumn Binding="{Binding Color}" Header="Color"/>
-        					<sdk:DataGridTextColumn Binding="{Binding WinColor}" Header="WinColor"/>
+							<sdk:DataGridTextColumn Binding="{Binding Color}" Header="Color"/>
+							<sdk:DataGridTextColumn Binding="{Binding WinColor}" Header="WinColor"/>
 							<sdk:DataGridCheckBoxColumn Binding="{Binding Match}" Header="Match"/>
+							<sdk:DataGridTextColumn Binding="{Binding BlackPot}" Header="BlackPot"/>
+							<sdk:DataGridTextColumn Binding="{Binding WhitePot}" Header="WhitePot"/>
         				</sdk:DataGrid.Columns>
         			</sdk:DataGrid>
         		</Grid>

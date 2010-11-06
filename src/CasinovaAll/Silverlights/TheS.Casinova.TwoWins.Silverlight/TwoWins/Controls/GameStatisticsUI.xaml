@@ -58,14 +58,17 @@
     		</Grid.ColumnDefinitions>
     		<Button x:Name="OptionButton" Content="Single" Margin="0,0,5,0"/>
 
-    		<sdk:DatePicker x:Name="FirstData" d:LayoutOverrides="Height" Grid.Column="1"/>
-    		<sdk:DatePicker x:Name="SecondData" d:LayoutOverrides="Height" Grid.Column="3" Visibility="Collapsed"/>
+    		<sdk:DatePicker x:Name="FirstData" d:LayoutOverrides="Height" Grid.Column="1" SelectedDate="{Binding FirstData}"/>
+    		<sdk:DatePicker x:Name="SecondData" d:LayoutOverrides="Height" Grid.Column="3" Visibility="Collapsed" SelectedDate="{Binding SecondData}"/>
     		<TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="to" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Collapsed"/>
 
     	</Grid>
-    	<StackPanel Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,8,0,0">
+    	<StackPanel Grid.Row="1" VerticalAlignment="Top" d:LayoutOverrides="Width" HorizontalAlignment="Center">
     		<TextBlock TextWrapping="Wrap" Text="POT" TextAlignment="Center" d:LayoutOverrides="GridBox" FontSize="13.333"/>
-    		<TextBlock x:Name="POT" TextWrapping="Wrap" Text="{Binding Pot}" FontSize="21.333" FontWeight="Bold" TextAlignment="Center" TextDecorations="Underline" d:LayoutOverrides="GridBox"/>
+    		<StackPanel Orientation="Horizontal">
+    			<TextBlock TextWrapping="Wrap" Text="$" FontSize="21.333" FontWeight="Bold"/>
+    			<TextBlock x:Name="POT" TextWrapping="Wrap" Text="{Binding Pot}" FontSize="21.333" FontWeight="Bold" TextAlignment="Center" TextDecorations="Underline" d:LayoutOverrides="Width, GridBox"/>
+    		</StackPanel>
     		<Grid Margin="3">
     			<Rectangle Fill="#FFF4F4F5" Stroke="Black" RadiusX="1" RadiusY="1"/>
     			<Grid Margin="3">
@@ -78,37 +81,17 @@
     		</Grid>
 
     	</StackPanel>
-    	<Grid Grid.Row="1" VerticalAlignment="Bottom" Margin="8,0">
-    		<Grid.ColumnDefinitions>
-    			<ColumnDefinition Width="0.5*"/>
-    			<ColumnDefinition Width="0.5*"/>
-    		</Grid.ColumnDefinitions>
-    		<Grid.RowDefinitions>
-    			<RowDefinition Height="0.25*"/>
-    			<RowDefinition Height="0.75*"/>
-    		</Grid.RowDefinitions>
-    		<TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="High" FontWeight="Bold" d:LayoutOverrides="Height, GridBox" VerticalAlignment="Center"/>
-    		<TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Low" FontWeight="Bold" d:LayoutOverrides="Height" Grid.Column="1" VerticalAlignment="Center"/>
-    		<sdk:DataGrid Grid.Column="1" Grid.Row="1" AutoGenerateColumns="False" ItemsSource="{Binding WinnerLow}" Margin="4,0,0,0">
-    			<sdk:DataGrid.Columns>
-    				<sdk:DataGridTextColumn Binding="{Binding State}" Header="State"/>
-					<sdk:DataGridTextColumn Binding="{Binding Time}" Header="Time"/>
-					<sdk:DataGridTextColumn Binding="{Binding Player}" Header="Player"/>
-    				<sdk:DataGridTextColumn Binding="{Binding Bet}" Header="Bet"/>
-    				<sdk:DataGridTextColumn Binding="{Binding Getback}" Header="Getback"/>
-    			</sdk:DataGrid.Columns>
-    		</sdk:DataGrid>
-    		<sdk:DataGrid Grid.Row="1" AutoGenerateColumns="False" ItemsSource="{Binding WinnerHigh}" Margin="0,0,4,0">
-    			<sdk:DataGrid.Columns>
-    				<sdk:DataGridTextColumn Binding="{Binding State}" Header="State"/>
-					<sdk:DataGridTextColumn Binding="{Binding Time}" Header="Time"/>
-					<sdk:DataGridTextColumn Binding="{Binding Player}" Header="Player"/>
-    				<sdk:DataGridTextColumn Binding="{Binding Bet}" Header="Bet"/>
-    				<sdk:DataGridTextColumn Binding="{Binding Getback}" Header="Getback"/>
-    			</sdk:DataGrid.Columns>
-    		</sdk:DataGrid>
-
-    	</Grid>
+    	<sdk:DataGrid Margin="8,84,8,0" Grid.Row="1" d:LayoutOverrides="HorizontalAlignment" AutoGenerateColumns="False" ItemsSource="{Binding Informations}">
+    		<sdk:DataGrid.Columns>
+    			<sdk:DataGridTextColumn Binding="{Binding Time}" Header="Time"/>
+				<sdk:DataGridTextColumn Binding="{Binding Round}" Header="Round"/>
+				<sdk:DataGridTextColumn Binding="{Binding GameState}" Header="GameState"/>
+				<sdk:DataGridTextColumn Binding="{Binding Player}" Header="Player"/>
+    			<sdk:DataGridTextColumn Binding="{Binding Bet}" Header="Bet" />
+				<sdk:DataGridTextColumn Binding="{Binding WinState}" Header="WinState" />
+    			<sdk:DataGridTextColumn Binding="{Binding Getback}" Header="Getback"/>
+    		</sdk:DataGrid.Columns>
+    	</sdk:DataGrid>
 
     </Grid>
 </UserControl>

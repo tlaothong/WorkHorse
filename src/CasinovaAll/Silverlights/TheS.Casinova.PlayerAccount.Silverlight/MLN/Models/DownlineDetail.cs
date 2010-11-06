@@ -9,13 +9,11 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace TheS.Casinova.TwoWins.Models
+namespace TheS.Casinova.MLN.Models
 {
-    public class BetdataInfo : WinnerInfo
+    public class DownlineDetail
     {
-        public int HandID { get; set; }
-        public bool Change { get; set; }
-        public double OldBet { get; set; }
-        public double Pot { get; set; }
+        public string Name { get; set; }
+        public int GroupCount { get; set; }
     }
 }

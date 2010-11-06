@@ -23,17 +23,18 @@
     			<Grid Background="#FFE5E5E5">
     				<sdk:DataGrid x:Name="BetDataContent" AutoGenerateColumns="False" ItemsSource="{Binding Informations}">
     					<sdk:DataGrid.Columns>
-    						<sdk:DataGridTextColumn Binding="{Binding Round}" Header="Round"/>
     						<sdk:DataGridTextColumn Binding="{Binding Time}" Header="Time"/>
-							<sdk:DataGridTextColumn Binding="{Binding Status}" Header="Status"/>
+    						<sdk:DataGridTextColumn Binding="{Binding Round}" Header="Round"/>
+							<sdk:DataGridTextColumn Binding="{Binding GameState}" Header="GameState"/>
 							<sdk:DataGridTextColumn Binding="{Binding Player}" Header="Player"/>
     						<sdk:DataGridTextColumn Binding="{Binding Bet}" Header="Bet"/>
 							<sdk:DataGridTextColumn Binding="{Binding HandID}" Header="HandID"/>
     						<sdk:DataGridCheckBoxColumn Binding="{Binding Change}" Header="Change"/>
 							<sdk:DataGridTextColumn Binding="{Binding OldBet}" Header="OldBet"/>
 							<sdk:DataGridTextColumn Binding="{Binding Pot}" Header="Pot"/>
+							<sdk:DataGridTextColumn Binding="{Binding WinState}" Header="WinState"/>
     						<sdk:DataGridTextColumn Binding="{Binding Getback}" Header="Getback"/>
-    						<sdk:DataGridTextColumn Binding="{Binding State}" Header="State"/>
+    						
     					</sdk:DataGrid.Columns>
     				</sdk:DataGrid>
     			</Grid>

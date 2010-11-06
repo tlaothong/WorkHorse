@@ -31,8 +31,10 @@ namespace TheS.Casinova.MLN.ViewModels
             get { return _informations; }
             set
             {
-                _informations = value;
-                RaisePropertyChanged("Informations");
+                if (_informations!=value) {
+                    _informations = value;
+                    RaisePropertyChanged("Informations"); 
+                }
             }
         }
 
@@ -41,7 +43,10 @@ namespace TheS.Casinova.MLN.ViewModels
             get { return _thirdLevel; }
             set
             {
-                _thirdLevel = value; RaisePropertyChanged("ThirdLevel");
+                if (_thirdLevel!=value) {
+                    _thirdLevel = value;
+                    RaisePropertyChanged("ThirdLevel"); 
+                }
             }
         }
 
@@ -50,7 +55,10 @@ namespace TheS.Casinova.MLN.ViewModels
             get { return _secondLevel; }
             set
             {
-                _secondLevel = value; RaisePropertyChanged("SecondLevel");
+                if (_secondLevel!=value) {
+                    _secondLevel = value;
+                    RaisePropertyChanged("SecondLevel"); 
+                }
             }
         }
 
@@ -59,7 +67,10 @@ namespace TheS.Casinova.MLN.ViewModels
             get { return _firstLevel; }
             set
             {
-                _firstLevel = value; RaisePropertyChanged("FirstLevel");
+                if (_firstLevel!=value) {
+                    _firstLevel = value;
+                    RaisePropertyChanged("FirstLevel"); 
+                }
             }
         }
 
@@ -68,8 +79,10 @@ namespace TheS.Casinova.MLN.ViewModels
             get { return _currentBunusAvailable; }
             set
             {
-                _currentBunusAvailable = value;
-                RaisePropertyChanged("CurrentBunusAvailable");
+                if (_currentBunusAvailable!=value) {
+                    _currentBunusAvailable = value;
+                    RaisePropertyChanged("CurrentBunusAvailable"); 
+                }
             }
         }
 

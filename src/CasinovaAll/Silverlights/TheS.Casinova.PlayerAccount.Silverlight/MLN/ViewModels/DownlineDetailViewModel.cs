@@ -9,6 +9,8 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.ComponentModel;
+using System.Collections.ObjectModel;
+using TheS.Casinova.MLN.Models;
 
 namespace TheS.Casinova.MLN.ViewModels
 {
@@ -20,18 +22,31 @@ namespace TheS.Casinova.MLN.ViewModels
         private int _level;
         private double _incomePerday;
         private double _includePerday;
+        private ObservableCollection<DownlineDetail> _informations;
 
         #endregion Fields
 
         #region Properties
+
+        public ObservableCollection<DownlineDetail> Informations
+        {
+            get { return _informations; }
+            set
+            {
+                _informations = value;
+                RaisePropertyChanged("Informations");
+            }
+        }
 
         public double IncludePerday
         {
             get { return _includePerday; }
             set
             {
-                _includePerday = value;
-                RaisePropertyChanged("IncludePerday");
+                if (_includePerday!=value) {
+                    _includePerday = value;
+                    RaisePropertyChanged("IncludePerday"); 
+                }
             }
         }
 
@@ -40,8 +55,10 @@ namespace TheS.Casinova.MLN.ViewModels
             get { return _incomePerday; }
             set
             {
-                _incomePerday = value;
-                RaisePropertyChanged("IncomePerday");
+                if (_incomePerday!=value) {
+                    _incomePerday = value;
+                    RaisePropertyChanged("IncomePerday"); 
+                }
             }
         }
 
@@ -50,8 +67,10 @@ namespace TheS.Casinova.MLN.ViewModels
             get { return _level; }
             set
             {
-                _level = value;
-                RaisePropertyChanged("Level");
+                if (_level!=value) {
+                    _level = value;
+                    RaisePropertyChanged("Level"); 
+                }
             }
         }
 
@@ -60,12 +79,42 @@ namespace TheS.Casinova.MLN.ViewModels
             get { return _total; }
             set
             {
-                _total = value;
-                RaisePropertyChanged("Total");
+                if (_total!=value) {
+                    _total = value;
+                    RaisePropertyChanged("Total"); 
+                }
             }
         }
 
         #endregion Properties
+
+        #region Constructors
+
+        public DownlineDetailViewModel()
+        {
+            _informations = new ObservableCollection<DownlineDetail>();
+
+            if (DesignerProperties.IsInDesignTool) {
+                IncomePerday = 30;
+                IncludePerday = 1.2;
+                Level = 1;
+                Total = 42;
+                Informations.Add(new DownlineDetail {
+                    Name = "John",
+                    GroupCount = 45
+                });
+                Informations.Add(new DownlineDetail {
+                    Name = "Doe",
+                    GroupCount = 4
+                });
+                Informations.Add(new DownlineDetail {
+                    Name = "Test",
+                    GroupCount = 330
+                });
+            }
+        } 
+
+        #endregion Constructors
 
         #region Methods
         

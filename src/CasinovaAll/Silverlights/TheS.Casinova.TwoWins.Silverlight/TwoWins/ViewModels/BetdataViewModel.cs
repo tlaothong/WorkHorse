@@ -47,7 +47,7 @@ namespace TheS.Casinova.TwoWins.ViewModels
             if (DesignerProperties.IsInDesignTool) {
                 Informations.Add(new BetdataInfo {
                     Player = "John",
-                    State = "Normal",
+                    GameState = "Normal",
                     Time = new DateTime(2010, 11, 3, 11, 42, 21),
                     Bet = 70000,
                     Getback = 123456,
@@ -55,37 +55,37 @@ namespace TheS.Casinova.TwoWins.ViewModels
                     Change = true,
                     OldBet = 1,
                     Pot = 1234567,
-                    Status = "High"
+                    WinState = "High"
                     ,
                     Round = 1
                 });
                 Informations.Add(new BetdataInfo {
                     Player = "John",
-                    State = "Critical",
+                    GameState = "Critical",
                     Time = new DateTime(2010, 11, 3, 12, 52, 21),
                     Bet = 70000,
                     Getback = 12345600,
                     HandID = 351,
                     Pot = 1234567,
-                    Status = "High"
+                    WinState = "High"
                     ,
                     Round = 1
                 });
                 Informations.Add(new BetdataInfo {
                     Player = "Donal",
-                    State = "Critical",
+                    GameState = "Critical",
                     Time = new DateTime(2010, 11, 3, 11, 50, 32),
                     Bet = 12,
                     Getback = 4521,
                     HandID = 4563,
                     Pot = 32561,
-                    Status = "Low"
+                    WinState = "Low"
                     ,
                     Round = 1
                 });
                 Informations.Add(new BetdataInfo {
                     Player = "Carry",
-                    State = "Critical",
+                    GameState = "Critical",
                     Time = new DateTime(2010, 11, 3, 12, 52, 21),
                     Bet = 70000,
                     Getback = 12345600,
@@ -93,13 +93,13 @@ namespace TheS.Casinova.TwoWins.ViewModels
                     Change = true,
                     OldBet = 123,
                     Pot = 1234567,
-                    Status = "High"
+                    WinState = "High"
                     ,
                     Round = 2
                 });
                 Informations.Add(new BetdataInfo {
                     Player = "ABC",
-                    State = "Critical",
+                    GameState = "Critical",
                     Time = new DateTime(2010, 11, 3, 12, 52, 21),
                     Bet = 70000,
                     Getback = 12345600,
@@ -107,7 +107,7 @@ namespace TheS.Casinova.TwoWins.ViewModels
                     OldBet = 5523,
                     Change = true,
                     Pot = 1234567,
-                    Status = "Low"
+                    WinState = "Low"
                     ,
                     Round = 2
                 });

@@ -64,16 +64,16 @@
     		</Grid.ColumnDefinitions>
     		<Button x:Name="OptionButton" Content="Single" Margin="0,0,5,0"/>
 
-    		<sdk:DatePicker x:Name="FirstData" d:LayoutOverrides="Height" Grid.Column="1"/>
-    		<sdk:DatePicker x:Name="SecondData" d:LayoutOverrides="Height" Grid.Column="3" Visibility="Collapsed"/>
+    		<sdk:DatePicker x:Name="FirstData" d:LayoutOverrides="Height" Grid.Column="1" SelectedDate="{Binding FirstData}"/>
+    		<sdk:DatePicker x:Name="SecondData" d:LayoutOverrides="Height" Grid.Column="3" Visibility="Collapsed" SelectedDate="{Binding SecondData}"/>
     		<TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="to" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Collapsed"/>
     		<ComboBox x:Name="Games" d:LayoutOverrides="Height" Grid.Column="4" Margin="4,0,0,0" ItemTemplate="{StaticResource StringTemplate}" ItemsSource="{Binding Games}"/>
 
     	</Grid>
     	<sdk:DataGrid x:Name="Contents" Grid.Row="1" Margin="8,0" AutoGenerateColumns="False" ItemsSource="{Binding Informations}" HorizontalAlignment="Center" VerticalAlignment="Center">
     		<sdk:DataGrid.Columns>
+    			<sdk:DataGridTextColumn Binding="{Binding Time}" Header="Time"/>
     			<sdk:DataGridTextColumn Binding="{Binding Round}" Header="Round"/>
-				<sdk:DataGridTextColumn Binding="{Binding Time}" Header="Time"/>
     			<sdk:DataGridTextColumn Binding="{Binding Winner}" Header="Winner"/>
     		</sdk:DataGrid.Columns>
     	</sdk:DataGrid>

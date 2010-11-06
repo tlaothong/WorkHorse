@@ -26,7 +26,6 @@ namespace TheS.Casinova.Colors.ViewModels
 
         #endregion Fields
 
-
         #region Properties
 
         public DateTime SecondData
@@ -34,8 +33,10 @@ namespace TheS.Casinova.Colors.ViewModels
             get { return _secondData; }
             set
             {
-                _secondData = value;
-                _notify.Raise(() => SecondData);
+                if (_secondData!=value) {
+                    _secondData = value;
+                    _notify.Raise(() => SecondData); 
+                }
             }
         }
 
@@ -44,8 +45,10 @@ namespace TheS.Casinova.Colors.ViewModels
             get { return _firstData; }
             set
             {
-                _firstData = value;
-                _notify.Raise(() => FirstData);
+                if (_firstData!=value) {
+                    _firstData = value;
+                    _notify.Raise(() => FirstData); 
+                }
             }
         }
 
@@ -54,24 +57,34 @@ namespace TheS.Casinova.Colors.ViewModels
             get { return _whitePot; }
             set
             {
-                _whitePot = value;
-                    _notify.Raise(() => WhitePot);
+                if (_whitePot!=value) {
+                    _whitePot = value;
+                    _notify.Raise(() => WhitePot); 
+                }
             }
         }
 
         public double BlackPot
         {
             get { return _blackPot; }
-            set { _blackPot = value;
-            _notify.Raise(() => BlackPot);
+            set
+            {
+                if (_blackPot!=value) {
+                    _blackPot = value;
+                    _notify.Raise(() => BlackPot); 
+                }
             }
         }
 
         public int Hands
         {
             get { return _hands; }
-            set { _hands = value;
-            _notify.Raise(() => Hands);
+            set
+            {
+                if (_hands != value) {
+                    _hands = value;
+                    _notify.Raise(() => Hands); 
+                }
             }
         }
 
@@ -80,15 +93,17 @@ namespace TheS.Casinova.Colors.ViewModels
             get { return _winner; }
             set
             {
-                _winner = value;
-                _notify.Raise(() => Winner);
+                if (_winner!=value) {
+                    _winner = value;
+                    _notify.Raise(() => Winner); 
+                }
             }
         }
 
         #endregion Properties
 
         #region Constructors
-        
+
         public GameStatisticsViewModel()
         {
             _notify = new PerfEx.Infrastructure.PropertyChangedNotifier(this, () => PropertyChanged);

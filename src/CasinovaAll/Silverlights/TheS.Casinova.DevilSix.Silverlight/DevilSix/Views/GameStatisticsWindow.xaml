@@ -24,10 +24,10 @@
     				<sdk:DataGrid x:Name="BetDataContent" AutoGenerateColumns="False" ItemsSource="{Binding Informations}">
     					<sdk:DataGrid.Columns>    						
 							<sdk:DataGridTextColumn Binding="{Binding Time}" Header="Time"/>
+							<sdk:DataGridTextColumn Binding="{Binding Round}" Header="Round"/>
 							<sdk:DataGridTextColumn Binding="{Binding Winner}" Header="Winner"/>
 							<sdk:DataGridTextColumn Binding="{Binding Bet}" Header="Bet"/>
     						<sdk:DataGridTextColumn Binding="{Binding Pot}" Header="Pot"/>
-							<sdk:DataGridTextColumn Binding="{Binding Round}" Header="Round"/>
     					</sdk:DataGrid.Columns>
     				</sdk:DataGrid>
     			</Grid>

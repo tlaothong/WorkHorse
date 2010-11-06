@@ -25,6 +25,9 @@ namespace TheS.Casinova.Colors.ViewModels
 
         #region Properties
         
+        /// <summary>
+        /// ข้อมูลของการลงเงินทั้งหมด
+        /// </summary>
         public ObservableCollection<BetdataInfo> Informations
         {
             get { return _informations; }
@@ -52,6 +55,8 @@ namespace TheS.Casinova.Colors.ViewModels
                     Time = new DateTime(2010,11,3,12,32,50),
                     WinColor = "Black",
                     Bet = 35,
+                    WhitePot = 35,
+                    BlackPot = 21,
                 });
                 Informations.Add(new BetdataInfo {
                     Color = "White",
@@ -59,7 +64,9 @@ namespace TheS.Casinova.Colors.ViewModels
                     Round = 123,
                     Time = new DateTime(2010, 11, 3, 12, 32, 54),
                     WinColor = "Black",
-                    Bet = 550
+                    Bet = 550,
+                    WhitePot = 1234,
+                    BlackPot = 521,
                 });
                 Informations.Add(new BetdataInfo {
                     Color = "White",
@@ -68,7 +75,9 @@ namespace TheS.Casinova.Colors.ViewModels
                     Match = true,
                     Time = new DateTime(2010, 11, 3, 12, 32, 55),
                     WinColor = "White",
-                    Bet = 1
+                    Bet = 1,
+                    WhitePot = 456,
+                    BlackPot = 789,
                 });
             }
         }

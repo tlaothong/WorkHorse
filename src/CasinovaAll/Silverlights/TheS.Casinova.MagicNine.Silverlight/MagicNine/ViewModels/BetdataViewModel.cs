@@ -52,6 +52,42 @@ namespace TheS.Casinova.MagicNine.ViewModels
                     Winner = "Mioylnet"
                 });
                 Informations.Add(new BetdataInfo {
+                    Pot = 100,
+                    Round = 2,
+                    Time = new DateTime(2010, 11, 3, 10, 53, 43),
+                    Winner = "Mioylnet"
+                });
+                Informations.Add(new BetdataInfo {
+                    Pot = 101,
+                    Round = 2,
+                    Time = new DateTime(2010, 11, 3, 10, 53, 43),
+                    Winner = "Mioylnet"
+                });
+                Informations.Add(new BetdataInfo {
+                    Pot = 102,
+                    Round = 2,
+                    Time = new DateTime(2010, 11, 3, 10, 53, 43),
+                    Winner = "Mioylnet"
+                });
+                Informations.Add(new BetdataInfo {
+                    Pot = 103,
+                    Round = 2,
+                    Time = new DateTime(2010, 11, 3, 10, 53, 44),
+                    Winner = "Mioylnet"
+                });
+                Informations.Add(new BetdataInfo {
+                    Pot = 104,
+                    Round = 2,
+                    Time = new DateTime(2010, 11, 3, 10, 53, 44),
+                    Winner = "Mioylnet"
+                });
+                Informations.Add(new BetdataInfo {
+                    Pot = 105,
+                    Round = 2,
+                    Time = new DateTime(2010, 11, 3, 10, 53, 43),
+                    Winner = "Mioylnet"
+                });
+                Informations.Add(new BetdataInfo {
                     Pot = 199,
                     Round = 2,
                     Time = new DateTime(2010, 11, 3, 10, 53, 52),

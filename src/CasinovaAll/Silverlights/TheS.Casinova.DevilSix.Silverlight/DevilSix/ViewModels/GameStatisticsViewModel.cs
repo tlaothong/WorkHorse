@@ -33,8 +33,10 @@ namespace TheS.Casinova.DevilSix.ViewModels
             get { return _secondData; }
             set
             {
-                _secondData = value;
-                _notify.Raise(() => SecondData);
+                if (_secondData!=value) {
+                    _secondData = value;
+                    _notify.Raise(() => SecondData); 
+                }
             }
         }
 
@@ -43,8 +45,10 @@ namespace TheS.Casinova.DevilSix.ViewModels
             get { return _firstData; }
             set
             {
-                _firstData = value;
-                _notify.Raise(() => FirstData);
+                if (_firstData!=value) {
+                    _firstData = value;
+                    _notify.Raise(() => FirstData); 
+                }
             }
         }
 

@@ -164,32 +164,15 @@ namespace TheS.Casinova.MagicNine.ViewModels
         /// </summary>
         public void Bet()
         {
-            //TODO: Create method for Bet 
+            //TODO: Bet
         }
-
-
 
         /// <summary>
         /// ปิด/เปิด การเล่นอัตโนมัติ
         /// </summary>
-        public void StartStop(ObservableCollection<string> interval)
+        public void StartStop()
         {
-            TimeIntervalViewModel timeSpan = new TimeIntervalViewModel();
-            TimeSpan timeInterval = timeSpan.CreateTimeInterval(interval);
-
-            for (int i = 1; i <= _amount; i++) {
-
-                Bet();
-                System.Threading.Thread.Sleep(timeInterval);
-
-            }
-        }
-
-        
-        // ได้รับค่าของ Pot ณ เวลาขณะนั้น
-        public void GetNumberCompleted()
-        {
-            //TODO: Create Medthods GetNumberCompleted
+            // TODO : StartStop
         }
 
         #endregion Methods
