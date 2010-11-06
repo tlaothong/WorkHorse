@@ -10,7 +10,7 @@ namespace TheS.Casinova.ChipExchange.Models
        /// <summary>
        /// จำนวนเงิน
        /// </summary>
-        public int Amount { get; set; }
+        public double Amount { get; set; }
 
         /// <summary>
         /// ชื่อผู้เล่น
@@ -18,7 +18,7 @@ namespace TheS.Casinova.ChipExchange.Models
         public string UserName { get; set; }
 
         /// <summary>
-        /// ประเภทบัญชี
+        /// ประเภทของบัตรเครดิต
         /// </summary>
         public string CardType { get; set; }
 

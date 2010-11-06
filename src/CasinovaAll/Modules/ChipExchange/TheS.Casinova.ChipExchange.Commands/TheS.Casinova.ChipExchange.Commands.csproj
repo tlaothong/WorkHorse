@@ -40,15 +40,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\ChipsToBonusChipsCommand.cs" />
+    <Compile Include="Commands\ChipsToMoneyCommand.cs" />
+    <Compile Include="Commands\GetPlayerBalanceCommand.cs" />
+    <Compile Include="Commands\GetVoucherCodeCommand.cs" />
+    <Compile Include="Commands\MoneyToBonusChipsCommand.cs" />
+    <Compile Include="Commands\MoneyToChipsCommand.cs" />
+    <Compile Include="Commands\PayVoucherCommand.cs" />
+    <Compile Include="Commands\VoucherToBonusChipsCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Commands\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\Chat\TheS.Casinova.Chat.Models\TheS.Casinova.Chat.Models.csproj">
       <Project>{8E50F3B7-4F44-49BE-A5CE-2CDF66EF4D9C}</Project>
       <Name>TheS.Casinova.Chat.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\PlayerProfile\TheS.Casinova.PlayerProfile.Models\TheS.Casinova.PlayerProfile.Models.csproj">
+      <Project>{96BBA83F-EAA6-4EEA-BEC5-98F6AC39B943}</Project>
+      <Name>TheS.Casinova.PlayerProfile.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Shared\TheS.Casinova.Common.Commands\TheS.Casinova.Common.Commands.csproj">
       <Project>{B0BA601A-7B65-4973-9E00-4F9035883877}</Project>

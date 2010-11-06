@@ -12,11 +12,36 @@
 
         <Button x:Name="CloseButton" Content="Close" Click="CloseButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" FontSize="11" />
         <Grid>
-        	<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Game:" VerticalAlignment="Top" FontSize="13.333" FontWeight="Bold"/>
-        	<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Colors" VerticalAlignment="Top" FontSize="13.333" Margin="52,0,0,0"/>
-        	<ScrollViewer Margin="0,23,0,0">
-        		<TextBlock x:Name="Information" TextWrapping="Wrap" Text="Information" FontSize="11"/>
-        	</ScrollViewer>
+        	<RichTextBox Margin="0" FontSize="11" HorizontalScrollBarVisibility="Visible" IsReadOnly="True">
+        		<Paragraph>
+        			<Run Text="Game: Colors"
+        			FontWeight="Bold"
+					FontSize="12"></Run>
+					<LineBreak/><LineBreak/>
+					<Run Text="Standard Rules"
+        			FontWeight="Bold"></Run>
+					<LineBreak/>
+- Each game period lasts 15 minutes<LineBreak/>
+- Each player may place any amount of bet on either Black, White, or Draw (Player also may choose to place bets on some or all of them)<LineBreak/>
+- Each dollar bet in "Black" will increase the value of Black by one.<LineBreak/>
+- Each dollar bet in "White" will increase the value of White by one.<LineBreak/>
+- Any amount bet in "Draw" will not effect the value of either Black or White.<LineBreak/>
+- Any Player may pay 1 dollar to see the "current status" of bets.<LineBreak/>
+- The "current status" will only show whether "Black is winning", "White is winning", or "Draw".  It will not display the value of either Black or White.<LineBreak/>
+- The screen will only display the current status.  It will not be updated until a player pays to update it.  An update can be ordered for 50 cents.<LineBreak/>
+<LineBreak/>
+<Run Text="Winners" FontWeight="Bold"/>
+<LineBreak/>
+- Players who bet on Black will win, if the value of Black is lower than the value of White at the end of the game.<LineBreak/>
+- Players who bet on White will win, if the value of White is lower than the value of Black at the end of the game.<LineBreak/>
+- Players who bet on Draw will win, if the value of Black and White are exactly the same at the end of the game.<LineBreak/>
+<LineBreak/><Run Text="Payouts" FontWeight="Bold"/>
+<LineBreak/>
+- If Black wins, 1:2<LineBreak/>
+- If White wins, 1:2.<LineBreak/>
+- If Draw wins, 1:10.<LineBreak/>
+				</Paragraph>     	
+			</RichTextBox>
         </Grid>
     </Grid>
 </controls:ChildWindow>

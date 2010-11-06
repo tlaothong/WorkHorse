@@ -36,5 +36,8 @@ namespace TheS.Casinova.PlayerAccount.Commands
         /// </summary>
         public DateTime ExpireDate { get; set; }
 
+        /// สถานะการทำงาน
+        /// </summary>
+        public bool Active { get; set; }
     }
 }

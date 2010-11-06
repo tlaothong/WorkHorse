@@ -3,11 +3,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" x:Class="TheS.Casinova.Chat.Controls.ChatUI"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:TheS_Casinova_Chat_ViewModels="clr-namespace:TheS.Casinova.Chat.ViewModels" x:Class="TheS.Casinova.Chat.Controls.ChatUI"
     mc:Ignorable="d"
     d:DesignHeight="300" d:DesignWidth="400" Width="640" Height="150">
     
 	<UserControl.Resources>
+		<TheS_Casinova_Chat_ViewModels:ChatViewModel x:Key="ChatViewModelDataSource" d:IsDataSource="True"/>
 		<Style x:Key="MenuButtonStyle" TargetType="Button">
 			<Setter Property="Background" Value="#FF1F3B53"/>
 			<Setter Property="Foreground" Value="#FF000000"/>
@@ -88,8 +89,21 @@
 			<Setter Property="HorizontalAlignment" Value="Left"/>
 			<Setter Property="Orientation" Value="Horizontal"/>
 		</Style>
+		<DataTemplate x:Key="StringTemplate">
+			<StackPanel>
+				<TextBlock Text="{Binding Mode=OneWay}"/>
+			</StackPanel>
+		</DataTemplate>
+		<DataTemplate x:Key="StringTemplate1">
+			<StackPanel>
+				<TextBlock Text="{Binding Mode=OneWay}"/>
+			</StackPanel>
+		</DataTemplate>
 
 	</UserControl.Resources>
+	<UserControl.DataContext>
+		<Binding Source="{StaticResource ChatViewModelDataSource}"/>
+	</UserControl.DataContext>
     
     <Grid x:Name="LayoutRoot">
 
@@ -105,8 +119,8 @@
     				</ScrollViewer>
     				<TextBox x:Name="MessageTextBox" TextWrapping="Wrap" Text="MessageTextBox" VerticalAlignment="Bottom" Margin="0,0,62,0"/>
     				<Button x:Name="SendButton" Content="Send" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,8,0" Height="24" Width="50"/>
-    				<ListBox x:Name="PlayerListBox" Grid.Column="1"/>
-    				<ComboBox x:Name="Channel" VerticalAlignment="Top" Margin="42,-28,-6,0" Grid.ColumnSpan="2"/>
+    				<ListBox x:Name="Players" Grid.Column="1" ItemTemplate="{StaticResource StringTemplate1}" ItemsSource="{Binding Players}"/>
+    				<ComboBox x:Name="Channels" VerticalAlignment="Top" Margin="42,-28,-6,0" Grid.ColumnSpan="2" ItemTemplate="{StaticResource StringTemplate}" ItemsSource="{Binding Channels}"/>
     			</Grid>
     		</sdk:TabItem>
     	</sdk:TabControl>

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TheS.Casinova.ChipExchange.Models
 {
-    public class MultilevelNetWorkInformation
+    public class MultiLevelNetworkInformation
     {
         /// <summary>
         /// ชื่อผู้เล่น

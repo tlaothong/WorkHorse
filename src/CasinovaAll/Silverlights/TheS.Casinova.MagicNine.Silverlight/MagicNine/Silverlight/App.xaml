@@ -4,5 +4,11 @@
              >
     <Application.Resources>
         
+    	<ResourceDictionary>
+    		<ResourceDictionary.MergedDictionaries>
+    			<ResourceDictionary Source="/TheS.Casinova.MagicNine.Silverlight;component/MagicNine/Views/ResourceDictionary01.xaml"/>
+    		</ResourceDictionary.MergedDictionaries>
+    	</ResourceDictionary>
+        
     </Application.Resources>
 </Application>

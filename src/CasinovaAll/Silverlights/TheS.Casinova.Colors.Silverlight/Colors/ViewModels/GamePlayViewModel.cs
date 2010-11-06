@@ -10,11 +10,15 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.ComponentModel;
 using PerfEx.Infrastructure;
+using TheS.Casinova.Colors.Models;
+using System.Collections.ObjectModel;
 
 namespace TheS.Casinova.TwoWins.ViewModels
 {
     public class GamePlayPageViewModel : INotifyPropertyChanged
     {
+        #region Fields
+        
         private PropertyChangedNotifier _notify;
         private TimeSpan _gameTime;
         private string _winner;
@@ -22,14 +26,30 @@ namespace TheS.Casinova.TwoWins.ViewModels
         private string _totalAmountOfBlack;
         private string _totalAmountOfWhite;
 
+        private ObservableCollection<GameTable> _tables;
+
+        #endregion Fields
+
+        #region Properties
+
+        public ObservableCollection<GameTable> Tables
+        {
+            get { return _tables; }
+            set
+            {
+                _tables = value;
+                _notify.Raise(() => Tables);
+            }
+        }
+
         public string TotalAmountOfWhite
         {
             get { return _totalAmountOfWhite; }
             set
             {
-                if (_totalAmountOfWhite!=value) {
+                if (_totalAmountOfWhite != value) {
                     _totalAmountOfWhite = value;
-                    _notify.Raise(() => TotalAmountOfWhite); 
+                    _notify.Raise(() => TotalAmountOfWhite);
                 }
             }
         }
@@ -39,9 +59,9 @@ namespace TheS.Casinova.TwoWins.ViewModels
             get { return _totalAmountOfBlack; }
             set
             {
-                if (_totalAmountOfBlack!=value) {
+                if (_totalAmountOfBlack != value) {
                     _totalAmountOfBlack = value;
-                    _notify.Raise(() => TotalAmountOfBlack); 
+                    _notify.Raise(() => TotalAmountOfBlack);
                 }
             }
         }
@@ -51,9 +71,9 @@ namespace TheS.Casinova.TwoWins.ViewModels
             get { return _winnerInformation; }
             set
             {
-                if (_winnerInformation!=value) {
+                if (_winnerInformation != value) {
                     _winnerInformation = value;
-                    _notify.Raise(() => WinnerInformation); 
+                    _notify.Raise(() => WinnerInformation);
                 }
             }
         }
@@ -64,9 +84,9 @@ namespace TheS.Casinova.TwoWins.ViewModels
             get { return _winner; }
             set
             {
-                if (_winner!=value) {
+                if (_winner != value) {
                     _winner = value;
-                    _notify.Raise(() => Winner); 
+                    _notify.Raise(() => Winner);
                 }
             }
         }
@@ -81,10 +101,68 @@ namespace TheS.Casinova.TwoWins.ViewModels
             }
         }
 
+        #endregion Properties
+
+        #region Constructors
+        
         public GamePlayPageViewModel()
         {
             _notify = new PropertyChangedNotifier(this, () => PropertyChanged);
+            _tables = new ObservableCollection<GameTable>();
+
+            if (DesignerProperties.IsInDesignTool) {
+                // Sample tables
+                Tables.Add(new GameTable {
+                    Name = "Colors",
+                    Round = 1,
+                    Amount = 0,
+                    GameTime = new TimeSpan(0, 17, 7),
+                    TotalBetBlack = 0,
+                    TotalBetWhite = 0,
+                    IsPlaying = false
+                });
+                Tables.Add(new GameTable {
+                    Name = "Colors",
+                    Round = 2,
+                    Amount = 1,
+                    GameTime = new TimeSpan(0, 32, 7),
+                    TotalBetBlack = 0,
+                    TotalBetWhite = 1,
+                    IsPlaying = true
+                });
+                Tables.Add(new GameTable {
+                    Name = "Colors",
+                    Round = 3,
+                    Amount = 8200,
+                    GameTime = new TimeSpan(0, 47, 7),
+                    TotalBetBlack = 620,
+                    TotalBetWhite = 7580,
+                    IsPlaying = true
+                });
+                Tables.Add(new GameTable {
+                    Name = "Colors",
+                    Round = 4,
+                    Amount = 0,
+                    GameTime = new TimeSpan(1, 02, 7),
+                    TotalBetBlack = 0,
+                    TotalBetWhite = 0,
+                    IsPlaying = false
+                });
+                Tables.Add(new GameTable {
+                    Name = "Colors",
+                    Round = 5,
+                    Amount = 450,
+                    GameTime = new TimeSpan(1, 17, 7),
+                    TotalBetBlack = 10,
+                    TotalBetWhite = 440,
+                    IsPlaying = true
+                });
+            }
         }
+
+        #endregion Constructors
+
+        #region Methods
 
         public void BetBlack()
         {
@@ -96,6 +174,8 @@ namespace TheS.Casinova.TwoWins.ViewModels
         {
             // TODO : BetWhite clicked
         }
+
+        #endregion Methods
 
         #region INotifyPropertyChanged member
 

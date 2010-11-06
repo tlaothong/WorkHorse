@@ -4,7 +4,7 @@
            xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
            xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:TheS_Casinova_Fortune_ViewModels="clr-namespace:TheS.Casinova.Fortune.ViewModels" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" mc:Ignorable="d" x:Class="TheS.Casinova.Fortune.Views.FortuneWindow"
            Width="600" Height="400" 
-           Title="FortuneWindow" FontSize="21.333">
+           Title="Fortune." FontSize="21.333">
 	<controls:ChildWindow.Resources>
 		<TheS_Casinova_Fortune_ViewModels:FortuneViewModel x:Key="FortuneModelDataSource" d:IsDataSource="True"/>
 		<Style x:Key="CardButton" TargetType="Button">
