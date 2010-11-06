@@ -6,7 +6,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 <div>
-        <button onclick="popupModal('profile.html',500,200);">Log Post</button>
+        <button onclick="popupModal('test.txt',500,200);">Log Post</button>
         <script type="text/javascript">
             function popupModal(url, width, height) {
                 var myDate = new Date();
