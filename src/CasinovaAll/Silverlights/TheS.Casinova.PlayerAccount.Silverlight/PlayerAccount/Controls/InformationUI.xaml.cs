@@ -49,5 +49,11 @@ namespace TheS.Casinova.PlayerAccount.Controls {
             cw.PaymentTabControl.SelectedIndex = tabSelected;
             cw.Show();
         }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            var cw = new AccountInformationEditWindow();
+            cw.Show();
+        }
     }
 }

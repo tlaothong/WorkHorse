@@ -29,10 +29,61 @@ namespace TheS.Casinova.PlayerAccount.ViewModels
         private string _paymentEmailAddress;
         private string _identityNumber;
         private bool _otherRequire;
+        private string _name;
+        private string _email;
+        private string _gender;
 
         #endregion Fields
 
         #region Properties
+
+        /// <summary>
+        /// เพศ
+        /// </summary>
+        public string Gender
+        {
+            get { return _gender; }
+            set
+            {
+                if (_gender!=value)
+                {
+                    _gender = value;
+                    _notify.Raise(() => Gender); 
+                }
+            }
+        }
+
+        /// <summary>
+        /// อีเมล์
+        /// </summary>
+        public string Email
+        {
+            get { return _email; }
+            set
+            {
+                if (_email!=value)
+                {
+                    _email = value;
+                    _notify.Raise(() => Email); 
+                }
+            }
+        }
+
+        /// <summary>
+        /// ชื่อ
+        /// </summary>
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                if (_name!=value)
+                {
+                    _name = value;
+                    _notify.Raise(() => Name); 
+                }
+            }
+        }
 
         /// <summary>
         /// ชนิดของบัตรเครดิต
@@ -247,6 +298,9 @@ namespace TheS.Casinova.PlayerAccount.ViewModels
                 PaymentEmailAddress = "paypal@paypal.com";
                 IdentityNumber = "1-155-663-3-487-3";
                 OtherRequire = true;
+                Name = "Miolynet";
+                Email = "test@test.com";
+                Gender = "Male";
             }
 
         }

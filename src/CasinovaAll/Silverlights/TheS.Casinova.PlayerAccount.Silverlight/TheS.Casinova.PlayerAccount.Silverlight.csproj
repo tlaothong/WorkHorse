@@ -92,6 +92,18 @@
     <Compile Include="ChipExchange\Controls\ChipAmountUI.xaml.cs">
       <DependentUpon>ChipAmountUI.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ChipExchange\Controls\ChipMenuUI.xaml.cs">
+      <DependentUpon>ChipMenuUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChipExchange\Controls\GiftVoucherUI.xaml.cs">
+      <DependentUpon>GiftVoucherUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChipExchange\Controls\NonRefundableChipsUI.xaml.cs">
+      <DependentUpon>NonRefundableChipsUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChipExchange\Controls\RefundableChipsUI.xaml.cs">
+      <DependentUpon>RefundableChipsUI.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ChipExchange\ViewModels\AmountConfirmationViewModel.cs" />
     <Compile Include="ChipExchange\Views\AmountConfirmationWindow.xaml.cs">
       <DependentUpon>AmountConfirmationWindow.xaml</DependentUpon>
@@ -108,6 +120,7 @@
     <Compile Include="MLN\Models\DownlineDetail.cs" />
     <Compile Include="MLN\ViewModels\AnotherPlayerInformationModel.cs" />
     <Compile Include="MLN\ViewModels\DownlineDetailViewModel.cs" />
+    <Compile Include="MLN\ViewModels\MLNViewModel.cs" />
     <Compile Include="MLN\Views\AnotherPlayerInformationWindow.xaml.cs">
       <DependentUpon>AnotherPlayerInformationWindow.xaml</DependentUpon>
     </Compile>
@@ -125,8 +138,8 @@
     </Compile>
     <Compile Include="PlayerAccount\ViewModels\AccountInformationViewModel.cs" />
     <Compile Include="PlayerAccount\ViewModels\InformationViewModel.cs" />
-    <Compile Include="PlayerAccount\Views\AccountInformationEditPage.xaml.cs">
-      <DependentUpon>AccountInformationEditPage.xaml</DependentUpon>
+    <Compile Include="PlayerAccount\Views\AccountInformationEditWindow.xaml.cs">
+      <DependentUpon>AccountInformationEditWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="PlayerAccount\Views\AccountInformationPage.xaml.cs">
       <DependentUpon>AccountInformationPage.xaml</DependentUpon>
@@ -147,6 +160,22 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="ChipExchange\Controls\ChipAmountUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChipExchange\Controls\ChipMenuUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChipExchange\Controls\GiftVoucherUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChipExchange\Controls\NonRefundableChipsUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChipExchange\Controls\RefundableChipsUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -182,7 +211,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PlayerAccount\Views\AccountInformationEditPage.xaml">
+    <Page Include="PlayerAccount\Views\AccountInformationEditWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -9,17 +9,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
-using System.Windows.Navigation;
 
-namespace TheS.Casinova.PlayerAccount.Views {
-    public partial class AccountInformationEditPage : Page {
-        public AccountInformationEditPage() {
+namespace TheS.Casinova.ChipExchange.Controls
+{
+    public partial class NonRefundableChipsUI : UserControl
+    {
+        public NonRefundableChipsUI()
+        {
             InitializeComponent();
         }
-
-        // Executes when the user navigates to this page.
-        protected override void OnNavigatedTo(NavigationEventArgs e) {
-        }
-
     }
 }

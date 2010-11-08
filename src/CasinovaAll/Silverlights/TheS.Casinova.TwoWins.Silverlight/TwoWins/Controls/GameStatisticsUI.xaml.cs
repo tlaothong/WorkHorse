@@ -10,9 +10,11 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using TheS.Casinova.TwoWins.Views;
+using TheS.Casinova.Common;
 
 namespace TheS.Casinova.TwoWins.Controls
 {
+    [ExportStatisticsContent(DisplayText = "Colors")]
     public partial class GameStatisticsUI : UserControl
     {
         public GameStatisticsUI()

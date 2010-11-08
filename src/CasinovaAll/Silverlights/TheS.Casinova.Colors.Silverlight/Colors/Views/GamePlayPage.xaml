@@ -66,9 +66,5 @@
     			</ItemsPanelTemplate>
     		</ListBox.ItemsPanel>
     	</ListBox>
-    	<StackPanel DataContext="{Binding SelectedItem, ElementName=listBox}" Margin="8,0,216,8" VerticalAlignment="Bottom" d:DataContext="{Binding Tables[0]}" >
-    		<TextBlock Text="{Binding TotalBetBlack}" Margin="0,0,50,0"/>
-    		<TextBlock Text="{Binding TotalBetWhite}" Margin="0,0,50,0"/>
-    	</StackPanel>
     </Grid>
 </navigation:Page>
