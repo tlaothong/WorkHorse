@@ -81,7 +81,7 @@
     		</Grid>
 
     	</StackPanel>
-    	<sdk:DataGrid Margin="8,84,8,0" Grid.Row="1" d:LayoutOverrides="HorizontalAlignment" AutoGenerateColumns="False" ItemsSource="{Binding Informations}">
+    	<sdk:DataGrid Margin="8,84,8,0" Grid.Row="1" d:LayoutOverrides="HorizontalAlignment" AutoGenerateColumns="False" ItemsSource="{Binding Informations}" IsReadOnly="True">
     		<sdk:DataGrid.Columns>
     			<sdk:DataGridTextColumn Binding="{Binding Time}" Header="Time"/>
 				<sdk:DataGridTextColumn Binding="{Binding Round}" Header="Round"/>

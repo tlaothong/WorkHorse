@@ -21,7 +21,7 @@
     	<sdk:TabControl x:Name="ContentTabControl" FontSize="11">
     		<sdk:TabItem Header="Bet data">
     			<Grid Background="#FFE5E5E5">
-    				<sdk:DataGrid x:Name="BetDataContent" AutoGenerateColumns="False" ItemsSource="{Binding Informations}">
+    				<sdk:DataGrid x:Name="BetDataContent" AutoGenerateColumns="False" ItemsSource="{Binding Informations}" IsReadOnly="True">
     					<sdk:DataGrid.Columns>
     						<sdk:DataGridTextColumn Binding="{Binding Time}" Header="Time"/>
     						<sdk:DataGridTextColumn Binding="{Binding Round}" Header="Round"/>

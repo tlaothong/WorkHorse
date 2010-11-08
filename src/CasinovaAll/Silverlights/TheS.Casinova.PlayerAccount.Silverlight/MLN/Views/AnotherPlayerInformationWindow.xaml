@@ -22,7 +22,6 @@
         	<Rectangle Fill="#FFFFB4B4" Stroke="Black"/>
         	<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Current bonus available:" VerticalAlignment="Top" Margin="8,11,0,0" FontWeight="Bold" FontSize="11"/>
         	<TextBlock x:Name="CurrentBunusAvailable" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding CurrentBunusAvailable}" VerticalAlignment="Top" Margin="164,11,0,0" FontSize="11"/>
-        	<sdk:DataGrid x:Name="Informations" Margin="8,34,8,9" FontSize="11" DataContext="{Binding Informations}"/>
         </Grid>
         <Grid Margin="0,84,0,0" d:LayoutOverrides="VerticalAlignment">
         	<Grid.ColumnDefinitions>
@@ -40,6 +39,24 @@
         		<TextBlock x:Name="SecondLevel" TextWrapping="Wrap" Text="{Binding SecondLevel}" HorizontalAlignment="Left" Width="86" VerticalAlignment="Center" Margin="61,0,0,0" FontSize="11"/>
         		<TextBlock x:Name="ThirdLevel" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding ThirdLevel}" VerticalAlignment="Bottom" Margin="61,0,0,11" FontSize="11"/>
         	</Grid>
+        </Grid>
+        <Grid Margin="8,34,26,0" Height="38" VerticalAlignment="Top">
+        	<Grid.ColumnDefinitions>
+        		<ColumnDefinition Width="0.33*"/>
+        		<ColumnDefinition Width="0.34*"/>
+        		<ColumnDefinition Width="0.33*"/>
+        	</Grid.ColumnDefinitions>
+        	<Grid.RowDefinitions>
+        		<RowDefinition Height="0.498*"/>
+        		<RowDefinition Height="0.502*"/>
+        	</Grid.RowDefinitions>
+        	<Rectangle Fill="White" Stroke="Black" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
+        	<TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="This month" VerticalAlignment="Center" FontWeight="Bold" FontSize="11"/>
+        	<TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Last month" VerticalAlignment="Center" FontWeight="Bold" Grid.Column="1" FontSize="11"/>
+        	<TextBlock TextWrapping="Wrap" Text="Life time" FontWeight="Bold" Grid.Column="2" d:LayoutOverrides="Width, Height" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="11"/>
+        	<TextBlock x:Name="ThisMonth" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding ThisMonth}" Grid.Row="1" VerticalAlignment="Center" FontSize="11"/>
+        	<TextBlock x:Name="LastMonth" TextWrapping="Wrap" Text="{Binding LastMonth}" Grid.Row="1" Grid.Column="1" d:LayoutOverrides="Width, Height" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="11"/>
+        	<TextBlock x:Name="LifeTime" TextWrapping="Wrap" Text="{Binding LifeTime}" Grid.Row="1" Grid.Column="2" d:LayoutOverrides="Width, Height" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="11"/>
         </Grid>
 
     </Grid>

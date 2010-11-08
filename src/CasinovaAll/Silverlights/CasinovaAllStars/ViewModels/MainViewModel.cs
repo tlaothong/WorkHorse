@@ -13,6 +13,7 @@ using System.Collections.ObjectModel;
 using TheS.Casinova.Common;
 using System.Collections.Specialized;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace CasinovaAllStars.ViewModels
 {
@@ -22,20 +23,21 @@ namespace CasinovaAllStars.ViewModels
         #region Fields
         
         private ObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> _popups;
-        private ReadOnlyObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> _readOnlyPopups;
+
+        private PerfEx.Infrastructure.PropertyChangedNotifier _notif;
 
         #endregion Fields
 
         #region Properties
 
-        public ReadOnlyObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> PopupsTop
+        public IEnumerable<Lazy<ChildWindow, IPopupContentMetadata>> PopupsTop
         {
-            get { return _readOnlyPopups; }
+            get { return _popups.Where(p => p.Metadata.GroupName == "top"); }
         }
 
-        public ReadOnlyObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> PopupsBottom
+        public IEnumerable<Lazy<ChildWindow, IPopupContentMetadata>> PopupsBottom
         {
-            get { return _readOnlyPopups; }
+            get { return _popups.Where(p => p.Metadata.GroupName == "bottom"); }
         }
 
         #endregion Properties
@@ -44,11 +46,11 @@ namespace CasinovaAllStars.ViewModels
 
         public MainViewModel()
         {
+            _notif = new PerfEx.Infrastructure.PropertyChangedNotifier(this, () => PropertyChanged);
             if (App.SupportContentDownloaded == false) {
                 App.SupportContentDownloadCompleted += new EventHandler(App_SupportContentDownloadCompleted);
             }
             _popups = new ObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>>();
-            _readOnlyPopups = new ReadOnlyObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>>(_popups);
         } 
 
         #endregion Constructors
@@ -58,10 +60,6 @@ namespace CasinovaAllStars.ViewModels
         private void App_SupportContentDownloadCompleted(object sender, EventArgs e)
         {
             ((INotifyCollectionChanged)App.ModuleLoader.PopupContents).CollectionChanged += new NotifyCollectionChangedEventHandler(MainViewModel_CollectionChanged);
-            PropertyChangedEventHandler temp = PropertyChanged;
-            if (temp != null) {
-                temp(this, new PropertyChangedEventArgs("Popups"));
-            }
         }
 
         private void MainViewModel_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
@@ -70,6 +68,9 @@ namespace CasinovaAllStars.ViewModels
             foreach (var item in App.ModuleLoader.PopupContents) {
                 _popups.Add(item);
             }
+
+            _notif.Raise(() => PopupsTop);
+            _notif.Raise(() => PopupsBottom);
         }
 
         #endregion Methods

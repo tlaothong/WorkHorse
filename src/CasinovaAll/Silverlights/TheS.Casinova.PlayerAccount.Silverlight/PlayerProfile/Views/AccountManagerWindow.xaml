@@ -31,7 +31,7 @@
     					<sdk:DatePicker x:Name="FirstSearch" HorizontalAlignment="Left" Margin="62,8,0,9" d:LayoutOverrides="Height" Width="170" SelectedDate="{Binding FirstSearch}"/>
     					<sdk:DatePicker x:Name="SecondSearch" Margin="249,8,112,9" d:LayoutOverrides="Height" Visibility="Collapsed" SelectedDate="{Binding SecondSearch}"/>
     				</Grid>
-    				<sdk:DataGrid x:Name="LogEventDataGrid" Margin="0,44,0,0" AutoGenerateColumns="False" ItemsSource="{Binding LogEventInformations}">
+    				<sdk:DataGrid x:Name="LogEventDataGrid" Margin="0,44,0,0" AutoGenerateColumns="False" ItemsSource="{Binding LogEventInformations}" IsReadOnly="True">
     					<sdk:DataGrid.Columns>
     						<sdk:DataGridTextColumn Binding="{Binding Time}" Header="Time"/>
     						<sdk:DataGridTextColumn Binding="{Binding Action}" Header="Action"/>

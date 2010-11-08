@@ -44,7 +44,7 @@
     	</Grid.RowDefinitions>
     	<Button x:Name="GraphButton" Content="Graph" HorizontalAlignment="Right" Width="75" Grid.Row="2" VerticalAlignment="Bottom" Click="GraphButton_Click" />
     	<Button x:Name="BetDataButton" Content="BetData" Margin="0,0,79,0" HorizontalAlignment="Right" Grid.Row="2" Width="75" VerticalAlignment="Bottom" Click="BetDataButton_Click" />
-    	<sdk:DataGrid x:Name="Contents" Grid.Row="1" Margin="8,0" AutoGenerateColumns="False" ItemsSource="{Binding Informations}" HorizontalAlignment="Center" VerticalAlignment="Center">
+    	<sdk:DataGrid x:Name="Contents" Grid.Row="1" Margin="8,0" AutoGenerateColumns="False" ItemsSource="{Binding Informations}" HorizontalAlignment="Center" VerticalAlignment="Center" IsReadOnly="True">
     		<sdk:DataGrid.Columns>
     			<sdk:DataGridTextColumn Binding="{Binding Time}" Header="Time"/>
     			<sdk:DataGridTextColumn Binding="{Binding Round}" Header="Round"/>
