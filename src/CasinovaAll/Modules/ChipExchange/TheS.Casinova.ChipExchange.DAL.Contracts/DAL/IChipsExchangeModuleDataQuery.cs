@@ -53,4 +53,5 @@ namespace TheS.Casinova.ChipExchange.DAL
     public interface IGetVoucherInfo
          : IFetchSingleData<VoucherInformation, GetVoucherInfoCommand>
     { }
+
 }

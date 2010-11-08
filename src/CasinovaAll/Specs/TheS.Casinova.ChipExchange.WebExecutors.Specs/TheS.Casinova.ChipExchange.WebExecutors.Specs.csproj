@@ -60,6 +60,16 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebExecutors\SpecsEventDefinitions.cs" />
+    <Compile Include="WebExecutors\Specs\GetVoucherCodeFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GetVoucherCodeFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\PayVoucherFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PayVoucherFeature.feature</DependentUpon>
+    </Compile>
     <Compile Include="WebExecutors\Specs\MoneyToBonusChipsFeature.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -70,6 +80,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MoneyToChipsFeature.feature</DependentUpon>
     </Compile>
+    <Compile Include="WebExecutors\Specs\Steps\GetVoucherCodeSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\PayVoucherSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\ChipsExchangeModuleStepsBase.cs" />
     <Compile Include="WebExecutors\Specs\Steps\CommonSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\MoneyToBonusChipsSteps.cs" />
@@ -113,6 +125,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="WebExecutors\App.config" />
+    <None Include="WebExecutors\Specs\GetVoucherCodeFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>GetVoucherCodeFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\PayVoucherFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>PayVoucherFeature.feature.cs</LastGenOutput>
+    </None>
     <None Include="WebExecutors\Specs\MoneyToBonusChipsFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>MoneyToBonusChipsFeature.feature.cs</LastGenOutput>

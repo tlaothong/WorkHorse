@@ -26,6 +26,13 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
         public const string Key_Dac_VoucherToBonusChips = "mockDac_VoucherToBonusChips";
         public const string Key_Dqr_GetVoucherInfo = "mockDqr_GetVoucherInfo";
 
+        public const string Key_PayVoucher= "PayVoucher";
+        public const string Key_Dac_PayVoucher = "mockDac_PayVoucher";
+        public const string Key_Dqr_GetPlayerBalance = "mockDqr_GetPlayerBalance";
+
+        public const string Key_GetVoucherCode = "GetVoucherCode";
+        public const string Key_Dqr_GetVoucherCode = "mockDqr_GetVoucherCode";
+
 
         MockRepository Mocks { get { return SpecEventDefinitions.Mocks; } }
 
@@ -65,6 +72,28 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
             ScenarioContext.Current[Key_Dac_VoucherToBonusChips] = dac;
             ScenarioContext.Current[Key_Dqr_GetVoucherInfo] = dqr;
             ScenarioContext.Current[Key_VoucherToBonusChips] = new VoucherToBonusChipsCommand();
+        }
+
+        //Pay voucher specs initialized
+        [Given(@"The PayVoucherExecutor has been created and initialized")]
+        public void GivenThePayVoucherExecutorHasBeenCreatedAndInitialized()
+        {
+            var dac = Mocks.DynamicMock<IChipsExchangeModuleBackService>();
+            var dqr = Mocks.DynamicMock<IChipsExchangeModuleDataQuery>();
+
+            ScenarioContext.Current[Key_Dac_PayVoucher] = dac;
+            ScenarioContext.Current[Key_Dqr_GetPlayerBalance] = dqr;
+            ScenarioContext.Current[Key_PayVoucher] = new PayVoucherCommand();
+        }
+
+        //Get voucher code specs initialized
+        [Given(@"The GetVoucherCodeExecutor has been created and initialized")]
+        public void GivenTheGetVoucherCodeExecutorHasBeenCreatedAndInitialized()
+        {
+            var dqr = Mocks.DynamicMock<IChipsExchangeModuleDataQuery>();
+
+            ScenarioContext.Current[Key_Dqr_GetVoucherCode] = dqr;
+            ScenarioContext.Current[Key_GetVoucherCode] = new GetVoucherCodeCommand();
         }
     }
 }

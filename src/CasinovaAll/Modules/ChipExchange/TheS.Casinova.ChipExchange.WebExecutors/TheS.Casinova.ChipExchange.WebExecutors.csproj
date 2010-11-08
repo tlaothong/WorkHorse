@@ -49,7 +49,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebExecutors\ChipsToBonusChipsExecutor.cs" />
     <Compile Include="WebExecutors\ChipsToMoneyExecutor.cs" />
-    <Compile Include="WebExecutors\GetPlayerBalanceExecutor.cs" />
     <Compile Include="WebExecutors\GetVoucherCodeExecutor.cs" />
     <Compile Include="WebExecutors\MoneyToBonusChipsExecutor.cs" />
     <Compile Include="WebExecutors\MoneyToChipsExecutor.cs" />
@@ -73,6 +72,10 @@
     <ProjectReference Include="..\..\Chat\TheS.Casinova.Chat.Models\TheS.Casinova.Chat.Models.csproj">
       <Project>{8E50F3B7-4F44-49BE-A5CE-2CDF66EF4D9C}</Project>
       <Name>TheS.Casinova.Chat.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\PlayerAccount\TheS.Casinova.PlayerAccount.Models\TheS.Casinova.PlayerAccount.Models.csproj">
+      <Project>{28B48276-2905-4A6C-9BBA-09007F7E7084}</Project>
+      <Name>TheS.Casinova.PlayerAccount.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\PlayerProfile\TheS.Casinova.PlayerProfile.Models\TheS.Casinova.PlayerProfile.Models.csproj">
       <Project>{96BBA83F-EAA6-4EEA-BEC5-98F6AC39B943}</Project>

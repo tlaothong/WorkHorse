@@ -23,7 +23,9 @@ namespace TheS.Casinova.ChipExchange.WebExecutors
 
         protected override void ExecuteCommand(GetVoucherCodeCommand command)
         {
-            _iGetVoucherCode.Get(command);
+            //TODO: Generate trackingID
+
+           command.VoucherCode = _iGetVoucherCode.Get(command);
         }
     }
 }

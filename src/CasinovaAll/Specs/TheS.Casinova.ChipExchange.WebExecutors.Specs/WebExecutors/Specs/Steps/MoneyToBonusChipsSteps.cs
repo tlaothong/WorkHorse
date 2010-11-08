@@ -9,34 +9,32 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
     [Binding]
     public class MoneyToBonusChipsSteps
     {
-        
-
-        [Given(@"Server has bonus point information as :")]
-        public void GivenServerHasBonusPointInformationAs(Table table)
+        [Given(@"Server has bonus points information for money to bonus chips exchange:")]
+        public void GivenServerHasBonusPointsInformationForMoneyToBonusChipsExchange(Table table)
         {
             ScenarioContext.Current.Pending();
         }
 
-        [Given(@"Server has player account information for money to bonus chips:")]
-        public void GivenServerHasPlayerAccountInformationForMoneyToBonusChips(Table table)
+        [Given(@"Server has player account information for money to bonus chips exchange:")]
+        public void GivenServerHasPlayerAccountInformationForMoneyToBonusChipsExchange(Table table)
         {
             ScenarioContext.Current.Pending();
         }
 
-        [Given(@"The chips exchange information for money to bonus chips :")]
-        public void GivenTheChipsExchangeInformationForMoneyToBonusChips(Table table)
+        [Given(@"The chips exchange information for money to bonus chips exchange:")]
+        public void GivenTheChipsExchangeInformationForMoneyToBonusChipsExchange(Table table)
         {
             ScenarioContext.Current.Pending();
         }
 
-        [Given(@"Sent UserName'Boy' the player's bonus point should recieve")]
+        [Given(@"Sent UserName'Boy' the player's bonus points should recieved")]
         public void GivenSentUserNameBoyThePlayerSBonusPointShouldRecieve()
         {
             ScenarioContext.Current.Pending();
         }
 
 
-        [Given(@"Sent AccountType 'Primary' UserName'Boy' the player's account for money to bonus chips should recieve")]
+        [Given(@"Sent AccountType 'Primary' UserName'Boy' the player's account for money to bonus chips should recieved")]
         public void GivenSentAccountTypePrimaryUserNameBoyThePlayerSAccountForMoneyToBonusChipsShouldRecieve()
         {
             ScenarioContext.Current.Pending();

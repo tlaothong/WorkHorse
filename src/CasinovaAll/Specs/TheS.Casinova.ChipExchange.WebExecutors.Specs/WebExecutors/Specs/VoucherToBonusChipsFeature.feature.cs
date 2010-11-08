@@ -73,7 +73,7 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs
                         "200",
                         "false"});
 #line 8
-testRunner.Given("Server has voucher information as :", ((string)(null)), table1);
+testRunner.Given("Server has voucher information for voucher to bonus chips :", ((string)(null)), table1);
 #line hidden
         }
         
@@ -93,7 +93,7 @@ this.ScenarioSetup(scenarioInfo);
 testRunner.Given("The VoucherToBonusChipsExecutor has been created and initialized");
 #line 16
 testRunner.And("Sent UserName\'Nit\' VoucherCode \'0A15D2C519764BF4B698E31B9F77FE90\' the player\'s vo" +
-                    "ucher information should recieve");
+                    "ucher information should recieved");
 #line 17
 testRunner.When("Call VoucherToBonusChipsExecutor (UserName\'Nit\' VoucherCode \'0A15D2C519764BF4B698" +
                     "E31B9F77FE90\')");
@@ -118,7 +118,7 @@ this.ScenarioSetup(scenarioInfo);
 testRunner.Given("The VoucherToBonusChipsExecutor has been created and initialized");
 #line 23
 testRunner.And("Sent UserName\'Ae\' VoucherCode \'16F67B16ABDF469FA42D6D3BFC380745\' the player\'s vou" +
-                    "cher information should recieve");
+                    "cher information should recieved");
 #line 24
 testRunner.When("Call VoucherToBonusChipsExecutor (UserName\'Ae\' VoucherCode \'16F67B16ABDF469FA42D6" +
                     "D3BFC380745\')");
@@ -143,7 +143,7 @@ this.ScenarioSetup(scenarioInfo);
 testRunner.Given("The VoucherToBonusChipsExecutor has been created and initialized");
 #line 30
 testRunner.And("Sent UserName\'Ae\' VoucherCode \'DA60FEA34A9D42299B8C066EDC141DC5\' the player\'s vou" +
-                    "cher information should not recieve");
+                    "cher information should not recieved");
 #line 31
 testRunner.When("Call VoucherToBonusChipsExecutor (UserName\'Ae\' VoucherCode \'DA60FEA34A9D42299B8C0" +
                     "66EDC141DC5\')");

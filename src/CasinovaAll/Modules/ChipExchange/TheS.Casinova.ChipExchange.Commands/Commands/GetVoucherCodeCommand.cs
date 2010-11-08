@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TheS.Casinova.ChipExchange.Models;
 
 namespace TheS.Casinova.ChipExchange.Commands
 {
     /// <summary>
-    /// command ดึงหมายเลขคูปอง
+    /// command ดึงรหัสคูปอง
     /// </summary>
     public class GetVoucherCodeCommand
     {
@@ -18,9 +19,9 @@ namespace TheS.Casinova.ChipExchange.Commands
 
         //output
         /// <summary>
-        /// หมายเลขคูปอง
+        /// รหัสคูปอง
         /// </summary>
-        public string VoucherCode { get; set; }
+        public VoucherInformation VoucherCode { get; set; }
 
     }
 }

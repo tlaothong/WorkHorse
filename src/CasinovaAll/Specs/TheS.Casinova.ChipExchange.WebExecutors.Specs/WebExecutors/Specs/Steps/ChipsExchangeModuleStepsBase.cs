@@ -65,6 +65,34 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
             }
         }
 
+        protected IGetPlayerBalance Dqr_GetPlayerBalance
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_Dqr_GetPlayerBalance] as IGetPlayerBalance;
+            }
+        }
+
+        protected IPayVoucher Dac_PayVoucher
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_Dac_PayVoucher] as IPayVoucher;
+            }
+        }
+
+        protected IGetVoucherCode Dqr_GetVoucherCode
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_Dqr_GetVoucherCode] as IGetVoucherCode;
+            }
+        }
+
+
         protected VoucherToBonusChipsExecutor VoucherToBonusChips
         {
             get
@@ -90,6 +118,24 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
             {
                 return ScenarioContext.Current[
                     CommonSteps.Key_MoneyToChips] as MoneyToBonusChipsExecutor;
+            }
+        }
+
+        protected PayVoucherExecutor PayVoucher
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_PayVoucher] as PayVoucherExecutor;
+            }
+        }
+
+        protected GetVoucherCodeExecutor GetVoucherCode
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_GetVoucherCode] as GetVoucherCodeExecutor;
             }
         }
     }

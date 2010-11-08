@@ -42,7 +42,6 @@
   <ItemGroup>
     <Compile Include="Commands\ChipsToBonusChipsCommand.cs" />
     <Compile Include="Commands\ChipsToMoneyCommand.cs" />
-    <Compile Include="Commands\GetPlayerBalanceCommand.cs" />
     <Compile Include="Commands\GetVoucherCodeCommand.cs" />
     <Compile Include="Commands\MoneyToBonusChipsCommand.cs" />
     <Compile Include="Commands\MoneyToChipsCommand.cs" />
@@ -52,6 +51,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\..\Chat\TheS.Casinova.Chat.DAL.Contracts\TheS.Casinova.Chat.DAL.Contracts.csproj">
+      <Project>{0C3F94F0-C217-49D7-8DF5-7978628091ED}</Project>
+      <Name>TheS.Casinova.Chat.DAL.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Chat\TheS.Casinova.Chat.Models\TheS.Casinova.Chat.Models.csproj">
       <Project>{8E50F3B7-4F44-49BE-A5CE-2CDF66EF4D9C}</Project>
       <Name>TheS.Casinova.Chat.Models</Name>
@@ -67,6 +70,10 @@
     <ProjectReference Include="..\..\Shared\TheS.Casinova.Common.Models\TheS.Casinova.Common.Models.csproj">
       <Project>{6079CFCD-811A-4962-B021-8D3D14C0C45B}</Project>
       <Name>TheS.Casinova.Common.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.Casinova.ChipExchange.Models\TheS.Casinova.ChipExchange.Models.csproj">
+      <Project>{4D33D4E0-40CE-4AF2-A30F-53FCAE1A2886}</Project>
+      <Name>TheS.Casinova.ChipExchange.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

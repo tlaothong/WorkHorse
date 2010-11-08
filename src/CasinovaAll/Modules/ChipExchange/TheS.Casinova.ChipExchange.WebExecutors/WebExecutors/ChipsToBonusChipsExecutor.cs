@@ -23,6 +23,8 @@ namespace TheS.Casinova.ChipExchange.WebExecutors
 
         protected override void ExecuteCommand(ChipsToBonusChipsCommand command)
         {
+            //TODO: Check bonus point
+            //TODO: Check Chips amount
             //TODO: Generate trackingID
             _iChipsToBonusChips.ChipsToBonusChips(command);
         }

@@ -16,14 +16,14 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
             ScenarioContext.Current.Pending();
         }
 
-        [Given(@"Sent AccountType 'Primary' UserName'Boy' the player's account should recieve")]
+        [Given(@"Sent AccountType 'Primary' UserName'Boy' the player's account should recieved")]
         public void GivenSentAccountTypePrimaryUserNameBoyThePlayerSAccountShouldRecieve()
         {
             ScenarioContext.Current.Pending();
         }
 
-        [Given(@"The chips exchange information as :")]
-        public void GivenTheChipsExchangeInformationAs(Table table)
+        [Given(@"The chips exchange information for money to chips :")]
+        public void GivenTheChipsExchangeInformationForMoneyToChips(Table table)
         {
             ScenarioContext.Current.Pending();
         }
@@ -40,14 +40,14 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
             ScenarioContext.Current.Pending();
         }
 
-        [Then(@"The system can sent chips exchange information to back server \#MoneyToChip")]
-        public void ThenTheSystemCanSentChipsExchangeInformationToBackServerMoneyToChip()
+        [Then(@"The system can sent chips exchange information to back server \#MoneyToChips")]
+        public void ThenTheSystemCanSentChipsExchangeInformationToBackServerMoneyToChips()
         {
             ScenarioContext.Current.Pending();
         }
 
-        [Then(@"The system can't sent chips exchange information to back server \#MoneyToChip")]
-        public void ThenTheSystemCanTSentChipsExchangeInformationToBackServerMoneyToChip()
+        [Then(@"The system can't sent chips exchange information to back server \#MoneyToChips")]
+        public void ThenTheSystemCanTSentChipsExchangeInformationToBackServerMoneyToChips()
         {
             ScenarioContext.Current.Pending();
         }

@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Command\GetMultiLevelNetworkInfoCommand.cs" />
     <Compile Include="Command\GetPlayerAccountInfoCommand.cs" />
+    <Compile Include="Command\GetPlayerBalanceCommand.cs" />
     <Compile Include="Command\GetVoucherInfoCommand.cs" />
     <Compile Include="DAL\IChipsExchangeModuleDataQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
