@@ -32,7 +32,11 @@ namespace TheS.Casinova.Common
         /// Text representation of the content to display in the menu.
         /// </summary>
         public string DisplayText { get; set; }
+        /// <summary>
+        /// The ordering number use to sort the content in the menu in ascending order.
+        /// </summary>
+        public int Order { get; set; }
 
-        #endregion
+        #endregion IStatisticsContentMetadata Members
     }
 }

@@ -34,6 +34,11 @@ namespace TheS.Casinova.SupportContent
             get { return _loader.PopupContents; }
         }
 
+        public System.Collections.ObjectModel.ReadOnlyObservableCollection<Lazy<UserControl, IStatisticsContentMetadata>> StatisticsContents
+        {
+            get { return _loader.StatisticsContents; }
+        }
+
         public System.Collections.ObjectModel.ReadOnlyObservableCollection<Lazy<UserControl, IGameStatContentMetadata>> GameStatContents
         {
             get { return _loader.GameStatContents; }

@@ -27,6 +27,7 @@ namespace TheS.Casinova.SupportContent
 
         private ReadOnlyObservableCollection<IGameApplicationInformation> _games;
         private ReadOnlyObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> _popups;
+        private ReadOnlyObservableCollection<Lazy<UserControl, IStatisticsContentMetadata>> _statisticss;
         private ReadOnlyObservableCollection<Lazy<UserControl, IGameStatContentMetadata>> _statContents;
 
         private ObservableCollection<IGameApplicationInformation> __importedGames;
@@ -53,6 +54,18 @@ namespace TheS.Casinova.SupportContent
             }
         }
 
+        private ObservableCollection<Lazy<UserControl, IStatisticsContentMetadata>> __importedStatisticss;
+        [ImportMany(typeof(UserControl), AllowRecomposition = true)]
+        public ObservableCollection<Lazy<UserControl, IStatisticsContentMetadata>> _ImportedStatisticss
+        {
+            get { return __importedStatisticss; }
+            set
+            {
+                __importedStatisticss = value;
+                _statisticss = new ReadOnlyObservableCollection<Lazy<UserControl, IStatisticsContentMetadata>>(value);
+            }
+        }
+
         private ObservableCollection<Lazy<UserControl, IGameStatContentMetadata>> __importedStatContents;
         [ImportMany(typeof(UserControl), AllowRecomposition = true)]
         public ObservableCollection<Lazy<UserControl, IGameStatContentMetadata>> _ImportedStatContents
@@ -76,6 +89,11 @@ namespace TheS.Casinova.SupportContent
         public ReadOnlyObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> PopupContents
         {
             get { return _popups; }
+        }
+
+        public ReadOnlyObservableCollection<Lazy<UserControl, IStatisticsContentMetadata>> StatisticsContents
+        {
+            get { return _statisticss; }
         }
 
         public ReadOnlyObservableCollection<Lazy<UserControl, IGameStatContentMetadata>> GameStatContents

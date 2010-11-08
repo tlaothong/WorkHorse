@@ -14,9 +14,11 @@ using TheS.Casinova.Common;
 
 namespace TheS.Casinova.TwoWins.Controls
 {
-    [ExportStatisticsContent(DisplayText = "Colors")]
+    [ExportStatisticsContent(DisplayText = "TwoWins", Order = 1)]
     public partial class GameStatisticsUI : UserControl
     {
+        private bool _isRange;
+
         public GameStatisticsUI()
         {
             InitializeComponent();
@@ -38,6 +40,18 @@ namespace TheS.Casinova.TwoWins.Controls
             var cw = new GameStatisticsWindow();
             cw.ContentTabControl.SelectedIndex = tabSelected;
             cw.Show();
+        }
+
+        private void OptionButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!_isRange) changeState(Range);
+            else changeState(Single);
+            _isRange = !_isRange;
+        }
+
+        private void changeState(VisualState state)
+        {
+            VisualStateManager.GoToState(this, state.Name, false);
         }
     }
 }

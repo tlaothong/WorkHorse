@@ -14,7 +14,7 @@
 		<Binding Source="{StaticResource GameStatisticsViewModelDataSource}"/>
 	</UserControl.DataContext>
     
-    <Grid x:Name="LayoutRoot" Background="White">
+    <Grid x:Name="LayoutRoot">
     	<VisualStateManager.VisualStateGroups>
     		<VisualStateGroup x:Name="OptionState">
     			<VisualState x:Name="Single"/>
@@ -46,8 +46,8 @@
     		<RowDefinition Height="0.75*"/>
     		<RowDefinition Height="0.1*"/>
     	</Grid.RowDefinitions>
-    	<Button x:Name="GraphButton" Content="Graph" HorizontalAlignment="Right" Width="75" Margin="0,0,8,0" Grid.Row="2" VerticalAlignment="Bottom" Click="GraphButton_Click" />
-    	<Button x:Name="BetDataButton" Content="BetData" Margin="0,0,87,0" HorizontalAlignment="Right" Grid.Row="2" Width="75" VerticalAlignment="Bottom" Click="BetDataButton_Click" />
+    	<Button x:Name="GraphButton" Content="Graph" HorizontalAlignment="Right" Width="75" Grid.Row="2" VerticalAlignment="Bottom" Click="GraphButton_Click" />
+    	<Button x:Name="BetDataButton" Content="BetData" Margin="0,0,79,0" HorizontalAlignment="Right" Grid.Row="2" Width="75" VerticalAlignment="Bottom" Click="BetDataButton_Click" />
 
     	<Grid Margin="8" VerticalAlignment="Center">
     		<Grid.ColumnDefinitions>
@@ -56,7 +56,7 @@
     			<ColumnDefinition Width="0.05*"/>
     			<ColumnDefinition Width="0.4*"/>
     		</Grid.ColumnDefinitions>
-    		<Button x:Name="OptionButton" Content="Single" Margin="0,0,5,0"/>
+    		<Button x:Name="OptionButton" Content="Single" Margin="0,0,5,0" Click="OptionButton_Click" />
 
     		<sdk:DatePicker x:Name="FirstData" d:LayoutOverrides="Height" Grid.Column="1" SelectedDate="{Binding FirstData}"/>
     		<sdk:DatePicker x:Name="SecondData" d:LayoutOverrides="Height" Grid.Column="3" Visibility="Collapsed" SelectedDate="{Binding SecondData}"/>
@@ -65,7 +65,7 @@
     	</Grid>
     	<StackPanel Grid.Row="1" VerticalAlignment="Top" d:LayoutOverrides="Width" HorizontalAlignment="Center">
     		<TextBlock TextWrapping="Wrap" Text="POT" TextAlignment="Center" d:LayoutOverrides="GridBox" FontSize="13.333"/>
-    		<StackPanel Orientation="Horizontal">
+    		<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
     			<TextBlock TextWrapping="Wrap" Text="$" FontSize="21.333" FontWeight="Bold"/>
     			<TextBlock x:Name="POT" TextWrapping="Wrap" Text="{Binding Pot}" FontSize="21.333" FontWeight="Bold" TextAlignment="Center" TextDecorations="Underline" d:LayoutOverrides="Width, GridBox"/>
     		</StackPanel>
