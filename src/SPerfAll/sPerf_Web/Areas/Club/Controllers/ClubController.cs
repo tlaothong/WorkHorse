@@ -27,5 +27,13 @@ namespace sPerf_Web.Areas.Club.Controllers
         {
             return View();
         }
+        public virtual ActionResult Banners()
+        {
+            return View();
+        }
+        public virtual ActionResult AdvanceSearch()
+        {
+            return View();
+        }
     }
 }

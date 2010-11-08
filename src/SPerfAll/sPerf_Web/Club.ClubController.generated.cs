@@ -50,6 +50,8 @@ namespace sPerf_Web.Areas.Club.Controllers {
             public readonly string SubMenu = "SubMenu";
             public readonly string NewClub = "NewClub";
             public readonly string OptionClub = "OptionClub";
+            public readonly string Banners = "Banners";
+            public readonly string AdvanceSearch = "AdvanceSearch";
         }
 
 
@@ -58,6 +60,8 @@ namespace sPerf_Web.Areas.Club.Controllers {
         public ViewNames Views { get { return s_views; } }
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ViewNames {
+            public readonly string AdvanceSearch = "~/Areas/Club/Views/Club/AdvanceSearch.ascx";
+            public readonly string Banners = "~/Areas/Club/Views/Club/Banners.ascx";
             public readonly string Index = "~/Areas/Club/Views/Club/Index.aspx";
             public readonly string NewClub = "~/Areas/Club/Views/Club/NewClub.aspx";
             public readonly string OptionClub = "~/Areas/Club/Views/Club/OptionClub.aspx";
@@ -86,6 +90,16 @@ namespace sPerf_Web.Areas.Club.Controllers {
 
         public override System.Web.Mvc.ActionResult OptionClub() {
             var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.OptionClub);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult Banners() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Banners);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult AdvanceSearch() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.AdvanceSearch);
             return callInfo;
         }
 

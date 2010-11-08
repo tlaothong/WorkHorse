@@ -1,19 +1,18 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<dynamic>" %>
-
 <script type="text/javascript">
     Sys.require(Sys.components.dropDown, function () {
-        $("#dropProfileSearch").dropDown({
-            dropDownControl: Sys.get("#dropProfileMenu")
+        $("#dropclubsSearch").dropDown({
+            dropDownControl: Sys.get("#dropclubsMenu")
         });
     });
 </script>
 <div>
      <div>
      <a href="#"><label>Advance Search</label></a>
-        <span id="dropCategory_dropWrapper" style="cursor: default;"><span id="dropProfileSearch"
+        <span id="dropCategory_dropWrapper" style="cursor: default;"><span id="dropclubsSearch"
             style="display: block; width: 150px; height: 18px; background-color: transparent; font-size:small">ค้นหา</span>
         </span>
-        <div id="dropProfileMenu" class="ContextMenuPanel" style="visibility: hidden; display: none;
+        <div id="dropclubsMenu" class="ContextMenuPanel" style="visibility: hidden; display: none;
             width: 148px;">
           <%= Ajax.ActionLink("Name", "SearchByName","SearchSlot", new { area = "Web" }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "search" })%>
           <%= Ajax.ActionLink("ID", "SearchByID", "SearchSlot", new { area = "Web" }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "search" })%>
