@@ -92,6 +92,10 @@
     <Compile Include="ChipExchange\Controls\ChipAmountUI.xaml.cs">
       <DependentUpon>ChipAmountUI.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ChipExchange\ViewModels\AmountConfirmationViewModel.cs" />
+    <Compile Include="ChipExchange\Views\AmountConfirmationWindow.xaml.cs">
+      <DependentUpon>AmountConfirmationWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ChipExchange\Views\DepositWindow.xaml.cs">
       <DependentUpon>DepositWindow.xaml</DependentUpon>
     </Compile>
@@ -143,6 +147,10 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="ChipExchange\Controls\ChipAmountUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChipExchange\Views\AmountConfirmationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
