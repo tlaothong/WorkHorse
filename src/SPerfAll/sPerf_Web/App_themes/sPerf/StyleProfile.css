@@ -1,0 +1,108 @@
+﻿.picuser
+{
+    float: left; 
+    padding-left: 20px; 
+    width: 100px;
+}
+.picuser img
+{
+    width: 120px;
+    height: 120px;
+}
+.friend
+{
+    background-color: #D1D3D4;
+    margin-left: 20px; 
+    margin-top: 50px; 
+    float: left;
+    width: 150px;
+    height: 25px;
+}
+.stylefriend
+{
+    float: left;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+.styleall a
+{
+    float: left;
+    padding-left: 55px;
+    padding-top: 5px;
+    color: #5FB546;
+}
+.friendall
+{
+    background-color: #F1F2F2;
+    width: 150px;
+    height: 200px;
+    float: left;
+    margin-top: 5px; 
+}
+.friendall a
+{
+    float: left;
+    padding-left: 10px;
+    padding-top: 20px;
+    text-decoration: none;
+    color: Black;
+}
+.logevent
+{
+    background-color: #D1D3D4;
+    margin-left: 20px; 
+    margin-top: 50px; 
+    float: left;
+    width: 403px;
+    height: 25px;
+}
+.logeventall
+{
+    padding-left: 355px;
+    margin-top: 5px;
+}
+.logeventall a
+{
+    color: #5FB546;
+}
+.logpostevent
+{
+    width: 403px;
+    height: 200px;
+    float: left;
+    margin-top: 5px;  
+}
+img
+{
+    border-bottom: medium none;
+    border-left: medium none;
+    border-right: medium none;
+    border-top: medium none;
+}
+.eventpic
+{
+    margin-top: 5px;
+    margin-left: 5px;
+    width: 90px;
+    font-size: 10px;
+    color: #58595B;
+    float: left;
+    clear: left;
+}
+.eventdetail
+{
+    float: left;
+    margin-left: 10px;
+    font-size: 10px;
+    width: 290px;
+}
+.eventborder
+{
+    border-bottom:  1px solid #D1D3D4;
+    float: left;
+}
+th a
+{
+    text-decoration: none;
+    color: Black;
+}

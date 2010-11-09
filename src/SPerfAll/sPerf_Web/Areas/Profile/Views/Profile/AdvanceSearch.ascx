@@ -1,5 +1,4 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<dynamic>" %>
-
 <script type="text/javascript">
     Sys.require(Sys.components.dropDown, function () {
         $("#dropProfileSearch").dropDown({
@@ -17,7 +16,6 @@
             width: 148px;">
           <%= Ajax.ActionLink("Name", "SearchByName","SearchSlot", new { area = "Web" }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "search" })%>
           <%= Ajax.ActionLink("ID", "SearchByID", "SearchSlot", new { area = "Web" }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "search" })%>
-
         </div>
         <form action="/KnowledgeCenter/SearchSlot/SearchByName" method="post">
              <table>
@@ -37,6 +35,5 @@
                 </tr>
              </table>
             </form>
-    </div>
-             
+    </div>        
 </div>
