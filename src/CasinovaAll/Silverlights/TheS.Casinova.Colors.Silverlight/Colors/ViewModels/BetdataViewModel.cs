@@ -21,8 +21,10 @@ namespace TheS.Casinova.Colors.ViewModels
         
         private PerfEx.Infrastructure.PropertyChangedNotifier _notify;
         private ObservableCollection<BetdataInfo> _informations;
-        private ObservableCollection<KeyValuePair<DateTime, double>> _lineInformations;
-        private ObservableCollection<KeyValuePair<DateTime, double>> _barInformations;
+        private ObservableCollection<KeyValuePair<DateTime, double>> _lineInformationsBlack;
+        private ObservableCollection<KeyValuePair<DateTime, double>> _barInformationsBlack;
+        private ObservableCollection<KeyValuePair<DateTime, double>> _lineInformationsWhite;
+        private ObservableCollection<KeyValuePair<DateTime, double>> _barInformationsWhite;
         private string _chartName;
         private double _maximum;
         private double _interval;
@@ -30,6 +32,26 @@ namespace TheS.Casinova.Colors.ViewModels
         #endregion Fields
 
         #region Properties
+
+        public ObservableCollection<KeyValuePair<DateTime, double>> LineInformationsWhite
+        {
+            get { return _lineInformationsWhite; }
+            set
+            {
+                _lineInformationsWhite = value;
+                _notify.Raise(() => LineInformationsWhite);
+            }
+        }
+
+        public ObservableCollection<KeyValuePair<DateTime, double>> BarInformationsWhite
+        {
+            get { return _barInformationsWhite; }
+            set
+            {
+                _barInformationsWhite = value;
+                _notify.Raise(() => BarInformationsWhite);
+            }
+        }
 
         public double Interval
         {
@@ -61,23 +83,23 @@ namespace TheS.Casinova.Colors.ViewModels
             }
         }
 
-        public ObservableCollection<KeyValuePair<DateTime, double>> BarInformations
+        public ObservableCollection<KeyValuePair<DateTime, double>> BarInformationsBlack
         {
-            get { return _barInformations; }
+            get { return _barInformationsBlack; }
             set
             {
-                _barInformations = value;
-                _notify.Raise(() => BarInformations);
+                _barInformationsBlack = value;
+                _notify.Raise(() => BarInformationsBlack);
             }
         }
 
-        public ObservableCollection<KeyValuePair<DateTime, double>> LineInformations
+        public ObservableCollection<KeyValuePair<DateTime, double>> LineInformationsBlack
         {
-            get { return _lineInformations; }
+            get { return _lineInformationsBlack; }
             set
             {
-                _lineInformations = value;
-                _notify.Raise(() => LineInformations);
+                _lineInformationsBlack = value;
+                _notify.Raise(() => LineInformationsBlack);
             }
         }
 
@@ -102,8 +124,10 @@ namespace TheS.Casinova.Colors.ViewModels
         {
             _notify = new PerfEx.Infrastructure.PropertyChangedNotifier(this, () => PropertyChanged);
             _informations = new ObservableCollection<BetdataInfo>();
-            _lineInformations = new ObservableCollection<KeyValuePair<DateTime, double>>();
-            _barInformations = new ObservableCollection<KeyValuePair<DateTime, double>>();
+            _lineInformationsBlack = new ObservableCollection<KeyValuePair<DateTime, double>>();
+            _barInformationsBlack = new ObservableCollection<KeyValuePair<DateTime, double>>();
+            _lineInformationsWhite = new ObservableCollection<KeyValuePair<DateTime, double>>();
+            _barInformationsWhite = new ObservableCollection<KeyValuePair<DateTime, double>>();
 
             if (DesignerProperties.IsInDesignTool) {
 
@@ -111,21 +135,25 @@ namespace TheS.Casinova.Colors.ViewModels
 
                 Random random = new Random();
                 DateTime time = DateTime.Now;
-                double pot = 0;
-                for (int count = 0; count < 40; count++)
+                double potBlack = 0,potWhite = 0;
+                for (int count = 0; count < 20; count++)
                 {
-                    var data = new KeyValuePair<DateTime, double>(time, pot);
-                    LineInformations.Add(data);
-                    BarInformations.Add(data);
+                    var data = new KeyValuePair<DateTime, double>(time, potBlack);
+                    LineInformationsBlack.Add(data);
+                    BarInformationsBlack.Add(data);
+                    data = new KeyValuePair<DateTime, double>(time, potWhite);
+                    LineInformationsWhite.Add(data);
+                    BarInformationsWhite.Add(data);
 
-                    if (Maximum < pot)
-                    {
-                        Maximum = pot;
-                    }
-                    pot += count * random.Next(1, 53);
+                    if (Maximum < potBlack) Maximum = potBlack;
+                    if (Maximum < potWhite) Maximum = potWhite;
+
+                    potBlack += random.Next(0, 200);
+                    potWhite += random.Next(0, 200);
                     time = time.Add(TimeSpan.FromMinutes(18));
                 }
                 Interval = (int)(Maximum / 5);
+                Maximum += Interval;
 
                 Informations.Add(new BetdataInfo {
                     Color = "White",

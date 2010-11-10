@@ -61,9 +61,15 @@
         								</toolkit:DateTimeAxis>
         							</toolkit:Chart.Axes>
         							<toolkit:ColumnSeries 
+										Title="Black"
         								DependentValueBinding="{Binding Value}"
         								IndependentValueBinding ="{Binding Key}" 
-        								ItemsSource="{Binding BarInformations}"/>
+        								ItemsSource="{Binding BarInformationsBlack}"/>
+        							<toolkit:ColumnSeries 
+										Title="White"
+        								DependentValueBinding="{Binding Value}"
+        								IndependentValueBinding ="{Binding Key}" 
+        								ItemsSource="{Binding BarInformationsWhite}"/>
         						</toolkit:Chart>
         					</Grid>
         				</sdk:TabItem>
@@ -89,9 +95,15 @@
         								</toolkit:DateTimeAxis>
         							</toolkit:Chart.Axes>
         							<toolkit:LineSeries 
+									Title="Black"
         								DependentValueBinding="{Binding Value}" 
         								IndependentValueBinding="{Binding Key}" 
-        								ItemsSource="{Binding LineInformations}"/>
+        								ItemsSource="{Binding LineInformationsBlack}"/>
+        							<toolkit:LineSeries 
+									Title="White"
+        								DependentValueBinding="{Binding Value}" 
+        								IndependentValueBinding="{Binding Key}" 
+        								ItemsSource="{Binding LineInformationsWhite}"/>
         						</toolkit:Chart>
         					</Grid>
         				</sdk:TabItem>
