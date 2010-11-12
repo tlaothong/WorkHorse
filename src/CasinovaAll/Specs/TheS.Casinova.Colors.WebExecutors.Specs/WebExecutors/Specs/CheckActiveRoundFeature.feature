@@ -1,5 +1,5 @@
 ﻿Feature: CheckActiveRoundToCreate
-	In order to check active round
+	In order to check active round to create
 	As a system
 	I want to check active round for sent command to back server 
 

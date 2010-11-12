@@ -24,8 +24,8 @@ namespace TheS.Casinova.TwoWins.WebExecutors
 
          protected override void ExecuteCommand(ListActiveGameRoundCommand command)
          {
-             command.FromTime = DateTime.Now;
-             command.ActiveRounds = _iListActiveRound.List(command);
+             command.FromTime = DateTime.Now;           //เริ่มต้นที่เวลาปัจจุบัน      
+             command.ActiveRounds = _iListActiveRound.List(command);    
          }
     }
 }

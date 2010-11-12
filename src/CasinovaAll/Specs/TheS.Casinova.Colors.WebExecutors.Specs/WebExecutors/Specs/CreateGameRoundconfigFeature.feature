@@ -1,6 +1,6 @@
 ﻿Feature: CreateGameRoundConfiguration
 	In order to sent game round configurations
-	As a math system
+	As a system
 	I want to sent game round configurations to create
 
 @record_mock

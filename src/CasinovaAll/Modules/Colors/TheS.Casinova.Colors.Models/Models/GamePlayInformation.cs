@@ -54,7 +54,7 @@ namespace TheS.Casinova.TwoWins.Models
         /// <summary>
         /// the last update time of player request winner information
         /// </summary>
-        public DateTime LastUpdate { get; set; }
+        public DateTime WinnerLastUpdate { get; set; }
     }
 
     [MetadataType(typeof(MD))]

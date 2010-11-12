@@ -29,8 +29,8 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "ListActiveGameRoundInfo", "In order to list active game round information\r\nAs a back server\r\nI want to be sh" +
-                    "ow playable game round", ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "ListActiveGameRoundInfo", "In order to list active game round information\r\nAs a system\r\nI want to list playa" +
+                    "ble game round", ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         

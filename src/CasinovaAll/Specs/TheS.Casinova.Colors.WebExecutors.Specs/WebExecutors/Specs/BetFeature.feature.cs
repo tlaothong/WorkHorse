@@ -9,7 +9,7 @@
 //  </auto-generated>
 // ------------------------------------------------------------------------------
 #region Designer generated code
-namespace TheS.Casinova.TwoWins.WebExecutors.Specs
+namespace TheS.Casinova.Colors.WebExecutors.Specs
 {
     using TechTalk.SpecFlow;
     
@@ -29,8 +29,8 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Bet", "In order to generate TrackingID\r\nAs a math idiot\r\nI want to Generate TrackingID f" +
-                    "or client and back server", ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Bet", "In order to bet colors game\r\nAs a system\r\nI want to sent bet information to back " +
+                    "server", ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         

@@ -38,7 +38,7 @@ namespace TheS.Casinova.MagicNine.Models
         /// <summary>
         /// tracking id เมื่อเริ่ม autobet
         /// </summary>
-        public Guid StratTrackingID { get; set; }
+        public Guid StartTrackingID { get; set; }
 
         /// <summary>
         /// tracking id เมื่อหยุด autobet

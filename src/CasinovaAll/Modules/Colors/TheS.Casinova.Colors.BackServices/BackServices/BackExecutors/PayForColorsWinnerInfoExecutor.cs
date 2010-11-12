@@ -130,7 +130,7 @@ namespace TheS.Casinova.TwoWins.BackServices.BackExecutors
                     UserName = gamePlayInfoForComplete.UserName = command.UserName,
                     Winner = gamePlayInfoForComplete.Winner = _winner,
                     TrackingID = gamePlayInfoForComplete.TrackingID = command.OnGoingTrackingID,
-                    LastUpdate = gamePlayInfoForComplete.LastUpdate = DateTime.Now,
+                    LastUpdate = gamePlayInfoForComplete.WinnerLastUpdate = DateTime.Now,
             };
             
             //บันทึกข้อมูล Winner และ TrackingID ที่ผู้เล่นร้องขอ

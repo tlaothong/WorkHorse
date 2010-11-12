@@ -70,7 +70,7 @@ testRunner.Given("The GamePlayInformation has been created and initialized");
                         "TotalBetAmountOfBlack",
                         "TotalBetAmountOfWhite",
                         "Winner",
-                        "LastUpdate",
+                        "WinnerLastUpdate",
                         "TrackingID",
                         "OnGoingTrackingID",
                         "UserName"});
@@ -115,7 +115,7 @@ testRunner.When("Call ListGamePlayInfo(\'Lala\')");
                         "TotalBetAmountOfBlack",
                         "TotalBetAmountOfWhite",
                         "Winner",
-                        "LastUpdate",
+                        "WinnerLastUpdate",
                         "TrackingID",
                         "OnGoingTrackingID",
                         "UserName"});
@@ -173,7 +173,7 @@ testRunner.Given("The GamePlayInformation has been created and initialized");
                         "TotalBetAmountOfBlack",
                         "TotalBetAmountOfWhite",
                         "Winner",
-                        "LastUpdate",
+                        "WinnerLastUpdate",
                         "TrackingID",
                         "OnGoingTrackingID",
                         "UserName"});
@@ -205,7 +205,7 @@ testRunner.Given("The GamePlayInformation has been created and initialized");
                         "TotalBetAmountOfBlack",
                         "TotalBetAmountOfWhite",
                         "Winner",
-                        "LastUpdate",
+                        "WinnerLastUpdate",
                         "TrackingID",
                         "OnGoingTrackingID",
                         "UserName"});
@@ -237,7 +237,7 @@ testRunner.Given("The GamePlayInformation has been created and initialized");
                         "TotalBetAmountOfBlack",
                         "TotalBetAmountOfWhite",
                         "Winner",
-                        "LastUpdate",
+                        "WinnerLastUpdate",
                         "TrackingID",
                         "OnGoingTrackingID",
                         "UserName"});

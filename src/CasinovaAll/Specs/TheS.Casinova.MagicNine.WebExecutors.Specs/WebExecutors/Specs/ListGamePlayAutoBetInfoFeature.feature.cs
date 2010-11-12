@@ -29,8 +29,8 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "ListGamePlayAutoBetInfo", "In order to list game play auto bet information\r\nAs a math System\r\nI want to list" +
-                    " game play auto bet information by userName", ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "ListGamePlayAutoBetInfo", "In order to list game play auto bet information\r\nAs a System\r\nI want to list game" +
+                    " play auto bet information by userName", ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         

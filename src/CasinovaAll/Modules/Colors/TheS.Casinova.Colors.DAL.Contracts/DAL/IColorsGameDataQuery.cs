@@ -46,6 +46,9 @@ namespace TheS.Casinova.TwoWins.DAL
         : IFetchSingleData<PlayerInformation, GetBalanceCommand>
     { }
 
+    /// <summary>
+    /// ดึงข้อมูลการ config จำนวนโต๊ะ เพื่อตรวจสอบจำนวนโต๊ะเกมที่จะสร้างเพิ่ม
+    /// </summary>
     public interface IGetGameRoundConfigurations
         : IFetchSingleData<GameRoundConfiguration,GetGameRoundConfigurationCommand> 
     {}

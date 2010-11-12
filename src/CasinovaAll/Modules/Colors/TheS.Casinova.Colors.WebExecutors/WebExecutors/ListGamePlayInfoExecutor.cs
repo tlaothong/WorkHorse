@@ -24,7 +24,7 @@ namespace TheS.Casinova.TwoWins.WebExecutors
 
         protected override void ExecuteCommand(ListGamePlayInfoCommand command)
         {
-            //ตรวจสอบค่า username ว่ามีหรือไม่
+            
            command.GamePlayInfos = _iListGamePlayInfo.List(command);
            
         }

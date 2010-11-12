@@ -1,7 +1,7 @@
 ﻿Feature: ListActiveGameRoundInfo
 	In order to list active game round information
-	As a back server
-	I want to be show playable game round
+	As a system
+	I want to list playable game round
 
 @record_mock
 Scenario: ระบบมีข้อมูลโต๊ะเกมที่เปิดใช้งานอยู่ 4 โต๊ะ, ระบบดึงข้อมูลโต๊ะเกมทั้งหมดที่เปิดใช้งาน

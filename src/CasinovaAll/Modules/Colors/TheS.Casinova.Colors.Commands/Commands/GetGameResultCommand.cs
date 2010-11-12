@@ -12,9 +12,15 @@ namespace TheS.Casinova.TwoWins.Commands
     public class GetGameResultCommand
     {
         //input
-        public int RoundID { get; set; } // username of player
+        /// <summary>
+        /// รหัสโต๊ะเกม
+        /// </summary>
+        public int RoundID { get; set; } 
 
         //output
-        public GameRoundInformation GameResult { get; set; } //return data of game result
+        /// <summary>
+        /// ข้อมูลผลการเล่นเกม
+        /// </summary>
+        public GameRoundInformation GameResult { get; set; } 
     }
 }

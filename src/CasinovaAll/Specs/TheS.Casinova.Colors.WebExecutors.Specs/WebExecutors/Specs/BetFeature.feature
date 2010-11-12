@@ -1,7 +1,7 @@
 ﻿Feature: Bet
-	In order to generate TrackingID
-	As a math idiot
-	I want to Generate TrackingID for client and back server
+	In order to bet colors game
+	As a system
+	I want to sent bet information to back server
 
 
 @record_mock

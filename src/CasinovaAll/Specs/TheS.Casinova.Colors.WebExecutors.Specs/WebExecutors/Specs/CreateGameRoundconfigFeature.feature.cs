@@ -9,7 +9,7 @@
 //  </auto-generated>
 // ------------------------------------------------------------------------------
 #region Designer generated code
-namespace TheS.Casinova.TwoWins.WebExecutors.Specs
+namespace TheS.Casinova.Colors.WebExecutors.Specs
 {
     using TechTalk.SpecFlow;
     
@@ -29,8 +29,8 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "CreateGameRoundConfiguration", "In order to sent game round configurations\r\nAs a math system\r\nI want to sent game" +
-                    " round configurations to create", ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "CreateGameRoundConfiguration", "In order to sent game round configurations\r\nAs a system\r\nI want to sent game roun" +
+                    "d configurations to create", ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         

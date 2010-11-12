@@ -1,7 +1,7 @@
 ﻿Feature: PayForColorsWinnerInformation
-	In order to Generate TrackingID 
+	In order to pay for colors winner information 
 	As a system
-	I want to Generate TrackingID for client and back server
+	I want to sent information of pay for colors winner
 
 @record_mock
 Scenario: ระบบ generate TrackingID และส่ง TrackingID ไปยัง client และ backserver ได้
