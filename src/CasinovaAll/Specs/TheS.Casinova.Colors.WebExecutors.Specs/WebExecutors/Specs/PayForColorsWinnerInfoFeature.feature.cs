@@ -62,7 +62,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 8
 testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initialized");
 #line 9
-testRunner.When(string.Format("Call PayForColorsWinnerInfoExecutor(userName \'{0}\' RoundID \'{1}\')", userName, roundID));
+testRunner.When(string.Format("Call PayForColorsWinnerInfoExecutor(userName \'{0}\' GameRoundInfoRoundID \'{1}\')", userName, roundID));
 #line 10
 testRunner.Then("The system can generate trckingID for pay colors winner information");
 #line 11

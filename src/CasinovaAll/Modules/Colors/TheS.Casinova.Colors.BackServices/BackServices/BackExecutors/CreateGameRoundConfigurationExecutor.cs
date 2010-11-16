@@ -20,7 +20,7 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
 
         protected override void ExecuteCommand(CreateGameRoundConfigurationCommand command)
         {
-            _iCreateGameTable.Create(command.Tables, command);
+            _iCreateGameTable.Create(command.GameRoundConfig, command);
         }
     }
 }

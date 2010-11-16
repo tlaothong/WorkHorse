@@ -23,7 +23,7 @@ namespace TheS.Casinova.Colors.WebExecutors
 
          protected override void ExecuteCommand(GetGameResultCommand command)
          {
-             command.GameResult = _iGameResult.Get(command);                 
+             command.GameRoundInfo = _iGameResult.Get(command);                 
          }
     }
 }

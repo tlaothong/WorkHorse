@@ -26,7 +26,8 @@ namespace TheS.Casinova.Colors.WebExecutors
  
         protected override void ExecuteCommand(CreateGameRoundConfigurationCommand command)
         {
-            var errors = ValidationHelper.Validate(_container, command.Tables, command);
+            //Validation
+            var errors = ValidationHelper.Validate(_container, command.GameRoundConfig, command);
             if (errors.Any()) {
                 throw new ValidationErrorException(errors);
             }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TheS.Casinova.Colors.Models;
 
 namespace TheS.Casinova.Colors.Commands
 {
@@ -11,10 +12,16 @@ namespace TheS.Casinova.Colors.Commands
     public class BetCommand
     {
         //input
-        public string UserName { get; set; } //ชื่อผู้เล่นที่ลงพนัน
-        public int RoundID { get; set; } //รหัสโต๊ะเกมที่ลงพนัน
-        public double Amount { get; set; } //จำนวนเงินลงพนัน
-        public string Color { get; set; } //สีที่ลงพนัน
-        public Guid TrackingID { get; set; } //trackingId ที่ได้จากการ generate
+        //public string UserName { get; set; } //ชื่อผู้เล่นที่ลงพนัน
+        //public int RoundID { get; set; } //รหัสโต๊ะเกมที่ลงพนัน
+        //public double Amount { get; set; } //จำนวนเงินลงพนัน
+        //public string Color { get; set; } //สีที่ลงพนัน
+        //public Guid TrackingID { get; set; } //trackingId ที่ได้จากการ generate
+
+        /// <summary>
+        /// ข้อมูลการลงเดิมพันของผู้เล่น
+        /// </summary>
+        public PlayerActionInformation PlayerActionInfo { get; set; }
+
     }
 }

@@ -64,10 +64,10 @@ this.ScenarioSetup(scenarioInfo);
 #line 8
 testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initialized");
 #line 9
-testRunner.And("Expect result should be add PlayerActionInfo(RoundID: \'13\', UserName: \'OhAe\', Act" +
+testRunner.And("Expect result should be add PlayerActionInfo(GameRoundInfoRoundID: \'13\', UserProfileBalance: \'OhAe\', Act" +
                     "ionType: \'GetWinner\', Amount: \'5\')");
 #line 10
-testRunner.When("call CreatePlayerActionInfo(PlayerActionInfo(RoundID: \'13\', UserName: \'OhAe\', Act" +
+testRunner.When("call CreatePlayerActionInfo(PlayerActionInfo(GameRoundInfoRoundID: \'13\', UserProfileBalance: \'OhAe\', Act" +
                     "ionType: \'GetWinner\', Amount: \'5\'))");
 #line 11
 testRunner.Then("the PlayerActionInfo should be saved to the ICreatePlayerActionInfo.Create(Player" +

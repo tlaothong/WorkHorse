@@ -13,7 +13,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
     [Binding]
     public class PayForColorsWinnerInfoSteps : ColorsGameStepsBase
     {
-        [When(@"Call PayForColorsWinnerInfoExecutor\(userName '(.*)' RoundID '(.*)'\)")]
+        [When(@"Call PayForColorsWinnerInfoExecutor\(userName '(.*)' GameRoundInfoRoundID '(.*)'\)")]
         public void WhenCallPayForColorsWinnerInfoExecutorUserNameXRoundIDX(string userName, int roundID)
         {
             ScenarioContext.Current.Pending();

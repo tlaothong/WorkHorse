@@ -32,7 +32,7 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
                 TableAmount = 50,
             };
             var cmd = new CreateGameRoundConfigurationCommand {
-                Tables = model,
+                GameRoundConfig = model,
             };
 
             CreateGameRoundConfigExecutor xcutor = new CreateGameRoundConfigExecutor(
@@ -63,7 +63,7 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
                 TableAmount = 50,
             };
             var cmd = new CreateGameRoundConfigurationCommand {
-                Tables = model,
+                GameRoundConfig = model,
             };
 
             CreateGameRoundConfigExecutor xcutor = new CreateGameRoundConfigExecutor(
@@ -86,7 +86,7 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
                 TableAmount = 500,
             };
             var cmd = new CreateGameRoundConfigurationCommand {
-                Tables = model,
+                GameRoundConfig = model,
             };
 
             CreateGameRoundConfigExecutor xcutor = new CreateGameRoundConfigExecutor(

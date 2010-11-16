@@ -37,16 +37,16 @@ namespace TheS.Casinova.Colors.WebExecutors
            _getRoundInfo = new GetGameRoundConfigurationCommand();
 
            //ดึงข้อมูลการ config จากการสร้างจำนวนโต๊ะเกม
-           _getRoundInfo.Name = command.Name;
-           _getRoundInfo.GameRoundConfiguration = _iGetGameRoundConfig.Get(_getRoundInfo);
+           _getRoundInfo.GameRoundConfigName = command.GameRoundConfig;
+           _getRoundInfo.GameRoundConfig = _iGetGameRoundConfig.Get(_getRoundInfo);
  
            
            //List โต๊ะเกมทั้งหมดที่กำลัง active
            _listActive.FromTime = DateTime.Now;
-           _listActive.ActiveRounds = _iListActiveRound.List(_listActive);
+           _listActive.GameRoundInfo = _iListActiveRound.List(_listActive);
 
-           _activeRoundCount = _listActive.ActiveRounds.Count();
-           _sumActiveRound = _getRoundInfo.GameRoundConfiguration.BufferRoundsCount + _getRoundInfo.GameRoundConfiguration.TableAmount;
+           _activeRoundCount = _listActive.GameRoundInfo.Count();
+           _sumActiveRound = _getRoundInfo.GameRoundConfig.BufferRoundsCount + _getRoundInfo.GameRoundConfig.TableAmount;
 
            //ตรวจสอบจำนวน round ที่กำลัง active เพื่อสร้าง ActiveRound เพิ่ม
            if (_activeRoundCount < _sumActiveRound) 

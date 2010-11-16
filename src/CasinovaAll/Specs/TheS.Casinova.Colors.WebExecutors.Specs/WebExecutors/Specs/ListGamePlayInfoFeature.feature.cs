@@ -58,15 +58,15 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs
 #line 7
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "UserName",
-                        "RoundID",
+                        "UserProfileBalance",
+                        "GameRoundInfoRoundID",
                         "TotalBetAmountOfBlack",
                         "TotalBetAmountOfWhite",
                         "Winner",
                         "LastUpdate",
                         "TrackingID",
                         "OnGoingTrackingID",
-                        "UserName"});
+                        "UserProfileBalance"});
             table1.AddRow(new string[] {
                         "Lala",
                         "5",
@@ -117,15 +117,15 @@ testRunner.Given("The ListGamePlayInfoExecutor has been created and initialized"
 testRunner.When("Call ListGamePlayInfoExecutor(\'Lala\')");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                        "UserName",
-                        "RoundID",
+                        "UserProfileBalance",
+                        "GameRoundInfoRoundID",
                         "TotalBetAmountOfBlack",
                         "TotalBetAmountOfWhite",
                         "Winner",
                         "LastUpdate",
                         "TrackingID",
                         "OnGoingTrackingID",
-                        "UserName"});
+                        "UserProfileBalance"});
             table2.AddRow(new string[] {
                         "Lala",
                         "5",

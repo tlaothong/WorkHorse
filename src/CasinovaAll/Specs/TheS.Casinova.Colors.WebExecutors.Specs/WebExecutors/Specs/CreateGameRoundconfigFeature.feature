@@ -6,15 +6,9 @@
 @record_mock
 Scenario Outline: ระบบได้รับข้อมูล GameRoundConfigurations ระบบทำการตรวจสอบข้อมูลและทำการส่งข้อมูลไปยัง BackServer ต่อไป
  Given The CreateGameRoundConfigExecutor has been created and initialized
- When Call CreateGameRoundConfigExecutor(Name'<Name>',TableAmount'<TableAmount>', GameDuration'<GameDuration>', Interval'<Interval>')
+ And  Game round configuration informations are : Name'<Name>',TableAmount'<TableAmount>', GameDuration'<GameDuration>', Interval'<Interval>', BufferRoundCount'<BufferRoundCount>'
+ When Call CreateGameRoundConfigExecutor()
  Then The system can sent GameRoundConfigurations to back server
  Then The system can't sent GameRoundConfigurations to back server
 
-Examples:
-	|Name	|TableAmount	|GameDuration	|Interval	|
-	|Config1|5				|30				|10			|
-	|		|5				|30				|10			|
-	|config2|-2				|30				|10			|
-	|config3|5				|0				|10			|
-	|config4|5				|30				|-10		|
-	|		|0				|0				|0			|
+ 

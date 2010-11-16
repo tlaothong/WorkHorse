@@ -17,11 +17,6 @@ namespace TheS.Casinova.Colors.Models
         public string UserName { get; set; }
 
         /// <summary>
-        /// tableID of the gmae playable
-        /// </summary>
-        public int TableID { get; set; }
-
-        /// <summary>
         /// roundID of the game playable
         /// </summary>
         public int RoundID { get; set; }
@@ -55,31 +50,5 @@ namespace TheS.Casinova.Colors.Models
         /// the last update time of player request winner information
         /// </summary>
         public DateTime WinnerLastUpdate { get; set; }
-    }
-
-    [MetadataType(typeof(MD))]
-    partial class GamePlayInformation
-    {
-        public class MD
-        {
-            [Required]
-            public string UserName { get; set; }
-           
-            public int TableID { get; set; }
-            
-            public int RoundID { get; set; }
-           
-            public Guid TrackingID { get; set; }
-           
-            public Guid OnGoingTrackingID { get; set; }
-           
-            public double TotalBetAmountOfBlack { get; set; }
-           
-            public double TotalBetAmountOfWhite { get; set; }
-            
-            public string Winner { get; set; }
-
-            public DateTime LastUpdate { get; set; }
-        }
     }
 }

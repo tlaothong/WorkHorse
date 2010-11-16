@@ -10,7 +10,6 @@ namespace TheS.Casinova.Colors.Models
     /// </summary>
    public partial class GameRoundConfiguration
     {
-       private int bufferRound = 3; //จำนวนโต๊ะเกมสำรอง
        /// <summary>
        /// ชื่อโต๊ะเกม
        /// </summary>
@@ -34,12 +33,6 @@ namespace TheS.Casinova.Colors.Models
        /// <summary>
        /// จำนวนโต๊ะเกมสำรอง
        /// </summary>
-        public int BufferRoundsCount 
-        {
-            get 
-            {
-                return bufferRound;
-            }
-        }
+        public int BufferRoundsCount { get; set; }
     }
 }

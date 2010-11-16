@@ -36,22 +36,4 @@ namespace TheS.Casinova.Colors.Models
         /// </summary>
         public Guid TrackingID { get; set; }
     }
-
-    [MetadataType(typeof(MD))]
-    partial class PlayerActionInformation
-    {
-        public class MD
-        {
-            [Required]
-            public int RoundID { get; set; }
-            [Required]
-            public string UserName { get; set; }
-            [Required]
-            public string ActionType { get; set; }
-            [Required]
-            public double Amount { get; set; }
-
-            public Guid TrackingID { get; set; }
-        }
-    }
 }

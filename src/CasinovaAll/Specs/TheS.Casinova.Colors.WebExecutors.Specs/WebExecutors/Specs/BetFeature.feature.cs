@@ -62,7 +62,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 8
 testRunner.Given("The BetColorsExecutor has been created and initialized");
 #line 9
-testRunner.When(string.Format("Call BetColorsExecutor(UserName \'{0}\' RoundID \'{1}\', ActionType \'{2}\', Amount \'{3" +
+testRunner.When(string.Format("Call BetColorsExecutor(UserProfileBalance \'{0}\' GameRoundInfoRoundID \'{1}\', ActionType \'{2}\', Amount \'{3" +
                         "}\')", userName, roundID, actionType, amount));
 #line 10
 testRunner.Then("The system can generate trckingID for bet colors game");

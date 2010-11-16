@@ -86,14 +86,14 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         }
 
         //CreateGameRoundConfigurations information space initialized
-        [Given(@"The GameRoundConfigurations has been created and initialized")]
-        public void GivenTheGameRoundConfigurationsHasBeenCreatedAndInitialized()
+        [Given(@"The CreateGameRoundConfigExecutor has been created and initialized")]
+        public void GivenTheCreateGameRoundConfigExecutorHasBeenCreatedAndInitialized()
         {
             var dac = Mocks.DynamicMock<IGameTableBackService>();
 
-            ScenarioContext.Current[Key_Dac] = dac;
+            ScenarioContext.Current[Key_Dac_CreateGameRoundConfig] = dac;
             // TODO: Send dependency container
-            ScenarioContext.Current[Key_Dac_CreateGameRoundConfig] = new CreateGameRoundConfigExecutor(dac, null);
+            ScenarioContext.Current[Key_CreateGameRoundConfig] = new CreateGameRoundConfigExecutor(dac, null);
         }
 
     }

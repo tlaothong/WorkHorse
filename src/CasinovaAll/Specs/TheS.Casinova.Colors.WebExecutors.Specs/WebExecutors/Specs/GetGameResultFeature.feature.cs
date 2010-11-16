@@ -105,60 +105,60 @@ testRunner.Given("Server has game result information", ((string)(null)), table1)
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล RoundID ที่เพิ่งจบเกม ระบบสามารถดึงข้อมูล GameResult ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล GameRoundInfoRoundID ที่เพิ่งจบเกม ระบบสามารถดึงข้อมูล GameRoundInfo ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GetGameResult")]
         public virtual void ระบบไดรบขอมลRoundIDทเพงจบเกมระบบสามารถดงขอมลGameResultได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล RoundID ที่เพิ่งจบเกม ระบบสามารถดึงข้อมูล GameResult ได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล GameRoundInfoRoundID ที่เพิ่งจบเกม ระบบสามารถดึงข้อมูล GameRoundInfo ได้", new string[] {
                         "record_mock"});
 #line 16
 this.ScenarioSetup(scenarioInfo);
 #line 17
 testRunner.Given("The GetGameResultExecutor has been created and initialized");
 #line 18
-testRunner.When("Call GetGameResultExecutor(RoundID\'5\')");
+testRunner.When("Call GetGameResultExecutor(GameRoundInfoRoundID\'5\')");
 #line 19
-testRunner.Then("the game result should be : RoundID \'5\' StartTime \'11:00\' EndTime \'11:30\' BlackPo" +
+testRunner.Then("the game result should be : GameRoundInfoRoundID \'5\' StartTime \'11:00\' EndTime \'11:30\' BlackPo" +
                     "t \'1655\' WhitePot \'1700\' HandCount \'107\'");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล RoundID อื่น ๆ ที่จบเกมแล้วและมีข้อมูลอยู่ใน Database ระบบสามารถ" +
-            "ดึงข้อมูล GameResult ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล GameRoundInfoRoundID อื่น ๆ ที่จบเกมแล้วและมีข้อมูลอยู่ใน Database ระบบสามารถ" +
+            "ดึงข้อมูล GameRoundInfo ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GetGameResult")]
         public virtual void ระบบไดรบขอมลRoundIDอนๆทจบเกมแลวและมขอมลอยในDatabaseระบบสามารถดงขอมลGameResultได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล RoundID อื่น ๆ ที่จบเกมแล้วและมีข้อมูลอยู่ใน Database ระบบสามารถ" +
-                    "ดึงข้อมูล GameResult ได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล GameRoundInfoRoundID อื่น ๆ ที่จบเกมแล้วและมีข้อมูลอยู่ใน Database ระบบสามารถ" +
+                    "ดึงข้อมูล GameRoundInfo ได้", new string[] {
                         "record_mock"});
 #line 22
 this.ScenarioSetup(scenarioInfo);
 #line 23
 testRunner.Given("The GetGameResultExecutor has been created and initialized");
 #line 24
-testRunner.When("Call GetGameResultExecutor(RoundID\'2\')");
+testRunner.When("Call GetGameResultExecutor(GameRoundInfoRoundID\'2\')");
 #line 25
-testRunner.Then("the game result should be : RoundID \'2\' StartTime \'10:00\' EndTime \'10:30\' BlackPo" +
+testRunner.Then("the game result should be : GameRoundInfoRoundID \'2\' StartTime \'10:00\' EndTime \'10:30\' BlackPo" +
                     "t \'500\' WhitePot \'499\' HandCount \'52\'");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล RoundID ที่ไม่ถูกต้อง ระบบไม่สามารถดึงข้อมูล GameResult ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล GameRoundInfoRoundID ที่ไม่ถูกต้อง ระบบไม่สามารถดึงข้อมูล GameRoundInfo ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GetGameResult")]
         public virtual void ระบบไดรบขอมลRoundIDทไมถกตองระบบไมสามารถดงขอมลGameResultได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล RoundID ที่ไม่ถูกต้อง ระบบไม่สามารถดึงข้อมูล GameResult ได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล GameRoundInfoRoundID ที่ไม่ถูกต้อง ระบบไม่สามารถดึงข้อมูล GameRoundInfo ได้", new string[] {
                         "record_mock"});
 #line 28
 this.ScenarioSetup(scenarioInfo);
 #line 29
 testRunner.Given("The GetGameResultExecutor has been created and initialized");
 #line 30
-testRunner.When("Call GetGameResultExecutor(RoundID\'-3\')");
+testRunner.When("Call GetGameResultExecutor(GameRoundInfoRoundID\'-3\')");
 #line 31
 testRunner.Then("the game result should be throw exception");
 #line hidden

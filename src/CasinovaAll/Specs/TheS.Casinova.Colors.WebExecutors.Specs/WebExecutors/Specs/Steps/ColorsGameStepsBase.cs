@@ -110,5 +110,14 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
                     CommonSteps.Key_Dqr_GetGameResult] as IGetGameResult;
             }
         }
+
+        protected ICreateGameTableConfigurations Dac_CreateGameRoundConfig
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_Dac_CreateGameRoundConfig] as ICreateGameTableConfigurations;
+            }
+        }
     }
 }

@@ -41,24 +41,4 @@ namespace TheS.Casinova.Colors.Models
         /// </summary>
         public int HandCount { get; set; }
     }
-
-    [MetadataType(typeof(MD))]
-    partial class GameRoundInformation
-    {
-        public class MD
-        {
-            [Required]
-            public int RoundID { get; set; }
-
-            public DateTime StartTime { get; set; }
-
-            public DateTime EndTime { get; set; }
-
-            public double BlackPot { get; set; }
-
-            public double WhitePot { get; set; }
-
-            public int HandCount { get; set; }
-        }
-    }
 }

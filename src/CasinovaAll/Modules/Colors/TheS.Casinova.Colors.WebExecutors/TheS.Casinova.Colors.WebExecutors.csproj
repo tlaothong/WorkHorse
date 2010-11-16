@@ -47,7 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Validators\GameRoundConfigurationValidators.cs" />
+    <Compile Include="Validators\GameRoundConfigurationValidators_GetGameRoundConfig.cs" />
+    <Compile Include="Validators\GameRoundConfigurationValidators_CreateGameRoundConfig.cs" />
+    <Compile Include="Validators\GameRoundConfigurationValidators_CheckActiveGameRoundToCreate.cs" />
     <Compile Include="WebExecutors\BetColorsExecutor.cs" />
     <Compile Include="WebExecutors\CheckActiveRoundToCreateExecutor.cs" />
     <Compile Include="WebExecutors\CreateGameRoundConfigExecutor.cs" />

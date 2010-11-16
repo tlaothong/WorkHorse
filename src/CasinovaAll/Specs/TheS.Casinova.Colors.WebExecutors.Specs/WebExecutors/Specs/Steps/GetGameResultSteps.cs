@@ -22,13 +22,13 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
             ScenarioContext.Current.Pending();
         }
 
-        [When(@"Call GetGameResultExecutor\(RoundID'(.*)'\)")]
+        [When(@"Call GetGameResultExecutor\(GameRoundInfoRoundID'(.*)'\)")]
         public void WhenCallGetGameResultExecutorRoundIDX(int roundId)
         {
             ScenarioContext.Current.Pending();
         }
 
-        [Then(@"the game result should be : RoundID '(.*)' StartTime '(.*)' EndTime '(.*)' BlackPot '(.*)' WhitePot '(.*)' HandCount '(.*)'")]
+        [Then(@"the game result should be : GameRoundInfoRoundID '(.*)' StartTime '(.*)' EndTime '(.*)' BlackPot '(.*)' WhitePot '(.*)' HandCount '(.*)'")]
         public void ThenTheGameResultShouldBeRoundIDXStartTimeXEndTimeXBlackPotXWhitePotXHandCountX(int round, string startTime, string endTime, double blackPot, double whitePot,int handCount)
         {
             ScenarioContext.Current.Pending();

@@ -10,7 +10,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
     [Binding]
     public class BetSteps : ColorsGameStepsBase
     {
-        [When(@"Call BetColorsExecutor\(UserName '(.*)' RoundID '(.*)', ActionType '(.*)', Amount '(.*)'\)")]
+        [When(@"Call BetColorsExecutor\(UserProfileBalance '(.*)' GameRoundInfoRoundID '(.*)', ActionType '(.*)', Amount '(.*)'\)")]
         public void WhenCallBetColorsExecutorUserNameRoundIDXActionTypeXAmountX(string userName, int round, string actionType, double amount)
         {
             ScenarioContext.Current.Pending();
