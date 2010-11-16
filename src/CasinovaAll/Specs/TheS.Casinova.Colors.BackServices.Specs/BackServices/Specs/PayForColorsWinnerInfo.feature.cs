@@ -9,7 +9,7 @@
 //  </auto-generated>
 // ------------------------------------------------------------------------------
 #region Designer generated code
-namespace TheS.Casinova.TwoWins.BackServices.Specs
+namespace TheS.Casinova.Colors.BackServices.Specs
 {
     using TechTalk.SpecFlow;
     
@@ -59,21 +59,26 @@ namespace TheS.Casinova.TwoWins.BackServices.Specs
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "UserName",
-                        "Balance"});
+                        "NonRefundable",
+                        "Refundable"});
             table1.AddRow(new string[] {
                         "OhAe",
-                        "463.61"});
+                        "463.61",
+                        "200"});
             table1.AddRow(new string[] {
                         "Boy",
-                        "121.21"});
+                        "121.99",
+                        "321"});
             table1.AddRow(new string[] {
-                        "Nit",
-                        "36.99"});
+                        "Toommy",
+                        "36.95",
+                        "37"});
             table1.AddRow(new string[] {
                         "Au",
-                        "234.00"});
+                        "234.00",
+                        "326"});
 #line 8
-testRunner.Given("server has player information as:", ((string)(null)), table1);
+testRunner.Given("(BetColor)server has player profile information as:", ((string)(null)), table1);
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "RoundID",

@@ -42,13 +42,16 @@ namespace TheS.Casinova.TwoWins.BackServices.BackExecutors
         //Executor สำหรับ หักเงินผู้เล่น, อัพเดทข้อมูล game information, และดึงข้อมูล Winner โต๊ะที่เลือก เพื่อส่งข้อมูลกลับไปให้ Web Executor ทำงานต่อไป
         protected override void ExecuteCommand(PayForColorsWinnerInfoCommand command)
         {
+            double playerBalance;
+
             #region Update balance
             //ดึงข้อมูลยอดเงินของผู้เล่น
             GetPlayerInfoCommand getPlayerInfoCmd = new GetPlayerInfoCommand {
                 UserName = command.UserName,
             };
 
-            getPlayerInfoCmd.PlayerInfo = _iGetPlayerInfo.Get(getPlayerInfoCmd);
+            getPlayerInfoCmd.UserProfile = _iGetPlayerInfo.Get(getPlayerInfoCmd);
+            playerBalance = getPlayerInfoCmd.UserProfile.NonRefundable + getPlayerInfoCmd.UserProfile.Refundable;
 
             //ดึงข้อมูลการลงพนันของผู้เล่นในโต๊ะเกมนั้นๆ
             var betCount = _iListPlayerActionInfo.List(command);
@@ -62,24 +65,52 @@ namespace TheS.Casinova.TwoWins.BackServices.BackExecutors
             }
 
             //หักเงินผู้เล่น
-            if (getPlayerInfoCmd.PlayerInfo.Balance >= _payFee) {
-                getPlayerInfoCmd.PlayerInfo.Balance -= _payFee;
+            UpdatePlayerInfoBalanceCommand updateBalanceCmd = new UpdatePlayerInfoBalanceCommand();
 
-                PlayerInformation playerInfo = new PlayerInformation();
+            if (getPlayerInfoCmd.UserProfile.NonRefundable < _payFee) {
+                getPlayerInfoCmd.UserProfile.Refundable -= _payFee - getPlayerInfoCmd.UserProfile.NonRefundable;
+                getPlayerInfoCmd.UserProfile.NonRefundable = 0;
 
-                UpdatePlayerInfoBalanceCommand updatePlayerInfoBalanceCmd = new UpdatePlayerInfoBalanceCommand {
-                    UserName = playerInfo.UserName = getPlayerInfoCmd.PlayerInfo.UserName,
-                    Balance = playerInfo.Balance = getPlayerInfoCmd.PlayerInfo.Balance,
-                };
+                updateBalanceCmd.UserName = command.UserName;
 
-                _iUpdatePlayerInfoBalance.ApplyAction(playerInfo, updatePlayerInfoBalanceCmd);
+                //หักเงินผู้เล่นตามเงินที่ต้องการลงพนัน
+                updateBalanceCmd.NonRefundable = getPlayerInfoCmd.UserProfile.NonRefundable;
+                updateBalanceCmd.Refundable = getPlayerInfoCmd.UserProfile.Refundable;
+
+                _iUpdatePlayerInfoBalance.ApplyAction(getPlayerInfoCmd.UserProfile, updateBalanceCmd);
+            }
+            else if (getPlayerInfoCmd.UserProfile.NonRefundable >= _payFee) {
+                getPlayerInfoCmd.UserProfile.NonRefundable -= _payFee;
+
+                updateBalanceCmd.UserName = command.UserName;
+
+                //หักเงินผู้เล่นตามเงินที่ต้องการลงพนัน
+                updateBalanceCmd.NonRefundable = getPlayerInfoCmd.UserProfile.NonRefundable;
+                updateBalanceCmd.Refundable = getPlayerInfoCmd.UserProfile.Refundable;
+
+                _iUpdatePlayerInfoBalance.ApplyAction(getPlayerInfoCmd.UserProfile, updateBalanceCmd);
             }
             else {
                 Console.WriteLine("๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑  เงินไม่พอ  ๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑");
             }
 
-            //บันทึกข้อมูล PlayerActionInformation
+            //if (playerBalance >= _payFee) {
+            //    playerBalance -= _payFee;
 
+            //    PlayerInformation playerInfo = new PlayerInformation();
+
+            //    UpdatePlayerInfoBalanceCommand updatePlayerInfoBalanceCmd = new UpdatePlayerInfoBalanceCommand {
+            //        UserName = playerInfo.UserName = getPlayerInfoCmd.PlayerInfo.UserName,
+            //        Balance = playerInfo.Balance = getPlayerInfoCmd.PlayerInfo.Balance,
+            //    };
+
+            //    _iUpdatePlayerInfoBalance.ApplyAction(playerInfo, updatePlayerInfoBalanceCmd);
+            //}
+            //else {
+            //    Console.WriteLine("๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑  เงินไม่พอ  ๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑");
+            //}
+
+            //บันทึกข้อมูล PlayerActionInformation
             PlayerActionInformation playerActionInfo = new PlayerActionInformation();
 
             CreatePlayerActionInfoCommand createPlayerActionInfoCmd = new CreatePlayerActionInfoCommand {

@@ -133,7 +133,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="BackServices\App.config" />
+    <None Include="BackServices\App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="BackServices\Specs\MoneyToBonusChips.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>MoneyToBonusChips.feature.cs</LastGenOutput>

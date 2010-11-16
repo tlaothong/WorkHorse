@@ -6,6 +6,7 @@ using TheS.Casinova.TwoWins.Commands;
 using PerfEx.Infrastructure.CommandPattern;
 using TheS.Casinova.TwoWins.DAL;
 using TheS.Casinova.TwoWins.Models;
+using TheS.Casinova.PlayerProfile.Models;
 
 namespace TheS.Casinova.TwoWins.BackServices.BackExecutors
 {
@@ -27,6 +28,8 @@ namespace TheS.Casinova.TwoWins.BackServices.BackExecutors
 
         protected override void ExecuteCommand(BetCommand command)
         {
+            double playerBalance;
+
             #region Update balance
 
             //ดึงข้อมูลผู้เล่นเพื่อหักเงิน
@@ -34,18 +37,39 @@ namespace TheS.Casinova.TwoWins.BackServices.BackExecutors
                 UserName = command.UserName,
             };
 
-            getPlayerInfoCmd.PlayerInfo = _iGetPlayerInfo.Get(getPlayerInfoCmd);
+            getPlayerInfoCmd.UserProfile = _iGetPlayerInfo.Get(getPlayerInfoCmd);
+            playerBalance = getPlayerInfoCmd.UserProfile.NonRefundable + getPlayerInfoCmd.UserProfile.Refundable;
 
             //บันทึกข้อมูลผู้เล่นที่ถูกหักเงิน
-            PlayerInformation playerInfo = new PlayerInformation();
-            getPlayerInfoCmd.PlayerInfo.Balance = getPlayerInfoCmd.PlayerInfo.Balance - command.Amount;
-            UpdatePlayerInfoBalanceCommand updateBalanceCmd = new UpdatePlayerInfoBalanceCommand {
-                UserName = playerInfo.UserName = command.UserName,
+            UpdatePlayerInfoBalanceCommand updateBalanceCmd = new UpdatePlayerInfoBalanceCommand();
+
+            if (getPlayerInfoCmd.UserProfile.NonRefundable < command.Amount) {
+                getPlayerInfoCmd.UserProfile.Refundable -= command.Amount - getPlayerInfoCmd.UserProfile.NonRefundable;
+                getPlayerInfoCmd.UserProfile.NonRefundable = 0;
+
+                updateBalanceCmd.UserName = command.UserName;
 
                 //หักเงินผู้เล่นตามเงินที่ต้องการลงพนัน
-                Balance = playerInfo.Balance = getPlayerInfoCmd.PlayerInfo.Balance,               
-            };
-            _iUpdatePlayerInfoBalance.ApplyAction(playerInfo, updateBalanceCmd);
+                updateBalanceCmd.NonRefundable = getPlayerInfoCmd.UserProfile.NonRefundable;
+                updateBalanceCmd.Refundable = getPlayerInfoCmd.UserProfile.Refundable;
+
+                _iUpdatePlayerInfoBalance.ApplyAction(getPlayerInfoCmd.UserProfile, updateBalanceCmd);
+            }
+            else if (getPlayerInfoCmd.UserProfile.NonRefundable >= command.Amount) {
+                getPlayerInfoCmd.UserProfile.NonRefundable -= command.Amount;
+
+                updateBalanceCmd.UserName = command.UserName;
+
+                //หักเงินผู้เล่นตามเงินที่ต้องการลงพนัน
+                updateBalanceCmd.NonRefundable = getPlayerInfoCmd.UserProfile.NonRefundable;
+                updateBalanceCmd.Refundable = getPlayerInfoCmd.UserProfile.Refundable;
+
+                _iUpdatePlayerInfoBalance.ApplyAction(getPlayerInfoCmd.UserProfile, updateBalanceCmd);
+            }
+            else {
+                Console.WriteLine("๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑  เงินไม่พอ  ๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑");
+            }
+
 
             #endregion Update balance
 

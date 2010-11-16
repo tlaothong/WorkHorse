@@ -5,12 +5,12 @@
 
 @record_mock
 Background: 
-	Given (BetColor)server has player information as:
-	|UserName	|Balance	|
-	|OhAe		|463.61		|
-	|Boy		|121.99		|
-	|Toommy		|36.95		|
-	|Au			|234.00		|
+	Given (BetColor)server has player profile information as:
+	|UserName	|NonRefundable	|Refundable		|
+	|OhAe		|463.61			|200			|	
+	|Boy		|121.99			|321			|
+	|Toommy		|36.95			|37				|
+	|Au			|234.00			|326			|
 
 @record_mock
 Scenario Outline: ผู้เล่นลงเงินพนัน โดยผู้เล่นมีเงินพอ ระบบบันทึกประวัติการดำเนินการ(พนัน)ของผู้เล่น

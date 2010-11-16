@@ -18,8 +18,13 @@ namespace TheS.Casinova.TwoWins.Commands
         public string UserName { get; set; }
 
         /// <summary>
-        /// จำนวนยอดเงินคงเหลือ
+        /// ยอดรวมชิฟตาย
         /// </summary>
-        public double Balance { get; set; }
+        public double NonRefundable { get; set; }
+
+        /// <summary>
+        /// ยอดรวมชิฟเป็น
+        /// </summary>
+        public double Refundable { get; set; }
     }
 }

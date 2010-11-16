@@ -108,7 +108,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="BackServices\App.config" />
+    <None Include="BackServices\App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="BackServices\Specs\SingleBet.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>SingleBet.feature.cs</LastGenOutput>

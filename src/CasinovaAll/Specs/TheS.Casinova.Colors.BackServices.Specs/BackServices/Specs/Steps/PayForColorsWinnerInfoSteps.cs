@@ -7,6 +7,7 @@ using TheS.Casinova.TwoWins.Models;
 using Rhino.Mocks;
 using TheS.Casinova.TwoWins.Commands;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TheS.Casinova.PlayerProfile.Models;
 
 namespace TheS.Casinova.TwoWins.BackServices.Specs
 {
@@ -14,20 +15,21 @@ namespace TheS.Casinova.TwoWins.BackServices.Specs
     public class PayForColorsWinnerInfoSteps
         : ColorsGameStepsBase  
     {
-        public PlayerInformation _expectPlayerInfo;
+        public UserProfile _expectPlayerProfile;
 
-        public IEnumerable<PlayerInformation> _playerInfos;
+        public IEnumerable<UserProfile> _playerProfiles;
         public IEnumerable<PlayerActionInformation> _playerActionInfos;
         public IEnumerable<GameRoundInformation> _RoundInfos;
 
         [Given(@"server has player information as:")]
         public void GivenServerHasPlayerInformationAs(Table table)
         {
-            _playerInfos = (from item in table.Rows
-                            select new PlayerInformation {
-                                UserName = item["UserName"],
-                                Balance = Convert.ToDouble(item["Balance"]),
-                            });
+            _playerProfiles = (from item in table.Rows
+                               select new UserProfile {
+                                   UserName = item["UserName"],
+                                   NonRefundable = Convert.ToDouble(item["NonRefundable"]),
+                                   Refundable = Convert.ToDouble(item["Refundable"]),
+                               });
         }
 
         [Given(@"server has player action informations as:")]
@@ -55,12 +57,12 @@ namespace TheS.Casinova.TwoWins.BackServices.Specs
         [Given(@"sent name: '(.*)' the player's balance should recieved")]
         public void GivenSentNameXThePlayerSBalanceShouldRecieved(string userName)
         {
-            _expectPlayerInfo = (from item in _playerInfos
+            _expectPlayerProfile = (from item in _playerProfiles
                                  where item.UserName == userName
                                  select item).FirstOrDefault();
 
             SetupResult.For(Dqr_GetPlayerInfo.Get(new GetPlayerInfoCommand()))
-                .IgnoreArguments().Return(_expectPlayerInfo);
+                .IgnoreArguments().Return(_expectPlayerProfile);
         }
 
         [Given(@"sent roundID: '(.*)', userName: '(.*)' the player's action information should recieved")]
@@ -76,13 +78,14 @@ namespace TheS.Casinova.TwoWins.BackServices.Specs
 
         [Given(@"the expected balance should be: '(.*)'")]
         public void GivenTheExpectedBalanceShouldBeX(double balance)
-        {            
-            Action<PlayerInformation, UpdatePlayerInfoBalanceCommand> CheckCallMethod = (playerInfo, cmd) => {
-                Assert.AreEqual(_expectPlayerInfo.UserName, playerInfo.UserName, "UserName");
-                Assert.AreEqual(balance, playerInfo.Balance, "Balance");
+        {
+            Action<UserProfile, UpdatePlayerInfoBalanceCommand> CheckCallMethod = (playerProfile, cmd) => {
+                Assert.AreEqual(_expectPlayerProfile.UserName, playerProfile.UserName, "UserName");
+                Assert.AreEqual(_expectPlayerProfile.Refundable, playerProfile.Refundable, "Refundable");
+                Assert.AreEqual(_expectPlayerProfile.NonRefundable, playerProfile.NonRefundable, "NonRefundable");
             };
 
-            Dac_UpdatePlayerInfoBalance.ApplyAction(new PlayerInformation(), new UpdatePlayerInfoBalanceCommand());
+            Dac_UpdatePlayerInfoBalance.ApplyAction(new UserProfile(), new UpdatePlayerInfoBalanceCommand());
             LastCall.IgnoreArguments().Do(CheckCallMethod);
         }
 

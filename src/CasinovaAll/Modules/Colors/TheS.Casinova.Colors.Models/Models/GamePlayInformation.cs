@@ -17,11 +17,6 @@ namespace TheS.Casinova.TwoWins.Models
         public string UserName { get; set; }
 
         /// <summary>
-        /// tableID of the gmae playable
-        /// </summary>
-        public int TableID { get; set; }
-
-        /// <summary>
         /// roundID of the game playable
         /// </summary>
         public int RoundID { get; set; }
@@ -63,10 +58,8 @@ namespace TheS.Casinova.TwoWins.Models
         public class MD
         {
             [Required]
-            public string UserName { get; set; }
-           
-            public int TableID { get; set; }
-            
+            public string UserName { get; set; }    
+          
             public int RoundID { get; set; }
            
             public Guid TrackingID { get; set; }

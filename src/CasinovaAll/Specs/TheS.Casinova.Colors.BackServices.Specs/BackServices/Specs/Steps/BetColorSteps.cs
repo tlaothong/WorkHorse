@@ -7,6 +7,7 @@ using TheS.Casinova.TwoWins.Models;
 using TheS.Casinova.TwoWins.Commands;
 using Rhino.Mocks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TheS.Casinova.PlayerProfile.Models;
 
 namespace TheS.Casinova.TwoWins.BackServices.Specs
 {
@@ -14,18 +15,19 @@ namespace TheS.Casinova.TwoWins.BackServices.Specs
     public class BetColorSteps
         : ColorsGameStepsBase
     {
-        public PlayerInformation _expectPlayerInfo;
+        public UserProfile _expectPlayerInfo;
 
-        public IEnumerable<PlayerInformation> _playerInfos;
+        public IEnumerable<UserProfile> _playerInfos;
 
 
-        [Given(@"\(BetColor\)server has player information as:")]
-        public void GivenBetColorServerHasPlayerInformationAs(Table table)
+        [Given(@"\(BetColor\)server has player profile information as:")]
+        public void GivenBetColorServerHasPlayerProfileInformationAs(Table table)
         {
             _playerInfos = (from item in table.Rows
-                            select new PlayerInformation {
+                            select new UserProfile {
                                 UserName = item["UserName"],
-                                Balance = Convert.ToDouble(item["Balance"]),
+                                NonRefundable = Convert.ToDouble(item["NonRefundable"]),
+                                Refundable = Convert.ToDouble(item["Refundable"]),
                             });
         }
 
@@ -43,13 +45,15 @@ namespace TheS.Casinova.TwoWins.BackServices.Specs
         [Given(@"the player's balance should be update correct, Amount: (.*)")]
         public void GivenThePlayerSBalanceShouldBeUpdateCorrectAmountX(double amount)
         {
-            _expectPlayerInfo.Balance -= amount;
-            Action<PlayerInformation, UpdatePlayerInfoBalanceCommand> CheckCallMethod = (playerInfo, cmd) => {
-                Assert.AreEqual(_expectPlayerInfo.UserName, playerInfo.UserName, "UserName");
-                Assert.AreEqual(_expectPlayerInfo.Balance, playerInfo.Balance, "Balance");
+            double balance = _expectPlayerInfo.NonRefundable + _expectPlayerInfo.Refundable;
+            balance -= amount;
+            Action<UserProfile, UpdatePlayerInfoBalanceCommand> CheckCallMethod = (playerProfile, cmd) => {
+                Assert.AreEqual(_expectPlayerInfo.UserName, playerProfile.UserName, "UserName");
+                Assert.AreEqual(_expectPlayerInfo.Refundable, playerProfile.Refundable, "Refundable");
+                Assert.AreEqual(_expectPlayerInfo.NonRefundable, playerProfile.NonRefundable, "NonRefundable");
             };
 
-            Dac_UpdatePlayerInfoBalance.ApplyAction(new PlayerInformation(), new UpdatePlayerInfoBalanceCommand());
+            Dac_UpdatePlayerInfoBalance.ApplyAction(new UserProfile(), new UpdatePlayerInfoBalanceCommand());
             LastCall.IgnoreArguments().Do(CheckCallMethod);
         }
 

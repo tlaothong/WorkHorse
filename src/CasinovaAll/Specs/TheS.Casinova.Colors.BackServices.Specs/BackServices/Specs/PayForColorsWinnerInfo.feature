@@ -5,12 +5,12 @@
 
 @record_mock
 Background: PayForColorsWinner
-	Given server has player information as:
-	|UserName	|Balance	|
-	|OhAe		|463.61		|
-	|Boy		|121.21		|
-	|Nit		|36.99		|
-	|Au			|234.00		|
+	Given (BetColor)server has player profile information as:
+	|UserName	|NonRefundable	|Refundable		|
+	|OhAe		|463.61			|200			|	
+	|Boy		|121.99			|321			|
+	|Toommy		|36.95			|37				|
+	|Au			|234.00			|326			|
 
 	And server has player action informations as:
 	|RoundID	|UserName	|ActionType	|DateTime(for example, not use this row)			|
