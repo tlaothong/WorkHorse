@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using PerfEx.Infrastructure.CommandPattern;
-using TheS.Casinova.TwoWins.Commands;
-using TheS.Casinova.TwoWins.BackServices;
+using TheS.Casinova.Colors.Commands;
+using TheS.Casinova.Colors.BackServices;
+using PerfEx.Infrastructure;
+using PerfEx.Infrastructure.Validation;
 
-namespace TheS.Casinova.TwoWins.WebExecutors
+namespace TheS.Casinova.Colors.WebExecutors
 {
     /// <summary>
     /// สร้าง active round
@@ -15,13 +17,19 @@ namespace TheS.Casinova.TwoWins.WebExecutors
         : SynchronousCommandExecutorBase<CreateGameRoundConfigurationCommand>
     {
         private ICreateGameTableConfigurations _iCreateRoundConfig;
-        public CreateGameRoundConfigExecutor(IGameTableBackService dac)
+        private IDependencyContainer _container;
+        public CreateGameRoundConfigExecutor(IGameTableBackService dac, IDependencyContainer container)
         {
             _iCreateRoundConfig = dac;
+            _container = container;
         }
  
         protected override void ExecuteCommand(CreateGameRoundConfigurationCommand command)
         {
+            var errors = ValidationHelper.Validate(_container, command.Tables, command);
+            if (errors.Any()) {
+                throw new ValidationErrorException(errors);
+            }
             _iCreateRoundConfig.Create(command);
         }
     }

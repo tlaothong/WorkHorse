@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using TheS.Casinova.TwoWins.Commands;
+using TheS.Casinova.Colors.Commands;
 using PerfEx.Infrastructure.CommandPattern;
-using TheS.Casinova.TwoWins.BackServices;
+using TheS.Casinova.Colors.BackServices;
 
-namespace TheS.Casinova.TwoWins.WebExecutors
+namespace TheS.Casinova.Colors.WebExecutors
 { 
     /// <summary>
     /// สร้าง TrackingID ส่งให้ client และส่ง command ไปยัง back server

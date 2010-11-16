@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using TheS.Casinova.TwoWins.Models;
-using TheS.Casinova.TwoWins.Commands;
+using TheS.Casinova.Colors.Models;
+using TheS.Casinova.Colors.Commands;
 using PerfEx.Infrastructure.Data;
 using TheS.Casinova.PlayerProfile.Models;
 
-namespace TheS.Casinova.TwoWins.DAL
+namespace TheS.Casinova.Colors.DAL
 {
     public interface IColorsGameDataAccess :
         IUpdatePlayerInfoBalance,

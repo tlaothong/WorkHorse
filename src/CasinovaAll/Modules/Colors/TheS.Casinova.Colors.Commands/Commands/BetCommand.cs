@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace TheS.Casinova.TwoWins.Commands
+namespace TheS.Casinova.Colors.Commands
 {
     /// <summary>
     /// command ลงเงินสีที่ต้องการ ระบบจะทำการหักเงินผู้เล่น และบันทึกข้อมูลการลงพนัน

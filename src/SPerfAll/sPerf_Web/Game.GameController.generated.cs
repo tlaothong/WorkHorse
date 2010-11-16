@@ -51,6 +51,8 @@ namespace sPerf_Web.Areas.Game.Controllers {
             public readonly string Tournament = "Tournament";
             public readonly string Upload = "Upload";
             public readonly string GameOption = "GameOption";
+            public readonly string AdvanceSearch = "AdvanceSearch";
+            public readonly string Banners = "Banners";
         }
 
 
@@ -59,6 +61,8 @@ namespace sPerf_Web.Areas.Game.Controllers {
         public ViewNames Views { get { return s_views; } }
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ViewNames {
+            public readonly string AdvanceSearch = "~/Areas/Game/Views/Game/AdvanceSearch.ascx";
+            public readonly string Banners = "~/Areas/Game/Views/Game/Banners.ascx";
             public readonly string GameOption = "~/Areas/Game/Views/Game/GameOption.aspx";
             public readonly string Index = "~/Areas/Game/Views/Game/Index.aspx";
             public readonly string SubMenu = "~/Areas/Game/Views/Game/SubMenu.ascx";
@@ -93,6 +97,16 @@ namespace sPerf_Web.Areas.Game.Controllers {
 
         public override System.Web.Mvc.ActionResult GameOption() {
             var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.GameOption);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult AdvanceSearch() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.AdvanceSearch);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult Banners() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Banners);
             return callInfo;
         }
 

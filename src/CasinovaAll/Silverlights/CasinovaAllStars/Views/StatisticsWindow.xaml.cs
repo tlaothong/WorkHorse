@@ -21,6 +21,7 @@ namespace CasinovaAllStars.Views
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
+            infoContentPresenter.Content = null;
             this.DialogResult = false;
         }
     }

@@ -24,20 +24,22 @@
     		<Rectangle Fill="Black" Stroke="Black"/>
     		<TextBlock TextWrapping="Wrap" Text="{Binding Name, Mode=OneWay}" FontWeight="Bold" FontSize="16" VerticalAlignment="Center" d:LayoutOverrides="HorizontalAlignment" HorizontalAlignment="Left" Margin="8,0,0,0" Foreground="White"/>
     	</Grid>
-    	<Grid HorizontalAlignment="Left" Height="170" Margin="8,8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="130">
-    		<Rectangle Stroke="Black" Height="130" VerticalAlignment="Top" d:LayoutOverrides="GridBox">
-    			<Rectangle.Fill>
-    				<RadialGradientBrush>
-    					<GradientStop Color="#FF9DEFFF" Offset="0.6"/>
-    					<GradientStop Color="#FF1F00FF" Offset="1"/>
-    				</RadialGradientBrush>
-    			</Rectangle.Fill>
-    		</Rectangle>
-    		<HyperlinkButton Content="Play" HorizontalAlignment="Left" Foreground="Red" NavigateUri="{Binding GameUri, Mode=OneWay}" VerticalAlignment="Bottom" d:LayoutOverrides="GridBox"/>
-    		<HyperlinkButton x:Name="HowToPlayHyperlinkButton" Content="How to play" Margin="0,0,60,20" Foreground="Red" Click="HowToPlayHyperlinkButton_Click" VerticalAlignment="Bottom" d:LayoutOverrides="Width, GridBox" />
-    	</Grid>
-    	<ScrollViewer Margin="142,8,8,8" Grid.Row="1" d:LayoutOverrides="VerticalAlignment">
-    		<TextBlock TextWrapping="Wrap" Text="Color or colour (see spelling differences) is the visual perceptual property corresponding in humans to the categories called red, green, blue and others. Color derives from the spectrum of light (distribution of light energy versus wavelength) interacting in the eye with the spectral sensitivities of the light receptors. Color categories and physical specifications of color are also associated with objects, materials, light sources, etc., based on their physical properties such as light absorption, reflection, or emission spectra. By defining a color space, colors can be identified numerically by their coordinates."/>
-    	</ScrollViewer>
+    	<StackPanel HorizontalAlignment="Left" Margin="8,8,0,8" Grid.Row="1" Width="130">
+    		<Image Width="130" Height="130" VerticalAlignment="Top" Source="/TheS.Casinova.MagicNine.Silverlight;component/MagicNine/Assets/Images/Logo.jpg" Stretch="Fill"/>
+    		<HyperlinkButton Content="Play" HorizontalAlignment="Left" Foreground="Red" NavigateUri="{Binding GameUri, Mode=OneWay}" d:LayoutOverrides="GridBox"/>
+    		<HyperlinkButton x:Name="HowToPlayHyperlinkButton" Content="How to play" Margin="0,0,60,0" Foreground="Red" Click="HowToPlayHyperlinkButton_Click" d:LayoutOverrides="Width, GridBox" />
+    	</StackPanel>
+    	<RichTextBox Margin="142,8,8,8" Grid.Row="1" IsReadOnly="True">
+    		<Paragraph>
+    			<Run Text="Game: Magic 9" FontWeight="Bold" FontSize="12"/>
+<LineBreak/>
+<LineBreak/>
+<Run Text="Standard Rules" FontWeight="Bold"/><LineBreak/>
+- Each click on Play button cost 1 dollar.<LineBreak/>
+- Each time a player click a Play button, the Display will show the total number of clicks.<LineBreak/>
+- Player's Displays will only be updated when the player click the Play button.<LineBreak/>
+- Player may not click faster than five times per second.<LineBreak/> 		
+			</Paragraph>
+    	</RichTextBox>
     </Grid>
 </UserControl>

@@ -63,6 +63,9 @@
   <ItemGroup>
     <Reference Include="Microsoft.Expression.Interactions" />
     <Reference Include="mscorlib" />
+    <Reference Include="PerfEx.Infrastructure.Silverlight">
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Silverlight.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.Composition, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.ComponentModel.DataAnnotations, Version=2.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217, processorArchitecture=MSIL" />
     <Reference Include="System.Runtime.Serialization" />
@@ -89,6 +92,22 @@
     <Compile Include="ChipExchange\Controls\ChipAmountUI.xaml.cs">
       <DependentUpon>ChipAmountUI.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ChipExchange\Controls\ChipMenuUI.xaml.cs">
+      <DependentUpon>ChipMenuUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChipExchange\Controls\GiftVoucherUI.xaml.cs">
+      <DependentUpon>GiftVoucherUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChipExchange\Controls\NonRefundableChipsUI.xaml.cs">
+      <DependentUpon>NonRefundableChipsUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChipExchange\Controls\RefundableChipsUI.xaml.cs">
+      <DependentUpon>RefundableChipsUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChipExchange\ViewModels\AmountConfirmationViewModel.cs" />
+    <Compile Include="ChipExchange\Views\AmountConfirmationWindow.xaml.cs">
+      <DependentUpon>AmountConfirmationWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ChipExchange\Views\DepositWindow.xaml.cs">
       <DependentUpon>DepositWindow.xaml</DependentUpon>
     </Compile>
@@ -98,11 +117,18 @@
     <Compile Include="MLN\Controls\MLNUI.xaml.cs">
       <DependentUpon>MLNUI.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MLN\Models\DownlineDetail.cs" />
+    <Compile Include="MLN\ViewModels\AnotherPlayerInformationModel.cs" />
+    <Compile Include="MLN\ViewModels\DownlineDetailViewModel.cs" />
+    <Compile Include="MLN\ViewModels\MLNViewModel.cs" />
     <Compile Include="MLN\Views\AnotherPlayerInformationWindow.xaml.cs">
       <DependentUpon>AnotherPlayerInformationWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MLN\Views\DownlineDetailWindow.xaml.cs">
       <DependentUpon>DownlineDetailWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerAccount\Controls\InformationUI.xaml.cs">
+      <DependentUpon>InformationUI.xaml</DependentUpon>
     </Compile>
     <Compile Include="PlayerAccount\Silverlight\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -110,12 +136,19 @@
     <Compile Include="PlayerAccount\Silverlight\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PlayerProfile\Views\AccountManagerEditPage.xaml.cs">
-      <DependentUpon>AccountManagerEditPage.xaml</DependentUpon>
+    <Compile Include="PlayerAccount\ViewModels\AccountInformationViewModel.cs" />
+    <Compile Include="PlayerAccount\ViewModels\InformationViewModel.cs" />
+    <Compile Include="PlayerAccount\Views\AccountInformationEditWindow.xaml.cs">
+      <DependentUpon>AccountInformationEditWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PlayerProfile\Views\AccountManagerInformationPage.xaml.cs">
-      <DependentUpon>AccountManagerInformationPage.xaml</DependentUpon>
+    <Compile Include="PlayerAccount\Views\AccountInformationPage.xaml.cs">
+      <DependentUpon>AccountInformationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PlayerAccount\Views\PaymentWindow.xaml.cs">
+      <DependentUpon>PaymentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerProfile\Models\LogEvent.cs" />
+    <Compile Include="PlayerProfile\ViewModels\AccountManagerViewModel.cs" />
     <Compile Include="PlayerProfile\Views\AccountManagerWindow.xaml.cs">
       <DependentUpon>AccountManagerWindow.xaml</DependentUpon>
     </Compile>
@@ -127,6 +160,26 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="ChipExchange\Controls\ChipAmountUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChipExchange\Controls\ChipMenuUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChipExchange\Controls\GiftVoucherUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChipExchange\Controls\NonRefundableChipsUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChipExchange\Controls\RefundableChipsUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChipExchange\Views\AmountConfirmationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -150,15 +203,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PlayerAccount\Controls\InformationUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PlayerAccount\Silverlight\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PlayerProfile\Views\AccountManagerEditPage.xaml">
+    <Page Include="PlayerAccount\Views\AccountInformationEditWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PlayerProfile\Views\AccountManagerInformationPage.xaml">
+    <Page Include="PlayerAccount\Views\AccountInformationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlayerAccount\Views\PaymentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -170,9 +231,7 @@
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PlayerAccount\Views\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\TheS.Casinova.Common.Silverlight\TheS.Casinova.Common.Silverlight.csproj">
       <Project>{3613EAFB-E876-47F0-BFE9-7E9D8DCF5E5A}</Project>

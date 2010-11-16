@@ -13,7 +13,7 @@ using TheS.Casinova.Common;
 
 namespace TheS.Casinova.SupportContent.Views
 {
-    [ExportPopupContent(DisplayText = "FAQ", GroupName = "buttom", Order = 1)]
+    [ExportPopupContent(DisplayText = "FAQ", GroupName = "bottom", Order = 1)]
     public partial class FAQWindow : ChildWindow
     {
         public FAQWindow()

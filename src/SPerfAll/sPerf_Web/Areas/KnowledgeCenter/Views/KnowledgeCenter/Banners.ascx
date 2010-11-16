@@ -5,13 +5,13 @@
             <td>
                 <br />
                 <br />
-                <a href='' style="margin-left:655px;">SUPER เหมา </a>
+                <a href=''>SUPER เหมา </a>
                 <br />
                 <br />
                 <a href=''>
-                    <img id="images1" src="/Content/images/banner2.jpg" style="border-width: 0px; margin-left:655px" />
+                    <img id="images1" src="/Content/images/banner2.jpg" style="border-width: 0px;" />
                 </a>
-                <table style="margin-left:655px;">
+                <table>
                     <tr>
                         <td>
                 SUPER เหมา โหลดเพลง RS ยกค่าย<br />
@@ -30,13 +30,13 @@
         </tr>
         <tr>
             <td>
-                <a href='' style="margin-left:655px;">แจกหนังสือคู่มือการล่างาน </a>
+                <a href=''>แจกหนังสือคู่มือการล่างาน </a>
                 <br />
                 <br />
                 <a href=''>
-                    <img id="images2" src="/Content/images/banner1.jpg" style="border-width: 0px; margin-left:655px;" />
+                    <img id="images2" src="/Content/images/banner1.jpg" style="border-width: 0px;" />
                 </a>
-                <table style="margin-left:655px;">
+                <table>
                     <tr>
                         <td>
                             <br />

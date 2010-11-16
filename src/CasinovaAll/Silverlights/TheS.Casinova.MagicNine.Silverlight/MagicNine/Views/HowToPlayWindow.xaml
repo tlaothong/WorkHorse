@@ -12,11 +12,20 @@
 
         <Button x:Name="CloseButton" Content="Close" Click="CloseButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" FontSize="11" />
         <Grid>
-        	<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Game:" VerticalAlignment="Top" FontSize="13.333" FontWeight="Bold"/>
-        	<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Magic 9" VerticalAlignment="Top" FontSize="13.333" Margin="52,0,0,0"/>
-        	<ScrollViewer Margin="0,23,0,0">
-        		<TextBlock x:Name="Information" TextWrapping="Wrap" Text="Information" FontSize="11"/>
-        	</ScrollViewer>
+        	<RichTextBox FontSize="11" IsReadOnly="True">
+        		<Paragraph>
+        			<Run Text="Game: Magic 9" FontWeight="Bold" FontSize="12"/><LineBreak/><LineBreak/>
+<Run Text="Standard Rules" FontWeight="Bold"/><LineBreak/>
+- Each click on Play button cost 1 dollar.<LineBreak/>
+- Each time a player click a Play button, the Display will show the total number of clicks.<LineBreak/>
+- Player's Displays will only be updated when the player click the Play button.<LineBreak/>
+- Player may not click faster than five times per second.<LineBreak/><LineBreak/>
+<Run Text="Tools" FontWeight="Bold"/><LineBreak/>
+- For 1 dollar, you may use Auto Play function by telling the program how much and how often you want it to auto click for you.<LineBreak/><LineBreak/>
+<Run Text="Winners" FontWeight="Bold"/><LineBreak/>
+- Player who clicks on the 99 wins 99 dollars back<LineBreak/>    		
+				</Paragraph>
+        	</RichTextBox>
         </Grid>
     </Grid>
 </controls:ChildWindow>

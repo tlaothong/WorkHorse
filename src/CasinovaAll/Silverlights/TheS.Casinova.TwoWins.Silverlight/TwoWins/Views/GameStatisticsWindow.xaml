@@ -1,0 +1,47 @@
+﻿<sdk:ChildWindow
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:TheS_Casinova_TwoWins_ViewModels="clr-namespace:TheS.Casinova.TwoWins.ViewModels" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="TheS.Casinova.TwoWins.Views.GameStatisticsWindow"
+           Width="600" Height="400" 
+           Title="Two wins statistics." FontSize="21.333">
+	<sdk:ChildWindow.Resources>
+		<TheS_Casinova_TwoWins_ViewModels:BetdataViewModel x:Key="BetdataViewModelDataSource" d:IsDataSource="True"/>
+	</sdk:ChildWindow.Resources>
+	<sdk:ChildWindow.DataContext>
+		<Binding Source="{StaticResource BetdataViewModelDataSource}"/>
+	</sdk:ChildWindow.DataContext>
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Button x:Name="CloseButton" Content="Close" Click="CloseButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" FontSize="11" />
+    	<sdk:TabControl x:Name="ContentTabControl" FontSize="11">
+    		<sdk:TabItem Header="Bet data">
+    			<Grid Background="#FFE5E5E5">
+    				<sdk:DataGrid x:Name="BetDataContent" AutoGenerateColumns="False" ItemsSource="{Binding Informations}" IsReadOnly="True">
+    					<sdk:DataGrid.Columns>
+    						<sdk:DataGridTextColumn Binding="{Binding Time}" Header="Time"/>
+    						<sdk:DataGridTextColumn Binding="{Binding Round}" Header="Round"/>
+							<sdk:DataGridTextColumn Binding="{Binding GameState}" Header="GameState"/>
+							<sdk:DataGridTextColumn Binding="{Binding Player}" Header="Player"/>
+    						<sdk:DataGridTextColumn Binding="{Binding Bet}" Header="Bet"/>
+							<sdk:DataGridTextColumn Binding="{Binding HandID}" Header="HandID"/>
+    						<sdk:DataGridCheckBoxColumn Binding="{Binding Change}" Header="Change"/>
+							<sdk:DataGridTextColumn Binding="{Binding OldBet}" Header="OldBet"/>
+							<sdk:DataGridTextColumn Binding="{Binding Pot}" Header="Pot"/>
+							<sdk:DataGridTextColumn Binding="{Binding WinState}" Header="WinState"/>
+    						<sdk:DataGridTextColumn Binding="{Binding Getback}" Header="Getback"/>
+    						
+    					</sdk:DataGrid.Columns>
+    				</sdk:DataGrid>
+    			</Grid>
+    		</sdk:TabItem>
+    		<sdk:TabItem Header="Graph">
+    			<Grid Background="#FFE5E5E5"/>
+    		</sdk:TabItem>
+    	</sdk:TabControl>
+    </Grid>
+</sdk:ChildWindow>

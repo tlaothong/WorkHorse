@@ -16,13 +16,7 @@ namespace CasinovaAllStars.ViewModels
 {
     public class GameLobbyViewModel : INotifyPropertyChanged
     {
-        public GameLobbyViewModel()
-        {
-            if (App.SupportContentDownloaded == false)
-            {
-                App.SupportContentDownloadCompleted += new EventHandler(App_SupportDownloadedCompleted);
-            }
-        }
+        #region Properties
 
         public ReadOnlyObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> Popups
         {
@@ -42,6 +36,21 @@ namespace CasinovaAllStars.ViewModels
 
         public Lazy<ChildWindow, IPopupContentMetadata> SelectedWindow { get; set; }
 
+        #endregion Properties
+
+        #region Constructors
+
+        public GameLobbyViewModel()
+        {
+            if (App.SupportContentDownloaded == false) {
+                App.SupportContentDownloadCompleted += new EventHandler(App_SupportDownloadedCompleted);
+            }
+        }
+
+        #endregion Constructors
+
+        #region Methods
+        
         public void ShowWindow()
         {
             SelectedWindow.Value.Show();
@@ -55,6 +64,8 @@ namespace CasinovaAllStars.ViewModels
                 temp(this, new PropertyChangedEventArgs("Games"));
             }
         }
+
+        #endregion Methods
 
         #region INotifyPropertyChanged Members
 

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using TheS.Casinova.TwoWins.Commands;
+using TheS.Casinova.Colors.Commands;
 
-namespace TheS.Casinova.TwoWins.BackServices
+namespace TheS.Casinova.Colors.BackServices
 {
     /// <summary>
     /// ส่งค่า command ไป back server 

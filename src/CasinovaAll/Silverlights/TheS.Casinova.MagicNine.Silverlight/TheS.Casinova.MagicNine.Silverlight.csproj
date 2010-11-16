@@ -31,6 +31,8 @@
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
     <LinkedServerProject>
     </LinkedServerProject>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>4.0.20525.0</ExpressionBlendVersion>
   </PropertyGroup>
   <!-- This property group is only here to support building this project using the 
        MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
@@ -72,6 +74,7 @@
     <Reference Include="System.Windows.Controls, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Windows.Controls.Data, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Windows.Controls.Data.Input, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit" />
     <Reference Include="System.Windows.Controls.Navigation, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Windows.Controls.Theming.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Windows.Controls.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -85,7 +88,13 @@
     <Compile Include="MagicNine\Controls\GamePlayUI.xaml.cs">
       <DependentUpon>GamePlayUI.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MagicNine\Controls\GameStatisticsUI.xaml.cs">
+      <DependentUpon>GameStatisticsUI.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MagicNine\GameApplicationInformation.cs" />
+    <Compile Include="MagicNine\Models\BetdataInfo.cs" />
+    <Compile Include="MagicNine\Models\GameTable.cs" />
+    <Compile Include="MagicNine\Models\WinnerInfo.cs" />
     <Compile Include="MagicNine\Popups\BetData.xaml.cs">
       <DependentUpon>BetData.xaml</DependentUpon>
     </Compile>
@@ -95,10 +104,17 @@
     <Compile Include="MagicNine\Silverlight\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MagicNine\ViewModels\MainPageViewModel.cs" />
-    <Compile Include="MagicNine\ViewModels\TimeIntervalViewModel.cs" />
+    <Compile Include="MagicNine\ViewModels\BetdataViewModel.cs" />
+    <Compile Include="MagicNine\ViewModels\GamePlayViewModel.cs" />
+    <Compile Include="MagicNine\ViewModels\GameStatisticsViewModel.cs" />
     <Compile Include="MagicNine\Views\BetDataPage.xaml.cs">
       <DependentUpon>BetDataPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MagicNine\Views\GamePlayPage.xaml.cs">
+      <DependentUpon>GamePlayPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MagicNine\Views\GameStatisticsWindow.xaml.cs">
+      <DependentUpon>GameStatisticsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MagicNine\Views\GraphPage.xaml.cs">
       <DependentUpon>GraphPage.xaml</DependentUpon>
@@ -124,6 +140,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="MagicNine\Controls\GameStatisticsUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MagicNine\Popups\BetData.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -136,11 +156,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MagicNine\Views\GamePlayPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MagicNine\Views\GameStatisticsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MagicNine\Views\GraphPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="MagicNine\Views\HowToPlayWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MagicNine\Views\ResourceDictionary01.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -158,7 +190,9 @@
       <Name>TheS.Casinova.Common.Silverlight</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="MagicNine\Assets\Images\Logo.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

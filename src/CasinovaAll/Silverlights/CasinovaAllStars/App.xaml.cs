@@ -113,6 +113,9 @@ namespace CasinovaAllStars
             private static readonly System.Collections.ObjectModel.ReadOnlyObservableCollection<Lazy<UserControl, IGameStatContentMetadata>> _emptyStats =
                 new System.Collections.ObjectModel.ReadOnlyObservableCollection<Lazy<UserControl, IGameStatContentMetadata>>(
                     new System.Collections.ObjectModel.ObservableCollection<Lazy<UserControl, IGameStatContentMetadata>>());
+            private static readonly System.Collections.ObjectModel.ReadOnlyObservableCollection<Lazy<UserControl, IStatisticsContentMetadata>> _emptyStatisticss =
+                new System.Collections.ObjectModel.ReadOnlyObservableCollection<Lazy<UserControl, IStatisticsContentMetadata>>(
+                    new System.Collections.ObjectModel.ObservableCollection<Lazy<UserControl, IStatisticsContentMetadata>>());
 
             #region IModuleLoader Members
 
@@ -129,6 +132,11 @@ namespace CasinovaAllStars
             public System.Collections.ObjectModel.ReadOnlyObservableCollection<Lazy<UserControl, IGameStatContentMetadata>> GameStatContents
             {
                 get { return _emptyStats; }
+            }
+
+            public System.Collections.ObjectModel.ReadOnlyObservableCollection<Lazy<UserControl, IStatisticsContentMetadata>> StatisticsContents
+            {
+                get { return _emptyStatisticss; }
             }
 
             public UserControl GetNavigableContent(string naviationCode)

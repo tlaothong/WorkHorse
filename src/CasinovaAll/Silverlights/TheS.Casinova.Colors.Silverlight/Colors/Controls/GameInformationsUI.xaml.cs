@@ -11,7 +11,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using TheS.Casinova.Colors.Views;
 
-namespace TheS.Casinova.TwoWins.Controls
+namespace TheS.Casinova.Colors.Controls
 {
     public partial class GameInformationsUI : UserControl
     {

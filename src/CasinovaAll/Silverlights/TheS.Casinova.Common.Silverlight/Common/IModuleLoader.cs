@@ -26,6 +26,10 @@ namespace TheS.Casinova.Common
         /// </summary>
         ReadOnlyObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> PopupContents { get; }
         /// <summary>
+        /// List of <see cref="System.Windows.Controls.UserControl"/> for statistics contents.
+        /// </summary>
+        ReadOnlyObservableCollection<Lazy<UserControl, IStatisticsContentMetadata>> StatisticsContents { get; }
+        /// <summary>
         /// List of game statistics user controls.
         /// </summary>
         ReadOnlyObservableCollection<Lazy<UserControl, IGameStatContentMetadata>> GameStatContents { get; }

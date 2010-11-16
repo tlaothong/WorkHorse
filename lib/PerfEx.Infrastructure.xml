@@ -81,6 +81,11 @@
             </summary>
             <returns>A service object.</returns>
         </member>
+        <member name="P:PerfEx.Infrastructure.ServiceObjectProviderBase`1.ServiceProxy">
+            <summary>
+            Gets the service object.
+            </summary>
+        </member>
         <member name="T:PerfEx.Infrastructure.Data.ICreateData`2">
             <summary>
             Provides behavior to persist the data entity to the data storage.
@@ -100,7 +105,7 @@
             <summary>
             Adapter class for converting a type T to contract of type I (use dependency injection and lazy-load).
             </summary>
-            <typeparam name="T">The type of the target object to create.</typeparam>
+            <typeparam name="T">The type of the service object to create.</typeparam>
             <typeparam name="I">The contract interface.</typeparam>
         </member>
         <member name="T:PerfEx.Infrastructure.LazyServiceObjectProvider`2">
@@ -528,6 +533,12 @@
             Mark that the framework should skip loading the class.
             </summary>
         </member>
+        <member name="P:PerfEx.Infrastructure.NonLoadedAttribute.IsEffective">
+            <summary>
+            Is attribute has cause effect on the dynamic loading module.
+            The default is true.
+            </summary>
+        </member>
         <member name="T:PerfEx.Infrastructure.Data.IDatabaseConnectionString">
             <summary>
             abstract interface for Database Connection String.
@@ -894,6 +905,26 @@
             Mark an assembly that the framework should register validators to the dependency registry automatically.
             </summary>
         </member>
+        <member name="T:PerfEx.Infrastructure.LotUpdate.TrackingInformation">
+            <summary>
+            Tracking Information DTO
+            </summary>
+        </member>
+        <member name="P:PerfEx.Infrastructure.LotUpdate.TrackingInformation.TrackingID">
+            <summary>
+            Tracking ID
+            </summary>
+        </member>
+        <member name="P:PerfEx.Infrastructure.LotUpdate.TrackingInformation.Status">
+            <summary>
+            Status of the tracking
+            </summary>
+        </member>
+        <member name="P:PerfEx.Infrastructure.LotUpdate.TrackingInformation.LotNo">
+            <summary>
+            Lot Number
+            </summary>
+        </member>
         <member name="T:PerfEx.Infrastructure.DependencyContainerWrapper">
             <summary>
             Act as a proxy to the target dependency container.<br />
@@ -1023,6 +1054,46 @@
         <member name="T:PerfEx.Infrastructure.Validation.ValidationErrorCollection">
             <summary>
             Collection of ValidationError information.
+            </summary>
+        </member>
+        <member name="T:PerfEx.Infrastructure.MefServiceObjectProvider`1">
+            <summary>
+            Provides a capability for creating an object from MEF.
+            </summary>
+            <typeparam name="T">A target type of the service to create.</typeparam>
+        </member>
+        <member name="M:PerfEx.Infrastructure.MefServiceObjectProvider`1.#ctor(System.ComponentModel.Composition.Hosting.CompositionContainer)">
+            <summary>
+            Initializes a new instance of the provider, also instantiate the service object using the MEF container.
+            </summary>
+            <param name="container">The MEF CompositionContainer.</param>
+        </member>
+        <member name="P:PerfEx.Infrastructure.MefServiceObjectProvider`1.ServiceProxy">
+            <summary>
+            Gets the service object.
+            </summary>
+        </member>
+        <member name="T:PerfEx.Infrastructure.MefServiceObjectProvider`2">
+            <summary>
+            Provides a capability for creating an object from MEF with an adapter to an interface.
+            </summary>
+            <typeparam name="T">The type of the service object to create.</typeparam>
+            <typeparam name="I">The contract interface.</typeparam>
+        </member>
+        <member name="M:PerfEx.Infrastructure.MefServiceObjectProvider`2.#ctor(System.ComponentModel.Composition.Hosting.CompositionContainer)">
+            <summary>
+            Initializes a new instance of the provider, also instantiate the service object using the MEF container.
+            </summary>
+            <param name="container">The MEF CompositionContainer.</param>
+        </member>
+        <member name="P:PerfEx.Infrastructure.MefServiceObjectProvider`2.ServiceObject">
+            <summary>
+            Provides access from MEF to set a service instance.
+            </summary>
+        </member>
+        <member name="P:PerfEx.Infrastructure.MefServiceObjectProvider`2.ServiceProxy">
+            <summary>
+            Gets the service object.
             </summary>
         </member>
         <member name="T:PerfEx.Infrastructure.DynamicDependencyRegistration">
