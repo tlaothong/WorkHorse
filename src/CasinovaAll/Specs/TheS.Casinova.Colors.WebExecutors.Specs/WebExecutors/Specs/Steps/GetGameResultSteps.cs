@@ -16,8 +16,8 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
         //private GetGameResultCommand _cmd;
         //private GameRoundInformation _getGameResult;
 
-        [Given(@"Server has game information")]
-        public void GivenServerHasGameInformation(Table table)
+        [Given(@"Server has game result information")]
+        public void GivenServerHasGameResultInformation(Table table)
         {
             ScenarioContext.Current.Pending();
         }
@@ -28,12 +28,12 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
             ScenarioContext.Current.Pending();
         }
 
-        [Then(@"the game result should be")]
-        public void ThenTheGameResultShouldBe(Table table)
+        [Then(@"the game result should be : RoundID '(.*)' StartTime '(.*)' EndTime '(.*)' BlackPot '(.*)' WhitePot '(.*)' HandCount '(.*)'")]
+        public void ThenTheGameResultShouldBeRoundIDXStartTimeXEndTimeXBlackPotXWhitePotXHandCountX(int round, string startTime, string endTime, double blackPot, double whitePot,int handCount)
         {
             ScenarioContext.Current.Pending();
-
         }
+
         [Then(@"the game result should be throw exception")]
         public void ThenTheGameResultShouldBeThrowException()
         {

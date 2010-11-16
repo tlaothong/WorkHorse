@@ -4,9 +4,9 @@
 	I want to sent game round configurations to create
 
 @record_mock
-Scenario Outline: ระบบได้รับข้อมูล GameRoundConfigurations และทำการส่งข้อมูลปยัง BackServer
- Given The GameRoundConfigurations has been created and initialized
- When Call Create(Name'<Name>',TableAmount'<TableAmount>', GameDuration'<GameDuration>', Interval'<Interval>')
+Scenario Outline: ระบบได้รับข้อมูล GameRoundConfigurations ระบบทำการตรวจสอบข้อมูลและทำการส่งข้อมูลไปยัง BackServer ต่อไป
+ Given The CreateGameRoundConfigExecutor has been created and initialized
+ When Call CreateGameRoundConfigExecutor(Name'<Name>',TableAmount'<TableAmount>', GameDuration'<GameDuration>', Interval'<Interval>')
  Then The system can sent GameRoundConfigurations to back server
  Then The system can't sent GameRoundConfigurations to back server
 

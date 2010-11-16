@@ -13,38 +13,20 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
     [Binding]
     public class PayForColorsWinnerInfoSteps : ColorsGameStepsBase
     {
-        [Given(@"System has userName 'tle','boy','ae','ku','au'")]
-        public void GivenSystemHasUserNameTleBoyAeKuAu()
+        [When(@"Call PayForColorsWinnerInfoExecutor\(userName '(.*)' RoundID '(.*)'\)")]
+        public void WhenCallPayForColorsWinnerInfoExecutorUserNameXRoundIDX(string userName, int roundID)
         {
             ScenarioContext.Current.Pending();
         }
 
-        [Given(@"TrackingID is '(.*)'")]
-        public void GivenTrackingIDIsX(string trackingId)
+        [Then(@"The system can generate trckingID for pay colors winner information")]
+        public void ThenTheSystemCanGenerateTrckingIDForPayColorsWinnerInformation()
         {
             ScenarioContext.Current.Pending();
         }
 
-        [Given(@"Expected call PayForWinnerInfo")]
-        public void GivenExpectedCallPayForWinnerInfo()
-        {
-            ScenarioContext.Current.Pending();
-        }
-
-        [When(@"Call PayForWinnerInfo\(RoundID '(.*)'\) by userName '(.*)'")]
-        public void WhenCallPayForWinnerInfoRoundID5ByUserNameNit(int roundId, string userName)
-        {
-            ScenarioContext.Current.Pending();
-        }
-
-        [Then(@"TrackingID of PayForWinner should be '(.*)'")]
-        public void ThenTrackingIDShouldBeX(string trackingId)
-        {
-            ScenarioContext.Current.Pending();
-        }
-
-        [Then(@"TrackingID  of PayForWinner should be null")]
-        public void ThenTrackingIDOfPayForWinnerShouldBeNull()
+        [Then(@"The system can't generate trackingID for  pay colors winner information")]
+        public void ThenTheSystemCanTGenerateTrackingIDForPayColorsWinnerInformation()
         {
             ScenarioContext.Current.Pending();
         }

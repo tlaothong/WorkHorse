@@ -18,14 +18,14 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
         //private IEnumerable<GamePlayInformation> _expectGamePlayInfo;
         //private string _userName;
 
-        [Given(@"The game play information of '(.*)' is :")]
-        public void GivenTheGamePlayInformationOfXIs(string userName, Table table)
+        [Given(@"Server has game play information as:")]
+        public void GivenServerHasGamePlayInformationAs(Table table)
         {
             ScenarioContext.Current.Pending();
         }
 
-        [When(@"Call ListGamePlayInfo\('(.*)'\)")]
-        public void WhenCallListGamePlayInfoX(string userName)
+        [When(@"Call ListGamePlayInfoExecutor\('(.*)'\)")]
+        public void WhenCallListGamePlayInfoExecutorX(string userName)
         {
             ScenarioContext.Current.Pending();
         }

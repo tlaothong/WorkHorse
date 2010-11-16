@@ -10,33 +10,20 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
     [Binding]
     public class BetSteps : ColorsGameStepsBase
     {
-
-        [Given(@"TrackingID of PlayerBet is '(.*)'")]
-        public void GivenTrackingIDOfPlayerBetIsX(string trackingId)
+        [When(@"Call BetColorsExecutor\(UserName '(.*)' RoundID '(.*)', ActionType '(.*)', Amount '(.*)'\)")]
+        public void WhenCallBetColorsExecutorUserNameRoundIDXActionTypeXAmountX(string userName, int round, string actionType, double amount)
         {
             ScenarioContext.Current.Pending();
         }
 
-        [Given(@"Expected call PlayerBet")]
-        public void GivenExpectedCallPlayerBet()
+        [Then(@"The system can generate trckingID for bet colors game")]
+        public void ThenTheSystemCanGenerateTrckingIDForBetColorsGame()
         {
             ScenarioContext.Current.Pending();
         }
 
-        [When(@"Call PlayerBet\(RoundID '(.*)', Amount '(.*)', Color '(.*)'\) by userName '(.*)'")]
-        public void WhenCallPlayerBetRoundID_5Amount100ColorBlackByUserNameNit(int roundId, int amount, string color, string userName)
-        {
-            ScenarioContext.Current.Pending();
-        }
-
-        [Then(@"TrackingID of PlayerBet should be '(.*)'")]
-        public void ThenTrackingIDOfPlayerBetShouldBeX(string trackingId)
-        {
-            ScenarioContext.Current.Pending();
-        }
-
-        [Then(@"TrackingID of PlayerBet should be null")]
-        public void ThenTrackingIDOfPlayerBetShouldBeNull()
+        [Then(@"The system can't generate trackingID for bet colors game")]
+        public void ThenTheSystemCanTGenerateTrackingIDForBetColorsGame()
         {
             ScenarioContext.Current.Pending();
         }

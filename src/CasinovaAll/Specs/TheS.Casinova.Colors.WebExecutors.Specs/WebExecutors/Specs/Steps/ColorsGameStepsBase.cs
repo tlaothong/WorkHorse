@@ -16,16 +16,16 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
             get 
             {
                 return ScenarioContext.Current[
-                    CommonSteps.Key_Dac_CreateGameRoundConfig] as CreateGameRoundConfigExecutor;
+                    CommonSteps.Key_CreateGameRoundConfig] as CreateGameRoundConfigExecutor;
             }
         }
 
-        protected BetColorsExecutor BetColor
+        protected BetColorsExecutor BetColorsGame
         {
             get
             {
                 return ScenarioContext.Current[
-                    CommonSteps.Key_Dac_BetColor] as BetColorsExecutor;
+                    CommonSteps.Key_BetColorsGame] as BetColorsExecutor;
             }
         }
 
@@ -34,7 +34,7 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
             get
             {
                 return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr_GetGameResult] as GetGameResultExecutor;
+                    CommonSteps.Key_GetGameResult] as GetGameResultExecutor;
             }
         }
 
@@ -43,52 +43,70 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
             get
             {
                 return ScenarioContext.Current[
-                    CommonSteps.Key_Dac_PayForWinnerInfo] as PayForColorsWinnerInfoExecutor;
+                    CommonSteps.Key_PayForWinnerInfo] as PayForColorsWinnerInfoExecutor;
             }
         }
 
-        protected ListActiveGameRoundsExecutor ActiveGameRoundsExecutor
+        protected ListActiveGameRoundsExecutor ListActiveGameRounds
         {
             get
             {
                 return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr_ListActiveGameRoundsExecutor] as ListActiveGameRoundsExecutor;
+                    CommonSteps.Key_ListActiveGameRounds] as ListActiveGameRoundsExecutor;
             }
         }
 
-        protected ListGamePlayInfoExecutor GamePlayInfoExecutor
+        protected ListGamePlayInfoExecutor ListGamePlayInfo
         {
             get
             {
                 return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr_ListGamePlayInfo] as ListGamePlayInfoExecutor;
+                    CommonSteps.Key_ListGamePlayInfo] as ListGamePlayInfoExecutor;
             }
         }
 
-        protected IColorsGameDataQuery Dac
+        protected IBet Dac_BetColorsGame
         {
             get
             {
                 return ScenarioContext.Current[
-                    CommonSteps.Key_Dac] as IColorsGameDataQuery;
+                    CommonSteps.Key_Dac_BetColorsGame] as IBet;
             }
         }
 
-        protected IColorsGameBackService BackDac
+        protected IPayForWinner Dac_PayForColorsWinner
         {
             get
             {
                 return ScenarioContext.Current[
-                    CommonSteps.Key_Dac] as IColorsGameBackService;
+                    CommonSteps.Key_Dac_PayForWinnerInfo] as IPayForWinner;
             }
         }
 
-        protected IGameTableBackService BackDac_GameTable
+        protected IListGamePlayInformation Dqr_ListGamePlayInformation
         {
             get
             {
                 return ScenarioContext.Current[
-                    CommonSteps.Key_Dac] as IGameTableBackService;
+                    CommonSteps.Key_Dqr_ListGamePlayInfo] as IListGamePlayInformation;
+            }
+        }
+
+        protected IListActiveGameRounds Dqr_ListActiveGameRounds
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_Dqr_ListActiveGameRounds] as IListActiveGameRounds;
+            }
+        }
+
+        protected IGetGameResult Dqr_GetGameResult
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_Dqr_GetGameResult] as IGetGameResult;
             }
         }
     }

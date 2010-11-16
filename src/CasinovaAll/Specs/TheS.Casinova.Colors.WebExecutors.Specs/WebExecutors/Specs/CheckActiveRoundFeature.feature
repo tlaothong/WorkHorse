@@ -11,13 +11,6 @@ Scenario: ระบบส่งค่า Name ถูกต้อง ระบบ
 	Then The system don't add ActiveRound
 
 @record_mock
-Scenario: ระบบตรวจสอบจำนวน active round ที่มี มีค่ามากกว่าจำนวน active round ทั้งหมดที่ระบบต้องการ 
-	Given The GameRoundConfigurations has been created and initialized
-	And Active round has'6', Expect active round '5'  
-	When Execute CheckActiveRoundToCreateCommand 
-	Then The system don't add ActiveRound
-
-@record_mock
 Scenario: ระบบตรวจสอบจำนวน active round ที่มี มีค่าน้อยกว่าจำนวน active round ทั้งหมดที่ระบบต้องการ 
 	Given The GameRoundConfigurations has been created and initialized
 	And Active round has'4', Expect active round '5'  

@@ -61,7 +61,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs
                         "RoundID",
                         "BetDateTime",
                         "BetOrder",
-                        "TrackingID"});
+                        "BetTrackingID"});
             table1.AddRow(new string[] {
                         "Nit",
                         "1",
@@ -113,7 +113,7 @@ testRunner.When("Call ListBetLogExecutor(userName\'Nit\', roundId \'1\')");
                         "RoundID",
                         "BetDateTime",
                         "BetOrder",
-                        "TrackingID"});
+                        "BetTrackingID"});
             table2.AddRow(new string[] {
                         "Nit",
                         "1",

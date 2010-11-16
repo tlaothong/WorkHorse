@@ -76,29 +76,6 @@ testRunner.Then("The system don\'t add ActiveRound");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบตรวจสอบจำนวน active round ที่มี มีค่ามากกว่าจำนวน active round ทั้งหมดที่ระบบ" +
-            "ต้องการ")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CheckActiveRoundToCreate")]
-        public virtual void ระบบตรวจสอบจำนวนActiveRoundทมมคามากกวาจำนวนActiveRoundทงหมดทระบบตองการ()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบตรวจสอบจำนวน active round ที่มี มีค่ามากกว่าจำนวน active round ทั้งหมดที่ระบบ" +
-                    "ต้องการ", new string[] {
-                        "record_mock"});
-#line 14
-this.ScenarioSetup(scenarioInfo);
-#line 15
-testRunner.Given("The GameRoundConfigurations has been created and initialized");
-#line 16
-testRunner.And("Active round has\'6\', Expect active round \'5\'");
-#line 17
-testRunner.When("Execute CheckActiveRoundToCreateCommand");
-#line 18
-testRunner.Then("The system don\'t add ActiveRound");
-#line hidden
-            testRunner.CollectScenarioErrors();
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบตรวจสอบจำนวน active round ที่มี มีค่าน้อยกว่าจำนวน active round ทั้งหมดที่ระบ" +
             "บต้องการ")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CheckActiveRoundToCreate")]
@@ -107,15 +84,15 @@ testRunner.Then("The system don\'t add ActiveRound");
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบตรวจสอบจำนวน active round ที่มี มีค่าน้อยกว่าจำนวน active round ทั้งหมดที่ระบ" +
                     "บต้องการ", new string[] {
                         "record_mock"});
-#line 21
+#line 14
 this.ScenarioSetup(scenarioInfo);
-#line 22
+#line 15
 testRunner.Given("The GameRoundConfigurations has been created and initialized");
-#line 23
+#line 16
 testRunner.And("Active round has\'4\', Expect active round \'5\'");
-#line 24
+#line 17
 testRunner.When("Execute CheckActiveRoundToCreateCommand");
-#line 25
+#line 18
 testRunner.Then("The system sent command to back server");
 #line hidden
             testRunner.CollectScenarioErrors();
@@ -128,13 +105,13 @@ testRunner.Then("The system sent command to back server");
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบไม่ได้ส่งค่า Name ระบบไม่สามารถตรวจสอบจำนวน active round ได้", new string[] {
                         "record_mock"});
-#line 28
+#line 21
 this.ScenarioSetup(scenarioInfo);
-#line 29
+#line 22
 testRunner.Given("The GameRoundConfigurations has been created and initialized");
-#line 30
+#line 23
 testRunner.When("Execute CheckActiveRoundToCreateCommand");
-#line 31
+#line 24
 testRunner.Then("The system don\'t add ActiveRound");
 #line hidden
             testRunner.CollectScenarioErrors();

@@ -9,7 +9,7 @@
 //  </auto-generated>
 // ------------------------------------------------------------------------------
 #region Designer generated code
-namespace TheS.Casinova.TwoWins.WebExecutors.Specs
+namespace TheS.Casinova.Colors.WebExecutors.Specs
 {
     using TechTalk.SpecFlow;
     
@@ -30,7 +30,7 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "ListActiveGameRounds", "In order to list active game rounds\r\nAs a system\r\nI want to list active game roun" +
-                    "ds now", ((string[])(null)));
+                    "ds at now", ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -62,35 +62,29 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
-testRunner.Given("The ActiveGameRound has been created and initialized");
+testRunner.Given("The ListActiveGameRoundsExecutor has been created and initialized");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "TableId",
                         "RoundId",
                         "StartTime",
                         "EndTime"});
             table1.AddRow(new string[] {
-                        "1",
                         "2",
                         "09:00",
                         "14:00"});
             table1.AddRow(new string[] {
-                        "2",
                         "3",
                         "10:30",
                         "15:30"});
             table1.AddRow(new string[] {
-                        "3",
                         "4",
                         "13:00",
                         "16:00"});
             table1.AddRow(new string[] {
-                        "4",
                         "5",
                         "13:30",
                         "18:30"});
             table1.AddRow(new string[] {
-                        "5",
                         "6",
                         "14:00",
                         "19:00"});
@@ -100,32 +94,26 @@ testRunner.And("The active game rounds are :", ((string)(null)), table1);
 testRunner.When("Call ListActiveGameRoundsExecutor");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                        "TableId",
                         "RoundId",
                         "StartTime",
                         "EndTime"});
             table2.AddRow(new string[] {
-                        "1",
                         "2",
                         "09:00",
                         "14:00"});
             table2.AddRow(new string[] {
-                        "2",
                         "3",
                         "10:30",
                         "15:30"});
             table2.AddRow(new string[] {
-                        "3",
                         "4",
                         "13:00",
                         "16:00"});
             table2.AddRow(new string[] {
-                        "4",
                         "5",
                         "13:30",
                         "18:30"});
             table2.AddRow(new string[] {
-                        "5",
                         "6",
                         "14:00",
                         "19:00"});
@@ -145,10 +133,9 @@ testRunner.Then("The result should be:", ((string)(null)), table2);
 #line 27
 this.ScenarioSetup(scenarioInfo);
 #line 28
-testRunner.Given("The ActiveGameRound has been created and initialized");
+testRunner.Given("The ListActiveGameRoundsExecutor has been created and initialized");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
-                        "TableId",
                         "RoundId",
                         "StartTime",
                         "EndTime"});

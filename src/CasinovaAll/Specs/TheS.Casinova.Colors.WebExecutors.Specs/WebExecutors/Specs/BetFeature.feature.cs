@@ -52,103 +52,69 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs
             testRunner.OnScenarioEnd();
         }
         
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("generate TrackingID และส่ง TrackingID ไปยัง client และ backserver ได้")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Bet")]
-        public virtual void GenerateTrackingIDและสงTrackingIDไปยงClientและBackserverได()
+        public virtual void ระบบไดรบขอมลการลงเดมพนเกมในColorsของผเลนระบบทำการตรวจสอบขอมลเพอทำการGenereteTrackingIDและสงขอมลไปยงBckServerตอไป(string userName, string roundID, string actionType, string amount)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("generate TrackingID และส่ง TrackingID ไปยัง client และ backserver ได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูลการลงเดิมพันเกมใน colors ของผู้เล่น ระบบทำการตรวจสอบข้อมูล เพื่อท" +
+                    "ำการ generete trackingID และส่งข้อมูลไปยัง bck server ต่อไป", new string[] {
                         "record_mock"});
+#line 7
+this.ScenarioSetup(scenarioInfo);
 #line 8
-this.ScenarioSetup(scenarioInfo);
+testRunner.Given("The BetColorsExecutor has been created and initialized");
 #line 9
-testRunner.Given("The BetInformation has been created and initialized");
+testRunner.When(string.Format("Call BetColorsExecutor(UserName \'{0}\' RoundID \'{1}\', ActionType \'{2}\', Amount \'{3" +
+                        "}\')", userName, roundID, actionType, amount));
 #line 10
-testRunner.And("TrackingID of PlayerBet is \'6443B518-5F7F-4BE6-8E94-AD14F931FE08\'");
+testRunner.Then("The system can generate trckingID for bet colors game");
 #line 11
-testRunner.And("Expected call PlayerBet");
-#line 12
-testRunner.When("Call PlayerBet(RoundID \'5\', Amount \'100\', Color \'Black\') by userName \'sak\'");
-#line 13
-testRunner.Then("TrackingID of PlayerBet should be \'6443B518-5F7F-4BE6-8E94-AD14F931FE08\'");
+testRunner.Then("The system can\'t generate trackingID for bet colors game");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับค่า UserName ไม่ถูกต้อง ระบบ generate TrackingID ไม่ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลการลงเดิมพันเกมใน colors ของผู้เล่น ระบบทำการตรวจสอบข้อมูล เพื่อท" +
+            "ำการ generete trackingID และส่งข้อมูลไปยัง bck server ต่อไป")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Bet")]
-        public virtual void ระบบไดรบคาUserNameไมถกตองระบบGenerateTrackingIDไมได()
+        public virtual void ระบบไดรบขอมลการลงเดมพนเกมในColorsของผเลนระบบทำการตรวจสอบขอมลเพอทำการGenereteTrackingIDและสงขอมลไปยงBckServerตอไป_Variant0()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับค่า UserName ไม่ถูกต้อง ระบบ generate TrackingID ไม่ได้", new string[] {
-                        "record_mock"});
-#line 16
-this.ScenarioSetup(scenarioInfo);
-#line 17
-testRunner.Given("The BetInformation has been created and initialized");
-#line 18
-testRunner.When("Call PlayerBet(RoundID \'5\', Amount \'100\', Color \'Black\') by userName \' \'");
-#line 19
-testRunner.Then("TrackingID of PlayerBet should be null");
-#line hidden
-            testRunner.CollectScenarioErrors();
+            this.ระบบไดรบขอมลการลงเดมพนเกมในColorsของผเลนระบบทำการตรวจสอบขอมลเพอทำการGenereteTrackingIDและสงขอมลไปยงBckServerตอไป("Nit", "4", "White", "50");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับค่า RoundID ไม่ถูกต้อง ระบบ generate TrackingID ไม่ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลการลงเดิมพันเกมใน colors ของผู้เล่น ระบบทำการตรวจสอบข้อมูล เพื่อท" +
+            "ำการ generete trackingID และส่งข้อมูลไปยัง bck server ต่อไป")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Bet")]
-        public virtual void ระบบไดรบคาRoundIDไมถกตองระบบGenerateTrackingIDไมได()
+        public virtual void ระบบไดรบขอมลการลงเดมพนเกมในColorsของผเลนระบบทำการตรวจสอบขอมลเพอทำการGenereteTrackingIDและสงขอมลไปยงBckServerตอไป_Variant1()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับค่า RoundID ไม่ถูกต้อง ระบบ generate TrackingID ไม่ได้", new string[] {
-                        "record_mock"});
-#line 22
-this.ScenarioSetup(scenarioInfo);
-#line 23
-testRunner.Given("The BetInformation has been created and initialized");
-#line 24
-testRunner.When("Call PlayerBet(RoundID \'-5\', Amount \'100\', Color \'Black\') by userName \'nit\'");
-#line 25
-testRunner.Then("TrackingID of PlayerBet should be null");
-#line hidden
-            testRunner.CollectScenarioErrors();
+            this.ระบบไดรบขอมลการลงเดมพนเกมในColorsของผเลนระบบทำการตรวจสอบขอมลเพอทำการGenereteTrackingIDและสงขอมลไปยงBckServerตอไป("Nit", "4", "White", "-50");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับค่า Color ไม่ถูกต้อง ระบบ generate TrackingID ไม่ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลการลงเดิมพันเกมใน colors ของผู้เล่น ระบบทำการตรวจสอบข้อมูล เพื่อท" +
+            "ำการ generete trackingID และส่งข้อมูลไปยัง bck server ต่อไป")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Bet")]
-        public virtual void ระบบไดรบคาColorไมถกตองระบบGenerateTrackingIDไมได()
+        public virtual void ระบบไดรบขอมลการลงเดมพนเกมในColorsของผเลนระบบทำการตรวจสอบขอมลเพอทำการGenereteTrackingIDและสงขอมลไปยงBckServerตอไป_Variant2()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับค่า Color ไม่ถูกต้อง ระบบ generate TrackingID ไม่ได้", new string[] {
-                        "record_mock"});
-#line 28
-this.ScenarioSetup(scenarioInfo);
-#line 29
-testRunner.Given("The BetInformation has been created and initialized");
-#line 30
-testRunner.When("Call PlayerBet(RoundID \'5\', Amount \'100\', Color \'Blue\') by userName \'nit\'");
-#line 31
-testRunner.Then("TrackingID of PlayerBet should be null");
-#line hidden
-            testRunner.CollectScenarioErrors();
+            this.ระบบไดรบขอมลการลงเดมพนเกมในColorsของผเลนระบบทำการตรวจสอบขอมลเพอทำการGenereteTrackingIDและสงขอมลไปยงBckServerตอไป("Nit", "4", "", "50");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับค่า Amount ไม่ถูกต้อง ระบบ generate TrackingID ไม่ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลการลงเดิมพันเกมใน colors ของผู้เล่น ระบบทำการตรวจสอบข้อมูล เพื่อท" +
+            "ำการ generete trackingID และส่งข้อมูลไปยัง bck server ต่อไป")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Bet")]
-        public virtual void ระบบไดรบคาAmountไมถกตองระบบGenerateTrackingIDไมได()
+        public virtual void ระบบไดรบขอมลการลงเดมพนเกมในColorsของผเลนระบบทำการตรวจสอบขอมลเพอทำการGenereteTrackingIDและสงขอมลไปยงBckServerตอไป_Variant3()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับค่า Amount ไม่ถูกต้อง ระบบ generate TrackingID ไม่ได้", new string[] {
-                        "record_mock"});
-#line 34
-this.ScenarioSetup(scenarioInfo);
-#line 35
-testRunner.Given("The BetInformation has been created and initialized");
-#line 36
-testRunner.When("Call PlayerBet(RoundID \'5\', Amount \'-20\', Color \'White\') by userName \'nit\'");
-#line 37
-testRunner.Then("TrackingID of PlayerBet should be null");
-#line hidden
-            testRunner.CollectScenarioErrors();
+            this.ระบบไดรบขอมลการลงเดมพนเกมในColorsของผเลนระบบทำการตรวจสอบขอมลเพอทำการGenereteTrackingIDและสงขอมลไปยงBckServerตอไป("Nit", "-2", "White", "50");
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลการลงเดิมพันเกมใน colors ของผู้เล่น ระบบทำการตรวจสอบข้อมูล เพื่อท" +
+            "ำการ generete trackingID และส่งข้อมูลไปยัง bck server ต่อไป")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Bet")]
+        public virtual void ระบบไดรบขอมลการลงเดมพนเกมในColorsของผเลนระบบทำการตรวจสอบขอมลเพอทำการGenereteTrackingIDและสงขอมลไปยงBckServerตอไป_Variant4()
+        {
+            this.ระบบไดรบขอมลการลงเดมพนเกมในColorsของผเลนระบบทำการตรวจสอบขอมลเพอทำการGenereteTrackingIDและสงขอมลไปยงBckServerตอไป("", "4", "White", "50");
         }
     }
 }

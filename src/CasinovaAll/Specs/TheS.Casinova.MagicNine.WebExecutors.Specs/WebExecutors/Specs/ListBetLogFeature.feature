@@ -6,7 +6,7 @@
 @record_mock
 Background: ListBetLog
 	Given server has player information as:
-	|UserName	|RoundID	|BetDateTime |BetOrder|TrackingID							|
+	|UserName	|RoundID	|BetDateTime |BetOrder|BetTrackingID							|
 	|Nit		|1			|10:00		 |5		  |03D51BC1-1656-454B-8CB2-4202BA8C21D7	|
 	|Nit		|1			|10:05		 |9		  |09630A4D-0B6C-4672-95F0-0AE5E48614FD |
 	|Nit		|1			|10:10		 |17	  |2ED52C48-5C9A-471B-9335-DDAE19F44BE6	|
@@ -18,7 +18,7 @@ Scenario:ระบบได้รับ userName และ roundId ถูกต�
 	And Expect execute ListBetLogCommand
 	When Call ListBetLogExecutor(userName'Nit', roundId '1')
 	Then The result of BetLog should be :
-	|UserName	|RoundID	|BetDateTime |BetOrder|TrackingID							|
+	|UserName	|RoundID	|BetDateTime |BetOrder|BetTrackingID							|
 	|Nit		|1			|10:00		 |5		  |03D51BC1-1656-454B-8CB2-4202BA8C21D7	|
 	|Nit		|1			|10:05		 |9		  |09630A4D-0B6C-4672-95F0-0AE5E48614FD |
 	|Nit		|1			|10:10		 |17	  |2ED52C48-5C9A-471B-9335-DDAE19F44BE6	|
