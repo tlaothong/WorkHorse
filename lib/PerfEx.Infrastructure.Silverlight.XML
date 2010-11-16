@@ -65,6 +65,11 @@
             </summary>
             <returns>A service object.</returns>
         </member>
+        <member name="P:PerfEx.Infrastructure.ServiceObjectProviderBase`1.ServiceProxy">
+            <summary>
+            Gets the service object.
+            </summary>
+        </member>
         <member name="T:PerfEx.Infrastructure.CommandPattern.CommandExecutorRegistry">
             <summary>
             Specialize dependency registry for command executors.<br />
@@ -265,6 +270,12 @@
             Mark that the framework should skip loading the class.
             </summary>
         </member>
+        <member name="P:PerfEx.Infrastructure.NonLoadedAttribute.IsEffective">
+            <summary>
+            Is attribute has cause effect on the dynamic loading module.
+            The default is true.
+            </summary>
+        </member>
         <member name="T:PerfEx.Infrastructure.MachineWebInfo">
             <summary>
             A web information for a machine.
@@ -337,6 +348,33 @@
               Looks up a localized string similar to The input content contains an invalid format element..
             </summary>
         </member>
+        <member name="T:PerfEx.Infrastructure.Converters.BooleanToVisibilityConverter">
+            <summary>
+            Two way IValueConverter that lets you bind a property on a bindable object
+            that can be an boolean value to a dependency property that should 
+            be set to <see cref="T:System.Windows.Visibility"/> in that case
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Converters.BooleanToVisibilityConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts the <paramref name="value"/> to a <see cref="T:System.Windows.Visibility"/>.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="targetType">The target output type (ignored).</param>
+            <param name="parameter">Optional parameter (ignored).</param>
+            <param name="culture">The culture to use in the format operation (ignored).</param>
+            <returns>The converted value</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Converters.BooleanToVisibilityConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts <see cref="T:System.Windows.Visibility"/> back to <see cref="!:String.Boolean"/>.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="targetType">The expected type of the result (ignored).</param>
+            <param name="parameter">Optional parameter (ignored).</param>
+            <param name="culture">The culture for the conversion (ignored).</param>
+            <returns>If <paramref name="value"/> is <c>Visible</c>, it returns true otherwise false.</returns>
+        </member>
         <member name="T:PerfEx.Infrastructure.CommandPattern.AsynchronousCommandExecutorBase`1">
             <summary>
             Base class for the command executor which works asynchronously.<br />
@@ -382,6 +420,46 @@
         <member name="P:PerfEx.Infrastructure.LightUpload.UploadProgressEventArgs.ProgressPercentage">
             <summary>
             Gets the percentage of the progress of an operation.
+            </summary>
+        </member>
+        <member name="T:PerfEx.Infrastructure.IAnime">
+            <summary>
+            Animation UserControl
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.IAnime.StartPlay">
+            <summary>
+            Play the animation
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.IAnime.StopPlay">
+            <summary>
+            Stop the animation
+            </summary>
+        </member>
+        <member name="P:PerfEx.Infrastructure.IAnime.SpeedRatio">
+            <summary>
+            Gets or sets the rate, relative to its parent, at which time progresses for the Anime. The defualt value is 1.
+            </summary>
+        </member>
+        <member name="P:PerfEx.Infrastructure.IAnime.BeginTime">
+            <summary>
+            Gets or sets the time at which this Anime should begin. The default value is 0.
+            </summary>
+        </member>
+        <member name="P:PerfEx.Infrastructure.IAnime.AnimationName">
+            <summary>
+            The name of a specific animation to play. The default value is null.
+            </summary>
+        </member>
+        <member name="P:PerfEx.Infrastructure.IAnime.AutoPlay">
+            <summary>
+            Play the animation automatically when the user control has been loaded.
+            </summary>
+        </member>
+        <member name="E:PerfEx.Infrastructure.IAnime.PlayCompleted">
+            <summary>
+            Occurs when the animation object has completed playing.
             </summary>
         </member>
         <member name="T:PerfEx.Infrastructure.IExceptionAware">
@@ -475,6 +553,46 @@
             <typeparam name="TService">Type of object requested.</typeparam>
             <returns>A sequence of instances of the requested <typeparamref name="TService"/>.</returns>
         </member>
+        <member name="T:PerfEx.Infrastructure.MefServiceObjectProvider`1">
+            <summary>
+            Provides a capability for creating an object from MEF.
+            </summary>
+            <typeparam name="T">A target type of the service to create.</typeparam>
+        </member>
+        <member name="M:PerfEx.Infrastructure.MefServiceObjectProvider`1.#ctor(System.ComponentModel.Composition.Hosting.CompositionContainer)">
+            <summary>
+            Initializes a new instance of the provider, also instantiate the service object using the MEF container.
+            </summary>
+            <param name="container">The MEF CompositionContainer.</param>
+        </member>
+        <member name="P:PerfEx.Infrastructure.MefServiceObjectProvider`1.ServiceProxy">
+            <summary>
+            Gets the service object.
+            </summary>
+        </member>
+        <member name="T:PerfEx.Infrastructure.MefServiceObjectProvider`2">
+            <summary>
+            Provides a capability for creating an object from MEF with an adapter to an interface.
+            </summary>
+            <typeparam name="T">The type of the service object to create.</typeparam>
+            <typeparam name="I">The contract interface.</typeparam>
+        </member>
+        <member name="M:PerfEx.Infrastructure.MefServiceObjectProvider`2.#ctor(System.ComponentModel.Composition.Hosting.CompositionContainer)">
+            <summary>
+            Initializes a new instance of the provider, also instantiate the service object using the MEF container.
+            </summary>
+            <param name="container">The MEF CompositionContainer.</param>
+        </member>
+        <member name="P:PerfEx.Infrastructure.MefServiceObjectProvider`2.ServiceObject">
+            <summary>
+            Provides access from MEF to set a service instance.
+            </summary>
+        </member>
+        <member name="P:PerfEx.Infrastructure.MefServiceObjectProvider`2.ServiceProxy">
+            <summary>
+            Gets the service object.
+            </summary>
+        </member>
         <member name="T:PerfEx.Infrastructure.LightUpload.UploadStatusChangedEventArgs">
             <summary>
             Contains file information and its current status.
@@ -505,6 +623,121 @@
             <summary>
             
             </summary>
+        </member>
+        <member name="T:PerfEx.Infrastructure.Converters.StringFormatValueConverter">
+            <summary>
+            Two way IValueConverter that lets you bind a property on a bindable object
+            that can be an empty string value to a dependency property that should 
+            be set to null in that case
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Converters.StringFormatValueConverter.#ctor(System.String)">
+            <summary>
+            Creates a new <see cref="T:PerfEx.Infrastructure.Converters.StringFormatValueConverter"/>
+            </summary>
+            <param name="formatString">Format string, it can take zero or one parameters, the first one being replaced by the source value</param>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Converters.StringFormatValueConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts the <paramref name="value"/> to a formatted string using the
+            format specified in the constructor.
+            </summary>
+            <param name="value">The value to format.</param>
+            <param name="targetType">The target output type (ignored).</param>
+            <param name="parameter">Optional parameter (ignored).</param>
+            <param name="culture">The culture to use in the format operation.</param>
+            <returns>The formatted string</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Converters.StringFormatValueConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Not supported.
+            </summary>
+            <param name="value">Ignored.</param>
+            <param name="targetType">Ignored.</param>
+            <param name="parameter">Ignored.</param>
+            <param name="culture">Ignored.</param>
+            <returns>No value is returned.</returns>
+        </member>
+        <member name="T:PerfEx.Infrastructure.Converters.NotOperatorValueConverter">
+            <summary>
+            Two way <see cref="T:System.Windows.Data.IValueConverter"/> that lets you bind the inverse of a boolean property
+            to a dependency property
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Converters.NotOperatorValueConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts the given <paramref name="value"/> to be its inverse
+            </summary>
+            <param name="value">The <c>bool</c> value to convert.</param>
+            <param name="targetType">The type to convert to (ignored).</param>
+            <param name="parameter">Optional parameter (ignored).</param>
+            <param name="culture">The culture of the conversion (ignored).</param>
+            <returns>The inverse of the input <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Converters.NotOperatorValueConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            The inverse of the <see cref="M:PerfEx.Infrastructure.Converters.NotOperatorValueConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/>.
+            </summary>
+            <param name="value">The value to convert back.</param>
+            <param name="targetType">The type to convert to (ignored).</param>
+            <param name="parameter">Optional parameter (ignored).</param>
+            <param name="culture">The culture of the conversion (ignored).</param>
+            <returns>The inverse of the input <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.DataBindingExtensions.CreateOneWayBinding(System.ComponentModel.INotifyPropertyChanged,System.String)">
+            <summary>
+            Creates a new <see cref="T:System.Windows.Data.Binding"/> using <paramref name="bindingSource"/> as the <see cref="P:System.Windows.Data.Binding.Source"/>
+            and <paramref name="propertyPath"/> as the <see cref="P:System.Windows.Data.Binding.Path"/>.
+            </summary>
+            <param name="bindingSource">The object to use as the new binding's <see cref="P:System.Windows.Data.Binding.Source"/>.</param>
+            <param name="propertyPath">The property path to use as the new binding's <see cref="P:System.Windows.Data.Binding.Path"/>.</param>
+            <returns>A new <see cref="T:System.Windows.Data.Binding"/> object.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.DataBindingExtensions.CreateOneWayBinding(System.ComponentModel.INotifyPropertyChanged,System.String,System.Windows.Data.IValueConverter)">
+            <summary>
+            Creates a new <see cref="T:System.Windows.Data.Binding"/> using <paramref name="bindingSource"/> as the <see cref="P:System.Windows.Data.Binding.Source"/>,
+            <paramref name="propertyPath"/> as the <see cref="P:System.Windows.Data.Binding.Path"/>,
+            and <paramref name="converter"/> as the <see cref="P:System.Windows.Data.Binding.Converter"/>.
+            </summary>
+            <param name="bindingSource">The object to use as the new binding's <see cref="P:System.Windows.Data.Binding.Source"/>.</param>
+            <param name="propertyPath">The property path to use as the new binding's <see cref="P:System.Windows.Data.Binding.Path"/>.</param>
+            <param name="converter">The converter to use as the new binding's <see cref="P:System.Windows.Data.Binding.Converter"/>.</param>
+            <returns>A new <see cref="T:System.Windows.Data.Binding"/> object.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.DataBindingExtensions.CreateCopy(System.Windows.Data.Binding)">
+            <summary>
+            Creates a new <see cref="T:System.Windows.Data.Binding"/> object by copying all properties
+            from another <see cref="T:System.Windows.Data.Binding"/> object.
+            </summary>
+            <param name="binding"><see cref="T:System.Windows.Data.Binding"/> from which property values will be copied</param>
+            <returns>A new <see cref="T:System.Windows.Data.Binding"/> object.</returns>
+        </member>
+        <member name="T:PerfEx.Infrastructure.Converters.TargetNullValueConverter">
+            <summary>
+            Two way IValueConverter that lets you bind a property on a bindable object
+            that can be an empty string value to a dependency property that should 
+            be set to null in that case
+            </summary>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Converters.TargetNullValueConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts <c>null</c> or empty strings to <c>null</c>.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="targetType">The expected type of the result (ignored).</param>
+            <param name="parameter">Optional parameter (ignored).</param>
+            <param name="culture">The culture for the conversion (ignored).</param>
+            <returns>If the <paramref name="value"/>is <c>null</c> or empty, this method returns <c>null</c> otherwise it returns the <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:PerfEx.Infrastructure.Converters.TargetNullValueConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts <c>null</c> back to <see cref="F:System.String.Empty"/>.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="targetType">The expected type of the result (ignored).</param>
+            <param name="parameter">Optional parameter (ignored).</param>
+            <param name="culture">The culture for the conversion (ignored).</param>
+            <returns>If <paramref name="value"/> is <c>null</c>, it returns <see cref="F:System.String.Empty"/> otherwise <paramref name="value"/>.</returns>
         </member>
         <member name="T:PerfEx.Infrastructure.CommandPattern.NullCommand">
             <summary>

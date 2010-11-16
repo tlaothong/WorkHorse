@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
 using Rhino.Mocks;
-using TheS.Casinova.TwoWins.DAL;
-using TheS.Casinova.TwoWins.BackServices;
+using TheS.Casinova.Colors.DAL;
+using TheS.Casinova.Colors.BackServices;
+using SpecFlowAssist;
 
-namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
+namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
 {
     [Binding]
     public class CommonSteps
@@ -29,8 +30,10 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
         {
             var dqr = Mocks.DynamicMock<IColorsGameDataQuery>();
 
-            ScenarioContext.Current[Key_Dqr] = dqr;
-            ScenarioContext.Current[Key_Dqr_ListActiveGameRoundsExecutor] = new ListActiveGameRoundsExecutor(dqr);
+            //ScenarioContext.Current[Key_Dqr] = dqr;
+            //ScenarioContext.Current[Key_Dqr_ListActiveGameRoundsExecutor] = new ListActiveGameRoundsExecutor(dqr);
+            ScenarioContext.Current.Set<ListActiveGameRoundsExecutor>(
+                new ListActiveGameRoundsExecutor(dqr));
         }
 
         //List game play information specs initialized
@@ -80,7 +83,8 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
             var dac = Mocks.DynamicMock<IGameTableBackService>();
 
             ScenarioContext.Current[Key_Dac] = dac;
-            ScenarioContext.Current[Key_Dac_CreateGameRoundConfig] = new CreateGameRoundConfigExecutor(dac);
+            // TODO: Send dependency container
+            ScenarioContext.Current[Key_Dac_CreateGameRoundConfig] = new CreateGameRoundConfigExecutor(dac, null);
         }
 
     }

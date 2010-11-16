@@ -4,13 +4,13 @@
            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
-           xmlns:TheS_Casinova_MagicNine_Controls="clr-namespace:TheS.Casinova.MagicNine.Controls" xmlns:PerfEx_Infrastructure="clr-namespace:PerfEx.Infrastructure;assembly=PerfEx.Infrastructure.Silverlight" xmlns:TheS_Casinova_MagicNine_ViewModels="clr-namespace:TheS.Casinova.MagicNine.ViewModels" x:Class="TheS.Casinova.MagicNine.Views.GamePlayPage"
+           xmlns:TheS_Casinova_MagicNine_Controls="clr-namespace:TheS.Casinova.MagicNine.Controls" xmlns:PerfEx_Infrastructure="clr-namespace:PerfEx.Infrastructure;assembly=PerfEx.Infrastructure.Silverlight" xmlns:PerfEx_Converters="clr-namespace:PerfEx.Infrastructure.Converters;assembly=PerfEx.Infrastructure.Silverlight" xmlns:TheS_Casinova_MagicNine_ViewModels="clr-namespace:TheS.Casinova.MagicNine.ViewModels" x:Class="TheS.Casinova.MagicNine.Views.GamePlayPage"
            mc:Ignorable="d"
            d:DesignWidth="600" d:DesignHeight="400"
            Title="GamePlayPage Page">
 	<navigation:Page.Resources>
 		<TheS_Casinova_MagicNine_ViewModels:GamePlayViewModel x:Key="GamePlayViewModelDataSource" d:IsDataSource="True"/>
-		<PerfEx_Infrastructure:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+		<PerfEx_Converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
 		<DataTemplate x:Key="GameTableTemplate">
 			<Grid>
 				<Rectangle Stroke="Black" RadiusX="1" RadiusY="1">

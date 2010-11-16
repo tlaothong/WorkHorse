@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
 using Rhino.Mocks;
-using TheS.Casinova.TwoWins.WebExecutors;
+using TheS.Casinova.MagicNine.WebExecutors;
 using TheS.Casinova.MagicNine.DAL;
 using TheS.Casinova.MagicNine.BackServices;
 

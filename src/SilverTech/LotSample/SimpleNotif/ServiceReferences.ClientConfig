@@ -1,0 +1,17 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_IOhSimpleService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://localhost:49491/OhSimpleService.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IOhSimpleService"
+                contract="OhSimpleSvc.IOhSimpleService" name="BasicHttpBinding_IOhSimpleService" />
+        </client>
+    </system.serviceModel>
+</configuration>
