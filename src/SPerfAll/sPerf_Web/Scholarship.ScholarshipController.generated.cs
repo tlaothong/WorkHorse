@@ -52,6 +52,8 @@ namespace sPerf_Web.Areas.Scholarship.Controllers {
             public readonly string Tournament = "Tournament";
             public readonly string Donate = "Donate";
             public readonly string Option = "Option";
+            public readonly string Banners = "Banners";
+            public readonly string AdvanceSearch = "AdvanceSearch";
         }
 
 
@@ -60,6 +62,8 @@ namespace sPerf_Web.Areas.Scholarship.Controllers {
         public ViewNames Views { get { return s_views; } }
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ViewNames {
+            public readonly string AdvanceSearch = "~/Areas/Scholarship/Views/Scholarship/AdvanceSearch.ascx";
+            public readonly string Banners = "~/Areas/Scholarship/Views/Scholarship/Banners.ascx";
             public readonly string Donate = "~/Areas/Scholarship/Views/Scholarship/Donate.aspx";
             public readonly string Index = "~/Areas/Scholarship/Views/Scholarship/Index.aspx";
             public readonly string Option = "~/Areas/Scholarship/Views/Scholarship/Option.aspx";
@@ -101,6 +105,16 @@ namespace sPerf_Web.Areas.Scholarship.Controllers {
 
         public override System.Web.Mvc.ActionResult Option() {
             var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Option);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult Banners() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Banners);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult AdvanceSearch() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.AdvanceSearch);
             return callInfo;
         }
 

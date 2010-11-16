@@ -4,14 +4,104 @@
            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
-           xmlns:TheS_Casinova_MagicNine_Controls="clr-namespace:TheS.Casinova.MagicNine.Controls" x:Class="TheS.Casinova.MagicNine.Views.GamePlayPage"
+           xmlns:TheS_Casinova_MagicNine_Controls="clr-namespace:TheS.Casinova.MagicNine.Controls" xmlns:PerfEx_Infrastructure="clr-namespace:PerfEx.Infrastructure;assembly=PerfEx.Infrastructure.Silverlight" xmlns:PerfEx_Converters="clr-namespace:PerfEx.Infrastructure.Converters;assembly=PerfEx.Infrastructure.Silverlight" xmlns:TheS_Casinova_MagicNine_ViewModels="clr-namespace:TheS.Casinova.MagicNine.ViewModels" x:Class="TheS.Casinova.MagicNine.Views.GamePlayPage"
            mc:Ignorable="d"
            d:DesignWidth="600" d:DesignHeight="400"
            Title="GamePlayPage Page">
+	<navigation:Page.Resources>
+		<TheS_Casinova_MagicNine_ViewModels:GamePlayViewModel x:Key="GamePlayViewModelDataSource" d:IsDataSource="True"/>
+		<PerfEx_Converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+		<DataTemplate x:Key="GameTableTemplate">
+			<Grid>
+				<Rectangle Stroke="Black" RadiusX="1" RadiusY="1">
+					<Rectangle.Fill>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="#FF8B8B8B" Offset="0"/>
+							<GradientStop Color="White" Offset="1"/>
+							<GradientStop Color="#FEA1A1A1" Offset="0.255"/>
+						</LinearGradientBrush>
+					</Rectangle.Fill>
+				</Rectangle>
+				<StackPanel Margin="3">
+					<TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="13.333" Margin="0,0,1,0" d:LayoutOverrides="Width"/>
+					<Grid Margin="0,0,1,0" Visibility="{Binding IsPlaying, Converter={StaticResource BooleanToVisibilityConverter}}" >
+						<Rectangle RadiusY="1" RadiusX="1" Stroke="Black" Fill="#FFF5FFB7"/>
+						<Grid Margin="2">
+							<TextBlock TextWrapping="Wrap" Text="Sum:" d:LayoutOverrides="Height" HorizontalAlignment="Left"/>
+							<TextBlock Text="{Binding Amount}" d:LayoutOverrides="Height" Margin="34,0,0,0"/>
+						</Grid>
+					</Grid>
+				</StackPanel>
+			</Grid>
+		</DataTemplate>
+	</navigation:Page.Resources>
+	<navigation:Page.DataContext>
+		<Binding Source="{StaticResource GamePlayViewModelDataSource}"/>
+	</navigation:Page.DataContext>
     <Grid x:Name="LayoutRoot">
 
     	<TheS_Casinova_MagicNine_Controls:GamePlayUI Margin="0,0,204,0" Width="Auto" Height="Auto"/>
-    	<ListBox HorizontalAlignment="Right" Width="200"/>
+    	<ListBox HorizontalAlignment="Right" Width="200" ItemTemplate="{StaticResource GameTableTemplate}" ItemsSource="{Binding Tables}">
+    		<ListBox.ItemContainerStyle>
+    			<Style TargetType="ListBoxItem">
+    				<Setter Property="Padding" Value="3"/>
+    				<Setter Property="HorizontalContentAlignment" Value="Left"/>
+    				<Setter Property="VerticalContentAlignment" Value="Top"/>
+    				<Setter Property="Background" Value="Transparent"/>
+    				<Setter Property="BorderThickness" Value="1"/>
+    				<Setter Property="TabNavigation" Value="Local"/>
+    				<Setter Property="Template">
+    					<Setter.Value>
+    						<ControlTemplate TargetType="ListBoxItem">
+    							<Grid Background="{TemplateBinding Background}">
+    								<VisualStateManager.VisualStateGroups>
+    									<VisualStateGroup x:Name="CommonStates">
+    										<VisualState x:Name="Normal"/>
+    										<VisualState x:Name="MouseOver">
+    											<Storyboard>
+    												<DoubleAnimation Duration="0" To=".35" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="fillColor"/>
+    											</Storyboard>
+    										</VisualState>
+    										<VisualState x:Name="Disabled">
+    											<Storyboard>
+    												<DoubleAnimation Duration="0" To=".55" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="contentPresenter"/>
+    											</Storyboard>
+    										</VisualState>
+    									</VisualStateGroup>
+    									<VisualStateGroup x:Name="SelectionStates">
+    										<VisualState x:Name="Unselected"/>
+    										<VisualState x:Name="Selected">
+    											<Storyboard>
+    												<DoubleAnimation Duration="0" To=".75" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="fillColor2"/>
+    											</Storyboard>
+    										</VisualState>
+    									</VisualStateGroup>
+    									<VisualStateGroup x:Name="FocusStates">
+    										<VisualState x:Name="Focused">
+    											<Storyboard>
+    												<ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Visibility" Storyboard.TargetName="FocusVisualElement">
+    													<DiscreteObjectKeyFrame KeyTime="0">
+    														<DiscreteObjectKeyFrame.Value>
+    															<Visibility>Visible</Visibility>
+    														</DiscreteObjectKeyFrame.Value>
+    													</DiscreteObjectKeyFrame>
+    												</ObjectAnimationUsingKeyFrames>
+    											</Storyboard>
+    										</VisualState>
+    										<VisualState x:Name="Unfocused"/>
+    									</VisualStateGroup>
+    								</VisualStateManager.VisualStateGroups>
+    								<Rectangle x:Name="fillColor" Fill="#FFBADDE9" IsHitTestVisible="False" Opacity="0" RadiusY="1" RadiusX="1"/>
+    								<Rectangle x:Name="fillColor2" Fill="#FFBADDE9" IsHitTestVisible="False" Opacity="0" RadiusY="1" RadiusX="1"/>
+    								<ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Margin="{TemplateBinding Padding}"/>
+    								<Rectangle x:Name="FocusVisualElement" RadiusY="1" RadiusX="1" Stroke="#FF6DBDD1" StrokeThickness="1" Visibility="Collapsed"/>
+    							</Grid>
+    						</ControlTemplate>
+    					</Setter.Value>
+    				</Setter>
+    			</Style>
+    		</ListBox.ItemContainerStyle>
+    	</ListBox>
 
     </Grid>
 </navigation:Page>

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using TheS.Casinova.TwoWins.Models;
+using TheS.Casinova.Colors.Models;
 
-namespace TheS.Casinova.TwoWins.Commands
+namespace TheS.Casinova.Colors.Commands
 {
     /// <summary>
     /// ดึงข้อมูลผู้เล่น

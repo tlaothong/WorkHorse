@@ -3,11 +3,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:TheS_Casinova_DevilSix_ViewModels="clr-namespace:TheS.Casinova.DevilSix.ViewModels" x:Class="TheS.Casinova.DevilSix.Controls.GamePlayUI"
+    x:Class="TheS.Casinova.DevilSix.Controls.GamePlayUI"
     mc:Ignorable="d"
     d:DesignHeight="400" d:DesignWidth="500">
 	<UserControl.Resources>
-		<TheS_Casinova_DevilSix_ViewModels:GamePlayViewModel x:Key="GamePlayViewModelDataSource" d:IsDataSource="True"/>
 		<ItemsPanelTemplate x:Key="ItemsPanelTemplate1">
 			<StackPanel Orientation="Horizontal"/>
 		</ItemsPanelTemplate>
@@ -17,9 +16,6 @@
 			</StackPanel>
 		</DataTemplate>
 	</UserControl.Resources>
-	<UserControl.DataContext>
-		<Binding Source="{StaticResource GamePlayViewModelDataSource}"/>
-	</UserControl.DataContext>
     
     <Grid x:Name="LayoutRoot">
     	<Grid.RowDefinitions>

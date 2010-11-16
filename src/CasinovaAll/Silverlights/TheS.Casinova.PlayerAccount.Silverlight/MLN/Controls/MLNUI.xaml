@@ -3,9 +3,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" x:Class="TheS.Casinova.MLN.Controls.MLNUI"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:TheS_Casinova_MLN_ViewModels="clr-namespace:TheS.Casinova.MLN.ViewModels" x:Class="TheS.Casinova.MLN.Controls.MLNUI"
     mc:Ignorable="d"
     d:DesignHeight="200" d:DesignWidth="560">
+    
+	<UserControl.Resources>
+		<TheS_Casinova_MLN_ViewModels:MLNViewModel x:Key="MLNViewModelDataSource" d:IsDataSource="True"/>
+	</UserControl.Resources>
+	<UserControl.DataContext>
+		<Binding Source="{StaticResource MLNViewModelDataSource}"/>
+	</UserControl.DataContext>
     
     <Grid x:Name="LayoutRoot" Background="White">
 
@@ -14,7 +21,24 @@
     		<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Current bonus available:" VerticalAlignment="Top" Margin="8,11,0,0" FontWeight="Bold"/>
     		<TextBlock x:Name="CurrentBunusAvailable" HorizontalAlignment="Left" TextWrapping="Wrap" Text="CurrentBunusAvailable" VerticalAlignment="Top" Margin="164,11,0,0" d:LayoutOverrides="HorizontalAlignment"/>
             <Button x:Name="DepositButton" Content="Deposit" HorizontalAlignment="Right" VerticalAlignment="Top" Width="75" Margin="0,8,8,0" Click="DepositButton_Click" />
-    		<sdk:DataGrid x:Name="MLNInformation" Margin="8,34,8,9"/>
+            <Grid Margin="8,34,8,8">
+            	<Grid.ColumnDefinitions>
+            		<ColumnDefinition Width="0.33*"/>
+            		<ColumnDefinition Width="0.34*"/>
+            		<ColumnDefinition Width="0.33*"/>
+            	</Grid.ColumnDefinitions>
+            	<Grid.RowDefinitions>
+            		<RowDefinition Height="0.498*"/>
+            		<RowDefinition Height="0.502*"/>
+            	</Grid.RowDefinitions>
+            	<Rectangle Fill="White" Stroke="Black" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
+            	<TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="This month" VerticalAlignment="Center" FontWeight="Bold"/>
+            	<TextBlock x:Name="ThisMonth" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding ThisMonth}" Grid.Row="1" VerticalAlignment="Center"/>
+            	<TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Last month" VerticalAlignment="Center" FontWeight="Bold" Grid.Column="1"/>
+            	<TextBlock TextWrapping="Wrap" Text="Life time" FontWeight="Bold" Grid.Column="2" d:LayoutOverrides="Width, Height" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            	<TextBlock x:Name="LastMonth" TextWrapping="Wrap" Text="{Binding LastMonth}" Grid.Row="1" Grid.Column="1" d:LayoutOverrides="Width, Height" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            	<TextBlock x:Name="LifeTime" TextWrapping="Wrap" Text="{Binding LifeTime}" Grid.Row="1" Grid.Column="2" d:LayoutOverrides="Width, Height" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
     	</Grid>
     	<Grid Margin="0,84,0,0" d:LayoutOverrides="VerticalAlignment">
     		<Grid.ColumnDefinitions>
@@ -28,9 +52,9 @@
     			<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Level 1:" FontWeight="Bold" VerticalAlignment="Top" Margin="8,11,0,0"/>
     			<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Level 2:" VerticalAlignment="Center" FontWeight="Bold" Margin="8,0,0,0"/>
     			<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Level 3:" VerticalAlignment="Bottom" Margin="8,0,0,11" FontWeight="Bold"/>
-    			<TextBlock x:Name="MLNFirstLevel" HorizontalAlignment="Left" TextWrapping="Wrap" Text="MLNFirstLevel" VerticalAlignment="Top" Margin="61,11,0,0"/>
-    			<TextBlock x:Name="SecondLevel" TextWrapping="Wrap" Text="SecondLevel" HorizontalAlignment="Left" Width="86" VerticalAlignment="Center" Margin="61,0,0,0"/>
-    			<TextBlock x:Name="ThirdLevel" HorizontalAlignment="Left" TextWrapping="Wrap" Text="ThirdLevel" VerticalAlignment="Bottom" Margin="61,0,0,11"/>
+    			<TextBlock x:Name="FirstLevel" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding FirstLevel}" VerticalAlignment="Top" Margin="61,11,0,0"/>
+    			<TextBlock x:Name="SecondLevel" TextWrapping="Wrap" Text="{Binding SecondLevel}" HorizontalAlignment="Left" Width="86" VerticalAlignment="Center" Margin="61,0,0,0"/>
+    			<TextBlock x:Name="ThirdLevel" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding ThirdLevel}" VerticalAlignment="Bottom" Margin="61,0,0,11"/>
     			<Button x:Name="FirstView" Content="View" HorizontalAlignment="Right" Width="75" Margin="0,8,8,0" Click="FirstView_Click" VerticalAlignment="Top" />
                 <Button x:Name="SecondView" Content="View" HorizontalAlignment="Right" Width="75" VerticalAlignment="Center" Click="SecondView_Click" Margin="0,0,8,0" />
                 <Button x:Name="ThirdView" Content="View" HorizontalAlignment="Right" Width="75" Margin="0,0,8,8" VerticalAlignment="Bottom" Click="ThirdView_Click" />

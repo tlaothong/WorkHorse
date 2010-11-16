@@ -61,12 +61,14 @@
     <Compile Include="Common\ExportContentNavigationAttribute.cs" />
     <Compile Include="Common\ExportGameStatContentAttribute.cs" />
     <Compile Include="Common\ExportPopupContentAttribute.cs" />
+    <Compile Include="Common\ExportStatisticsContentAttribute.cs" />
     <Compile Include="Common\IContentNavigationMetadata.cs" />
     <Compile Include="Common\IGameApplicationInformation.cs" />
     <Compile Include="Common\IGameStatContentMetadata.cs" />
     <Compile Include="Common\IModuleLoader.cs" />
     <Compile Include="Common\INavigablePage.cs" />
     <Compile Include="Common\IPopupContentMetadata.cs" />
+    <Compile Include="Common\IStatisticsContentMetadata.cs" />
     <Compile Include="Common\NavigableContentHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

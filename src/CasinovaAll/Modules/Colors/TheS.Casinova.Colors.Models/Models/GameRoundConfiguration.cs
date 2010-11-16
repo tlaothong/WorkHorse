@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace TheS.Casinova.TwoWins.Models
+namespace TheS.Casinova.Colors.Models
 {
     /// <summary>
     /// Config โต๊ะเกม
     /// </summary>
-   public class GameRoundConfiguration
+   public partial class GameRoundConfiguration
     {
        private int bufferRound = 3; //จำนวนโต๊ะเกมสำรอง
        /// <summary>

@@ -4,14 +4,45 @@
            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
-           xmlns:TheS_Casinova_DevilSix_Controls="clr-namespace:TheS.Casinova.DevilSix.Controls" x:Class="TheS.Casinova.DevilSix.Views.GamePlayPage"
+           xmlns:TheS_Casinova_DevilSix_Controls="clr-namespace:TheS.Casinova.DevilSix.Controls" xmlns:TheS_Casinova_DevilSix_ViewModels="clr-namespace:TheS.Casinova.DevilSix.ViewModels" xmlns:PerfEx_Infrastructure="clr-namespace:PerfEx.Infrastructure;assembly=PerfEx.Infrastructure.Silverlight"
+           xmlns:PerfEx_Converter="clr-namespace:PerfEx.Infrastructure.Converters;assembly=PerfEx.Infrastructure.Silverlight" x:Class="TheS.Casinova.DevilSix.Views.GamePlayPage"
            mc:Ignorable="d"
            d:DesignWidth="600" d:DesignHeight="400"
            Title="GamePlayPage Page">
+	<navigation:Page.Resources>
+		<PerfEx_Converter:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+		<TheS_Casinova_DevilSix_ViewModels:GamePlayViewModel x:Key="GamePlayViewModelDataSource" d:IsDataSource="True"/>
+		<DataTemplate x:Key="GameTableTemplate">
+			<Grid Margin="0,2">
+				<Rectangle RadiusY="1" RadiusX="1" Stroke="Black">
+					<Rectangle.Fill>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="#FF8B8B8B" Offset="0"/>
+							<GradientStop Color="White" Offset="1"/>
+							<GradientStop Color="#FEA1A1A1" Offset="0.255"/>
+						</LinearGradientBrush>
+					</Rectangle.Fill>
+				</Rectangle>
+				<StackPanel Margin="3">
+					<TextBlock x:Name="Name" Text="{Binding Name}" FontSize="13.333" FontWeight="Bold"/>
+					<Grid VerticalAlignment="Bottom" Visibility="{Binding IsPlaying, Converter={StaticResource BooleanToVisibilityConverter}}">
+						<Rectangle RadiusY="1" RadiusX="1" Stroke="Black" Fill="#FFF5FFB7"/>
+						<Grid Margin="2">
+							<TextBlock TextWrapping="Wrap" Text="Auto bet:" d:LayoutOverrides="Width" Margin="0,0,16,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+							<TextBlock x:Name="Amount" Text="{Binding Amount}" VerticalAlignment="Top" Margin="56,0,0,0"/>
+						</Grid>
+					</Grid>
+				</StackPanel>
+			</Grid>
+		</DataTemplate>
+	</navigation:Page.Resources>
+	<navigation:Page.DataContext>
+		<Binding Source="{StaticResource GamePlayViewModelDataSource}"/>
+	</navigation:Page.DataContext>
     <Grid x:Name="LayoutRoot">
 
     	<TheS_Casinova_DevilSix_Controls:GamePlayUI Margin="0,0,204,0"/>
-    	<ListBox HorizontalAlignment="Right" Width="200"/>
+    	<ListBox HorizontalAlignment="Right" Width="200" ItemTemplate="{StaticResource GameTableTemplate}" ItemsSource="{Binding Tables}" ItemContainerStyle="{StaticResource GameTableStyle}"/>
 
     </Grid>
 </navigation:Page>

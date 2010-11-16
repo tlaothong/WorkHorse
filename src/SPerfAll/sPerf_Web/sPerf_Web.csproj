@@ -113,6 +113,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Acomment.html" />
     <Content Include="App_themes\sPerf\aspnet_ajax.css" />
     <Content Include="App_themes\sPerf\Sites.css" />
     <Content Include="App_themes\sPerf\images\avatar.png" />
@@ -134,10 +135,14 @@
     <Content Include="App_themes\sPerf\images\search.png" />
     <Content Include="App_themes\sPerf\images\text.png" />
     <Content Include="App_themes\sPerf\Layout.css" />
+    <Content Include="Areas\Club\Views\Club\AdvanceSearch.ascx" />
+    <Content Include="Areas\Club\Views\Club\Banners.ascx" />
     <Content Include="Areas\Club\Views\Club\Index.aspx" />
     <Content Include="Areas\Club\Views\Club\NewClub.aspx" />
     <Content Include="Areas\Club\Views\Club\OptionClub.aspx" />
     <Content Include="Areas\Club\Views\Club\SubMenu.ascx" />
+    <Content Include="Areas\Game\Views\Game\AdvanceSearch.ascx" />
+    <Content Include="Areas\Game\Views\Game\Banners.ascx" />
     <Content Include="Areas\Game\Views\Game\GameOption.aspx" />
     <Content Include="Areas\Game\Views\Game\Index.aspx" />
     <Content Include="Areas\Game\Views\Game\SubMenu.ascx" />
@@ -161,17 +166,43 @@
     <Content Include="Areas\Profile\Views\Profile\Photo.aspx" />
     <Content Include="Areas\Profile\Views\Profile\Profile.aspx" />
     <Content Include="Areas\Profile\Views\Profile\SubMenu.ascx" />
+    <Content Include="Areas\Scholarship\Views\Scholarship\AdvanceSearch.ascx" />
+    <Content Include="Areas\Scholarship\Views\Scholarship\Banners.ascx" />
     <Content Include="Areas\Scholarship\Views\Scholarship\Donate.aspx" />
     <Content Include="Areas\Scholarship\Views\Scholarship\Index.aspx" />
     <Content Include="Areas\Scholarship\Views\Scholarship\Option.aspx" />
     <Content Include="Areas\Scholarship\Views\Scholarship\Recieved.aspx" />
     <Content Include="Areas\Scholarship\Views\Scholarship\SubMenu.ascx" />
     <Content Include="Areas\Scholarship\Views\Scholarship\Tournament.aspx" />
+    <Content Include="club.html" />
+    <Content Include="Content\images\comment.png" />
+    <Content Include="Content\images\next-horizontal.png" />
+    <Content Include="Content\images\next-vertical.png" />
+    <Content Include="Content\images\prev-horizontal.png" />
+    <Content Include="Content\images\prev-vertical.png" />
+    <Content Include="Content\images\start.png" />
+    <Content Include="Content\skin.css" />
+    <Content Include="Content\images\wanida.jpg" />
+    <Content Include="Content\images\avartar.png" />
     <Content Include="Content\images\banner1.jpg" />
     <Content Include="Content\images\banner2.jpg" />
     <Content Include="Content\images\banner3.jpg" />
     <Content Include="Content\images\c1.gif" />
     <Content Include="Content\images\Checked.gif" />
+    <Content Include="Content\images\club1.jpg" />
+    <Content Include="Content\images\club10.jpg" />
+    <Content Include="Content\images\club2.jpg" />
+    <Content Include="Content\images\club3.gif" />
+    <Content Include="Content\images\club4.jpg" />
+    <Content Include="Content\images\club5.jpg" />
+    <Content Include="Content\images\club6.png" />
+    <Content Include="Content\images\club7.jpg" />
+    <Content Include="Content\images\club8.jpg" />
+    <Content Include="Content\images\club9.jpg" />
+    <Content Include="Content\images\logo1.png" />
+    <Content Include="Content\images\logo2.png" />
+    <Content Include="Content\images\logo3.png" />
+    <Content Include="Content\images\logo4.png" />
     <Content Include="Content\images\Logomonk.jpg" />
     <Content Include="Content\images\onepeople.JPG" />
     <Content Include="Content\images\searchbutton.png" />
@@ -185,7 +216,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="profile.html" />
-    <Content Include="profile.txt" />
+    <Content Include="scholarship.html" />
     <Content Include="Scripts\ajaxScripts\Date.HijriCalendar.debug.js" />
     <Content Include="Scripts\ajaxScripts\Date.HijriCalendar.js" />
     <Content Include="Scripts\ajaxScripts\Date.UmAlQuraCalendar.debug.js" />
@@ -399,12 +430,13 @@
     <Content Include="Scripts\jquery-1.4.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.1.custom.js" />
     <Content Include="Content\jquery.hoverscroll-0.2.2.css" />
-    <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\jquery.hoverscroll-0.2.2.js" />
+    <Content Include="Scripts\jquery.jcarousel.min.js" />
     <Content Include="Scripts\jquery.pager.js" />
     <Content Include="Scripts\jquery.popupWindow.js" />
     <Content Include="Scripts\jquery.tmpl.js" />
+    <Content Include="test.txt" />
     <Content Include="Views\Home\AboutUs.aspx" />
     <Content Include="Views\Home\AdvanceSearch.ascx" />
     <Content Include="Views\Home\Banners.ascx" />
@@ -435,6 +467,7 @@
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
     <Content Include="Views\Web.config" />
+    <Content Include="xap\avatar.xap" />
     <Content Include="xap\Avatar_Silver.xap" />
     <Content Include="xap\doyouknow.xap" />
   </ItemGroup>

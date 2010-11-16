@@ -3,7 +3,7 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-	xmlns:TheS_Casinova_Colors_ViewModels="clr-namespace:TheS.Casinova.TwoWins.ViewModels"
+	xmlns:TheS_Casinova_Colors_ViewModels="clr-namespace:TheS.Casinova.Colors.ViewModels"
 	mc:Ignorable="d"
 	x:Class="TheS.Casinova.GamePlayUI"
 	d:DesignWidth="640" d:DesignHeight="480" Width="500" Height="400">

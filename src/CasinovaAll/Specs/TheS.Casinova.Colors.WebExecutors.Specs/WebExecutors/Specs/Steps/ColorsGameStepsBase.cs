@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
-using TheS.Casinova.TwoWins.DAL;
-using TheS.Casinova.TwoWins.BackServices;
+using TheS.Casinova.Colors.DAL;
+using TheS.Casinova.Colors.BackServices;
+using SpecFlowAssist;
 
-namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
+namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
 {
-    [Binding]
     public class ColorsGameStepsBase
     {
         protected CreateGameRoundConfigExecutor CreateGameRound 
@@ -51,8 +51,9 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_ListActiveGameRounds] as ListActiveGameRoundsExecutor;
+                //return ScenarioContext.Current[
+                //    CommonSteps.Key_Dqr_ListActiveGameRoundsExecutor] as ListActiveGameRoundsExecutor;
+                return ScenarioContext.Current.Get<ListActiveGameRoundsExecutor>();
             }
         }
 
