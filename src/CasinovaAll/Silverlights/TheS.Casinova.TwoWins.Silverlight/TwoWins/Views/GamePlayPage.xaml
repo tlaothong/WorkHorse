@@ -4,12 +4,12 @@
            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
-           xmlns:TheS_Casinova_TwoWins_Controls="clr-namespace:TheS.Casinova.TwoWins.Controls" xmlns:PerfEx_Infrastructure="clr-namespace:PerfEx.Infrastructure;assembly=PerfEx.Infrastructure.Silverlight" xmlns:TheS_Casinova_TwoWins_ViewModels="clr-namespace:TheS.Casinova.TwoWins.ViewModels" x:Class="TheS.Casinova.TwoWins.Views.GamePlayPage"
+           xmlns:TheS_Casinova_TwoWins_Controls="clr-namespace:TheS.Casinova.TwoWins.Controls" xmlns:PerfEx_Infrastructure="clr-namespace:PerfEx.Infrastructure;assembly=PerfEx.Infrastructure.Silverlight" xmlns:PerfEx_Converter="clr-namespace:PerfEx.Infrastructure.Converters;assembly=PerfEx.Infrastructure.Silverlight" xmlns:TheS_Casinova_TwoWins_ViewModels="clr-namespace:TheS.Casinova.TwoWins.ViewModels" x:Class="TheS.Casinova.TwoWins.Views.GamePlayPage"
            mc:Ignorable="d"
            d:DesignWidth="640" d:DesignHeight="480"
            Title="GamePlayPage Page">
 	<navigation:Page.Resources>
-		<PerfEx_Infrastructure:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+		<PerfEx_Converter:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
 		<TheS_Casinova_TwoWins_ViewModels:GamePlayViewModel x:Key="GamePlayViewModelDataSource" d:IsDataSource="True"/>
 		<DataTemplate x:Key="GameTableTemplate">
 			<Grid>
