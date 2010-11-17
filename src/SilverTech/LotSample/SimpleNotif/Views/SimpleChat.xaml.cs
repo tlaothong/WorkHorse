@@ -47,36 +47,37 @@ namespace SimpleNotif.Views
 
             IStatusTracker tracker = _tracker;
 
-            SimpleTrackingObserver obs = new SimpleTrackingObserver();
+            SimpleTrackingObserver obs = new SimpleTrackingObserver(ti =>
+            {
+                Dispatcher.BeginInvoke(() =>
+                {
+                    listBox1.Items.Add(new
+                    {
+                        ti.LotNo,
+                        ti.Status,
+                    });
+                });
+            });
 
-            //IDisposable dsp = null;
-            //dsp = tracker.Watch(obs).SubscribeOnDispatcher().Subscribe(
-            //    nx => {
-            //        var info = new { nx.LotNo, nx.Status };
-            //        //MessageBox.Show(info.ToString());
-            //        listBox1.Items.Add(info);
-            //    }
-            //    , ex => { MessageBox.Show(ex.ToString()); }
-            //    , () => { MessageBox.Show("???"); dsp.Dispose(); });
             obs.Initialize(tracker);
             obs.SetTrackingID(id);
         }
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-            SimpleTrackingObserver obs = new SimpleTrackingObserver();
+            SimpleTrackingObserver obs = new SimpleTrackingObserver(ti =>
+            {
+                Dispatcher.BeginInvoke(() =>
+                {
+                    listBox1.Items.Add(new
+                    {
+                        ti.LotNo,
+                        ti.Status,
+                    });
+                });
+            });
             obs.Initialize(_tracker);
-            //IDisposable dsp = null;
-            //dsp = tracker.Watch(obs).SubscribeOnDispatcher().Subscribe(
-            //    nx => {
-            //        var info = new { nx.LotNo, nx.Status };
-            //        //MessageBox.Show(info.ToString());
-            //        listBox1.Items.Add(info);
-            //    }
-            //    , ex => { MessageBox.Show(ex.ToString()); }
-            //    , () => { MessageBox.Show("???"); dsp.Dispose(); });
 
-            ////svc.SendMessageAsync(textBox1.Text, obs);
             IDisposable mdsp = null;
             mdsp = _sendMsg.Invoke(textBox1.Text).Subscribe(
                 nx => {
@@ -90,11 +91,5 @@ namespace SimpleNotif.Views
                 });
         }
 
-        //void svc_SendMessageCompleted(object sender, OhSimpleSvc.SendMessageCompletedEventArgs e)
-        //{
-        //    var id = e.Result;
-        //    var obs = e.UserState as SimpleTrackingObserver;
-        //    obs.SetTrackingID(id);
-        //}
     }
 }

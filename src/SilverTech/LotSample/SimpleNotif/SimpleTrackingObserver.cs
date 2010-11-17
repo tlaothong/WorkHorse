@@ -15,19 +15,18 @@ namespace SimpleNotif
 {
     public class SimpleTrackingObserver : TrackingObserverBase
     {
-        //private Action<TrackingInformation> _notifyBack;
+        private Action<TrackingInformation> _notifyBack;
 
-        //public SimpleTrackingObserver(Action<TrackingInformation> notifyBack)
-        //{
-        //    _notifyBack = notifyBack;
-        //}
+        public SimpleTrackingObserver(Action<TrackingInformation> notifyBack)
+        {
+            _notifyBack = notifyBack;
+        }
 
         protected override void OnUpdateTrackingInformation(TrackingInformation trackingInfo)
         {
-            //_notifyBack(trackingInfo);
-            throw new InvalidOperationException("???????");
-            MessageBox.Show(trackingInfo.Status);
+            _notifyBack(trackingInfo);
             StatusTracker.ReleaseWatch(this);
+            Dispose();
         }
     }
 }
