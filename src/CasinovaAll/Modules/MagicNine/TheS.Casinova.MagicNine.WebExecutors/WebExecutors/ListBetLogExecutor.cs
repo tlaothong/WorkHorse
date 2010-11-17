@@ -23,7 +23,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors
 
        protected override void ExecuteCommand(ListBetLogCommand command)
        {
-           //TODO : Generate trackingID
+           //TODO: Generate trackingID
           command.BetInformations = _iListBetLog.List(command);
        }
     }

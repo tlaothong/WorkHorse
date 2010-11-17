@@ -20,5 +20,6 @@ namespace TheS.Casinova.Colors.Models
         public bool IsPlaying { get; set; }
         public double TotalBetBlack { get; set; }
         public double TotalBetWhite { get; set; }
+        public string Winner { get; set; }
     }
 }

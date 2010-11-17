@@ -21,6 +21,15 @@ namespace TheS.Casinova.Colors.Views
         public GamePlayPage()
         {
             InitializeComponent();
+            ViewModel.GetListActiveGameRounds();
+        }
+
+        public ViewModels.GamePlayPageViewModel ViewModel
+        {
+            get
+            {
+                return (ViewModels.GamePlayPageViewModel)DataContext;
+            }
         }
 
         // Executes when the user navigates to this page.

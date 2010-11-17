@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/TheS.Casinova.Colors.Commands" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TheS.Casinova.Colors.Commands" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:23420/wsv/ColorsService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/TheS.Casinova.Colors.Models" />
+  <xs:import schemaLocation="http://localhost:23420/wsv/ColorsService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ListActiveGameRoundCommand">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/TheS.Casinova.Colors.Models" minOccurs="0" name="ActiveRounds" nillable="true" type="q1:ArrayOfGameRoundInformation" />
+      <xs:element minOccurs="0" name="FromTime" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListActiveGameRoundCommand" nillable="true" type="tns:ListActiveGameRoundCommand" />
+  <xs:complexType name="ListGamePlayInfoCommand">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/TheS.Casinova.Colors.Models" minOccurs="0" name="GamePlayInfos" nillable="true" type="q2:ArrayOfGamePlayInformation" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListGamePlayInfoCommand" nillable="true" type="tns:ListGamePlayInfoCommand" />
+  <xs:complexType name="GetGameResultCommand">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/TheS.Casinova.Colors.Models" minOccurs="0" name="GameResult" nillable="true" type="q3:GameRoundInformation" />
+      <xs:element minOccurs="0" name="RoundID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetGameResultCommand" nillable="true" type="tns:GetGameResultCommand" />
+  <xs:complexType name="PayForColorsWinnerInfoCommand">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="OnGoingTrackingID" type="ser:guid" />
+      <xs:element minOccurs="0" name="RoundID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PayForColorsWinnerInfoCommand" nillable="true" type="tns:PayForColorsWinnerInfoCommand" />
+  <xs:complexType name="BetCommand">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:double" />
+      <xs:element minOccurs="0" name="Color" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoundID" type="xs:int" />
+      <xs:element minOccurs="0" name="TrackingID" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BetCommand" nillable="true" type="tns:BetCommand" />
+</xs:schema>

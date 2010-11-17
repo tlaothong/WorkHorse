@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/TheS.Casinova.Colors.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TheS.Casinova.Colors.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:23420/wsv/ColorsService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfGameRoundInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GameRoundInformation" nillable="true" type="tns:GameRoundInformation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGameRoundInformation" nillable="true" type="tns:ArrayOfGameRoundInformation" />
+  <xs:complexType name="GameRoundInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BlackPot" type="xs:double" />
+      <xs:element minOccurs="0" name="EndTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HandCount" type="xs:int" />
+      <xs:element minOccurs="0" name="RoundID" type="xs:int" />
+      <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="WhitePot" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GameRoundInformation" nillable="true" type="tns:GameRoundInformation" />
+  <xs:complexType name="ArrayOfGamePlayInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GamePlayInformation" nillable="true" type="tns:GamePlayInformation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGamePlayInformation" nillable="true" type="tns:ArrayOfGamePlayInformation" />
+  <xs:complexType name="GamePlayInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LastUpdate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="OnGoingTrackingID" type="ser:guid" />
+      <xs:element minOccurs="0" name="RoundID" type="xs:int" />
+      <xs:element minOccurs="0" name="TableID" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalBetAmountOfBlack" type="xs:double" />
+      <xs:element minOccurs="0" name="TotalBetAmountOfWhite" type="xs:double" />
+      <xs:element minOccurs="0" name="TrackingID" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Winner" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GamePlayInformation" nillable="true" type="tns:GamePlayInformation" />
+</xs:schema>

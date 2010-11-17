@@ -69,6 +69,11 @@
     </Reference>
     <Reference Include="System.ComponentModel.Composition, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.ComponentModel.DataAnnotations, Version=2.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217" />
+    <Reference Include="System.CoreEx, Version=1.0.2698.204, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Observable, Version=1.0.0.204, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Reactive, Version=1.0.2698.204, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows" />
     <Reference Include="system" />
     <Reference Include="System.Core" />
@@ -132,6 +137,11 @@
       <DependentUpon>StatisticPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\ColorsSvc\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="Colors\Silverlight\App.xaml">
@@ -202,6 +212,29 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
+    <None Include="Service References\ColorsSvc\ColorsService.wsdl" />
+    <None Include="Service References\ColorsSvc\ColorsService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ColorsSvc\ColorsService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ColorsSvc\ColorsService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ColorsSvc\ColorsService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ServiceReferences.ClientConfig" />
+    <None Include="Service References\ColorsSvc\TheS.Casinova.ColorsSvc.GetGameResultCommand.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ColorsSvc\TheS.Casinova.ColorsSvc.ListActiveGameRoundCommand.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ColorsSvc\TheS.Casinova.ColorsSvc.ListGamePlayInfoCommand.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TheS.Casinova.Common.Silverlight\TheS.Casinova.Common.Silverlight.csproj">
@@ -211,6 +244,27 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Colors\Assets\Images\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ColorsSvc\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ColorsSvc\ColorsService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ColorsSvc\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ColorsSvc\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ColorsSvc\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
