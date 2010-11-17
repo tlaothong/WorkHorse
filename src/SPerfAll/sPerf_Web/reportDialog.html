@@ -1,0 +1,17 @@
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+  <script  type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+  <script  type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+  <script type="text/javascript">
+      $(".reports").click(function () {
+          $("#showReportDialog").dialog({
+              buttons: {
+                  "Ok": function () {
+                      $(this).dialog("close");
+                  }
+              }
+          });
+          title: "Dialog Title";
+      });
+  </script>
+<div id="showReportDialog"></div>
+<div><label style="margin-left:110px; text-decoration: underline; color:Blue" class="reports">Report</label></div>

@@ -1,46 +1,41 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/MasterPage.Master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/MasterPage.Master"
+    Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	Index
+    Index
 </asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
- <%--script for load content from db--%>
-<%--<script type="text/javascript">
-    $(document).ready(function () {
-            $("#myDiv").load("profile.html");
-    });
-</script>
-<div id="myDiv"></div> --%>
-
-
-<%-- submenu for friends--%>
-<div style="background-color: #dedfe1; width: 340px; padding-left:285px;" >
-        <table style=" margin-bottom: 10px;">
+    <%-- submenu for friends--%>
+    <div style="background-color: #dedfe1; width: 340px; padding-left: 285px;">
+        <table style="margin-bottom: 10px;">
             <tr>
-                <th style="background-color: White; border:1px solid #afb0b3; padding-left: 5px; padding-right: 5px;" >
+                <th style="background-color: White; border: 1px solid #afb0b3; padding-left: 5px;
+                    padding-right: 5px;">
                     <a href="#">Profile</a>
                 </th>
-                <th style="background-color: White; border:1px solid #afb0b3; padding-left: 5px; padding-right: 5px;">
+                <th style="background-color: White; border: 1px solid #afb0b3; padding-left: 5px;
+                    padding-right: 5px;">
                     <a href="#">Photo</a>
                 </th>
-                <th style="background-color: White; border:1px solid #afb0b3; padding-left: 5px; padding-right: 5px;">
+                <th style="background-color: White; border: 1px solid #afb0b3; padding-left: 5px;
+                    padding-right: 5px;">
                     <a href="#">Blog</a>
                 </th>
-                <th style="background-color: White; border:1px solid #afb0b3; padding-left: 5px; padding-right: 5px;">
+                <th style="background-color: White; border: 1px solid #afb0b3; padding-left: 5px;
+                    padding-right: 5px;">
                     <a href="#">Achievements</a>
                 </th>
-                <th style="background-color: White; border:1px solid #afb0b3; padding-left: 5px; padding-right: 5px;">
-                    <a href="#">Friend list</a> 
+                <th style="background-color: White; border: 1px solid #afb0b3; padding-left: 5px;
+                    padding-right: 5px;">
+                    <a href="#">Friend list</a>
                 </th>
             </tr>
         </table>
     </div>
     <div class="picuser">
-    <img src="/Content/images/picuser.png" alt="user" /></div>
+        <img src="/Content/images/picuser.png" alt="user" /></div>
     <%-- My Profile--%>
-
-        <div style="float: left; padding-left: 50px;">
+    <div style="float: left; padding-left: 50px;">
         <div>
             Name: Dick Kapooook
         </div>
@@ -71,17 +66,29 @@
         <div class="friendall">
             <a href="#">
                 <img src="/Content/images/f1.png" alt="" /><br />
-                Nelson Lao</a> <a href="#">
+                Nelson Lao </a><a href="#">
                     <img src="/Content/images/f2.png" alt="" /><br />
                     AumKrab</a> <a href="#">
                         <img src="/Content/images/f3.png" alt="" /><br />
                         Mayda Jui</a> <a href="#">
                             <img src="/Content/images/f4.png" alt="" /><br />
-                            Koradon S.</a>
+                            Koradon S.</a> <a href="#">
+                                <img src="/Content/images/f1.png" alt="" /><br />
+                                Nelson Lao</a> <a href="#">
+                                    <img src="/Content/images/f2.png" alt="" /><br />
+                                    AumKrab</a> <a href="#">
+                                        <img src="/Content/images/f1.png" alt="" /><br />
+                                        Nelson Lao</a> <a href="#">
+                                            <img src="/Content/images/f3.png" alt="" /><br />
+                                            Mayda Jui</a> <a href="#">
+                                                <img src="/Content/images/f1.png" alt="" /><br />
+                                                Nelson Lao</a> <a href="#">
+                                                    <img src="/Content/images/f2.png" alt="" /><br />
+                                                    AumKrab</a>
         </div>
     </div>
     <%-- Log events--%>
-        <div class="logevent">
+    <div class="logevent">
         <div class="stylefriend">
             Log Events</div>
         <div class="logeventall">
@@ -90,7 +97,7 @@
             <tr class="logpostevent">
                 <td class="eventborder">
                     <div class="eventpic">
-                        <img src="/Content/images/e1.png" alt="" />Today 12.30<br />
+                        <img src="/Content/images/e1.png" alt="" /><br />
                         Nelson lao</div>
                     <div class="eventdetail">
                         <p>
@@ -98,18 +105,22 @@
                             please click e-siam</p>
                     </div>
                 </td>
+            </tr>
+            <tr>
                 <td class="eventborder">
                     <div class="eventpic">
-                        <img src="/Content/images/e1.png" alt="" />Today 12.18<br />
+                        <img src="/Content/images/e1.png" alt="" /><br />
                         Nelson lao</div>
                     <div class="eventdetail">
                         <p>
                             comment on your picture in office party folder see comment click,please</p>
                     </div>
                 </td>
+            </tr>
+            <tr>
                 <td class="eventborder">
                     <div class="eventpic">
-                        <img src="/Content/images/e2.png" alt="" />Today 08.02<br />
+                        <img src="/Content/images/e2.png" alt="" /><br />
                         Mayda Jui</div>
                     <div class="eventdetail">
                         <p>
@@ -118,9 +129,186 @@
                         </p>
                     </div>
                 </td>
+            </tr>
+            <tr>
                 <td class="eventborder">
                     <div class="eventpic">
-                        <img src="/Content/images/e2.png" alt="" />Today 04.50<br />
+                        <img src="/Content/images/e2.png" alt="" /><br />
+                        Mayda Jui</div>
+                    <div class="eventdetail">
+                        <p>
+                            add AumKrab และ Patty jung เป็นเพื่อน
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="eventborder">
+                    <div class="eventpic">
+                        <img src="/Content/images/e2.png" alt="" /><br />
+                        Mayda Jui</div>
+                    <div class="eventdetail">
+                        <p>
+                            เล่นเกมอพาร์ตเม้น สยองงงงงง!!! แป่วแว่วววว... ได้คะแนนโครตเยอะเพราะโกง มีหน้ากล้ามาท้าทายคุณอีก
+                            อยากรู้ก็ลองเล่นดูสิว้า เล่นเกมอพาร์ตเม้นสยองง please click Scream Apartment
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="eventborder">
+                    <div class="eventpic">
+                        <img src="/Content/images/e2.png" alt="" /><br />
+                        Mayda Jui</div>
+                    <div class="eventdetail">
+                        <p>
+                            add AumKrab และ Patty jung เป็นเพื่อน
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="eventborder">
+                    <div class="eventpic">
+                        <img src="/Content/images/e2.png" alt="" /><br />
+                        Mayda Jui</div>
+                    <div class="eventdetail">
+                        <p>
+                            เล่นเกมอพาร์ตเม้น สยองงงงงง!!! แป่วแว่วววว... ได้คะแนนโครตเยอะเพราะโกง มีหน้ากล้ามาท้าทายคุณอีก
+                            อยากรู้ก็ลองเล่นดูสิว้า เล่นเกมอพาร์ตเม้นสยองง please click Scream Apartment
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="eventborder">
+                    <div class="eventpic">
+                        <img src="/Content/images/e2.png" alt="" /><br />
+                        Mayda Jui</div>
+                    <div class="eventdetail">
+                        <p>
+                            add AumKrab และ Patty jung เป็นเพื่อน
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="eventborder">
+                    <div class="eventpic">
+                        <img src="/Content/images/e2.png" alt="" /><br />
+                        Mayda Jui</div>
+                    <div class="eventdetail">
+                        <p>
+                            เล่นเกมอพาร์ตเม้น สยองงงงงง!!! แป่วแว่วววว... ได้คะแนนโครตเยอะเพราะโกง มีหน้ากล้ามาท้าทายคุณอีก
+                            อยากรู้ก็ลองเล่นดูสิว้า เล่นเกมอพาร์ตเม้นสยองง please click Scream Apartment
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="eventborder">
+                    <div class="eventpic">
+                        <img src="/Content/images/e2.png" alt="" /><br />
+                        Mayda Jui</div>
+                    <div class="eventdetail">
+                        <p>
+                            add AumKrab และ Patty jung เป็นเพื่อน
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="eventborder">
+                    <div class="eventpic">
+                        <img src="/Content/images/e2.png" alt="" /><br />
+                        Mayda Jui</div>
+                    <div class="eventdetail">
+                        <p>
+                            เล่นเกมอพาร์ตเม้น สยองงงงงง!!! แป่วแว่วววว... ได้คะแนนโครตเยอะเพราะโกง มีหน้ากล้ามาท้าทายคุณอีก
+                            อยากรู้ก็ลองเล่นดูสิว้า เล่นเกมอพาร์ตเม้นสยองง please click Scream Apartment
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="eventborder">
+                    <div class="eventpic">
+                        <img src="/Content/images/e2.png" alt="" /><br />
+                        Mayda Jui</div>
+                    <div class="eventdetail">
+                        <p>
+                            add AumKrab และ Patty jung เป็นเพื่อน
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="eventborder">
+                    <div class="eventpic">
+                        <img src="/Content/images/e2.png" alt="" /><br />
+                        Mayda Jui</div>
+                    <div class="eventdetail">
+                        <p>
+                            เล่นเกมอพาร์ตเม้น สยองงงงงง!!! แป่วแว่วววว... ได้คะแนนโครตเยอะเพราะโกง มีหน้ากล้ามาท้าทายคุณอีก
+                            อยากรู้ก็ลองเล่นดูสิว้า เล่นเกมอพาร์ตเม้นสยองง please click Scream Apartment
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="eventborder">
+                    <div class="eventpic">
+                        <img src="/Content/images/e2.png" alt="" /><br />
+                        Mayda Jui</div>
+                    <div class="eventdetail">
+                        <p>
+                            add AumKrab และ Patty jung เป็นเพื่อน
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="eventborder">
+                    <div class="eventpic">
+                        <img src="/Content/images/e2.png" alt="" /><br />
+                        Mayda Jui</div>
+                    <div class="eventdetail">
+                        <p>
+                            เล่นเกมอพาร์ตเม้น สยองงงงงง!!! แป่วแว่วววว... ได้คะแนนโครตเยอะเพราะโกง มีหน้ากล้ามาท้าทายคุณอีก
+                            อยากรู้ก็ลองเล่นดูสิว้า เล่นเกมอพาร์ตเม้นสยองง please click Scream Apartment
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="eventborder">
+                    <div class="eventpic">
+                        <img src="/Content/images/e2.png" alt="" /><br />
+                        Mayda Jui</div>
+                    <div class="eventdetail">
+                        <p>
+                            add AumKrab และ Patty jung เป็นเพื่อน
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="eventborder">
+                    <div class="eventpic">
+                        <img src="/Content/images/e2.png" alt="" /><br />
+                        Mayda Jui</div>
+                    <div class="eventdetail">
+                        <p>
+                            เล่นเกมอพาร์ตเม้น สยองงงงงง!!! แป่วแว่วววว... ได้คะแนนโครตเยอะเพราะโกง มีหน้ากล้ามาท้าทายคุณอีก
+                            อยากรู้ก็ลองเล่นดูสิว้า เล่นเกมอพาร์ตเม้นสยองง please click Scream Apartment
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="eventborder">
+                    <div class="eventpic">
+                        <img src="/Content/images/e2.png" alt="" /><br />
                         Mayda Jui</div>
                     <div class="eventdetail">
                         <p>
@@ -132,12 +320,9 @@
         </table>
     </div>
 </asp:Content>
-
 <asp:Content ID="Content3" ContentPlaceHolderID="SubMenu" runat="server">
-<% Html.RenderPartial("SubMenu"); %>
+    <% Html.RenderPartial("SubMenu"); %>
 </asp:Content>
-
 <asp:Content ID="Content4" ContentPlaceHolderID="SideBar" runat="server">
-<% Html.RenderPartial("AdvanceSearch"); %>
-<% Html.RenderPartial("Banners"); %>
+    <% Html.RenderPartial("index_comment"); %>
 </asp:Content>
