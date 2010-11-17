@@ -118,6 +118,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UpdateOnGoingTrackingID.feature</DependentUpon>
     </Compile>
+    <Compile Include="BackServices\UnitSpecs\BetColorExecutorSpecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

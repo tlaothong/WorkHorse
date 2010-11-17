@@ -82,10 +82,10 @@ testRunner.Given("(BetColor)server has player profile information as:", ((string
 #line hidden
         }
         
-        public virtual void ผเลนลงเงนพนนโดยผเลนมเงนพอระบบบนทกประวตการดำเนนการพนนของผเลน(string roundID, string userName, string amount, string color, string trackingID)
+        public virtual void ผเลนเลอกลงเงนพนนสขาวหรอดำโดยผเลนมชฟพอและชฟตายมากกวาเงนลงพนนระบบบนทกประวตการดำเนนการพนนของผเลนและหกเฉพาะชฟตาย(string roundID, string userName, string amount, string color, string trackingID)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้เล่นลงเงินพนัน โดยผู้เล่นมีเงินพอ ระบบบันทึกประวัติการดำเนินการ(พนัน)ของผู้เล่" +
-                    "น", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้เล่นเลือกลงเงินพนันสีขาวหรือดำ โดยผู้เล่นมีชิฟพอและชิฟตายมากกว่าเงินลงพนัน ระบ" +
+                    "บบันทึกประวัติการดำเนินการ(พนัน)ของผู้เล่นและหักเฉพาะชิฟตาย", new string[] {
                         "record_mock",
                         "record_mock"});
 #line 16
@@ -109,48 +109,107 @@ testRunner.Then("the player action information should be created");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้เล่นลงเงินพนัน โดยผู้เล่นมีเงินพอ ระบบบันทึกประวัติการดำเนินการ(พนัน)ของผู้เล่" +
-            "น")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้เล่นเลือกลงเงินพนันสีขาวหรือดำ โดยผู้เล่นมีชิฟพอและชิฟตายมากกว่าเงินลงพนัน ระบ" +
+            "บบันทึกประวัติการดำเนินการ(พนัน)ของผู้เล่นและหักเฉพาะชิฟตาย")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "BetColor")]
-        public virtual void ผเลนลงเงนพนนโดยผเลนมเงนพอระบบบนทกประวตการดำเนนการพนนของผเลน_Variant0()
+        public virtual void ผเลนเลอกลงเงนพนนสขาวหรอดำโดยผเลนมชฟพอและชฟตายมากกวาเงนลงพนนระบบบนทกประวตการดำเนนการพนนของผเลนและหกเฉพาะชฟตาย_Variant0()
         {
-            this.ผเลนลงเงนพนนโดยผเลนมเงนพอระบบบนทกประวตการดำเนนการพนนของผเลน("12", "OhAe", "5", "White", "B21F8971-DBAB-400F-9D95-151BA24875C1");
+            this.ผเลนเลอกลงเงนพนนสขาวหรอดำโดยผเลนมชฟพอและชฟตายมากกวาเงนลงพนนระบบบนทกประวตการดำเนนการพนนของผเลนและหกเฉพาะชฟตาย("12", "OhAe", "5", "Red", "B21F8971-DBAB-400F-9D95-151BA24875C1");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้เล่นลงเงินพนัน โดยผู้เล่นมีเงินพอ ระบบบันทึกประวัติการดำเนินการ(พนัน)ของผู้เล่" +
-            "น")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้เล่นเลือกลงเงินพนันสีขาวหรือดำ โดยผู้เล่นมีชิฟพอและชิฟตายมากกว่าเงินลงพนัน ระบ" +
+            "บบันทึกประวัติการดำเนินการ(พนัน)ของผู้เล่นและหักเฉพาะชิฟตาย")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "BetColor")]
-        public virtual void ผเลนลงเงนพนนโดยผเลนมเงนพอระบบบนทกประวตการดำเนนการพนนของผเลน_Variant1()
+        public virtual void ผเลนเลอกลงเงนพนนสขาวหรอดำโดยผเลนมชฟพอและชฟตายมากกวาเงนลงพนนระบบบนทกประวตการดำเนนการพนนของผเลนและหกเฉพาะชฟตาย_Variant1()
         {
-            this.ผเลนลงเงนพนนโดยผเลนมเงนพอระบบบนทกประวตการดำเนนการพนนของผเลน("12", "Toommy", "7", "White", "B21F8971-DBAB-400F-9D95-151BA24875C1");
+            this.ผเลนเลอกลงเงนพนนสขาวหรอดำโดยผเลนมชฟพอและชฟตายมากกวาเงนลงพนนระบบบนทกประวตการดำเนนการพนนของผเลนและหกเฉพาะชฟตาย("12", "Toommy", "7", "White", "B21F8971-DBAB-400F-9D95-151BA24875C1");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้เล่นลงเงินพนัน โดยผู้เล่นมีเงินพอ ระบบบันทึกประวัติการดำเนินการ(พนัน)ของผู้เล่" +
-            "น")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้เล่นเลือกลงเงินพนันสีขาวหรือดำ โดยผู้เล่นมีชิฟพอและชิฟตายมากกว่าเงินลงพนัน ระบ" +
+            "บบันทึกประวัติการดำเนินการ(พนัน)ของผู้เล่นและหักเฉพาะชิฟตาย")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "BetColor")]
-        public virtual void ผเลนลงเงนพนนโดยผเลนมเงนพอระบบบนทกประวตการดำเนนการพนนของผเลน_Variant2()
+        public virtual void ผเลนเลอกลงเงนพนนสขาวหรอดำโดยผเลนมชฟพอและชฟตายมากกวาเงนลงพนนระบบบนทกประวตการดำเนนการพนนของผเลนและหกเฉพาะชฟตาย_Variant2()
         {
-            this.ผเลนลงเงนพนนโดยผเลนมเงนพอระบบบนทกประวตการดำเนนการพนนของผเลน("13", "Boy", "7.99", "Black", "B21F8971-DBAB-400F-9D95-151BA24875C1");
+            this.ผเลนเลอกลงเงนพนนสขาวหรอดำโดยผเลนมชฟพอและชฟตายมากกวาเงนลงพนนระบบบนทกประวตการดำเนนการพนนของผเลนและหกเฉพาะชฟตาย("13", "Boy", "7.99", "Black", "B21F8971-DBAB-400F-9D95-151BA24875C1");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้เล่นลงเงินพนัน โดยผู้เล่นมีเงินพอ ระบบบันทึกประวัติการดำเนินการ(พนัน)ของผู้เล่" +
-            "น")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้เล่นเลือกลงเงินพนันสีขาวหรือดำ โดยผู้เล่นมีชิฟพอและชิฟตายมากกว่าเงินลงพนัน ระบ" +
+            "บบันทึกประวัติการดำเนินการ(พนัน)ของผู้เล่นและหักเฉพาะชิฟตาย")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "BetColor")]
-        public virtual void ผเลนลงเงนพนนโดยผเลนมเงนพอระบบบนทกประวตการดำเนนการพนนของผเลน_Variant3()
+        public virtual void ผเลนเลอกลงเงนพนนสขาวหรอดำโดยผเลนมชฟพอและชฟตายมากกวาเงนลงพนนระบบบนทกประวตการดำเนนการพนนของผเลนและหกเฉพาะชฟตาย_Variant3()
         {
-            this.ผเลนลงเงนพนนโดยผเลนมเงนพอระบบบนทกประวตการดำเนนการพนนของผเลน("12", "Au", "221.21", "White", "B21F8971-DBAB-400F-9D95-151BA24875C1");
+            this.ผเลนเลอกลงเงนพนนสขาวหรอดำโดยผเลนมชฟพอและชฟตายมากกวาเงนลงพนนระบบบนทกประวตการดำเนนการพนนของผเลนและหกเฉพาะชฟตาย("12", "Au", "221.21", "White", "B21F8971-DBAB-400F-9D95-151BA24875C1");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้เล่นลงเงินพนัน โดยผู้เล่นมีเงินพอ ระบบบันทึกประวัติการดำเนินการ(พนัน)ของผู้เล่" +
-            "น")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้เล่นเลือกลงเงินพนันสีขาวหรือดำ โดยผู้เล่นมีชิฟพอและชิฟตายมากกว่าเงินลงพนัน ระบ" +
+            "บบันทึกประวัติการดำเนินการ(พนัน)ของผู้เล่นและหักเฉพาะชิฟตาย")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "BetColor")]
-        public virtual void ผเลนลงเงนพนนโดยผเลนมเงนพอระบบบนทกประวตการดำเนนการพนนของผเลน_Variant4()
+        public virtual void ผเลนเลอกลงเงนพนนสขาวหรอดำโดยผเลนมชฟพอและชฟตายมากกวาเงนลงพนนระบบบนทกประวตการดำเนนการพนนของผเลนและหกเฉพาะชฟตาย_Variant4()
         {
-            this.ผเลนลงเงนพนนโดยผเลนมเงนพอระบบบนทกประวตการดำเนนการพนนของผเลน("12", "OhAe", "9.99", "White", "B21F8971-DBAB-400F-9D95-151BA24875C1");
+            this.ผเลนเลอกลงเงนพนนสขาวหรอดำโดยผเลนมชฟพอและชฟตายมากกวาเงนลงพนนระบบบนทกประวตการดำเนนการพนนของผเลนและหกเฉพาะชฟตาย("12", "OhAe", "9.99", "White", "B21F8971-DBAB-400F-9D95-151BA24875C1");
+        }
+        
+        public virtual void ผเลนลงเงนพนนโดยผเลนมเงนไมพอระบบแจงเตอนผเลนวาเงนไมพอ(string roundID, string userName, string amount, string color, string trackingID)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้เล่นลงเงินพนัน โดยผู้เล่นมีเงินไม่พอ ระบบแจ้งเตือนผู้เล่่นว่าเงินไม่พอ", new string[] {
+                        "record_mock"});
+#line 32
+this.ScenarioSetup(scenarioInfo);
+#line 33
+testRunner.Given("The BetColorExecutor has been created and initialized");
+#line 34
+testRunner.And(string.Format("sent name: {0} the player\'s balance should recieved, for bet color", userName));
+#line 35
+testRunner.When(string.Format("Expected exception and call BetColorExecutor(UserName: {0}, RoundID: {1}, Amount:" +
+                        " {2}, Color: {3}, TrackingID: {4})", userName, roundID, amount, color, trackingID));
+#line 36
+testRunner.Then("the result should be throw exception");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้เล่นลงเงินพนัน โดยผู้เล่นมีเงินไม่พอ ระบบแจ้งเตือนผู้เล่่นว่าเงินไม่พอ")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "BetColor")]
+        public virtual void ผเลนลงเงนพนนโดยผเลนมเงนไมพอระบบแจงเตอนผเลนวาเงนไมพอ_Variant0()
+        {
+            this.ผเลนลงเงนพนนโดยผเลนมเงนไมพอระบบแจงเตอนผเลนวาเงนไมพอ("12", "OhAe", "5451", "White", "B21F8971-DBAB-400F-9D95-151BA24875C1");
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้เล่นลงเงินพนัน โดยผู้เล่นมีเงินไม่พอ ระบบแจ้งเตือนผู้เล่่นว่าเงินไม่พอ")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "BetColor")]
+        public virtual void ผเลนลงเงนพนนโดยผเลนมเงนไมพอระบบแจงเตอนผเลนวาเงนไมพอ_Variant1()
+        {
+            this.ผเลนลงเงนพนนโดยผเลนมเงนไมพอระบบแจงเตอนผเลนวาเงนไมพอ("12", "Toommy", "120", "White", "B21F8971-DBAB-400F-9D95-151BA24875C1");
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้เล่นลงเงินพนัน โดยผู้เล่นมีเงินไม่พอ ระบบแจ้งเตือนผู้เล่่นว่าเงินไม่พอ")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "BetColor")]
+        public virtual void ผเลนลงเงนพนนโดยผเลนมเงนไมพอระบบแจงเตอนผเลนวาเงนไมพอ_Variant2()
+        {
+            this.ผเลนลงเงนพนนโดยผเลนมเงนไมพอระบบแจงเตอนผเลนวาเงนไมพอ("13", "Boy", "4215.99", "Black", "B21F8971-DBAB-400F-9D95-151BA24875C1");
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้เล่นลงเงินพนัน โดยผู้เล่นมีเงินไม่พอ ระบบแจ้งเตือนผู้เล่่นว่าเงินไม่พอ")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "BetColor")]
+        public virtual void ผเลนลงเงนพนนโดยผเลนมเงนไมพอระบบแจงเตอนผเลนวาเงนไมพอ_Variant3()
+        {
+            this.ผเลนลงเงนพนนโดยผเลนมเงนไมพอระบบแจงเตอนผเลนวาเงนไมพอ("12", "Au", "2201.21", "White", "B21F8971-DBAB-400F-9D95-151BA24875C1");
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้เล่นลงเงินพนัน โดยผู้เล่นมีเงินไม่พอ ระบบแจ้งเตือนผู้เล่่นว่าเงินไม่พอ")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "BetColor")]
+        public virtual void ผเลนลงเงนพนนโดยผเลนมเงนไมพอระบบแจงเตอนผเลนวาเงนไมพอ_Variant4()
+        {
+            this.ผเลนลงเงนพนนโดยผเลนมเงนไมพอระบบแจงเตอนผเลนวาเงนไมพอ("12", "OhAe", "687.99", "White", "B21F8971-DBAB-400F-9D95-151BA24875C1");
         }
     }
 }

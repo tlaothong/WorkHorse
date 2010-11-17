@@ -54,6 +54,10 @@
     <Compile Include="BackServices\BackExecutors\CreateGameRoundConfigurationExecutor.cs" />
     <Compile Include="BackServices\BackExecutors\CreateGameRoundExecutor.cs" />
     <Compile Include="BackServices\BackExecutors\PayForColorsWinnerInfoExecutor.cs" />
+    <Compile Include="BackServices\Validators\PlayerActionInfo_BetColorValidator.cs" />
+    <Compile Include="BackServices\Validators\UserProfile_BetColorValidator.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

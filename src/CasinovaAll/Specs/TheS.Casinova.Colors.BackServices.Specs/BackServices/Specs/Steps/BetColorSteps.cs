@@ -8,6 +8,7 @@ using TheS.Casinova.Colors.Commands;
 using Rhino.Mocks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TheS.Casinova.PlayerProfile.Models;
+using PerfEx.Infrastructure.Validation;
 
 namespace TheS.Casinova.Colors.BackServices.Specs
 {
@@ -18,7 +19,6 @@ namespace TheS.Casinova.Colors.BackServices.Specs
         public UserProfile _expectPlayerInfo;
 
         public IEnumerable<UserProfile> _playerInfos;
-
 
         [Given(@"\(BetColor\)server has player profile information as:")]
         public void GivenBetColorServerHasPlayerProfileInformationAs(Table table)
@@ -45,8 +45,6 @@ namespace TheS.Casinova.Colors.BackServices.Specs
         [Given(@"the player's balance should be update correct, Amount: (.*)")]
         public void GivenThePlayerSBalanceShouldBeUpdateCorrectAmountX(double amount)
         {
-            double balance = _expectPlayerInfo.NonRefundable + _expectPlayerInfo.Refundable;
-            balance -= amount;
             Action<UserProfile, UpdatePlayerInfoBalanceCommand> CheckCallMethod = (playerProfile, cmd) => {
                 Assert.AreEqual(_expectPlayerInfo.UserName, playerProfile.UserName, "UserName");
                 Assert.AreEqual(_expectPlayerInfo.Refundable, playerProfile.Refundable, "Refundable");
@@ -83,18 +81,49 @@ namespace TheS.Casinova.Colors.BackServices.Specs
         [When(@"call BetColorExecutor\(UserName: (.*), RoundID: (.*), Amount: (.*), Color: (.*), TrackingID: (.*)\)")]
         public void WhenCallBetColorExecutorUserNameXRoundIDXAmountXColorXTrackingIDX(string userName, int roundID, double amount, string color, string trackingID)
         {
-            BetCommand cmd = new BetCommand {
+            BetCommand cmd = new BetCommand 
+            {
+                PlayerActionInformation = new PlayerActionInformation {
                 UserName = userName,
                 RoundID = roundID,
                 Amount = amount,
-                Color = color,
-                TrackingID = Guid.Parse(trackingID),
+                ActionType = color,
+                TrackingID = Guid.Parse(trackingID),                    
+                }
             };
             BetColorExecutor.Execute(cmd, (x) => { });
         }
 
+        [When(@"Expected exception and call BetColorExecutor\(UserName: (.*), RoundID: (.*), Amount: (.*), Color: (.*), TrackingID: (.*)\)")]
+        public void WhenExpectedExceptionAndCallBetColorExecutorUserNameXRoundIDXAmountXColorXTrackingIDX(string userName, int roundID, double amount, string color, string trackingID)
+        {
+            try {
+                BetCommand cmd = new BetCommand {
+                    PlayerActionInformation = new PlayerActionInformation {
+                        UserName = userName,
+                        RoundID = roundID,
+                        Amount = amount,
+                        ActionType = color,
+                        TrackingID = Guid.Parse(trackingID),
+                    }
+                };
+
+                BetColorExecutor.Execute(cmd, (x) => { });
+                Assert.Fail("Shouldn't be here!");
+            }
+            catch (Exception ex) {
+                Assert.IsInstanceOfType(ex, typeof(ValidationErrorException));
+            }                  
+        }
+
         [Then(@"the player action information should be created")]
         public void ThenThePlayerActionInformationShouldBeCreated()
+        {
+            Assert.IsTrue(true, "Expectation has been verified in the end of block When.");
+        }
+
+        [Then(@"the result should be throw exception")]
+        public void ThenTheResultShouldBeThrowException()
         {
             Assert.IsTrue(true, "Expectation has been verified in the end of block When.");
         }

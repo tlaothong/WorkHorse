@@ -5,6 +5,8 @@ using System.Text;
 using TheS.Casinova.Colors.DAL;
 using TechTalk.SpecFlow;
 using TheS.Casinova.Colors.BackServices.BackExecutors;
+using PerfEx.Infrastructure;
+using TheS.Casinova.Colors.BackServices.Validators;
 
 namespace TheS.Casinova.Colors.BackServices.Specs
 {
@@ -142,6 +144,15 @@ namespace TheS.Casinova.Colors.BackServices.Specs
             {
                 return ScenarioContext.Current[
                     CommonSteps.Key_CreateGameRound] as CreateGameRoundExecutor;
+            }
+        }
+
+        protected UserProfile_BetColorValidator UserProfile_BetColorValidator
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_UserProfile_BetColorValidator] as UserProfile_BetColorValidator;
             }
         }
     }

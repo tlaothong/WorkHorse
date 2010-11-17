@@ -18,6 +18,7 @@ namespace TheS.Casinova.Colors.WebExecutors
     {
         private ICreateGameTableConfigurations _iCreateRoundConfig;
         private IDependencyContainer _container;
+
         public CreateGameRoundConfigExecutor(IGameTableBackService dac, IDependencyContainer container)
         {
             _iCreateRoundConfig = dac;

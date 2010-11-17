@@ -13,7 +13,7 @@ Background:
 	|Au			|234.00			|326			|
 
 @record_mock
-Scenario Outline: ผู้เล่นลงเงินพนัน โดยผู้เล่นมีเงินพอ ระบบบันทึกประวัติการดำเนินการ(พนัน)ของผู้เล่น
+Scenario Outline: ผู้เล่นเลือกลงเงินพนันสีขาวหรือดำ โดยผู้เล่นมีชิฟพอและชิฟตายมากกว่าเงินลงพนัน ระบบบันทึกประวัติการดำเนินการ(พนัน)ของผู้เล่นและหักเฉพาะชิฟตาย
 	Given The BetColorExecutor has been created and initialized
 	And sent name: <UserName> the player's balance should recieved, for bet color
 	And the player's balance should be update correct, Amount: <Amount>
@@ -22,8 +22,22 @@ Scenario Outline: ผู้เล่นลงเงินพนัน โดย�
 	Then the player action information should be created
 Examples:
 	|RoundID	|UserName	|Amount		|Color	|TrackingID	|
-	|12			|OhAe		|5			|White	|B21F8971-DBAB-400F-9D95-151BA24875C1|
+	|12			|OhAe		|5			|Red	|B21F8971-DBAB-400F-9D95-151BA24875C1|
 	|12			|Toommy		|7			|White	|B21F8971-DBAB-400F-9D95-151BA24875C1|
 	|13			|Boy		|7.99		|Black	|B21F8971-DBAB-400F-9D95-151BA24875C1|
 	|12			|Au			|221.21		|White	|B21F8971-DBAB-400F-9D95-151BA24875C1|
 	|12			|OhAe		|9.99		|White	|B21F8971-DBAB-400F-9D95-151BA24875C1|
+
+@record_mock
+Scenario Outline: ผู้เล่นลงเงินพนัน โดยผู้เล่นมีเงินไม่พอ ระบบแจ้งเตือนผู้เล่่นว่าเงินไม่พอ
+	Given The BetColorExecutor has been created and initialized
+	And sent name: <UserName> the player's balance should recieved, for bet color
+	When Expected exception and call BetColorExecutor(UserName: <UserName>, RoundID: <RoundID>, Amount: <Amount>, Color: <Color>, TrackingID: <TrackingID>)
+	Then the result should be throw exception
+Examples:
+	|RoundID	|UserName	|Amount		|Color	|TrackingID	|
+	|12			|OhAe		|5451		|White	|B21F8971-DBAB-400F-9D95-151BA24875C1|
+	|12			|Toommy		|120		|White	|B21F8971-DBAB-400F-9D95-151BA24875C1|
+	|13			|Boy		|4215.99	|Black	|B21F8971-DBAB-400F-9D95-151BA24875C1|
+	|12			|Au			|2201.21	|White	|B21F8971-DBAB-400F-9D95-151BA24875C1|
+	|12			|OhAe		|687.99		|White	|B21F8971-DBAB-400F-9D95-151BA24875C1|

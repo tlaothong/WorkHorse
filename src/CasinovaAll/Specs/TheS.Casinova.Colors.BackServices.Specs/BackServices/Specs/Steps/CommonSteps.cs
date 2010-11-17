@@ -7,6 +7,12 @@ using TechTalk.SpecFlow;
 using TheS.Casinova.Colors.DAL;
 using TheS.Casinova.Colors.BackServices.BackExecutors;
 using TheS.Casinova.Colors.Models;
+using PerfEx.Infrastructure;
+using TheS.Casinova.Colors.BackServices.Validators;
+using PerfEx.Infrastructure.Containers.StructureMapAdapter;
+using TheS.Casinova.PlayerProfile.Models;
+using TheS.Casinova.Colors.Commands;
+using PerfEx.Infrastructure.Validation;
 
 namespace TheS.Casinova.Colors.BackServices.Specs
 {
@@ -30,6 +36,8 @@ namespace TheS.Casinova.Colors.BackServices.Specs
         public const string Key_BetColorExecutor = "BetColorExecutor";
         public const string Key_CreateGameRoundConfigurations = "CreateGameRoundConfigurations";
         public const string Key_CreateGameRound = "CreateGameRound";
+
+        public const string Key_UserProfile_BetColorValidator = "UserProfile_BetColorValidator";
 
         MockRepository Mocks { get { return SpecEventDefinitions.Mocks; } }
 
@@ -56,13 +64,18 @@ namespace TheS.Casinova.Colors.BackServices.Specs
         {
             var dac = Mocks.DynamicMock<IColorsGameDataAccess>();
             var dqr = Mocks.DynamicMock<IColorsGameDataBackQuery>();
+            var container = Mocks.DynamicMock<IDependencyContainer>();
+
+            setupValidators(out container);
 
             ScenarioContext.Current[Key_Dac_UpdatePlayerInfoBalance] = dac;
             ScenarioContext.Current[Key_Dac_CreatePlayerActionInfo] = dac;
 
-            ScenarioContext.Current[Key_Dqr_GetPlayerInfo] = dqr;
+            ScenarioContext.Current[Key_Dqr_GetPlayerInfo] = dqr;            
 
-            ScenarioContext.Current[Key_BetColorExecutor] = new BetColorExecutor(dac, dqr);
+            ScenarioContext.Current[Key_BetColorExecutor] = new BetColorExecutor(container, dac, dqr);
+
+            ScenarioContext.Current[Key_UserProfile_BetColorValidator] = new UserProfile_BetColorValidator();
         }
 
         [Given(@"The CreateGameRoundConfigurationExecutor has been created and initialized")]
@@ -87,6 +100,17 @@ namespace TheS.Casinova.Colors.BackServices.Specs
             ScenarioContext.Current[Key_Dqr_GetGameRoundConfiguration] = dqr;
 
             ScenarioContext.Current[Key_CreateGameRound] = new CreateGameRoundExecutor(dac, dqr);
+        }
+
+        private static void setupValidators(out IDependencyContainer container)
+        {
+            var fac = new StructureMapAbstractFactory();
+            var reg = fac.CreateRegistry();
+
+            reg.Register<IValidator<UserProfile, BetCommand>
+                , UserProfile_BetColorValidator>();
+
+            container = fac.CreateContainer(reg);
         }
     }
 }
