@@ -22,7 +22,7 @@ namespace TheS.Casinova.Colors.Validators
                 });
             }
 
-            //ตรวจสอบข้อมูลชื่อโต๊ะเกม
+            //ตรวจสอบข้อมูลชื่อโต๊ะเกม 5 || entity.Name.Length > 50
             if (entity.Name.Length < 5 || entity.Name.Length > 50) {
                 errors.Add(new ValidationError {
                     Instance = entity,

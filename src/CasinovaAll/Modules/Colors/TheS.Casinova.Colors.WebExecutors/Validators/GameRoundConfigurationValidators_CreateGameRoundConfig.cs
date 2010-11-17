@@ -16,14 +16,6 @@ namespace TheS.Casinova.Colors.Validators
     {
         public override void Validate(GameRoundConfiguration entity, CreateGameRoundConfigurationCommand command, ValidationErrorCollection errors)
         {
-            //ตรวจสอบข้อมูลชื่อโต๊ะเกม
-            if (entity.Name.Length < 5 || entity.Name.Length > 50) {
-                errors.Add(new ValidationError {
-                    Instance = entity,
-                    ErrorMessage = "ชื่อโต๊ะเกมต้องมากกว่า 5 แต่ไม่เกิน 50 ตัวอักษร",
-                });
-            }
-
             //ตรวจสอบจำนวนโต๊ะเกม
             if (entity.TableAmount < 0 || entity.TableAmount > 99) {
                 errors.Add(new ValidationError {
@@ -45,6 +37,14 @@ namespace TheS.Casinova.Colors.Validators
                 errors.Add(new ValidationError {
                     Instance = entity,
                     ErrorMessage = "ค่า Interval ต้องมากกว่า 0 และไม่เกิน 1440 นาที (24 ชั่วโมง) ",
+                });
+            }
+
+            // ตรวจสอบจำนวนโต๊ะสำรอง
+            if (entity.BufferRoundsCount < 0 || entity.BufferRoundsCount > 99) {
+                errors.Add(new ValidationError {
+                    Instance = entity,
+                    ErrorMessage = "ค่า BufferRoundsCount ต้องมากกว่า 0 และไม่เกิน 99 ",
                 });
             }
         }

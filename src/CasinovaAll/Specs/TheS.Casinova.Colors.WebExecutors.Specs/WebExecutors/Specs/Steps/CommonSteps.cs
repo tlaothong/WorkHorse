@@ -7,6 +7,13 @@ using Rhino.Mocks;
 using TheS.Casinova.Colors.DAL;
 using TheS.Casinova.Colors.BackServices;
 using SpecFlowAssist;
+using PerfEx.Infrastructure;
+using PerfEx.Infrastructure.Containers.StructureMapAdapter;
+using TheS.Casinova.Colors.Models;
+using TheS.Casinova.Colors.Commands;
+using TheS.Casinova.Colors.Validators;
+using PerfEx.Infrastructure.Validation;
+using PerfEx.Infrastructure.CommandPattern;
 
 namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
 {
@@ -90,10 +97,26 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         public void GivenTheCreateGameRoundConfigExecutorHasBeenCreatedAndInitialized()
         {
             var dac = Mocks.DynamicMock<IGameTableBackService>();
+            IDependencyContainer container;
 
+            setupValidators(out container);
+            
             ScenarioContext.Current[Key_Dac_CreateGameRoundConfig] = dac;
             // TODO: Send dependency container
-            ScenarioContext.Current[Key_CreateGameRoundConfig] = new CreateGameRoundConfigExecutor(dac, null);
+            ScenarioContext.Current[Key_CreateGameRoundConfig] = new CreateGameRoundConfigExecutor(dac, container);
+        }
+
+        private static void setupValidators(out IDependencyContainer container)
+        {
+            var fac = new StructureMapAbstractFactory();
+            var reg = fac.CreateRegistry();
+
+            //reg.Register<IValidator<GameRoundConfiguration, NullCommand>
+            //    , DataAnnotationValidator<GameRoundConfiguration, NullCommand>>();
+            reg.Register<IValidator<GameRoundConfiguration, CreateGameRoundConfigurationCommand>
+                , GameRoundConfiguration_CreateGameRoundConfigurationValidator>();
+
+            container = fac.CreateContainer(reg);
         }
 
     }

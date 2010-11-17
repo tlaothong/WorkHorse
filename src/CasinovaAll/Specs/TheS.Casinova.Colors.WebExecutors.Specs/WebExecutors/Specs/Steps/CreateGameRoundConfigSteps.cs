@@ -8,6 +8,7 @@ using TheS.Casinova.Colors.BackServices;
 using TheS.Casinova.Colors.Commands;
 using Rhino.Mocks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PerfEx.Infrastructure.Validation;
 
 namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
 {
@@ -15,12 +16,12 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
     public class CreateGameRoundConfigSteps : ColorsGameStepsBase
     {
         private CreateGameRoundConfigurationCommand _cmd;
-        
-        [Given(@"Game round configuration informations are : \(Name'(.*)',TableAmount'(.*)', GameDuration'(.*)', Interval'(.*)', BufferRoundCount'(.*)'\)")]
-        public void GivenGameRoundConfigurationInformationsAreNameTableAmount0GameDuration0Interval0BufferRoundCount_2(string name, int tableAmount, int gameDuration, int interval, int bufferRoundCount)
+
+        [Given(@"Game round configuration informations are : Name'(.*)',TableAmount'(.*)', GameDuration'(.*)', Interval'(.*)', BufferRoundCount'(.*)'")]
+        public void GivenGameRoundConfigurationInformationsAreNameXTableAmountXGameDurationXIntervalXBufferRoundCountX(string name, int tableAmount, int gameDuration, int interval, int bufferRoundCount)
         {
             _cmd = new CreateGameRoundConfigurationCommand {
-                GameRoundConfig = new GameRoundConfiguration {
+                GameRoundConfig = new GameRoundConfiguration {                    
                     Name = name,
                     TableAmount = tableAmount,
                     GameDuration = gameDuration,
@@ -35,23 +36,19 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         public void WhenCallCreateGameRoundConfigExecutor()
         {
             try {
-                Dac_CreateGameRoundConfig.Create(_cmd);
+                CreateGameRound.Execute(_cmd, (x) => { });
+                Assert.Fail("Shouldn't be here");
             }
-            catch (Exception ex) { 
-                //Assert.IsInstanceOfType
+            catch (Exception ex) {
+                Assert.IsInstanceOfType(ex,
+                    typeof(ValidationErrorException));
             }
-        }
-
-        [Then(@"The system can sent GameRoundConfigurations to back server")]
-        public void ThenTheSystemCanSentGameRoundConfigurationsToBackServer()
-        {
-            ScenarioContext.Current.Pending();
         }
 
         [Then(@"The system can't sent GameRoundConfigurations to back server")]
         public void ThenTheSystemCanTSentGameRoundConfigurationsToBackServer()
         {
-            ScenarioContext.Current.Pending();
+            Assert.IsTrue(true, "Check exception from block When");
         }
     }
 }

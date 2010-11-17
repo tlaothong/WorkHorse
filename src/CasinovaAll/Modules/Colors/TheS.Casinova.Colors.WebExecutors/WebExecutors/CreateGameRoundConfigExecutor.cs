@@ -11,6 +11,7 @@ using PerfEx.Infrastructure.Validation;
 namespace TheS.Casinova.Colors.WebExecutors
 {
     /// <summary>
+    /// 
     /// สร้าง active round
     /// </summary>
     public class CreateGameRoundConfigExecutor
