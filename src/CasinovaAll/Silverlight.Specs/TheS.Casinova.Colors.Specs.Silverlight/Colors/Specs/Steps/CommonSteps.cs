@@ -47,9 +47,9 @@ namespace TheS.Casinova.Colors.Specs.Steps
             SetupResult.For(svc.BeginGetListActiveGameRound(null, null)).IgnoreArguments().Do(beginGet);
             SetupResult.For(svc.EndGetListActiveGameRound(null)).IgnoreArguments().Do(endGet);
 
-            GamePlayPageViewModel viewModel = new GamePlayPageViewModel();
+            GamePlayViewModel viewModel = new GamePlayViewModel();
             viewModel.GameSvc = svc;
-            ScenarioContext.Current.Set<GamePlayPageViewModel>(viewModel);
+            ScenarioContext.Current.Set<GamePlayViewModel>(viewModel);
         }
 
         

@@ -29,7 +29,7 @@ namespace TheS.Casinova.Colors.Specs.Steps
         [When(@"Send request GetListActiveGameRounds\(\) to web server")]
         public void WhenSendRequestGetListActiveGameRoundsToWebServer()
         {
-            var viewModel = ScenarioContext.Current.Get<GamePlayPageViewModel>();
+            var viewModel = ScenarioContext.Current.Get<GamePlayViewModel>();
             viewModel.GetListActiveGameRounds();
             ScenarioContext.Current.Get<AutoResetEvent>().WaitOne(3);
         }
@@ -37,7 +37,7 @@ namespace TheS.Casinova.Colors.Specs.Steps
         [Then(@"Tables in GamePlayViewModel has create from ListActivegameRounds")]
         public void ThenServerRespondListActiveGameRoundAre(Table table)
         {
-            var actual = ScenarioContext.Current.Get<GamePlayPageViewModel>().Tables;
+            var actual = ScenarioContext.Current.Get<GamePlayViewModel>().Tables;
             var expected = table.CreateSet<GameTable>();
 
 

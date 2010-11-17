@@ -15,7 +15,7 @@ using System.Collections.Generic;
 
 namespace TheS.Casinova.Colors.ViewModels
 {
-    public class BetdataViewModel : INotifyPropertyChanged
+    public class StatisticsChartViewModel : INotifyPropertyChanged
     {
         #region Fields
         
@@ -120,7 +120,7 @@ namespace TheS.Casinova.Colors.ViewModels
 
         #region Constructors
 
-        public BetdataViewModel()
+        public StatisticsChartViewModel()
         {
             _notify = new PerfEx.Infrastructure.PropertyChangedNotifier(this, () => PropertyChanged);
             _informations = new ObservableCollection<BetdataInfo>();

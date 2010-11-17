@@ -19,7 +19,7 @@ using TheS.Casinova.ColorsSvc;
 
 namespace TheS.Casinova.Colors.ViewModels
 {
-    public class GamePlayPageViewModel : INotifyPropertyChanged
+    public class GamePlayViewModel : INotifyPropertyChanged
     {
         #region Fields
 
@@ -159,7 +159,7 @@ namespace TheS.Casinova.Colors.ViewModels
 
         #region Constructors
 
-        public GamePlayPageViewModel()
+        public GamePlayViewModel()
         {
             _notify = new PropertyChangedNotifier(this, () => PropertyChanged);
             _tables = new ObservableCollection<GameTable>();

@@ -115,7 +115,7 @@
     <Compile Include="Colors\Silverlight\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Colors\ViewModels\BetdataViewModel.cs" />
+    <Compile Include="Colors\ViewModels\StatisticsChartViewModel.cs" />
     <Compile Include="Colors\ViewModels\GamePlayViewModel.cs" />
     <Compile Include="Colors\ViewModels\GameStatisticsViewModel.cs" />
     <Compile Include="Colors\Views\BetDataPage.xaml.cs">
@@ -124,8 +124,8 @@
     <Compile Include="Colors\Views\GamePlayPage.xaml.cs">
       <DependentUpon>GamePlayPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Colors\Views\GameStatisticsWindow.xaml.cs">
-      <DependentUpon>GameStatisticsWindow.xaml</DependentUpon>
+    <Compile Include="Colors\Views\StatisticsChartWindow.xaml.cs">
+      <DependentUpon>StatisticsChartWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Colors\Views\GraphPage.xaml.cs">
       <DependentUpon>GraphPage.xaml</DependentUpon>
@@ -180,7 +180,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Colors\Views\GameStatisticsWindow.xaml">
+    <Page Include="Colors\Views\StatisticsChartWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

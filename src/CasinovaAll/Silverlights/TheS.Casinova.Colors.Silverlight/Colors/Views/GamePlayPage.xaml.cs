@@ -24,11 +24,11 @@ namespace TheS.Casinova.Colors.Views
             ViewModel.GetListActiveGameRounds();
         }
 
-        public ViewModels.GamePlayPageViewModel ViewModel
+        public ViewModels.GamePlayViewModel ViewModel
         {
             get
             {
-                return (ViewModels.GamePlayPageViewModel)DataContext;
+                return (ViewModels.GamePlayViewModel)DataContext;
             }
         }
 

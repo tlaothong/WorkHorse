@@ -6,7 +6,7 @@
            Title="Colors GamePlayPage Page" mc:Ignorable="d">
 	<navigation:Page.Resources>
 		<PerfEx_Converter:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
-		<TheS_Casinova_TwoWins_ViewModels:GamePlayPageViewModel x:Key="GamePlayPageViewModelDataSource" d:IsDataSource="True"/>
+		<TheS_Casinova_TwoWins_ViewModels:GamePlayViewModel x:Key="GamePlayPageViewModelDataSource" d:IsDataSource="True"/>
 		<DataTemplate x:Key="GameRoundTemplate">
 			<StackPanel>
 				<TextBlock Text="{Binding Name}"/>
