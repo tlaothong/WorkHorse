@@ -3,34 +3,45 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
+using TheS.Casinova.Colors.Commands;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PerfEx.Infrastructure.Validation;
 
 namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
 {
     [Binding]
-    public class CheckActiveRoundSteps
+    public class CheckActiveRoundSteps : ColorsGameStepsBase
     {
-        [Given(@"Active round has'(.*)', Expect active round '(.*)'")]
-        public void GivenActiveRoundHas6ExpectActiveRound5(int activeRound, int expectActiveRound)
+        private CheckActiveRoundToCreateCommand _cmd;
+
+        [Given(@"Sent name '(.*)' to server")]
+        public void GivenSentNameGameToServer(string name)
         {
-            ScenarioContext.Current.Pending();
+            _cmd = new CheckActiveRoundToCreateCommand {
+                GameRoundConfigName = new Models.GameRoundConfiguration {
+                 TableName = name
+                }
+            };
         }
 
-        [When(@"Execute CheckActiveRoundToCreateCommand")]
-        public void WhenExecuteCheckActiveRoundToCreateCommand()
+        [When(@"Call CheckActiveRoundExecutor\(\)")]
+        public void WhenCallCheckActiveRoundExecutor()
         {
-            ScenarioContext.Current.Pending();
-        }
+            try {
+                CheckActiveRound.Execute(_cmd, (x) => { });
+                Assert.Fail("Shouldn't be here");
+            }
+            catch (Exception ex) {
+                Assert.IsInstanceOfType(ex,
+                    typeof(ValidationErrorException));
+            }
 
-        [Then(@"The system sent command to back server")]
-        public void ThenTheSystemSentCommandToBackServer()
-        {
-            ScenarioContext.Current.Pending();
         }
 
         [Then(@"The system don't add ActiveRound")]
         public void ThenTheSystemDonTAddActiveRound()
         {
-            ScenarioContext.Current.Pending();
+            Assert.IsTrue(true, "Check exception from WhenBlock");
         }
     }
 }

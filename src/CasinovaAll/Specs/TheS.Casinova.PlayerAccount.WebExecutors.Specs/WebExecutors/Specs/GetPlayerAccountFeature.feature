@@ -7,9 +7,9 @@
 Background:
 Given Server has player account information as:
 	|PlayerAccountID|UserName	|AccountType |AccountNo			|CVV	| ExpireDate |Active|
-	|001			|OhAe		|Visa		 |1802345673888921	|0253	|10/31/2010	 |True	|
-	|002			|Boy		|Master	Card |0019342567188211	|4830	|11/30/2010  |True	|
-	|003			|Nit		|Visa		 |0012214544543212	|3223	|12/31/2010  |True	|
+	|Primary		|OhAe		|Visa		 |1802345673888921	|0253	|10/31/2010	 |True	|
+	|Primary		|Boy		|Master	Card |0019342567188211	|4830	|11/30/2010  |True	|
+	|Primary		|Nit		|Visa		 |0012214544543212	|3223	|12/31/2010  |True	|	
 
 @record_mock
 Scenario: ระบบได้รับข้อมูล username ถูกต้อง ระบบสามารถดึงข้อมูลบัญชีของผู้เล่นได้ # GetPlayerAccount 

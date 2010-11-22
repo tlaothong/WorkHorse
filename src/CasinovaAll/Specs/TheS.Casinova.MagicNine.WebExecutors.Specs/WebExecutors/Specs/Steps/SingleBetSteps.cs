@@ -3,41 +3,74 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
+using TheS.Casinova.MagicNine.Commands;
+using TheS.Casinova.MagicNine.Models;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PerfEx.Infrastructure.Validation;
 
 namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
 {
     [Binding]
-    public class SingleBetSteps
+    public class SingleBetSteps : MagicNineGameStepsBase
     {
-        [Given(@"Web service has TrackingID : 'DA1FE75E-9042-4FC5-B3CF-1E973D2152F7'")]
-        public void GivenWebServiceHasTrackingIDDA1FE75E_9042_4FC5_B3CF_1E973D2152F7()
+        private SingleBetCommand _cmd;
+        private string _trackingID;
+
+        [Given(@"SingleBet Informations as : UserName '(.*)' Round '(.*)'")]
+        public void GivenSingleBetInformationsAsUserNameXRoundIDX(string userName, int roundId)
         {
-            ScenarioContext.Current.Pending();
+            _cmd = new SingleBetCommand {
+                BetInfo = new BetInformation { 
+                    UserName = userName,
+                    Round = roundId
+                }
+            };
         }
 
-        [Given(@"Expect execute SingleBetCommand")]
-        public void GivenExpectExecuteSingleBetCommand()
+        [Given(@"The system generated TrackingID for SingleBet:'(.*)'")]
+        public void GivenTheSystemGeneratedTrackingIDForSingleBetX(string trackingID)
         {
-            ScenarioContext.Current.Pending();
+            _trackingID = trackingID;
         }
 
-        [When(@"Call SingleBetExecutor\(userName'(.*)', roundId '(.*)'\)")]
-        public void WhenCallSingleBetExecutorUserNameNitRoundId1(string userName, int roundId)
+        //Validate input
+        [When(@"Call SingleBetExecutor\(\) for validate single bet information")]
+        public void WhenCallSingleBetExecutorForValidateSingleBetInformation()
         {
-            ScenarioContext.Current.Pending();
+            try {
+                SingleBet.Execute(_cmd, (x) => { });
+                Assert.Fail("Shouldn't be here");
+            }
+            catch (Exception ex) {
+                Assert.IsInstanceOfType(ex,
+                    typeof(ValidationErrorException));
+            }
+            
         }
 
-        [Then(@"TrackingID for client and back server should be : 'DA1FE75E-9042-4FC5-B3CF-1E973D2152F7'")]
-        public void ThenTrackingIDForClientAndBackServerShouldBeDA1FE75E_9042_4FC5_B3CF_1E973D2152F7()
+        //Test Function
+        [When(@"Call SingleBetExecutor\(\)")]
+        public void WhenCallSingleBetExecutor()
         {
-            ScenarioContext.Current.Pending();
+            try {
+                SingleBet.Execute(_cmd, (x) => { });
+            }
+            catch (Exception ex) {
+                Assert.IsInstanceOfType(ex,
+                    typeof(ValidationErrorException));
+            }
         }
 
-        [Then(@"TrackingID for client and back server should be null")]
-        public void ThenTrackingIDForClientAndBackServerShouldBeNull()
+        [Then(@"Get null and skip checking trackingID")]
+        public void ThenGetNullAndSkipCheckingTrackingID()
         {
-            ScenarioContext.Current.Pending();
+            Assert.IsTrue(true, "Get null and skip checking trackingID.");
         }
 
+        [Then(@"TrackingID for SingleBet should be :'(.*)'")]
+        public void ThenTrackingIDForSingleBetShouldBeX(string trackingID)
+        {
+            Assert.AreEqual(trackingID, _trackingID, "Get trackingID accept");
+        }
     }
 }

@@ -51,28 +51,30 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
             //LastCall.IgnoreArguments().Do(CheckCallMethod);
         }
 
-        [Given(@"the StartAutoBet shoule be call as: \(UserName: '(.*)', RoundID: '(.*)', Amount: '(.*)', Interval: '(.*)', TrackingID: '(.*)'\)")]
+        [Given(@"the StartAutoBet shoule be call as: \(UserName: '(.*)', Round: '(.*)', Amount: '(.*)', Interval: '(.*)', BetTrackingID: '(.*)'\)")]
         public void GivenTheAutoBetEngineShouleBeCallAsUserNameXRoundID1AmountXIntervalXTrackingIDX(string userName, int roundID, int amount, int interval, string trackingID)
         {
             Action<StartAutoBetCommand> checkData = (cmd) => {
-                Assert.AreEqual(roundID, cmd.RoundID, "RoundID");
-                Assert.AreEqual(userName, cmd.UserName, "UserName");
-                Assert.AreEqual(amount, cmd.Amount, "Amount");
-                Assert.AreEqual(interval, cmd.Interval, "Interval");
-                Assert.AreEqual(Guid.Parse(trackingID), cmd.StartTrackingID, "StartTrackingID");
+                Assert.AreEqual(roundID, cmd.GamePlayAutoBetInfo.Round, "Round");
+                Assert.AreEqual(userName, cmd.GamePlayAutoBetInfo.UserName, "UserName");
+                Assert.AreEqual(amount, cmd.GamePlayAutoBetInfo.Amount, "Amount");
+                Assert.AreEqual(interval, cmd.GamePlayAutoBetInfo.Interval, "Interval");
+                Assert.AreEqual(Guid.Parse(trackingID), cmd.StartTrackingID, "AutoBetTrackingID");
             };                   
             Svc_AutoBetEngine.StartAutoBet(new StartAutoBetCommand());
             LastCall.IgnoreArguments().Do(checkData);
         }
 
-        [When(@"call StartAutoBetExecutor\(UserName: '(.*)', RoundID: '(.*)', Amount: '(.*)', Interval: '(.*)', TrackingID: '(.*)'\)")]
+        [When(@"call StartAutoBetExecutor\(UserName: '(.*)', Round: '(.*)', Amount: '(.*)', Interval: '(.*)', BetTrackingID: '(.*)'\)")]
         public void WhenCallStartAutoBetExecutorUserNameXRoundID1AmountXIntervalXTrackingIDX(string userName, int roundID, int amount, int interval, string trackingID)
         {
             StartAutoBetCommand cmd = new StartAutoBetCommand {
-                RoundID = roundID,
+                GamePlayAutoBetInfo = new GamePlayAutoBetInformation{
+                Round = roundID,
                 UserName = userName,
                 Amount = amount,
                 Interval = interval,
+                },
                 StartTrackingID = Guid.Parse(trackingID),
             };
             

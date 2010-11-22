@@ -12,9 +12,15 @@ namespace TheS.Casinova.Colors.Commands
     public class ListGamePlayInfoCommand
     {
         //input
-        public string UserName { get; set; } // username of player
+        /// <summary>
+        /// ข้อมูลชื่อของผู้เล่น
+        /// </summary>
+        public GamePlayInformation GamePlayInfoUserName { get; set; } 
 
         //output
-        public IEnumerable<GamePlayInformation> GamePlayInfos { get; set; } //return data of game playable information
+        /// <summary>
+        /// ข้อมูลการเล่นเกมของผู้เล่น
+        /// </summary>
+        public IEnumerable<GamePlayInformation> GamePlayInfos { get; set; } 
     }
 }

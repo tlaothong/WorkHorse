@@ -1,6 +1,6 @@
 ﻿Feature: ListGamePlayAutoBetInfo
 	In order to list game play auto bet information 
-	As a math System
+	As a System
 	I want to list game play auto bet information by userName
 
 

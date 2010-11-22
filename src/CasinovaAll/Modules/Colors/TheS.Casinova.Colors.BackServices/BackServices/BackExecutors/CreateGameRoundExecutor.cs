@@ -33,7 +33,7 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
             listActiveGameRoundsCmd.ActiveRounds = _iListActiveGameRounds.List(listActiveGameRoundsCmd);
 
             GetGameRoundConfigurationCommand getGameRoundConfigCmd = new GetGameRoundConfigurationCommand {
-                Name = command.ConfigName,
+                GameRoundConfigTableName = command.GameRoundConfig,
             };
 
             //ดึงข้อมูลการตั้งค่าที่ต้องการ
@@ -47,7 +47,7 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
             if (nOfRoundToCreate > 0) {
                 GameRoundInformation lastActiveRound = listActiveGameRoundsCmd.ActiveRounds.LastOrDefault();
 
-                GameRoundInformation nextRound = new GameRoundInformation();
+            GameRoundInformation nextRound = new GameRoundInformation();
 
                 for (int i = 0; i < nOfRoundToCreate; i++) {
                     if (listActiveGameRoundsCmd.ActiveRounds.Count() > 0) {

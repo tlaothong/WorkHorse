@@ -7,84 +7,138 @@ using Rhino.Mocks;
 using TheS.Casinova.Colors.DAL;
 using TheS.Casinova.Colors.BackServices;
 using SpecFlowAssist;
+using PerfEx.Infrastructure;
+using PerfEx.Infrastructure.Containers.StructureMapAdapter;
+using TheS.Casinova.Colors.Models;
+using TheS.Casinova.Colors.Commands;
+using TheS.Casinova.Colors.Validators;
+using PerfEx.Infrastructure.Validation;
+using PerfEx.Infrastructure.CommandPattern;
 
 namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
 {
     [Binding]
     public class CommonSteps
     {
-        public const string Key_Dac_CreateGameRoundConfig = "CreateTableConfigExecutotr";
-        public const string Key_Dac_BetColor = "BetExecutor";
-        public const string Key_Dqr_GetGameResult = "GetGameResultExecutor";
-        public const string Key_Dac_PayForWinnerInfo = "PayForWinnerExecutor";
-        public const string Key_Dqr_ListActiveGameRoundsExecutor = "ActiveGameRoundsExecutor";
-        public const string Key_Dqr_ListGamePlayInfo = "GamePlayInfoExecutor";
-        public const string Key_Dac = "mockColorGameDataAccess";
-        public const string Key_Dqr = "mockColorGameDataQuery";
-
         MockRepository Mocks { get { return SpecEventDefinitions.Mocks; } }
 
         //List active game round specs initialized
-        [Given(@"The ActiveGameRound has been created and initialized")]
-        public void GivenTheActiveGameRoundHasBeenCreatedAndInitialized()
+        [Given(@"The ListActiveGameRoundsExecutor has been created and initialized")]
+        public void GivenTheListActiveGameRoundsExecutorHasBeenCreatedAndInitialized()
         {
             var dqr = Mocks.DynamicMock<IColorsGameDataQuery>();
 
-            //ScenarioContext.Current[Key_Dqr] = dqr;
-            //ScenarioContext.Current[Key_Dqr_ListActiveGameRoundsExecutor] = new ListActiveGameRoundsExecutor(dqr);
+            ScenarioContext.Current.Set<IListActiveGameRounds>(dqr);
             ScenarioContext.Current.Set<ListActiveGameRoundsExecutor>(
                 new ListActiveGameRoundsExecutor(dqr));
         }
 
         //List game play information specs initialized
-        [Given(@"The GamePlayInformation has been created and initialized")]
-        public void GivenTheGamePlayInformationHasBeenCreatedAndInitialized()
+        [Given(@"The ListGamePlayInfoExecutor has been created and initialized")]
+        public void GivenTheListGamePlayInfoExecutorHasBeenCreatedAndInitialized()
         {
             var dqr = Mocks.DynamicMock<IColorsGameDataQuery>();
 
-            ScenarioContext.Current[Key_Dqr] = dqr;
-            ScenarioContext.Current[Key_Dqr_ListGamePlayInfo] = new ListGamePlayInfoExecutor(dqr);
+            IDependencyContainer container;
+            setupValidators(out container);
+            ScenarioContext.Current.Set<IListGamePlayInformation>(dqr);
+            ScenarioContext.Current.Set<ListGamePlayInfoExecutor>(
+                new ListGamePlayInfoExecutor(dqr,container));
         }
 
         //Pay For Colors Winner Information specs initialized
-        [Given(@"The PayForcolorsWinnerInfo has been created and initialized")]
-        public void GivenThePayForcolorsWinnerInfoHasBeenCreatedAndInitialized()
+        [Given(@"The PayForColorsWinnerInfoExecutor has been created and initialized")]
+        public void GivenThePayForColorsWinnerInfoExecutorHasBeenCreatedAndInitialized()
         {
             var dac = Mocks.DynamicMock<IColorsGameBackService>();
 
-            ScenarioContext.Current[Key_Dac] = dac;
-            ScenarioContext.Current[Key_Dac_PayForWinnerInfo] = new PayForColorsWinnerInfoExecutor(dac);
+            IDependencyContainer container;
+            setupValidators(out container);
+            ScenarioContext.Current.Set<IPayForWinner>(dac);
+            ScenarioContext.Current.Set<PayForColorsWinnerInfoExecutor>(
+                new PayForColorsWinnerInfoExecutor(dac, container));
         }
 
         //Game round information specs initialized
-        [Given(@"The GameRoundInformation has been created and initialized")]
-        public void GivenTheGameRoundInformationHasBeenCreatedAndInitialized()
+        [Given(@"The GetGameResultExecutor has been created and initialized")]
+        public void GivenTheGetGameResultExecutorHasBeenCreatedAndInitialized()
         {
             var dqr = Mocks.DynamicMock<IColorsGameDataQuery>();
 
-            ScenarioContext.Current[Key_Dqr] = dqr;
-            ScenarioContext.Current[Key_Dqr_GetGameResult] = new GetGameResultExecutor(dqr);
+            IDependencyContainer container;
+            setupValidators(out container);
+
+            ScenarioContext.Current.Set<IGetGameResult>(dqr);
+            ScenarioContext.Current.Set<GetGameResultExecutor>(
+               new GetGameResultExecutor(dqr,container));
         }
 
         //Bet information space initialized
-        [Given(@"The BetInformation has been created and initialized")]
-        public void GivenTheBetInformationHasBeenCreatedAndInitialized()
+        [Given(@"The BetColorsExecutor has been created and initialized")]
+        public void GivenTheBetColorsExecutorHasBeenCreatedAndInitialized()
         {
             var dac = Mocks.DynamicMock<IColorsGameBackService>();
 
-            ScenarioContext.Current[Key_Dac] = dac;
-            ScenarioContext.Current[Key_Dac_BetColor] = new BetColorsExecutor(dac);
+            IDependencyContainer container;
+            setupValidators(out container);
+
+            ScenarioContext.Current.Set<IBet>(dac);
+            ScenarioContext.Current.Set<BetColorsExecutor>(
+               new BetColorsExecutor(dac, container));
         }
 
         //CreateGameRoundConfigurations information space initialized
-        [Given(@"The GameRoundConfigurations has been created and initialized")]
-        public void GivenTheGameRoundConfigurationsHasBeenCreatedAndInitialized()
+        [Given(@"The CreateGameRoundConfigExecutor has been created and initialized")]
+        public void GivenTheCreateGameRoundConfigExecutorHasBeenCreatedAndInitialized()
         {
             var dac = Mocks.DynamicMock<IGameTableBackService>();
+            IDependencyContainer container;
 
-            ScenarioContext.Current[Key_Dac] = dac;
-            // TODO: Send dependency container
-            ScenarioContext.Current[Key_Dac_CreateGameRoundConfig] = new CreateGameRoundConfigExecutor(dac, null);
+            setupValidators(out container);
+
+            ScenarioContext.Current.Set<ICreateGameTableConfigurations>(dac);
+            ScenarioContext.Current.Set<CreateGameRoundConfigExecutor>(
+               new CreateGameRoundConfigExecutor(dac, container));
+        }
+
+        //CheckActiveRound information space initialized
+        [Given(@"The CheckActiveRoundExecutor has been created and initialized")]
+        public void GivenTheCheckActiveRoundExecutorHasBeenCreatedAndInitialized()
+        {
+            var dac = Mocks.DynamicMock<IGameTableBackService>();
+            var dqr = Mocks.DynamicMock<IColorsGameDataQuery>();
+            IDependencyContainer container;
+
+            setupValidators(out container);
+
+            ScenarioContext.Current.Set<ICheckActiveRoundToCreate>(dac);
+            ScenarioContext.Current.Set<IGetGameRoundConfigurations>(dqr);
+            ScenarioContext.Current.Set<IListActiveGameRounds>(dqr);
+            ScenarioContext.Current.Set<CheckActiveRoundToCreateExecutor>(
+               new CheckActiveRoundToCreateExecutor(dac,dqr, container));
+        }
+
+        private static void setupValidators(out IDependencyContainer container)
+        {
+            var fac = new StructureMapAbstractFactory();
+            var reg = fac.CreateRegistry();
+
+            reg.Register<IValidator<GameRoundConfiguration, NullCommand>
+                , DataAnnotationValidator<GameRoundConfiguration, NullCommand>>();
+
+            reg.Register<IValidator<GameRoundConfiguration, CreateGameRoundConfigurationCommand>
+                , GameRoundConfiguration_CreateGameRoundConfigurationValidator>();
+
+            reg.Register<IValidator<GameRoundInformation, NullCommand>
+               , DataAnnotationValidator<GameRoundInformation, NullCommand>>();
+
+            reg.Register<IValidator<GamePlayInformation, NullCommand>
+              , DataAnnotationValidator<GamePlayInformation, NullCommand>>();
+
+            reg.Register<IValidator<PlayerActionInformation, NullCommand>
+             , DataAnnotationValidator<PlayerActionInformation, NullCommand>>();
+
+            container = fac.CreateContainer(reg);
         }
 
     }

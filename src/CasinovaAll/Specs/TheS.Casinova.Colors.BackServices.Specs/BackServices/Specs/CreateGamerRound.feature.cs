@@ -191,7 +191,7 @@ testRunner.Given("The CreateGameRoundsExecutor has been created and initialized"
 testRunner.And("sent Name: \'config1\', the GameRoundConfiguration should recieved");
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
-                        "RoundID",
+                        "GameRoundInfoRound",
                         "StartTime",
                         "EndTime"});
             table5.AddRow(new string[] {

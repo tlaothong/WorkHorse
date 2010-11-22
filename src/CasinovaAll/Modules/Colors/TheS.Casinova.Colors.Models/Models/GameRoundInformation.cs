@@ -8,13 +8,13 @@ namespace TheS.Casinova.Colors.Models
 {
     /// <summary>
     /// ข้อมูลโต๊ะเกม
-    /// </summary>
+    /// </summary>ID
     public partial class GameRoundInformation
     {
         /// <summary>
         /// รหัสโต๊ะเกม
         /// </summary>
-        public int RoundID { get; set; }
+        public int Round { get; set; }
 
         /// <summary>
         /// เวลาเริ่มเกม
@@ -40,25 +40,5 @@ namespace TheS.Casinova.Colors.Models
         /// จำนวน hand ทั้งหมดที่ลง
         /// </summary>
         public int HandCount { get; set; }
-    }
-
-    [MetadataType(typeof(MD))]
-    partial class GameRoundInformation
-    {
-        public class MD
-        {
-            [Required]
-            public int RoundID { get; set; }
-
-            public DateTime StartTime { get; set; }
-
-            public DateTime EndTime { get; set; }
-
-            public double BlackPot { get; set; }
-
-            public double WhitePot { get; set; }
-
-            public int HandCount { get; set; }
-        }
     }
 }

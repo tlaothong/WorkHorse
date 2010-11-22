@@ -12,10 +12,16 @@ namespace TheS.Casinova.Colors.Commands
    public class ListActiveGameRoundCommand
     {
        //Input:
-        public DateTime FromTime { get; set; } //เวลาปัจจุบันที่ผู้เล่นเข้าห้องเกม
+       /// <summary>
+        /// เวลาปัจจุบันที่ผู้เล่นเข้าห้องเกม
+       /// </summary>
+        public DateTime FromTime { get; set; } 
 
        //Output:
-        public IEnumerable<GameRoundInformation> ActiveRounds { get; set; } //ข้อมูลโต๊ะเกมที่ active
+       /// <summary>
+        /// ข้อมูลโต๊ะเกมที่ active
+       /// </summary>
+        public IEnumerable<GameRoundInformation> GameRoundInfo { get; set; } 
 
     }
 }

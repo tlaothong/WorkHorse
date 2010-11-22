@@ -58,10 +58,10 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "UserName",
-                        "RoundID",
+                        "Round",
                         "BetDateTime",
                         "BetOrder",
-                        "TrackingID"});
+                        "BetTrackingID"});
             table1.AddRow(new string[] {
                         "Nit",
                         "1",
@@ -110,10 +110,10 @@ testRunner.When("Call ListBetLogExecutor(userName\'Nit\', roundId \'1\')");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "UserName",
-                        "RoundID",
+                        "Round",
                         "BetDateTime",
                         "BetOrder",
-                        "TrackingID"});
+                        "BetTrackingID"});
             table2.AddRow(new string[] {
                         "Nit",
                         "1",

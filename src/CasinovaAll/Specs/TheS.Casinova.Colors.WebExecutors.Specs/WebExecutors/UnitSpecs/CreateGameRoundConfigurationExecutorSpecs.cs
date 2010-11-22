@@ -26,13 +26,14 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
             setupValidators(out container, out svc);
 
             var model = new GameRoundConfiguration {
-                Name = null,
+                TableName = null,
                 Interval = 20,
                 GameDuration = 30,
                 TableAmount = 50,
+                BufferRoundsCount = 5
             };
             var cmd = new CreateGameRoundConfigurationCommand {
-                Tables = model,
+                GameRoundConfig = model,
             };
 
             CreateGameRoundConfigExecutor xcutor = new CreateGameRoundConfigExecutor(
@@ -50,20 +51,21 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
 
         [TestMethod]
         [ExpectedException(typeof(ValidationErrorException))]
-        public void ValidateCreateGameRoundConfigurationExecutor_IntervalMustGreaterThan20()
+        public void ValidateCreateGameRoundConfigurationExecutor_NameMustStringLengthGreaterThan5()
         {
             IDependencyContainer container;
             IGameTableBackService svc;
             setupValidators(out container, out svc);
 
             var model = new GameRoundConfiguration {
-                Name = "More than 5 letters",
-                Interval = 8,
+                TableName = "More",
+                Interval = 10,
                 GameDuration = 30,
                 TableAmount = 50,
+                BufferRoundsCount = 5
             };
             var cmd = new CreateGameRoundConfigurationCommand {
-                Tables = model,
+                GameRoundConfig = model,
             };
 
             CreateGameRoundConfigExecutor xcutor = new CreateGameRoundConfigExecutor(
@@ -73,20 +75,94 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
 
         [TestMethod]
         [ExpectedException(typeof(ValidationErrorException))]
-        public void ValidateCreateGameRoundConfigurationExecutor()
+        public void ValidateCreateGameRoundConfigurationExecutor_IntervalMustGreaterThan0AndLessThan1440()
         {
             IDependencyContainer container;
             IGameTableBackService svc;
             setupValidators(out container, out svc);
 
             var model = new GameRoundConfiguration {
-                Name = "Morethan 5 letters",
+                TableName = "More than 5 letters",
+                Interval = -5,
+                GameDuration = 30,
+                TableAmount = 50,
+                BufferRoundsCount = 5
+            };
+            var cmd = new CreateGameRoundConfigurationCommand {
+                GameRoundConfig = model,
+            };
+
+            CreateGameRoundConfigExecutor xcutor = new CreateGameRoundConfigExecutor(
+                svc, container);
+            xcutor.Execute(cmd, (xcmd) => { });
+        }
+
+
+        [TestMethod]
+        [ExpectedException(typeof(ValidationErrorException))]
+        public void ValidateCreateGameRoundConfigurationExecutor_GameDurationMustGreaterThan0AndLessThan1440()
+        {
+            IDependencyContainer container;
+            IGameTableBackService svc;
+            setupValidators(out container, out svc);
+
+            var model = new GameRoundConfiguration {
+                TableName = "More than 5 letters",
+                Interval = 8,
+                GameDuration = 1550,
+                TableAmount = 50,
+                BufferRoundsCount = 5
+            };
+            var cmd = new CreateGameRoundConfigurationCommand {
+                GameRoundConfig = model,
+            };
+
+            CreateGameRoundConfigExecutor xcutor = new CreateGameRoundConfigExecutor(
+                svc, container);
+            xcutor.Execute(cmd, (xcmd) => { });
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ValidationErrorException))]
+        public void ValidateCreateGameRoundConfigurationExecutor_TableAmountMustGreaterThan0AndLessThan99()
+        {
+            IDependencyContainer container;
+            IGameTableBackService svc;
+            setupValidators(out container, out svc);
+
+            var model = new GameRoundConfiguration {
+                TableName = "More than 5 letters",
+                Interval = 8,
+                GameDuration = 30,
+                TableAmount = 500,
+                BufferRoundsCount = 5
+            };
+            var cmd = new CreateGameRoundConfigurationCommand {
+                GameRoundConfig = model,
+            };
+
+            CreateGameRoundConfigExecutor xcutor = new CreateGameRoundConfigExecutor(
+                svc, container);
+            xcutor.Execute(cmd, (xcmd) => { });
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ValidationErrorException))]
+        public void ValidateCreateGameRoundConfigurationExecutor_BufferRoundCountMustGreaterThan0AndLessThan99()
+        {
+            IDependencyContainer container;
+            IGameTableBackService svc;
+            setupValidators(out container, out svc);
+
+            var model = new GameRoundConfiguration {
+                TableName = "Morethan 5 letters",
                 Interval = 20,
                 GameDuration = 30,
                 TableAmount = 500,
+                BufferRoundsCount = -5
             };
             var cmd = new CreateGameRoundConfigurationCommand {
-                Tables = model,
+                GameRoundConfig = model,
             };
 
             CreateGameRoundConfigExecutor xcutor = new CreateGameRoundConfigExecutor(
