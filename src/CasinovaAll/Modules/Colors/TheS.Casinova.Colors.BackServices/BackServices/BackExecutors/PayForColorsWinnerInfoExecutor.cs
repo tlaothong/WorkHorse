@@ -84,7 +84,7 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
 
             CreatePlayerActionInfoCommand createPlayerActionInfoCmd = new CreatePlayerActionInfoCommand {
                 UserName = playerActionInfo.UserName = command.PlayerActionInfoUserName.UserName,
-                RoundID = playerActionInfo.RoundID = command.PlayerActionInfoUserName.RoundID,
+                RoundID = playerActionInfo.Round = command.PlayerActionInfoUserName.Round,
                 Amount = playerActionInfo.Amount = _payFee,
                 ActionType = playerActionInfo.ActionType = "GetWinner",
             };
@@ -96,7 +96,7 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
 
             UpdateOnGoingTrackingIDCommand updateOnGoingTrackingIDCmd = new UpdateOnGoingTrackingIDCommand {
                 PlayerActionInfoUserName = new PlayerActionInformation {
-                    RoundID = gamePlayInfo.RoundID = command.PlayerActionInfoUserName.RoundID,
+                    Round = gamePlayInfo.Round = command.PlayerActionInfoUserName.Round,
                     UserName = gamePlayInfo.UserName = command.PlayerActionInfoUserName.UserName,
                     TrackingID = gamePlayInfo.OnGoingTrackingID = command.OnGoingTrackingID,
                 }
@@ -110,7 +110,7 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
 
             //ดึงข้อมูล Winner
             GetRoundInfoCommand getRoundInfoCmd = new GetRoundInfoCommand { 
-                RoundID = command.PlayerActionInfoUserName.RoundID
+                RoundID = command.PlayerActionInfoUserName.Round
             };
             getRoundInfoCmd.RoundInfo = _iGetRoundInfo.Get(getRoundInfoCmd);
 
@@ -129,7 +129,7 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
 
             UpdateRoundWinnerCommand updateRoundWinnerCmd = new UpdateRoundWinnerCommand {
                 PlayerActionInfoUserName = new PlayerActionInformation {
-                    RoundID = gamePlayInfoForComplete.RoundID = command.PlayerActionInfoUserName.RoundID,
+                    Round = gamePlayInfoForComplete.Round = command.PlayerActionInfoUserName.Round,
                     UserName = gamePlayInfoForComplete.UserName = command.PlayerActionInfoUserName.UserName,
                 },
                     Winner = gamePlayInfoForComplete.Winner = _winner,

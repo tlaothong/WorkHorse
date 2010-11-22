@@ -58,7 +58,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
 #line 7
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "GameRoundInfoRoundID",
+                        "GameRoundInfoRound",
                         "BlackPot",
                         "WhitePot"});
             table1.AddRow(new string[] {
@@ -79,12 +79,12 @@ testRunner.Given("server has round information as:", ((string)(null)), table1);
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ได้รับข้อมูล GameRoundInfoRoundID, ระบบดึงข้อมูล black pot, white pot เพื่อคำนวณผู้ชนะและส่งกล" +
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ได้รับข้อมูล GameRoundInfoRound, ระบบดึงข้อมูล black pot, white pot เพื่อคำนวณผู้ชนะและส่งกล" +
             "ับ")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GetRoundWinner")]
         public virtual void ไดรบขอมลRoundIDระบบดงขอมลBlackPotWhitePotเพอคำนวณผชนะและสงกลบ()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ได้รับข้อมูล GameRoundInfoRoundID, ระบบดึงข้อมูล black pot, white pot เพื่อคำนวณผู้ชนะและส่งกล" +
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ได้รับข้อมูล GameRoundInfoRound, ระบบดึงข้อมูล black pot, white pot เพื่อคำนวณผู้ชนะและส่งกล" +
                     "ับ", new string[] {
                         "record_mock",
                         "record_mock"});
@@ -93,7 +93,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 16
 testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initialized");
 #line 17
-testRunner.And("sent GameRoundInfoRoundID: \'12\' expected result should be BlackPot: \'10.01\', WhitePot: \'15.23\'" +
+testRunner.And("sent GameRoundInfoRound: \'12\' expected result should be BlackPot: \'10.01\', WhitePot: \'15.23\'" +
                     "");
 #line 18
 testRunner.When("call Get(PayForColorsWinnerInfoCommand), Round: \'12\'");
@@ -104,12 +104,12 @@ testRunner.Then("the result should be same as expected BlackPot and WhitePot");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ได้รับข้อมูล GameRoundInfoRoundID, ระบบดึงข้อมูล black pot, white pot เพื่อคำนวณผู้ชนะและส่งกล" +
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ได้รับข้อมูล GameRoundInfoRound, ระบบดึงข้อมูล black pot, white pot เพื่อคำนวณผู้ชนะและส่งกล" +
             "ับ2")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GetRoundWinner")]
         public virtual void ไดรบขอมลRoundIDระบบดงขอมลBlackPotWhitePotเพอคำนวณผชนะและสงกลบ2()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ได้รับข้อมูล GameRoundInfoRoundID, ระบบดึงข้อมูล black pot, white pot เพื่อคำนวณผู้ชนะและส่งกล" +
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ได้รับข้อมูล GameRoundInfoRound, ระบบดึงข้อมูล black pot, white pot เพื่อคำนวณผู้ชนะและส่งกล" +
                     "ับ2", new string[] {
                         "record_mock"});
 #line 22
@@ -117,7 +117,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 23
 testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initialized");
 #line 24
-testRunner.And("sent GameRoundInfoRoundID: \'11\' expected result should be BlackPot: \'42.00\', WhitePot: \'83.00\'" +
+testRunner.And("sent GameRoundInfoRound: \'11\' expected result should be BlackPot: \'42.00\', WhitePot: \'83.00\'" +
                     "");
 #line 25
 testRunner.When("call Get(PayForColorsWinnerInfoCommand), Round: \'11\'");

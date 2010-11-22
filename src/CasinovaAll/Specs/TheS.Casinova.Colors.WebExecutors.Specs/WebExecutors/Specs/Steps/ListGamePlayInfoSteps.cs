@@ -25,9 +25,9 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
             _listGamePlayInfo = from item in table.Rows
                                 select new GamePlayInformation { 
                                     UserName = Convert.ToString(item["UserName"]),
-                                    RoundID = Convert.ToInt32(item["RoundID"]),
-                                    TotalBetAmountOfBlack = Convert.ToDouble(item["TotalBetAmountOfBlack"]),
-                                    TotalBetAmountOfWhite = Convert.ToDouble(item["TotalBetAmountOfWhite"]),
+                                    Round = Convert.ToInt32(item["Round"]),
+                                    TotalBetBlack = Convert.ToDouble(item["TotalBetBlack"]),
+                                    TotalBetWhite = Convert.ToDouble(item["TotalBetWhite"]),
                                     Winner = Convert.ToString(item["Winner"]),
                                     TrackingID = Guid.Parse(item["TrackingID"]),
                                     OnGoingTrackingID = Guid.Parse(item["OnGoingTrackingID"]),
@@ -83,9 +83,9 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
             var expect = from item in table.Rows
                          select new {
                              UserName = Convert.ToString(item["UserName"]),
-                             RoundID = Convert.ToInt32(item["RoundID"]),
-                             TotalBetAmountOfBlack = Convert.ToDouble(item["TotalBetAmountOfBlack"]),
-                             TotalBetAmountOfWhite = Convert.ToDouble(item["TotalBetAmountOfWhite"]),
+                             RoundID = Convert.ToInt32(item["Round"]),
+                             TotalBetAmountOfBlack = Convert.ToDouble(item["TotalBetBlack"]),
+                             TotalBetAmountOfWhite = Convert.ToDouble(item["TotalBetWhite"]),
                              Winner = Convert.ToString(item["Winner"]),
                              TrackingID = Guid.Parse(item["TrackingID"]),
                              OnGoingTrackingID = Guid.Parse(item["OnGoingTrackingID"]),
@@ -94,9 +94,9 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
             var actual = from item in _resultGamePlayInfo
                          select new {
                             UserName = item.UserName,
-                            RoundID = item.RoundID,
-                            TotalBetAmountOfBlack = item.TotalBetAmountOfBlack,
-                            TotalBetAmountOfWhite = item.TotalBetAmountOfWhite,
+                            RoundID = item.Round,
+                            TotalBetAmountOfBlack = item.TotalBetBlack,
+                            TotalBetAmountOfWhite = item.TotalBetWhite,
                             Winner = item.Winner,
                             TrackingID = item.TrackingID,
                             OnGoingTrackingID = item.OnGoingTrackingID,

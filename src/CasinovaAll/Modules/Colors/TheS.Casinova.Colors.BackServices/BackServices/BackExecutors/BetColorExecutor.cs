@@ -55,7 +55,7 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
             PlayerActionInformation playerActionInfo = new PlayerActionInformation();
             CreatePlayerActionInfoCommand createPlayerActionInfoCmd = new CreatePlayerActionInfoCommand {
                 UserName = playerActionInfo.UserName = command.PlayerActionInfo.UserName,
-                RoundID = playerActionInfo.RoundID = command.PlayerActionInfo.RoundID,
+                RoundID = playerActionInfo.Round = command.PlayerActionInfo.Round,
                 ActionType = playerActionInfo.ActionType = command.PlayerActionInfo.ActionType,
                 Amount = playerActionInfo.Amount = command.PlayerActionInfo.Amount,
             };

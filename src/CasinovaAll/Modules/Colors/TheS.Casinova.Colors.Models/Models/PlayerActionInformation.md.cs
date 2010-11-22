@@ -12,7 +12,7 @@ namespace TheS.Casinova.Colors.Models
         public class MD
         {
             [Range(0,int.MaxValue)]
-            public int RoundID { get; set; }
+            public int Round { get; set; }
 
             [Required]
             public string UserName { get; set; }

@@ -62,7 +62,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 8
 testRunner.Given("The BetColorsExecutor has been created and initialized");
 #line 9
-testRunner.And(string.Format("Bet Informations as : UserName \'{0}\' RoundID \'{1}\', ActionType \'{2}\', Amount \'{3}" +
+testRunner.And(string.Format("Bet Informations as : UserName \'{0}\' Round \'{1}\', ActionType \'{2}\', Amount \'{3}" +
                         "\'", userName, roundID, actionType, amount));
 #line 10
 testRunner.When("Call BetColorsExecutor() for validate bet information");
@@ -122,7 +122,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 23
 testRunner.Given("The BetColorsExecutor has been created and initialized");
 #line 24
-testRunner.And("Bet Informations as : UserName \'Nit\' RoundID \'3\', ActionType \'White\', Amount \'300" +
+testRunner.And("Bet Informations as : UserName \'Nit\' Round \'3\', ActionType \'White\', Amount \'300" +
                     "\'");
 #line 25
 testRunner.And("The system generated TrackingID:\'955D6ACDE4E04D1C90ACF3715BB2685A\'");

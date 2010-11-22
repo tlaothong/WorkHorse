@@ -58,14 +58,14 @@ namespace TheS.Casinova.MagicNine.BackServices.BackExecutors
             }
 
             GetGameRoundPotCommand getGameRoundPotCmd = new GetGameRoundPotCommand {
-                RoundID = command.BetInfo.RoundID,
+                RoundID = command.BetInfo.Round,
             };
 
             getGameRoundPotCmd.Pot = _iGetGameRoundPot.Get(getGameRoundPotCmd);
 
 
             BetInformation betInfo = new BetInformation {
-                RoundID = command.BetInfo.RoundID,
+                Round = command.BetInfo.Round,
                 UserName = command.BetInfo.UserName,
                 BetTrackingID = command.TrackingID,
             };
@@ -74,7 +74,7 @@ namespace TheS.Casinova.MagicNine.BackServices.BackExecutors
 
             UpdateGameRoundPotCommand updateGameRoundPotCmd = new UpdateGameRoundPotCommand {
                 BetInfo = new BetInformation{
-                RoundID = gameRoundInfo.RoundID = command.BetInfo.RoundID,
+                Round = gameRoundInfo.Round = command.BetInfo.Round,
                 },
                 //GamePot = gameRoundInfo.GamePot = betInfo.BetOrder = getGameRoundPotCmd.Pot + 1,
             };

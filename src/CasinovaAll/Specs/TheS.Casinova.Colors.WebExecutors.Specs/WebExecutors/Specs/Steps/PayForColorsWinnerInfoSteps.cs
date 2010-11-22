@@ -17,13 +17,13 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         private PayForColorsWinnerInfoCommand _cmd;
         private string _trackingID;
 
-        [Given(@"PayForColorWinner Informations as : UserName '(.*)' RoundID '(.*)' ActionType '(.*)'")]
+        [Given(@"PayForColorWinner Informations as : UserName '(.*)' Round '(.*)' ActionType '(.*)'")]
         public void GivenPayForColorWinnerInformationsAsUserNameXRoundIDXActionTypeX(string userName, int roundID,string action)
         {
             _cmd = new PayForColorsWinnerInfoCommand {
                 PlayerActionInfoUserName = new PlayerActionInformation { 
                     UserName = userName,
-                    RoundID = roundID,
+                    Round = roundID,
                     ActionType = action
                 }
             };

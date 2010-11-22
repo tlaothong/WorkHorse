@@ -16,7 +16,7 @@ namespace TheS.Casinova.Colors.Commands
         /// <summary>
         /// ชื่อ config ที่ต้องการดึงข้อมูล
         /// </summary>
-        public GameRoundConfiguration GameRoundConfigName { get; set; }
+        public GameRoundConfiguration GameRoundConfigTableName { get; set; }
 
         //output
 

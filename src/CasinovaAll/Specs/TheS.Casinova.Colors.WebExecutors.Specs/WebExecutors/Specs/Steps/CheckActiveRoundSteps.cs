@@ -19,7 +19,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         {
             _cmd = new CheckActiveRoundToCreateCommand {
                 GameRoundConfigName = new Models.GameRoundConfiguration {
-                 Name = name
+                 TableName = name
                 }
             };
         }

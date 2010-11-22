@@ -30,13 +30,13 @@ namespace TheS.Casinova.MagicNine.BackServices.BackExecutors
         protected override void ExecuteCommand(StartAutoBetCommand command)
         {
             GetPlayerInfoCommand getPlayerInfoCmd = new GetPlayerInfoCommand {
-                UserName = command.UserName,
+                UserName = command.GamePlayAutoBetInfo.UserName,
             };
 
             getPlayerInfoCmd.PlayerInfo = _iGetPlayerInfo.Get(getPlayerInfoCmd);
 
-            if (getPlayerInfoCmd.PlayerInfo.Balance >= command.Amount) {
-                getPlayerInfoCmd.PlayerInfo.Balance -= command.Amount;
+            if (getPlayerInfoCmd.PlayerInfo.Balance >= command.GamePlayAutoBetInfo.Amount) {
+                getPlayerInfoCmd.PlayerInfo.Balance -= command.GamePlayAutoBetInfo.Amount;
 
                 PlayerInformation playerInfo = new PlayerInformation();
 

@@ -24,7 +24,7 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
 
             var model = new PlayerActionInformation {
                 UserName = null,
-                RoundID = 1
+                Round = 1
             };
             var cmd = new PayForColorsWinnerInfoCommand {
                 PlayerActionInfoUserName = model,
@@ -43,7 +43,7 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
 
             var model = new PlayerActionInformation {
                 UserName = "Yaya",
-                RoundID = -2
+                Round = -2
             };
             var cmd = new PayForColorsWinnerInfoCommand {
                 PlayerActionInfoUserName = model,
@@ -64,7 +64,7 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
 
             var model = new PlayerActionInformation {
                 UserName = "Natayit",
-                RoundID = 2,
+                Round = 2,
                 ActionType = null,
             };
             var cmd = new PayForColorsWinnerInfoCommand {

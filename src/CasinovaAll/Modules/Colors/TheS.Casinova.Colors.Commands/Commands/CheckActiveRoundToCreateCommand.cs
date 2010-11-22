@@ -12,10 +12,9 @@ namespace TheS.Casinova.Colors.Commands
    public class CheckActiveRoundToCreateCommand
     {
        //input
-       //public string Name { get; set; } //ชื่อโต๊ะเกมที่ต้องการตรวจสอบจำนวน round ที่ active
-
        /// <summary>
         /// ชื่อโต๊ะเกมที่ต้องการตรวจสอบจำนวน round ที่ active
+        /// 1. TableName ชื่อโต๊ะเกมที่ต้องการตรวจสอบจำนวน round ที่ active
        /// </summary>
         public GameRoundConfiguration GameRoundConfigName { get; set; }
     }

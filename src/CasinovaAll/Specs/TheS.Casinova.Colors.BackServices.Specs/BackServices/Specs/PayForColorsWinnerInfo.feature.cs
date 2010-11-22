@@ -76,7 +76,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
 testRunner.Given("server has player information as:", ((string)(null)), table1);
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                        "GameRoundInfoRoundID",
+                        "GameRoundInfoRound",
                         "UserProfileBalance",
                         "ActionType",
                         "DateTime(for example, not use this row)"});
@@ -124,7 +124,7 @@ testRunner.Given("server has player information as:", ((string)(null)), table1);
 testRunner.And("server has player action informations as:", ((string)(null)), table2);
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
-                        "GameRoundInfoRoundID",
+                        "GameRoundInfoRound",
                         "BlackPot",
                         "WhitePot"});
             table3.AddRow(new string[] {
@@ -176,16 +176,16 @@ testRunner.And("sent roundID: \'12\' the round information should recieved");
 #line 40
 testRunner.And("the expected balance should be: \'462.61\'");
 #line 41
-testRunner.And("the player\'s action information(GameRoundInfoRoundID: \'12\', UserProfileBalance: \'OhAe\', ActionType: \'Get" +
+testRunner.And("the player\'s action information(GameRoundInfoRound: \'12\', UserProfileBalance: \'OhAe\', ActionType: \'Get" +
                     "Winner\', Amount: \'1.0\') should be create");
 #line 42
-testRunner.And("the game play information(GameRoundInfoRoundID: \'12\', UserProfileBalance: \'OhAe\', OnGoingTrackingID: \'B2" +
+testRunner.And("the game play information(GameRoundInfoRound: \'12\', UserProfileBalance: \'OhAe\', OnGoingTrackingID: \'B2" +
                     "1F8971-DBAB-400F-9D95-151BA24875C1\') should be update");
 #line 43
-testRunner.And("the game play information(GameRoundInfoRoundID: \'12\', UserProfileBalance: \'OhAe\', BetTrackingID: \'B21F8971-" +
+testRunner.And("the game play information(GameRoundInfoRound: \'12\', UserProfileBalance: \'OhAe\', BetTrackingID: \'B21F8971-" +
                     "DBAB-400F-9D95-151BA24875C1\', Winner: \'Black\') should be update");
 #line 44
-testRunner.When("call PayForColorsWinnerInfo(UserProfileBalance: \'OhAe\', GameRoundInfoRoundID: \'12\', OnGoingTrackingID: \'" +
+testRunner.When("call PayForColorsWinnerInfo(UserProfileBalance: \'OhAe\', GameRoundInfoRound: \'12\', OnGoingTrackingID: \'" +
                     "B21F8971-DBAB-400F-9D95-151BA24875C1\')");
 #line 45
 testRunner.Then("the update player\'s balance part should be updated");
@@ -216,16 +216,16 @@ testRunner.And("sent roundID: \'13\' the round information should recieved");
 #line 53
 testRunner.And("the expected balance should be: \'116.21\'");
 #line 54
-testRunner.And("the player\'s action information(GameRoundInfoRoundID: \'13\', UserProfileBalance: \'Boy\', ActionType: \'GetW" +
+testRunner.And("the player\'s action information(GameRoundInfoRound: \'13\', UserProfileBalance: \'Boy\', ActionType: \'GetW" +
                     "inner\', Amount: \'5.0\') should be create");
 #line 55
-testRunner.And("the game play information(GameRoundInfoRoundID: \'13\', UserProfileBalance: \'Boy\', OnGoingTrackingID: \'B21" +
+testRunner.And("the game play information(GameRoundInfoRound: \'13\', UserProfileBalance: \'Boy\', OnGoingTrackingID: \'B21" +
                     "F8971-DBAB-400F-9D95-151BA24875C1\') should be update");
 #line 56
-testRunner.And("the game play information(GameRoundInfoRoundID: \'13\', UserProfileBalance: \'Boy\', BetTrackingID: \'B21F8971-D" +
+testRunner.And("the game play information(GameRoundInfoRound: \'13\', UserProfileBalance: \'Boy\', BetTrackingID: \'B21F8971-D" +
                     "BAB-400F-9D95-151BA24875C1\', Winner: \'White\') should be update");
 #line 57
-testRunner.When("call PayForColorsWinnerInfo(UserProfileBalance: \'Boy\', GameRoundInfoRoundID: \'13\', OnGoingTrackingID: \'B" +
+testRunner.When("call PayForColorsWinnerInfo(UserProfileBalance: \'Boy\', GameRoundInfoRound: \'13\', OnGoingTrackingID: \'B" +
                     "21F8971-DBAB-400F-9D95-151BA24875C1\')");
 #line 58
 testRunner.Then("the update player\'s balance part should be updated");

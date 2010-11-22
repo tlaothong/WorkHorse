@@ -13,7 +13,7 @@ namespace TheS.Casinova.Colors.Models
        /// <summary>
        /// ชื่อโต๊ะเกม
        /// </summary>
-       public string Name { get; set; }
+       public string TableName { get; set; }
 
        /// <summary>
        /// จำนวนโต๊ะเกมที่ต้องการสร้าง

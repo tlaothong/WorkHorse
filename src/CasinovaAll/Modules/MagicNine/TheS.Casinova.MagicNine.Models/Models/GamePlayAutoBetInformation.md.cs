@@ -13,7 +13,7 @@ namespace TheS.Casinova.MagicNine.Models
         {
             public string UserName { get; set; }
 
-            public int RoundID { get; set; }
+            public int Round { get; set; }
 
             public int Amount { get; set; }
 

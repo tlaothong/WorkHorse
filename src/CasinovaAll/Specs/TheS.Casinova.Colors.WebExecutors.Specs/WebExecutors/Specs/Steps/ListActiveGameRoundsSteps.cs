@@ -28,7 +28,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
             }else{
                 _GameRound = from item in table.Rows
                       select new GameRoundInformation {
-                          RoundID = Convert.ToInt32(item["RoundID"]),
+                          Round = Convert.ToInt32(item["Round"]),
                           StartTime = DateTime.Parse(item["StartTime"]),
                           EndTime = DateTime.Parse(item["EndTime"])
                       };
@@ -49,13 +49,13 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         {
             var expect = from item in table.Rows
                          select new {
-                             RoundID = Convert.ToInt32(item["RoundID"]),
+                             RoundID = Convert.ToInt32(item["Round"]),
                              StartTime = DateTime.Parse(item["StartTime"]),
                              EndTime = DateTime.Parse(item["EndTime"])
                          };
             var actual = from item in _ActiveGameRound
                          select new {
-                             RoundID = item.RoundID,
+                             RoundID = item.Round,
                              StartTime = item.StartTime,
                              EndTime = item.EndTime
                          };

@@ -14,15 +14,15 @@ namespace TheS.Casinova.Colors.Models
             [Required]
             public string UserName { get; set; }
 
-            public int RoundID { get; set; }
+            public int Round { get; set; }
 
             public Guid TrackingID { get; set; }
 
             public Guid OnGoingTrackingID { get; set; }
 
-            public double TotalBetAmountOfBlack { get; set; }
+            public double TotalBetBlack { get; set; }
 
-            public double TotalBetAmountOfWhite { get; set; }
+            public double TotalBetWhite { get; set; }
 
             public string Winner { get; set; }
 

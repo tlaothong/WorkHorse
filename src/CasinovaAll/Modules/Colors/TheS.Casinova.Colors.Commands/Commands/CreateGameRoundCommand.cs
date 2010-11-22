@@ -12,9 +12,9 @@ namespace TheS.Casinova.Colors.Commands
     public class CreateGameRoundCommand
     {
         //input
-        //public string GameRoundConfigName { get; set; } //ชื่อ config ที่จะใช้สร้างโต๊ะเกม
-
-        //ชื่อ config ที่จะใช้สร้างโต๊ะเกม
+        /// <summary>
+        /// 1. TableName ชื่อโต๊ะเกมที่ต้องการสร้าง
+        /// </summary>
         public GameRoundConfiguration GameRoundConfig { get; set; }
     }
 }

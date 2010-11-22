@@ -32,7 +32,7 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
         {
             _gameRoundInfos = (from item in table.Rows
                                select new GameRoundInformation { 
-                                   RoundID = Convert.ToInt32(item["RoundID"]),
+                                   Round = Convert.ToInt32(item["Round"]),
                                    //StartTime = DateTime.Parse(item["StartTime"]),
                                    //EndTime = DateTime.Parse(item["EndTime"]), null value
                                    //GamePot = Convert.ToInt32(item["GamePot"]),
@@ -41,11 +41,11 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
                                });
         }
 
-        [Given(@"sent RoundID: '(.*)' the round pot should recieved")]
+        [Given(@"sent Round: '(.*)' the round pot should recieved")]
         public void GivenSentRoundIDXTheRoundPotShouldRecieved(int roundID)
         {
             //var qry = (from item in _gameRoundInfos
-            //           where item.RoundID == roundID
+            //           where item.Round == roundID
             //           select item.GamePot).FirstOrDefault();
 
             //SetupResult.For(Dqr_GetGameRoundPot.Get(new GetGameRoundPotCommand()))
@@ -76,12 +76,12 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
             LastCall.IgnoreArguments().Do(checkData);
         }
 
-        [Given(@"the round information\(RoundID: '(.*)', GamePot: '(.*)'\) should be update")]
+        [Given(@"the round information\(Round: '(.*)', GamePot: '(.*)'\) should be update")]
         public void GivenTheRoundInformationRoundIDXGamePotXShouldBeUpdate(int roundID, int gamePot)
         {
             Action<GameRoundInformation, UpdateGameRoundPotCommand> checkData = (gameRoundInfo, cmd) => 
             {
-                Assert.AreEqual(roundID, gameRoundInfo.RoundID, "RoundID");
+                Assert.AreEqual(roundID, gameRoundInfo.Round, "Round");
                 //Assert.AreEqual(gamePot, gameRoundInfo.GamePot, "GamePot");
             };
 
@@ -89,12 +89,12 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
             LastCall.IgnoreArguments().Do(checkData);
         }
 
-        [Given(@"the bet information\(RoundID: '(.*)', UserName: '(.*)', BetOrder: '(.*)', BetTrackingID: '(.*)'\) should be create")]
+        [Given(@"the bet information\(Round: '(.*)', UserName: '(.*)', BetOrder: '(.*)', BetTrackingID: '(.*)'\) should be create")]
         public void GivenTheBetInformationRoundIDXUserNameXTrackingIDXShouldBeCreate(int roundID, string userName, int betOrder, string trackingID)
         {
             Func<BetInformation, SingleBetCommand, BetInformation> checkData = (betInfo, cmd) => 
             {
-                Assert.AreEqual(roundID, betInfo.RoundID, "RoundID");
+                Assert.AreEqual(roundID, betInfo.Round, "Round");
                 Assert.AreEqual(userName, betInfo.UserName, "UserName");
                 Assert.AreEqual(betOrder, betInfo.BetOrder, "BetOrder");
                 Assert.AreEqual(Guid.Parse(trackingID), betInfo.BetTrackingID, "BetTrackingID");
@@ -111,12 +111,12 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
             ScenarioContext.Current.Pending();
         }
 
-        [When(@"call SingleBet\(RoundID: '(.*)', UserName: '(.*)', BetTrackingID: '(.*)'\)")]
+        [When(@"call SingleBet\(Round: '(.*)', UserName: '(.*)', BetTrackingID: '(.*)'\)")]
         public void WhenCallSingleBetRoundIDXUserNameXTrackingIDX(int roundID, string userName, string trackingID)
         {
             SingleBetCommand cmd = new SingleBetCommand {
                 BetInfo = new BetInformation {
-                    RoundID = roundID,
+                    Round = roundID,
                     UserName = userName,
                     BetTrackingID = Guid.Parse(trackingID),
                 }

@@ -59,9 +59,9 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "UserName",
-                        "RoundID",
-                        "TotalBetAmountOfBlack",
-                        "TotalBetAmountOfWhite",
+                        "Round",
+                        "TotalBetBlack",
+                        "TotalBetWhite",
                         "Winner",
                         "WinnerLastUpdate",
                         "TrackingID",
@@ -118,9 +118,9 @@ testRunner.When("Call ListGamePlayInfoExecutor()");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "UserName",
-                        "RoundID",
-                        "TotalBetAmountOfBlack",
-                        "TotalBetAmountOfWhite",
+                        "Round",
+                        "TotalBetBlack",
+                        "TotalBetWhite",
                         "Winner",
                         "WinnerLastUpdate",
                         "TrackingID",

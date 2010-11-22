@@ -26,7 +26,7 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
             setupValidators(out container, out svc);
 
             var model = new GameRoundConfiguration {
-                Name = null,
+                TableName = null,
                 Interval = 20,
                 GameDuration = 30,
                 TableAmount = 50,
@@ -58,7 +58,7 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
             setupValidators(out container, out svc);
 
             var model = new GameRoundConfiguration {
-                Name = "More",
+                TableName = "More",
                 Interval = 10,
                 GameDuration = 30,
                 TableAmount = 50,
@@ -82,7 +82,7 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
             setupValidators(out container, out svc);
 
             var model = new GameRoundConfiguration {
-                Name = "More than 5 letters",
+                TableName = "More than 5 letters",
                 Interval = -5,
                 GameDuration = 30,
                 TableAmount = 50,
@@ -107,7 +107,7 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
             setupValidators(out container, out svc);
 
             var model = new GameRoundConfiguration {
-                Name = "More than 5 letters",
+                TableName = "More than 5 letters",
                 Interval = 8,
                 GameDuration = 1550,
                 TableAmount = 50,
@@ -131,7 +131,7 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
             setupValidators(out container, out svc);
 
             var model = new GameRoundConfiguration {
-                Name = "More than 5 letters",
+                TableName = "More than 5 letters",
                 Interval = 8,
                 GameDuration = 30,
                 TableAmount = 500,
@@ -155,7 +155,7 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
             setupValidators(out container, out svc);
 
             var model = new GameRoundConfiguration {
-                Name = "Morethan 5 letters",
+                TableName = "Morethan 5 letters",
                 Interval = 20,
                 GameDuration = 30,
                 TableAmount = 500,

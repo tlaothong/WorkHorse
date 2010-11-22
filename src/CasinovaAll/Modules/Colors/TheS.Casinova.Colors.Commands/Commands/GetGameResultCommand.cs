@@ -15,7 +15,7 @@ namespace TheS.Casinova.Colors.Commands
         /// <summary>
         /// รหัสโต๊ะเกม
         /// </summary>
-        public GameRoundInformation GameRoundInfoRoundID { get; set; } 
+        public GameRoundInformation GameRoundInfoRound { get; set; } 
 
         //output
         /// <summary>

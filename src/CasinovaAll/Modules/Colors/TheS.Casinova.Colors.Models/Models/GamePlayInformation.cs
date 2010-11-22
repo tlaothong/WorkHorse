@@ -19,7 +19,7 @@ namespace TheS.Casinova.Colors.Models
         /// <summary>
         /// roundID of the game playable
         /// </summary>
-        public int RoundID { get; set; }
+        public int Round { get; set; }
 
         /// <summary>
         /// trackingID use to verify
@@ -34,12 +34,12 @@ namespace TheS.Casinova.Colors.Models
         /// <summary>
         /// total amont of black bet
         /// </summary>
-        public double TotalBetAmountOfBlack { get; set; }
+        public double TotalBetBlack { get; set; }
 
         /// <summary>
         /// total amount of white bet
         /// </summary>
-        public double TotalBetAmountOfWhite { get; set; }
+        public double TotalBetWhite { get; set; }
 
         /// <summary>
         /// the winner of color on that time when player request winner

@@ -53,11 +53,11 @@ namespace TheS.Casinova.Colors.BackServices.Specs
             LastCall.IgnoreArguments().Do(CheckCallMethod);
         }
 
-        [Given(@"the player action information should be update as: \(UserProfileBalance: (.*), GameRoundInfoRoundID: (.*), Amount: (.*), Color: (.*), BetTrackingID: (.*)\)")]
+        [Given(@"the player action information should be update as: \(UserProfileBalance: (.*), GameRoundInfoRound: (.*), Amount: (.*), Color: (.*), BetTrackingID: (.*)\)")]
         public void GivenThePlayerActionInformationShouldBeUpdateAsUserNameXRoundIDXAmountXColorXTrackingIDX(string userName, int roundID, string amount, string color, string trackingID)
         {
             PlayerActionInformation _expected = new PlayerActionInformation {
-                RoundID = roundID,
+                Round = roundID,
                 UserName = userName,
                 ActionType = color,
                 Amount = Convert.ToDouble(amount),
@@ -65,7 +65,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
             };
 
             Func<PlayerActionInformation, CreatePlayerActionInfoCommand, PlayerActionInformation> checkdata = (playerActionInfo, cmd) => {
-                Assert.AreEqual(_expected.RoundID, playerActionInfo.RoundID, "GameRoundInfoRoundID");
+                Assert.AreEqual(_expected.Round, playerActionInfo.Round, "GameRoundInfoRound");
                 Assert.AreEqual(_expected.UserName, playerActionInfo.UserName, "UserProfileBalance");
                 Assert.AreEqual(_expected.ActionType, playerActionInfo.ActionType, "ActionType");
                 Assert.AreEqual(_expected.Amount, playerActionInfo.Amount, "Amount");
@@ -76,13 +76,13 @@ namespace TheS.Casinova.Colors.BackServices.Specs
             LastCall.IgnoreArguments().Do(checkdata);
         }
 
-        [When(@"call BetColorExecutor\(UserProfileBalance: (.*), GameRoundInfoRoundID: (.*), Amount: (.*), Color: (.*), BetTrackingID: (.*)\)")]
+        [When(@"call BetColorExecutor\(UserProfileBalance: (.*), GameRoundInfoRound: (.*), Amount: (.*), Color: (.*), BetTrackingID: (.*)\)")]
         public void WhenCallBetColorExecutorUserNameXRoundIDXAmountXColorXTrackingIDX(string userName, int roundID, double amount, string color, string trackingID)
         {
             BetCommand cmd = new BetCommand {
                 PlayerActionInfo = new PlayerActionInformation {
                     UserName = userName,
-                    RoundID = roundID,
+                    Round = roundID,
                     Amount = amount,
                     ActionType = color,
                     TrackingID = Guid.Parse(trackingID),

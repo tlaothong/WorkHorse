@@ -35,7 +35,7 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
             listActiveGameRoundsCmd.GameRoundInfo = _iListActiveGameRounds.List(listActiveGameRoundsCmd);
 
             GetGameRoundConfigurationCommand getGameRoundConfigCmd = new GetGameRoundConfigurationCommand {
-                GameRoundConfigName = command.GameRoundConfig,
+                GameRoundConfigTableName = command.GameRoundConfig,
             };
 
             //ดึงข้อมูลการตั้งค่าที่ต้องการ
@@ -52,13 +52,13 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
                 if (listActiveGameRoundsCmd.GameRoundInfo.Count() > 0) {
                     lastActiveRound.StartTime = lastActiveRound.StartTime.AddMinutes(getGameRoundConfigCmd.GameRoundConfig.Interval);
                     lastActiveRound.EndTime = lastActiveRound.StartTime.AddMinutes(getGameRoundConfigCmd.GameRoundConfig.GameDuration);
-                    lastActiveRound.RoundID += 1;
+                    lastActiveRound.Round += 1;
                 }
                 else {
                     lastActiveRound = new GameRoundInformation();
                     lastActiveRound.StartTime = new DateTime(2553,3,12,10,0,0);
                     lastActiveRound.EndTime = lastActiveRound.StartTime.AddMinutes(getGameRoundConfigCmd.GameRoundConfig.GameDuration);
-                    lastActiveRound.RoundID += 1;
+                    lastActiveRound.Round += 1;
 
                     List<GameRoundInformation> list = new List<GameRoundInformation>();
                     list.Add(lastActiveRound);
@@ -66,7 +66,7 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
                 }
 
                 nextRound = new GameRoundInformation {
-                    RoundID = lastActiveRound.RoundID,
+                    Round = lastActiveRound.Round,
                     StartTime = lastActiveRound.StartTime,
                     EndTime = lastActiveRound.EndTime,
                 };

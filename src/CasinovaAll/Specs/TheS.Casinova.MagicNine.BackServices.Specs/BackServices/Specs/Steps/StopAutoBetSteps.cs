@@ -6,6 +6,7 @@ using TechTalk.SpecFlow;
 using Rhino.Mocks;
 using TheS.Casinova.MagicNine.Commands;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TheS.Casinova.MagicNine.Models;
 
 namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
 {
@@ -13,12 +14,12 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
     public class StopAutoBetSteps
         : MagicNineStepsBase
     {
-        [Given(@"the StopAutoBet shoule be call as: \(UserName: '(.*)', RoundID: '(.*)', BetTrackingID: '(.*)'\)")]
+        [Given(@"the StopAutoBet shoule be call as: \(UserName: '(.*)', Round: '(.*)', BetTrackingID: '(.*)'\)")]
         public void GivenTheStopAutoBetShouleBeCallAsUserNameXRoundIDXTrackingIDX(string userName, int roundID, string trackingID)
         {
             Action<StopAutoBetCommand> checkData = (cmd) => {
-                Assert.AreEqual(userName, cmd.UserName, "UserName");
-                Assert.AreEqual(roundID, cmd.RoundID, "RoundID");
+                Assert.AreEqual(userName, cmd.GamePlayAutoBetInfo.UserName, "UserName");
+                Assert.AreEqual(roundID, cmd.GamePlayAutoBetInfo.Round, "Round");
                 Assert.AreEqual(Guid.Parse(trackingID), cmd.StopTrackingID, "BetTrackingID");
             };
 
@@ -26,12 +27,14 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
             LastCall.IgnoreArguments().Do(checkData);
         }
 
-        [When(@"call StopAutoBetExecutor\(UserName: '(.*)', RoundID: '(.*)', BetTrackingID: '(.*)'\)")]
+        [When(@"call StopAutoBetExecutor\(UserName: '(.*)', Round: '(.*)', BetTrackingID: '(.*)'\)")]
         public void WhenCallStopAutoBetExecutorUserNameXRoundIDXTrackingIDX(string userName, int roundID, string trackingID)
         {
             StopAutoBetCommand cmd = new StopAutoBetCommand {
+                GamePlayAutoBetInfo = new GamePlayAutoBetInformation {
                 UserName = userName,
-                RoundID = roundID,
+                Round = roundID,
+                },
                 StopTrackingID = Guid.Parse(trackingID),
             };
 

@@ -12,14 +12,13 @@ namespace TheS.Casinova.Colors.Commands
     public class BetCommand
     {
         //input
-        //public string UserName { get; set; } //ชื่อผู้เล่นที่ลงพนัน
-        //public int RoundID { get; set; } //รหัสโต๊ะเกมที่ลงพนัน
-        //public double Amount { get; set; } //จำนวนเงินลงพนัน
-        //public string Color { get; set; } //สีที่ลงพนัน
-        //public Guid TrackingID { get; set; } //trackingId ที่ได้จากการ generate
-
         /// <summary>
         /// ข้อมูลการลงเดิมพันของผู้เล่น
+        ///  1. UserName ชื่อผู้เล่นที่ลงพนัน
+        ///  2. Round รหัสโต๊ะเกมที่ลงพนัน
+        ///  3. Amount จำนวนเงินลงพนัน
+        ///  4. ActionType 
+        ///  5. TrackingID รหัสที่ใช้ในการตรวจสอบ
         /// </summary>
         public PlayerActionInformation PlayerActionInfo { get; set; }
 

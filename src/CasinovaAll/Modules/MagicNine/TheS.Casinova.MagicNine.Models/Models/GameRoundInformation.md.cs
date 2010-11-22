@@ -11,7 +11,7 @@ namespace TheS.Casinova.MagicNine.Models
     {
         public class MD
         {
-            public int RoundID { get; set; }
+            public int Round { get; set; }
 
             public int WinnerPoint { get; set; }
 

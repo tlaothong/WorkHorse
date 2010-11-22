@@ -66,7 +66,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 8
 testRunner.Given("The CreateGameRoundConfigExecutor has been created and initialized");
 #line 9
-testRunner.And("System can sent game round configuration informations are : Name\'ColorsGame\',Tabl" +
+testRunner.And("System can sent game round configuration informations are : TableName\'ColorsGame\',Tabl" +
                     "eAmount\'5\', GameDuration\'30\', Interval\'10\', BufferRoundCount\'3\'");
 #line 10
 testRunner.When("System can call CreateGameRoundConfigExecutor()");
@@ -77,12 +77,12 @@ testRunner.Then("The system can sent GameRoundConfigurations to back server");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล GameRoundConfigurations ระบบทำการตรวจสอบข้อมูล ข้อมูล Name ไม่ถู" +
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล GameRoundConfigurations ระบบทำการตรวจสอบข้อมูล ข้อมูล TableName ไม่ถู" +
             "กต้อง ระบบไม่สามารถส่งข้อมูลไป BackServer ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CreateGameRoundConfiguration")]
         public virtual void ระบบไดรบขอมลGameRoundConfigurationsระบบทำการตรวจสอบขอมลขอมลNameไมถกตองระบบไมสามารถสงขอมลไปBackServerได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล GameRoundConfigurations ระบบทำการตรวจสอบข้อมูล ข้อมูล Name ไม่ถู" +
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล GameRoundConfigurations ระบบทำการตรวจสอบข้อมูล ข้อมูล TableName ไม่ถู" +
                     "กต้อง ระบบไม่สามารถส่งข้อมูลไป BackServer ได้", new string[] {
                         "record_mock"});
 #line 14
@@ -90,7 +90,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 15
 testRunner.Given("The CreateGameRoundConfigExecutor has been created and initialized");
 #line 16
-testRunner.And("Game round configuration informations are : Name\'no\',TableAmount\'5\', GameDuration" +
+testRunner.And("Game round configuration informations are : TableName\'no\',TableAmount\'5\', GameDuration" +
                     "\'30\', Interval\'10\', BufferRoundCount\'3\'");
 #line 17
 testRunner.When("Call CreateGameRoundConfigExecutor()");
@@ -101,12 +101,12 @@ testRunner.Then("The system can\'t sent GameRoundConfigurations to back server")
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล GameRoundConfigurations ระบบทำการตรวจสอบข้อมูล ไม่มีข้อมูล Name " +
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล GameRoundConfigurations ระบบทำการตรวจสอบข้อมูล ไม่มีข้อมูล TableName " +
             "ระบบไม่สามารถส่งข้อมูลไป BackServer ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CreateGameRoundConfiguration")]
         public virtual void ระบบไดรบขอมลGameRoundConfigurationsระบบทำการตรวจสอบขอมลไมมขอมลNameระบบไมสามารถสงขอมลไปBackServerได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล GameRoundConfigurations ระบบทำการตรวจสอบข้อมูล ไม่มีข้อมูล Name " +
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล GameRoundConfigurations ระบบทำการตรวจสอบข้อมูล ไม่มีข้อมูล TableName " +
                     "ระบบไม่สามารถส่งข้อมูลไป BackServer ได้", new string[] {
                         "record_mock"});
 #line 21
@@ -114,7 +114,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 22
 testRunner.Given("The CreateGameRoundConfigExecutor has been created and initialized");
 #line 23
-testRunner.And("Game round configuration informations are : Name\'\',TableAmount\'5\', GameDuration\'3" +
+testRunner.And("Game round configuration informations are : TableName\'\',TableAmount\'5\', GameDuration\'3" +
                     "0\', Interval\'10\', BufferRoundCount\'3\'");
 #line 24
 testRunner.When("Call CreateGameRoundConfigExecutor()");
@@ -138,7 +138,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 29
 testRunner.Given("The CreateGameRoundConfigExecutor has been created and initialized");
 #line 30
-testRunner.And("Game round configuration informations are : Name\'ColorsGame1\',TableAmount\'-2\', Ga" +
+testRunner.And("Game round configuration informations are : TableName\'ColorsGame1\',TableAmount\'-2\', Ga" +
                     "meDuration\'30\', Interval\'10\', BufferRoundCount\'3\'");
 #line 31
 testRunner.When("Call CreateGameRoundConfigExecutor()");
@@ -162,7 +162,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 36
 testRunner.Given("The CreateGameRoundConfigExecutor has been created and initialized");
 #line 37
-testRunner.And("Game round configuration informations are : Name\'ColorsGame1\',TableAmount\'5\', Gam" +
+testRunner.And("Game round configuration informations are : TableName\'ColorsGame1\',TableAmount\'5\', Gam" +
                     "eDuration\'1550\', Interval\'10\', BufferRoundCount\'3\'");
 #line 38
 testRunner.When("Call CreateGameRoundConfigExecutor()");
@@ -186,7 +186,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 43
 testRunner.Given("The CreateGameRoundConfigExecutor has been created and initialized");
 #line 44
-testRunner.And("Game round configuration informations are : Name\'ColorsGame1\',TableAmount\'5\', Gam" +
+testRunner.And("Game round configuration informations are : TableName\'ColorsGame1\',TableAmount\'5\', Gam" +
                     "eDuration\'30\', Interval\'-30\', BufferRoundCount\'3\'");
 #line 45
 testRunner.When("Call CreateGameRoundConfigExecutor()");
@@ -210,7 +210,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 50
 testRunner.Given("The CreateGameRoundConfigExecutor has been created and initialized");
 #line 51
-testRunner.And("Game round configuration informations are : Name\'ColorsGame1\',TableAmount\'5\', Gam" +
+testRunner.And("Game round configuration informations are : TableName\'ColorsGame1\',TableAmount\'5\', Gam" +
                     "eDuration\'30\', Interval\'10\', BufferRoundCount\'-3\'");
 #line 52
 testRunner.When("Call CreateGameRoundConfigExecutor()");

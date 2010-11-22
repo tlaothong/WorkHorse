@@ -65,7 +65,7 @@ this.ScenarioSetup(scenarioInfo);
 testRunner.Given("The ListActiveGameRoundsExecutor has been created and initialized");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "RoundID",
+                        "Round",
                         "StartTime",
                         "EndTime"});
             table1.AddRow(new string[] {
@@ -90,7 +90,7 @@ testRunner.And("The active game rounds are :", ((string)(null)), table1);
 testRunner.When("Call ListActiveGameRoundsExecutor()");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                        "RoundID",
+                        "Round",
                         "StartTime",
                         "EndTime"});
             table2.AddRow(new string[] {

@@ -18,12 +18,12 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         private CreateGameRoundConfigurationCommand _cmd;
 
         //Test error
-        [Given(@"Game round configuration informations are : Name'(.*)',TableAmount'(.*)', GameDuration'(.*)', Interval'(.*)', BufferRoundCount'(.*)'")]
+        [Given(@"Game round configuration informations are : TableName'(.*)',TableAmount'(.*)', GameDuration'(.*)', Interval'(.*)', BufferRoundCount'(.*)'")]
         public void GivenGameRoundConfigurationInformationsAreNameXTableAmountXGameDurationXIntervalXBufferRoundCountX(string name, int tableAmount, int gameDuration, int interval, int bufferRoundCount)
         {
             _cmd = new CreateGameRoundConfigurationCommand {
                 GameRoundConfig = new GameRoundConfiguration {                    
-                    Name = name,
+                    TableName = name,
                     TableAmount = tableAmount,
                     GameDuration = gameDuration,
                     Interval = interval,
@@ -54,12 +54,12 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         }
 
         //Test succeeded
-        [Given(@"System can sent game round configuration informations are : Name'(.*)',TableAmount'(.*)', GameDuration'(.*)', Interval'(.*)', BufferRoundCount'(.*)'")]
+        [Given(@"System can sent game round configuration informations are : TableName'(.*)',TableAmount'(.*)', GameDuration'(.*)', Interval'(.*)', BufferRoundCount'(.*)'")]
         public void GivenSystemCanSentGameRoundConfigurationInformationsAreNameColorsGameTableAmount5GameDuration30Interval10BufferRoundCount3(string name, int tableAmount, int gameDuration, int interval, int bufferRoundCount)
         {
             _cmd = new CreateGameRoundConfigurationCommand {
                 GameRoundConfig = new GameRoundConfiguration {
-                    Name = name,
+                    TableName = name,
                     TableAmount = tableAmount,
                     GameDuration = gameDuration,
                     Interval = interval,

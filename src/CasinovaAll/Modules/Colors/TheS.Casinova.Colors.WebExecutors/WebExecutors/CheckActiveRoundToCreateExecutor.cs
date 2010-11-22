@@ -48,7 +48,7 @@ namespace TheS.Casinova.Colors.WebExecutors
            _getRoundInfo = new GetGameRoundConfigurationCommand();
 
            //ดึงข้อมูลการ config จากการสร้างจำนวนโต๊ะเกม
-           _getRoundInfo.GameRoundConfigName = command.GameRoundConfigName;
+           _getRoundInfo.GameRoundConfigTableName = command.GameRoundConfigName;
            _getRoundInfo.GameRoundConfig = _iGetGameRoundConfig.Get(_getRoundInfo);
  
            

@@ -27,10 +27,10 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
             setupValidators(out container, out svc);
 
             var model = new GameRoundInformation {
-               RoundID = -5,
+               Round = -5,
             };
             var cmd = new GetGameResultCommand{
-                GameRoundInfoRoundID = model,
+                GameRoundInfoRound = model,
             };
 
             GetGameResultExecutor xcutor = new GetGameResultExecutor(

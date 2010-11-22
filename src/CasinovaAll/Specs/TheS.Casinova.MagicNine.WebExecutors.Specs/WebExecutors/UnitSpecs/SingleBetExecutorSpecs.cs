@@ -25,7 +25,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.UnitSpecs
 
             var model = new BetInformation{
                 UserName = null,
-                RoundID = 1,
+                Round = 1,
             };
             var cmd = new SingleBetCommand {
                 BetInfo = model,
@@ -46,7 +46,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.UnitSpecs
 
             var model = new BetInformation {
                 UserName = "Natayit",
-                RoundID = -2,
+                Round = -2,
             };
             var cmd = new SingleBetCommand {
                 BetInfo = model,

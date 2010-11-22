@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TheS.Casinova.MagicNine.Models;
 
 namespace TheS.Casinova.MagicNine.Commands
 {
@@ -9,14 +10,10 @@ namespace TheS.Casinova.MagicNine.Commands
     {
         //input
         /// <summary>
-        /// ชื่อผู้เล่น
+        /// 1. Round รอบโต๊ะเกมที่ลงเดิมพัน
+        /// 2. UserName ชื่อผู้เล่น
         /// </summary>
-        public string UserName { get; set; }
-
-        /// <summary>
-        /// รหัสโต๊ะเกมที่ลงเดิมพัน
-        /// </summary>
-        public int RoundID { get; set; }
+        public GamePlayAutoBetInformation GamePlayAutoBetInfo { get; set; }
 
         //input&output
         /// <summary>
