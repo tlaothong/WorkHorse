@@ -5,6 +5,7 @@ using System.Text;
 using TheS.Casinova.MagicNine.Models;
 using TheS.Casinova.MagicNine.Commands;
 using PerfEx.Infrastructure.Data;
+using TheS.Casinova.PlayerProfile.Models;
 
 namespace TheS.Casinova.MagicNine.DAL
 {
@@ -17,7 +18,7 @@ namespace TheS.Casinova.MagicNine.DAL
     /// ดึงข้อมูลผู้เล่น
     /// </summary>
     public interface IGetPlayerInfo
-        : IFetchSingleData<PlayerInformation, GetPlayerInfoCommand>
+        : IFetchSingleData<UserProfile, GetPlayerInfoCommand>
     { }
 
     /// <summary>

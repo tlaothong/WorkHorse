@@ -5,13 +5,14 @@ using System.Text;
 using TheS.Casinova.Colors.Models;
 using TheS.Casinova.Colors.Commands;
 using PerfEx.Infrastructure.Validation;
+using PerfEx.Infrastructure.CommandPattern;
 
 namespace TheS.Casinova.Colors.BackServices.Validators
 {
-    public class PlayerActionInfo_BetColorValidator
-        : ValidatorBase<PlayerActionInformation, BetCommand>
+    public class PlayerActionInformationValidators
+        : ValidatorBase<PlayerActionInformation, NullCommand>
     {
-        public override void Validate(PlayerActionInformation entity, BetCommand command, ValidationErrorCollection errors)
+        public override void Validate(PlayerActionInformation entity, NullCommand command, ValidationErrorCollection errors)
         {
             if (entity.ActionType == "Black" || entity.ActionType == "White") { }
             else {

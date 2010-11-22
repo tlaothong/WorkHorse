@@ -67,8 +67,8 @@ namespace TheS.Casinova.Colors.BackServices.Specs
                         "200"});
             table1.AddRow(new string[] {
                         "Boy",
-                        "121.99",
-                        "321"});
+                        "0.99",
+                        "0"});
             table1.AddRow(new string[] {
                         "Toommy",
                         "36.95",
@@ -77,8 +77,20 @@ namespace TheS.Casinova.Colors.BackServices.Specs
                         "Au",
                         "234.00",
                         "326"});
+            table1.AddRow(new string[] {
+                        "Game",
+                        "1",
+                        "5"});
+            table1.AddRow(new string[] {
+                        "Khag",
+                        "0.52",
+                        "45"});
+            table1.AddRow(new string[] {
+                        "Ple",
+                        "0.99",
+                        "452"});
 #line 8
-testRunner.Given("(BetColor)server has player profile information as:", ((string)(null)), table1);
+testRunner.Given("(PayForcolorsWinnerInformation)server has player profile information as:", ((string)(null)), table1);
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "RoundID",
@@ -125,8 +137,18 @@ testRunner.Given("(BetColor)server has player profile information as:", ((string
                         "OhAe",
                         "Black",
                         "2553/3/12 11:28"});
-#line 15
-testRunner.And("server has player action informations as:", ((string)(null)), table2);
+            table2.AddRow(new string[] {
+                        "15",
+                        "Khag",
+                        "Black",
+                        "2553/3/12 12:28"});
+            table2.AddRow(new string[] {
+                        "15",
+                        "Khag",
+                        "GetWinner",
+                        "2553/3/12 12:30"});
+#line 18
+testRunner.And("(PayForcolorsWinnerInformation)server has player action informations as:", ((string)(null)), table2);
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "RoundID",
@@ -152,88 +174,207 @@ testRunner.And("server has player action informations as:", ((string)(null)), ta
                         "14",
                         "2.99",
                         "7.01"});
-#line 26
+            table3.AddRow(new string[] {
+                        "15",
+                        "2.15",
+                        "74"});
+#line 31
 testRunner.And("server has round informations as:", ((string)(null)), table3);
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("หักเงินผู้เล่นจากข้อมูลที่ได้รับมา โดยผู้เล่นเคยเสียค่าดูข้อมูลแล้ว และส่งข้อมูลผ" +
-            "ู้ชนะกลับ")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้เล่นต้องการดูข้อมูลสีที่ชนะในโต๊ะเกมที่เคยดูแล้ว โดยผู้เล่นมีชิฟพอและชิฟตายมาก" +
+            "กว่าค่าดูสีที่ชนะ ระบบบันทึกประวัติการดำเนินการ(ดูสีที่ชนะ)ของผู้เล่นและหักเฉพาะ" +
+            "ชิฟตาย")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PayForColorsWinnerInformation")]
-        public virtual void หกเงนผเลนจากขอมลทไดรบมาโดยผเลนเคยเสยคาดขอมลแลวและสงขอมลผชนะกลบ()
+        public virtual void ผเลนตองการดขอมลสทชนะในโตะเกมทเคยดแลวโดยผเลนมชฟพอและชฟตายมากกวาคาดสทชนะระบบบนทกประวตการดำเนนการดสทชนะของผเลนและหกเฉพาะชฟตาย()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("หักเงินผู้เล่นจากข้อมูลที่ได้รับมา โดยผู้เล่นเคยเสียค่าดูข้อมูลแล้ว และส่งข้อมูลผ" +
-                    "ู้ชนะกลับ", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้เล่นต้องการดูข้อมูลสีที่ชนะในโต๊ะเกมที่เคยดูแล้ว โดยผู้เล่นมีชิฟพอและชิฟตายมาก" +
+                    "กว่าค่าดูสีที่ชนะ ระบบบันทึกประวัติการดำเนินการ(ดูสีที่ชนะ)ของผู้เล่นและหักเฉพาะ" +
+                    "ชิฟตาย", new string[] {
                         "record_mock",
                         "record_mock"});
-#line 35
+#line 41
 this.ScenarioSetup(scenarioInfo);
-#line 36
+#line 42
 testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initialized");
-#line 37
+#line 43
 testRunner.And("sent name: \'OhAe\' the player\'s balance should recieved");
-#line 38
+#line 44
 testRunner.And("sent roundID: \'12\', userName: \'OhAe\' the player\'s action information should recie" +
                     "ved");
-#line 39
+#line 45
 testRunner.And("sent roundID: \'12\' the round information should recieved");
-#line 40
-testRunner.And("the expected balance should be: \'462.61\'");
-#line 41
+#line 46
+testRunner.And("(GetWinner)the player\'s balance should be update only bonuschips, Amount: \'1\'");
+#line 47
 testRunner.And("the player\'s action information(RoundID: \'12\', UserName: \'OhAe\', ActionType: \'Get" +
                     "Winner\', Amount: \'1.0\') should be create");
-#line 42
+#line 48
 testRunner.And("the game play information(RoundID: \'12\', UserName: \'OhAe\', OnGoingTrackingID: \'B2" +
                     "1F8971-DBAB-400F-9D95-151BA24875C1\') should be update");
-#line 43
+#line 49
 testRunner.And("the game play information(RoundID: \'12\', UserName: \'OhAe\', TrackingID: \'B21F8971-" +
                     "DBAB-400F-9D95-151BA24875C1\', Winner: \'Black\') should be update");
-#line 44
+#line 50
 testRunner.When("call PayForColorsWinnerInfo(UserName: \'OhAe\', RoundID: \'12\', OnGoingTrackingID: \'" +
                     "B21F8971-DBAB-400F-9D95-151BA24875C1\')");
-#line 45
+#line 51
 testRunner.Then("the update player\'s balance part should be updated");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("หักเงินผู้เล่นจากข้อมูลที่ได้รับมา โดยผู้เล่นยังไม่เคยเสียค่าดูข้อมูล และส่งข้อมู" +
-            "ลผู้ชนะกลับ")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้เล่นต้องการดูข้อมูลสีที่ชนะในโต๊ะเกมที่เคยดูแล้ว โดยผู้เล่นมีชิฟพอและชิฟตายน้อ" +
+            "ยกว่าค่าดูสีที่ชนะระบบหักชิฟเป็นเพิ่ม ระบบบันทึกประวัติการดำเนินการ(ดูสีที่ชนะ)ข" +
+            "องผู้เล่นและหักชิฟเป็นและชิฟตาย")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PayForColorsWinnerInformation")]
-        public virtual void หกเงนผเลนจากขอมลทไดรบมาโดยผเลนยงไมเคยเสยคาดขอมลและสงขอมลผชนะกลบ()
+        public virtual void ผเลนตองการดขอมลสทชนะในโตะเกมทเคยดแลวโดยผเลนมชฟพอและชฟตายนอยกวาคาดสทชนะระบบหกชฟเปนเพมระบบบนทกประวตการดำเนนการดสทชนะของผเลนและหกชฟเปนและชฟตาย()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("หักเงินผู้เล่นจากข้อมูลที่ได้รับมา โดยผู้เล่นยังไม่เคยเสียค่าดูข้อมูล และส่งข้อมู" +
-                    "ลผู้ชนะกลับ", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้เล่นต้องการดูข้อมูลสีที่ชนะในโต๊ะเกมที่เคยดูแล้ว โดยผู้เล่นมีชิฟพอและชิฟตายน้อ" +
+                    "ยกว่าค่าดูสีที่ชนะระบบหักชิฟเป็นเพิ่ม ระบบบันทึกประวัติการดำเนินการ(ดูสีที่ชนะ)ข" +
+                    "องผู้เล่นและหักชิฟเป็นและชิฟตาย", new string[] {
                         "record_mock"});
-#line 48
+#line 54
 this.ScenarioSetup(scenarioInfo);
-#line 49
+#line 55
 testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initialized");
-#line 50
+#line 56
+testRunner.And("sent name: \'Khag\' the player\'s balance should recieved");
+#line 57
+testRunner.And("sent roundID: \'15\', userName: \'Khag\' the player\'s action information should recie" +
+                    "ved");
+#line 58
+testRunner.And("sent roundID: \'15\' the round information should recieved");
+#line 59
+testRunner.And("(GetWinner)the player\'s balance should be update both chips, Amount: \'1\'");
+#line 60
+testRunner.And("the player\'s action information(RoundID: \'15\', UserName: \'Khag\', ActionType: \'Get" +
+                    "Winner\', Amount: \'1.0\') should be create");
+#line 61
+testRunner.And("the game play information(RoundID: \'15\', UserName: \'Khag\', OnGoingTrackingID: \'B2" +
+                    "1F8971-DBAB-400F-9D95-151BA24875C1\') should be update");
+#line 62
+testRunner.And("the game play information(RoundID: \'15\', UserName: \'Khag\', TrackingID: \'B21F8971-" +
+                    "DBAB-400F-9D95-151BA24875C1\', Winner: \'Black\') should be update");
+#line 63
+testRunner.When("call PayForColorsWinnerInfo(UserName: \'Khag\', RoundID: \'15\', OnGoingTrackingID: \'" +
+                    "B21F8971-DBAB-400F-9D95-151BA24875C1\')");
+#line 64
+testRunner.Then("the update player\'s balance part should be updated");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้เล่นต้องการดูข้อมูลสีที่ชนะในโต๊ะเกมที่ไม่เคยดูข้อมูล โดยผู้เล่นมีชิฟพอและชิฟต" +
+            "ายมากกว่าค่าดูสีที่ชนะ ระบบบันทึกประวัติการดำเนินการ(ดูสีที่ชนะ)ของผู้เล่นและหัก" +
+            "เฉพาะชิฟตาย")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PayForColorsWinnerInformation")]
+        public virtual void ผเลนตองการดขอมลสทชนะในโตะเกมทไมเคยดขอมลโดยผเลนมชฟพอและชฟตายมากกวาคาดสทชนะระบบบนทกประวตการดำเนนการดสทชนะของผเลนและหกเฉพาะชฟตาย()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้เล่นต้องการดูข้อมูลสีที่ชนะในโต๊ะเกมที่ไม่เคยดูข้อมูล โดยผู้เล่นมีชิฟพอและชิฟต" +
+                    "ายมากกว่าค่าดูสีที่ชนะ ระบบบันทึกประวัติการดำเนินการ(ดูสีที่ชนะ)ของผู้เล่นและหัก" +
+                    "เฉพาะชิฟตาย", new string[] {
+                        "record_mock"});
+#line 67
+this.ScenarioSetup(scenarioInfo);
+#line 68
+testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initialized");
+#line 69
+testRunner.And("sent name: \'Ple\' the player\'s balance should recieved");
+#line 70
+testRunner.And("sent roundID: \'12\', userName: \'Ple\' the player\'s action information should reciev" +
+                    "ed");
+#line 71
+testRunner.And("sent roundID: \'12\' the round information should recieved");
+#line 72
+testRunner.And("(GetWinner)the player\'s balance should be update both chips, Amount: \'5\'");
+#line 73
+testRunner.And("the player\'s action information(RoundID: \'12\', UserName: \'Ple\', ActionType: \'GetW" +
+                    "inner\', Amount: \'5.0\') should be create");
+#line 74
+testRunner.And("the game play information(RoundID: \'12\', UserName: \'Ple\', OnGoingTrackingID: \'B21" +
+                    "F8971-DBAB-400F-9D95-151BA24875C1\') should be update");
+#line 75
+testRunner.And("the game play information(RoundID: \'12\', UserName: \'Ple\', TrackingID: \'B21F8971-D" +
+                    "BAB-400F-9D95-151BA24875C1\', Winner: \'Black\') should be update");
+#line 76
+testRunner.When("call PayForColorsWinnerInfo(UserName: \'Ple\', RoundID: \'12\', OnGoingTrackingID: \'B" +
+                    "21F8971-DBAB-400F-9D95-151BA24875C1\')");
+#line 77
+testRunner.Then("the update player\'s balance part should be updated");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้เล่นต้องการดูข้อมูลสีที่ชนะในโต๊ะเกมที่ไม่เคยดูข้อมูล โดยผู้เล่นมีชิฟพอและชิฟต" +
+            "ายน้อยกว่าค่าดูสีที่ชนะระบบหักชิฟเป็นเพิ่ม ระบบบันทึกประวัติการดำเนินการ(ดูสีที่" +
+            "ชนะ)ของผู้เล่นและหักชิฟเป็นและชิฟตาย")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PayForColorsWinnerInformation")]
+        public virtual void ผเลนตองการดขอมลสทชนะในโตะเกมทไมเคยดขอมลโดยผเลนมชฟพอและชฟตายนอยกวาคาดสทชนะระบบหกชฟเปนเพมระบบบนทกประวตการดำเนนการดสทชนะของผเลนและหกชฟเปนและชฟตาย()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้เล่นต้องการดูข้อมูลสีที่ชนะในโต๊ะเกมที่ไม่เคยดูข้อมูล โดยผู้เล่นมีชิฟพอและชิฟต" +
+                    "ายน้อยกว่าค่าดูสีที่ชนะระบบหักชิฟเป็นเพิ่ม ระบบบันทึกประวัติการดำเนินการ(ดูสีที่" +
+                    "ชนะ)ของผู้เล่นและหักชิฟเป็นและชิฟตาย", new string[] {
+                        "record_mock"});
+#line 80
+this.ScenarioSetup(scenarioInfo);
+#line 81
+testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initialized");
+#line 82
+testRunner.And("sent name: \'Game\' the player\'s balance should recieved");
+#line 83
+testRunner.And("sent roundID: \'12\', userName: \'Game\' the player\'s action information should recie" +
+                    "ved");
+#line 84
+testRunner.And("sent roundID: \'12\' the round information should recieved");
+#line 85
+testRunner.And("(GetWinner)the player\'s balance should be update both chips, Amount: \'5\'");
+#line 86
+testRunner.And("the player\'s action information(RoundID: \'12\', UserName: \'Game\', ActionType: \'Get" +
+                    "Winner\', Amount: \'5.0\') should be create");
+#line 87
+testRunner.And("the game play information(RoundID: \'12\', UserName: \'Game\', OnGoingTrackingID: \'B2" +
+                    "1F8971-DBAB-400F-9D95-151BA24875C1\') should be update");
+#line 88
+testRunner.And("the game play information(RoundID: \'12\', UserName: \'Game\', TrackingID: \'B21F8971-" +
+                    "DBAB-400F-9D95-151BA24875C1\', Winner: \'Black\') should be update");
+#line 89
+testRunner.When("call PayForColorsWinnerInfo(UserName: \'Game\', RoundID: \'12\', OnGoingTrackingID: \'" +
+                    "B21F8971-DBAB-400F-9D95-151BA24875C1\')");
+#line 90
+testRunner.Then("the update player\'s balance part should be updated");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้เล่นต้องการดูข้อมูลสีที่ชนะ โดยผู้เล่นมีชิฟไม่พอค่าดำเนินการ ระบบแจ้งเตือนผู้เ" +
+            "ล่น")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PayForColorsWinnerInformation")]
+        public virtual void ผเลนตองการดขอมลสทชนะโดยผเลนมชฟไมพอคาดำเนนการระบบแจงเตอนผเลน()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้เล่นต้องการดูข้อมูลสีที่ชนะ โดยผู้เล่นมีชิฟไม่พอค่าดำเนินการ ระบบแจ้งเตือนผู้เ" +
+                    "ล่น", new string[] {
+                        "record_mock"});
+#line 93
+this.ScenarioSetup(scenarioInfo);
+#line 94
+testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initialized");
+#line 95
 testRunner.And("sent name: \'Boy\' the player\'s balance should recieved");
-#line 51
+#line 96
 testRunner.And("sent roundID: \'13\', userName: \'Boy\' the player\'s action information should reciev" +
                     "ed");
-#line 52
-testRunner.And("sent roundID: \'13\' the round information should recieved");
-#line 53
-testRunner.And("the expected balance should be: \'116.21\'");
-#line 54
-testRunner.And("the player\'s action information(RoundID: \'13\', UserName: \'Boy\', ActionType: \'GetW" +
-                    "inner\', Amount: \'5.0\') should be create");
-#line 55
-testRunner.And("the game play information(RoundID: \'13\', UserName: \'Boy\', OnGoingTrackingID: \'B21" +
-                    "F8971-DBAB-400F-9D95-151BA24875C1\') should be update");
-#line 56
-testRunner.And("the game play information(RoundID: \'13\', UserName: \'Boy\', TrackingID: \'B21F8971-D" +
-                    "BAB-400F-9D95-151BA24875C1\', Winner: \'White\') should be update");
-#line 57
-testRunner.When("call PayForColorsWinnerInfo(UserName: \'Boy\', RoundID: \'13\', OnGoingTrackingID: \'B" +
-                    "21F8971-DBAB-400F-9D95-151BA24875C1\')");
-#line 58
-testRunner.Then("the update player\'s balance part should be updated");
+#line 97
+testRunner.When("Expected validation exception and call PayForColorsWinnerInfo(UserName: \'Boy\', Ro" +
+                    "undID: \'13\', OnGoingTrackingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\')");
+#line 98
+testRunner.Then("the result should be throw exception");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

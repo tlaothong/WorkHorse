@@ -6,6 +6,12 @@ using TechTalk.SpecFlow;
 using Rhino.Mocks;
 using TheS.Casinova.MagicNine.DAL;
 using TheS.Casinova.MagicNine.BackServices.BackExecutors;
+using PerfEx.Infrastructure;
+using PerfEx.Infrastructure.Containers.StructureMapAdapter;
+using TheS.Casinova.PlayerProfile.Models;
+using TheS.Casinova.MagicNine.Commands;
+using PerfEx.Infrastructure.Validation;
+using TheS.Casinova.MagicNine.Validators;
 
 namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
 {
@@ -32,6 +38,7 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
         {
             var dac = Mocks.DynamicMock<IMagicNineGameDataAccess>();
             var dqr = Mocks.DynamicMock<IMagicNineGameDataBackQuery>();
+            var container = Mocks.DynamicMock<IDependencyContainer>();
 
             ScenarioContext.Current[Key_Dac_UpdatePlayerInfoBalance] = dac;
             ScenarioContext.Current[Key_Dac_SingleBet] = dac;
@@ -40,7 +47,8 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
             ScenarioContext.Current[Key_Dqr_GetPlayerInfo] = dqr;
             ScenarioContext.Current[Key_Dqr_GetGameRoundPot] = dqr;
 
-            ScenarioContext.Current[Key_SingleBet] = new SingleBetExecutor(dac, dqr);
+            setupValidators(out container);
+            ScenarioContext.Current[Key_SingleBet] = new SingleBetExecutor(container, dac, dqr);
         }
 
         [Given(@"The StartAutoBetExecutor has been created and initialized")]
@@ -69,6 +77,22 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
             ScenarioContext.Current[Key_AutoBetEngine] = svc;
 
             ScenarioContext.Current[Key_StopAutoBet] = new StopAutoBetExecutor(svc);
+        }
+
+        private static void setupValidators(out IDependencyContainer container)
+        {
+            var fac = new StructureMapAbstractFactory();
+            var reg = fac.CreateRegistry();
+
+            reg.Register<IValidator<UserProfile, SingleBetCommand>
+                , UserProfileValidators>();
+
+            //reg.RegisterInstance<IColorsGameDataBackQuery>
+            //    (ScenarioContext.Current.Get<IColorsGameDataBackQuery>(Key_Dac_CreatePlayerActionInfo));
+            //reg.Register<IServiceObjectProvider<IColorsGameDataBackQuery>,
+            //    DependencyInjectionServiceObjectProviderAdapter<IColorsGameDataBackQuery, IColorsGameDataBackQuery>>();
+
+            container = fac.CreateContainer(reg);
         }
     }
 }

@@ -16,14 +16,14 @@ namespace TheS.Casinova.Colors.BackServices.Specs
     public class BetColorSteps
         : ColorsGameStepsBase
     {
-        public UserProfile _expectPlayerInfo;
-
-        public IEnumerable<UserProfile> _playerInfos;
+        private UserProfile _expectPlayerProfile;
+        private IEnumerable<UserProfile> _playerProfiles;
+        private UserProfile _playerProfile;
 
         [Given(@"\(BetColor\)server has player profile information as:")]
         public void GivenBetColorServerHasPlayerProfileInformationAs(Table table)
         {
-            _playerInfos = (from item in table.Rows
+            _playerProfiles = (from item in table.Rows
                             select new UserProfile {
                                 UserName = item["UserName"],
                                 NonRefundable = Convert.ToDouble(item["NonRefundable"]),
@@ -34,21 +34,45 @@ namespace TheS.Casinova.Colors.BackServices.Specs
         [Given(@"sent name: (.*) the player's balance should recieved, for bet color")]
         public void GivenSentNameXThePlayerSBalanceShouldRecievedForBetColor(string userName)
         {
-            _expectPlayerInfo = (from item in _playerInfos
+            _expectPlayerProfile = (from item in _playerProfiles
                                      where item.UserName == userName
                                      select item).FirstOrDefault();
 
             SetupResult.For(Dqr_GetPlayerInfo.Get(new GetPlayerInfoCommand()))
-                .IgnoreArguments().Return(_expectPlayerInfo);
+                .IgnoreArguments().Return(_expectPlayerProfile);
+
+            _playerProfile = new UserProfile {
+                UserName = _expectPlayerProfile.UserName,
+                NonRefundable = _expectPlayerProfile.NonRefundable,
+                Refundable = _expectPlayerProfile.Refundable,
+            };
         }
 
-        [Given(@"the player's balance should be update correct, Amount: (.*)")]
-        public void GivenThePlayerSBalanceShouldBeUpdateCorrectAmountX(double amount)
+        [Given(@"the player's balance should be update both chips, Amount: (.*)")]
+        public void GivenThePlayerSBalanceShouldBeUpdateBothChipsAmountX(double amount)
         {
+            _playerProfile.Refundable -= amount - _playerProfile.NonRefundable;
+            _playerProfile.NonRefundable = 0;
+
             Action<UserProfile, UpdatePlayerInfoBalanceCommand> CheckCallMethod = (playerProfile, cmd) => {
-                Assert.AreEqual(_expectPlayerInfo.UserName, playerProfile.UserName, "UserName");
-                Assert.AreEqual(_expectPlayerInfo.Refundable, playerProfile.Refundable, "Refundable");
-                Assert.AreEqual(_expectPlayerInfo.NonRefundable, playerProfile.NonRefundable, "NonRefundable");
+                Assert.AreEqual(_playerProfile.UserName, playerProfile.UserName, "UserName");
+                Assert.AreEqual(_playerProfile.Refundable, playerProfile.Refundable, "Refundable");
+                Assert.AreEqual(_playerProfile.NonRefundable, playerProfile.NonRefundable, "NonRefundable");
+            };
+
+            Dac_UpdatePlayerInfoBalance.ApplyAction(new UserProfile(), new UpdatePlayerInfoBalanceCommand());
+            LastCall.IgnoreArguments().Do(CheckCallMethod);
+        }
+
+        [Given(@"the player's balance should be update only bonuschips, Amount: (.*)")]
+        public void GivenThePlayerSBalanceShouldBeUpdateOnlyBonuschipsAmountX(double amount)
+        {
+            _playerProfile.NonRefundable -= amount;
+
+            Action<UserProfile, UpdatePlayerInfoBalanceCommand> CheckCallMethod = (playerProfile, cmd) => {
+                Assert.AreEqual(_playerProfile.UserName, playerProfile.UserName, "UserName");
+                Assert.AreEqual(_playerProfile.Refundable, playerProfile.Refundable, "Refundable");
+                Assert.AreEqual(_playerProfile.NonRefundable, playerProfile.NonRefundable, "NonRefundable");
             };
 
             Dac_UpdatePlayerInfoBalance.ApplyAction(new UserProfile(), new UpdatePlayerInfoBalanceCommand());

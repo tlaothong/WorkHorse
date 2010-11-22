@@ -6,13 +6,16 @@ using PerfEx.Infrastructure.CommandPattern;
 using TheS.Casinova.Colors.Commands;
 using TheS.Casinova.Colors.DAL;
 using TheS.Casinova.Colors.Models;
+using PerfEx.Infrastructure.Validation;
+using PerfEx.Infrastructure;
 
 namespace TheS.Casinova.Colors.BackServices.BackExecutors
 {
     public class PayForColorsWinnerInfoExecutor 
         : SynchronousCommandExecutorBase<PayForColorsWinnerInfoCommand>
     {
-        private double _payFee;
+        private const double _newPayFee = 5;
+        private const double _regularyPayFee = 1;
 
         private IUpdatePlayerInfoBalance _iUpdatePlayerInfoBalance;
         private ICreatePlayerActionInfo _iCreatPlayerActionInfo;
@@ -23,9 +26,11 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
         private IListPlayerActionInfoQuery _iListPlayerActionInfo;        
         private IGetRoundInfo _iGetRoundInfo;
 
+        private IDependencyContainer _container;
+
         private string _winner;
 
-        public PayForColorsWinnerInfoExecutor(IColorsGameDataAccess dac, IColorsGameDataBackQuery dqr)
+        public PayForColorsWinnerInfoExecutor(IDependencyContainer container, IColorsGameDataAccess dac, IColorsGameDataBackQuery dqr)
         {
             _iUpdatePlayerInfoBalance = dac;
             _iUpdateOnGoingTrackingID = dac;
@@ -36,14 +41,14 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
             _iGetRoundInfo = dqr;
             _iListPlayerActionInfo = dqr;
 
+            _container = container;
+
             _winner = null;
         }
 
         //Executor สำหรับ หักเงินผู้เล่น, อัพเดทข้อมูล game information, และดึงข้อมูล Winner โต๊ะที่เลือก เพื่อส่งข้อมูลกลับไปให้ Web Executor ทำงานต่อไป
         protected override void ExecuteCommand(PayForColorsWinnerInfoCommand command)
         {
-            double playerBalance;
-
             #region Update balance
             //ดึงข้อมูลยอดเงินของผู้เล่น
             GetPlayerInfoCommand getPlayerInfoCmd = new GetPlayerInfoCommand {
@@ -51,64 +56,42 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
             };
 
             getPlayerInfoCmd.UserProfile = _iGetPlayerInfo.Get(getPlayerInfoCmd);
-            playerBalance = getPlayerInfoCmd.UserProfile.NonRefundable + getPlayerInfoCmd.UserProfile.Refundable;
 
-            //ดึงข้อมูลการลงพนันของผู้เล่นในโต๊ะเกมนั้นๆ
+            //ดึงข้อมูลขอดูสีที่ชนะของผู้เล่นในโต๊ะเกมนั้นๆ
             var betCount = _iListPlayerActionInfo.List(command);
 
             //กำหนดเงินที่จะหัก
-            if (betCount.Count() >= 1) {
-                _payFee = 1;
+            if (betCount.Count() > 0) {
+                command.Amount = _regularyPayFee;
             }
-            else {
-                _payFee = 5;
+            else { command.Amount = _newPayFee; }
+
+            //ตรวจสอบเงินของผู้เล่นว่าพอลงพนันหรือไม่
+            ValidationErrorCollection errorsValidation = new ValidationErrorCollection();
+            ValidationHelper.Validate(_container, getPlayerInfoCmd.UserProfile, command, errorsValidation);
+
+            if (errorsValidation.Any()) {
+                throw new ValidationErrorException(errorsValidation);
             }
 
             //หักเงินผู้เล่น
             UpdatePlayerInfoBalanceCommand updateBalanceCmd = new UpdatePlayerInfoBalanceCommand();
 
-            if (getPlayerInfoCmd.UserProfile.NonRefundable < _payFee) {
-                getPlayerInfoCmd.UserProfile.Refundable -= _payFee - getPlayerInfoCmd.UserProfile.NonRefundable;
+            if (getPlayerInfoCmd.UserProfile.NonRefundable < command.Amount) {
+                getPlayerInfoCmd.UserProfile.Refundable -= command.Amount - getPlayerInfoCmd.UserProfile.NonRefundable;
                 getPlayerInfoCmd.UserProfile.NonRefundable = 0;
-
-                updateBalanceCmd.UserName = command.UserName;
-
-                //หักเงินผู้เล่นตามเงินที่ต้องการลงพนัน
-                updateBalanceCmd.NonRefundable = getPlayerInfoCmd.UserProfile.NonRefundable;
-                updateBalanceCmd.Refundable = getPlayerInfoCmd.UserProfile.Refundable;
-
-                _iUpdatePlayerInfoBalance.ApplyAction(getPlayerInfoCmd.UserProfile, updateBalanceCmd);
             }
-            else if (getPlayerInfoCmd.UserProfile.NonRefundable >= _payFee) {
-                getPlayerInfoCmd.UserProfile.NonRefundable -= _payFee;
-
-                updateBalanceCmd.UserName = command.UserName;
-
-                //หักเงินผู้เล่นตามเงินที่ต้องการลงพนัน
-                updateBalanceCmd.NonRefundable = getPlayerInfoCmd.UserProfile.NonRefundable;
-                updateBalanceCmd.Refundable = getPlayerInfoCmd.UserProfile.Refundable;
-
-                _iUpdatePlayerInfoBalance.ApplyAction(getPlayerInfoCmd.UserProfile, updateBalanceCmd);
-            }
-            else {
-                Console.WriteLine("๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑  เงินไม่พอ  ๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑");
+            else if (getPlayerInfoCmd.UserProfile.NonRefundable >= command.Amount) {
+                getPlayerInfoCmd.UserProfile.NonRefundable -= command.Amount;
             }
 
-            //if (playerBalance >= _payFee) {
-            //    playerBalance -= _payFee;
+            updateBalanceCmd.UserName = command.UserName;
 
-            //    PlayerInformation playerInfo = new PlayerInformation();
+            //หักเงินผู้เล่นตามเงินที่ต้องการลงพนัน
+            updateBalanceCmd.NonRefundable = getPlayerInfoCmd.UserProfile.NonRefundable;
+            updateBalanceCmd.Refundable = getPlayerInfoCmd.UserProfile.Refundable;
 
-            //    UpdatePlayerInfoBalanceCommand updatePlayerInfoBalanceCmd = new UpdatePlayerInfoBalanceCommand {
-            //        UserName = playerInfo.UserName = getPlayerInfoCmd.PlayerInfo.UserName,
-            //        Balance = playerInfo.Balance = getPlayerInfoCmd.PlayerInfo.Balance,
-            //    };
-
-            //    _iUpdatePlayerInfoBalance.ApplyAction(playerInfo, updatePlayerInfoBalanceCmd);
-            //}
-            //else {
-            //    Console.WriteLine("๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑  เงินไม่พอ  ๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑");
-            //}
+            _iUpdatePlayerInfoBalance.ApplyAction(getPlayerInfoCmd.UserProfile, updateBalanceCmd);
 
             //บันทึกข้อมูล PlayerActionInformation
             PlayerActionInformation playerActionInfo = new PlayerActionInformation();
@@ -116,7 +99,7 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
             CreatePlayerActionInfoCommand createPlayerActionInfoCmd = new CreatePlayerActionInfoCommand {
                 UserName = playerActionInfo.UserName = command.UserName,
                 RoundID = playerActionInfo.RoundID = command.RoundID,
-                Amount = playerActionInfo.Amount = _payFee,
+                Amount = playerActionInfo.Amount = command.Amount,
                 ActionType = playerActionInfo.ActionType = "GetWinner",
             };
 
@@ -126,9 +109,9 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
             GamePlayInformation gamePlayInfo = new GamePlayInformation();
 
             UpdateOnGoingTrackingIDCommand updateOnGoingTrackingIDCmd = new UpdateOnGoingTrackingIDCommand {
-                    RoundID = gamePlayInfo.RoundID = command.RoundID,
-                    UserName = gamePlayInfo.UserName = command.UserName,
-                    OnGoingTrackingID = gamePlayInfo.OnGoingTrackingID = command.OnGoingTrackingID,
+                RoundID = gamePlayInfo.RoundID = command.RoundID,
+                UserName = gamePlayInfo.UserName = command.UserName,
+                OnGoingTrackingID = gamePlayInfo.OnGoingTrackingID = command.OnGoingTrackingID,
             };
 
             _iUpdateOnGoingTrackingID.ApplyAction(gamePlayInfo, updateOnGoingTrackingIDCmd);

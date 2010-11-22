@@ -25,14 +25,19 @@ namespace TheS.Casinova.MagicNine.Models
         /// </summary>
         public DateTime BetDateTime { get; set; }
 
-        /// <summary>
-        /// ลำดับที่ลงพนันได้
-        /// </summary>
-        public int BetOrder { get; set; }
+        ///// <summary>
+        ///// ลำดับที่ลงพนันได้
+        ///// </summary>
+        //public int BetOrder { get; set; }
 
         /// <summary>
         /// รหัสสำหรับตรวจสอบ
         /// </summary>
         public Guid TrackingID { get; set; }
+
+        ///// <summary>
+        ///// จำนวนเงินที่ลงพนัน
+        ///// </summary>
+        //public double Amount { get; set; }
     }
 }

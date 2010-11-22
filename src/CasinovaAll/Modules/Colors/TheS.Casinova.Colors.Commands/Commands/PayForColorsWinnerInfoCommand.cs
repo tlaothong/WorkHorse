@@ -12,11 +12,25 @@ namespace TheS.Casinova.Colors.Commands
     public class PayForColorsWinnerInfoCommand       
     {
         //input
+        /// <summary>
+        /// รหัสโต๊ะเกมที่ขอข้อมูล
+        /// </summary>
         public int RoundID { get; set; }
 
+        /// <summary>
+        /// ชื่อผู้เล่นที่ทำรายการ
+        /// </summary>
         public string UserName { get; set; }
 
+        /// <summary>
+        /// รหัสตรวจสอบ
+        /// </summary>
         public Guid OnGoingTrackingID { get; set; }
+
+        /// <summary>
+        /// จำนวนเงินค่าทำรายการ
+        /// </summary>
+        public double Amount { get; set; }
 
         ////ข้อมูลผู้เล่นสำหรับหักเงินค่าดูข้อมูลผู้ชนะขณะนั้น
         //public PlayerInformation PlayerInfo { get; set; }

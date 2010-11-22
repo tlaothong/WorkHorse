@@ -146,14 +146,5 @@ namespace TheS.Casinova.Colors.BackServices.Specs
                     CommonSteps.Key_CreateGameRound] as CreateGameRoundExecutor;
             }
         }
-
-        protected UserProfile_BetColorValidator UserProfile_BetColorValidator
-        {
-            get
-            {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_UserProfile_BetColorValidator] as UserProfile_BetColorValidator;
-            }
-        }
     }
 }

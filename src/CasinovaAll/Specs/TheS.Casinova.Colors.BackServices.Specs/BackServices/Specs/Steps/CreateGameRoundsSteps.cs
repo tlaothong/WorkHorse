@@ -44,9 +44,9 @@ namespace TheS.Casinova.Colors.BackServices
                 .IgnoreArguments().Return(_activeRound);
         }
 
-       [Given(@"sent Name: '(.*)', the GameRoundConfiguration should recieved data as GameRoundConfiguration\(Name: '(.*)', TableAmount: '(.*)', GameDuration: '(.*)', Inverval: '(.*)'\)")]
-        public void GivenSentNameXTheGameRoundConfigurationShouldRecievedDataAsGameRoundConfigurationNameXTableAmountXGameDurationXInvervalX(string name, string configName, int tableAmount, int gameDuration, int interval)
-        {
+         [Given(@"sent Name: '(.*)', the GameRoundConfiguration should recieved")]
+         public void GivenSentNameXTheGameRoundConfigurationShouldRecieved(string name)
+         {
             _expectConfig = (from item in _roundConfig
                              where item.Name == name
                              select item).FirstOrDefault();
@@ -91,5 +91,10 @@ namespace TheS.Casinova.Colors.BackServices
             Assert.IsTrue(true, "Expectation has been verified in the end of block When.");
         }
 
+        [Then(@"the result should be same as old")]
+        public void ThenTheResultShouldBeSameAsOld()
+        {
+            Assert.IsTrue(true, "Expectation has been verified in the end of block When.");
+        }
     }
 }

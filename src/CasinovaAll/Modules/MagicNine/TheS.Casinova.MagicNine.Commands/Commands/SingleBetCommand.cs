@@ -22,6 +22,11 @@ namespace TheS.Casinova.MagicNine.Commands
         /// </summary>
         public string UserName { get; set; }
 
+        /// <summary>
+        /// จำนวนเงินที่ลงพนัน
+        /// </summary>
+        public double Amount { get; set; }
+
         //input&output
         /// <summary>
         /// รหัสสำหรับตรวจสอบ

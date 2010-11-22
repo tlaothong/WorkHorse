@@ -8,6 +8,7 @@ using Rhino.Mocks;
 using TheS.Casinova.Colors.Commands;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TheS.Casinova.PlayerProfile.Models;
+using PerfEx.Infrastructure.Validation;
 
 namespace TheS.Casinova.Colors.BackServices.Specs
 {
@@ -16,13 +17,14 @@ namespace TheS.Casinova.Colors.BackServices.Specs
         : ColorsGameStepsBase  
     {
         public UserProfile _expectPlayerProfile;
+        public UserProfile _updatePlayerProfile;
 
         public IEnumerable<UserProfile> _playerProfiles;
         public IEnumerable<PlayerActionInformation> _playerActionInfos;
         public IEnumerable<GameRoundInformation> _RoundInfos;
 
-        [Given(@"server has player information as:")]
-        public void GivenServerHasPlayerInformationAs(Table table)
+        [Given(@"\(PayForcolorsWinnerInformation\)server has player profile information as:")]
+        public void GivenPayForcolorsWinnerInformationServerHasPlayerProfileInformationAs(Table table)
         {
             _playerProfiles = (from item in table.Rows
                                select new UserProfile {
@@ -32,8 +34,8 @@ namespace TheS.Casinova.Colors.BackServices.Specs
                                });
         }
 
-        [Given(@"server has player action informations as:")]
-        public void GivenServerHasPlayerActionInformationsAs(Table table)
+        [Given(@"\(PayForcolorsWinnerInformation\)server has player action informations as:")]
+        public void GivenPayForcolorsWinnerInformationServerHasPlayerActionInformationsAs(Table table)
         {
             _playerActionInfos = (from item in table.Rows
                                   select new PlayerActionInformation {
@@ -63,6 +65,12 @@ namespace TheS.Casinova.Colors.BackServices.Specs
 
             SetupResult.For(Dqr_GetPlayerInfo.Get(new GetPlayerInfoCommand()))
                 .IgnoreArguments().Return(_expectPlayerProfile);
+
+            _updatePlayerProfile = new UserProfile { 
+                UserName = _expectPlayerProfile.UserName,
+                NonRefundable = _expectPlayerProfile.NonRefundable,
+                Refundable = _expectPlayerProfile.Refundable,
+            };
         }
 
         [Given(@"sent roundID: '(.*)', userName: '(.*)' the player's action information should recieved")]
@@ -76,8 +84,39 @@ namespace TheS.Casinova.Colors.BackServices.Specs
                 .IgnoreArguments().Return(result);
         }
 
-        [Given(@"the expected balance should be: '(.*)'")]
-        public void GivenTheExpectedBalanceShouldBeX(double balance)
+        [Given(@"\(GetWinner\)the player's balance should be update only bonuschips, Amount: '(.*)'")]
+        public void GivenGetWinnerThePlayerSBalanceShouldBeUpdateOnlyBonuschipsAmountX(double amount)
+        {
+            _updatePlayerProfile.NonRefundable -= amount;
+
+            Action<UserProfile, UpdatePlayerInfoBalanceCommand> CheckCallMethod = (playerProfile, cmd) => {
+                Assert.AreEqual(_updatePlayerProfile.UserName, playerProfile.UserName, "UserName");
+                Assert.AreEqual(_updatePlayerProfile.Refundable, playerProfile.Refundable, "Refundable");
+                Assert.AreEqual(_updatePlayerProfile.NonRefundable, playerProfile.NonRefundable, "NonRefundable");
+            };
+
+            Dac_UpdatePlayerInfoBalance.ApplyAction(new UserProfile(), new UpdatePlayerInfoBalanceCommand());
+            LastCall.IgnoreArguments().Do(CheckCallMethod);
+        }
+
+        [Given(@"\(GetWinner\)the player's balance should be update both chips, Amount: '(.*)'")]
+        public void GivenGetWinnerThePlayerSBalanceShouldBeUpdateBothChipsAmountX(double amount)
+        {
+            _updatePlayerProfile.Refundable -= amount - _updatePlayerProfile.NonRefundable;
+            _updatePlayerProfile.NonRefundable = 0;
+
+            Action<UserProfile, UpdatePlayerInfoBalanceCommand> CheckCallMethod = (playerProfile, cmd) => {
+                Assert.AreEqual(_updatePlayerProfile.UserName, playerProfile.UserName, "UserName");
+                Assert.AreEqual(_updatePlayerProfile.Refundable, playerProfile.Refundable, "Refundable");
+                Assert.AreEqual(_updatePlayerProfile.NonRefundable, playerProfile.NonRefundable, "NonRefundable");
+            };
+
+            Dac_UpdatePlayerInfoBalance.ApplyAction(new UserProfile(), new UpdatePlayerInfoBalanceCommand());
+            LastCall.IgnoreArguments().Do(CheckCallMethod);
+        }
+
+        [Given(@"the expected update balance should be BonusChips: '(.*)', Chips: '(.*)'")]
+        public void GivenTheExpectedUpdateBalanceShouldBeX(double bounusChips, double chips)
         {
             Action<UserProfile, UpdatePlayerInfoBalanceCommand> CheckCallMethod = (playerProfile, cmd) => {
                 Assert.AreEqual(_expectPlayerProfile.UserName, playerProfile.UserName, "UserName");
@@ -170,6 +209,24 @@ namespace TheS.Casinova.Colors.BackServices.Specs
                 OnGoingTrackingID = Guid.Parse(onGoingTrackingID),
             };
             PayForColorsWinnerInfoExecutor.Execute(cmd, (x) => { });
+        }
+
+        [When(@"Expected validation exception and call PayForColorsWinnerInfo\(UserName: '(.*)', RoundID: '(.*)', OnGoingTrackingID: '(.*)'\)")]
+        public void WhenExpectedValidationExceptionAndCallPayForColorsWinnerInfoUserNameXRoundIDXOnGoingTrackingIDX(string userName, int roundID, string onGoingTrackingID)
+        {
+            try {
+                PayForColorsWinnerInfoCommand cmd = new PayForColorsWinnerInfoCommand {
+                    UserName = userName,
+                    RoundID = roundID,
+                    OnGoingTrackingID = Guid.Parse(onGoingTrackingID),
+                };
+                PayForColorsWinnerInfoExecutor.Execute(cmd, (x) => { });
+                Assert.Fail("Shouldn't be here!");
+            }
+            catch (Exception ex) {
+                Assert.IsInstanceOfType(ex, 
+                    typeof(ValidationErrorException));
+            }
         }
 
         [Then(@"the update player's balance part should be updated")]

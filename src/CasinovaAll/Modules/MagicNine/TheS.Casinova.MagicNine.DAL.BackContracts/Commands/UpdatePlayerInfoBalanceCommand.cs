@@ -11,10 +11,15 @@ namespace TheS.Casinova.MagicNine.Commands
     public class UpdatePlayerInfoBalanceCommand 
         : SingleBetCommand
     {        
-        //output
+        //input
         /// <summary>
-        /// จำนวนยอดเงินคงเหลือ
+        /// จำนวนชิฟตาย
         /// </summary>
-        public double Balance { get; set; }
+        public double NonRefundable { get; set; }
+
+        /// <summary>
+        /// จำนวนชิฟเป็น
+        /// </summary>
+        public double Refundable { get; set; }
     }
 }

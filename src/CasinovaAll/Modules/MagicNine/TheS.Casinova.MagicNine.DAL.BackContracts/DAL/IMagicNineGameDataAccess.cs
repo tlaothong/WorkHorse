@@ -5,6 +5,7 @@ using System.Text;
 using TheS.Casinova.MagicNine.Models;
 using TheS.Casinova.MagicNine.Commands;
 using PerfEx.Infrastructure.Data;
+using TheS.Casinova.PlayerProfile.Models;
 
 namespace TheS.Casinova.MagicNine.DAL
 {
@@ -25,7 +26,7 @@ namespace TheS.Casinova.MagicNine.DAL
     /// อัพเดทข้อมูลผู้เล่น
     /// </summary>
     public interface IUpdatePlayerInfoBalance
-        : IDataAction<PlayerInformation, UpdatePlayerInfoBalanceCommand>
+        : IDataAction<UserProfile, UpdatePlayerInfoBalanceCommand>
     { }
 
     /// <summary>

@@ -34,8 +34,8 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
                                  where item.UserName == userName
                                  select item).FirstOrDefault();
 
-            SetupResult.For(Dqr_GetPlayerInfo.Get(new GetPlayerInfoCommand()))
-                .IgnoreArguments().Return(_expectPlayerInfo);
+            //SetupResult.For(Dqr_GetPlayerInfo.Get(new GetPlayerInfoCommand()))
+            //    .IgnoreArguments().Return(_expectPlayerInfo);
         }
         
         [Given(@"the player's balance should be update correct, Amount: '(.*)'")]
@@ -47,8 +47,8 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
                 Assert.AreEqual(_expectPlayerInfo.Balance, playerInfo.Balance, "Balance");
             };
 
-            Dac_UpdatePlayerInfoBalance.ApplyAction(new PlayerInformation(), new UpdatePlayerInfoBalanceCommand());
-            LastCall.IgnoreArguments().Do(CheckCallMethod);
+            //Dac_UpdatePlayerInfoBalance.ApplyAction(new PlayerInformation(), new UpdatePlayerInfoBalanceCommand());
+            //LastCall.IgnoreArguments().Do(CheckCallMethod);
         }
 
         [Given(@"the StartAutoBet shoule be call as: \(UserName: '(.*)', RoundID: '(.*)', Amount: '(.*)', Interval: '(.*)', TrackingID: '(.*)'\)")]

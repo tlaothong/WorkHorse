@@ -33,25 +33,25 @@ namespace TheS.Casinova.MagicNine.BackServices.BackExecutors
                 UserName = command.UserName,
             };
 
-            getPlayerInfoCmd.PlayerInfo = _iGetPlayerInfo.Get(getPlayerInfoCmd);
+            //getPlayerInfoCmd.PlayerInfo = _iGetPlayerInfo.Get(getPlayerInfoCmd);
 
-            if (getPlayerInfoCmd.PlayerInfo.Balance >= command.Amount) {
-                getPlayerInfoCmd.PlayerInfo.Balance -= command.Amount;
+            //if (getPlayerInfoCmd.PlayerInfo.Balance >= command.Amount) {
+            //    getPlayerInfoCmd.PlayerInfo.Balance -= command.Amount;
 
-                PlayerInformation playerInfo = new PlayerInformation();
+            //    PlayerInformation playerInfo = new PlayerInformation();
 
-                UpdatePlayerInfoBalanceCommand updatePlayerInfoBalanceCmd = new UpdatePlayerInfoBalanceCommand {
-                    UserName = playerInfo.UserName = getPlayerInfoCmd.PlayerInfo.UserName,
-                    Balance = playerInfo.Balance = getPlayerInfoCmd.PlayerInfo.Balance,
-                };
+            //    UpdatePlayerInfoBalanceCommand updatePlayerInfoBalanceCmd = new UpdatePlayerInfoBalanceCommand {
+            //        UserName = playerInfo.UserName = getPlayerInfoCmd.PlayerInfo.UserName,
+            //        Balance = playerInfo.Balance = getPlayerInfoCmd.PlayerInfo.Balance,
+            //    };
 
-                _iUpdatePlayerInfoBalance.ApplyAction(playerInfo, updatePlayerInfoBalanceCmd);
+            //    _iUpdatePlayerInfoBalance.ApplyAction(playerInfo, updatePlayerInfoBalanceCmd);
 
-                _iAutoBetEngine.StartAutoBet(command);
-            }
-            else {
-                Console.WriteLine("๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑  เงินไม่พอ  ๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑");
-            }
+            //    _iAutoBetEngine.StartAutoBet(command);
+            //}
+            //else {
+            //    Console.WriteLine("๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑  เงินไม่พอ  ๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑๑");
+            //}
         }
     }
 }
