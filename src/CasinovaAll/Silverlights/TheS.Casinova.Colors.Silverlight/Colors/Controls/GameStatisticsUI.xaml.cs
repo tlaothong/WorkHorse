@@ -37,7 +37,7 @@ namespace TheS.Casinova.Colors.Controls
 
         private void showGameStatisticsWindow(int tabSelected = 0)
         {
-            var cw = new GameStatisticsWindow();
+            var cw = new StatisticsChartWindow();
             cw.ContentTabControl.SelectedIndex = tabSelected;
             cw.Show();
         }

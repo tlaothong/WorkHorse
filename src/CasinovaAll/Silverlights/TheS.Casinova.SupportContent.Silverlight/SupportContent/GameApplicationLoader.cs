@@ -111,7 +111,6 @@ namespace TheS.Casinova.SupportContent
                 new DeploymentCatalog("TheS.Casinova.MagicNine.Silverlight.xap"),
                 new DeploymentCatalog("TheS.Casinova.PlayerAccount.Silverlight.xap"),
                 new DeploymentCatalog("TheS.Casinova.TwoWins.Silverlight.xap"),
-                // TODO : test include support content for faq, about us, policy
                 new DeploymentCatalog("TheS.Casinova.SupportContent.Silverlight.xap"),
             };
             var acat = new AggregateCatalog(cats);

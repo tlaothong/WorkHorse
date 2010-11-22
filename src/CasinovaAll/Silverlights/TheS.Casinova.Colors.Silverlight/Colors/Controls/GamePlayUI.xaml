@@ -8,13 +8,6 @@
 	x:Class="TheS.Casinova.GamePlayUI"
 	d:DesignWidth="640" d:DesignHeight="480" Width="500" Height="400">
 
-	<UserControl.Resources>
-		<TheS_Casinova_Colors_ViewModels:GamePlayPageViewModel x:Key="GamePlayModelDataSource" d:IsDataSource="True"/>
-	</UserControl.Resources>
-	<UserControl.DataContext>
-		<Binding Source="{StaticResource GamePlayModelDataSource}"/>
-	</UserControl.DataContext>
-
 	<Grid x:Name="LayoutRoot">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="0.1*"/>

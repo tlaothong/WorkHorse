@@ -85,7 +85,7 @@ namespace TheS.Casinova.ChipExchange.ViewModels
 
         public void OK()
         {
-            // TODO : OK button clicked
+            // TODO: OK button clicked
         }
 
         #endregion Methods

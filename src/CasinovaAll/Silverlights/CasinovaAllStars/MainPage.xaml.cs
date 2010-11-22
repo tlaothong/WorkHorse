@@ -56,7 +56,7 @@ namespace CasinovaAllStars
             ((ChildWindow)((HyperlinkButton)sender).CommandParameter).Show();
         }
 
-        // TODO : Test statistics core
+        // TODO: Test statistics core
         private void TestStatisticsButton_Click(object sender, RoutedEventArgs e)
         {
             var cw = new Views.StatisticsWindow();

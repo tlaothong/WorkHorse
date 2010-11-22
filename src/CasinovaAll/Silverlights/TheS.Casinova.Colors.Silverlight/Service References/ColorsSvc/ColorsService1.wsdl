@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ColorsService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:60642/wsv/ColorsService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:60642/wsv/ColorsService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:60642/wsv/ColorsService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TheS.Casinova.Colors.Commands" />
+      <xsd:import schemaLocation="http://localhost:60642/wsv/ColorsService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/TheS.Casinova.Colors.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IColorsService_GetListActiveGameRound_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListActiveGameRound" />
+  </wsdl:message>
+  <wsdl:message name="IColorsService_GetListActiveGameRound_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListActiveGameRoundResponse" />
+  </wsdl:message>
+  <wsdl:message name="IColorsService_GetListGamePlayInformation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListGamePlayInformation" />
+  </wsdl:message>
+  <wsdl:message name="IColorsService_GetListGamePlayInformation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListGamePlayInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IColorsService_GetGameResult_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGameResult" />
+  </wsdl:message>
+  <wsdl:message name="IColorsService_GetGameResult_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGameResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="IColorsService_GetWinnerInformation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWinnerInformation" />
+  </wsdl:message>
+  <wsdl:message name="IColorsService_GetWinnerInformation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWinnerInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IColorsService_Bet_InputMessage">
+    <wsdl:part name="parameters" element="tns:Bet" />
+  </wsdl:message>
+  <wsdl:message name="IColorsService_Bet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BetResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IColorsService">
+    <wsdl:operation name="GetListActiveGameRound">
+      <wsdl:input wsaw:Action="http://tempuri.org/IColorsService/GetListActiveGameRound" message="tns:IColorsService_GetListActiveGameRound_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IColorsService/GetListActiveGameRoundResponse" message="tns:IColorsService_GetListActiveGameRound_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListGamePlayInformation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IColorsService/GetListGamePlayInformation" message="tns:IColorsService_GetListGamePlayInformation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IColorsService/GetListGamePlayInformationResponse" message="tns:IColorsService_GetListGamePlayInformation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGameResult">
+      <wsdl:input wsaw:Action="http://tempuri.org/IColorsService/GetGameResult" message="tns:IColorsService_GetGameResult_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IColorsService/GetGameResultResponse" message="tns:IColorsService_GetGameResult_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWinnerInformation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IColorsService/GetWinnerInformation" message="tns:IColorsService_GetWinnerInformation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IColorsService/GetWinnerInformationResponse" message="tns:IColorsService_GetWinnerInformation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Bet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IColorsService/Bet" message="tns:IColorsService_Bet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IColorsService/BetResponse" message="tns:IColorsService_Bet_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IColorsService" type="tns:IColorsService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetListActiveGameRound">
+      <soap:operation soapAction="http://tempuri.org/IColorsService/GetListActiveGameRound" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListGamePlayInformation">
+      <soap:operation soapAction="http://tempuri.org/IColorsService/GetListGamePlayInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGameResult">
+      <soap:operation soapAction="http://tempuri.org/IColorsService/GetGameResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWinnerInformation">
+      <soap:operation soapAction="http://tempuri.org/IColorsService/GetWinnerInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Bet">
+      <soap:operation soapAction="http://tempuri.org/IColorsService/Bet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ColorsService">
+    <wsdl:port name="BasicHttpBinding_IColorsService" binding="tns:BasicHttpBinding_IColorsService">
+      <soap:address location="http://localhost:60642/wsv/ColorsService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

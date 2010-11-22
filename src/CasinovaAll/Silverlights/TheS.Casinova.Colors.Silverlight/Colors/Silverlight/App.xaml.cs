@@ -26,12 +26,12 @@ namespace TheS.Casinova.Colors.Silverlight
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            this.RootVisual = new MainPage();
+            //this.RootVisual = new MainPage();
+            this.RootVisual = new Views.GamePlayPage();
         }
 
         private void Application_Exit(object sender, EventArgs e)
         {
-
         }
 
         private void Application_UnhandledException(object sender, ApplicationUnhandledExceptionEventArgs e)
