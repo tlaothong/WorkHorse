@@ -47,7 +47,17 @@ namespace SimpleNotif.Views
 
             IStatusTracker tracker = _tracker;
 
-            SimpleTrackingObserver obs = new SimpleTrackingObserver();
+            SimpleTrackingObserver obs = new SimpleTrackingObserver(ti =>
+            {
+                Dispatcher.BeginInvoke(() =>
+                {
+                    listBox1.Items.Add(new
+                    {
+                        ti.LotNo,
+                        ti.Status,
+                    });
+                });
+            });
 
             IDisposable dsp = null;
             dsp = tracker.Watch(obs).SubscribeOnDispatcher().Subscribe(
@@ -65,7 +75,17 @@ namespace SimpleNotif.Views
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-            SimpleTrackingObserver obs = new SimpleTrackingObserver();
+            SimpleTrackingObserver obs = new SimpleTrackingObserver(ti =>
+            {
+                Dispatcher.BeginInvoke(() =>
+                {
+                    listBox1.Items.Add(new
+                    {
+                        ti.LotNo,
+                        ti.Status,
+                    });
+                });
+            });
             obs.Initialize(_tracker);
             IDisposable dsp = null;
 
@@ -93,11 +113,5 @@ namespace SimpleNotif.Views
                 });
         }
 
-        //void svc_SendMessageCompleted(object sender, OhSimpleSvc.SendMessageCompletedEventArgs e)
-        //{
-        //    var id = e.Result;
-        //    var obs = e.UserState as SimpleTrackingObserver;
-        //    obs.SetTrackingID(id);
-        //}
     }
 }
