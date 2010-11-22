@@ -68,7 +68,7 @@ namespace TheS.Casinova.Colors.Specs
 #line 15
 testRunner.Given("Create and initialize GamePlayViewModel and Colors game service");
 #line 16
-testRunner.And("Initialize mock for bet");
+testRunner.And("Setup trackingID {E8481A68-7F9F-4466-B7B8-1355ED2D32C6}");
 #line hidden
         }
         

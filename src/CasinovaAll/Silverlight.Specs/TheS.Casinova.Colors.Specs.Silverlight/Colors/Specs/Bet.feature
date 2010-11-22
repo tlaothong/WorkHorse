@@ -13,7 +13,7 @@
 
 Background:
 	Given Create and initialize GamePlayViewModel and Colors game service
-	And Initialize mock for bet
+	And Setup trackingID {E8481A68-7F9F-4466-B7B8-1355ED2D32C6}
 
 @record_mock
 Scenario: Bet button has click save player action in PayLog

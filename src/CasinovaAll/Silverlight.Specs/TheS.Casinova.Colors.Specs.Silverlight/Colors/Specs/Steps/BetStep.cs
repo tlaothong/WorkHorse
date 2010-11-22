@@ -19,8 +19,8 @@ namespace TheS.Casinova.Colors.Specs.Steps
     {
         #region Background
 
-        [Given(@"Initialize mock for bet")]
-        public void GivenInitializeMockForBet()
+        [Given(@"Setup trackingID (.*)")]
+        public void GivenSetupTrackingIDE8481A68_7F9F_4466_B7B8_1355ED2D32C6(string trackingID)
         {
             var mocks = ScenarioContext.Current.Get<MockRepository>();
             var svc = ScenarioContext.Current.Get<IColorsServiceAdapter>();
@@ -32,8 +32,8 @@ namespace TheS.Casinova.Colors.Specs.Steps
                     Amount = cmd.Amount,
                     Color = cmd.Color,
                     RoundID = cmd.RoundID,
-                    TrackingID = Guid.NewGuid(),
-                    UserName = cmd.UserName
+                    TrackingID = Guid.Parse(trackingID),
+                    UserName = cmd.UserName,
                 };
                 return Observable.Return(result);
             };
@@ -42,6 +42,7 @@ namespace TheS.Casinova.Colors.Specs.Steps
             {
                 SetupResult.For(svc.Bet(null)).IgnoreArguments().Do(_mockBet);
             }
+
         }
 
         #endregion Background
@@ -53,7 +54,7 @@ namespace TheS.Casinova.Colors.Specs.Steps
             viewModel.RoundID = gameRound;
             viewModel.BetAmount = amount;
             viewModel.BetBlack();
-            ScenarioContext.Current.Get<TestScheduler>().Run();
+            //ScenarioContext.Current.Get<TestScheduler>().Run();
         }
 
         [When(@"Click Bet white amount=(.*) in game round=(.*)")]
@@ -63,7 +64,7 @@ namespace TheS.Casinova.Colors.Specs.Steps
             viewModel.RoundID = gameRound;
             viewModel.BetAmount = amount;
             viewModel.BetWhite();
-            ScenarioContext.Current.Get<TestScheduler>().Run();
+            //ScenarioContext.Current.Get<TestScheduler>().Run();
         }
 
         [Then(@"PayLog count='(.*)' are")]
@@ -72,12 +73,12 @@ namespace TheS.Casinova.Colors.Specs.Steps
             var payLog = ScenarioContext.Current.Get<GamePlayViewModel>().Paylogs;
             var actual = payLog.ToArray<PayLog>();
             var expect = (from c in table.Rows
-                         select new PayLog
-                         {
-                             Amount = int.Parse(c["Amount"]),
-                             Colors = c["Colors"],
-                             RoundID = int.Parse(c["RoundID"]),
-                         }).ToArray<PayLog>();
+                          select new PayLog
+                          {
+                              Amount = int.Parse(c["Amount"]),
+                              Colors = c["Colors"],
+                              RoundID = int.Parse(c["RoundID"]),
+                          }).ToArray<PayLog>();
 
             Assert.AreEqual(payLogCount, payLog.Count, "Pay log count");
             for (int index = 0; index < payLog.Count; index++)

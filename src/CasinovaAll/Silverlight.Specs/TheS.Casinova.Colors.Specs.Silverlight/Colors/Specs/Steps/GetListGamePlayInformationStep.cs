@@ -69,6 +69,12 @@ namespace TheS.Casinova.Colors.Specs.Steps
             ScenarioContext.Current.Get<TestScheduler>().Run();
         }
 
+        [When(@"Web service execute new bet are")]
+        public void WhenWebServiceExecuteNewBetAre(Table table)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
         [Then(@"Tables in GamePlayViewModel display game play information are")]
         public void ThenTablesInGamePlayViewModelDisplayGamePlayInformationAre(Table table)
         {

@@ -40,9 +40,10 @@ namespace TheS.Casinova.Colors.Specs.Steps
             };
 
             ScenarioContext.Current.Set<GamePlayViewModel>(viewModel);
-            ScenarioContext.Current.Set(scheduler);
+            ScenarioContext.Current.Set<TestScheduler>(scheduler);
             ScenarioContext.Current.Set<MockRepository>(mocks);
             ScenarioContext.Current.Set<IColorsServiceAdapter>(svc);
+            ScenarioContext.Current.Set<IStatusTracker>(tracker);
         }
     }
 }

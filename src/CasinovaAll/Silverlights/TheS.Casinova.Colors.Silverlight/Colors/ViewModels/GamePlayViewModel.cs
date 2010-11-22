@@ -37,7 +37,7 @@ namespace TheS.Casinova.Colors.ViewModels
         private ObservableCollection<PayLog> _paylogs;
         private IColorsServiceAdapter _sva;
         private IScheduler _scheduler;
-        private IStatusTracker _tracker;
+        private IStatusTracker _statusTracker;
         private int _roundID;
         private double _betAmount;
         private GameStatisticsViewModel _gameResult;
@@ -192,10 +192,10 @@ namespace TheS.Casinova.Colors.ViewModels
             set { _scheduler = new DispatcherScheduler(value); }
         }
 
-        internal IStatusTracker Tracker
+        internal IStatusTracker StatusTracker
         {
-            get { return _tracker; }
-            set { _tracker = value; }
+            get { return _statusTracker; }
+            set { _statusTracker = value; }
         }
 
         #endregion Properties
@@ -276,17 +276,6 @@ namespace TheS.Casinova.Colors.ViewModels
         #endregion Constructors
 
         #region Methods
-
-        public void BetBlack()
-        {
-            bet();
-        }
-
-        public void BetWhite()
-        {
-            const bool betWhite = false;
-            bet(betWhite);
-        }
 
         public void GetListActiveGameRounds()
         {
@@ -434,6 +423,17 @@ namespace TheS.Casinova.Colors.ViewModels
                 );
         }
 
+        public void BetBlack()
+        {
+            bet();
+        }
+
+        public void BetWhite()
+        {
+            const bool betWhite = false;
+            bet(betWhite);
+        }
+
         private void bet(bool betBlack = true)
         {
             const string BetInBlack = "Black";
@@ -460,10 +460,11 @@ namespace TheS.Casinova.Colors.ViewModels
                 next =>
                 {
                     // TODO: Colors RX Bet
-                    // Get OnGoingTrackingID
                     // Sent to observer follow this OnGoingTrackingID
-                    // Observer found TrackingID in lot
-                    // Request get list game play information
+                    ColorsTrackingObserver observer = new ColorsTrackingObserver(() => { });
+                    observer.Initialize(StatusTracker);
+                    observer.SetTrackingID(next.TrackingID);
+
                     // Display TotalBetAmountOfBlack, TotalBetAmountOfWhite, Winner
                     // Check TrackingID and OnGoingTrackingID
                     // Delete PayLog in TrackingID
