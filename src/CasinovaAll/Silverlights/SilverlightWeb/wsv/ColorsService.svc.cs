@@ -31,13 +31,13 @@ namespace SilverlightWeb.wsv
             throw new NotImplementedException();
         }
 
-        public Guid GetWinnerInformation(PayForColorsWinnerInfoCommand cmd)
+        public PayForColorsWinnerInfoCommand GetWinnerInformation(PayForColorsWinnerInfoCommand cmd)
         {
             // TODO: Colors service GetWinnerInformation
             throw new NotImplementedException();
         }
 
-        public Guid Bet(BetCommand cmd)
+        public BetCommand Bet(BetCommand cmd)
         {
             // TODO: Colors service Bet
             throw new NotImplementedException();

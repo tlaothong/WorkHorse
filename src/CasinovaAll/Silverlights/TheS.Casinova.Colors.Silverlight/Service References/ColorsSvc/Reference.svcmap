@@ -20,15 +20,15 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:23420/wsv/ColorsService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:60642/wsv/ColorsService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ColorsService.xsd" MetadataType="Schema" ID="af6fda41-f2c5-493e-81c9-5fbf4cf82a40" SourceId="1" SourceUrl="http://localhost:23420/wsv/ColorsService.svc?xsd=xsd2" />
-    <MetadataFile FileName="ColorsService3.xsd" MetadataType="Schema" ID="b0dbdbd6-de9c-4018-9a4a-920eb70b25ae" SourceId="1" SourceUrl="http://localhost:23420/wsv/ColorsService.svc?xsd=xsd3" />
-    <MetadataFile FileName="ColorsService1.xsd" MetadataType="Schema" ID="8af841d8-3372-403a-8a25-e32e4d9562d9" SourceId="1" SourceUrl="http://localhost:23420/wsv/ColorsService.svc?xsd=xsd0" />
-    <MetadataFile FileName="ColorsService2.xsd" MetadataType="Schema" ID="9365c008-341f-4082-ade6-852bda76b3c4" SourceId="1" SourceUrl="http://localhost:23420/wsv/ColorsService.svc?xsd=xsd1" />
-    <MetadataFile FileName="ColorsService.disco" MetadataType="Disco" ID="e46b806b-9aea-42dc-9cc4-cf9d2204e60f" SourceId="1" SourceUrl="http://localhost:23420/wsv/ColorsService.svc?disco" />
-    <MetadataFile FileName="ColorsService.wsdl" MetadataType="Wsdl" ID="507f6c5f-05dc-44a6-ab60-03f7bdcf32e6" SourceId="1" SourceUrl="http://localhost:23420/wsv/ColorsService.svc?wsdl" />
+    <MetadataFile FileName="ColorsService4.xsd" MetadataType="Schema" ID="42787066-3a75-4fcb-8cd7-b1174ed2b0ff" SourceId="1" SourceUrl="http://localhost:60642/wsv/ColorsService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ColorsService41.xsd" MetadataType="Schema" ID="0118304b-f373-4ba7-9802-79c217c91163" SourceId="1" SourceUrl="http://localhost:60642/wsv/ColorsService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ColorsService42.xsd" MetadataType="Schema" ID="ccb7d0f7-30e2-47c0-9abc-862122ad8bef" SourceId="1" SourceUrl="http://localhost:60642/wsv/ColorsService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ColorsService43.xsd" MetadataType="Schema" ID="a5d5f1f6-8850-4b9a-95a3-79436ef907c9" SourceId="1" SourceUrl="http://localhost:60642/wsv/ColorsService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ColorsService1.wsdl" MetadataType="Wsdl" ID="a5b51587-e7c5-4157-8727-111dccadbd24" SourceId="1" SourceUrl="http://localhost:60642/wsv/ColorsService.svc?wsdl" />
+    <MetadataFile FileName="ColorsService1.disco" MetadataType="Disco" ID="7793dfb8-e78f-4b2f-a52d-4353041abea8" SourceId="1" SourceUrl="http://localhost:60642/wsv/ColorsService.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -15,6 +15,11 @@ using SpecFlowAssist;
 using System.Collections.Generic;
 using TheS.Casinova.Colors.ViewModels;
 using System.Threading;
+using TheS.Casinova.Colors.Services;
+using System.Concurrency;
+using System.Linq;
+using System.Collections.ObjectModel;
+using PerfEx.Infrastructure.LotUpdate;
 
 namespace TheS.Casinova.Colors.Specs.Steps
 {
@@ -25,43 +30,19 @@ namespace TheS.Casinova.Colors.Specs.Steps
         public void GivenCreateAndInitializeGamePlayViewModelAndColorsGameService()
         {
             MockRepository mocks = new MockRepository();
-            IColorsService svc = mocks.Stub<IColorsService>();
-
-            AutoResetEvent are = new AutoResetEvent(false);
-            ScenarioContext.Current.Set<AutoResetEvent>(are);
-
-            AsyncGetListActiveGameRound delGetListActiveGameRound = mockGetListActiveGameRound;
-
-            Func<AsyncCallback, object, IAsyncResult> beginGet = (cb, ustate) =>
+            IColorsServiceAdapter svc = mocks.Stub<IColorsServiceAdapter>();
+            IStatusTracker tracker = mocks.Stub<IStatusTracker>();
+            TestScheduler scheduler = new TestScheduler();
+            GamePlayViewModel viewModel = new GamePlayViewModel
             {
-                //throw new InvalidOperationException();
-                return delGetListActiveGameRound.BeginInvoke(cb, ustate);
-            };
-            Func<IAsyncResult, ListActiveGameRoundCommand> endGet = (ar) =>
-            {
-                var ret = delGetListActiveGameRound.EndInvoke(ar);
-                are.Set();
-                return ret;
+                Scheduler = scheduler,
+                GameService = svc
             };
 
-            SetupResult.For(svc.BeginGetListActiveGameRound(null, null)).IgnoreArguments().Do(beginGet);
-            SetupResult.For(svc.EndGetListActiveGameRound(null)).IgnoreArguments().Do(endGet);
-
-            GamePlayViewModel viewModel = new GamePlayViewModel();
-            viewModel.GameSvc = svc;
             ScenarioContext.Current.Set<GamePlayViewModel>(viewModel);
+            ScenarioContext.Current.Set(scheduler);
+            ScenarioContext.Current.Set<MockRepository>(mocks);
+            ScenarioContext.Current.Set<IColorsServiceAdapter>(svc);
         }
-
-        
-        private static ListActiveGameRoundCommand mockGetListActiveGameRound()
-        {
-            return new ListActiveGameRoundCommand
-            {
-                ActiveRounds = new System.Collections.ObjectModel.ObservableCollection<GameRoundInformation>(
-                    ScenarioContext.Current.Get<IEnumerable<GameRoundInformation>>()),
-            };
-        }
-
-        public delegate ListActiveGameRoundCommand AsyncGetListActiveGameRound();
     }
 }

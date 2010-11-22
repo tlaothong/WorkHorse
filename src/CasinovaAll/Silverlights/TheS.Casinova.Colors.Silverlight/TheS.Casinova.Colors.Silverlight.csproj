@@ -67,6 +67,9 @@
     <Reference Include="PerfEx.Infrastructure.Silverlight">
       <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Silverlight.dll</HintPath>
     </Reference>
+    <Reference Include="PerfEx.Infrastructure.Silverlight.Advanced">
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Silverlight.Advanced.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.Composition, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.ComponentModel.DataAnnotations, Version=2.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217" />
     <Reference Include="System.CoreEx, Version=1.0.2698.204, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -103,12 +106,15 @@
     <Compile Include="Colors\GameApplicationInformation.cs" />
     <Compile Include="Colors\Models\GameTable.cs" />
     <Compile Include="Colors\Models\BetdataInfo.cs" />
+    <Compile Include="Colors\Models\PayLog.cs" />
     <Compile Include="Colors\Page1.xaml.cs">
       <DependentUpon>Page1.xaml</DependentUpon>
     </Compile>
     <Compile Include="Colors\Popups\BetData.xaml.cs">
       <DependentUpon>BetData.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Colors\Services\ColorsServiceAdapter.cs" />
+    <Compile Include="Colors\Services\IColorsServiceAdapter.cs" />
     <Compile Include="Colors\Silverlight\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -212,20 +218,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
-    <None Include="Service References\ColorsSvc\ColorsService.wsdl" />
-    <None Include="Service References\ColorsSvc\ColorsService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ColorsSvc\ColorsService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ColorsSvc\ColorsService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ColorsSvc\ColorsService3.xsd">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="Service References\ColorsSvc\ColorsService1.disco" />
     <Content Include="ServiceReferences.ClientConfig" />
+    <None Include="Service References\ColorsSvc\ColorsService1.wsdl" />
+    <None Include="Service References\ColorsSvc\ColorsService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ColorsSvc\ColorsService41.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ColorsSvc\ColorsService42.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ColorsSvc\ColorsService43.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ColorsSvc\TheS.Casinova.ColorsSvc.BetCommand.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ColorsSvc\TheS.Casinova.ColorsSvc.GetGameResultCommand.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -233,6 +243,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ColorsSvc\TheS.Casinova.ColorsSvc.ListGamePlayInfoCommand.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ColorsSvc\TheS.Casinova.ColorsSvc.PayForColorsWinnerInfoCommand.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>
@@ -250,9 +263,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ColorsSvc\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ColorsSvc\ColorsService.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ColorsSvc\configuration91.svcinfo" />

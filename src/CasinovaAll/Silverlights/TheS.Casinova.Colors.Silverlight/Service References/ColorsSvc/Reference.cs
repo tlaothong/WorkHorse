@@ -20,12 +20,12 @@ namespace TheS.Casinova.ColorsSvc {
     [System.Runtime.Serialization.DataContractAttribute(Name="ListActiveGameRoundCommand", Namespace="http://schemas.datacontract.org/2004/07/TheS.Casinova.Colors.Commands")]
     public partial class ListActiveGameRoundCommand : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private System.Collections.ObjectModel.ObservableCollection<TheS.Casinova.ColorsSvc.GameRoundInformation> ActiveRoundsField;
+        private TheS.Casinova.ColorsSvc.GameRoundInformation[] ActiveRoundsField;
         
         private System.DateTime FromTimeField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<TheS.Casinova.ColorsSvc.GameRoundInformation> ActiveRounds {
+        public TheS.Casinova.ColorsSvc.GameRoundInformation[] ActiveRounds {
             get {
                 return this.ActiveRoundsField;
             }
@@ -170,12 +170,12 @@ namespace TheS.Casinova.ColorsSvc {
     [System.Runtime.Serialization.DataContractAttribute(Name="ListGamePlayInfoCommand", Namespace="http://schemas.datacontract.org/2004/07/TheS.Casinova.Colors.Commands")]
     public partial class ListGamePlayInfoCommand : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private System.Collections.ObjectModel.ObservableCollection<TheS.Casinova.ColorsSvc.GamePlayInformation> GamePlayInfosField;
+        private TheS.Casinova.ColorsSvc.GamePlayInformation[] GamePlayInfosField;
         
         private string UserNameField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<TheS.Casinova.ColorsSvc.GamePlayInformation> GamePlayInfos {
+        public TheS.Casinova.ColorsSvc.GamePlayInformation[] GamePlayInfos {
             get {
                 return this.GamePlayInfosField;
             }
@@ -577,12 +577,12 @@ namespace TheS.Casinova.ColorsSvc {
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IColorsService/GetWinnerInformation", ReplyAction="http://tempuri.org/IColorsService/GetWinnerInformationResponse")]
         System.IAsyncResult BeginGetWinnerInformation(TheS.Casinova.ColorsSvc.PayForColorsWinnerInfoCommand cmd, System.AsyncCallback callback, object asyncState);
         
-        System.Guid EndGetWinnerInformation(System.IAsyncResult result);
+        TheS.Casinova.ColorsSvc.PayForColorsWinnerInfoCommand EndGetWinnerInformation(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IColorsService/Bet", ReplyAction="http://tempuri.org/IColorsService/BetResponse")]
         System.IAsyncResult BeginBet(TheS.Casinova.ColorsSvc.BetCommand cmd, System.AsyncCallback callback, object asyncState);
         
-        System.Guid EndBet(System.IAsyncResult result);
+        TheS.Casinova.ColorsSvc.BetCommand EndBet(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -657,10 +657,10 @@ namespace TheS.Casinova.ColorsSvc {
             this.results = results;
         }
         
-        public System.Guid Result {
+        public TheS.Casinova.ColorsSvc.PayForColorsWinnerInfoCommand Result {
             get {
                 base.RaiseExceptionIfNecessary();
-                return ((System.Guid)(this.results[0]));
+                return ((TheS.Casinova.ColorsSvc.PayForColorsWinnerInfoCommand)(this.results[0]));
             }
         }
     }
@@ -676,10 +676,10 @@ namespace TheS.Casinova.ColorsSvc {
             this.results = results;
         }
         
-        public System.Guid Result {
+        public TheS.Casinova.ColorsSvc.BetCommand Result {
             get {
                 base.RaiseExceptionIfNecessary();
-                return ((System.Guid)(this.results[0]));
+                return ((TheS.Casinova.ColorsSvc.BetCommand)(this.results[0]));
             }
         }
     }
@@ -927,7 +927,7 @@ namespace TheS.Casinova.ColorsSvc {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Guid TheS.Casinova.ColorsSvc.IColorsService.EndGetWinnerInformation(System.IAsyncResult result) {
+        TheS.Casinova.ColorsSvc.PayForColorsWinnerInfoCommand TheS.Casinova.ColorsSvc.IColorsService.EndGetWinnerInformation(System.IAsyncResult result) {
             return base.Channel.EndGetWinnerInformation(result);
         }
         
@@ -937,7 +937,7 @@ namespace TheS.Casinova.ColorsSvc {
         }
         
         private object[] OnEndGetWinnerInformation(System.IAsyncResult result) {
-            System.Guid retVal = ((TheS.Casinova.ColorsSvc.IColorsService)(this)).EndGetWinnerInformation(result);
+            TheS.Casinova.ColorsSvc.PayForColorsWinnerInfoCommand retVal = ((TheS.Casinova.ColorsSvc.IColorsService)(this)).EndGetWinnerInformation(result);
             return new object[] {
                     retVal};
         }
@@ -973,7 +973,7 @@ namespace TheS.Casinova.ColorsSvc {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Guid TheS.Casinova.ColorsSvc.IColorsService.EndBet(System.IAsyncResult result) {
+        TheS.Casinova.ColorsSvc.BetCommand TheS.Casinova.ColorsSvc.IColorsService.EndBet(System.IAsyncResult result) {
             return base.Channel.EndBet(result);
         }
         
@@ -983,7 +983,7 @@ namespace TheS.Casinova.ColorsSvc {
         }
         
         private object[] OnEndBet(System.IAsyncResult result) {
-            System.Guid retVal = ((TheS.Casinova.ColorsSvc.IColorsService)(this)).EndBet(result);
+            TheS.Casinova.ColorsSvc.BetCommand retVal = ((TheS.Casinova.ColorsSvc.IColorsService)(this)).EndBet(result);
             return new object[] {
                     retVal};
         }
@@ -1134,9 +1134,9 @@ namespace TheS.Casinova.ColorsSvc {
                 return _result;
             }
             
-            public System.Guid EndGetWinnerInformation(System.IAsyncResult result) {
+            public TheS.Casinova.ColorsSvc.PayForColorsWinnerInfoCommand EndGetWinnerInformation(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                System.Guid _result = ((System.Guid)(base.EndInvoke("GetWinnerInformation", _args, result)));
+                TheS.Casinova.ColorsSvc.PayForColorsWinnerInfoCommand _result = ((TheS.Casinova.ColorsSvc.PayForColorsWinnerInfoCommand)(base.EndInvoke("GetWinnerInformation", _args, result)));
                 return _result;
             }
             
@@ -1147,9 +1147,9 @@ namespace TheS.Casinova.ColorsSvc {
                 return _result;
             }
             
-            public System.Guid EndBet(System.IAsyncResult result) {
+            public TheS.Casinova.ColorsSvc.BetCommand EndBet(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                System.Guid _result = ((System.Guid)(base.EndInvoke("Bet", _args, result)));
+                TheS.Casinova.ColorsSvc.BetCommand _result = ((TheS.Casinova.ColorsSvc.BetCommand)(base.EndInvoke("Bet", _args, result)));
                 return _result;
             }
         }

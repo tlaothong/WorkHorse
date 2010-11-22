@@ -21,6 +21,7 @@ namespace TheS.Casinova.Colors.Views
         public GamePlayPage()
         {
             InitializeComponent();
+            ViewModel.Dispatcher = Dispatcher;
             ViewModel.GetListActiveGameRounds();
         }
 

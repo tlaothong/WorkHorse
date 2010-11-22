@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="nfBOfVusiwBoQtnm49TGXAQj6To=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="HH70I2579B5VaO7ATQFGiouk6/A=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IColorsService">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IColorsService" contract="ColorsSvc.IColorsService" bindingType="basicHttpBinding" address="http://localhost:23420/wsv/ColorsService.svc" bindingConfiguration="BasicHttpBinding_IColorsService">
+    <endpoint name="BasicHttpBinding_IColorsService" contract="ColorsSvc.IColorsService" bindingType="basicHttpBinding" address="http://localhost:60642/wsv/ColorsService.svc" bindingConfiguration="BasicHttpBinding_IColorsService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:23420/wsv/ColorsService.svc</serializedValue>
+          <serializedValue>http://localhost:60642/wsv/ColorsService.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

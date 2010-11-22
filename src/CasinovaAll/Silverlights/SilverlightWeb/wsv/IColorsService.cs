@@ -15,15 +15,15 @@ namespace SilverlightWeb.wsv
         ListActiveGameRoundCommand GetListActiveGameRound();
 
         [OperationContract]
-        GetGameResultCommand GetGameResult(GetGameResultCommand cmd);
-
-        [OperationContract]
         ListGamePlayInfoCommand GetListGamePlayInformation(ListGamePlayInfoCommand cmd);
 
         [OperationContract]
-        Guid GetWinnerInformation(PayForColorsWinnerInfoCommand cmd);
+        GetGameResultCommand GetGameResult(GetGameResultCommand cmd);
 
         [OperationContract]
-        Guid Bet(BetCommand cmd);
+        PayForColorsWinnerInfoCommand GetWinnerInformation(PayForColorsWinnerInfoCommand cmd);
+
+        [OperationContract]
+        BetCommand Bet(BetCommand cmd);
     }
 }

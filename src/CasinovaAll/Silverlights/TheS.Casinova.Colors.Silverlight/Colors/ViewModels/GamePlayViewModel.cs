@@ -16,6 +16,9 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Collections;
 using TheS.Casinova.ColorsSvc;
+using TheS.Casinova.Colors.Services;
+using System.Concurrency;
+using PerfEx.Infrastructure.LotUpdate;
 
 namespace TheS.Casinova.Colors.ViewModels
 {
@@ -30,18 +33,39 @@ namespace TheS.Casinova.Colors.ViewModels
         private string _totalAmountOfBlack;
         private string _totalAmountOfWhite;
         private ObservableCollection<GameTable> _tables;
-        private IColorsService _svc;
-        private Func<IObservable<ListActiveGameRoundCommand>> _activeGameRounds;
-        private Func<GetGameResultCommand, IObservable<GetGameResultCommand>> _gameResult;
-        private Func<ListGamePlayInfoCommand, IObservable<ListGamePlayInfoCommand>> _getListGamePlayInformation;
-        private Func<PayForColorsWinnerInfoCommand, IObservable<Guid>> _getWinnerInformation;
-        private Func<BetCommand, IObservable<Guid>> _bet;
+
+        private ObservableCollection<PayLog> _paylogs;
+        private IColorsServiceAdapter _sva;
+        private IScheduler _scheduler;
+        private IStatusTracker _tracker;
         private int _roundID;
         private double _betAmount;
+        private GameStatisticsViewModel _gameResult;
+        private bool _isSecondGetWinnerInformation;
+        private double _costWinnerInformation;
 
         #endregion Fields
 
         #region Properties
+
+        internal ObservableCollection<PayLog> Paylogs
+        {
+            get { return _paylogs; }
+            set { _paylogs = value; }
+        }
+
+        public GameStatisticsViewModel GameResult
+        {
+            get { return _gameResult; }
+            set
+            {
+                if (_gameResult!=value)
+                {
+                    _gameResult = value;
+                    _notify.Raise(() => GameResult); 
+                }
+            }
+        }
 
         public double BetAmount
         {
@@ -144,15 +168,34 @@ namespace TheS.Casinova.Colors.ViewModels
             }
         }
 
-        internal ColorsSvc.IColorsService GameSvc
+        internal Services.IColorsServiceAdapter GameService
         {
             get
             {
-                if (_svc == null)
-                    _svc = new ColorsSvc.ColorsServiceClient();
-                return _svc;
+                if (_sva == null)
+                {
+                    _sva = new ColorsServiceAdapter();
+                }
+                return _sva;
             }
-            set { _svc = value; }
+            set { _sva = value; }
+        }
+
+        internal IScheduler Scheduler
+        {
+            get { return _scheduler; }
+            set { _scheduler = value; }
+        }
+
+        internal System.Windows.Threading.Dispatcher Dispatcher
+        {
+            set { _scheduler = new DispatcherScheduler(value); }
+        }
+
+        internal IStatusTracker Tracker
+        {
+            get { return _tracker; }
+            set { _tracker = value; }
         }
 
         #endregion Properties
@@ -163,6 +206,7 @@ namespace TheS.Casinova.Colors.ViewModels
         {
             _notify = new PropertyChangedNotifier(this, () => PropertyChanged);
             _tables = new ObservableCollection<GameTable>();
+            _paylogs = new ObservableCollection<PayLog>();
 
             #region Designer properties
 
@@ -246,74 +290,147 @@ namespace TheS.Casinova.Colors.ViewModels
 
         public void GetListActiveGameRounds()
         {
-            var ccs = GameSvc;
-            _activeGameRounds = Observable.FromAsyncPattern<ListActiveGameRoundCommand>(
-                ccs.BeginGetListActiveGameRound, ccs.EndGetListActiveGameRound);
+            var svc = GameService;
 
-            // TODO: Colors RX GetListActiveGameRounds
             IDisposable disposeGameRounds = null;
-            disposeGameRounds = _activeGameRounds().ObserveOnDispatcher().Subscribe(
+            disposeGameRounds = svc.GetListActiveGameRound().ObserveOn(Scheduler).Subscribe(
                 next =>
                 {
                     foreach (var table in next.ActiveRounds)
-                    {
                         Tables.Add(new GameTable
                         {
+                            Name = "Colors",
                             Round = table.RoundID,
+                            StartTime = table.StartTime,
+                            EndTime = table.EndTime,
                         });
-                    }
-                    if (Tables.Count <= 0)
-                        Tables.Add(new GameTable());
                 },
-                error => { },
-                () => { }
+                error =>
+                {
+                    // TODO: Colors RX GetListActiveGameRounds error
+                },
+                () => disposeGameRounds.Dispose()
                 );
         }
 
         public void GetListGamePlayInformation()
         {
-            var ccs = GameSvc;
-            _getListGamePlayInformation = Observable.FromAsyncPattern<ListGamePlayInfoCommand, ListGamePlayInfoCommand>(
-                ccs.BeginGetListGamePlayInformation, ccs.EndGetListGamePlayInformation);
-
-            // TODO: Colors RX GetListGamePlayInformation
+            var svc = GameService;
             IDisposable disposeGamePlayInformation = null;
-            disposeGamePlayInformation = _getListGamePlayInformation(new ListGamePlayInfoCommand()).Subscribe(
-                next => { },
-                error => { },
-                () => { }
+            disposeGamePlayInformation = svc.GetListGamePlayInformation(new ListGamePlayInfoCommand()).
+                ObserveOn(Scheduler).Subscribe(
+                next =>
+                {
+                    foreach (var table in next.GamePlayInfos)
+                    {
+                        if (Tables.Any(round => round.Round.Equals(table.RoundID)))
+                        {
+                            // update game round information
+                            var update = Tables.First(round => round.Round.Equals(table.RoundID));
+                            var blackPot = table.TotalBetAmountOfBlack - update.TotalBetBlack;
+                            var whitePot = table.TotalBetAmountOfWhite - update.TotalBetWhite;
+
+                            update.TotalBetBlack += blackPot;
+                            update.TotalBetWhite += whitePot;
+                            update.TrackingID = table.TrackingID;
+                            update.OnGoingTrackingID = table.OnGoingTrackingID;
+                            update.Amount = (table.TotalBetAmountOfBlack + table.TotalBetAmountOfWhite) - update.Amount;
+                        }
+                        else
+                        {
+                            // add new game round information
+                            Tables.Add(new GameTable
+                            {
+                                Round = table.RoundID,
+                                TotalBetBlack = table.TotalBetAmountOfBlack,
+                                TotalBetWhite = table.TotalBetAmountOfWhite,
+                                TrackingID = table.TrackingID,
+                                OnGoingTrackingID = table.OnGoingTrackingID
+                            });
+                        }
+
+                        // Check TrackingID and OnGoingTrackingID not match 
+                        if (!table.TrackingID.Equals(table.OnGoingTrackingID))
+                        {
+                            // HACK: Test looking TrackingID and OnGoingTrackingID
+                            //GetListGamePlayInformation();
+                        }
+                    }
+                },
+                error =>
+                {
+                    // TODO: Colors RX GetListGamePlayInformation error
+                },
+                () => disposeGamePlayInformation.Dispose()
                 );
         }
 
         public void GetWinnerInformation()
         {
-            var ccs = GameSvc;
-            _getWinnerInformation = Observable.FromAsyncPattern<PayForColorsWinnerInfoCommand, Guid>(
-                ccs.BeginGetWinnerInformation, ccs.EndGetWinnerInformation);
+            // TODO: Sub account balance
+            Paylogs.Add(new PayLog
+            {
+                RoundID = RoundID,
+                Amount = _costWinnerInformation
+            });
+            var svc = GameService;
 
             // TODO: Colors RX GetWinnerInformation
             IDisposable disposeGetWinnerInformation = null;
-            disposeGetWinnerInformation = _getWinnerInformation(new PayForColorsWinnerInfoCommand { RoundID = RoundID })
-                .Subscribe(
-                next => { },
-                error => { },
-                () => { }
+            disposeGetWinnerInformation = svc.GetWinnerInformation(new PayForColorsWinnerInfoCommand { RoundID = RoundID })
+                .ObserveOn(Scheduler).Subscribe(
+                next =>
+                {
+                    // TODO: Colors observer follow trackingID
+                    //GetListGamePlayInformation();
+
+                    // Display TotalAmountOfBlack, TotalAmountOfWhite, Winner
+                    //var result = Tables.FirstOrDefault(c => c.Round.Equals(RoundID));
+                    //Winner = result.Winner;
+                    //TotalAmountOfBlack = result.TotalBetBlack.ToString();
+                    //TotalAmountOfWhite = result.TotalBetWhite.ToString();
+
+                    // TODO: Delete PayLog where TrackingID match
+                    // TODO: if trackingID = empty remove waiting status
+                },
+                error =>
+                {
+                    // TODO: Colors RX GetWinnerInformation error
+                },
+                () => disposeGetWinnerInformation.Dispose()
                 );
 
+            _isSecondGetWinnerInformation = true;
         }
 
         public void GetGameResult()
         {
-            var ccs = GameSvc;
-            _gameResult = Observable.FromAsyncPattern<GetGameResultCommand, GetGameResultCommand>(
-                ccs.BeginGetGameResult, ccs.EndGetGameResult);
+            var svc = GameService;
 
-            // TODO: Colors RX GetGameResult
             IDisposable disposeGameResult = null;
-            disposeGameResult = _gameResult(new GetGameResultCommand { RoundID = RoundID }).Subscribe(
-                next => { },
-                error => { },
-                () => { }
+            disposeGameResult = svc.GetGameResult(new GetGameResultCommand { RoundID = RoundID })
+                .ObserveOn(Scheduler).Subscribe(
+                next =>
+                {
+                    var result = next.GameResult;
+                    if (result != null)
+                    {
+                        string winner = "Black";
+                        if (result.WhitePot <= result.BlackPot) winner = "White";
+                        GameResult = new GameStatisticsViewModel
+                        {
+                            Winner = winner,
+                            Hands = result.HandCount,
+                            BlackPot = result.BlackPot,
+                            WhitePot = result.WhitePot,
+                        };
+                    }
+                },
+                error =>
+                {
+                    // TODO: Colors RX GetGameResult error
+                },
+                () => disposeGameResult.Dispose()
                 );
         }
 
@@ -324,20 +441,39 @@ namespace TheS.Casinova.Colors.ViewModels
             string selectColor = BetInWhite;
             if (betBlack) selectColor = BetInBlack;
 
-            var ccs = GameSvc;
-            _bet = Observable.FromAsyncPattern<BetCommand, Guid>(
-                ccs.BeginBet,ccs.EndBet);
+            Paylogs.Add(new PayLog
+            {
+                Amount = BetAmount,
+                RoundID = RoundID,
+                Colors = selectColor
+            });
 
-            // TODO: Colors RX Bet
+            var svc = GameService;
+
             IDisposable disposeBet = null;
-            disposeBet = _bet(new BetCommand{
+            disposeBet = svc.Bet(new BetCommand
+            {
+                Amount = BetAmount,
                 Color = selectColor,
                 RoundID = RoundID,
-                Amount = BetAmount
-            }).Subscribe(
-                next => { },
-                error => { },
-                () => { }
+            }).ObserveOn(Scheduler).Subscribe(
+                next =>
+                {
+                    // TODO: Colors RX Bet
+                    // Get OnGoingTrackingID
+                    // Sent to observer follow this OnGoingTrackingID
+                    // Observer found TrackingID in lot
+                    // Request get list game play information
+                    // Display TotalBetAmountOfBlack, TotalBetAmountOfWhite, Winner
+                    // Check TrackingID and OnGoingTrackingID
+                    // Delete PayLog in TrackingID
+                    // If Paylog empty remove waiting
+                },
+                error =>
+                {
+                    // TODO: Colors RX Bet error
+                },
+                () => disposeBet.Dispose()
                 );
         }
 
