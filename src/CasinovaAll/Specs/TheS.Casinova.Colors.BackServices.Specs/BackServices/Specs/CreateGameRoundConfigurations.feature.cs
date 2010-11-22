@@ -64,14 +64,14 @@ this.ScenarioSetup(scenarioInfo);
 #line 8
 testRunner.Given("The CreateGameRoundConfigurationsExecutor has been created and initialized");
 #line 9
-testRunner.And("Expect result should be add GameRoundConfig(Name: \'config1\', TableAmount: " +
+testRunner.And("Expect result should be add GameRoundConfigName(Name: \'config1\', TableAmount: " +
                     "\'4\', GameDuration: \'30\', Interval: \'5\')");
 #line 10
-testRunner.When("call CreateGameRoundConfiguration(GameRoundConfig(Name: \'config1\', TableAm" +
+testRunner.When("call CreateGameRoundConfiguration(GameRoundConfigName(Name: \'config1\', TableAm" +
                     "ount: \'4\', GameDuration: \'30\', Interval: \'5\'))");
 #line 11
-testRunner.Then("the GameRoundConfig should be saved to the ICreateGameRoundConfigurations." +
-                    "Create(GameRoundConfig, CreateGameRoundConfigurationCommand) with expect" +
+testRunner.Then("the GameRoundConfigName should be saved to the ICreateGameRoundConfigurations." +
+                    "Create(GameRoundConfigName, CreateGameRoundConfigurationCommand) with expect" +
                     "ed data");
 #line hidden
             testRunner.CollectScenarioErrors();

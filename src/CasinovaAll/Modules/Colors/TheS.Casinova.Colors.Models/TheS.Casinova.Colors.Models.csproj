@@ -44,7 +44,7 @@
     <Compile Include="Models\GamePlayInformation.md.cs" />
     <Compile Include="Models\GameRoundConfiguration.cs" />
     <Compile Include="Models\GameRoundConfiguration.md.cs" />
-    <Compile Include="Models\GameRoundInformation..md.cs" />
+    <Compile Include="Models\GameRoundInformation.md.cs" />
     <Compile Include="Models\PlayerActionInformation.cs" />
     <Compile Include="Models\GamePlayInformation.cs" />
     <Compile Include="Models\GameRoundInformation.cs" />

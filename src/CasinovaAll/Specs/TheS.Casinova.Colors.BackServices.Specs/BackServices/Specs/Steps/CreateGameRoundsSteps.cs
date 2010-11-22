@@ -19,7 +19,7 @@ namespace TheS.Casinova.Colors.BackServices
         private IEnumerable<GameRoundInformation> _activeRound;
         private GameRoundConfiguration _expectConfig;
 
-        [Given(@"server has GameRoundConfig information as:")]
+        [Given(@"server has GameRoundConfigName information as:")]
         public void GivenServerHasGameRoundConfigurationInformationAs(Table table)
         {
             _roundConfig = (from item in table.Rows
@@ -44,7 +44,7 @@ namespace TheS.Casinova.Colors.BackServices
                 .IgnoreArguments().Return(_activeRound);
         }
 
-       [Given(@"sent Name: '(.*)', the GameRoundConfig should recieved data as GameRoundConfig\(Name: '(.*)', TableAmount: '(.*)', GameDuration: '(.*)', Inverval: '(.*)'\)")]
+       [Given(@"sent Name: '(.*)', the GameRoundConfigName should recieved data as GameRoundConfigName\(Name: '(.*)', TableAmount: '(.*)', GameDuration: '(.*)', Inverval: '(.*)'\)")]
         public void GivenSentNameXTheGameRoundConfigurationShouldRecievedDataAsGameRoundConfigurationNameXTableAmountXGameDurationXInvervalX(string name, string configName, int tableAmount, int gameDuration, int interval)
         {
             _expectConfig = (from item in _roundConfig

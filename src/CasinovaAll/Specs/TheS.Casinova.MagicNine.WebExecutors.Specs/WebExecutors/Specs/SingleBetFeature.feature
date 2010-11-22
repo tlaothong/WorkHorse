@@ -1,30 +1,25 @@
 ﻿Feature: SingleBet
 	In order to single bet
-	As a player
-	I want to bet 
+	As a system
+	I want to get trackingID to return client and sent single bet information to back server
 
 @record_mock
-Scenario: ระบบได้รับ userName และ roundId ถูกต้อง #SingleBet
+Scenario Outline: ระบบได้รับข้อมูลการลงเดิมพันในเกม MagicNine ของผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อมูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID
 	Given The SingleBetExecutor has been created and initialized
-	And Web service has TrackingID : 'DA1FE75E-9042-4FC5-B3CF-1E973D2152F7'
-	And Expect execute SingleBetCommand
-	When Call SingleBetExecutor(userName'Nit', roundId '1')
-	Then TrackingID for client and back server should be : 'DA1FE75E-9042-4FC5-B3CF-1E973D2152F7'
+	And   SingleBet Informations as : UserName '<UserName>' RoundID '<RoundID>'
+	When  Call SingleBetExecutor() for validate single bet information
+	Then  Get null and skip checking trackingID
+
+	Examples:
+	|UserName	|RoundID	|
+	|Nit	 	|-2			|
+	|		 	|4			|
+
 
 @record_mock
-Scenario: ระบบได้รับ userName ไม่ถูกต้อง #SingleBet
+Scenario:  ระบบได้รับข้อมูลการลงเดิมพันในเกม MagicNine ของผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อมูลถูกต้อง ระบบทำการ generate trackingID
 	Given The SingleBetExecutor has been created and initialized
-	When Call SingleBetExecutor(userName'', roundId '1')
-	Then TrackingID for client and back server should be null
-
-@record_mock
-Scenario: ระบบได้รับ roundId ไม่ถูกต้อง #SingleBet
-	Given The SingleBetExecutor has been created and initialized
-	When Call SingleBetExecutor(userName'Nit', roundId '-1')
-	Then TrackingID for client and back server should be null
-
-@record_mock
-Scenario: ระบบได้รับ userName และ roundId  ไม่ถูกต้อง #SingleBet
-	Given The SingleBetExecutor has been created and initialized
-	When Call SingleBetExecutor(userName' ', roundId '-1')
-	Then TrackingID for client and back server should be null
+	And   SingleBet Informations as : UserName 'Sakanit' RoundID '4'
+	And   The system generated TrackingID for SingleBet:'942D2F350FAA4A32870CF9CF9A5C7A2E'
+	When  Call SingleBetExecutor() 
+	Then  TrackingID for SingleBet should be :'942D2F350FAA4A32870CF9CF9A5C7A2E'

@@ -4,26 +4,24 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
 
-namespace TheS.Casinova.Colors.Models
+namespace TheS.Casinova.MagicNine.Models
 {
     [MetadataType(typeof(MD))]
-    partial class PlayerActionInformation
+    partial class BetInformation
     {
         public class MD
         {
-            [Range(0,int.MaxValue)]
+            [Range(0, int.MaxValue)]
             public int RoundID { get; set; }
 
             [Required]
             public string UserName { get; set; }
 
-            [Required]
-            public string ActionType { get; set; }
+            public DateTime BetDateTime { get; set; }
+            
+            public int BetOrder { get; set; }
 
-            [Range(0, int.MaxValue)]
-            public double Amount { get; set; }
-
-            public Guid TrackingID { get; set; }
+            public Guid BetTrackingID { get; set; }
         }
     }
 }

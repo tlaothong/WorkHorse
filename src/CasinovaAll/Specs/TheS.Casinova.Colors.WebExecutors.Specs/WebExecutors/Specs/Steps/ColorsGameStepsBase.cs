@@ -15,8 +15,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         {
             get 
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_CreateGameRoundConfig] as CreateGameRoundConfigExecutor;
+                return ScenarioContext.Current.Get<CreateGameRoundConfigExecutor>();
             }
         }
 
@@ -24,8 +23,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_BetColorsGame] as BetColorsExecutor;
+                return ScenarioContext.Current.Get<BetColorsExecutor>();
             }
         }
 
@@ -33,8 +31,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_GetGameResult] as GetGameResultExecutor;
+                return ScenarioContext.Current.Get<GetGameResultExecutor>();
             }
         }
 
@@ -42,8 +39,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_PayForWinnerInfo] as PayForColorsWinnerInfoExecutor;
+                return ScenarioContext.Current.Get<PayForColorsWinnerInfoExecutor>();
             }
         }
 
@@ -51,8 +47,6 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         {
             get
             {
-                //return ScenarioContext.Current[
-                //    CommonSteps.Key_Dqr_ListActiveGameRoundsExecutor] as ListActiveGameRoundsExecutor;
                 return ScenarioContext.Current.Get<ListActiveGameRoundsExecutor>();
             }
         }
@@ -61,8 +55,15 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_ListGamePlayInfo] as ListGamePlayInfoExecutor;
+                return ScenarioContext.Current.Get<ListGamePlayInfoExecutor>();
+            }
+        }
+
+        protected CheckActiveRoundToCreateExecutor CheckActiveRound
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<CheckActiveRoundToCreateExecutor>();
             }
         }
 
@@ -70,8 +71,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dac_BetColorsGame] as IBet;
+                return ScenarioContext.Current.Get<IBet>();
             }
         }
 
@@ -79,8 +79,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dac_PayForWinnerInfo] as IPayForWinner;
+                return ScenarioContext.Current.Get<IPayForWinner>();
             }
         }
 
@@ -88,8 +87,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr_ListGamePlayInfo] as IListGamePlayInformation;
+                return ScenarioContext.Current.Get<IListGamePlayInformation>();
             }
         }
 
@@ -97,8 +95,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr_ListActiveGameRounds] as IListActiveGameRounds;
+                return ScenarioContext.Current.Get<IListActiveGameRounds>();
             }
         }
 
@@ -106,8 +103,8 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr_GetGameResult] as IGetGameResult;
+               
+                return ScenarioContext.Current.Get<IGetGameResult>();
             }
         }
 
@@ -115,8 +112,23 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dac_CreateGameRoundConfig] as ICreateGameTableConfigurations;
+                return ScenarioContext.Current.Get<ICreateGameTableConfigurations>();
+            }
+        }
+
+        protected IGetGameRoundConfigurations Dqr_GetGameRoundConfig
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<IGetGameRoundConfigurations>();
+            }
+        }
+
+        protected ICheckActiveRoundToCreate  Dac_CheckActiveRound
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<ICheckActiveRoundToCreate>();
             }
         }
     }

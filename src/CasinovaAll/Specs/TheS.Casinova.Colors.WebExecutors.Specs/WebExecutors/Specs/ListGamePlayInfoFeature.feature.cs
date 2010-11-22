@@ -58,124 +58,115 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs
 #line 7
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "UserProfileBalance",
-                        "GameRoundInfoRoundID",
+                        "UserName",
+                        "RoundID",
                         "TotalBetAmountOfBlack",
                         "TotalBetAmountOfWhite",
                         "Winner",
-                        "LastUpdate",
+                        "WinnerLastUpdate",
                         "TrackingID",
-                        "OnGoingTrackingID",
-                        "UserProfileBalance"});
+                        "OnGoingTrackingID"});
             table1.AddRow(new string[] {
-                        "Lala",
+                        "Lalaka",
                         "5",
                         "320",
                         "20",
                         "Black",
                         "10:00",
                         "{BAF9F79B-BDCC-4FA5-804D-9C8B4ED42887}",
-                        "{BAF9F79B-BDCC-4FA5-804D-9C8B4ED42887}",
-                        "Lala"});
+                        "{BAF9F79B-BDCC-4FA5-804D-9C8B4ED42887}"});
             table1.AddRow(new string[] {
-                        "Lala",
+                        "Nittaya",
                         "6",
                         "40",
                         "30",
                         "White",
                         "12:00",
                         "{046CDB68-8B43-431C-8584-11A6049C0CF4}",
-                        "{046CDB68-8B43-431C-8584-11A6049C0CF4}",
-                        "Lala"});
+                        "{046CDB68-8B43-431C-8584-11A6049C0CF4}"});
             table1.AddRow(new string[] {
-                        "Lala",
+                        "Lalaka",
                         "7",
                         "11",
                         "100",
                         "White",
                         "15:00",
                         "{046CDB68-8B43-431C-8584-11A6049C0CF4}",
-                        "{F0A52B67-DC51-424F-BF2E-CA72D8E07FA8}",
-                        "Lala"});
+                        "{F0A52B67-DC51-424F-BF2E-CA72D8E07FA8}"});
 #line 8
 testRunner.Given("Server has game play information as:", ((string)(null)), table1);
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบลิสต์ข้อมูลโต๊ะเกมที่ผู้เล่นเคยเล่นไว้ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล username ถูกต้อง และมีข้อมูลการเล่นเกมของผู้เล่น ระบบลิสต์ข้อมูล" +
+            "โต๊ะเกมที่ผู้เล่นเคยเล่นไว้ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListGamePlayInfo")]
-        public virtual void ระบบลสตขอมลโตะเกมทผเลนเคยเลนไวได()
+        public virtual void ระบบไดรบขอมลUsernameถกตองและมขอมลการเลนเกมของผเลนระบบลสตขอมลโตะเกมทผเลนเคยเลนไวได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบลิสต์ข้อมูลโต๊ะเกมที่ผู้เล่นเคยเล่นไว้ได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล username ถูกต้อง และมีข้อมูลการเล่นเกมของผู้เล่น ระบบลิสต์ข้อมูล" +
+                    "โต๊ะเกมที่ผู้เล่นเคยเล่นไว้ได้", new string[] {
                         "record_mock"});
 #line 15
 this.ScenarioSetup(scenarioInfo);
 #line 16
 testRunner.Given("The ListGamePlayInfoExecutor has been created and initialized");
 #line 17
-testRunner.When("Call ListGamePlayInfoExecutor(\'Lala\')");
+testRunner.And("Sent userName\'Lalaka\' for list game play information");
+#line 18
+testRunner.When("Call ListGamePlayInfoExecutor()");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                        "UserProfileBalance",
-                        "GameRoundInfoRoundID",
+                        "UserName",
+                        "RoundID",
                         "TotalBetAmountOfBlack",
                         "TotalBetAmountOfWhite",
                         "Winner",
-                        "LastUpdate",
+                        "WinnerLastUpdate",
                         "TrackingID",
-                        "OnGoingTrackingID",
-                        "UserProfileBalance"});
+                        "OnGoingTrackingID"});
             table2.AddRow(new string[] {
-                        "Lala",
+                        "Lalaka",
                         "5",
                         "320",
                         "20",
                         "Black",
                         "10:00",
                         "{BAF9F79B-BDCC-4FA5-804D-9C8B4ED42887}",
-                        "{BAF9F79B-BDCC-4FA5-804D-9C8B4ED42887}",
-                        "Lala"});
+                        "{BAF9F79B-BDCC-4FA5-804D-9C8B4ED42887}"});
             table2.AddRow(new string[] {
-                        "Lala",
-                        "6",
-                        "40",
-                        "30",
-                        "White",
-                        "12:00",
-                        "{046CDB68-8B43-431C-8584-11A6049C0CF4}",
-                        "{046CDB68-8B43-431C-8584-11A6049C0CF4}",
-                        "Lala"});
-            table2.AddRow(new string[] {
-                        "Lala",
+                        "Lalaka",
                         "7",
                         "11",
                         "100",
                         "White",
                         "15:00",
                         "{046CDB68-8B43-431C-8584-11A6049C0CF4}",
-                        "{F0A52B67-DC51-424F-BF2E-CA72D8E07FA8}",
-                        "Lala"});
-#line 18
+                        "{F0A52B67-DC51-424F-BF2E-CA72D8E07FA8}"});
+#line 19
 testRunner.Then("The game play information should be :", ((string)(null)), table2);
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบลิสต์ข้อมูลโต๊ะเกมแต่ไม่มีข้อมูล เนื่องจากผู้เล่นยังไม่เคยเล่นเกมที่โต๊ะใด ๆ")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล username ถูกต้อง ระบบลิสต์ข้อมูลโต๊ะเกมแต่ไม่มีข้อมูล เนื่องจากผ" +
+            "ู้เล่นยังไม่เคยเล่นเกมที่โต๊ะใด ๆ")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListGamePlayInfo")]
-        public virtual void ระบบลสตขอมลโตะเกมแตไมมขอมลเนองจากผเลนยงไมเคยเลนเกมทโตะใดๆ()
+        public virtual void ระบบไดรบขอมลUsernameถกตองระบบลสตขอมลโตะเกมแตไมมขอมลเนองจากผเลนยงไมเคยเลนเกมทโตะใดๆ()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบลิสต์ข้อมูลโต๊ะเกมแต่ไม่มีข้อมูล เนื่องจากผู้เล่นยังไม่เคยเล่นเกมที่โต๊ะใด ๆ", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล username ถูกต้อง ระบบลิสต์ข้อมูลโต๊ะเกมแต่ไม่มีข้อมูล เนื่องจากผ" +
+                    "ู้เล่นยังไม่เคยเล่นเกมที่โต๊ะใด ๆ", new string[] {
                         "record_mock"});
 #line 25
 this.ScenarioSetup(scenarioInfo);
 #line 26
 testRunner.Given("The ListGamePlayInfoExecutor has been created and initialized");
 #line 27
-testRunner.When("Call ListGamePlayInfoExecutor(\'Nit\')");
+testRunner.And("Sent userName\'BabyBoy\' for list game play information");
 #line 28
+testRunner.When("Call ListGamePlayInfoExecutor()");
+#line 29
 testRunner.Then("The game play information should be null");
 #line hidden
             testRunner.CollectScenarioErrors();
@@ -187,34 +178,17 @@ testRunner.Then("The game play information should be null");
         public virtual void ระบบไมไดรบขอมลUsernameระบบลสตขอมลโตะเกมไมได()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบไม่ได้รับข้อมูล username ระบบลิสต์ข้อมูลโต๊ะเกมไม่ได้", new string[] {
-                        "record_mock"});
-#line 31
-this.ScenarioSetup(scenarioInfo);
+                        "record_mockInfo"});
 #line 32
-testRunner.Given("The ListGamePlayInfoExecutor has been created and initialized");
-#line 33
-testRunner.When("Call ListGamePlayInfoExecutor(\'\')");
-#line 34
-testRunner.Then("The game play information should be throw exception");
-#line hidden
-            testRunner.CollectScenarioErrors();
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ใส่ข้อมูล username ที่ไม่มีในระบบ ระบบทำการลิสต์ข้อมูล ไม่มีข้อมูลโต๊ะเกม")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListGamePlayInfo")]
-        public virtual void ใสขอมลUsernameทไมมในระบบระบบทำการลสตขอมลไมมขอมลโตะเกม()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ใส่ข้อมูล username ที่ไม่มีในระบบ ระบบทำการลิสต์ข้อมูล ไม่มีข้อมูลโต๊ะเกม", new string[] {
-                        "record_mock"});
-#line 37
 this.ScenarioSetup(scenarioInfo);
-#line 38
+#line 33
 testRunner.Given("The ListGamePlayInfoExecutor has been created and initialized");
-#line 39
-testRunner.When("Call ListGamePlayInfoExecutor(\'Boy\')");
-#line 40
-testRunner.Then("The game play information should be null");
+#line 34
+testRunner.And("Sent userName\'\' for list game play information");
+#line 35
+testRunner.When("Call ListGamePlayInfoExecutor() for validate username");
+#line 36
+testRunner.Then("The game play information should be throw exception");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

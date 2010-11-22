@@ -7,17 +7,14 @@
 Scenario: ลิสต์ข้อมูลโต๊ะเกมที่กำลัง active ณ เวลาปัจจุบันที่ผู้เล่นเข้าห้องเกม
 	Given The ListActiveGameRoundsExecutor has been created and initialized
 	And The active game rounds are :
-		|RoundId|StartTime|EndTime|
-		|2		|09:00	  |14:00  |
+		|RoundID|StartTime|EndTime|
 		|3		|10:30	  |15:30  |
 		|4		|13:00	  |16:00  |
 		|5		|13:30	  |18:30  |
 		|6		|14:00	  |19:00  |
-	
-	When Call ListActiveGameRoundsExecutor
+	When Call ListActiveGameRoundsExecutor()
 	Then The result should be:
-		|RoundId|StartTime|EndTime|
-		|2		|09:00	  |14:00  |
+		|RoundID|StartTime|EndTime|
 		|3		|10:30	  |15:30  |
 		|4		|13:00	  |16:00  |
 		|5		|13:30	  |18:30  |
@@ -26,9 +23,9 @@ Scenario: ลิสต์ข้อมูลโต๊ะเกมที่กำ�
 @record_mock
 Scenario: ลิสต์ข้อมูลโต๊ะเกมที่กำลัง active แต่ใน database ยังไม่มีข้อมูล
 	Given The ListActiveGameRoundsExecutor has been created and initialized
-	And The active game rounds are :
-		|RoundId|StartTime|EndTime|
+	And  The active game rounds are :
+		 |RoundId|StartTime|EndTime|
 		
-	When Call ListActiveGameRoundsExecutor
+	When Call ListActiveGameRoundsExecutor()
 	Then The active game rounds should be null:
 		

@@ -138,10 +138,10 @@ testRunner.And("the expected balance should be: \'462.61\'");
 #line 28
 testRunner.And("the round information(RoundID: \'1\', GamePot: \'4330\') should be update");
 #line 29
-testRunner.And("the bet information(RoundID: \'1\', UserName: \'OhAe\', BetOrder: \'4330\', TrackingID:" +
+testRunner.And("the bet information(RoundID: \'1\', UserName: \'OhAe\', BetOrder: \'4330\', BetTrackingID:" +
                     " \'B21F8971-DBAB-400F-9D95-151BA24875C1\') should be create");
 #line 30
-testRunner.When("call SingleBet(RoundID: \'1\', UserName: \'OhAe\', TrackingID: \'B21F8971-DBAB-400F-9D" +
+testRunner.When("call SingleBet(RoundID: \'1\', UserName: \'OhAe\', BetTrackingID: \'B21F8971-DBAB-400F-9D" +
                     "95-151BA24875C1\')");
 #line 31
 testRunner.Then("the result should be create");
@@ -171,10 +171,10 @@ testRunner.And("the expected balance should be: \'35.99\'");
 #line 39
 testRunner.And("the round information(RoundID: \'3\', GamePot: \'713\') should be update");
 #line 40
-testRunner.And("the bet information(RoundID: \'3\', UserName: \'Nit\', BetOrder: \'713\', TrackingID: \'" +
+testRunner.And("the bet information(RoundID: \'3\', UserName: \'Nit\', BetOrder: \'713\', BetTrackingID: \'" +
                     "B21F8971-DBAB-400F-9D95-151BA24875C1\') should be create");
 #line 41
-testRunner.When("call SingleBet(RoundID: \'3\', UserName: \'Nit\', TrackingID: \'B21F8971-DBAB-400F-9D9" +
+testRunner.When("call SingleBet(RoundID: \'3\', UserName: \'Nit\', BetTrackingID: \'B21F8971-DBAB-400F-9D9" +
                     "5-151BA24875C1\')");
 #line 42
 testRunner.Then("the result should be create");
@@ -202,7 +202,7 @@ testRunner.And("sent RoundID: \'2\' the round pot should recieved");
 #line 49
 testRunner.And("the expected balance less than bet cost");
 #line 50
-testRunner.When("call SingleBet(RoundID: \'2\', UserName: \'Au\', TrackingID: \'B21F8971-DBAB-400F-9D95" +
+testRunner.When("call SingleBet(RoundID: \'2\', UserName: \'Au\', BetTrackingID: \'B21F8971-DBAB-400F-9D95" +
                     "-151BA24875C1\')");
 #line 51
 testRunner.Then("server should throw an error");

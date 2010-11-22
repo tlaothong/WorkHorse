@@ -41,7 +41,9 @@ namespace TheS.Casinova.MagicNine.BackServices.BackExecutors
                 PlayerInformation playerInfo = new PlayerInformation();
 
                 UpdatePlayerInfoBalanceCommand updatePlayerInfoBalanceCmd = new UpdatePlayerInfoBalanceCommand {
+                    BetInfo = new BetInformation{
                     UserName = playerInfo.UserName = getPlayerInfoCmd.PlayerInfo.UserName,
+                    },
                     Balance = playerInfo.Balance = getPlayerInfoCmd.PlayerInfo.Balance,
                 };
 

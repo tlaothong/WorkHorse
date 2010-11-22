@@ -12,11 +12,8 @@ namespace TheS.Casinova.Colors.Models
         public class MD
         {
             [Required]
-            [StringLength(50, MinimumLength = 5)]
             public string UserName { get; set; }
 
-            [Required]
-            [Range(0, int.MaxValue)]
             public int RoundID { get; set; }
 
             public Guid TrackingID { get; set; }
@@ -29,8 +26,7 @@ namespace TheS.Casinova.Colors.Models
 
             public string Winner { get; set; }
 
-            [Required]
-            public DateTime LastUpdate { get; set; }
+            public DateTime WinnerLastUpdate { get; set; }
         }
     }
 }

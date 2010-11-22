@@ -65,13 +65,9 @@ this.ScenarioSetup(scenarioInfo);
 testRunner.Given("The ListActiveGameRoundsExecutor has been created and initialized");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "RoundId",
+                        "RoundID",
                         "StartTime",
                         "EndTime"});
-            table1.AddRow(new string[] {
-                        "2",
-                        "09:00",
-                        "14:00"});
             table1.AddRow(new string[] {
                         "3",
                         "10:30",
@@ -90,17 +86,13 @@ testRunner.Given("The ListActiveGameRoundsExecutor has been created and initiali
                         "19:00"});
 #line 9
 testRunner.And("The active game rounds are :", ((string)(null)), table1);
-#line 17
-testRunner.When("Call ListActiveGameRoundsExecutor");
+#line 15
+testRunner.When("Call ListActiveGameRoundsExecutor()");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                        "RoundId",
+                        "RoundID",
                         "StartTime",
                         "EndTime"});
-            table2.AddRow(new string[] {
-                        "2",
-                        "09:00",
-                        "14:00"});
             table2.AddRow(new string[] {
                         "3",
                         "10:30",
@@ -117,7 +109,7 @@ testRunner.When("Call ListActiveGameRoundsExecutor");
                         "6",
                         "14:00",
                         "19:00"});
-#line 18
+#line 16
 testRunner.Then("The result should be:", ((string)(null)), table2);
 #line hidden
             testRunner.CollectScenarioErrors();
@@ -130,20 +122,20 @@ testRunner.Then("The result should be:", ((string)(null)), table2);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ลิสต์ข้อมูลโต๊ะเกมที่กำลัง active แต่ใน database ยังไม่มีข้อมูล", new string[] {
                         "record_mock"});
-#line 27
+#line 24
 this.ScenarioSetup(scenarioInfo);
-#line 28
+#line 25
 testRunner.Given("The ListActiveGameRoundsExecutor has been created and initialized");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "RoundId",
                         "StartTime",
                         "EndTime"});
-#line 29
+#line 26
 testRunner.And("The active game rounds are :", ((string)(null)), table3);
-#line 32
-testRunner.When("Call ListActiveGameRoundsExecutor");
-#line 33
+#line 29
+testRunner.When("Call ListActiveGameRoundsExecutor()");
+#line 30
 testRunner.Then("The active game rounds should be null:");
 #line hidden
             testRunner.CollectScenarioErrors();

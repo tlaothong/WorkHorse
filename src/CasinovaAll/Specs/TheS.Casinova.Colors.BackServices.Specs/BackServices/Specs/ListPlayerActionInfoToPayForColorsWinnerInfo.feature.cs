@@ -108,13 +108,13 @@ testRunner.Given("server has player action information as:", ((string)(null)), t
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ได้รับ GameRoundInfoRoundID และ UserProfileBalance ,ระบบมีข้อมูล PlayerActionInfo ในระบบ, ระบบดึงข้อมูล " +
-            "PlayerActionInfo กลับ")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ได้รับ GameRoundInfoRoundID และ UserProfileBalance ,ระบบมีข้อมูล PlayerActionInfoUserName ในระบบ, ระบบดึงข้อมูล " +
+            "PlayerActionInfoUserName กลับ")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListPlayerActionInfoToPayForColorsWinnerInfo")]
         public virtual void ไดรบRoundIDและUserNameระบบมขอมลPlayerActionInfoในระบบระบบดงขอมลPlayerActionInfoกลบ()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ได้รับ GameRoundInfoRoundID และ UserProfileBalance ,ระบบมีข้อมูล PlayerActionInfo ในระบบ, ระบบดึงข้อมูล " +
-                    "PlayerActionInfo กลับ", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ได้รับ GameRoundInfoRoundID และ UserProfileBalance ,ระบบมีข้อมูล PlayerActionInfoUserName ในระบบ, ระบบดึงข้อมูล " +
+                    "PlayerActionInfoUserName กลับ", new string[] {
                         "record_mock",
                         "record_mock"});
 #line 20
@@ -122,7 +122,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 21
 testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initialized");
 #line 22
-testRunner.And("sent GameRoundInfoRoundID: \'12\', UserProfileBalance: \'OhAe\' and expected PlayerActionInfo(s) in server");
+testRunner.And("sent GameRoundInfoRoundID: \'12\', UserProfileBalance: \'OhAe\' and expected PlayerActionInfoUserName(s) in server");
 #line 23
 testRunner.When("call List(PayForColorsWinnerInfoCommand), GameRoundInfoRoundID: \'12\', UserProfileBalance: \'OhAe\'");
 #line hidden
@@ -142,26 +142,26 @@ testRunner.When("call List(PayForColorsWinnerInfoCommand), GameRoundInfoRoundID:
                         "GetWinner",
                         "2553/3/12 11:28"});
 #line 24
-testRunner.Then("player should have PlayerActionInfo on this round as:", ((string)(null)), table2);
+testRunner.Then("player should have PlayerActionInfoUserName on this round as:", ((string)(null)), table2);
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ได้รับ GameRoundInfoRoundID และ UserProfileBalance ,ระบบไม่มีข้อมูล PlayerActionInfo ในระบบ, ระบบดึงข้อม" +
-            "ูล PlayerActionInfo เปล่ากลับ")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ได้รับ GameRoundInfoRoundID และ UserProfileBalance ,ระบบไม่มีข้อมูล PlayerActionInfoUserName ในระบบ, ระบบดึงข้อม" +
+            "ูล PlayerActionInfoUserName เปล่ากลับ")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListPlayerActionInfoToPayForColorsWinnerInfo")]
         public virtual void ไดรบRoundIDและUserNameระบบไมมขอมลPlayerActionInfoในระบบระบบดงขอมลPlayerActionInfoเปลากลบ()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ได้รับ GameRoundInfoRoundID และ UserProfileBalance ,ระบบไม่มีข้อมูล PlayerActionInfo ในระบบ, ระบบดึงข้อม" +
-                    "ูล PlayerActionInfo เปล่ากลับ", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ได้รับ GameRoundInfoRoundID และ UserProfileBalance ,ระบบไม่มีข้อมูล PlayerActionInfoUserName ในระบบ, ระบบดึงข้อม" +
+                    "ูล PlayerActionInfoUserName เปล่ากลับ", new string[] {
                         "record_mock"});
 #line 30
 this.ScenarioSetup(scenarioInfo);
 #line 31
 testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initialized");
 #line 32
-testRunner.And("sent GameRoundInfoRoundID: \'13\', UserProfileBalance: \'OhAe\' and expected PlayerActionInfo(s) in server");
+testRunner.And("sent GameRoundInfoRoundID: \'13\', UserProfileBalance: \'OhAe\' and expected PlayerActionInfoUserName(s) in server");
 #line 33
 testRunner.When("call List(PayForColorsWinnerInfoCommand), GameRoundInfoRoundID: \'12\', UserProfileBalance: \'OhAe\'");
 #line hidden
@@ -171,7 +171,7 @@ testRunner.When("call List(PayForColorsWinnerInfoCommand), GameRoundInfoRoundID:
                         "ActionType",
                         "DateTime(for example not use this row)"});
 #line 34
-testRunner.Then("player should have PlayerActionInfo on this round as:", ((string)(null)), table3);
+testRunner.Then("player should have PlayerActionInfoUserName on this round as:", ((string)(null)), table3);
 #line hidden
             testRunner.CollectScenarioErrors();
         }

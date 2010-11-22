@@ -93,7 +93,7 @@ testRunner.And(string.Format("sent name: {0} the player\'s balance should reciev
 testRunner.And(string.Format("the player\'s balance should be update correct, Amount: {0}", amount));
 #line 20
 testRunner.And(string.Format("the player action information should be update as: (UserProfileBalance: {0}, GameRoundInfoRoundID: {1}, " +
-                        "Amount: {2}, Color: {3}, TrackingID: {4})", userName, roundID, amount, color, trackingID));
+                        "Amount: {2}, Color: {3}, BetTrackingID: {4})", userName, roundID, amount, color, trackingID));
 #line 21
 testRunner.When(string.Format("call BetColorExecutor(UserProfileBalance: {0}, GameRoundInfoRoundID: {1}, Amount: {2}, Color: {3}, Track" +
                         "ingID: {4})", userName, roundID, amount, color, trackingID));

@@ -72,8 +72,8 @@ testRunner.Given("The ListGamePlayAutoBetInfoExecutor has been created and initi
                         "Amount",
                         "Interval",
                         "MoneyRefund",
-                        "StartTrackingID",
-                        "StopTrackingID"});
+                        "AutoBetTrackingID",
+                        "BetTrackingID"});
             table1.AddRow(new string[] {
                         "Nit",
                         "1",
@@ -101,8 +101,8 @@ testRunner.When("Call ListGamePlayAutoBetInfoExecutor");
                         "Amount",
                         "Interval",
                         "MoneyRefund",
-                        "StartTrackingID",
-                        "StopTrackingID"});
+                        "AutoBetTrackingID",
+                        "BetTrackingID"});
             table2.AddRow(new string[] {
                         "Nit",
                         "1",
@@ -145,8 +145,8 @@ testRunner.Given("The ListGamePlayAutoBetInfoExecutor has been created and initi
                         "Amount",
                         "Interval",
                         "MoneyRefund",
-                        "StartTrackingID",
-                        "StopTrackingID"});
+                        "AutoBetTrackingID",
+                        "BetTrackingID"});
 #line 24
 testRunner.And("server has game play auto bet information as:", ((string)(null)), table3);
 #line 27
@@ -175,8 +175,8 @@ testRunner.Given("The ListGamePlayAutoBetInfoExecutor has been created and initi
                         "Amount",
                         "Interval",
                         "MoneyRefund",
-                        "StartTrackingID",
-                        "StopTrackingID"});
+                        "AutoBetTrackingID",
+                        "BetTrackingID"});
 #line 33
 testRunner.And("server has game play auto bet information as:", ((string)(null)), table4);
 #line 36

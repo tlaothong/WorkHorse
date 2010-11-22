@@ -22,10 +22,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
              var activeGameRound = (from item in table.Rows
                                    select new GameRoundInformation{
                                        RoundID = Convert.ToInt32(item["RoundID"]),
-                                       StartTime = DateTime.Parse(item["StartTime"]),
-                                       EndTime = DateTime.Parse(item["EndTime"]),
                                        WinnerPoint = Convert.ToInt32(item["WinnerPoint"]),
-                                       GamePot = Convert.ToInt32(item["GamePot"]),
                                        Active = Convert.ToBoolean(item["Active"]),
                                    });
 
@@ -52,20 +49,14 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
             var qryExpected = (from item in table.Rows
                                select new {
                                    RoundID = Convert.ToInt32(item["RoundID"]),
-                                   StartTime = DateTime.Parse(item["StartTime"]),
-                                   EndTime = DateTime.Parse(item["EndTime"]),
                                    WinnerPoint = Convert.ToInt32(item["WinnerPoint"]),
-                                   GamePot = Convert.ToInt32(item["GamePot"]),
                                    Active = Convert.ToBoolean(item["Active"]),
                                });
 
             var result = (from it in _cmd.GameRoundInfos
                           select new {
                               it.RoundID,
-                              it.StartTime,
-                              it.EndTime,
                               it.WinnerPoint,
-                              it.GamePot,
                               it.Active
                           });
 

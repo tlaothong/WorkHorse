@@ -175,8 +175,8 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
             var fac = new PerfEx.Infrastructure.Containers.StructureMapAdapter.StructureMapAbstractFactory();
             var reg = fac.CreateRegistry();
 
-            //reg.Register<IValidator<GameRoundConfiguration, NullCommand>
-            //    , DataAnnotationValidator<GameRoundConfiguration, NullCommand>>();
+            reg.Register<IValidator<GameRoundConfiguration, NullCommand>
+                , DataAnnotationValidator<GameRoundConfiguration, NullCommand>>();
             reg.Register<IValidator<GameRoundConfiguration, CreateGameRoundConfigurationCommand>
                 , GameRoundConfiguration_CreateGameRoundConfigurationValidator>();
 

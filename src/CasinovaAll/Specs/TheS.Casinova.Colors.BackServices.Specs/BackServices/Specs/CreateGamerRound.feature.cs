@@ -88,7 +88,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
                         "15",
                         "10"});
 #line 7
-testRunner.Given("server has GameRoundConfig information as:", ((string)(null)), table1);
+testRunner.Given("server has GameRoundConfigName information as:", ((string)(null)), table1);
 #line hidden
         }
         
@@ -106,7 +106,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 17
 testRunner.Given("The CreateGameRoundsExecutor has been created and initialized");
 #line 18
-testRunner.And("sent Name: \'config1\', the GameRoundConfig should recieved data as GameRoun" +
+testRunner.And("sent Name: \'config1\', the GameRoundConfigName should recieved data as GameRoun" +
                     "dConfiguration(Name: \'config1\', TableAmount: \'4\', GameDuration: \'30\', Inverval: " +
                     "\'5\')");
 #line hidden
@@ -190,7 +190,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 41
 testRunner.Given("The CreateGameRoundsExecutor has been created and initialized");
 #line 42
-testRunner.And("sent Name: \'config1\', the GameRoundConfig should recieved data as GameRoun" +
+testRunner.And("sent Name: \'config1\', the GameRoundConfigName should recieved data as GameRoun" +
                     "dConfiguration(Name: \'config1\', TableAmount: \'4\', GameDuration: \'30\', Inverval: " +
                     "\'5\')");
 #line hidden

@@ -53,7 +53,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
             LastCall.IgnoreArguments().Do(CheckCallMethod);
         }
 
-        [Given(@"the player action information should be update as: \(UserProfileBalance: (.*), GameRoundInfoRoundID: (.*), Amount: (.*), Color: (.*), TrackingID: (.*)\)")]
+        [Given(@"the player action information should be update as: \(UserProfileBalance: (.*), GameRoundInfoRoundID: (.*), Amount: (.*), Color: (.*), BetTrackingID: (.*)\)")]
         public void GivenThePlayerActionInformationShouldBeUpdateAsUserNameXRoundIDXAmountXColorXTrackingIDX(string userName, int roundID, string amount, string color, string trackingID)
         {
             PlayerActionInformation _expected = new PlayerActionInformation {
@@ -76,7 +76,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
             LastCall.IgnoreArguments().Do(checkdata);
         }
 
-        [When(@"call BetColorExecutor\(UserProfileBalance: (.*), GameRoundInfoRoundID: (.*), Amount: (.*), Color: (.*), TrackingID: (.*)\)")]
+        [When(@"call BetColorExecutor\(UserProfileBalance: (.*), GameRoundInfoRoundID: (.*), Amount: (.*), Color: (.*), BetTrackingID: (.*)\)")]
         public void WhenCallBetColorExecutorUserNameXRoundIDXAmountXColorXTrackingIDX(string userName, int roundID, double amount, string color, string trackingID)
         {
             BetCommand cmd = new BetCommand {

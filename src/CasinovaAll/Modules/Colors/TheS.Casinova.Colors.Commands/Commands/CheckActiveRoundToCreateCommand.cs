@@ -17,6 +17,6 @@ namespace TheS.Casinova.Colors.Commands
        /// <summary>
         /// ชื่อโต๊ะเกมที่ต้องการตรวจสอบจำนวน round ที่ active
        /// </summary>
-        public GameRoundConfiguration GameRoundConfig { get; set; }
+        public GameRoundConfiguration GameRoundConfigName { get; set; }
     }
 }

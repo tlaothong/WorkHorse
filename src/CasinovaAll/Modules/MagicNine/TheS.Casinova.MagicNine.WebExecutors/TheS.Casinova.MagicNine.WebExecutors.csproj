@@ -55,7 +55,9 @@
     <Compile Include="WebExecutors\StartAutoBetExecutor.cs" />
     <Compile Include="WebExecutors\StopAutoBetExecutor.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Validators\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Shared\TheS.Casinova.Common.Commands\TheS.Casinova.Common.Commands.csproj">
       <Project>{B0BA601A-7B65-4973-9E00-4F9035883877}</Project>

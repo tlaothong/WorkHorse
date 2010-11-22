@@ -14,7 +14,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
     public class CreateGameRoundConfigurationsSteps
         : ColorsGameStepsBase
     {
-        [Given(@"Expect result should be add GameRoundConfig\(Name: '(.*)', TableAmount: '(.*)', GameDuration: '(.*)', Interval: '(.*)'\)")]
+        [Given(@"Expect result should be add GameRoundConfigName\(Name: '(.*)', TableAmount: '(.*)', GameDuration: '(.*)', Interval: '(.*)'\)")]
         public void GivenExpectResultShouldBeAddGameRoundConfigurationNameXTableAmountXGameDurationXIntervalX(string name, int tableAmount, int gameDuration, int interval)
         {
             Func<GameRoundConfiguration, CreateGameRoundConfigurationCommand, GameRoundConfiguration> checkdata = (gameRoundConf, cmd) => {
@@ -29,7 +29,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
             LastCall.IgnoreArguments().Do(checkdata);
         }
 
-        [When(@"call CreateGameRoundConfiguration\(GameRoundConfig\(Name: '(.*)', TableAmount: '(.*)', GameDuration: '(.*)', Interval: '(.*)'\)\)")]
+        [When(@"call CreateGameRoundConfiguration\(GameRoundConfigName\(Name: '(.*)', TableAmount: '(.*)', GameDuration: '(.*)', Interval: '(.*)'\)\)")]
         public void WhenCallCreateGameRoundConfigurationGameRoundConfigurationNameXTableAmountXGameDurationXIntervalX(string name, int tableAmount, int gameDuration, int interval)
         {
             CreateGameRoundConfigurationCommand cmd = new CreateGameRoundConfigurationCommand {
@@ -44,7 +44,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
             CreateGameRoundConfigurationsExecutor.Execute(cmd, (x) => { });
         }
 
-        [Then(@"the GameRoundConfig should be saved to the ICreateGameRoundConfigurations\.Create\(GameRoundConfig, CreateGameRoundConfigurationCommand\) with expected data")]
+        [Then(@"the GameRoundConfigName should be saved to the ICreateGameRoundConfigurations\.Create\(GameRoundConfigName, CreateGameRoundConfigurationCommand\) with expected data")]
         public void ThenTheGameRoundConfigurationShouldBeSavedToTheICreateGameRoundConfigurations_CreateGameRoundConfigurationCreateGameRoundConfigurationsCommandWithExpectedData()
         {
             Assert.IsTrue(true, "Expectation has been verified in the end of block When.");

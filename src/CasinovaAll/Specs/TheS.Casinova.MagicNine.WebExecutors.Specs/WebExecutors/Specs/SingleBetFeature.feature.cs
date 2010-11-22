@@ -29,7 +29,8 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "SingleBet", "In order to single bet\r\nAs a player\r\nI want to bet", ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "SingleBet", "In order to single bet\r\nAs a system\r\nI want to get trackingID to return client an" +
+                    "d sent single bet information to back server", ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -51,83 +52,64 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs
             testRunner.OnScenarioEnd();
         }
         
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับ userName และ roundId ถูกต้อง #SingleBet")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SingleBet")]
-        public virtual void ระบบไดรบUserNameและRoundIdถกตองSingleBet()
+        public virtual void ระบบไดรบขอมลการลงเดมพนในเกมMagicNineของผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID(string userName, string roundID)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับ userName และ roundId ถูกต้อง #SingleBet", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูลการลงเดิมพันในเกม MagicNine ของผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อ" +
+                    "มูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID", new string[] {
                         "record_mock"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
 testRunner.Given("The SingleBetExecutor has been created and initialized");
 #line 9
-testRunner.And("Web service has TrackingID : \'DA1FE75E-9042-4FC5-B3CF-1E973D2152F7\'");
+testRunner.And(string.Format("SingleBet Informations as : UserName \'{0}\' RoundID \'{1}\'", userName, roundID));
 #line 10
-testRunner.And("Expect execute SingleBetCommand");
+testRunner.When("Call SingleBetExecutor() for validate single bet information");
 #line 11
-testRunner.When("Call SingleBetExecutor(userName\'Nit\', roundId \'1\')");
-#line 12
-testRunner.Then("TrackingID for client and back server should be : \'DA1FE75E-9042-4FC5-B3CF-1E973D" +
-                    "2152F7\'");
+testRunner.Then("Get null and skip checking trackingID");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับ userName ไม่ถูกต้อง #SingleBet")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลการลงเดิมพันในเกม MagicNine ของผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อ" +
+            "มูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SingleBet")]
-        public virtual void ระบบไดรบUserNameไมถกตองSingleBet()
+        public virtual void ระบบไดรบขอมลการลงเดมพนในเกมMagicNineของผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID_Nit()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับ userName ไม่ถูกต้อง #SingleBet", new string[] {
+            this.ระบบไดรบขอมลการลงเดมพนในเกมMagicNineของผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID("Nit", "-2");
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลการลงเดิมพันในเกม MagicNine ของผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อ" +
+            "มูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SingleBet")]
+        public virtual void ระบบไดรบขอมลการลงเดมพนในเกมMagicNineของผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID_()
+        {
+            this.ระบบไดรบขอมลการลงเดมพนในเกมMagicNineของผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID("", "4");
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลการลงเดิมพันในเกม MagicNine ของผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อ" +
+            "มูลถูกต้อง ระบบทำการ generate trackingID")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SingleBet")]
+        public virtual void ระบบไดรบขอมลการลงเดมพนในเกมMagicNineของผเลนระบบทำการตรวจสอบขอมลขอมลถกตองระบบทำการGenerateTrackingID()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูลการลงเดิมพันในเกม MagicNine ของผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อ" +
+                    "มูลถูกต้อง ระบบทำการ generate trackingID", new string[] {
                         "record_mock"});
-#line 15
+#line 20
 this.ScenarioSetup(scenarioInfo);
-#line 16
-testRunner.Given("The SingleBetExecutor has been created and initialized");
-#line 17
-testRunner.When("Call SingleBetExecutor(userName\'\', roundId \'1\')");
-#line 18
-testRunner.Then("TrackingID for client and back server should be null");
-#line hidden
-            testRunner.CollectScenarioErrors();
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับ roundId ไม่ถูกต้อง #SingleBet")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SingleBet")]
-        public virtual void ระบบไดรบRoundIdไมถกตองSingleBet()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับ roundId ไม่ถูกต้อง #SingleBet", new string[] {
-                        "record_mock"});
 #line 21
-this.ScenarioSetup(scenarioInfo);
+testRunner.Given("The SingleBetExecutor has been created and initialized");
 #line 22
-testRunner.Given("The SingleBetExecutor has been created and initialized");
+testRunner.And("SingleBet Informations as : UserName \'Sakanit\' RoundID \'4\'");
 #line 23
-testRunner.When("Call SingleBetExecutor(userName\'Nit\', roundId \'-1\')");
+testRunner.And("The system generated TrackingID for SingleBet:\'942D2F350FAA4A32870CF9CF9A5C7A2E\'");
 #line 24
-testRunner.Then("TrackingID for client and back server should be null");
-#line hidden
-            testRunner.CollectScenarioErrors();
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับ userName และ roundId  ไม่ถูกต้อง #SingleBet")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SingleBet")]
-        public virtual void ระบบไดรบUserNameและRoundIdไมถกตองSingleBet()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับ userName และ roundId  ไม่ถูกต้อง #SingleBet", new string[] {
-                        "record_mock"});
-#line 27
-this.ScenarioSetup(scenarioInfo);
-#line 28
-testRunner.Given("The SingleBetExecutor has been created and initialized");
-#line 29
-testRunner.When("Call SingleBetExecutor(userName\' \', roundId \'-1\')");
-#line 30
-testRunner.Then("TrackingID for client and back server should be null");
+testRunner.When("Call SingleBetExecutor()");
+#line 25
+testRunner.Then("TrackingID for SingleBet should be :\'942D2F350FAA4A32870CF9CF9A5C7A2E\'");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

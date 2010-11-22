@@ -5,6 +5,7 @@ using System.Text;
 using TechTalk.SpecFlow;
 using TheS.Casinova.MagicNine.DAL;
 using TheS.Casinova.MagicNine.BackServices;
+using SpecFlowAssist;
 
 namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
 {
@@ -62,8 +63,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dac_Singlebet] as ISingleBet;
+                return ScenarioContext.Current.Get<ISingleBet>();
             }
         }
 
@@ -112,12 +112,11 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
             }
         }
 
-        protected SingleBetExecutor SingleBetExecutor
+        protected SingleBetExecutor SingleBet
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_SingleBet] as SingleBetExecutor;
+                return ScenarioContext.Current.Get<SingleBetExecutor>();
             }
         }
     }

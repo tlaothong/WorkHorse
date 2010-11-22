@@ -8,7 +8,7 @@ namespace TheS.Casinova.Colors.Models
 {
     /// <summary>
     /// ข้อมูลโต๊ะเกม
-    /// </summary>
+    /// </summary>ID
     public partial class GameRoundInformation
     {
         /// <summary>

@@ -63,10 +63,10 @@ this.ScenarioSetup(scenarioInfo);
 #line 8
 testRunner.Given("The StopAutoBetExecutor has been created and initialized");
 #line 9
-testRunner.And("the StopAutoBet shoule be call as: (UserName: \'OhAe\', RoundID: \'1\', TrackingID: \'" +
+testRunner.And("the StopAutoBet shoule be call as: (UserName: \'OhAe\', RoundID: \'1\', BetTrackingID: \'" +
                     "B21F8971-DBAB-400F-9D95-151BA24875C1\')");
 #line 10
-testRunner.When("call StopAutoBetExecutor(UserName: \'OhAe\', RoundID: \'1\', TrackingID: \'B21F8971-DB" +
+testRunner.When("call StopAutoBetExecutor(UserName: \'OhAe\', RoundID: \'1\', BetTrackingID: \'B21F8971-DB" +
                     "AB-400F-9D95-151BA24875C1\')");
 #line 11
 testRunner.Then("server should call StopAutoBet");

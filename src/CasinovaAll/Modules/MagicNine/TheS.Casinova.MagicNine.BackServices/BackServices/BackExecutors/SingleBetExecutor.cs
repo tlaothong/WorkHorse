@@ -34,7 +34,7 @@ namespace TheS.Casinova.MagicNine.BackServices.BackExecutors
         protected override void ExecuteCommand(SingleBetCommand command)
         {
             GetPlayerInfoCommand getPlayerInfoCmd = new GetPlayerInfoCommand {
-                UserName = command.UserName,
+                UserName = command.BetInfo.UserName,
             };
 
             getPlayerInfoCmd.PlayerInfo = _iGetPlayerInfo.Get(getPlayerInfoCmd);
@@ -45,7 +45,9 @@ namespace TheS.Casinova.MagicNine.BackServices.BackExecutors
                 PlayerInformation playerInfo = new PlayerInformation();
 
                 UpdatePlayerInfoBalanceCommand updatePlayerInfoBalanceCmd = new UpdatePlayerInfoBalanceCommand {
+                    BetInfo = new BetInformation{
                     UserName = playerInfo.UserName = getPlayerInfoCmd.PlayerInfo.UserName,
+                    },
                     Balance = playerInfo.Balance = getPlayerInfoCmd.PlayerInfo.Balance,
                 };
 
@@ -56,23 +58,25 @@ namespace TheS.Casinova.MagicNine.BackServices.BackExecutors
             }
 
             GetGameRoundPotCommand getGameRoundPotCmd = new GetGameRoundPotCommand {
-                RoundID = command.RoundID,
+                RoundID = command.BetInfo.RoundID,
             };
 
             getGameRoundPotCmd.Pot = _iGetGameRoundPot.Get(getGameRoundPotCmd);
 
 
             BetInformation betInfo = new BetInformation {
-                RoundID = command.RoundID,
-                UserName = command.UserName,
-                TrackingID = command.TrackingID,
+                RoundID = command.BetInfo.RoundID,
+                UserName = command.BetInfo.UserName,
+                BetTrackingID = command.TrackingID,
             };
 
             GameRoundInformation gameRoundInfo = new GameRoundInformation();
 
             UpdateGameRoundPotCommand updateGameRoundPotCmd = new UpdateGameRoundPotCommand {
-                RoundID = gameRoundInfo.RoundID = command.RoundID,
-                GamePot = gameRoundInfo.GamePot = betInfo.BetOrder = getGameRoundPotCmd.Pot + 1,
+                BetInfo = new BetInformation{
+                RoundID = gameRoundInfo.RoundID = command.BetInfo.RoundID,
+                },
+                //GamePot = gameRoundInfo.GamePot = betInfo.BetOrder = getGameRoundPotCmd.Pot + 1,
             };
 
             _iUpdateGameRoundPot.ApplyAction(gameRoundInfo, updateGameRoundPotCmd);

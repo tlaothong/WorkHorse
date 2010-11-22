@@ -51,7 +51,7 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
             LastCall.IgnoreArguments().Do(CheckCallMethod);
         }
 
-        [Given(@"the StartAutoBet shoule be call as: \(UserName: '(.*)', RoundID: '(.*)', Amount: '(.*)', Interval: '(.*)', TrackingID: '(.*)'\)")]
+        [Given(@"the StartAutoBet shoule be call as: \(UserName: '(.*)', RoundID: '(.*)', Amount: '(.*)', Interval: '(.*)', BetTrackingID: '(.*)'\)")]
         public void GivenTheAutoBetEngineShouleBeCallAsUserNameXRoundID1AmountXIntervalXTrackingIDX(string userName, int roundID, int amount, int interval, string trackingID)
         {
             Action<StartAutoBetCommand> checkData = (cmd) => {
@@ -59,13 +59,13 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
                 Assert.AreEqual(userName, cmd.UserName, "UserName");
                 Assert.AreEqual(amount, cmd.Amount, "Amount");
                 Assert.AreEqual(interval, cmd.Interval, "Interval");
-                Assert.AreEqual(Guid.Parse(trackingID), cmd.StartTrackingID, "StartTrackingID");
+                Assert.AreEqual(Guid.Parse(trackingID), cmd.StartTrackingID, "AutoBetTrackingID");
             };                   
             Svc_AutoBetEngine.StartAutoBet(new StartAutoBetCommand());
             LastCall.IgnoreArguments().Do(checkData);
         }
 
-        [When(@"call StartAutoBetExecutor\(UserName: '(.*)', RoundID: '(.*)', Amount: '(.*)', Interval: '(.*)', TrackingID: '(.*)'\)")]
+        [When(@"call StartAutoBetExecutor\(UserName: '(.*)', RoundID: '(.*)', Amount: '(.*)', Interval: '(.*)', BetTrackingID: '(.*)'\)")]
         public void WhenCallStartAutoBetExecutorUserNameXRoundID1AmountXIntervalXTrackingIDX(string userName, int roundID, int amount, int interval, string trackingID)
         {
             StartAutoBetCommand cmd = new StartAutoBetCommand {

@@ -17,6 +17,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
     {
         private CreateGameRoundConfigurationCommand _cmd;
 
+        //Test error
         [Given(@"Game round configuration informations are : Name'(.*)',TableAmount'(.*)', GameDuration'(.*)', Interval'(.*)', BufferRoundCount'(.*)'")]
         public void GivenGameRoundConfigurationInformationsAreNameXTableAmountXGameDurationXIntervalXBufferRoundCountX(string name, int tableAmount, int gameDuration, int interval, int bufferRoundCount)
         {
@@ -43,12 +44,49 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
                 Assert.IsInstanceOfType(ex,
                     typeof(ValidationErrorException));
             }
+               
         }
 
         [Then(@"The system can't sent GameRoundConfigurations to back server")]
         public void ThenTheSystemCanTSentGameRoundConfigurationsToBackServer()
         {
-            Assert.IsTrue(true, "Check exception from block When");
+            Assert.IsTrue(true, "Exception has been verified in the end of block When.");
         }
+
+        //Test succeeded
+        [Given(@"System can sent game round configuration informations are : Name'(.*)',TableAmount'(.*)', GameDuration'(.*)', Interval'(.*)', BufferRoundCount'(.*)'")]
+        public void GivenSystemCanSentGameRoundConfigurationInformationsAreNameColorsGameTableAmount5GameDuration30Interval10BufferRoundCount3(string name, int tableAmount, int gameDuration, int interval, int bufferRoundCount)
+        {
+            _cmd = new CreateGameRoundConfigurationCommand {
+                GameRoundConfig = new GameRoundConfiguration {
+                    Name = name,
+                    TableAmount = tableAmount,
+                    GameDuration = gameDuration,
+                    Interval = interval,
+                    BufferRoundsCount = bufferRoundCount
+                }
+            };
+        }
+
+        [When(@"System can call CreateGameRoundConfigExecutor\(\)")]
+        public void WhenSystemCanCallCreateGameRoundConfigExecutor()
+        {
+            try {
+                CreateGameRound.Execute(_cmd, (x) => { });
+                Assert.IsTrue(true);
+            }
+            catch (Exception ex) {
+                Assert.IsInstanceOfType(ex,
+                    typeof(ValidationErrorException));
+            }
+        }
+
+        [Then(@"The system can sent GameRoundConfigurations to back server")]
+        public void ThenTheSystemCanSentGameRoundConfigurationsToBackServer()
+        {
+            Assert.IsTrue(true, "Exception has been verified in the end of block When.");
+        }
+
+        
     }
 }

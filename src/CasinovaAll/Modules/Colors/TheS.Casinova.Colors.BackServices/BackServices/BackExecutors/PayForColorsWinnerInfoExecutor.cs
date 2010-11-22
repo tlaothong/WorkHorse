@@ -45,7 +45,7 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
             #region Update balance
             //ดึงข้อมูลยอดเงินของผู้เล่น
             GetPlayerInfoCommand getPlayerInfoCmd = new GetPlayerInfoCommand {
-                UserName = command.PlayerActionInfo.UserName,
+                UserName = command.PlayerActionInfoUserName.UserName,
             };
 
             getPlayerInfoCmd.PlayerInfo = _iGetPlayerInfo.Get(getPlayerInfoCmd);
@@ -83,8 +83,8 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
             PlayerActionInformation playerActionInfo = new PlayerActionInformation();
 
             CreatePlayerActionInfoCommand createPlayerActionInfoCmd = new CreatePlayerActionInfoCommand {
-                UserName = playerActionInfo.UserName = command.PlayerActionInfo.UserName,
-                RoundID = playerActionInfo.RoundID = command.PlayerActionInfo.RoundID,
+                UserName = playerActionInfo.UserName = command.PlayerActionInfoUserName.UserName,
+                RoundID = playerActionInfo.RoundID = command.PlayerActionInfoUserName.RoundID,
                 Amount = playerActionInfo.Amount = _payFee,
                 ActionType = playerActionInfo.ActionType = "GetWinner",
             };
@@ -95,9 +95,9 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
             GamePlayInformation gamePlayInfo = new GamePlayInformation();
 
             UpdateOnGoingTrackingIDCommand updateOnGoingTrackingIDCmd = new UpdateOnGoingTrackingIDCommand {
-                PlayerActionInfo = new PlayerActionInformation {
-                    RoundID = gamePlayInfo.RoundID = command.PlayerActionInfo.RoundID,
-                    UserName = gamePlayInfo.UserName = command.PlayerActionInfo.UserName,
+                PlayerActionInfoUserName = new PlayerActionInformation {
+                    RoundID = gamePlayInfo.RoundID = command.PlayerActionInfoUserName.RoundID,
+                    UserName = gamePlayInfo.UserName = command.PlayerActionInfoUserName.UserName,
                     TrackingID = gamePlayInfo.OnGoingTrackingID = command.OnGoingTrackingID,
                 }
             };
@@ -110,7 +110,7 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
 
             //ดึงข้อมูล Winner
             GetRoundInfoCommand getRoundInfoCmd = new GetRoundInfoCommand { 
-                RoundID = command.PlayerActionInfo.RoundID
+                RoundID = command.PlayerActionInfoUserName.RoundID
             };
             getRoundInfoCmd.RoundInfo = _iGetRoundInfo.Get(getRoundInfoCmd);
 
@@ -128,9 +128,9 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
             GamePlayInformation gamePlayInfoForComplete = new GamePlayInformation();
 
             UpdateRoundWinnerCommand updateRoundWinnerCmd = new UpdateRoundWinnerCommand {
-                PlayerActionInfo = new PlayerActionInformation {
-                    RoundID = gamePlayInfoForComplete.RoundID = command.PlayerActionInfo.RoundID,
-                    UserName = gamePlayInfoForComplete.UserName = command.PlayerActionInfo.UserName,
+                PlayerActionInfoUserName = new PlayerActionInformation {
+                    RoundID = gamePlayInfoForComplete.RoundID = command.PlayerActionInfoUserName.RoundID,
+                    UserName = gamePlayInfoForComplete.UserName = command.PlayerActionInfoUserName.UserName,
                 },
                     Winner = gamePlayInfoForComplete.Winner = _winner,
                     TrackingID = gamePlayInfoForComplete.TrackingID = command.OnGoingTrackingID,

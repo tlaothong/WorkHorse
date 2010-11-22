@@ -182,7 +182,7 @@ testRunner.And("the player\'s action information(GameRoundInfoRoundID: \'12\', U
 testRunner.And("the game play information(GameRoundInfoRoundID: \'12\', UserProfileBalance: \'OhAe\', OnGoingTrackingID: \'B2" +
                     "1F8971-DBAB-400F-9D95-151BA24875C1\') should be update");
 #line 43
-testRunner.And("the game play information(GameRoundInfoRoundID: \'12\', UserProfileBalance: \'OhAe\', TrackingID: \'B21F8971-" +
+testRunner.And("the game play information(GameRoundInfoRoundID: \'12\', UserProfileBalance: \'OhAe\', BetTrackingID: \'B21F8971-" +
                     "DBAB-400F-9D95-151BA24875C1\', Winner: \'Black\') should be update");
 #line 44
 testRunner.When("call PayForColorsWinnerInfo(UserProfileBalance: \'OhAe\', GameRoundInfoRoundID: \'12\', OnGoingTrackingID: \'" +
@@ -222,7 +222,7 @@ testRunner.And("the player\'s action information(GameRoundInfoRoundID: \'13\', U
 testRunner.And("the game play information(GameRoundInfoRoundID: \'13\', UserProfileBalance: \'Boy\', OnGoingTrackingID: \'B21" +
                     "F8971-DBAB-400F-9D95-151BA24875C1\') should be update");
 #line 56
-testRunner.And("the game play information(GameRoundInfoRoundID: \'13\', UserProfileBalance: \'Boy\', TrackingID: \'B21F8971-D" +
+testRunner.And("the game play information(GameRoundInfoRoundID: \'13\', UserProfileBalance: \'Boy\', BetTrackingID: \'B21F8971-D" +
                     "BAB-400F-9D95-151BA24875C1\', Winner: \'White\') should be update");
 #line 57
 testRunner.When("call PayForColorsWinnerInfo(UserProfileBalance: \'Boy\', GameRoundInfoRoundID: \'13\', OnGoingTrackingID: \'B" +

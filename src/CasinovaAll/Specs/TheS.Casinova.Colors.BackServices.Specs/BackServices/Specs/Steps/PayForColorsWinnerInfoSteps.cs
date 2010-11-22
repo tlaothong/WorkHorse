@@ -137,7 +137,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
                 .IgnoreArguments().Return(result);
         }
 
-        [Given(@"the game play information\(GameRoundInfoRoundID: '(.*)', UserProfileBalance: '(.*)', TrackingID: '(.*)', Winner: '(.*)'\) should be update")]
+        [Given(@"the game play information\(GameRoundInfoRoundID: '(.*)', UserProfileBalance: '(.*)', BetTrackingID: '(.*)', Winner: '(.*)'\) should be update")]
         public void GivenTheGamePlayInformationRoundIDXUserNameXTrackingIDXShouldBeUpdate(int roundID, string userName, string trackingID, string winner)
         {
             GamePlayInformation _expected = new GamePlayInformation {
@@ -151,7 +151,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
                 Assert.AreEqual(_expected.RoundID, gamePlayInfo.RoundID, "GameRoundInfoRoundID");
                 Assert.AreEqual(_expected.UserName, gamePlayInfo.UserName, "UserProfileBalance");
                 Assert.AreEqual(_expected.Winner, gamePlayInfo.Winner, "Winner");
-                Assert.AreEqual(_expected.TrackingID, gamePlayInfo.TrackingID, "TrackingID");
+                Assert.AreEqual(_expected.TrackingID, gamePlayInfo.TrackingID, "BetTrackingID");
             };
 
             Dac_UpdateRoundWinner.ApplyAction(new GamePlayInformation(), new UpdateRoundWinnerCommand());
@@ -162,7 +162,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
         public void WhenCallPayForColorsWinnerInfoUserNameXRoundIDXOnGoingTrackingIDX(string userName, int roundID, string onGoingTrackingID)
         {
             PayForColorsWinnerInfoCommand cmd = new PayForColorsWinnerInfoCommand {
-                PlayerActionInfo = new PlayerActionInformation {
+                PlayerActionInfoUserName = new PlayerActionInformation {
                     UserName = userName,
                     RoundID = roundID,
                     TrackingID = Guid.Parse(onGoingTrackingID),

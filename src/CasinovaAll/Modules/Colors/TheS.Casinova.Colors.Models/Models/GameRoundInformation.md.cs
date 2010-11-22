@@ -11,7 +11,7 @@ namespace TheS.Casinova.Colors.Models
     {
         public class MD
         {
-            [Range(0, 99)]
+            [Range(0,int.MaxValue)]
             public int RoundID { get; set; }
 
             public DateTime StartTime { get; set; }

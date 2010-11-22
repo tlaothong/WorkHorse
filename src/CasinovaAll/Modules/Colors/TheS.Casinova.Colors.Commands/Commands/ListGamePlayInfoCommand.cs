@@ -15,7 +15,7 @@ namespace TheS.Casinova.Colors.Commands
         /// <summary>
         /// ข้อมูลชื่อของผู้เล่น
         /// </summary>
-        public GamePlayInformation GamePlayInfo { get; set; } 
+        public GamePlayInformation GamePlayInfoUserName { get; set; } 
 
         //output
         /// <summary>

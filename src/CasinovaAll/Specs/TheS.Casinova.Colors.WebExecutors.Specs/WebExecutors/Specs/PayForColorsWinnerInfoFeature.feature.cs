@@ -52,50 +52,79 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs
             testRunner.OnScenarioEnd();
         }
         
-        public virtual void ระบบไดรบขอมลPayForColorsWinnerInformationระบบทำการตรวจสอบขอมลเพอGenerateTrackingIDเพอสงขอมลไปยงBackServerตอไป(string userName, string roundID)
+        public virtual void ระบบไดรบขอมลPayForColorsWinnerInformationระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID(string userName, string roundID, string actionType)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล PayForColorsWinnerInformation ระบบทำการตรวจสอบข้อมูล เพื่อ gener" +
-                    "ate trackingID เพื่อส่งข้อมูลไปยัง back server ต่อไป", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล PayForColorsWinnerInformation ระบบทำการตรวจสอบข้อมูล ข้อมูลไม่ถู" +
+                    "กต้อง ระบบไม่ทำการ generate trackingID", new string[] {
                         "record_mock"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
 testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initialized");
 #line 9
-testRunner.When(string.Format("Call PayForColorsWinnerInfoExecutor(userName \'{0}\' GameRoundInfoRoundID \'{1}\')", userName, roundID));
+testRunner.And(string.Format("PayForColorWinner Informations as : UserName \'{0}\' RoundID \'{1}\' ActionType \'{2}\'" +
+                        "", userName, roundID, actionType));
 #line 10
-testRunner.Then("The system can generate trckingID for pay colors winner information");
+testRunner.When("Call PayForColorsWinnerInfoExecutor() for validate PayForColorWinner informations" +
+                    "");
 #line 11
-testRunner.Then("The system can\'t generate trackingID for  pay colors winner information");
+testRunner.Then("PayForColorWinnerInfo get null and skip checking trackingID");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล PayForColorsWinnerInformation ระบบทำการตรวจสอบข้อมูล เพื่อ gener" +
-            "ate trackingID เพื่อส่งข้อมูลไปยัง back server ต่อไป")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล PayForColorsWinnerInformation ระบบทำการตรวจสอบข้อมูล ข้อมูลไม่ถู" +
+            "กต้อง ระบบไม่ทำการ generate trackingID")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PayForColorsWinnerInformation")]
-        public virtual void ระบบไดรบขอมลPayForColorsWinnerInformationระบบทำการตรวจสอบขอมลเพอGenerateTrackingIDเพอสงขอมลไปยงBackServerตอไป_Variant0()
+        public virtual void ระบบไดรบขอมลPayForColorsWinnerInformationระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant0()
         {
-            this.ระบบไดรบขอมลPayForColorsWinnerInformationระบบทำการตรวจสอบขอมลเพอGenerateTrackingIDเพอสงขอมลไปยงBackServerตอไป("Nit", "4");
+            this.ระบบไดรบขอมลPayForColorsWinnerInformationระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID("", "2", "Black");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล PayForColorsWinnerInformation ระบบทำการตรวจสอบข้อมูล เพื่อ gener" +
-            "ate trackingID เพื่อส่งข้อมูลไปยัง back server ต่อไป")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล PayForColorsWinnerInformation ระบบทำการตรวจสอบข้อมูล ข้อมูลไม่ถู" +
+            "กต้อง ระบบไม่ทำการ generate trackingID")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PayForColorsWinnerInformation")]
-        public virtual void ระบบไดรบขอมลPayForColorsWinnerInformationระบบทำการตรวจสอบขอมลเพอGenerateTrackingIDเพอสงขอมลไปยงBackServerตอไป_Variant1()
+        public virtual void ระบบไดรบขอมลPayForColorsWinnerInformationระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant1()
         {
-            this.ระบบไดรบขอมลPayForColorsWinnerInformationระบบทำการตรวจสอบขอมลเพอGenerateTrackingIDเพอสงขอมลไปยงBackServerตอไป("Nit", "-2");
+            this.ระบบไดรบขอมลPayForColorsWinnerInformationระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID("Nit", "-2", "Black");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล PayForColorsWinnerInformation ระบบทำการตรวจสอบข้อมูล เพื่อ gener" +
-            "ate trackingID เพื่อส่งข้อมูลไปยัง back server ต่อไป")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล PayForColorsWinnerInformation ระบบทำการตรวจสอบข้อมูล ข้อมูลไม่ถู" +
+            "กต้อง ระบบไม่ทำการ generate trackingID")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PayForColorsWinnerInformation")]
-        public virtual void ระบบไดรบขอมลPayForColorsWinnerInformationระบบทำการตรวจสอบขอมลเพอGenerateTrackingIDเพอสงขอมลไปยงBackServerตอไป_Variant2()
+        public virtual void ระบบไดรบขอมลPayForColorsWinnerInformationระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant2()
         {
-            this.ระบบไดรบขอมลPayForColorsWinnerInformationระบบทำการตรวจสอบขอมลเพอGenerateTrackingIDเพอสงขอมลไปยงBackServerตอไป("", "4");
+            this.ระบบไดรบขอมลPayForColorsWinnerInformationระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID("Nit", "2", "");
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล PayForColorsWinnerInformation ระบบทำการตรวจสอบข้อมูล ข้อมูลถูกต้" +
+            "อง ระบบทำการ generate trackingID")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PayForColorsWinnerInformation")]
+        public virtual void ระบบไดรบขอมลPayForColorsWinnerInformationระบบทำการตรวจสอบขอมลขอมลถกตองระบบทำการGenerateTrackingID()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล PayForColorsWinnerInformation ระบบทำการตรวจสอบข้อมูล ข้อมูลถูกต้" +
+                    "อง ระบบทำการ generate trackingID", ((string[])(null)));
+#line 19
+this.ScenarioSetup(scenarioInfo);
+#line 20
+testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initialized");
+#line 21
+testRunner.And("PayForColorWinner Informations as : UserName \'Nataya\' RoundID \'3\' ActionType \'Pay" +
+                    "ForWinner\'");
+#line 22
+testRunner.And("The system generated TrackingID:\'955D6ACDE4E04D1C90ACF3715BB2685A\' for PayForColo" +
+                    "rWinnerInfo");
+#line 23
+testRunner.When("Call PayForColorsWinnerInfoExecutor()");
+#line 24
+testRunner.Then("TrackingID for PayForColorWinnerInfo should be :\'955D6ACDE4E04D1C90ACF3715BB2685A" +
+                    "\'");
+#line hidden
+            testRunner.CollectScenarioErrors();
         }
     }
 }
