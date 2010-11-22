@@ -104,7 +104,7 @@ namespace TheS.Casinova.PlayerProfile.ViewModels
 
         public void Search()
         {
-            // TODO : Search button clicked
+            // TODO: Search button clicked
         }
 
         #endregion Methods

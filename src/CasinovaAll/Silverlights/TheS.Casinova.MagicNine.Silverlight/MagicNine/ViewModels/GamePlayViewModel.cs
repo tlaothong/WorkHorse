@@ -172,7 +172,7 @@ namespace TheS.Casinova.MagicNine.ViewModels
         /// </summary>
         public void StartStop()
         {
-            // TODO : StartStop
+            // TODO: StartStop
         }
 
         #endregion Methods

@@ -12,9 +12,9 @@ using System.Windows.Shapes;
 
 namespace TheS.Casinova.MagicNine.Views
 {
-    public partial class GameStatisticsWindow : ChildWindow
+    public partial class StatisticsChartWindow : ChildWindow
     {
-        public GameStatisticsWindow()
+        public StatisticsChartWindow()
         {
             InitializeComponent();
         }

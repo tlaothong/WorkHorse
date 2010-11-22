@@ -10,11 +10,11 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace TheS.Casinova.DevilSix.Views
+namespace TheS.Casinova.TwoWins.Views
 {
-    public partial class GameStatisticsWindow : ChildWindow
+    public partial class StatisticsChartWindow : ChildWindow
     {
-        public GameStatisticsWindow()
+        public StatisticsChartWindow()
         {
             InitializeComponent();
         }

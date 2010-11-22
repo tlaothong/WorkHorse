@@ -17,7 +17,6 @@ using System.Collections.Generic;
 
 namespace CasinovaAllStars.ViewModels
 {
-    // TODO : Error navigation when using this viewmodel
     public class MainViewModel : INotifyPropertyChanged
     {
         #region Fields

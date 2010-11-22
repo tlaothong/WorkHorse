@@ -59,6 +59,16 @@ namespace SimpleNotif.Views
                 });
             });
 
+            IDisposable dsp = null;
+            dsp = tracker.Watch(obs).SubscribeOnDispatcher().Subscribe(
+                nx =>
+                {
+                    var info = new { nx.LotNo, nx.Status };
+                    //MessageBox.Show(info.ToString());
+                    listBox1.Items.Add(info);
+                }
+                , ex => { MessageBox.Show(ex.ToString()); }
+                , () => { MessageBox.Show("???"); dsp.Dispose(); });
             obs.Initialize(tracker);
             obs.SetTrackingID(id);
         }
@@ -77,7 +87,19 @@ namespace SimpleNotif.Views
                 });
             });
             obs.Initialize(_tracker);
+            IDisposable dsp = null;
 
+            dsp = _tracker.Watch(obs).SubscribeOnDispatcher().Subscribe(
+                nx =>
+                {
+                    var info = new { nx.LotNo, nx.Status };
+                    //MessageBox.Show(info.ToString());
+                    listBox1.Items.Add(info);
+                }
+                , ex => { MessageBox.Show(ex.ToString()); }
+                , () => { MessageBox.Show("???"); dsp.Dispose(); });
+
+            ////svc.SendMessageAsync(textBox1.Text, obs);
             IDisposable mdsp = null;
             mdsp = _sendMsg.Invoke(textBox1.Text).Subscribe(
                 nx => {

@@ -181,17 +181,17 @@ namespace TheS.Casinova.DevilSix.ViewModels
         /// </summary>
         public void StartStop()
         {
-            // TODO : StartStop
+            // TODO: StartStop
         }
 
         public void BetOne()
         {
-            // TODO : Bet $1
+            // TODO: Bet $1
         }
 
         public void BetTwo()
         {
-            // TODO : Bet $2
+            // TODO: Bet $2
         }
 
         #endregion Methods
