@@ -279,7 +279,7 @@ namespace TheS.Casinova.Colors.ViewModels
 
         public void GetListActiveGameRounds()
         {
-            var svc = GameService;
+            var svc = _sva;
 
             IDisposable disposeGameRounds = null;
             disposeGameRounds = svc.GetListActiveGameRound().ObserveOn(Scheduler).Subscribe(
@@ -304,7 +304,7 @@ namespace TheS.Casinova.Colors.ViewModels
 
         public void GetListGamePlayInformation()
         {
-            var svc = GameService;
+            var svc = _sva;
             IDisposable disposeGamePlayInformation = null;
             disposeGamePlayInformation = svc.GetListGamePlayInformation(new ListGamePlayInfoCommand()).
                 ObserveOn(Scheduler).Subscribe(
@@ -356,13 +356,14 @@ namespace TheS.Casinova.Colors.ViewModels
 
         public void GetWinnerInformation()
         {
+            var svc = _sva;
+
             // TODO: Sub account balance
             Paylogs.Add(new PayLog
             {
                 RoundID = RoundID,
                 Amount = _costWinnerInformation
             });
-            var svc = GameService;
 
             // TODO: Colors RX GetWinnerInformation
             IDisposable disposeGetWinnerInformation = null;
@@ -396,7 +397,7 @@ namespace TheS.Casinova.Colors.ViewModels
 
         public void GetGameResult()
         {
-            var svc = GameService;
+            var svc = _sva;
 
             IDisposable disposeGameResult = null;
             disposeGameResult = svc.GetGameResult(new GetGameResultCommand { RoundID = RoundID })
@@ -438,6 +439,8 @@ namespace TheS.Casinova.Colors.ViewModels
 
         private void bet(bool betBlack = true)
         {
+            var svc = _sva;
+
             const string BetInBlack = "Black";
             const string BetInWhite = "White";
             string selectColor = BetInWhite;
@@ -450,8 +453,6 @@ namespace TheS.Casinova.Colors.ViewModels
                 Colors = selectColor
             };
             Paylogs.Add(paylog);
-
-            var svc = GameService;
 
             IDisposable disposeBet = null;
             disposeBet = svc.Bet(new BetCommand

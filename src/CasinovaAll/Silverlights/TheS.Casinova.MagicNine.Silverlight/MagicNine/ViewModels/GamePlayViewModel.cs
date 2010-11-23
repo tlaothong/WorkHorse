@@ -13,6 +13,9 @@ using PerfEx.Infrastructure;
 using System.Collections.ObjectModel;
 using System.Globalization;
 using TheS.Casinova.MagicNine.Models;
+using TheS.Casinova.MagicNine.Services;
+using System.Concurrency;
+using PerfEx.Infrastructure.LotUpdate;
 
 namespace TheS.Casinova.MagicNine.ViewModels
 {
@@ -27,9 +30,60 @@ namespace TheS.Casinova.MagicNine.ViewModels
         private ObservableCollection<double> _betLogData;
         private ObservableCollection<GameTable> _tables;
 
+        private IMagicNineServiceAdapter _sva;
+        private IScheduler _scheduler;
+        private IStatusTracker _statusTracker;
+        private int _roundID;
+
         #endregion Fields
 
         #region Properties
+
+        internal IMagicNineServiceAdapter GameService
+        {
+            get
+            {
+                if (_sva == null)
+                {
+                    _sva = new MagicNineServiceAdapter();
+                }
+                return _sva;
+            }
+            set { _sva = value; }
+        }
+
+        internal IScheduler Scheduler
+        {
+            get { return _scheduler; }
+            set { _scheduler = value; }
+        }
+
+        internal System.Windows.Threading.Dispatcher Dispatcher
+        {
+            set { _scheduler = new DispatcherScheduler(value); }
+        }
+
+        internal IStatusTracker StatusTracker
+        {
+            get { return _statusTracker; }
+            set { _statusTracker = value; }
+        }
+
+        /// <summary>
+        /// Game round id
+        /// </summary>
+        public int RoundID
+        {
+            get { return _roundID; }
+            set
+            {
+                if (_roundID != value)
+                {
+                    _roundID = value;
+                    _notify.Raise(() => RoundID);
+                }
+            }
+        }
 
         /// <summary>
         /// รายชื่อโต๊ะเกมที่สามารถเข้าเล่นได้
