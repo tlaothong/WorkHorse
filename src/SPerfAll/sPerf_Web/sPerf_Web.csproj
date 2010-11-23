@@ -164,6 +164,7 @@
     <Content Include="Areas\Profile\Views\Profile\Inbox.aspx" />
     <Content Include="Areas\Profile\Views\Profile\Index.aspx" />
     <Content Include="Areas\Profile\Views\Profile\Photo.aspx" />
+    <Content Include="Areas\Profile\Views\Profile\photocomment.ascx" />
     <Content Include="Areas\Profile\Views\Profile\Profile.aspx" />
     <Content Include="Areas\Profile\Views\Profile\SubMenu.ascx" />
     <Content Include="Areas\Scholarship\Views\Scholarship\AdvanceSearch.ascx" />
@@ -207,6 +208,7 @@
     <Content Include="Content\img\pier.jpg" />
     <Content Include="Content\img\sea-mist.jpg" />
     <Content Include="Content\img\stones.jpg" />
+    <Content Include="Content\jquery-ui-1.8.6.custom.css" />
     <Content Include="Content\jquery.ad-gallery.css" />
     <Content Include="Content\jquery.autocomplete.css" />
     <Content Include="Content\profile\1.jpg" />
@@ -499,6 +501,7 @@
     <Content Include="Scripts\jquery-1.4.4.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.1.custom.js" />
     <Content Include="Content\jquery.hoverscroll-0.2.2.css" />
+    <Content Include="Scripts\jquery-ui-1.8.6.custom.min.js" />
     <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\jquery.ad-gallery.js" />
     <Content Include="Scripts\jquery.ad-gallery.pack.js" />

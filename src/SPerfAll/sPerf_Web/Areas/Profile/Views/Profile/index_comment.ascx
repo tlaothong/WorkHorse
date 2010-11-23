@@ -1,22 +1,33 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<dynamic>" %>
-<%--script for load content from db--%>
+<link href="../../../../Content/jquery-ui-1.8.6.custom.css" rel="stylesheet" type="text/css" />
+<script src="../../../../Scripts/jquery-1.4.2.min.js" type="text/javascript"></script>
+<script src="../../../../Scripts/jquery-ui-1.8.6.custom.min.js" type="text/javascript"></script>
 <script type="text/javascript">
-    $(document).ready(function () {
-        $("#photodialog").load("photocomment_dialog.html");
-    });
-</script>
+    $(function () {
+        // Dialog
+        $("#dialog").dialog({
+            autoOpen: false,
+            width: 600,
+            buttons: {
+                "Ok": function () {
+                    $(this).dialog("close");
+                },
+                "Cancel": function () {
+                    $(this).dialog("close");
+                }
+            }
+        });
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#seell").load("seeAll.html");
+        // Dialog Link
+        $('#dialog_link').click(function () {
+            $('#dialog').dialog('open');
+            return false;
+        });
     });
+
 </script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $(".showReport").load("reportDialog.html");
-    });
-</script>
-<table><tr><td><div id="photodialog"></div></td><td><div id="seell"></div></td></tr></table>
+<table><tr><td><div ><label id="dialog_link" style="background-color:Gray; padding:2px 2px 2px 2px;">Comment</label></div></td><td><div id="seell">SeeAll</div></td></tr></table>
+<div id="dialog"></div>
 <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin; width:150px;"></div>
 <div id="listContent">
     <div>

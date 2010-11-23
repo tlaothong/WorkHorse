@@ -47,5 +47,9 @@ namespace sPerf_Web.Areas.Profile.Controllers
         {
             return View();
         }
+        public virtual ActionResult photocomment()
+        {
+            return View();
+        }
     }
 }

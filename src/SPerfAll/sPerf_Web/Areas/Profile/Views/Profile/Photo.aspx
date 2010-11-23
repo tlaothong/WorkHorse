@@ -231,4 +231,5 @@
     <% Html.RenderPartial("SubMenu"); %>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="SideBar" runat="server">
+<% Html.RenderPartial("photocomment"); %>
 </asp:Content>

@@ -120,7 +120,7 @@ namespace sPerf_Web.Areas.Profile.Controllers {
             return callInfo;
         }
 
-        public override System.Web.Mvc.ActionResult Banners() {
+        public override System.Web.Mvc.ActionResult photocomment() {
             var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Banners);
             return callInfo;
         }
