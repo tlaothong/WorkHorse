@@ -31,19 +31,22 @@ namespace TheS.Casinova.Colors.Specs.Steps
         {
             MockRepository mocks = new MockRepository();
             IColorsServiceAdapter svc = mocks.Stub<IColorsServiceAdapter>();
-            IStatusTracker tracker = mocks.Stub<IStatusTracker>();
+            IStatusTracker statusTracker = mocks.Stub<IStatusTracker>();
+            Subject<TrackingInformation> subject = new Subject<TrackingInformation>();
             TestScheduler scheduler = new TestScheduler();
             GamePlayViewModel viewModel = new GamePlayViewModel
             {
                 Scheduler = scheduler,
-                GameService = svc
+                GameService = svc,
+                StatusTracker = statusTracker
             };
 
             ScenarioContext.Current.Set<GamePlayViewModel>(viewModel);
             ScenarioContext.Current.Set<TestScheduler>(scheduler);
             ScenarioContext.Current.Set<MockRepository>(mocks);
             ScenarioContext.Current.Set<IColorsServiceAdapter>(svc);
-            ScenarioContext.Current.Set<IStatusTracker>(tracker);
+            ScenarioContext.Current.Set<IStatusTracker>(statusTracker);
+            ScenarioContext.Current.Set<Subject<TrackingInformation>>(subject);
         }
     }
 }

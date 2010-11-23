@@ -10,7 +10,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using PerfEx.Infrastructure.LotUpdate;
 
-namespace TheS.Casinova.Colors.Models
+namespace TheS.Casinova.Colors
 {
     public class ColorsTrackingObserver : TrackingObserverBase
     {

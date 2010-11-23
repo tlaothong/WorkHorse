@@ -371,7 +371,9 @@ namespace TheS.Casinova.Colors.ViewModels
                 next =>
                 {
                     // TODO: Colors observer follow trackingID
-                    //GetListGamePlayInformation();
+                    ColorsTrackingObserver observer = new ColorsTrackingObserver(() => { });
+                    observer.Initialize(StatusTracker);
+                    observer.SetTrackingID(next.OnGoingTrackingID);
 
                     // Display TotalAmountOfBlack, TotalAmountOfWhite, Winner
                     //var result = Tables.FirstOrDefault(c => c.Round.Equals(RoundID));
@@ -441,12 +443,13 @@ namespace TheS.Casinova.Colors.ViewModels
             string selectColor = BetInWhite;
             if (betBlack) selectColor = BetInBlack;
 
-            Paylogs.Add(new PayLog
+            var paylog = new PayLog
             {
                 Amount = BetAmount,
                 RoundID = RoundID,
                 Colors = selectColor
-            });
+            };
+            Paylogs.Add(paylog);
 
             var svc = GameService;
 
