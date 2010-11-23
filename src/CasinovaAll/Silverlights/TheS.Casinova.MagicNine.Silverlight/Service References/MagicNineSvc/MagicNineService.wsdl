@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MagicNineService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:60642/wsv/MagicNineService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:60642/wsv/MagicNineService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:60642/wsv/MagicNineService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TheS.Casinova.MagicNine.Commands" />
+      <xsd:import schemaLocation="http://localhost:60642/wsv/MagicNineService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/TheS.Casinova.MagicNine.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMagicNineService_GetListActiveGameRound_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListActiveGameRound" />
+  </wsdl:message>
+  <wsdl:message name="IMagicNineService_GetListActiveGameRound_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListActiveGameRoundResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMagicNineService_GetListGamePlayAutoBetInformation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListGamePlayAutoBetInformation" />
+  </wsdl:message>
+  <wsdl:message name="IMagicNineService_GetListGamePlayAutoBetInformation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListGamePlayAutoBetInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMagicNineService_GetListBetLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListBetLog" />
+  </wsdl:message>
+  <wsdl:message name="IMagicNineService_GetListBetLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListBetLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMagicNineService_BetSingle_InputMessage">
+    <wsdl:part name="parameters" element="tns:BetSingle" />
+  </wsdl:message>
+  <wsdl:message name="IMagicNineService_BetSingle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BetSingleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMagicNineService_AutoBetOn_InputMessage">
+    <wsdl:part name="parameters" element="tns:AutoBetOn" />
+  </wsdl:message>
+  <wsdl:message name="IMagicNineService_AutoBetOn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AutoBetOnResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMagicNineService_AutoBetOff_InputMessage">
+    <wsdl:part name="parameters" element="tns:AutoBetOff" />
+  </wsdl:message>
+  <wsdl:message name="IMagicNineService_AutoBetOff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AutoBetOffResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IMagicNineService">
+    <wsdl:operation name="GetListActiveGameRound">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMagicNineService/GetListActiveGameRound" message="tns:IMagicNineService_GetListActiveGameRound_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMagicNineService/GetListActiveGameRoundResponse" message="tns:IMagicNineService_GetListActiveGameRound_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListGamePlayAutoBetInformation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMagicNineService/GetListGamePlayAutoBetInformation" message="tns:IMagicNineService_GetListGamePlayAutoBetInformation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMagicNineService/GetListGamePlayAutoBetInformationResponse" message="tns:IMagicNineService_GetListGamePlayAutoBetInformation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListBetLog">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMagicNineService/GetListBetLog" message="tns:IMagicNineService_GetListBetLog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMagicNineService/GetListBetLogResponse" message="tns:IMagicNineService_GetListBetLog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BetSingle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMagicNineService/BetSingle" message="tns:IMagicNineService_BetSingle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMagicNineService/BetSingleResponse" message="tns:IMagicNineService_BetSingle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AutoBetOn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMagicNineService/AutoBetOn" message="tns:IMagicNineService_AutoBetOn_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMagicNineService/AutoBetOnResponse" message="tns:IMagicNineService_AutoBetOn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AutoBetOff">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMagicNineService/AutoBetOff" message="tns:IMagicNineService_AutoBetOff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMagicNineService/AutoBetOffResponse" message="tns:IMagicNineService_AutoBetOff_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IMagicNineService" type="tns:IMagicNineService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetListActiveGameRound">
+      <soap:operation soapAction="http://tempuri.org/IMagicNineService/GetListActiveGameRound" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListGamePlayAutoBetInformation">
+      <soap:operation soapAction="http://tempuri.org/IMagicNineService/GetListGamePlayAutoBetInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListBetLog">
+      <soap:operation soapAction="http://tempuri.org/IMagicNineService/GetListBetLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BetSingle">
+      <soap:operation soapAction="http://tempuri.org/IMagicNineService/BetSingle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutoBetOn">
+      <soap:operation soapAction="http://tempuri.org/IMagicNineService/AutoBetOn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutoBetOff">
+      <soap:operation soapAction="http://tempuri.org/IMagicNineService/AutoBetOff" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MagicNineService">
+    <wsdl:port name="BasicHttpBinding_IMagicNineService" binding="tns:BasicHttpBinding_IMagicNineService">
+      <soap:address location="http://localhost:60642/wsv/MagicNineService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
