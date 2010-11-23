@@ -113,7 +113,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Acomment.html" />
     <Content Include="App_themes\sPerf\aspnet_ajax.css" />
     <Content Include="App_themes\sPerf\Sites.css" />
     <Content Include="App_themes\sPerf\images\avatar.png" />
@@ -282,7 +281,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="photocomment_dialog.html" />
     <Content Include="profile.html" />
-    <Content Include="reportDialog.html" />
     <Content Include="scholarship.html" />
     <Content Include="Scripts\ajaxScripts\Date.HijriCalendar.debug.js" />
     <Content Include="Scripts\ajaxScripts\Date.HijriCalendar.js" />
@@ -513,7 +511,6 @@
     <Content Include="Scripts\jquery.pager.js" />
     <Content Include="Scripts\jquery.popupWindow.js" />
     <Content Include="Scripts\jquery.tmpl.js" />
-    <Content Include="seeAll.html" />
     <Content Include="test.txt" />
     <Content Include="Views\Home\AboutUs.aspx" />
     <Content Include="Views\Home\AdvanceSearch.ascx" />

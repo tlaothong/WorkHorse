@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <%-- submenu for friends--%>
-    <div style="background-color: #dedfe1; width: 340px; padding-left: 285px;">
+    <div style="background-color: #dedfe1; width: 330px; padding-left: 278px;">
         <table style="margin-bottom: 10px;">
             <tr>
                 <th style="background-color: White; border: 1px solid #afb0b3; padding-left: 5px;

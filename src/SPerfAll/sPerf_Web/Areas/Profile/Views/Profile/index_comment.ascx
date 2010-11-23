@@ -2,17 +2,19 @@
 <link href="../../../../Content/jquery-ui-1.8.6.custom.css" rel="stylesheet" type="text/css" />
 <script src="../../../../Scripts/jquery-1.4.2.min.js" type="text/javascript"></script>
 <script src="../../../../Scripts/jquery-ui-1.8.6.custom.min.js" type="text/javascript"></script>
+<%--script for New comment--%>
 <script type="text/javascript">
     $(function () {
         // Dialog
         $("#dialog").dialog({
             autoOpen: false,
-            width: 600,
+            width: 450,
+            title:'New Comment',
             buttons: {
-                "Ok": function () {
+                "Cancel": function () {
                     $(this).dialog("close");
                 },
-                "Cancel": function () {
+                "Ok": function () {
                     $(this).dialog("close");
                 }
             }
@@ -26,11 +28,101 @@
     });
 
 </script>
-<table><tr><td><div ><label id="dialog_link" style="background-color:Gray; padding:2px 2px 2px 2px;">Comment</label></div></td><td><div id="seell">SeeAll</div></td></tr></table>
-<div id="dialog"></div>
+
+<%--script for seeall--%>
+<script type="text/javascript">
+    $(function () {
+        // Dialog
+        $("#sellAll").dialog({
+            autoOpen: false,
+            width: 600,
+            buttons: {
+                "Ok": function () {
+                    $(this).dialog("close");
+                },
+                "Cancel": function () {
+                    $(this).dialog("close");
+                }
+            }
+        });
+
+        // Dialog Link
+        $('#seell').click(function () {
+            $('#sellAll').dialog('open');
+            return false;
+        });
+    });
+
+</script>
+
+<%--script for report--%>
+<script type="text/javascript">
+    $(function () {
+        // Dialog
+        $("#showReport").dialog({
+            autoOpen: false,
+            width: 450,
+            title: 'Report Problem',
+            buttons: {
+                "Cancel": function () {
+                    $(this).dialog("close");
+                },
+                "Send": function () {
+                    $(this).dialog("close");
+                }
+            }
+        });
+
+        // Dialog Link
+        $('.reports').click(function () {
+            $('#showReport').dialog('open');
+            return false;
+        });
+    });
+
+</script>
+
+<table><tr><td><div ><label id="dialog_link"style="background-color:#DEDFE1; padding:2px 2px 2px 2px;border:1px solid gray inherit;">Comment(50)</label></div></td><td><div id="seell" style="text-decoration: underline; color:Blue; margin-left:45px;">SeeAll</div></td></tr></table>
+<%--div for comment dialog--%>
+<div id="dialog">
+<table>
+        <tr>
+            <td valign="top">Pet Society<br /><input type="checkbox" />   Rating  : <img src="/Content/images/star.PNG" /><br />
+                Comment :<br /><br />
+                <textarea rows="10"; cols="45">Comment text here</textarea>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<%--div for seeall dialog--%>
+<div id="sellAll">
+testddddd
+</div>
+
+<%--div for report dialog--%>
+<div id="showReport">
+<table>
+        <tr>
+            <td valign="top">
+                <img src="/Content/images/ProfileAvatar.png" />
+            </td>
+            <td valign="top">username: Wanida<br />DateTime(1/8/2552 12:50:45)<br />
+                <select>
+                      <option>Inappriate content</option>
+                      <option>Bug</option>
+                      <option>Error</option>
+                </select><br /><br />
+                Topic : <input type="text" title="Some Text"/>
+                <textarea rows="10"; cols="27">Details.....</textarea>
+            </td>
+        </tr>
+    </table>
+</div>
+
 <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin; width:150px;"></div>
 <div id="listContent">
-    <div>
+ <div>
         <table>
             <tr>
                 <td valign="top">
@@ -42,7 +134,7 @@
             </tr>
         </table>
         <div style="width:150px;">ทดสอบข้อความเพื่อใช้ทำงานของการเขียนคอมเม้น</div>
-        <div class="showReport"></div>
+        <label class="reports" style="text-decoration: underline; color:Blue; margin-left:120px;">report</label>
         <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;  width:150px;"></div>
 
     </div>
@@ -58,7 +150,23 @@
             </tr>
         </table>
         <div style="width:150px;">ทดสอบข้อความเพื่อใช้ทำงานของการเขียนคอมเม้น</div>
-        <div class="showReport"></div>
+        <label class="reports" style="text-decoration: underline; color:Blue; margin-left:120px;">report</label>
+        <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;  width:150px;"></div>
+
+    </div>
+    <div>
+        <table>
+            <tr>
+                <td valign="top">
+                    <img src="/Content/images/e1.png" />
+                </td>
+                <td valign="top">
+                    Wanida
+                </td>
+            </tr>
+        </table>
+        <div style="width:150px;">ทดสอบข้อความเพื่อใช้ทำงานของการเขียนคอมเม้น</div>
+        <label class="reports" style="text-decoration: underline; color:Blue; margin-left:120px;">report</label>
         <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;width:150px;"></div>
     </div>
     <div>
@@ -73,7 +181,7 @@
             </tr>
         </table>
         <div style="width:150px;">ทดสอบข้อความเพื่อใช้ทำงานของการเขียนคอมเม้น</div>
-        <div class="showReport"></div>
+        <label class="reports" style="text-decoration: underline; color:Blue; margin-left:120px;">report</label>
         <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;width:150px;"></div>
 
     </div>
@@ -89,23 +197,7 @@
             </tr>
         </table>
         <div style="width:150px;">ทดสอบข้อความเพื่อใช้ทำงานของการเขียนคอมเม้น</div>
-        <div class="showReport"></div>
-        <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;width:150px;"></div>
-
-    </div>
-        <div>
-        <table>
-            <tr>
-                <td valign="top">
-                    <img src="/Content/images/e1.png" />
-                </td>
-                <td valign="top">
-                    Wanida
-                </td>
-            </tr>
-        </table>
-        <div style="width:150px;">ทดสอบข้อความเพื่อใช้ทำงานของการเขียนคอมเม้น</div>
-        <div class="showReport"></div>
+        <label class="reports" style="text-decoration: underline; color:Blue; margin-left:120px;">report</label>
         <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;width:150px;"></div>
 
     </div>
