@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<dynamic>" %>
-   <div style="float: right; margin-right:-72px;">
+   <div style="float: right; margin-right:160px;">
     <table>
             <tr>
                 <td>

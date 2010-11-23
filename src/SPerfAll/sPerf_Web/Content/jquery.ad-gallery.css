@@ -57,15 +57,13 @@
         border: 0;
       }
       .ad-gallery .ad-image-wrapper .ad-image .ad-image-description {
-        position: absolute;
-        bottom: 0px;
-        left: 0px;
+        position:fixed;
+        margin-bottom: 130px;
+        left: 185px;
         padding: 7px;
         text-align: left;
         width: 100%;
         z-index: 2;
-        background: url(/Content/profile/opa75.png);
-        color: #000;
       }
       * html .ad-gallery .ad-image-wrapper .ad-image .ad-image-description {
         background: none;
@@ -104,10 +102,12 @@
       top: 0;
       height: 100%;
       z-index: 10;
+      margin-top:55;
     }
     /* IE 6 doesn't like height: 100% */
     * html .ad-gallery .ad-forward, .ad-gallery .ad-back {
       height: 100px;
+      margin-top:55;
     }
     .ad-gallery .ad-back {
       cursor: pointer;
@@ -126,12 +126,12 @@
     .ad-gallery .ad-nav .ad-thumbs {
       overflow: hidden;
       width: 548px;
-      background-color:Gray;
     }
       .ad-gallery .ad-thumbs .ad-thumb-list {
         float:none;
         width: 9000px;
         list-style: none;
+        margin-top:55;
       }
         .ad-gallery .ad-thumbs li {
           float: left;

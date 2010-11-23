@@ -116,9 +116,9 @@
  <div id="gallery" class="ad-gallery">
     <div class="ad-image-wrapper"></div>
     <div>
-        <table><tr><td valign="top"><div>ป่าไม้ลำเนาไพร มองแล้วมีความสดชื่นในหัวใจ อยากไปเที่ยวกันไหมคะ เชิญนะคะมาเลย ยินดีต้อนรับทุกคนเลย 5555555555555555555+++++</div></td><td style="margin-top:3px;"><div><img src="/Content/profile/LD.png"</div></td></tr></table>     
+        <table><tr><td style="margin-top:3px;"><div><img  style="margin-left:500px;" src="/Content/profile/LD.png"</div></td></tr></table>     
     </div>
-    <div style="border-bottom-color:#69BA55; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin; width:550px;">
+    <div style="border-bottom-color:#69BA55; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin; width:550px; margin-top:27px">
     </div>
     <br />
       <div class="ad-nav">
@@ -126,72 +126,72 @@
           <ul class="ad-thumb-list">
             <li>
               <a href="/Content/profile/1.jpg">
-                <img src="/Content/profile/thumbs/t1.jpg">
+                <img src="/Content/profile/thumbs/t1.jpg" alt="This is a nice, and incredibly descriptive, description of the image 10.jpg">
               </a>
             </li>
             <li>
               <a href="/Content/profile/10.jpg">
-                <img src="/Content/profile/thumbs/t10.jpg">
+                <img src="/Content/profile/thumbs/t10.jpg" alt="This is a nice, and incredibly descriptive, description of the image 10.jpg">
               </a>
             </li>
             <li>
               <a href="/Content/profile/11.jpg">
-                <img src="/Content/profile/thumbs/t11.jpg">
+                <img src="/Content/profile/thumbs/t11.jpg" alt="This is a nice, and incredibly descriptive, description of the image 10.jpg">
               </a>
             </li>
             <li>
               <a href="/Content/profile/12.jpg">
-                <img src="/Content/profile/thumbs/t12.jpg">
+                <img src="/Content/profile/thumbs/t12.jpg" alt="This is a nice, and incredibly descriptive, description of the image 10.jpg">
               </a>
             </li>
             <li>
               <a href="/Content/profile/13.jpg">
-                <img src="/Content/profile/thumbs/t13.jpg">
+                <img src="/Content/profile/thumbs/t13.jpg"alt="This is a nice, and incredibly descriptive, description of the image 10.jpg">
               </a>
             </li>
             <li>
               <a href="/Content/profile/14.jpg">
-                <img src="/Content/profile/thumbs/t14.jpg">
+                <img src="/Content/profile/thumbs/t14.jpg"  alt="This is a nice, and incredibly descriptive, description of the image 10.jpg">
               </a>
             </li>
             <li>
               <a href="/Content/profile/2.jpg">
-                <img src="/Content/profile/thumbs/t2.jpg">
+                <img src="/Content/profile/thumbs/t2.jpg" alt="This is a nice, and incredibly descriptive, description of the image 10.jpg">
               </a>
             </li>
             <li>
               <a href="/Content/profile/3.jpg">
-                <img src="/Content/profile/thumbs/t3.jpg">
+                <img src="/Content/profile/thumbs/t3.jpg" alt="This is a nice, and incredibly descriptive, description of the image 10.jpg">
               </a>
             </li>
             <li>
               <a href="/Content/profile/4.jpg">
-                <img src="/Content/profile/thumbs/t4.jpg" >
+                <img src="/Content/profile/thumbs/t4.jpg"alt="This is a nice, and incredibly descriptive, description of the image 10.jpg">
               </a>
             </li>
             <li>
               <a href="/Content/profile/5.jpg">
-                <img src="/Content/profile/thumbs/t5.jpg" >
+                <img src="/Content/profile/thumbs/t5.jpg" alt="This is a nice, and incredibly descriptive, description of the image 10.jpg" >
               </a>
             </li>
             <li>
               <a href="/Content/profile/6.jpg">
-                <img src="/Content/profile/thumbs/t6.jpg">
+                <img src="/Content/profile/thumbs/t6.jpg"alt="This is a nice, and incredibly descriptive, description of the image 10.jpg">
               </a>
             </li>
             <li>
               <a href="/Content/profile/7.jpg">
-                <img src="/Content/profile/thumbs/t7.jpg">
+                <img src="/Content/profile/thumbs/t7.jpg" alt="This is a nice, and incredibly descriptive, description of the image 10.jpg">
               </a>
             </li>
             <li>
               <a href="/Content/profile/8.jpg">
-                <img src="/Content/profile/thumbs/t8.jpg">
+                <img src="/Content/profile/thumbs/t8.jpg"alt="This is a nice, and incredibly descriptive, description of the image 10.jpg">
               </a>
             </li>
             <li>
               <a href="/Content/profile/9.jpg">
-                <img src="/Content/profile/thumbs/t9.jpg">
+                <img src="/Content/profile/thumbs/t9.jpg" alt="This is a nice, and incredibly descriptive, description of the image 10.jpg">
               </a>
             </li>
           </ul>
