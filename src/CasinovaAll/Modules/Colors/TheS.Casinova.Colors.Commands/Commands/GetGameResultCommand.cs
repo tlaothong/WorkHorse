@@ -13,14 +13,15 @@ namespace TheS.Casinova.Colors.Commands
     {
         //input
         /// <summary>
-        /// รหัสโต๊ะเกม
+        /// ข้อมูลโต๊ะเกมที่ต้องการผลเกม
+        /// 1. RoundID รอบของโต๊ะเกม
         /// </summary>
-        public GameRoundInformation GameRoundInfoRound { get; set; } 
+        public GameRoundInformation GameRoundInfo { get; set; } 
 
         //output
         /// <summary>
         /// ข้อมูลผลการเล่นเกม
         /// </summary>
-        public GameRoundInformation GameRoundInfo { get; set; } 
+        public GameRoundInformation GameResultGameRoundInfo { get; set; } 
     }
 }

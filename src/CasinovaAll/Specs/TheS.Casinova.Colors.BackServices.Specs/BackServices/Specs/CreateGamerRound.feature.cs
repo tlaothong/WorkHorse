@@ -58,7 +58,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
 #line 6
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "TableName",
+                        "ConfigName",
                         "TableAmount",
                         "GameDuration",
                         "Interval"});
@@ -88,7 +88,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
                         "15",
                         "10"});
 #line 7
-testRunner.Given("server has GameRoundConfigTableName information as:", ((string)(null)), table1);
+testRunner.Given("server has GameRoundConfig information as:", ((string)(null)), table1);
 #line hidden
         }
         
@@ -106,12 +106,12 @@ this.ScenarioSetup(scenarioInfo);
 #line 17
 testRunner.Given("The CreateGameRoundsExecutor has been created and initialized");
 #line 18
-testRunner.And("sent TableName: \'config1\', the GameRoundConfigTableName should recieved data as GameRoun" +
-                    "dConfiguration(TableName: \'config1\', TableAmount: \'4\', GameDuration: \'30\', Inverval: " +
+testRunner.And("sent ConfigName: \'config1\', the GameRoundConfig should recieved data as GameRoun" +
+                    "dConfiguration(ConfigName: \'config1\', TableAmount: \'4\', GameDuration: \'30\', Inverval: " +
                     "\'5\')");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                        "GameRoundInfoRound",
+                        "GameRoundInfo",
                         "StartTime",
                         "EndTime"});
             table2.AddRow(new string[] {
@@ -130,7 +130,7 @@ testRunner.And("sent TableName: \'config1\', the GameRoundConfigTableName should
 testRunner.And("server should recieved the active game round data as:", ((string)(null)), table2);
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
-                        "GameRoundInfoRound",
+                        "GameRoundInfo",
                         "StartTime",
                         "EndTime"});
             table3.AddRow(new string[] {
@@ -144,10 +144,10 @@ testRunner.And("server should recieved the active game round data as:", ((string
 #line 25
 testRunner.And("Expect result should be create as:", ((string)(null)), table3);
 #line 30
-testRunner.When("call CreateGameRound(GameRoundConfigTableName: \'config1\')");
+testRunner.When("call CreateGameRound(GameRoundConfig: \'config1\')");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
-                        "GameRoundInfoRound",
+                        "GameRoundInfo",
                         "StartTime",
                         "EndTime"});
             table4.AddRow(new string[] {
@@ -190,19 +190,19 @@ this.ScenarioSetup(scenarioInfo);
 #line 41
 testRunner.Given("The CreateGameRoundsExecutor has been created and initialized");
 #line 42
-testRunner.And("sent TableName: \'config1\', the GameRoundConfigTableName should recieved data as GameRoun" +
-                    "dConfiguration(TableName: \'config1\', TableAmount: \'4\', GameDuration: \'30\', Inverval: " +
+testRunner.And("sent ConfigName: \'config1\', the GameRoundConfig should recieved data as GameRoun" +
+                    "dConfiguration(ConfigName: \'config1\', TableAmount: \'4\', GameDuration: \'30\', Inverval: " +
                     "\'5\')");
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
-                        "GameRoundInfoRound",
+                        "GameRoundInfo",
                         "StartTime",
                         "EndTime"});
 #line 43
 testRunner.And("server should recieved the active game round data as:", ((string)(null)), table5);
 #line hidden
             TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
-                        "GameRoundInfoRound",
+                        "GameRoundInfo",
                         "StartTime",
                         "EndTime"});
             table6.AddRow(new string[] {
@@ -228,10 +228,10 @@ testRunner.And("server should recieved the active game round data as:", ((string
 #line 46
 testRunner.And("Expect result should be create as:", ((string)(null)), table6);
 #line 54
-testRunner.When("call CreateGameRound(GameRoundConfigTableName: \'config1\')");
+testRunner.When("call CreateGameRound(GameRoundConfig: \'config1\')");
 #line hidden
             TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
-                        "GameRoundInfoRound",
+                        "GameRoundInfo",
                         "StartTime",
                         "EndTime"});
             table7.AddRow(new string[] {

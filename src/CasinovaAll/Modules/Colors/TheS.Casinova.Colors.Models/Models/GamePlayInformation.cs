@@ -19,7 +19,7 @@ namespace TheS.Casinova.Colors.Models
         /// <summary>
         /// roundID of the game playable
         /// </summary>
-        public int Round { get; set; }
+        public int RoundID { get; set; }
 
         /// <summary>
         /// trackingID use to verify

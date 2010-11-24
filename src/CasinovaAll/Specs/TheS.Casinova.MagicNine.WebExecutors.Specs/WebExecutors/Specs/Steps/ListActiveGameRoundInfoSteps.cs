@@ -21,7 +21,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         {
              var activeGameRound = (from item in table.Rows
                                    select new GameRoundInformation{
-                                       Round = Convert.ToInt32(item["Round"]),
+                                       RoundID = Convert.ToInt32(item["RoundID"]),
                                        WinnerPoint = Convert.ToInt32(item["WinnerPoint"]),
                                        Active = Convert.ToBoolean(item["Active"]),
                                    });
@@ -48,19 +48,19 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         {
             var qryExpected = (from item in table.Rows
                                select new {
-                                   RoundID = Convert.ToInt32(item["Round"]),
+                                   RoundID = Convert.ToInt32(item["RoundID"]),
                                    WinnerPoint = Convert.ToInt32(item["WinnerPoint"]),
                                    Active = Convert.ToBoolean(item["Active"]),
                                });
 
-            var result = (from it in _cmd.GameRoundInfo
+            var result = (from it in _cmd.ActiveGameRoundInfo
                           select new {
-                              RoundID = it.Round,
+                              RoundID = it.RoundID,
                               it.WinnerPoint,
                               it.Active
                           });
 
-            CollectionAssert.AreEqual(qryExpected.ToArray(), result.ToArray(), "Active Round Information");
+            CollectionAssert.AreEqual(qryExpected.ToArray(), result.ToArray(), "Active RoundID Information");
 
         }
 

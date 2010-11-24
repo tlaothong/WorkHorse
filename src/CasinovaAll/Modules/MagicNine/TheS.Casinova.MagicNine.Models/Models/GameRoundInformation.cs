@@ -16,7 +16,7 @@ namespace TheS.Casinova.MagicNine.Models
         /// <summary>
         /// รหัสโต๊ะเกม
         /// </summary>
-        public int Round { get; set; }
+        public int RoundID { get; set; }
 
         /// <summary>
         /// แต้มที่จะชนะของเกม

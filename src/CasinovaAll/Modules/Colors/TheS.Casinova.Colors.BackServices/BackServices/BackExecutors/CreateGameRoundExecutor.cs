@@ -32,41 +32,41 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
             };
 
             //ดึงข้อมูลโต๊ะเกมที่สามารถเล่นได้
-            listActiveGameRoundsCmd.GameRoundInfo = _iListActiveGameRounds.List(listActiveGameRoundsCmd);
+            listActiveGameRoundsCmd.ActiveGameRoundInfo = _iListActiveGameRounds.List(listActiveGameRoundsCmd);
 
             GetGameRoundConfigurationCommand getGameRoundConfigCmd = new GetGameRoundConfigurationCommand {
-                GameRoundConfigTableName = command.GameRoundConfig,
+                GameRoundConfiguration = command.GameRoundConfigName,
             };
 
             //ดึงข้อมูลการตั้งค่าที่ต้องการ
-            getGameRoundConfigCmd.GameRoundConfig = _iGetGameRoundConfig.Get(getGameRoundConfigCmd);
+            getGameRoundConfigCmd.GameRoundConfiguration = _iGetGameRoundConfig.Get(getGameRoundConfigCmd);
 
             //กำหนดจำนวนโต๊ะเกมที่ต้องสร้างเพิ่ม
-            int nOfRoundToCreate = getGameRoundConfigCmd.GameRoundConfig.TableAmount - listActiveGameRoundsCmd.GameRoundInfo.Count() + bufferRoundsCount;
+            int nOfRoundToCreate = getGameRoundConfigCmd.GameRoundConfiguration.TableAmount - listActiveGameRoundsCmd.ActiveGameRoundInfo.Count() + bufferRoundsCount;
 
-            GameRoundInformation lastActiveRound = listActiveGameRoundsCmd.GameRoundInfo.LastOrDefault();
+            GameRoundInformation lastActiveRound = listActiveGameRoundsCmd.ActiveGameRoundInfo.LastOrDefault();
 
             GameRoundInformation nextRound = new GameRoundInformation();
 
             for (int i = 0; i < nOfRoundToCreate; i++) {
-                if (listActiveGameRoundsCmd.GameRoundInfo.Count() > 0) {
-                    lastActiveRound.StartTime = lastActiveRound.StartTime.AddMinutes(getGameRoundConfigCmd.GameRoundConfig.Interval);
-                    lastActiveRound.EndTime = lastActiveRound.StartTime.AddMinutes(getGameRoundConfigCmd.GameRoundConfig.GameDuration);
-                    lastActiveRound.Round += 1;
+                if (listActiveGameRoundsCmd.ActiveGameRoundInfo.Count() > 0) {
+                    lastActiveRound.StartTime = lastActiveRound.StartTime.AddMinutes(getGameRoundConfigCmd.GameRoundConfiguration.Interval);
+                    lastActiveRound.EndTime = lastActiveRound.StartTime.AddMinutes(getGameRoundConfigCmd.GameRoundConfiguration.GameDuration);
+                    lastActiveRound.RoundID += 1;
                 }
                 else {
                     lastActiveRound = new GameRoundInformation();
                     lastActiveRound.StartTime = new DateTime(2553,3,12,10,0,0);
-                    lastActiveRound.EndTime = lastActiveRound.StartTime.AddMinutes(getGameRoundConfigCmd.GameRoundConfig.GameDuration);
-                    lastActiveRound.Round += 1;
+                    lastActiveRound.EndTime = lastActiveRound.StartTime.AddMinutes(getGameRoundConfigCmd.GameRoundConfiguration.GameDuration);
+                    lastActiveRound.RoundID += 1;
 
                     List<GameRoundInformation> list = new List<GameRoundInformation>();
                     list.Add(lastActiveRound);
-                    listActiveGameRoundsCmd.GameRoundInfo = list;
+                    listActiveGameRoundsCmd.ActiveGameRoundInfo = list;
                 }
 
                 nextRound = new GameRoundInformation {
-                    Round = lastActiveRound.Round,
+                    RoundID = lastActiveRound.RoundID,
                     StartTime = lastActiveRound.StartTime,
                     EndTime = lastActiveRound.EndTime,
                 };

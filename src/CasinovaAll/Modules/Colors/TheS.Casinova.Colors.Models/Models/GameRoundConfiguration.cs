@@ -11,9 +11,9 @@ namespace TheS.Casinova.Colors.Models
    public partial class GameRoundConfiguration
     {
        /// <summary>
-       /// ชื่อโต๊ะเกม
+       /// ชื่อการตั้งค่าเกม
        /// </summary>
-       public string TableName { get; set; }
+       public string ConfigName { get; set; }
 
        /// <summary>
        /// จำนวนโต๊ะเกมที่ต้องการสร้าง

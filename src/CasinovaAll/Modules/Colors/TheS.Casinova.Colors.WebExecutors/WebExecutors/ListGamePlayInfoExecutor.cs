@@ -29,12 +29,12 @@ namespace TheS.Casinova.Colors.WebExecutors
         protected override void ExecuteCommand(ListGamePlayInfoCommand command)
         {
              //Validation
-             var errors = ValidationHelper.Validate(_container, command.GamePlayInfoUserName, command);
+             var errors = ValidationHelper.Validate(_container, command.GamePlayInfo, command);
              if (errors.Any()) {
                  throw new ValidationErrorException(errors);
              }
             
-            command.GamePlayInfos = _iListGamePlayInfo.List(command);
+            command.GamePlayInformation = _iListGamePlayInfo.List(command);
            
         }
     }

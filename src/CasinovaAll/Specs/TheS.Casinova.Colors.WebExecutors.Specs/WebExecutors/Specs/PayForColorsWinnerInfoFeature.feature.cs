@@ -62,7 +62,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 8
 testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initialized");
 #line 9
-testRunner.And(string.Format("PayForColorWinner Informations as : UserName \'{0}\' Round \'{1}\' ActionType \'{2}\'" +
+testRunner.And(string.Format("PayForColorWinner Informations as : UserName \'{0}\' RoundID \'{1}\' ActionType \'{2}\'" +
                         "", userName, roundID, actionType));
 #line 10
 testRunner.When("Call PayForColorsWinnerInfoExecutor() for validate PayForColorWinner informations" +
@@ -113,7 +113,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 20
 testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initialized");
 #line 21
-testRunner.And("PayForColorWinner Informations as : UserName \'Nataya\' Round \'3\' ActionType \'Pay" +
+testRunner.And("PayForColorWinner Informations as : UserName \'Nataya\' RoundID \'3\' ActionType \'Pay" +
                     "ForWinner\'");
 #line 22
 testRunner.And("The system generated TrackingID:\'955D6ACDE4E04D1C90ACF3715BB2685A\' for PayForColo" +

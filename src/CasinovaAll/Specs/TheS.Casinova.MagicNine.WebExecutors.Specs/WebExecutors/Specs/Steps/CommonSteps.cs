@@ -22,16 +22,8 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
     {
         public const string Key_Dac_StopAutoBet = "mockDac_StopAutoBet";
         public const string Key_StopAutoBet = "StopAutoBet";
-        public const string Key_Dac_StartAutoBet = "mockDac_StartAutoBet";
-        public const string Key_StartAutoBet = "StartAutoBet";
-        public const string Key_Dqr_ListGamePlayAutoBetInfo = "mockDqr_ListGamePlayAutoBetInfo";
-        public const string Key_ListGamePlayAutoBetInfo = "ListGamePlayAutoBetInfo";
-        public const string Key_Dqr_ListActiveGameRound = "mockDqr_ListActiveGameRound";
-        public const string Key_ListActiveGameRound = "ListActiveGameRoundInfo";
-        public const string Key_Dqr_ListBetLog = "mockDqr_ListBetLog";
-        public const string Key_ListBetLog = "ListBetLog";
-  
 
+       
         MockRepository Mocks { get { return SpecEventDefinitions.Mocks; } }
 
         //List bet log specs initialized
@@ -40,8 +32,13 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         {
              var dqr = Mocks.DynamicMock<IMagicNineGameDataQuery>();
 
-             ScenarioContext.Current[Key_Dqr_ListBetLog] = dqr;
-             ScenarioContext.Current[Key_ListBetLog] = new ListBetLogExecutor(dqr);
+             IDependencyContainer container;
+
+             setupValidators(out container);
+
+             ScenarioContext.Current.Set<IListBetLog>(dqr);
+             ScenarioContext.Current.Set<ListBetLogExecutor>(
+                new ListBetLogExecutor(dqr, container));
         }
 
         //Single bet specs initialized
@@ -64,8 +61,9 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         {
             var dqr = Mocks.DynamicMock<IMagicNineGameDataQuery>();
 
-            ScenarioContext.Current[Key_Dqr_ListActiveGameRound] = dqr;
-            ScenarioContext.Current[Key_ListActiveGameRound] = new ListActiveGameRoundInfoExecutor(dqr);
+            ScenarioContext.Current.Set<IListActiveGameRoundInfo>(dqr);
+            ScenarioContext.Current.Set<ListActiveGameRoundInfoExecutor>(
+                new ListActiveGameRoundInfoExecutor(dqr));
         }
 
         //List game play auto bet information specs initialized
@@ -74,8 +72,11 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         {
             var dqr = Mocks.DynamicMock<IMagicNineGameDataQuery>();
 
-            ScenarioContext.Current[Key_Dqr_ListGamePlayAutoBetInfo] = dqr;
-            ScenarioContext.Current[Key_ListGamePlayAutoBetInfo] = new ListGamePlayAutoBetInfoExecutor(dqr);
+            IDependencyContainer container;
+            setupValidators(out container);
+            ScenarioContext.Current.Set<IListGamePlayAutoBetInfo>(dqr);
+            ScenarioContext.Current.Set<ListGamePlayAutoBetInfoExecutor>(
+                new ListGamePlayAutoBetInfoExecutor(dqr, container));
         }
 
         //Start  auto bet information specs initialized
@@ -84,8 +85,11 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         {
             var dac = Mocks.DynamicMock<IMagicNineGameBackService>();
 
-            ScenarioContext.Current[Key_Dac_StartAutoBet] = dac;
-            ScenarioContext.Current[Key_StartAutoBet] = new StartAutoBetExecutor(dac);
+            IDependencyContainer container;
+            setupValidators(out container);
+            ScenarioContext.Current.Set<IStartAutoBet>(dac);
+            ScenarioContext.Current.Set<StartAutoBetExecutor>(
+                new StartAutoBetExecutor(dac, container));
         }
 
         //Stop auto bet information specs initialized
@@ -103,8 +107,11 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
             var fac = new StructureMapAbstractFactory();
             var reg = fac.CreateRegistry();
 
-            reg.Register<IValidator<BetInformation, SingleBetCommand>
-                , DataAnnotationValidator<BetInformation, SingleBetCommand>>();
+            reg.Register<IValidator<BetInformation, NullCommand>
+                , DataAnnotationValidator<BetInformation, NullCommand>>();
+
+            reg.Register<IValidator<GamePlayAutoBetInformation, NullCommand>
+               , DataAnnotationValidator<GamePlayAutoBetInformation, NullCommand>>();
 
             container = fac.CreateContainer(reg);
         }

@@ -14,7 +14,7 @@ namespace TheS.Casinova.Colors.Models
         /// <summary>
         /// รหัสโต๊ะเกม
         /// </summary>
-        public int Round { get; set; }
+        public int RoundID { get; set; }
 
         /// <summary>
         /// เวลาเริ่มเกม

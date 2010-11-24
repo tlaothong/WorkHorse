@@ -16,13 +16,13 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         private BetCommand _cmd;
         private string _trackingID;
 
-        [Given(@"Bet Informations as : UserName '(.*)' Round '(.*)', ActionType '(.*)', Amount '(.*)'")]
+        [Given(@"Bet Informations as : UserName '(.*)' RoundID '(.*)', ActionType '(.*)', Amount '(.*)'")]
         public void GivenBetInformationsAsUserNameNitRoundID4ActionTypeWhiteAmount_50(string userName, int roundID, string actionType, double amount)
         {
             _cmd = new BetCommand {
-                PlayerActionInfo = new PlayerActionInformation { 
+                BetPlayerActionInfo = new PlayerActionInformation { 
                     UserName = userName,
-                    Round = roundID,
+                    RoundID = roundID,
                     ActionType = actionType,
                     Amount = amount
                 }

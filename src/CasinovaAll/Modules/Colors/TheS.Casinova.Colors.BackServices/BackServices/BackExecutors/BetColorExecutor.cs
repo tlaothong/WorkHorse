@@ -31,16 +31,16 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
 
             //ดึงข้อมูลผู้เล่นเพื่อหักเงิน
             GetPlayerInfoCommand getPlayerInfoCmd = new GetPlayerInfoCommand {
-                UserName = command.PlayerActionInfo.UserName,
+                UserName = command.BetPlayerActionInfo.UserName,
             };
 
             getPlayerInfoCmd.PlayerInfo = _iGetPlayerInfo.Get(getPlayerInfoCmd);
 
             //บันทึกข้อมูลผู้เล่นที่ถูกหักเงิน
             PlayerInformation playerInfo = new PlayerInformation();
-            getPlayerInfoCmd.PlayerInfo.Balance = getPlayerInfoCmd.PlayerInfo.Balance - command.PlayerActionInfo.Amount;
+            getPlayerInfoCmd.PlayerInfo.Balance = getPlayerInfoCmd.PlayerInfo.Balance - command.BetPlayerActionInfo.Amount;
             UpdatePlayerInfoBalanceCommand updateBalanceCmd = new UpdatePlayerInfoBalanceCommand {
-                UserName = playerInfo.UserName = command.PlayerActionInfo.UserName,
+                UserName = playerInfo.UserName = command.BetPlayerActionInfo.UserName,
 
                 //หักเงินผู้เล่นตามเงินที่ต้องการลงพนัน
                 Balance = playerInfo.Balance = getPlayerInfoCmd.PlayerInfo.Balance,               
@@ -54,10 +54,10 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
             //บันทึกข้อมูลการดำเนินงานของผู้เล่น
             PlayerActionInformation playerActionInfo = new PlayerActionInformation();
             CreatePlayerActionInfoCommand createPlayerActionInfoCmd = new CreatePlayerActionInfoCommand {
-                UserName = playerActionInfo.UserName = command.PlayerActionInfo.UserName,
-                RoundID = playerActionInfo.Round = command.PlayerActionInfo.Round,
-                ActionType = playerActionInfo.ActionType = command.PlayerActionInfo.ActionType,
-                Amount = playerActionInfo.Amount = command.PlayerActionInfo.Amount,
+                UserName = playerActionInfo.UserName = command.BetPlayerActionInfo.UserName,
+                RoundID = playerActionInfo.RoundID = command.BetPlayerActionInfo.RoundID,
+                ActionType = playerActionInfo.ActionType = command.BetPlayerActionInfo.ActionType,
+                Amount = playerActionInfo.Amount = command.BetPlayerActionInfo.Amount,
             };
 
             _iCreatePlayerActionInfo.Create(playerActionInfo, createPlayerActionInfoCmd);

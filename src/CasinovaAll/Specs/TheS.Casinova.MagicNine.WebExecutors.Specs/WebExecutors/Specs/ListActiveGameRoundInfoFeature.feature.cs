@@ -67,7 +67,7 @@ this.ScenarioSetup(scenarioInfo);
 testRunner.Given("The ListActiveGameRoundInfoExecutor has been created and initialized");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Round",
+                        "RoundID",
                         "WinnerPoint",
                         "Active"});
             table1.AddRow(new string[] {
@@ -92,7 +92,7 @@ testRunner.And("server has 4 game round information  in data", ((string)(null)),
 testRunner.When("call ListActiveGameRoundInfoExecutor()");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Round",
+                        "RoundID",
                         "WinnerPoint",
                         "Active"});
             table2.AddRow(new string[] {
@@ -132,7 +132,7 @@ this.ScenarioSetup(scenarioInfo);
 testRunner.Given("The ListActiveGameRoundInfoExecutor has been created and initialized");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Round",
+                        "RoundID",
                         "WinnerPoint",
                         "Active"});
             table3.AddRow(new string[] {
@@ -157,7 +157,7 @@ testRunner.And("server has 4 game round information  in data", ((string)(null)),
 testRunner.When("call ListActiveGameRoundInfoExecutor()");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Round",
+                        "RoundID",
                         "WinnerPoint",
                         "Active"});
             table4.AddRow(new string[] {
@@ -187,7 +187,7 @@ this.ScenarioSetup(scenarioInfo);
 testRunner.Given("The ListActiveGameRoundInfoExecutor has been created and initialized");
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Round",
+                        "RoundID",
                         "WinnerPoint",
                         "Active"});
             table5.AddRow(new string[] {

@@ -51,11 +51,11 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
             LastCall.IgnoreArguments().Do(CheckCallMethod);
         }
 
-        [Given(@"the StartAutoBet shoule be call as: \(UserName: '(.*)', Round: '(.*)', Amount: '(.*)', Interval: '(.*)', BetTrackingID: '(.*)'\)")]
+        [Given(@"the StartAutoBet shoule be call as: \(UserName: '(.*)', RoundID: '(.*)', Amount: '(.*)', Interval: '(.*)', BetTrackingID: '(.*)'\)")]
         public void GivenTheAutoBetEngineShouleBeCallAsUserNameXRoundID1AmountXIntervalXTrackingIDX(string userName, int roundID, int amount, int interval, string trackingID)
         {
             Action<StartAutoBetCommand> checkData = (cmd) => {
-                Assert.AreEqual(roundID, cmd.GamePlayAutoBetInfo.Round, "Round");
+                Assert.AreEqual(roundID, cmd.GamePlayAutoBetInfo.RoundID, "RoundID");
                 Assert.AreEqual(userName, cmd.GamePlayAutoBetInfo.UserName, "UserName");
                 Assert.AreEqual(amount, cmd.GamePlayAutoBetInfo.Amount, "Amount");
                 Assert.AreEqual(interval, cmd.GamePlayAutoBetInfo.Interval, "Interval");
@@ -65,12 +65,12 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
             LastCall.IgnoreArguments().Do(checkData);
         }
 
-        [When(@"call StartAutoBetExecutor\(UserName: '(.*)', Round: '(.*)', Amount: '(.*)', Interval: '(.*)', BetTrackingID: '(.*)'\)")]
+        [When(@"call StartAutoBetExecutor\(UserName: '(.*)', RoundID: '(.*)', Amount: '(.*)', Interval: '(.*)', BetTrackingID: '(.*)'\)")]
         public void WhenCallStartAutoBetExecutorUserNameXRoundID1AmountXIntervalXTrackingIDX(string userName, int roundID, int amount, int interval, string trackingID)
         {
             StartAutoBetCommand cmd = new StartAutoBetCommand {
                 GamePlayAutoBetInfo = new GamePlayAutoBetInformation{
-                Round = roundID,
+                RoundID = roundID,
                 UserName = userName,
                 Amount = amount,
                 Interval = interval,

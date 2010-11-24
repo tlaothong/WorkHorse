@@ -27,12 +27,12 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
 
             var model = new PlayerActionInformation {
                 UserName = null,
-                Round = 1,
+                RoundID = 1,
                 ActionType = "Black",
                 Amount = 500,
             };
             var cmd = new BetCommand {
-                PlayerActionInfo = model,
+                BetPlayerActionInfo = model,
             };
 
             BetColorsExecutor xcutor = new BetColorsExecutor(
@@ -50,12 +50,12 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
 
             var model = new PlayerActionInformation {
                 UserName = "Natayit",
-                Round = -1,
+                RoundID = -1,
                 ActionType = "Black",
                 Amount = 500,
             };
             var cmd = new BetCommand {
-                PlayerActionInfo = model,
+                BetPlayerActionInfo = model,
             };
 
             BetColorsExecutor xcutor = new BetColorsExecutor(
@@ -73,12 +73,12 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
 
             var model = new PlayerActionInformation {
                 UserName = "Natayit",
-                Round = 2,
+                RoundID = 2,
                 ActionType = null,
                 Amount = 500,
             };
             var cmd = new BetCommand {
-                PlayerActionInfo = model,
+                BetPlayerActionInfo = model,
             };
 
             BetColorsExecutor xcutor = new BetColorsExecutor(
@@ -96,12 +96,12 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
 
             var model = new PlayerActionInformation {
                 UserName = "Natayit",
-                Round = 1,
+                RoundID = 1,
                 ActionType = "Black",
                 Amount = -500,
             };
             var cmd = new BetCommand {
-                PlayerActionInfo = model,
+                BetPlayerActionInfo = model,
             };
 
             BetColorsExecutor xcutor = new BetColorsExecutor(

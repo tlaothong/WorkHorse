@@ -13,8 +13,9 @@ namespace TheS.Casinova.Colors.Commands
     {
         //input
         /// <summary>
-        /// 1. TableName ชื่อโต๊ะเกมที่ต้องการสร้าง
+        /// ข้อมูลการสร้างโต๊ะเกม
+        /// 1. ConfigName ชื่อข้อมูลการสร้างโต๊ะเกม
         /// </summary>
-        public GameRoundConfiguration GameRoundConfig { get; set; }
+        public GameRoundConfiguration GameRoundConfigName { get; set; }
     }
 }

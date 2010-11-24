@@ -14,13 +14,14 @@ namespace TheS.Casinova.Colors.Commands
         //input
         /// <summary>
         /// ข้อมูลชื่อของผู้เล่น
+        /// 1. UserName ชื่อผู้เล่น
         /// </summary>
-        public GamePlayInformation GamePlayInfoUserName { get; set; } 
+        public GamePlayInformation GamePlayInfo { get; set; } 
 
         //output
         /// <summary>
         /// ข้อมูลการเล่นเกมของผู้เล่น
         /// </summary>
-        public IEnumerable<GamePlayInformation> GamePlayInfos { get; set; } 
+        public IEnumerable<GamePlayInformation> GamePlayInformation { get; set; } 
     }
 }

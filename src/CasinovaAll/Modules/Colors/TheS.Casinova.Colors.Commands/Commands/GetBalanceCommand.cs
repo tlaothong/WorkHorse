@@ -11,7 +11,8 @@ namespace TheS.Casinova.Colors.Commands
     {
        //input
        /// <summary>
-        /// username ของผู้เล่น
+       /// ชื่อผู้เล่นที่ต้องการข้อมูลยอดเงินในบัญชี
+       /// 1. username ของผู้เล่น
        /// </summary>
        public UserProfile UserProfile { get; set; } 
 

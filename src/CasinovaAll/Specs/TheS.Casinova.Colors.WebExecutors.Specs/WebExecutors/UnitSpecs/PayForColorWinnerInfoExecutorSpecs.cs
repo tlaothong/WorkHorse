@@ -24,10 +24,10 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
 
             var model = new PlayerActionInformation {
                 UserName = null,
-                Round = 1
+                RoundID = 1
             };
             var cmd = new PayForColorsWinnerInfoCommand {
-                PlayerActionInfoUserName = model,
+                PlayerActionInfo = model,
             };
 
             PayForColorsWinnerInfoExecutor xcutor = new PayForColorsWinnerInfoExecutor(
@@ -43,10 +43,10 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
 
             var model = new PlayerActionInformation {
                 UserName = "Yaya",
-                Round = -2
+                RoundID = -2
             };
             var cmd = new PayForColorsWinnerInfoCommand {
-                PlayerActionInfoUserName = model,
+                PlayerActionInfo = model,
             };
 
             PayForColorsWinnerInfoExecutor xcutor = new PayForColorsWinnerInfoExecutor(
@@ -64,11 +64,11 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
 
             var model = new PlayerActionInformation {
                 UserName = "Natayit",
-                Round = 2,
+                RoundID = 2,
                 ActionType = null,
             };
             var cmd = new PayForColorsWinnerInfoCommand {
-                PlayerActionInfoUserName = model,
+                PlayerActionInfo = model,
             };
 
             PayForColorsWinnerInfoExecutor xcutor = new PayForColorsWinnerInfoExecutor(

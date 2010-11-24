@@ -28,7 +28,7 @@ namespace TheS.Casinova.Colors.WebExecutors
         protected override void ExecuteCommand(BetCommand command) 
         {
             //Validation
-            var errors = ValidationHelper.Validate(_container, command.PlayerActionInfo, command);
+            var errors = ValidationHelper.Validate(_container, command.BetPlayerActionInfo, command);
             if (errors.Any()) {
                 throw new ValidationErrorException(errors);
             }

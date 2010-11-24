@@ -30,7 +30,7 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
                UserName = null
             };
             var cmd = new ListGamePlayInfoCommand {
-                GamePlayInfoUserName = model,
+                GamePlayInfo = model,
             };
 
             ListGamePlayInfoExecutor xcutor = new ListGamePlayInfoExecutor(

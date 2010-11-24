@@ -19,12 +19,12 @@ namespace TheS.Casinova.Colors.BackServices
         private IEnumerable<GameRoundInformation> _activeRound;
         private GameRoundConfiguration _expectConfig;
 
-        [Given(@"server has GameRoundConfigTableName information as:")]
+        [Given(@"server has GameRoundConfig information as:")]
         public void GivenServerHasGameRoundConfigurationInformationAs(Table table)
         {
             _roundConfig = (from item in table.Rows
                             select new GameRoundConfiguration {
-                                TableName = item["TableName"],
+                                ConfigName = item["ConfigName"],
                                 TableAmount = Convert.ToInt32(item["TableAmount"]),
                                 GameDuration = Convert.ToInt32(item["GameDuration"]),
                                 Interval = Convert.ToInt32(item["Interval"]),
@@ -36,7 +36,7 @@ namespace TheS.Casinova.Colors.BackServices
         {
             _activeRound = (from item in table.Rows
                             select new GameRoundInformation {
-                                Round = Convert.ToInt32(item["GameRoundInfoRound"]),
+                                RoundID = Convert.ToInt32(item["GameRoundInfo"]),
                                 StartTime = DateTime.Parse(item["StartTime"]),
                                 EndTime = DateTime.Parse(item["EndTime"]),
                             });
@@ -44,11 +44,11 @@ namespace TheS.Casinova.Colors.BackServices
                 .IgnoreArguments().Return(_activeRound);
         }
 
-       [Given(@"sent TableName: '(.*)', the GameRoundConfigTableName should recieved data as GameRoundConfigTableName\(TableName: '(.*)', TableAmount: '(.*)', GameDuration: '(.*)', Inverval: '(.*)'\)")]
+       [Given(@"sent ConfigName: '(.*)', the GameRoundConfig should recieved data as GameRoundConfig\(ConfigName: '(.*)', TableAmount: '(.*)', GameDuration: '(.*)', Inverval: '(.*)'\)")]
         public void GivenSentNameXTheGameRoundConfigurationShouldRecievedDataAsGameRoundConfigurationNameXTableAmountXGameDurationXInvervalX(string name, string configName, int tableAmount, int gameDuration, int interval)
         {
             _expectConfig = (from item in _roundConfig
-                             where item.TableName == name
+                             where item.ConfigName == name
                              select item).FirstOrDefault();
 
             SetupResult.For(Dqr_GetGameRoundConfiguration.Get(new GetGameRoundConfigurationCommand()))
@@ -60,7 +60,7 @@ namespace TheS.Casinova.Colors.BackServices
         {
             var qry = (from item in table.Rows                                      
                                       select new GameRoundInformation {
-                                          Round = Convert.ToInt32(item["GameRoundInfoRound"]),
+                                          RoundID = Convert.ToInt32(item["GameRoundInfo"]),
                                           StartTime = DateTime.Parse(item["StartTime"]),
                                           EndTime = DateTime.Parse(item["EndTime"]),
                                       });
@@ -68,7 +68,7 @@ namespace TheS.Casinova.Colors.BackServices
             Queue<GameRoundInformation> expect = new Queue<GameRoundInformation>(qry);
             Func<GameRoundInformation, CreateGameRoundCommand, GameRoundInformation> checkdata = (gameRoundInfo, cmd) => {
                 var exp = expect.Dequeue();
-                Assert.AreEqual(exp.Round, gameRoundInfo.Round, "GameRoundInfoRound");
+                Assert.AreEqual(exp.RoundID, gameRoundInfo.RoundID, "GameRoundInfo");
                 Assert.AreEqual(exp.StartTime, gameRoundInfo.StartTime, "StartTime");
                 Assert.AreEqual(exp.EndTime, gameRoundInfo.EndTime, "EndTime");
                 return gameRoundInfo;
@@ -78,12 +78,12 @@ namespace TheS.Casinova.Colors.BackServices
             LastCall.IgnoreArguments().Do(checkdata);
         }
 
-        [When(@"call CreateGameRound\(GameRoundConfigTableName: '(.*)'\)")]
+        [When(@"call CreateGameRound\(GameRoundConfig: '(.*)'\)")]
         public void WhenCallCreateGameRoundConfigNameX(string configName)
         {
             CreateGameRoundCommand cmd = new CreateGameRoundCommand { 
-                GameRoundConfig = new GameRoundConfiguration {
-                    TableName = configName 
+                GameRoundConfigName = new GameRoundConfiguration {
+                    ConfigName = configName 
                 }
             };
             CreateGameRoundsExecutor.Execute(cmd, (x) => { });            

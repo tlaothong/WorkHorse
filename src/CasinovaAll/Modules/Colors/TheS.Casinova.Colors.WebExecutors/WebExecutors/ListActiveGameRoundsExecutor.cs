@@ -25,7 +25,7 @@ namespace TheS.Casinova.Colors.WebExecutors
          protected override void ExecuteCommand(ListActiveGameRoundCommand command)
          {
              command.FromTime = DateTime.Now;           //เริ่มต้นที่เวลาปัจจุบัน      
-             command.GameRoundInfo = _iListActiveRound.List(command);    
+             command.ActiveGameRoundInfo = _iListActiveRound.List(command);    
          }
     }
 }

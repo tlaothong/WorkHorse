@@ -24,7 +24,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors
        protected override void ExecuteCommand(ListActiveGameRoundInfoCommand command)
        {
            command.Active = true;
-           command.GameRoundInfo = _iListActiveGameRound.List(command);
+           command.ActiveGameRoundInfo = _iListActiveGameRound.List(command);
        }
     }
 }

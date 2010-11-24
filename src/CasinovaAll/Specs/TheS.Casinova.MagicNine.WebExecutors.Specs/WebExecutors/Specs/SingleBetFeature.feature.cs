@@ -62,7 +62,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 8
 testRunner.Given("The SingleBetExecutor has been created and initialized");
 #line 9
-testRunner.And(string.Format("SingleBet Informations as : UserName \'{0}\' Round \'{1}\'", userName, roundID));
+testRunner.And(string.Format("SingleBet Informations as : UserName \'{0}\' RoundID \'{1}\'", userName, roundID));
 #line 10
 testRunner.When("Call SingleBetExecutor() for validate single bet information");
 #line 11
@@ -103,7 +103,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 21
 testRunner.Given("The SingleBetExecutor has been created and initialized");
 #line 22
-testRunner.And("SingleBet Informations as : UserName \'Sakanit\' Round \'4\'");
+testRunner.And("SingleBet Informations as : UserName \'Sakanit\' RoundID \'4\'");
 #line 23
 testRunner.And("The system generated TrackingID for SingleBet:\'942D2F350FAA4A32870CF9CF9A5C7A2E\'");
 #line 24
