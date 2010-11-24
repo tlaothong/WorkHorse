@@ -8,7 +8,7 @@ namespace TheS.Casinova.MagicNine.Models
     /// <summary>
     /// ข้อมูลการลงเดิมพันแบบอัตโนมัติ
     /// </summary>
-    public class GamePlayAutoBetInformation
+    public partial class GamePlayAutoBetInformation
     {
         /// <summary>
         /// ชื่อผู้เล่นที่ลงเดิมพัน
@@ -18,7 +18,7 @@ namespace TheS.Casinova.MagicNine.Models
         /// <summary>
         /// รหัสโต๊ะเกมที่ลงพนัน
         /// </summary>
-        public int RoundID { get; set; }
+        public int Round { get; set; }
 
         /// <summary>
         /// จำนวนเงินทั้งหมดที่ลงเดิมพันแบบอัตโนมัติ
@@ -38,11 +38,28 @@ namespace TheS.Casinova.MagicNine.Models
         /// <summary>
         /// tracking id เมื่อเริ่ม autobet
         /// </summary>
-        public Guid StratTrackingID { get; set; }
+        public Guid AutoBetTrackingID { get; set; }
 
         /// <summary>
         /// tracking id เมื่อหยุด autobet
         /// </summary>
-        public Guid StopTrackingID { get; set; }
+        public Guid BetTrackingID { get; set; }
+
+        /// <summary>
+        /// เวลาเริ่มการลงเดิมพันแบบอัตโนมัติ
+        /// </summary>
+        public DateTime FromDateTime { get; set; }
+
+        /// <summary>
+        /// เวลาสิ้นสุดการลงเดิมพันแบบอัตโนมัติ
+        /// </summary>
+        public DateTime ThruDateTime { get; set; }
+
+        /// <summary>
+        /// หมายเลข Lot
+        /// </summary>
+        public int LotNo { get; set; }
+
+
     }
 }

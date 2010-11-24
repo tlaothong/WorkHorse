@@ -3,43 +3,70 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
-using TheS.Casinova.TwoWins.Models;
+using TheS.Casinova.Colors.Models;
 using Rhino.Mocks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TheS.Casinova.TwoWins.Commands;
+using TheS.Casinova.Colors.Commands;
 
-namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
+namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
 {
     [Binding]
     public class ListActiveGameRoundsSteps : ColorsGameStepsBase
     {
-         // private ListActiveGameRoundCommand _cmd;
-         // private IEnumerable<GameRoundInformation> expectActiveRound;
-
-
+        private ListActiveGameRoundCommand _cmd;
+        private IEnumerable<GameRoundInformation> _GameRound;
+        private IEnumerable<GameRoundInformation> _ActiveGameRound;
 
         [Given(@"The active game rounds are :")]
         public void GivenTheActiveGameRoundsAre(Table table)
         {
-            ScenarioContext.Current.Pending();
+            if (table.RowCount == 0) 
+            {
+                SetupResult.For(Dqr_ListActiveGameRounds.List(new ListActiveGameRoundCommand()))
+               .IgnoreArguments().Return(null);
+
+            }else{
+                _GameRound = from item in table.Rows
+                      select new GameRoundInformation {
+                          Round = Convert.ToInt32(item["Round"]),
+                          StartTime = DateTime.Parse(item["StartTime"]),
+                          EndTime = DateTime.Parse(item["EndTime"])
+                      };
+
+            SetupResult.For(Dqr_ListActiveGameRounds.List(new ListActiveGameRoundCommand()))
+                .IgnoreArguments().Return(_GameRound);
+            }
         }
 
-        [When(@"Call ListActiveGameRoundsExecutor")]
+        [When(@"Call ListActiveGameRoundsExecutor\(\)")]
         public void WhenCallListActiveGameRoundsExecutor()
         {
-            ScenarioContext.Current.Pending();
+            _ActiveGameRound = Dqr_ListActiveGameRounds.List(_cmd);
         }
 
         [Then(@"The result should be:")]
         public void ThenTheResultShouldBe(Table table)
         {
-            ScenarioContext.Current.Pending();
+            var expect = from item in table.Rows
+                         select new {
+                             RoundID = Convert.ToInt32(item["Round"]),
+                             StartTime = DateTime.Parse(item["StartTime"]),
+                             EndTime = DateTime.Parse(item["EndTime"])
+                         };
+            var actual = from item in _ActiveGameRound
+                         select new {
+                             RoundID = item.Round,
+                             StartTime = item.StartTime,
+                             EndTime = item.EndTime
+                         };
+
+            CollectionAssert.AreEqual(expect.ToArray(), actual.ToArray());
         }
 
         [Then(@"The active game rounds should be null:")]
         public void ThenTheActiveGameRoundsShouldBeNull()
         {
-            ScenarioContext.Current.Pending();
+            Assert.AreEqual(null, _ActiveGameRound);
         }
 
     }

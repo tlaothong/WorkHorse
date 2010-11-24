@@ -3,29 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
-using TheS.Casinova.TwoWins.DAL;
-using TheS.Casinova.TwoWins.BackServices;
+using TheS.Casinova.Colors.DAL;
+using TheS.Casinova.Colors.BackServices;
+using SpecFlowAssist;
 
-namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
+namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
 {
-    [Binding]
     public class ColorsGameStepsBase
     {
         protected CreateGameRoundConfigExecutor CreateGameRound 
         {
             get 
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dac_CreateGameRoundConfig] as CreateGameRoundConfigExecutor;
+                return ScenarioContext.Current.Get<CreateGameRoundConfigExecutor>();
             }
         }
 
-        protected BetColorsExecutor BetColor
+        protected BetColorsExecutor BetColorsGame
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dac_BetColor] as BetColorsExecutor;
+                return ScenarioContext.Current.Get<BetColorsExecutor>();
             }
         }
 
@@ -33,8 +31,7 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr_GetGameResult] as GetGameResultExecutor;
+                return ScenarioContext.Current.Get<GetGameResultExecutor>();
             }
         }
 
@@ -42,53 +39,96 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dac_PayForWinnerInfo] as PayForColorsWinnerInfoExecutor;
+                return ScenarioContext.Current.Get<PayForColorsWinnerInfoExecutor>();
             }
         }
 
-        protected ListActiveGameRoundsExecutor ActiveGameRoundsExecutor
+        protected ListActiveGameRoundsExecutor ListActiveGameRounds
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr_ListActiveGameRoundsExecutor] as ListActiveGameRoundsExecutor;
+                return ScenarioContext.Current.Get<ListActiveGameRoundsExecutor>();
             }
         }
 
-        protected ListGamePlayInfoExecutor GamePlayInfoExecutor
+        protected ListGamePlayInfoExecutor ListGamePlayInfo
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr_ListGamePlayInfo] as ListGamePlayInfoExecutor;
+                return ScenarioContext.Current.Get<ListGamePlayInfoExecutor>();
             }
         }
 
-        protected IColorsGameDataQuery Dac
+        protected CheckActiveRoundToCreateExecutor CheckActiveRound
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dac] as IColorsGameDataQuery;
+                return ScenarioContext.Current.Get<CheckActiveRoundToCreateExecutor>();
             }
         }
 
-        protected IColorsGameBackService BackDac
+        protected IBet Dac_BetColorsGame
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dac] as IColorsGameBackService;
+                return ScenarioContext.Current.Get<IBet>();
             }
         }
 
-        protected IGameTableBackService BackDac_GameTable
+        protected IPayForWinner Dac_PayForColorsWinner
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dac] as IGameTableBackService;
+                return ScenarioContext.Current.Get<IPayForWinner>();
+            }
+        }
+
+        protected IListGamePlayInformation Dqr_ListGamePlayInformation
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<IListGamePlayInformation>();
+            }
+        }
+
+        protected IListActiveGameRounds Dqr_ListActiveGameRounds
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<IListActiveGameRounds>();
+            }
+        }
+
+        protected IGetGameResult Dqr_GetGameResult
+        {
+            get
+            {
+               
+                return ScenarioContext.Current.Get<IGetGameResult>();
+            }
+        }
+
+        protected ICreateGameTableConfigurations Dac_CreateGameRoundConfig
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<ICreateGameTableConfigurations>();
+            }
+        }
+
+        protected IGetGameRoundConfigurations Dqr_GetGameRoundConfig
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<IGetGameRoundConfigurations>();
+            }
+        }
+
+        protected ICheckActiveRoundToCreate  Dac_CheckActiveRound
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<ICheckActiveRoundToCreate>();
             }
         }
     }

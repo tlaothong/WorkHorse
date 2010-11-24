@@ -1,0 +1,17 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_IColorsService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://localhost:60642/wsv/ColorsService.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IColorsService"
+                contract="ColorsSvc.IColorsService" name="BasicHttpBinding_IColorsService" />
+        </client>
+    </system.serviceModel>
+</configuration>

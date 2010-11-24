@@ -24,7 +24,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors
 
        protected override void ExecuteCommand(StopAutoBetCommand command)
        {
-          //TODO : Generate TrackingID
+          //TODO : Generate BetTrackingID
           _iStopAutoBet.StopAutoBet(command);
        }
     }

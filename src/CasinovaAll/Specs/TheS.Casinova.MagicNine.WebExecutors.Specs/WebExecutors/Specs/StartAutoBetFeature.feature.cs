@@ -65,13 +65,13 @@ testRunner.Given("The StartAutoBetExecutor has been created and initialized");
 testRunner.And(string.Format("Sent StartAutoBetInformation userName\'{0}\', roundId \'{1}\',amount \'{2}\', Interval " +
                         "\'{3}\'", userName, roundID, amount, interval));
 #line 10
-testRunner.And("Web service has TrackingID for start auto bet: \'DA1FE75E-9042-4FC5-B3CF-1E973D215" +
+testRunner.And("Web service has BetTrackingID for start auto bet: \'DA1FE75E-9042-4FC5-B3CF-1E973D215" +
                     "2F7\'");
 #line 11
 testRunner.When(string.Format("Call StartAutoBetExecutor(userName\'{0}\', roundId \'{1}\',amount \'{2}\', Interval \'{3" +
                         "}\')", userName, roundID, amount, interval));
 #line 12
-testRunner.Then("TrackingID of  start auto bet for client and back server should be : \'DA1FE75E-90" +
+testRunner.Then("BetTrackingID of  start auto bet for client and back server should be : \'DA1FE75E-90" +
                     "42-4FC5-B3CF-1E973D2152F7\'");
 #line 13
 testRunner.Then("The system can\'t sent StartAutoBetInformation to back server");

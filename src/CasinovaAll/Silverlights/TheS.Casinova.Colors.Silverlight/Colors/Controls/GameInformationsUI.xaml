@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:TheS_Casinova_Colors="clr-namespace:TheS.Casinova.TwoWins" x:Class="TheS.Casinova.TwoWins.Controls.GameInformationsUI"
+    xmlns:TheS_Casinova_Colors="clr-namespace:TheS.Casinova.Colors" x:Class="TheS.Casinova.Colors.Controls.GameInformationsUI"
     mc:Ignorable="d"
     d:DesignHeight="400" d:DesignWidth="500" Width="Auto" Height="Auto">
     
@@ -29,7 +29,7 @@
     		<HyperlinkButton Content="Play" HorizontalAlignment="Left" Foreground="Red" NavigateUri="{Binding GameUri, Mode=OneWay}" d:LayoutOverrides="GridBox"/>
     		<HyperlinkButton x:Name="HowToPlayHyperlinkButton" Content="How to play" Margin="0,0,60,0" Foreground="Red" Click="HowToPlayHyperlinkButton_Click" d:LayoutOverrides="Width, GridBox" />
     	</StackPanel>
-    	<RichTextBox Margin="142,8,8,8" Grid.Row="1">
+    	<RichTextBox Margin="142,8,8,8" Grid.Row="1" IsReadOnly="True">
     		<Paragraph>
     			<Run Text="Game: Colors" FontWeight="Bold" FontSize="12"/>
 <LineBreak/><LineBreak/>

@@ -12,7 +12,8 @@ namespace TheS.Casinova.MagicNine.Commands
          /// <summary>
          /// ชื่อของผู้เล่น
          /// </summary>
-         public string UserName { get; set; }
+         public GamePlayAutoBetInformation GamePlauInfoUserName { get; set; }
+
          
          //output
          /// <summary>
@@ -22,3 +23,5 @@ namespace TheS.Casinova.MagicNine.Commands
 
     }
 }
+
+

@@ -5,7 +5,7 @@ using System.Text;
 using Rhino.Mocks;
 using TechTalk.SpecFlow;
 
-namespace TheS.Casinova.TwoWins.BackServices
+namespace TheS.Casinova.Colors.BackServices
 {
     [Binding]
     public class SpecEventDefinitions

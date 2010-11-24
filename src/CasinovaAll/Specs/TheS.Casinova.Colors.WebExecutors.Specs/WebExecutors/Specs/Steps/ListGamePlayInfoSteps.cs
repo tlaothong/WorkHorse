@@ -3,49 +3,119 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
-using TheS.Casinova.TwoWins.Models;
+using TheS.Casinova.Colors.Models;
 using Rhino.Mocks;
-using TheS.Casinova.TwoWins.Commands;
+using TheS.Casinova.Colors.Commands;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Rhino.Mocks.Constraints;
+using PerfEx.Infrastructure.Validation;
 
-namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
+namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
 {
     [Binding]
     public class ListGamePlayInfoSteps : ColorsGameStepsBase
     {
-        //private ListGamePlayInfoCommand _cmd;
-        //private IEnumerable<GamePlayInformation> _expectGamePlayInfo;
-        //private string _userName;
+        private ListGamePlayInfoCommand _cmd;
+        private IEnumerable<GamePlayInformation> _listGamePlayInfo;
+        private IEnumerable<GamePlayInformation> _resultGamePlayInfo;
 
-        [Given(@"The game play information of '(.*)' is :")]
-        public void GivenTheGamePlayInformationOfXIs(string userName, Table table)
+        [Given(@"Server has game play information as:")]
+        public void GivenServerHasGamePlayInformationAs(Table table)
         {
-            ScenarioContext.Current.Pending();
+            _listGamePlayInfo = from item in table.Rows
+                                select new GamePlayInformation { 
+                                    UserName = Convert.ToString(item["UserName"]),
+                                    Round = Convert.ToInt32(item["Round"]),
+                                    TotalBetBlack = Convert.ToDouble(item["TotalBetBlack"]),
+                                    TotalBetWhite = Convert.ToDouble(item["TotalBetWhite"]),
+                                    Winner = Convert.ToString(item["Winner"]),
+                                    TrackingID = Guid.Parse(item["TrackingID"]),
+                                    OnGoingTrackingID = Guid.Parse(item["OnGoingTrackingID"]),
+                                    WinnerLastUpdate = DateTime.Parse(item["WinnerLastUpdate"])
+                                };
         }
 
-        [When(@"Call ListGamePlayInfo\('(.*)'\)")]
-        public void WhenCallListGamePlayInfoX(string userName)
+        [Given(@"Sent userName'(.*)' for list game play information")]
+        public void GivenSentUserNameForListGamePlayInformation(string userName)
         {
-            ScenarioContext.Current.Pending();
+            _resultGamePlayInfo = (from item in _listGamePlayInfo
+                                   where item.UserName == userName
+                                   select item);
+
+            SetupResult.For(Dqr_ListGamePlayInformation.List(new ListGamePlayInfoCommand()))
+                .IgnoreArguments().Return(_resultGamePlayInfo);
+
+            _cmd = new ListGamePlayInfoCommand {
+                GamePlayInfoUserName = new GamePlayInformation {
+                    UserName = userName
+                }
+            };
+        }
+
+        [When(@"Call ListGamePlayInfoExecutor\(\)")]
+        public void WhenCallListGamePlayInfoExecutorX()
+        {
+            try {
+                ListGamePlayInfo.Execute(_cmd, (x) => { });
+            }
+            catch (Exception ex) {
+                Assert.IsInstanceOfType(ex,
+                    typeof(ValidationErrorException));
+            }
+        }
+
+        [When(@"Call ListGamePlayInfoExecutor\(\) for validate username")]
+        public void WhenCallListGamePlayInfoExecutorBoyForValidateUsername()
+        {
+            try {
+                ListGamePlayInfo.Execute(_cmd, (x) => { });
+                Assert.Fail("Shouldn't be here");
+            }
+            catch (Exception ex) {
+                Assert.IsInstanceOfType(ex,
+                    typeof(ValidationErrorException));
+            }
         }
 
         [Then(@"The game play information should be :")]
         public void ThenTheGamePlayInformationShouldBe(Table table)
         {
-            ScenarioContext.Current.Pending();
+            var expect = from item in table.Rows
+                         select new {
+                             UserName = Convert.ToString(item["UserName"]),
+                             RoundID = Convert.ToInt32(item["Round"]),
+                             TotalBetAmountOfBlack = Convert.ToDouble(item["TotalBetBlack"]),
+                             TotalBetAmountOfWhite = Convert.ToDouble(item["TotalBetWhite"]),
+                             Winner = Convert.ToString(item["Winner"]),
+                             TrackingID = Guid.Parse(item["TrackingID"]),
+                             OnGoingTrackingID = Guid.Parse(item["OnGoingTrackingID"]),
+                             WinnerLastUpdate = DateTime.Parse(item["WinnerLastUpdate"])
+                         };
+            var actual = from item in _resultGamePlayInfo
+                         select new {
+                            UserName = item.UserName,
+                            RoundID = item.Round,
+                            TotalBetAmountOfBlack = item.TotalBetBlack,
+                            TotalBetAmountOfWhite = item.TotalBetWhite,
+                            Winner = item.Winner,
+                            TrackingID = item.TrackingID,
+                            OnGoingTrackingID = item.OnGoingTrackingID,
+                            WinnerLastUpdate = item.WinnerLastUpdate
+                         };
+
+            CollectionAssert.AreEqual(expect.ToArray(), actual.ToArray());
         }
 
         [Then(@"The game play information should be null")]
         public void ThenTheGamePlayInformationShouldBeNull()
         {
-            ScenarioContext.Current.Pending();
+            Assert.IsTrue(true, "The server don't have game result information");
         }
 
         [Then(@"The game play information should be throw exception")]
         public void ThenTheGamePlayInformationShouldBeThrowException()
         {
-            ScenarioContext.Current.Pending();
+            Assert.IsTrue(true, "Exception has been verified in the end of block When.");
             
         }
     }

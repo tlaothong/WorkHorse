@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
-using TheS.Casinova.TwoWins.Models;
+using TheS.Casinova.Colors.Models;
 using Rhino.Mocks;
-using TheS.Casinova.TwoWins.BackServices.Specs;
-using TheS.Casinova.TwoWins.Commands;
+using TheS.Casinova.Colors.BackServices.Specs;
+using TheS.Casinova.Colors.Commands;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TheS.Casinova.TwoWins.BackServices
+namespace TheS.Casinova.Colors.BackServices
 {
     [Binding]
     public class CreateGameRoundsSteps
@@ -19,12 +19,12 @@ namespace TheS.Casinova.TwoWins.BackServices
         private IEnumerable<GameRoundInformation> _activeRound;
         private GameRoundConfiguration _expectConfig;
 
-        [Given(@"server has GameRoundConfiguration information as:")]
+        [Given(@"server has GameRoundConfigTableName information as:")]
         public void GivenServerHasGameRoundConfigurationInformationAs(Table table)
         {
             _roundConfig = (from item in table.Rows
                             select new GameRoundConfiguration {
-                                Name = item["Name"],
+                                TableName = item["TableName"],
                                 TableAmount = Convert.ToInt32(item["TableAmount"]),
                                 GameDuration = Convert.ToInt32(item["GameDuration"]),
                                 Interval = Convert.ToInt32(item["Interval"]),
@@ -36,7 +36,7 @@ namespace TheS.Casinova.TwoWins.BackServices
         {
             _activeRound = (from item in table.Rows
                             select new GameRoundInformation {
-                                RoundID = Convert.ToInt32(item["RoundID"]),
+                                Round = Convert.ToInt32(item["GameRoundInfoRound"]),
                                 StartTime = DateTime.Parse(item["StartTime"]),
                                 EndTime = DateTime.Parse(item["EndTime"]),
                             });
@@ -44,11 +44,11 @@ namespace TheS.Casinova.TwoWins.BackServices
                 .IgnoreArguments().Return(_activeRound);
         }
 
-       [Given(@"sent Name: '(.*)', the GameRoundConfiguration should recieved data as GameRoundConfiguration\(Name: '(.*)', TableAmount: '(.*)', GameDuration: '(.*)', Inverval: '(.*)'\)")]
+       [Given(@"sent TableName: '(.*)', the GameRoundConfigTableName should recieved data as GameRoundConfigTableName\(TableName: '(.*)', TableAmount: '(.*)', GameDuration: '(.*)', Inverval: '(.*)'\)")]
         public void GivenSentNameXTheGameRoundConfigurationShouldRecievedDataAsGameRoundConfigurationNameXTableAmountXGameDurationXInvervalX(string name, string configName, int tableAmount, int gameDuration, int interval)
         {
             _expectConfig = (from item in _roundConfig
-                             where item.Name == name
+                             where item.TableName == name
                              select item).FirstOrDefault();
 
             SetupResult.For(Dqr_GetGameRoundConfiguration.Get(new GetGameRoundConfigurationCommand()))
@@ -60,7 +60,7 @@ namespace TheS.Casinova.TwoWins.BackServices
         {
             var qry = (from item in table.Rows                                      
                                       select new GameRoundInformation {
-                                          RoundID = Convert.ToInt32(item["RoundID"]),
+                                          Round = Convert.ToInt32(item["GameRoundInfoRound"]),
                                           StartTime = DateTime.Parse(item["StartTime"]),
                                           EndTime = DateTime.Parse(item["EndTime"]),
                                       });
@@ -68,7 +68,7 @@ namespace TheS.Casinova.TwoWins.BackServices
             Queue<GameRoundInformation> expect = new Queue<GameRoundInformation>(qry);
             Func<GameRoundInformation, CreateGameRoundCommand, GameRoundInformation> checkdata = (gameRoundInfo, cmd) => {
                 var exp = expect.Dequeue();
-                Assert.AreEqual(exp.RoundID, gameRoundInfo.RoundID, "RoundID");
+                Assert.AreEqual(exp.Round, gameRoundInfo.Round, "GameRoundInfoRound");
                 Assert.AreEqual(exp.StartTime, gameRoundInfo.StartTime, "StartTime");
                 Assert.AreEqual(exp.EndTime, gameRoundInfo.EndTime, "EndTime");
                 return gameRoundInfo;
@@ -78,10 +78,14 @@ namespace TheS.Casinova.TwoWins.BackServices
             LastCall.IgnoreArguments().Do(checkdata);
         }
 
-        [When(@"call CreateGameRound\(ConfigName: '(.*)'\)")]
+        [When(@"call CreateGameRound\(GameRoundConfigTableName: '(.*)'\)")]
         public void WhenCallCreateGameRoundConfigNameX(string configName)
         {
-            CreateGameRoundCommand cmd = new CreateGameRoundCommand { ConfigName = configName };
+            CreateGameRoundCommand cmd = new CreateGameRoundCommand { 
+                GameRoundConfig = new GameRoundConfiguration {
+                    TableName = configName 
+                }
+            };
             CreateGameRoundsExecutor.Execute(cmd, (x) => { });            
         }
 

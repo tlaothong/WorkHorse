@@ -9,7 +9,7 @@
 //  </auto-generated>
 // ------------------------------------------------------------------------------
 #region Designer generated code
-namespace TheS.Casinova.TwoWins.BackServices.Specs
+namespace TheS.Casinova.Colors.BackServices.Specs
 {
     using TechTalk.SpecFlow;
     
@@ -58,8 +58,8 @@ namespace TheS.Casinova.TwoWins.BackServices.Specs
 #line 7
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "RoundID",
-                        "UserName",
+                        "GameRoundInfoRound",
+                        "UserProfileBalance",
                         "OnGoingTrackingID"});
             table1.AddRow(new string[] {
                         "123",
@@ -83,10 +83,10 @@ this.ScenarioSetup(scenarioInfo);
 #line 14
 testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initialized");
 #line 15
-testRunner.And("Expect GamePlayInformation(RoundID: \'123\', UserName: \'OhAe\', OnGoingTrackingID: \'" +
+testRunner.And("Expect GamePlayInformation(GameRoundInfoRound: \'123\', UserProfileBalance: \'OhAe\', OnGoingTrackingID: \'" +
                     "B21F8971-DBAB-400F-9D95-151BA24875C1\') input should be add");
 #line 16
-testRunner.When("call UpdateOnGoingTrackingID(GamePlayInformation(RoundID: \'123\', UserName: \'OhAe\'" +
+testRunner.When("call UpdateOnGoingTrackingID(GamePlayInformation(GameRoundInfoRound: \'123\', UserProfileBalance: \'OhAe\'" +
                     ", OnGoingTrackingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\'))");
 #line 17
 testRunner.Then("the game play information should be saved by calling IColorsGameDataAccess.ApplyA" +

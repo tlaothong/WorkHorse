@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
-using TheS.Casinova.TwoWins.Models;
+using TheS.Casinova.Colors.Models;
 using Rhino.Mocks;
-using TheS.Casinova.TwoWins.Commands;
+using TheS.Casinova.Colors.Commands;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TheS.Casinova.TwoWins.BackServices.Specs
+namespace TheS.Casinova.Colors.BackServices.Specs
 {
     [Binding]
     public class PayForColorsWinnerInfoSteps
@@ -25,7 +25,7 @@ namespace TheS.Casinova.TwoWins.BackServices.Specs
         {
             _playerInfos = (from item in table.Rows
                             select new PlayerInformation {
-                                UserName = item["UserName"],
+                                UserName = item["UserProfileBalance"],
                                 Balance = Convert.ToDouble(item["Balance"]),
                             });
         }
@@ -35,8 +35,8 @@ namespace TheS.Casinova.TwoWins.BackServices.Specs
         {
             _playerActionInfos = (from item in table.Rows
                                   select new PlayerActionInformation {
-                                      RoundID = Convert.ToInt32(item["RoundID"]),
-                                      UserName = item["UserName"],
+                                      Round = Convert.ToInt32(item["GameRoundInfoRound"]),
+                                      UserName = item["UserProfileBalance"],
                                       ActionType = item["ActionType"],
                                   });
         }
@@ -46,7 +46,7 @@ namespace TheS.Casinova.TwoWins.BackServices.Specs
         {
             _RoundInfos = (from item in table.Rows
                            select new GameRoundInformation {
-                               RoundID = Convert.ToInt32(item["RoundID"]),
+                               Round = Convert.ToInt32(item["GameRoundInfoRound"]),
                                BlackPot = Convert.ToDouble(item["BlackPot"]),
                                WhitePot = Convert.ToDouble(item["WhitePot"]),
                            });
@@ -67,7 +67,7 @@ namespace TheS.Casinova.TwoWins.BackServices.Specs
         public void GivenSentRoundIDXUserNameXThePlayerSActionInformationShouldRecieved(int roundID, string userName)
         {
             var result = (from item in _playerActionInfos
-                          where item.RoundID == roundID && item.UserName == userName && item.ActionType == "GetWinner"
+                          where item.Round == roundID && item.UserName == userName && item.ActionType == "GetWinner"
                           select item);
 
             SetupResult.For(Dqr_ListPlayerActionInfo.List(new PayForColorsWinnerInfoCommand()))
@@ -78,7 +78,7 @@ namespace TheS.Casinova.TwoWins.BackServices.Specs
         public void GivenTheExpectedBalanceShouldBeX(double balance)
         {            
             Action<PlayerInformation, UpdatePlayerInfoBalanceCommand> CheckCallMethod = (playerInfo, cmd) => {
-                Assert.AreEqual(_expectPlayerInfo.UserName, playerInfo.UserName, "UserName");
+                Assert.AreEqual(_expectPlayerInfo.UserName, playerInfo.UserName, "UserProfileBalance");
                 Assert.AreEqual(balance, playerInfo.Balance, "Balance");
             };
 
@@ -86,19 +86,19 @@ namespace TheS.Casinova.TwoWins.BackServices.Specs
             LastCall.IgnoreArguments().Do(CheckCallMethod);
         }
 
-        [Given(@"the player's action information\(RoundID: '(.*)', UserName: '(.*)', ActionType: '(.*)', Amount: '(.*)'\) should be create")]
+        [Given(@"the player's action information\(GameRoundInfoRound: '(.*)', UserProfileBalance: '(.*)', ActionType: '(.*)', Amount: '(.*)'\) should be create")]
         public void GivenThePlayerSActionInformationRoundIDXUserNameXActionTypeXAmountXShouldBeCreate(int roundID, string userName, string actionType, double amount)
         {
             PlayerActionInformation _expected = new PlayerActionInformation {
-                RoundID = roundID,
+                Round = roundID,
                 UserName = userName,
                 ActionType = actionType,
                 Amount = amount,
             };
 
             Func<PlayerActionInformation, CreatePlayerActionInfoCommand, PlayerActionInformation> CheckData = (playerActionInfo, cmd) => {
-                Assert.AreEqual(_expected.RoundID, playerActionInfo.RoundID, "RoundID");
-                Assert.AreEqual(_expected.UserName, playerActionInfo.UserName, "UserName");
+                Assert.AreEqual(_expected.Round, playerActionInfo.Round, "GameRoundInfoRound");
+                Assert.AreEqual(_expected.UserName, playerActionInfo.UserName, "UserProfileBalance");
                 Assert.AreEqual(_expected.ActionType, playerActionInfo.ActionType, "ActionType");
                 Assert.AreEqual(_expected.Amount, playerActionInfo.Amount, "Amount");
 
@@ -108,18 +108,18 @@ namespace TheS.Casinova.TwoWins.BackServices.Specs
             LastCall.IgnoreArguments().Do(CheckData);
         }
 
-        [Given(@"the game play information\(RoundID: '(.*)', UserName: '(.*)', OnGoingTrackingID: '(.*)'\) should be update")]
+        [Given(@"the game play information\(GameRoundInfoRound: '(.*)', UserProfileBalance: '(.*)', OnGoingTrackingID: '(.*)'\) should be update")]
         public void GivenTheGamePlayInformationRoundIDXUserNameXOnGoingTrackingIDXShouldBeUpdate(int roundID, string userName, string onGoingTrackingID)
         {
             GamePlayInformation _expected = new GamePlayInformation {
-                RoundID = roundID,
+                Round = roundID,
                 UserName = userName,
                 OnGoingTrackingID = Guid.Parse(onGoingTrackingID),
             };
 
             Action<GamePlayInformation, UpdateOnGoingTrackingIDCommand> CheckData = (gamePlayInfo, cmd) => {
-                Assert.AreEqual(_expected.RoundID, gamePlayInfo.RoundID, "RoundID");
-                Assert.AreEqual(_expected.UserName, gamePlayInfo.UserName, "UserName");
+                Assert.AreEqual(_expected.Round, gamePlayInfo.Round, "GameRoundInfoRound");
+                Assert.AreEqual(_expected.UserName, gamePlayInfo.UserName, "UserProfileBalance");
                 Assert.AreEqual(_expected.OnGoingTrackingID, gamePlayInfo.OnGoingTrackingID, "OnGoingTrackingID");
             };
             Dac_UpdateOnGoingTrackingID.ApplyAction(new GamePlayInformation(), new UpdateOnGoingTrackingIDCommand());
@@ -130,41 +130,43 @@ namespace TheS.Casinova.TwoWins.BackServices.Specs
         public void GivenSentRoundIDXTheRoundInformationShouldRecieved(int roundID)
         {
             var result = (from item in _RoundInfos
-                          where item.RoundID == roundID
+                          where item.Round == roundID
                           select item).FirstOrDefault();
 
             SetupResult.For(Dqr_GetRoundInfo.Get(new GetRoundInfoCommand()))
                 .IgnoreArguments().Return(result);
         }
 
-        [Given(@"the game play information\(RoundID: '(.*)', UserName: '(.*)', TrackingID: '(.*)', Winner: '(.*)'\) should be update")]
+        [Given(@"the game play information\(GameRoundInfoRound: '(.*)', UserProfileBalance: '(.*)', BetTrackingID: '(.*)', Winner: '(.*)'\) should be update")]
         public void GivenTheGamePlayInformationRoundIDXUserNameXTrackingIDXShouldBeUpdate(int roundID, string userName, string trackingID, string winner)
         {
             GamePlayInformation _expected = new GamePlayInformation {
-                RoundID = roundID,
+                Round = roundID,
                 UserName = userName,
                 Winner = winner,
                 TrackingID = Guid.Parse(trackingID),
             };
 
             Action<GamePlayInformation, UpdateRoundWinnerCommand> CheckData = (gamePlayInfo, cmd) => {
-                Assert.AreEqual(_expected.RoundID, gamePlayInfo.RoundID, "RoundID");
-                Assert.AreEqual(_expected.UserName, gamePlayInfo.UserName, "UserName");
+                Assert.AreEqual(_expected.Round, gamePlayInfo.Round, "GameRoundInfoRound");
+                Assert.AreEqual(_expected.UserName, gamePlayInfo.UserName, "UserProfileBalance");
                 Assert.AreEqual(_expected.Winner, gamePlayInfo.Winner, "Winner");
-                Assert.AreEqual(_expected.TrackingID, gamePlayInfo.TrackingID, "TrackingID");
+                Assert.AreEqual(_expected.TrackingID, gamePlayInfo.TrackingID, "BetTrackingID");
             };
 
             Dac_UpdateRoundWinner.ApplyAction(new GamePlayInformation(), new UpdateRoundWinnerCommand());
             LastCall.IgnoreArguments().Do(CheckData);
         }
 
-        [When(@"call PayForColorsWinnerInfo\(UserName: '(.*)', RoundID: '(.*)', OnGoingTrackingID: '(.*)'\)")]
+        [When(@"call PayForColorsWinnerInfo\(UserProfileBalance: '(.*)', GameRoundInfoRound: '(.*)', OnGoingTrackingID: '(.*)'\)")]
         public void WhenCallPayForColorsWinnerInfoUserNameXRoundIDXOnGoingTrackingIDX(string userName, int roundID, string onGoingTrackingID)
         {
-            PayForColorsWinnerInfoCommand cmd = new PayForColorsWinnerInfoCommand { 
-                UserName = userName,
-                RoundID = roundID,
-                OnGoingTrackingID = Guid.Parse(onGoingTrackingID),
+            PayForColorsWinnerInfoCommand cmd = new PayForColorsWinnerInfoCommand {
+                PlayerActionInfoUserName = new PlayerActionInformation {
+                    UserName = userName,
+                    Round = roundID,
+                    TrackingID = Guid.Parse(onGoingTrackingID),
+                }
             };
             PayForColorsWinnerInfoExecutor.Execute(cmd, (x) => { });
         }

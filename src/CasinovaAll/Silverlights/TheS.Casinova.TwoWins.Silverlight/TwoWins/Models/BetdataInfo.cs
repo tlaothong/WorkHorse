@@ -13,11 +13,9 @@ namespace TheS.Casinova.TwoWins.Models
 {
     public class BetdataInfo : WinnerInfo
     {
-        public int Round { get; set; }
         public int HandID { get; set; }
         public bool Change { get; set; }
         public double OldBet { get; set; }
         public double Pot { get; set; }
-        public string Status { get; set; }
     }
 }

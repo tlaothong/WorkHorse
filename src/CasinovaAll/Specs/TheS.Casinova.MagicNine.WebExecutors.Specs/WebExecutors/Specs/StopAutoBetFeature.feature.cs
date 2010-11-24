@@ -64,12 +64,12 @@ testRunner.Given("The StopAutoBetExecutor has been created and initialized");
 #line 9
 testRunner.And(string.Format("Sent StopAutoBetInformation userName\'{0}\'", userName));
 #line 10
-testRunner.And("Web service has TrackingID for stop auto bet: \'DA1FE75E-9042-4FC5-B3CF-1E973D2152" +
+testRunner.And("Web service has BetTrackingID for stop auto bet: \'DA1FE75E-9042-4FC5-B3CF-1E973D2152" +
                     "F7\'");
 #line 11
 testRunner.When(string.Format("Call StopAutoBetExecutor(userName\'{0}\')", userName));
 #line 12
-testRunner.Then("TrackingID of  stop auto bet for client and back server should be : \'DA1FE75E-904" +
+testRunner.Then("BetTrackingID of  stop auto bet for client and back server should be : \'DA1FE75E-904" +
                     "2-4FC5-B3CF-1E973D2152F7\'");
 #line 13
 testRunner.Then("The system can\'t sent StopAutoBetInformation to back server");

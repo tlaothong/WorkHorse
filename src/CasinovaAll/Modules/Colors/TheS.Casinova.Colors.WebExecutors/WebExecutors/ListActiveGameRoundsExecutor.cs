@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using TheS.Casinova.TwoWins.DAL;
-using TheS.Casinova.TwoWins.Models;
-using TheS.Casinova.TwoWins.Commands;
+using TheS.Casinova.Colors.DAL;
+using TheS.Casinova.Colors.Models;
+using TheS.Casinova.Colors.Commands;
 using PerfEx.Infrastructure.CommandPattern;
 
-namespace TheS.Casinova.TwoWins.WebExecutors
+namespace TheS.Casinova.Colors.WebExecutors
 {
     /// <summary>
     /// list ข้อมูลโต๊ะเกมที่ active
@@ -24,8 +24,8 @@ namespace TheS.Casinova.TwoWins.WebExecutors
 
          protected override void ExecuteCommand(ListActiveGameRoundCommand command)
          {
-             command.FromTime = DateTime.Now;
-             command.ActiveRounds = _iListActiveRound.List(command);
+             command.FromTime = DateTime.Now;           //เริ่มต้นที่เวลาปัจจุบัน      
+             command.GameRoundInfo = _iListActiveRound.List(command);    
          }
     }
 }

@@ -1,4 +1,7 @@
-﻿using System;
+﻿
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,32 +11,17 @@ namespace TheS.Casinova.MagicNine.Models
     /// <summary>
     /// ข้อมูลโต๊ะเกม
     /// </summary>
-    public class GameRoundInformation
+    public partial class GameRoundInformation
     {
         /// <summary>
         /// รหัสโต๊ะเกม
         /// </summary>
-        public int RoundID { get; set; }
-
-        /// <summary>
-        /// เวลาเริ่มเกม
-        /// </summary>
-        public DateTime StartTime { get; set; }
-
-        /// <summary>
-        /// เวลาจบเกม
-        /// </summary>
-        public DateTime EndTime { get; set; }
+        public int Round { get; set; }
 
         /// <summary>
         /// แต้มที่จะชนะของเกม
         /// </summary>
         public int WinnerPoint { get; set; }
-
-        /// <summary>
-        /// เงินในกองของเกม
-        /// </summary>
-        public int GamePot { get; set; }
 
         /// <summary>
         /// สถานะของห้อง (True = ใช้งาน / False = ไม่ใช่งาน)

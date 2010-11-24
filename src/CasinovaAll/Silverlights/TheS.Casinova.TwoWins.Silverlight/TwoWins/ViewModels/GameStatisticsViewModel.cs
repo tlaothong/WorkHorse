@@ -22,8 +22,7 @@ namespace TheS.Casinova.TwoWins.ViewModels
         private PropertyChangedNotifier _notify;
         private double _pot;
         private double _hands;
-        private ObservableCollection<WinnerInfo> _winnerHigh;
-        private ObservableCollection<WinnerInfo> _winnerLow;
+        private ObservableCollection<WinnerInfo> _informations;
         private DateTime _firstData;
         private DateTime _secondData;
 
@@ -36,8 +35,10 @@ namespace TheS.Casinova.TwoWins.ViewModels
             get { return _secondData; }
             set
             {
-                _secondData = value;
-                _notify.Raise(() => SecondData);
+                if (_secondData!=value) {
+                    _secondData = value;
+                    _notify.Raise(() => SecondData); 
+                }
             }
         }
 
@@ -46,28 +47,20 @@ namespace TheS.Casinova.TwoWins.ViewModels
             get { return _firstData; }
             set
             {
-                _firstData = value;
-                _notify.Raise(() => FirstData);
+                if (_firstData!=value) {
+                    _firstData = value;
+                    _notify.Raise(() => FirstData); 
+                }
             }
         }
 
-        public ObservableCollection<WinnerInfo> WinnerLow
+        public ObservableCollection<WinnerInfo> Informations
         {
-            get { return _winnerLow; }
+            get { return _informations; }
             set
             {
-                _winnerLow = value;
-                _notify.Raise(() => WinnerLow);
-            }
-        }
-
-        public ObservableCollection<WinnerInfo> WinnerHigh
-        {
-            get { return _winnerHigh; }
-            set
-            {
-                _winnerHigh = value;
-                _notify.Raise(() => WinnerHigh);
+                _informations = value;
+                _notify.Raise(() => Informations);
             }
         }
 
@@ -76,8 +69,10 @@ namespace TheS.Casinova.TwoWins.ViewModels
             get { return _hands; }
             set
             {
-                _hands = value;
-                _notify.Raise(() => Hands);
+                if (_hands != value) {
+                    _hands = value;
+                    _notify.Raise(() => Hands); 
+                }
             }
         }
 
@@ -86,8 +81,10 @@ namespace TheS.Casinova.TwoWins.ViewModels
             get { return _pot; }
             set
             {
-                _pot = value;
-                _notify.Raise(() => Pot);
+                if (_pot!=value) {
+                    _pot = value;
+                    _notify.Raise(() => Pot); 
+                }
             }
         }
 
@@ -98,33 +95,38 @@ namespace TheS.Casinova.TwoWins.ViewModels
         public GameStatisticsViewModel()
         {
             _notify = new PropertyChangedNotifier(this, () => PropertyChanged);
-            _winnerHigh = new ObservableCollection<WinnerInfo>();
-            _winnerLow = new ObservableCollection<WinnerInfo>();
+            _informations = new ObservableCollection<WinnerInfo>();
 
             if (DesignerProperties.IsInDesignTool) {
                 Pot = 123456789;
                 Hands = 75245;
-                WinnerHigh.Add(new WinnerInfo {
+                Informations.Add(new WinnerInfo {
+                    Round = 1,
                     Player = "John",
-                    State = "Normal",
+                    GameState = "Normal",
                     Time = new DateTime(2010, 11, 3, 11, 32, 21),
                     Bet = 70000,
-                    Getback = 123456
+                    Getback = 123456,
+                    WinState = "High"
                 });
-                WinnerHigh.Add(new WinnerInfo {
+                Informations.Add(new WinnerInfo {
+                    Round = 1,
                     Player = "Doe",
-                    State = "Critical",
+                    GameState = "Critical",
                     Time = new DateTime(2010, 11, 3, 11, 42, 51),
                     Bet = 70001,
-                    Getback = 87654321
+                    Getback = 87654321,
+                    WinState = "High"
                 });
-
-                WinnerLow.Add(new WinnerInfo {
+               
+                Informations.Add(new WinnerInfo {
+                    Round = 2,
                     Player = "Thailand",
-                    State = "Normal",
+                    GameState = "Normal",
                     Time = new DateTime(2010, 11, 3, 07, 11, 08),
                     Bet = 523,
-                    Getback = 123456
+                    Getback = 123456,
+                    WinState = "Low"
                 });
             }
         }

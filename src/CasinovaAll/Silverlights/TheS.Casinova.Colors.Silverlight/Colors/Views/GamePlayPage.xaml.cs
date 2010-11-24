@@ -13,7 +13,7 @@ using System.Windows.Navigation;
 using TheS.Casinova.Common;
 using PerfEx.Infrastructure.Mvvm;
 
-namespace TheS.Casinova.TwoWins.Views
+namespace TheS.Casinova.Colors.Views
 {
     [ExportContentNavigation(GameApplicationInformation.GameInfoNavigationCode)]
     public partial class GamePlayPage : Page
@@ -21,6 +21,16 @@ namespace TheS.Casinova.TwoWins.Views
         public GamePlayPage()
         {
             InitializeComponent();
+            ViewModel.Dispatcher = Dispatcher;
+            ViewModel.GetListActiveGameRounds();
+        }
+
+        public ViewModels.GamePlayViewModel ViewModel
+        {
+            get
+            {
+                return (ViewModels.GamePlayViewModel)DataContext;
+            }
         }
 
         // Executes when the user navigates to this page.

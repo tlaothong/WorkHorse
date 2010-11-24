@@ -176,22 +176,22 @@ namespace TheS.Casinova.DevilSix.ViewModels
 
         #region Methods
 
-
         /// <summary>
         /// ปิด/เปิด การเล่นอัตโนมัติ
         /// </summary>
-        public void StartStop(ObservableCollection<string> interval)
+        public void StartStop()
         {
+            // TODO: StartStop
         }
 
         public void BetOne()
         {
-            // TODO : Bet $1
+            // TODO: Bet $1
         }
 
         public void BetTwo()
         {
-            // TODO : Bet $2
+            // TODO: Bet $2
         }
 
         #endregion Methods
@@ -201,6 +201,5 @@ namespace TheS.Casinova.DevilSix.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
 
         #endregion INotifyPropertyChanged members
-
     }
 }

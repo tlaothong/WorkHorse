@@ -18,9 +18,9 @@ namespace CasinovaAllStars.ViewModels
     {
         #region Properties
 
-        public ReadOnlyObservableCollection<Lazy<UserControl, IGameStatContentMetadata>> StatContents
+        public ReadOnlyObservableCollection<Lazy<UserControl, IStatisticsContentMetadata>> StatisticsContents
         {
-            get { return App.ModuleLoader.GameStatContents; }
+            get { return App.ModuleLoader.StatisticsContents; }
         }
 
         public StatisticsViewModel()
@@ -34,7 +34,7 @@ namespace CasinovaAllStars.ViewModels
         {
             PropertyChangedEventHandler temp = PropertyChanged;
             if (temp != null) {
-                temp(this, new PropertyChangedEventArgs("StatContents"));
+                temp(this, new PropertyChangedEventArgs("StatisticsContents"));
             }
         }
 

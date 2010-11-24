@@ -27,6 +27,7 @@ namespace TheS.Casinova.SupportContent
 
         private ReadOnlyObservableCollection<IGameApplicationInformation> _games;
         private ReadOnlyObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>> _popups;
+        private ReadOnlyObservableCollection<Lazy<UserControl, IStatisticsContentMetadata>> _statisticss;
         private ReadOnlyObservableCollection<Lazy<UserControl, IGameStatContentMetadata>> _statContents;
 
         private ObservableCollection<IGameApplicationInformation> __importedGames;
@@ -50,6 +51,18 @@ namespace TheS.Casinova.SupportContent
             {
                 __importedPopups = value;
                 _popups = new ReadOnlyObservableCollection<Lazy<ChildWindow, IPopupContentMetadata>>(value);
+            }
+        }
+
+        private ObservableCollection<Lazy<UserControl, IStatisticsContentMetadata>> __importedStatisticss;
+        [ImportMany(typeof(UserControl), AllowRecomposition = true)]
+        public ObservableCollection<Lazy<UserControl, IStatisticsContentMetadata>> _ImportedStatisticss
+        {
+            get { return __importedStatisticss; }
+            set
+            {
+                __importedStatisticss = value;
+                _statisticss = new ReadOnlyObservableCollection<Lazy<UserControl, IStatisticsContentMetadata>>(value);
             }
         }
 
@@ -78,6 +91,11 @@ namespace TheS.Casinova.SupportContent
             get { return _popups; }
         }
 
+        public ReadOnlyObservableCollection<Lazy<UserControl, IStatisticsContentMetadata>> StatisticsContents
+        {
+            get { return _statisticss; }
+        }
+
         public ReadOnlyObservableCollection<Lazy<UserControl, IGameStatContentMetadata>> GameStatContents
         {
             get { return _statContents; }
@@ -93,7 +111,6 @@ namespace TheS.Casinova.SupportContent
                 new DeploymentCatalog("TheS.Casinova.MagicNine.Silverlight.xap"),
                 new DeploymentCatalog("TheS.Casinova.PlayerAccount.Silverlight.xap"),
                 new DeploymentCatalog("TheS.Casinova.TwoWins.Silverlight.xap"),
-                // TODO : test include support content for faq, about us, policy
                 new DeploymentCatalog("TheS.Casinova.SupportContent.Silverlight.xap"),
             };
             var acat = new AggregateCatalog(cats);

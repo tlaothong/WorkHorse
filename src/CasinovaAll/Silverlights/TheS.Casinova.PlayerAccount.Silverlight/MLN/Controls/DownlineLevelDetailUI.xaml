@@ -3,24 +3,36 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" x:Class="TheS.Casinova.MLN.Controls.DownlineLevelDetailUI"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:TheS_Casinova_MLN_ViewModels="clr-namespace:TheS.Casinova.MLN.ViewModels" x:Class="TheS.Casinova.MLN.Controls.DownlineLevelDetailUI"
     mc:Ignorable="d"
     d:DesignHeight="420" d:DesignWidth="600">
+    
+	<UserControl.Resources>
+		<TheS_Casinova_MLN_ViewModels:DownlineDetailViewModel x:Key="DownlineDetailViewModelDataSource" d:IsDataSource="True"/>
+	</UserControl.Resources>
+	<UserControl.DataContext>
+		<Binding Source="{StaticResource DownlineDetailViewModelDataSource}"/>
+	</UserControl.DataContext>
     
     <Grid x:Name="LayoutRoot" Background="White">
     	<Grid.RowDefinitions>
     		<RowDefinition/>
     	</Grid.RowDefinitions>
     	<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Total:" VerticalAlignment="Top" Margin="8,8,0,0" FontSize="16" FontWeight="Bold"/>
-    	<TextBlock x:Name="Total" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Total" VerticalAlignment="Top" Margin="64,8,0,0" FontSize="16"/>
+    	<TextBlock x:Name="Total" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Total}" VerticalAlignment="Top" Margin="64,8,0,0" FontSize="16"/>
     	<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Your team level:" VerticalAlignment="Top" Margin="8,35,0,0"/>
-    	<TextBlock x:Name="Level" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Level" VerticalAlignment="Top" Margin="104,35,0,0"/>
+    	<TextBlock x:Name="Level" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Level}" VerticalAlignment="Top" Margin="104,35,0,0"/>
     	<TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="Average income perday:" VerticalAlignment="Top" Margin="0,15,136,0" FontWeight="Bold"/>
     	<TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="Average incluse perday:" VerticalAlignment="Top" Margin="0,35,135,0" FontWeight="Bold"/>
-    	<TextBlock x:Name="AverageIncomePerday" HorizontalAlignment="Right" TextWrapping="Wrap" Text="AverageIncomePerday" VerticalAlignment="Top" Margin="0,15,8,0"/>
-    	<TextBlock x:Name="AverageInclusePerday" HorizontalAlignment="Right" TextWrapping="Wrap" Text="AverageInclusePerday" VerticalAlignment="Top" Margin="0,35,8,0"/>
+    	<TextBlock x:Name="AverageIncomePerday" HorizontalAlignment="Right" TextWrapping="Wrap" Text="{Binding IncomePerday}" VerticalAlignment="Top" Margin="0,15,8,0" Width="124"/>
+    	<TextBlock x:Name="AverageInclusePerday" HorizontalAlignment="Right" TextWrapping="Wrap" Text="{Binding IncludePerday}" VerticalAlignment="Top" Margin="0,35,8,0" Width="124"/>
 
-    	<sdk:DataGrid x:Name="DownlineDetail" Margin="8,64,8,8"/>
+    	<sdk:DataGrid x:Name="DownlineDetail" Margin="8,64,8,8" AutoGenerateColumns="False" ItemsSource="{Binding Informations}" IsReadOnly="True">
+    		<sdk:DataGrid.Columns>
+    			<sdk:DataGridTextColumn Binding="{Binding Name}" Header="Name"/>
+    			<sdk:DataGridTextColumn Binding="{Binding GroupCount}" Header="GroupCount"/>
+    		</sdk:DataGrid.Columns>
+    	</sdk:DataGrid>
 
     </Grid>
 </UserControl>

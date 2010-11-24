@@ -67,8 +67,16 @@
     <Reference Include="PerfEx.Infrastructure.Silverlight">
       <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Silverlight.dll</HintPath>
     </Reference>
+    <Reference Include="PerfEx.Infrastructure.Silverlight.Advanced">
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Silverlight.Advanced.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.Composition, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.ComponentModel.DataAnnotations, Version=2.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217" />
+    <Reference Include="System.CoreEx, Version=1.0.2698.204, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Observable, Version=1.0.0.204, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Reactive, Version=1.0.2698.204, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows" />
     <Reference Include="system" />
     <Reference Include="System.Core" />
@@ -76,6 +84,7 @@
     <Reference Include="System.Windows.Controls, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Windows.Controls.Data, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="System.Windows.Controls.Data.Input, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit" />
     <Reference Include="System.Windows.Controls.Navigation, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Windows.Controls.Theming.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Windows.Controls.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -97,19 +106,22 @@
     <Compile Include="Colors\GameApplicationInformation.cs" />
     <Compile Include="Colors\Models\GameTable.cs" />
     <Compile Include="Colors\Models\BetdataInfo.cs" />
+    <Compile Include="Colors\Models\PayLog.cs" />
     <Compile Include="Colors\Page1.xaml.cs">
       <DependentUpon>Page1.xaml</DependentUpon>
     </Compile>
     <Compile Include="Colors\Popups\BetData.xaml.cs">
       <DependentUpon>BetData.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Colors\Services\ColorsServiceAdapter.cs" />
+    <Compile Include="Colors\Services\IColorsServiceAdapter.cs" />
     <Compile Include="Colors\Silverlight\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Colors\Silverlight\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Colors\ViewModels\BetdataViewModel.cs" />
+    <Compile Include="Colors\ViewModels\StatisticsChartViewModel.cs" />
     <Compile Include="Colors\ViewModels\GamePlayViewModel.cs" />
     <Compile Include="Colors\ViewModels\GameStatisticsViewModel.cs" />
     <Compile Include="Colors\Views\BetDataPage.xaml.cs">
@@ -118,8 +130,8 @@
     <Compile Include="Colors\Views\GamePlayPage.xaml.cs">
       <DependentUpon>GamePlayPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Colors\Views\GameStatisticsWindow.xaml.cs">
-      <DependentUpon>GameStatisticsWindow.xaml</DependentUpon>
+    <Compile Include="Colors\Views\StatisticsChartWindow.xaml.cs">
+      <DependentUpon>StatisticsChartWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Colors\Views\GraphPage.xaml.cs">
       <DependentUpon>GraphPage.xaml</DependentUpon>
@@ -131,6 +143,11 @@
       <DependentUpon>StatisticPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\ColorsSvc\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="Colors\Silverlight\App.xaml">
@@ -169,7 +186,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Colors\Views\GameStatisticsWindow.xaml">
+    <Page Include="Colors\Views\StatisticsChartWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -201,6 +218,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
+    <None Include="Service References\ColorsSvc\ColorsService1.disco" />
+    <Content Include="ServiceReferences.ClientConfig" />
+    <None Include="Service References\ColorsSvc\ColorsService1.wsdl" />
+    <None Include="Service References\ColorsSvc\ColorsService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ColorsSvc\ColorsService41.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ColorsSvc\ColorsService42.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ColorsSvc\ColorsService43.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ColorsSvc\TheS.Casinova.ColorsSvc.BetCommand.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ColorsSvc\TheS.Casinova.ColorsSvc.GetGameResultCommand.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ColorsSvc\TheS.Casinova.ColorsSvc.ListActiveGameRoundCommand.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ColorsSvc\TheS.Casinova.ColorsSvc.ListGamePlayInfoCommand.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ColorsSvc\TheS.Casinova.ColorsSvc.PayForColorsWinnerInfoCommand.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TheS.Casinova.Common.Silverlight\TheS.Casinova.Common.Silverlight.csproj">
@@ -210,6 +257,24 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Colors\Assets\Images\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ColorsSvc\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ColorsSvc\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ColorsSvc\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ColorsSvc\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

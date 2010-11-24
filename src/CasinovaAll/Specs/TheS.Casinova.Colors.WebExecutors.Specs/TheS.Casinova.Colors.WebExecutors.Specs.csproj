@@ -40,8 +40,17 @@
     <Reference Include="PerfEx.Infrastructure.Advanced">
       <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Advanced.dll</HintPath>
     </Reference>
+    <Reference Include="PerfEx.Infrastructure.Containers.StructureMapAdapter">
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Containers.StructureMapAdapter.dll</HintPath>
+    </Reference>
     <Reference Include="Rhino.Mocks">
       <HintPath>..\..\..\..\lib\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="SpecFlowAssist">
+      <HintPath>..\..\..\..\lib\SpecFlowAssist.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\..\..\..\lib\StructureMap.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -103,6 +112,11 @@
     <Compile Include="WebExecutors\Specs\Steps\ColorsGameStepsBase.cs" />
     <Compile Include="WebExecutors\Specs\Steps\ListGamePlayInfoSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\PayForColorsWinnerInfoSteps.cs" />
+    <Compile Include="WebExecutors\UnitSpecs\BetExecutorSpecs.cs" />
+    <Compile Include="WebExecutors\UnitSpecs\CreateGameRoundConfigurationExecutorSpecs.cs" />
+    <Compile Include="WebExecutors\UnitSpecs\GetGameResultExecutorSpecs.cs" />
+    <Compile Include="WebExecutors\UnitSpecs\ListGamePlayInfoExecutorSpecs.cs" />
+    <Compile Include="WebExecutors\UnitSpecs\PayForColorWinnerInfoExecutorSpecs.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Modules\Colors\TheS.Casinova.Colors.BackServices.Contracts\TheS.Casinova.Colors.BackServices.Contracts.csproj">

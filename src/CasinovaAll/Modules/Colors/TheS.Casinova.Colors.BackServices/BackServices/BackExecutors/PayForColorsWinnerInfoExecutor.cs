@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using PerfEx.Infrastructure.CommandPattern;
-using TheS.Casinova.TwoWins.Commands;
-using TheS.Casinova.TwoWins.DAL;
-using TheS.Casinova.TwoWins.Models;
+using TheS.Casinova.Colors.Commands;
+using TheS.Casinova.Colors.DAL;
+using TheS.Casinova.Colors.Models;
 
-namespace TheS.Casinova.TwoWins.BackServices.BackExecutors
+namespace TheS.Casinova.Colors.BackServices.BackExecutors
 {
     public class PayForColorsWinnerInfoExecutor 
         : SynchronousCommandExecutorBase<PayForColorsWinnerInfoCommand>
@@ -45,7 +45,7 @@ namespace TheS.Casinova.TwoWins.BackServices.BackExecutors
             #region Update balance
             //ดึงข้อมูลยอดเงินของผู้เล่น
             GetPlayerInfoCommand getPlayerInfoCmd = new GetPlayerInfoCommand {
-                UserName = command.UserName,
+                UserName = command.PlayerActionInfoUserName.UserName,
             };
 
             getPlayerInfoCmd.PlayerInfo = _iGetPlayerInfo.Get(getPlayerInfoCmd);
@@ -83,8 +83,8 @@ namespace TheS.Casinova.TwoWins.BackServices.BackExecutors
             PlayerActionInformation playerActionInfo = new PlayerActionInformation();
 
             CreatePlayerActionInfoCommand createPlayerActionInfoCmd = new CreatePlayerActionInfoCommand {
-                UserName = playerActionInfo.UserName = command.UserName,
-                RoundID = playerActionInfo.RoundID = command.RoundID,
+                UserName = playerActionInfo.UserName = command.PlayerActionInfoUserName.UserName,
+                RoundID = playerActionInfo.Round = command.PlayerActionInfoUserName.Round,
                 Amount = playerActionInfo.Amount = _payFee,
                 ActionType = playerActionInfo.ActionType = "GetWinner",
             };
@@ -95,9 +95,11 @@ namespace TheS.Casinova.TwoWins.BackServices.BackExecutors
             GamePlayInformation gamePlayInfo = new GamePlayInformation();
 
             UpdateOnGoingTrackingIDCommand updateOnGoingTrackingIDCmd = new UpdateOnGoingTrackingIDCommand {
-                    RoundID = gamePlayInfo.RoundID = command.RoundID,
-                    UserName = gamePlayInfo.UserName = command.UserName,
-                    OnGoingTrackingID = gamePlayInfo.OnGoingTrackingID = command.OnGoingTrackingID,
+                PlayerActionInfoUserName = new PlayerActionInformation {
+                    Round = gamePlayInfo.Round = command.PlayerActionInfoUserName.Round,
+                    UserName = gamePlayInfo.UserName = command.PlayerActionInfoUserName.UserName,
+                    TrackingID = gamePlayInfo.OnGoingTrackingID = command.OnGoingTrackingID,
+                }
             };
 
             _iUpdateOnGoingTrackingID.ApplyAction(gamePlayInfo, updateOnGoingTrackingIDCmd);
@@ -108,7 +110,7 @@ namespace TheS.Casinova.TwoWins.BackServices.BackExecutors
 
             //ดึงข้อมูล Winner
             GetRoundInfoCommand getRoundInfoCmd = new GetRoundInfoCommand { 
-                RoundID = command.RoundID
+                RoundID = command.PlayerActionInfoUserName.Round
             };
             getRoundInfoCmd.RoundInfo = _iGetRoundInfo.Get(getRoundInfoCmd);
 
@@ -126,11 +128,13 @@ namespace TheS.Casinova.TwoWins.BackServices.BackExecutors
             GamePlayInformation gamePlayInfoForComplete = new GamePlayInformation();
 
             UpdateRoundWinnerCommand updateRoundWinnerCmd = new UpdateRoundWinnerCommand {
-                    RoundID = gamePlayInfoForComplete.RoundID = command.RoundID,
-                    UserName = gamePlayInfoForComplete.UserName = command.UserName,
+                PlayerActionInfoUserName = new PlayerActionInformation {
+                    Round = gamePlayInfoForComplete.Round = command.PlayerActionInfoUserName.Round,
+                    UserName = gamePlayInfoForComplete.UserName = command.PlayerActionInfoUserName.UserName,
+                },
                     Winner = gamePlayInfoForComplete.Winner = _winner,
                     TrackingID = gamePlayInfoForComplete.TrackingID = command.OnGoingTrackingID,
-                    LastUpdate = gamePlayInfoForComplete.LastUpdate = DateTime.Now,
+                    LastUpdate = gamePlayInfoForComplete.WinnerLastUpdate = DateTime.Now,
             };
             
             //บันทึกข้อมูล Winner และ TrackingID ที่ผู้เล่นร้องขอ

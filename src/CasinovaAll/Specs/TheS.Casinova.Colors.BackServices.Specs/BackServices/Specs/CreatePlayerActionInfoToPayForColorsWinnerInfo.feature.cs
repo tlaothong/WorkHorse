@@ -9,7 +9,7 @@
 //  </auto-generated>
 // ------------------------------------------------------------------------------
 #region Designer generated code
-namespace TheS.Casinova.TwoWins.BackServices.Specs
+namespace TheS.Casinova.Colors.BackServices.Specs
 {
     using TechTalk.SpecFlow;
     
@@ -53,24 +53,24 @@ namespace TheS.Casinova.TwoWins.BackServices.Specs
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ได้รับข้อมูล PlayerActionInfo, ระบบบันทึกข้อมูลของผู้เล่น")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ได้รับข้อมูล PlayerActionInfoUserName, ระบบบันทึกข้อมูลของผู้เล่น")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CreatePlayerActionInfoToPayForColorsWinnerInfo")]
         public virtual void ไดรบขอมลPlayerActionInfoระบบบนทกขอมลของผเลน()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ได้รับข้อมูล PlayerActionInfo, ระบบบันทึกข้อมูลของผู้เล่น", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ได้รับข้อมูล PlayerActionInfoUserName, ระบบบันทึกข้อมูลของผู้เล่น", new string[] {
                         "record_mock"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
 testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initialized");
 #line 9
-testRunner.And("Expect result should be add PlayerActionInfo(RoundID: \'13\', UserName: \'OhAe\', Act" +
+testRunner.And("Expect result should be add PlayerActionInfoUserName(GameRoundInfoRound: \'13\', UserProfileBalance: \'OhAe\', Act" +
                     "ionType: \'GetWinner\', Amount: \'5\')");
 #line 10
-testRunner.When("call CreatePlayerActionInfo(PlayerActionInfo(RoundID: \'13\', UserName: \'OhAe\', Act" +
+testRunner.When("call CreatePlayerActionInfo(PlayerActionInfoUserName(GameRoundInfoRound: \'13\', UserProfileBalance: \'OhAe\', Act" +
                     "ionType: \'GetWinner\', Amount: \'5\'))");
 #line 11
-testRunner.Then("the PlayerActionInfo should be saved to the ICreatePlayerActionInfo.Create(Player" +
+testRunner.Then("the PlayerActionInfoUserName should be saved to the ICreatePlayerActionInfo.Create(Player" +
                     "ActionInfo, PayForColorsWinnerInfoCommand) with expected data");
 #line hidden
             testRunner.CollectScenarioErrors();

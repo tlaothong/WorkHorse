@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using TheS.Casinova.TwoWins.Models;
+using TheS.Casinova.Colors.Models;
 
-namespace TheS.Casinova.TwoWins.Commands
+namespace TheS.Casinova.Colors.Commands
 {
     /// <summary>
     /// get information data of game playable(active rounds) by username and return GameplayInfos type IEnumarable(GamePlayInformation)
@@ -12,9 +12,15 @@ namespace TheS.Casinova.TwoWins.Commands
     public class ListGamePlayInfoCommand
     {
         //input
-        public string UserName { get; set; } // username of player
+        /// <summary>
+        /// ข้อมูลชื่อของผู้เล่น
+        /// </summary>
+        public GamePlayInformation GamePlayInfoUserName { get; set; } 
 
         //output
-        public IEnumerable<GamePlayInformation> GamePlayInfos { get; set; } //return data of game playable information
+        /// <summary>
+        /// ข้อมูลการเล่นเกมของผู้เล่น
+        /// </summary>
+        public IEnumerable<GamePlayInformation> GamePlayInfos { get; set; } 
     }
 }

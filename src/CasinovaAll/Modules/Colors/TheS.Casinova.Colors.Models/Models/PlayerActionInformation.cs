@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
 
-namespace TheS.Casinova.TwoWins.Models
+namespace TheS.Casinova.Colors.Models
 {
     /// <summary>
     /// ข้อมูลการลงพนันของผู้เล่นแต่ละครั้ง
@@ -14,7 +14,7 @@ namespace TheS.Casinova.TwoWins.Models
         /// <summary>
         /// รหัสโต๊ะเกมที่ลงพนัน
         /// </summary>
-        public int RoundID { get; set; }
+        public int Round { get; set; }
 
         /// <summary>
         /// ชื่อผู้เล่นที่ลงพนัน
@@ -35,23 +35,5 @@ namespace TheS.Casinova.TwoWins.Models
         /// trackingID use to verify
         /// </summary>
         public Guid TrackingID { get; set; }
-    }
-
-    [MetadataType(typeof(MD))]
-    partial class PlayerActionInformation
-    {
-        public class MD
-        {
-            [Required]
-            public int RoundID { get; set; }
-            [Required]
-            public string UserName { get; set; }
-            [Required]
-            public string ActionType { get; set; }
-            [Required]
-            public double Amount { get; set; }
-
-            public Guid TrackingID { get; set; }
-        }
     }
 }

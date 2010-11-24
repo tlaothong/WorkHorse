@@ -16,7 +16,7 @@ namespace TheS.Casinova.Chat.ViewModels
     public class ChatViewModel : INotifyPropertyChanged
     {
         #region Fields
-        
+
         private ObservableCollection<string> _channels;
         private ObservableCollection<string> _players;
 

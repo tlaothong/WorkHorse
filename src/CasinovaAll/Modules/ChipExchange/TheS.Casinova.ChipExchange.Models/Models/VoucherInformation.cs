@@ -25,6 +25,6 @@ namespace TheS.Casinova.ChipExchange.Models
         /// <summary>
         /// สถานะการถูกใช้
         /// </summary>
-        public bool IsUse { get; set; }
+        public bool CanUse { get; set; }
     }
 }

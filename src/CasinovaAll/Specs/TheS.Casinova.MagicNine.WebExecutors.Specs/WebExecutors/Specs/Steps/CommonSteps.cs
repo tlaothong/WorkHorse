@@ -4,9 +4,16 @@ using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
 using Rhino.Mocks;
-using TheS.Casinova.TwoWins.WebExecutors;
+using TheS.Casinova.MagicNine.WebExecutors;
 using TheS.Casinova.MagicNine.DAL;
 using TheS.Casinova.MagicNine.BackServices;
+using PerfEx.Infrastructure;
+using TheS.Casinova.MagicNine.Models;
+using PerfEx.Infrastructure.Validation;
+using PerfEx.Infrastructure.CommandPattern;
+using PerfEx.Infrastructure.Containers.StructureMapAdapter;
+using TheS.Casinova.MagicNine.Commands;
+using SpecFlowAssist;
 
 namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
 {
@@ -21,8 +28,6 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         public const string Key_ListGamePlayAutoBetInfo = "ListGamePlayAutoBetInfo";
         public const string Key_Dqr_ListActiveGameRound = "mockDqr_ListActiveGameRound";
         public const string Key_ListActiveGameRound = "ListActiveGameRoundInfo";
-        public const string Key_Dac_Singlebet = "mockDac_SingleBet";
-        public const string Key_SingleBet = "SingleBet";
         public const string Key_Dqr_ListBetLog = "mockDqr_ListBetLog";
         public const string Key_ListBetLog = "ListBetLog";
   
@@ -45,8 +50,11 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         {
             var dac = Mocks.DynamicMock<IMagicNineGameBackService>();
 
-            ScenarioContext.Current[Key_Dac_Singlebet] = dac;
-            ScenarioContext.Current[Key_SingleBet] = new SingleBetExecutor(dac);
+            IDependencyContainer container;
+            setupValidators(out container);
+            ScenarioContext.Current.Set<ISingleBet>(dac);
+            ScenarioContext.Current.Set<SingleBetExecutor>(
+                new SingleBetExecutor(dac, container));
  
         }
 
@@ -88,6 +96,17 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
 
             ScenarioContext.Current[Key_Dac_StopAutoBet] = dac;
             ScenarioContext.Current[Key_StopAutoBet] = new StopAutoBetExecutor(dac);
+        }
+
+        private static void setupValidators(out IDependencyContainer container)
+        {
+            var fac = new StructureMapAbstractFactory();
+            var reg = fac.CreateRegistry();
+
+            reg.Register<IValidator<BetInformation, SingleBetCommand>
+                , DataAnnotationValidator<BetInformation, SingleBetCommand>>();
+
+            container = fac.CreateContainer(reg);
         }
     }
 }

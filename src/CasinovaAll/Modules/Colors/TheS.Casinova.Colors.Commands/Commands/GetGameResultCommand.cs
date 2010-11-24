@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using TheS.Casinova.TwoWins.Models;
+using TheS.Casinova.Colors.Models;
 
-namespace TheS.Casinova.TwoWins.Commands
+namespace TheS.Casinova.Colors.Commands
 {
     /// <summary>
     /// ดึงข้อมูลผลเกม เมื่อจบเกม
@@ -12,9 +12,15 @@ namespace TheS.Casinova.TwoWins.Commands
     public class GetGameResultCommand
     {
         //input
-        public int RoundID { get; set; } // username of player
+        /// <summary>
+        /// รหัสโต๊ะเกม
+        /// </summary>
+        public GameRoundInformation GameRoundInfoRound { get; set; } 
 
         //output
-        public GameRoundInformation GameResult { get; set; } //return data of game result
+        /// <summary>
+        /// ข้อมูลผลการเล่นเกม
+        /// </summary>
+        public GameRoundInformation GameRoundInfo { get; set; } 
     }
 }

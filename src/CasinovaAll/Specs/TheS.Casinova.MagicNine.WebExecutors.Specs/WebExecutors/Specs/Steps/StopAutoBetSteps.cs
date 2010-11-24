@@ -15,14 +15,14 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
             ScenarioContext.Current.Pending();
         }
 
-        [Given(@"Web service has TrackingID for stop auto bet: 'DA1FE75E-9042-4FC5-B3CF-1E973D2152F7'")]
+        [Given(@"Web service has BetTrackingID for stop auto bet: 'DA1FE75E-9042-4FC5-B3CF-1E973D2152F7'")]
         public void GivenWebServiceHasTrackingIDForStopAutoBetDA1FE75E_9042_4FC5_B3CF_1E973D2152F7()
         {
             ScenarioContext.Current.Pending();
         }
 
-        [When(@"Call StopAutoBetExecutor\(userName'Nit'\)")]
-        public void WhenCallStopAutoBetExecutorUserNameNit()
+        [When(@"Call StopAutoBetExecutor\(userName'(.*)'\)")]
+        public void WhenCallStopAutoBetExecutorUserNameNit(string userName)
         {
             ScenarioContext.Current.Pending();
         }
@@ -33,7 +33,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
             ScenarioContext.Current.Pending();
         }
 
-        [Then(@"TrackingID of  stop auto bet for client and back server should be : 'DA1FE75E-9042-4FC5-B3CF-1E973D2152F7'")]
+        [Then(@"BetTrackingID of  stop auto bet for client and back server should be : 'DA1FE75E-9042-4FC5-B3CF-1E973D2152F7'")]
         public void ThenTrackingIDOfStopAutoBetForClientAndBackServerShouldBeDA1FE75E_9042_4FC5_B3CF_1E973D2152F7()
         {
             ScenarioContext.Current.Pending();

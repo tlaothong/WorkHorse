@@ -26,7 +26,7 @@ namespace TheS.Casinova.TwoWins.ViewModels
         private string _winnerLowRange;
         private string _gameHandsRange;
         private string _gameStatus;
-        private TimeSpan _gameTime;
+        private DateTime _gameTime;
         private ObservableCollection<Object> _betLog;
         private ObservableCollection<GameTable> _tables;
 
@@ -54,13 +54,15 @@ namespace TheS.Casinova.TwoWins.ViewModels
             }
         }
 
-        public TimeSpan GameTime
+        public DateTime GameTime
         {
             get { return _gameTime; }
             set
             {
-                _gameTime = value;
-                _notify.Raise(() => GameTime);
+                if (_gameTime!=value) {
+                    _gameTime = value;
+                    _notify.Raise(() => GameTime); 
+                }
             }
         }
 
@@ -69,8 +71,10 @@ namespace TheS.Casinova.TwoWins.ViewModels
             get { return _gameStatus; }
             set
             {
-                _gameStatus = value;
-                _notify.Raise(() => GameStatus);
+                if (_gameStatus!=value) {
+                    _gameStatus = value;
+                    _notify.Raise(() => GameStatus); 
+                }
             }
         }
 
@@ -79,8 +83,10 @@ namespace TheS.Casinova.TwoWins.ViewModels
             get { return _gameHandsRange; }
             set
             {
-                _gameHandsRange = value;
-                _notify.Raise(() => GameHandsRange);
+                if (_gameHandsRange!=value) {
+                    _gameHandsRange = value;
+                    _notify.Raise(() => GameHandsRange); 
+                }
             }
         }
 
@@ -89,8 +95,10 @@ namespace TheS.Casinova.TwoWins.ViewModels
             get { return _winnerLowRange; }
             set
             {
-                _winnerLowRange = value;
-                _notify.Raise(() => WinnerLowRange);
+                if (_winnerLowRange!=value) {
+                    _winnerLowRange = value;
+                    _notify.Raise(() => WinnerLowRange); 
+                }
             }
         }
 
@@ -99,8 +107,10 @@ namespace TheS.Casinova.TwoWins.ViewModels
             get { return _winnerHighRange; }
             set
             {
-                _winnerHighRange = value;
-                _notify.Raise(() => WinnerHighRange);
+                if (_winnerHighRange!=value) {
+                    _winnerHighRange = value;
+                    _notify.Raise(() => WinnerHighRange); 
+                }
             }
         }
 
@@ -109,8 +119,10 @@ namespace TheS.Casinova.TwoWins.ViewModels
             get { return _winnerLowName; }
             set
             {
-                _winnerLowName = value;
-                _notify.Raise(() => WinnerLowName);
+                if (_winnerLowName!=value) {
+                    _winnerLowName = value;
+                    _notify.Raise(() => WinnerLowName); 
+                }
             }
         }
 
@@ -119,8 +131,10 @@ namespace TheS.Casinova.TwoWins.ViewModels
             get { return _winnerHighName; }
             set
             {
-                _winnerHighName = value;
-                _notify.Raise(() => WinnerHighName);
+                if (_winnerHighName!=value) {
+                    _winnerHighName = value;
+                    _notify.Raise(() => WinnerHighName); 
+                }
             }
         }
 

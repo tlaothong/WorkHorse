@@ -291,8 +291,14 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheS.Casinova.Common.Silverlight", "Silverlights\TheS.Casinova.Common.Silverlight\TheS.Casinova.Common.Silverlight.csproj", "{3613EAFB-E876-47F0-BFE9-7E9D8DCF5E5A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CasinovaAllStars", "Silverlights\CasinovaAllStars\CasinovaAllStars.csproj", "{2FA7B3C3-D042-4A67-BE1B-ED967E5DA927}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5C015B2B-E630-4915-926C-54A2E4F92F46} = {5C015B2B-E630-4915-926C-54A2E4F92F46}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheS.Casinova.Colors.Silverlight", "Silverlights\TheS.Casinova.Colors.Silverlight\TheS.Casinova.Colors.Silverlight.csproj", "{BFDA5F01-0ED8-45E3-BF5A-33060035EE6E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5C015B2B-E630-4915-926C-54A2E4F92F46} = {5C015B2B-E630-4915-926C-54A2E4F92F46}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheS.Casinova.Colors.Specs.Silverlight", "Silverlight.Specs\TheS.Casinova.Colors.Specs.Silverlight\TheS.Casinova.Colors.Specs.Silverlight.csproj", "{F7F57B1A-9AE2-4D9A-B106-57D4DFAF6B80}"
 EndProject

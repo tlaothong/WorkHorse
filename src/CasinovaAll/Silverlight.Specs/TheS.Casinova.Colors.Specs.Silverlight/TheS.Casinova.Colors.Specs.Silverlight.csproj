@@ -79,6 +79,19 @@
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTesting.Silverlight">
       <HintPath>$(MSBuildExtensionsPath)\..\Microsoft SDKs\Silverlight\v4.0\Toolkit\Apr10\Testing\Microsoft.VisualStudio.QualityTools.UnitTesting.Silverlight.dll</HintPath>
     </Reference>
+    <Reference Include="PerfEx.Infrastructure.Silverlight, Version=1.7910.1116.799, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PerfEx.Infrastructure.Silverlight.Advanced">
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Silverlight.Advanced.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks 3.5.Silverlight">
+      <HintPath>..\..\..\..\lib\Rhino.Mocks 3.5.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="SpecFlowAssist.Silverlight">
+      <HintPath>..\..\..\..\lib\SpecFlowAssist.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="System.CoreEx, Version=1.0.2698.204, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Observable, Version=1.0.0.204, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Reactive, Version=1.0.2698.204, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Windows" />
     <Reference Include="mscorlib" />
     <Reference Include="system" />
@@ -86,11 +99,48 @@
     <Reference Include="System.Net" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Windows.Browser" />
+    <Reference Include="TechTalk.SpecFlow.Silverlight">
+      <HintPath>..\..\..\..\lib\TechTalk.SpecFlow.Silverlight.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Colors\Specs\Bet.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Bet.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Colors\Specs\GetActiveGameRound.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GetActiveGameRound.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Colors\Specs\GetGameStatistics.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GetGameStatistics.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Colors\Specs\GetListGamePlayInformation.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GetListGamePlayInformation.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Colors\Specs\GetWinner.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GetWinner.feature</DependentUpon>
+    </Compile>
     <Compile Include="Colors\Specs\Silverlight\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Colors\Specs\Steps\BetStep.cs" />
+    <Compile Include="Colors\Specs\Steps\CommonSteps.cs" />
+    <Compile Include="Colors\Specs\Steps\GetActiveGameRoundsStep.cs" />
+    <Compile Include="Colors\SpecEventDefinitions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Colors\Specs\Steps\GetGameStatisticsStep.cs" />
+    <Compile Include="Colors\Specs\Steps\GetListGamePlayInformationStep.cs" />
+    <Compile Include="Colors\Specs\Steps\GetWinnerStep.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -100,6 +150,27 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Colors\Specs\Bet.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Bet.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Colors\Specs\GetActiveGameRound.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>GetActiveGameRound.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Colors\Specs\GetGameStatistics.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>GetGameStatistics.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Colors\Specs\GetListGamePlayInformation.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>GetListGamePlayInformation.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Colors\Specs\GetWinner.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>GetWinner.feature.cs</LastGenOutput>
+    </None>
     <None Include="Properties\AppManifest.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -112,6 +183,10 @@
       <Name>TheS.Casinova.Common.Silverlight</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <Import Condition="$(SilverlightVersion)=='v3.0'" Project="$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SilverlightToolkit\Tools\v3.0)Microsoft.Silverlight.Toolkit.Build.targets" />
   <Import Condition="$(SilverlightVersion)=='v4.0'" Project="$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SilverlightToolkit\Tools\v4.0)Microsoft.Silverlight.Toolkit.Build.targets" />

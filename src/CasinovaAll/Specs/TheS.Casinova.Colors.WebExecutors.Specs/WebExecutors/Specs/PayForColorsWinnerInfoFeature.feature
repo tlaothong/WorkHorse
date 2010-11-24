@@ -1,31 +1,28 @@
 ﻿Feature: PayForColorsWinnerInformation
-	In order to Generate TrackingID 
+	In order to pay for colors winner information 
 	As a system
-	I want to Generate TrackingID for client and back server
+	I want to sent information for pay colors winner
 
 @record_mock
-Scenario: ระบบ generate TrackingID และส่ง TrackingID ไปยัง client และ backserver ได้
-	Given The PayForcolorsWinnerInfo has been created and initialized
-	And TrackingID is '6443B518-5F7F-4BE6-8E94-AD14F931FE08'
-	And Expected call PayForWinnerInfo
-	When Call PayForWinnerInfo(RoundID '5') by userName 'nit'
-	Then TrackingID of PayForWinner should be '6443B518-5F7F-4BE6-8E94-AD14F931FE08'
+Scenario Outline: ระบบได้รับข้อมูล PayForColorsWinnerInformation ระบบทำการตรวจสอบข้อมูล ข้อมูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID
+	Given The PayForColorsWinnerInfoExecutor has been created and initialized
+	And   PayForColorWinner Informations as : UserName '<UserName>' RoundID '<RoundID>' ActionType '<ActionType>'
+	When  Call PayForColorsWinnerInfoExecutor() for validate PayForColorWinner informations
+	Then  PayForColorWinnerInfo get null and skip checking trackingID
 
-@record_mock
-Scenario: ระบบได้รับค่า RoundID เป็นค่าลบ ระบบไม่สามารถ generate TrackingID ได้
-	Given The PayForcolorsWinnerInfo has been created and initialized
-	When Call PayForWinnerInfo(RoundID '-5') by userName 'nit'
-	Then TrackingID  of PayForWinner should be null
+Examples:
+	|UserName	|RoundID	| ActionType|
+	|		 	|2			|	Black	|
+	|Nit	 	|-2			|	Black	|
+	|Nit	 	|2			|			|
+
+Scenario: ระบบได้รับข้อมูล PayForColorsWinnerInformation ระบบทำการตรวจสอบข้อมูล ข้อมูลถูกต้อง ระบบทำการ generate trackingID
+	Given The PayForColorsWinnerInfoExecutor has been created and initialized
+	And   PayForColorWinner Informations as : UserName 'Nataya' RoundID '3' ActionType 'PayForWinner'
+	And   The system generated TrackingID:'955D6ACDE4E04D1C90ACF3715BB2685A' for PayForColorWinnerInfo
+	When  Call PayForColorsWinnerInfoExecutor()
+	Then  TrackingID for PayForColorWinnerInfo should be :'955D6ACDE4E04D1C90ACF3715BB2685A'
 	
-@record_mock
-Scenario: ระบบได้รับค่าข้อมูล UserName ที่ไม่มีในระบบ ระบบไม่สามารถ generate TrackingID ได้
-	Given The PayForcolorsWinnerInfo has been created and initialized
-	And System has userName 'tle','boy','ae','ku','au'
-	When Call PayForWinnerInfo(RoundID '5') by userName 'nit'
-	Then TrackingID  of PayForWinner should be null
 
-@record_mock
-Scenario: ระบบไม่ได้รับค่า UserName ระบบไม่สามารถ generate TrackingID ได้
-	Given The PayForcolorsWinnerInfo has been created and initialized
-	When Call PayForWinnerInfo(RoundID '5') by userName ' '
-	Then TrackingID  of PayForWinner should be null	
+	
+

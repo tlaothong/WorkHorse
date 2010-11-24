@@ -95,11 +95,11 @@ testRunner.And("sent name: \'OhAe\' the player\'s balance should recieved, for a
 #line 19
 testRunner.And("the player\'s balance should be update correct, Amount: \'200\'");
 #line 20
-testRunner.And("the StartAutoBet shoule be call as: (UserName: \'OhAe\', RoundID: \'1\', Amount: \'200" +
-                    "\', Interval: \'5\', TrackingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\')");
+testRunner.And("the StartAutoBet shoule be call as: (UserName: \'OhAe\', Round: \'1\', Amount: \'200" +
+                    "\', Interval: \'5\', BetTrackingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\')");
 #line 21
-testRunner.When("call StartAutoBetExecutor(UserName: \'OhAe\', RoundID: \'1\', Amount: \'200\', Interval" +
-                    ": \'5\', TrackingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\')");
+testRunner.When("call StartAutoBetExecutor(UserName: \'OhAe\', Round: \'1\', Amount: \'200\', Interval" +
+                    ": \'5\', BetTrackingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\')");
 #line 22
 testRunner.Then("the player information should be update and call StartAutoBet");
 #line hidden
@@ -124,11 +124,11 @@ testRunner.And("sent name: \'Au\' the player\'s balance should recieved, for aut
 #line 28
 testRunner.And("the player\'s balance should be update correct, Amount: \'100\'");
 #line 29
-testRunner.And("the StartAutoBet shoule be call as: (UserName: \'Au\', RoundID: \'1\', Amount: \'100\'," +
-                    " Interval: \'5\', TrackingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\')");
+testRunner.And("the StartAutoBet shoule be call as: (UserName: \'Au\', Round: \'1\', Amount: \'100\'," +
+                    " Interval: \'5\', BetTrackingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\')");
 #line 30
-testRunner.When("call StartAutoBetExecutor(UserName: \'Au\', RoundID: \'1\', Amount: \'100\', Interval: " +
-                    "\'5\', TrackingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\')");
+testRunner.When("call StartAutoBetExecutor(UserName: \'Au\', Round: \'1\', Amount: \'100\', Interval: " +
+                    "\'5\', BetTrackingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\')");
 #line 31
 testRunner.Then("the player information should be update and call StartAutoBet");
 #line hidden

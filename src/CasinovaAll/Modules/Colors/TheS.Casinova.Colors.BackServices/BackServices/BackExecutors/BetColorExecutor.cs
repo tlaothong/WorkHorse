@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using TheS.Casinova.TwoWins.Commands;
+using TheS.Casinova.Colors.Commands;
 using PerfEx.Infrastructure.CommandPattern;
-using TheS.Casinova.TwoWins.DAL;
-using TheS.Casinova.TwoWins.Models;
+using TheS.Casinova.Colors.DAL;
+using TheS.Casinova.Colors.Models;
 
-namespace TheS.Casinova.TwoWins.BackServices.BackExecutors
+namespace TheS.Casinova.Colors.BackServices.BackExecutors
 {
     public class BetColorExecutor
         : SynchronousCommandExecutorBase<BetCommand>
@@ -31,16 +31,16 @@ namespace TheS.Casinova.TwoWins.BackServices.BackExecutors
 
             //ดึงข้อมูลผู้เล่นเพื่อหักเงิน
             GetPlayerInfoCommand getPlayerInfoCmd = new GetPlayerInfoCommand {
-                UserName = command.UserName,
+                UserName = command.PlayerActionInfo.UserName,
             };
 
             getPlayerInfoCmd.PlayerInfo = _iGetPlayerInfo.Get(getPlayerInfoCmd);
 
             //บันทึกข้อมูลผู้เล่นที่ถูกหักเงิน
             PlayerInformation playerInfo = new PlayerInformation();
-            getPlayerInfoCmd.PlayerInfo.Balance = getPlayerInfoCmd.PlayerInfo.Balance - command.Amount;
+            getPlayerInfoCmd.PlayerInfo.Balance = getPlayerInfoCmd.PlayerInfo.Balance - command.PlayerActionInfo.Amount;
             UpdatePlayerInfoBalanceCommand updateBalanceCmd = new UpdatePlayerInfoBalanceCommand {
-                UserName = playerInfo.UserName = command.UserName,
+                UserName = playerInfo.UserName = command.PlayerActionInfo.UserName,
 
                 //หักเงินผู้เล่นตามเงินที่ต้องการลงพนัน
                 Balance = playerInfo.Balance = getPlayerInfoCmd.PlayerInfo.Balance,               
@@ -54,10 +54,10 @@ namespace TheS.Casinova.TwoWins.BackServices.BackExecutors
             //บันทึกข้อมูลการดำเนินงานของผู้เล่น
             PlayerActionInformation playerActionInfo = new PlayerActionInformation();
             CreatePlayerActionInfoCommand createPlayerActionInfoCmd = new CreatePlayerActionInfoCommand {
-                UserName = playerActionInfo.UserName = command.UserName,
-                RoundID = playerActionInfo.RoundID = command.RoundID,
-                ActionType = playerActionInfo.ActionType = command.Color,
-                Amount = playerActionInfo.Amount = command.Amount,
+                UserName = playerActionInfo.UserName = command.PlayerActionInfo.UserName,
+                RoundID = playerActionInfo.Round = command.PlayerActionInfo.Round,
+                ActionType = playerActionInfo.ActionType = command.PlayerActionInfo.ActionType,
+                Amount = playerActionInfo.Amount = command.PlayerActionInfo.Amount,
             };
 
             _iCreatePlayerActionInfo.Create(playerActionInfo, createPlayerActionInfoCmd);
