@@ -1,0 +1,21 @@
+﻿Feature: EditplayerAccount
+	In order to edit player account
+	As a system
+	I want to edit player account information
+
+@record_mock
+Scenario Outline: ระบบได้รับข้อมูล PlayerAccount ที่มีการแก้ไข แล้วทำการส่งข้อมูลไปยัง backserver 
+	Given The EditPlayerAccountExecutor has been created and initialized
+	And Sent UserName '<UserName>' AccountType'<AccountType>' AccountNo'<AccountNo>' CVV'<CVV>' ExpireDate<ExpireDate>	
+	When Call EditPlayerAccountExecutor
+	Then System can edit PlayerAccount to backserver 
+	Then System can't edit PlayerAccount to backserver 
+	
+	Examples:
+	|UserName	|AccountType |AccountNo			|CVV	| ExpireDate |
+	|Nit		|Visa		 |0012214544543212	|3223	|12/31/2010  |
+	|			|Visa		 |0012214544543212	|3223	|12/31/2010  |
+	|Nit		|			 |0012214544543212	|3223	|12/31/2010  |
+	|Nit		|Visa		 |001221454454		|3223	|12/31/2010  |
+	|Nit		|Visa		 |0012214544543212	|3		|12/31/2010  |
+	|Nit		|Visa		 |0012214544543212	|3223	|12/31/2005  |

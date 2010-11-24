@@ -1,0 +1,51 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:TheS_Casinova_Colors_ViewModels="clr-namespace:TheS.Casinova.Colors.ViewModels"
+	mc:Ignorable="d"
+	x:Class="TheS.Casinova.GamePlayUI"
+	d:DesignWidth="640" d:DesignHeight="480" Width="500" Height="400">
+
+	<Grid x:Name="LayoutRoot">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="0.1*"/>
+			<RowDefinition Height="0.9*"/>
+		</Grid.RowDefinitions>
+		<Rectangle Stroke="Black" Grid.RowSpan="2"/>
+		<Grid>
+			<Rectangle Fill="Black" Stroke="Black"/>
+			<TextBlock x:Name="Title" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Title" VerticalAlignment="Center" Margin="8,0,0,0" FontSize="21.333" Foreground="White" FontWeight="Bold"/>
+		</Grid>
+		<Grid Grid.Row="1">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="0.156*"/>
+				<RowDefinition Height="0.489*"/>
+				<RowDefinition Height="0.356*"/>
+			</Grid.RowDefinitions>
+			<TextBlock x:Name="GameTime" TextWrapping="Wrap" Text="GameTime" FontSize="21.333" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+			<Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+				<Rectangle Fill="#FFEBEBEB" RadiusY="4" RadiusX="4" Stroke="Black" VerticalAlignment="Center" Height="45"/>
+				<StackPanel VerticalAlignment="Center">
+					<TextBlock x:Name="Winner" TextWrapping="Wrap" Text="Winner" FontSize="16" Margin="72,0,71,0" d:LayoutOverrides="Width" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+					<TextBlock x:Name="WinnerInformation" TextWrapping="Wrap" Text="WinnerInformation" TextAlignment="Center"/>
+				</StackPanel>
+			</Grid>
+			<Grid Margin="95,0" Grid.Row="2" Height="66" VerticalAlignment="Top">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="0.5*"/>
+					<ColumnDefinition Width="0.5*"/>
+				</Grid.ColumnDefinitions>
+				<Grid VerticalAlignment="Top" d:LayoutOverrides="GridBox" Margin="0,0,4,0">
+					<Button x:Name="BetBlack" Content="Black" Margin="0,0,0,20" Height="46" VerticalAlignment="Bottom"/>
+					<TextBlock x:Name="TotalAmountOfBlack" TextWrapping="Wrap" Text="TotalAmountOfBlack" TextAlignment="Center" VerticalAlignment="Bottom"/>
+				</Grid>
+				<Grid VerticalAlignment="Top" Grid.Column="1" Margin="4,0,0,0">
+					<Button x:Name="BetWhite" Content="White" Margin="0,0,0,20" VerticalAlignment="Bottom" Height="46"/>
+					<TextBlock x:Name="TotalAmountOfWhite" TextWrapping="Wrap" Text="TotalAmountOfWhite" TextAlignment="Center" VerticalAlignment="Bottom"/>
+				</Grid>
+			</Grid>
+		</Grid>
+	</Grid>
+</UserControl>

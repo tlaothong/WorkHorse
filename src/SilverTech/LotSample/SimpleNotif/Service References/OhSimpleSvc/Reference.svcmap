@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="43547019-ebac-4dad-af81-3daa73e1a612" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:49491/OhSimpleService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="OhSimpleService.disco" MetadataType="Disco" ID="54946b9a-c0cc-442d-81af-3b9990198615" SourceId="1" SourceUrl="http://localhost:49491/OhSimpleService.svc?disco" />
+    <MetadataFile FileName="OhSimpleService.wsdl" MetadataType="Wsdl" ID="ecc48c99-b7b9-4c22-a46f-b99ba7c3deb3" SourceId="1" SourceUrl="http://localhost:49491/OhSimpleService.svc?wsdl" />
+    <MetadataFile FileName="OhSimpleService.xsd" MetadataType="Schema" ID="ec5cf964-48f1-4314-a40e-8c8f80f2d423" SourceId="1" SourceUrl="http://localhost:49491/OhSimpleService.svc?xsd=xsd1" />
+    <MetadataFile FileName="OhSimpleService1.xsd" MetadataType="Schema" ID="ae57872f-7bf2-435f-81bf-59f48b0eedb1" SourceId="1" SourceUrl="http://localhost:49491/OhSimpleService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

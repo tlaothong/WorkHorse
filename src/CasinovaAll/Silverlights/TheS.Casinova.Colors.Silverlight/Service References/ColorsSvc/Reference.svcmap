@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a9ab8b54-3093-405c-b487-03397690d332" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:60642/wsv/ColorsService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ColorsService4.xsd" MetadataType="Schema" ID="42787066-3a75-4fcb-8cd7-b1174ed2b0ff" SourceId="1" SourceUrl="http://localhost:60642/wsv/ColorsService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ColorsService41.xsd" MetadataType="Schema" ID="0118304b-f373-4ba7-9802-79c217c91163" SourceId="1" SourceUrl="http://localhost:60642/wsv/ColorsService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ColorsService42.xsd" MetadataType="Schema" ID="ccb7d0f7-30e2-47c0-9abc-862122ad8bef" SourceId="1" SourceUrl="http://localhost:60642/wsv/ColorsService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ColorsService43.xsd" MetadataType="Schema" ID="a5d5f1f6-8850-4b9a-95a3-79436ef907c9" SourceId="1" SourceUrl="http://localhost:60642/wsv/ColorsService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ColorsService1.wsdl" MetadataType="Wsdl" ID="a5b51587-e7c5-4157-8727-111dccadbd24" SourceId="1" SourceUrl="http://localhost:60642/wsv/ColorsService.svc?wsdl" />
+    <MetadataFile FileName="ColorsService1.disco" MetadataType="Disco" ID="7793dfb8-e78f-4b2f-a52d-4353041abea8" SourceId="1" SourceUrl="http://localhost:60642/wsv/ColorsService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

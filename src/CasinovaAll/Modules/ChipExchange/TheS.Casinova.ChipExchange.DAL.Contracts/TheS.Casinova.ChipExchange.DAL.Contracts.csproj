@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D35797D6-F8E0-4B72-8EBA-CACC5C1CEFE2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TheS.Casinova.ChipExchange</RootNamespace>
+    <AssemblyName>TheS.Casinova.ChipExchange.DAL.Contracts</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PerfEx.Infrastructure">
+      <HintPath>..\..\..\..\..\lib\PerfEx.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="PerfEx.Infrastructure.Advanced">
+      <HintPath>..\..\..\..\..\lib\PerfEx.Infrastructure.Advanced.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Command\GetMultiLevelNetworkInfoCommand.cs" />
+    <Compile Include="Command\GetPlayerAccountInfoCommand.cs" />
+    <Compile Include="Command\GetPlayerBalanceCommand.cs" />
+    <Compile Include="Command\GetVoucherInfoCommand.cs" />
+    <Compile Include="DAL\IChipsExchangeModuleDataQuery.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Chat\TheS.Casinova.Chat.Commands\TheS.Casinova.Chat.Commands.csproj">
+      <Project>{D2D7DFFA-E259-4E8F-A505-E9F68E39E234}</Project>
+      <Name>TheS.Casinova.Chat.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Chat\TheS.Casinova.Chat.Models\TheS.Casinova.Chat.Models.csproj">
+      <Project>{8E50F3B7-4F44-49BE-A5CE-2CDF66EF4D9C}</Project>
+      <Name>TheS.Casinova.Chat.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\PlayerAccount\TheS.Casinova.PlayerAccount.Models\TheS.Casinova.PlayerAccount.Models.csproj">
+      <Project>{28B48276-2905-4A6C-9BBA-09007F7E7084}</Project>
+      <Name>TheS.Casinova.PlayerAccount.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\PlayerProfile\TheS.Casinova.PlayerProfile.Models\TheS.Casinova.PlayerProfile.Models.csproj">
+      <Project>{96BBA83F-EAA6-4EEA-BEC5-98F6AC39B943}</Project>
+      <Name>TheS.Casinova.PlayerProfile.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\TheS.Casinova.Common.Commands\TheS.Casinova.Common.Commands.csproj">
+      <Project>{B0BA601A-7B65-4973-9E00-4F9035883877}</Project>
+      <Name>TheS.Casinova.Common.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\TheS.Casinova.Common.Models\TheS.Casinova.Common.Models.csproj">
+      <Project>{6079CFCD-811A-4962-B021-8D3D14C0C45B}</Project>
+      <Name>TheS.Casinova.Common.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.Casinova.ChipExchange.Commands\TheS.Casinova.ChipExchange.Commands.csproj">
+      <Project>{783249CD-793F-4C2C-BE6C-980C70FAB6DD}</Project>
+      <Name>TheS.Casinova.ChipExchange.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.Casinova.ChipExchange.Models\TheS.Casinova.ChipExchange.Models.csproj">
+      <Project>{4D33D4E0-40CE-4AF2-A30F-53FCAE1A2886}</Project>
+      <Name>TheS.Casinova.ChipExchange.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

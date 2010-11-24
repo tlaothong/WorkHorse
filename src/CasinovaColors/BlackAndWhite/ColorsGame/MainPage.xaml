@@ -1,0 +1,18 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ColorsGame_ViewModels="clr-namespace:ColorsGame.ViewModels" x:Class="ColorsGame.MainPage"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400">
+
+	<UserControl.Resources>
+		<ColorsGame_ViewModels:MainPageViewModel x:Key="MainPageViewModelDataSource" d:IsDataSource="True"/>
+	</UserControl.Resources>
+	<UserControl.DataContext>
+		<Binding Source="{StaticResource MainPageViewModelDataSource}"/>
+	</UserControl.DataContext>
+
+    <Grid x:Name="LayoutRoot" Background="White"/>
+</UserControl>

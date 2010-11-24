@@ -1,0 +1,21 @@
+﻿<Application xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             x:Class="Magic9Game.App"
+             >
+    <Application.Resources>
+        
+    	<Style x:Key="Circle" TargetType="Button">
+    		<Setter Property="Template">
+    			<Setter.Value>
+    				<ControlTemplate TargetType="Button">
+    					<Grid>
+    						<Ellipse Fill="#FFF4F4F5" Stroke="Black"/>
+    						<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+    					</Grid>
+    				</ControlTemplate>
+    			</Setter.Value>
+    		</Setter>
+    	</Style>
+        
+    </Application.Resources>
+</Application>

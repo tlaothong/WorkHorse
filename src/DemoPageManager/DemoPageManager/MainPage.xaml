@@ -1,0 +1,63 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:DemoPageManager" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" x:Class="DemoPageManager.MainPage"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400" Width="640" Height="480">
+
+    <StackPanel x:Name="LayoutRoot" Background="White">
+		<VisualStateManager.VisualStateGroups>
+			<VisualStateGroup x:Name="ManagerPageState">
+				<VisualState x:Name="LoginPage">
+					<Storyboard>
+						<ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="ManagerPage" Storyboard.TargetProperty="(ManagerPage.HostFile)">
+							<DiscreteObjectKeyFrame KeyTime="00:00:00" Value="LoginPage.xaml"/>
+						</ObjectAnimationUsingKeyFrames>
+					</Storyboard>			
+				</VisualState>
+				<VisualState x:Name="ChatPage">
+					<Storyboard>
+						<ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="ManagerPage" Storyboard.TargetProperty="(ManagerPage.HostFile)">
+							<DiscreteObjectKeyFrame KeyTime="00:00:00" Value="ChatPage.xaml"/>
+						</ObjectAnimationUsingKeyFrames>
+					</Storyboard>					
+				</VisualState>
+				<VisualState x:Name="RegisterPage">
+					<Storyboard>
+						<ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="ManagerPage" Storyboard.TargetProperty="(ManagerPage.HostFile)">
+							<DiscreteObjectKeyFrame KeyTime="00:00:00" Value="RegisterPage.xaml"/>
+						</ObjectAnimationUsingKeyFrames>
+					</Storyboard>					
+				</VisualState>
+			</VisualStateGroup>
+		</VisualStateManager.VisualStateGroups>
+		<Grid Margin="8,0,157,0">
+			<Rectangle Fill="#FFF4F4F5" Stroke="Black"/>
+			<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="No code behide" VerticalAlignment="Top" Margin="8,8,0,0" d:IsLocked="True"/>
+			<Button Content="LoginPage.xaml" Margin="129,36,236,8">
+				<i:Interaction.Triggers>
+					<i:EventTrigger EventName="Click">
+						<ei:GoToStateAction StateName="LoginPage"/>
+					</i:EventTrigger>
+				</i:Interaction.Triggers>
+			</Button>
+			<Button Content="LoginPage.xaml" Margin="0,36,8,8" Width="110" HorizontalAlignment="Right" d:LayoutOverrides="Width">
+				<i:Interaction.Triggers>
+					<i:EventTrigger EventName="Click">
+						<ei:GoToStateAction StateName="ChatPage"/>
+					</i:EventTrigger>
+				</i:Interaction.Triggers>
+			</Button>
+			<Button Content="RegisterPage.xaml" HorizontalAlignment="Left" Margin="243,36,0,8" Width="110">
+				<i:Interaction.Triggers>
+					<i:EventTrigger EventName="Click">
+						<ei:GoToStateAction StateName="RegisterPage"/>
+					</i:EventTrigger>
+				</i:Interaction.Triggers>
+			</Button>
+		</Grid>
+		<local:ManagerPage x:Name="ManagerPage" Margin="8,0,157,0" Width="Auto" Height="Auto"/>
+	</StackPanel>
+</UserControl>

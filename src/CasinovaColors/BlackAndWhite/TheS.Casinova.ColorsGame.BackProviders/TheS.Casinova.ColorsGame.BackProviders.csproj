@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EF18A78A-686E-420A-8491-6E6810AE5FC8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TheS.Casinova.ColorsGame</RootNamespace>
+    <AssemblyName>TheS.Casinova.ColorsGame.BackProviders</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\..\..\lib\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="PerfEx.Infrastructure">
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="PerfEx.Infrastructure.Advanced">
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Advanced.dll</HintPath>
+    </Reference>
+    <Reference Include="PerfEx.Infrastructure.Containers.StructureMapAdapter">
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Containers.StructureMapAdapter.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\..\..\..\lib\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BackProviders\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TheS.Casinova.ColorsGame.Commands\TheS.Casinova.ColorsGame.Commands.csproj">
+      <Project>{D5E560E5-ED90-4E03-9924-D0A0822E7A49}</Project>
+      <Name>TheS.Casinova.ColorsGame.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.Casinova.ColorsGame.DAL.BackContracts\TheS.Casinova.ColorsGame.DAL.BackContracts.csproj">
+      <Project>{46D1414B-9D27-4EA6-87AB-FBC8F2592C37}</Project>
+      <Name>TheS.Casinova.ColorsGame.DAL.BackContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.Casinova.ColorsGame.DAL\TheS.Casinova.ColorsGame.DAL.csproj">
+      <Project>{D4A365ED-C6E4-4973-BD5C-A8E263BAFFAE}</Project>
+      <Name>TheS.Casinova.ColorsGame.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheS.Casinova.ColorsGame.Models\TheS.Casinova.ColorsGame.Models.csproj">
+      <Project>{49D8CCD8-5A87-4F04-AB8E-27F63CC41AB3}</Project>
+      <Name>TheS.Casinova.ColorsGame.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
