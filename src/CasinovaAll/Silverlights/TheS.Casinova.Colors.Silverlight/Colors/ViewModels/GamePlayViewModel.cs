@@ -285,6 +285,7 @@ namespace TheS.Casinova.Colors.ViewModels
             disposeGameRounds = svc.GetListActiveGameRound().ObserveOn(Scheduler).Subscribe(
                 next =>
                 {
+                    Tables.Clear();
                     foreach (var table in next.ActiveRounds)
                         Tables.Add(new GameTable
                         {

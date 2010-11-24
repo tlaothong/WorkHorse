@@ -16,7 +16,7 @@ using TheS.Casinova.Colors.Services;
 namespace TheS.Casinova.Colors.Specs.Steps
 {
     [Binding]
-    public class GetActiveGameRoundsStep
+    public class GetActiveGameRoundStep
     {
         [Given(@"Back service have active game rounds are:")]
         public void GivenBackServiceHaveActiveGameRoundsAre(Table table)

@@ -15,5 +15,6 @@ namespace TheS.Casinova.MagicNine.Models
     {
         public int Round { get; set; }
         public double BetOrder { get; set; }
+        public DateTime BetDateTime { get; set; }
     }
 }

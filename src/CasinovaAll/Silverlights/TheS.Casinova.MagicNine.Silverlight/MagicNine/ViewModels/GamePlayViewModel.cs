@@ -25,17 +25,16 @@ namespace TheS.Casinova.MagicNine.ViewModels
         #region Fields
 
         private PropertyChangedNotifier _notify;
-        private double _pot;
-        private double _amount;
-        private ObservableCollection<string> _interval;
-        private ObservableCollection<BetLog> _betLogData;
-        private ObservableCollection<GameTable> _tables;
-
         private IMagicNineServiceAdapter _svc;
         private IScheduler _scheduler;
         private IStatusTracker _statusTracker;
+
+        private double _amount;
+        private int _intervalSelected;
         private int _roundID;
-        private int _intervalSelect;
+        private ObservableCollection<string> _intervals;
+        private ObservableCollection<BetLog> _betLogs;
+        private ObservableCollection<GameTable> _tables;
         private bool _isAutobetStart;
 
         #endregion Fields
@@ -43,16 +42,49 @@ namespace TheS.Casinova.MagicNine.ViewModels
         #region Properties
 
         /// <summary>
-        /// ค่าของ Interval ที่เลือกอยู่
+        /// Game table list
         /// </summary>
-        public int IntervalSelect
+        public ObservableCollection<GameTable> Tables
         {
-            get { return _intervalSelect; }
+            get { return _tables; }
             set
             {
-                if (_intervalSelect!=value)
+                if (_tables != value)
                 {
-                    _intervalSelect = value; 
+                    _tables = value;
+                    _notify.Raise(() => Tables);
+                }
+            }
+        }
+
+        /// <summary>
+        /// ข้อมูลการ Bet ที่ผ่านมา
+        /// </summary>
+        public ObservableCollection<BetLog> BetLogs
+        {
+            get { return _betLogs; }
+            set
+            {
+                if (_betLogs != value)
+                {
+                    _betLogs = value;
+                    _notify.Raise(() => BetLogs);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Intervals ที่มีให้เลือก
+        /// </summary>
+        public ObservableCollection<string> Intervals
+        {
+            get { return _intervals; }
+            set
+            {
+                if (_intervals != value)
+                {
+                    _intervals = value;
+                    _notify.Raise(() => Intervals);
                 }
             }
         }
@@ -68,84 +100,44 @@ namespace TheS.Casinova.MagicNine.ViewModels
                 if (_roundID != value)
                 {
                     _roundID = value;
-                    _notify.Raise(() => RoundID);
                 }
             }
         }
 
         /// <summary>
-        /// รายชื่อโต๊ะเกมที่สามารถเข้าเล่นได้
+        /// Interval ที่เลือก
         /// </summary>
-        public ObservableCollection<GameTable> Tables
+        public int IntervalSelected
         {
-            get { return _tables; }
+            get { return _intervalSelected; }
             set
             {
-                _tables = value;
-                _notify.Raise(() => Tables);
+                if (_intervalSelected != value)
+                {
+                    _intervalSelected = value;
+                }
             }
         }
 
         /// <summary>
-        /// ข้อมูลเงินลงพนันที่ได้รับมาทั้งหมด
-        /// </summary>
-        public ObservableCollection<BetLog> BetLogData
-        {
-            get
-            {
-                var result = _betLogData.Where(c => c.Round.Equals(_roundID));
-                return new ObservableCollection<BetLog>(result);
-            }
-            set
-            {
-                _betLogData = value;
-                _notify.Raise(() => BetLogData);
-            }
-        }
-
-        /// <summary>
-        /// เวลาที่จะทำการลงพนัน Config Auto bet
-        /// </summary>
-        public ObservableCollection<string> Interval
-        {
-            get { return _interval; }
-            set
-            {
-                _interval = value;
-                _notify.Raise(() => Interval);
-            }
-        }
-
-        /// <summary>
-        /// Config ของ Auto bet
+        /// จำนวนเงินที่ใช้ Auto bet
         /// </summary>
         public double Amount
         {
             get { return _amount; }
             set
             {
-                if (_amount!=value) {
+                if (_amount != value)
+                {
                     _amount = value;
-                    _notify.Raise(() => Amount); 
+                    _notify.Raise(() => Amount);
                 }
             }
         }
 
         /// <summary>
-        /// ค่าของ Pot ที่ได้จากการลงพนัน
+        /// Magic 9 Service
         /// </summary>
-        public double Pot
-        {
-            get { return _pot; }
-            set
-            {
-                if (_pot!=value) {
-                    _pot = value;
-                    _notify.Raise(() => Pot); 
-                }
-            }
-        }
-
         internal IMagicNineServiceAdapter GameService
         {
             get
@@ -186,46 +178,51 @@ namespace TheS.Casinova.MagicNine.ViewModels
         public GamePlayViewModel()
         {
             _notify = new PropertyChangedNotifier(this, () => PropertyChanged);
-            _betLogData = new ObservableCollection<BetLog>();
-            _interval = new ObservableCollection<string>();
+            _betLogs = new ObservableCollection<BetLog>();
+            _intervals = new ObservableCollection<string>();
             _tables = new ObservableCollection<GameTable>();
 
-            if (DesignerProperties.IsInDesignTool) {
+            if (DesignerProperties.IsInDesignTool)
+            {
                 // Sample interval time
-                Interval.Add("1 second");
-                Interval.Add("2 second");
-                Interval.Add("5 second");
-                Interval.Add("10 second");
-                Interval.Add("30 second");
+                Intervals.Add("1 second");
+                Intervals.Add("2 second");
+                Intervals.Add("5 second");
+                Intervals.Add("10 second");
+                Intervals.Add("30 second");
 
-                Interval.Add("1 minute");
-                Interval.Add("2 minute");
-                Interval.Add("5 minute");
-                Interval.Add("10 minute");
-                Interval.Add("30 minute");
+                Intervals.Add("1 minute");
+                Intervals.Add("2 minute");
+                Intervals.Add("5 minute");
+                Intervals.Add("10 minute");
+                Intervals.Add("30 minute");
 
-                Interval.Add("1 hours");
-                Interval.Add("2 hours");
-                Interval.Add("3 hours");
-                Interval.Add("5 hours");
-                Interval.Add("12 hours");
-                Interval.Add("24 hours"); 
+                Intervals.Add("1 hours");
+                Intervals.Add("2 hours");
+                Intervals.Add("3 hours");
+                Intervals.Add("5 hours");
+                Intervals.Add("12 hours");
+                Intervals.Add("24 hours");
 
                 // Sample tables
-                Tables.Add(new GameTable {
+                Tables.Add(new GameTable
+                {
                     Name = "9",
                 });
-                Tables.Add(new GameTable {
+                Tables.Add(new GameTable
+                {
                     Name = "99",
                     Amount = 200,
                     IsPlaying = true
                 });
-                Tables.Add(new GameTable {
+                Tables.Add(new GameTable
+                {
                     Name = "999",
                     Amount = 73,
                     IsPlaying = true
                 });
-                Tables.Add(new GameTable {
+                Tables.Add(new GameTable
+                {
                     Name = "9999",
                 });
             }
@@ -234,7 +231,7 @@ namespace TheS.Casinova.MagicNine.ViewModels
         #endregion Constructor
 
         #region Methods
-        
+
         public void GetListActiveGameRoundInformation()
         {
             var svc = _svc;
@@ -242,6 +239,7 @@ namespace TheS.Casinova.MagicNine.ViewModels
             dispostActive = svc.GetListActiveGameRound().ObserveOn(Scheduler).Subscribe(
                 next =>
                 {
+                    Tables.Clear();
                     foreach (var table in next.GameRoundInfos)
                     {
                         Tables.Add(new GameTable
@@ -273,7 +271,9 @@ namespace TheS.Casinova.MagicNine.ViewModels
                         {
                             var query = Tables.First(c => c.Round.Equals(table.RoundID));
                             query.Amount = table.Amount;
-                            query.IsPlaying = true;
+
+                            const double MaximumPlaying = 1;
+                            if (table.Amount >= MaximumPlaying) query.IsPlaying = true;
                         }
                     }
                 },
@@ -293,13 +293,15 @@ namespace TheS.Casinova.MagicNine.ViewModels
                 .ObserveOn(Scheduler).Subscribe(
                 next =>
                 {
+                    BetLogs.Clear();
                     foreach (var table in next.BetInformations)
                     {
-                        BetLogData.Add(new BetLog
-                        {
-                            Round = table.RoundID,
-                            BetOrder = table.BetOrder
-                        });
+                        BetLogs.Add(new BetLog
+                         {
+                             Round = table.RoundID,
+                             BetOrder = table.BetOrder,
+                             BetDateTime = table.BetDateTime
+                         });
                     }
                 },
                 error =>
@@ -346,9 +348,9 @@ namespace TheS.Casinova.MagicNine.ViewModels
                 // Start
                 disposeStartAndStop = svc.AutoBetOn(new MagicNineSvc.StartAutoBetCommand
                 {
-                    Amount = Amount,
-                    Interval = IntervalSelect,
-                    RoundID = RoundID
+                    Amount = _amount,
+                    Interval = _intervalSelected,
+                    RoundID = _roundID
                 }).ObserveOn(Scheduler).Subscribe(
                 next =>
                 {
@@ -385,7 +387,7 @@ namespace TheS.Casinova.MagicNine.ViewModels
         #endregion Methods
 
         #region INotifyPropertyChanged members
-        
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         #endregion INotifyPropertyChanged members

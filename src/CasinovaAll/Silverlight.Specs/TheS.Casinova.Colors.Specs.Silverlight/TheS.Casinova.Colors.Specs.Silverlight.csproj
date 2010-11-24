@@ -121,10 +121,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GetGameStatistics.feature</DependentUpon>
     </Compile>
-    <Compile Include="Colors\Specs\GetListGamePlayInformation.feature.cs">
+    <Compile Include="Colors\Specs\GetGamePlayInformation.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GetListGamePlayInformation.feature</DependentUpon>
+      <DependentUpon>GetGamePlayInformation.feature</DependentUpon>
     </Compile>
     <Compile Include="Colors\Specs\GetWinner.feature.cs">
       <AutoGen>True</AutoGen>
@@ -136,7 +136,7 @@
     </Compile>
     <Compile Include="Colors\Specs\Steps\BetStep.cs" />
     <Compile Include="Colors\Specs\Steps\CommonSteps.cs" />
-    <Compile Include="Colors\Specs\Steps\GetActiveGameRoundsStep.cs" />
+    <Compile Include="Colors\Specs\Steps\GetActiveGameRoundStep.cs" />
     <Compile Include="Colors\SpecEventDefinitions.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -165,9 +165,9 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>GetGameStatistics.feature.cs</LastGenOutput>
     </None>
-    <None Include="Colors\Specs\GetListGamePlayInformation.feature">
+    <None Include="Colors\Specs\GetGamePlayInformation.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>GetListGamePlayInformation.feature.cs</LastGenOutput>
+      <LastGenOutput>GetGamePlayInformation.feature.cs</LastGenOutput>
     </None>
     <None Include="Colors\Specs\GetWinner.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
