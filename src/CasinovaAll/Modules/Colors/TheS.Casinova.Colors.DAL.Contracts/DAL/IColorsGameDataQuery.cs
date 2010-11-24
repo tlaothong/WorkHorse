@@ -5,6 +5,7 @@ using System.Text;
 using TheS.Casinova.Colors.Commands;
 using TheS.Casinova.Colors.Models;
 using PerfEx.Infrastructure.Data;
+using TheS.Casinova.PlayerProfile.Models;
 
 namespace TheS.Casinova.Colors.DAL
 {
@@ -43,9 +44,12 @@ namespace TheS.Casinova.Colors.DAL
     /// ดึงข้อมูลยอดเงินในบัญชี
     /// </summary>
     public interface IGetBalance
-        : IFetchSingleData<PlayerInformation, GetBalanceCommand>
+        : IFetchSingleData<UserProfile, GetBalanceCommand>
     { }
 
+    /// <summary>
+    /// ดึงข้อมูลการ config จำนวนโต๊ะ เพื่อตรวจสอบจำนวนโต๊ะเกมที่จะสร้างเพิ่ม
+    /// </summary>
     public interface IGetGameRoundConfigurations
         : IFetchSingleData<GameRoundConfiguration,GetGameRoundConfigurationCommand> 
     {}

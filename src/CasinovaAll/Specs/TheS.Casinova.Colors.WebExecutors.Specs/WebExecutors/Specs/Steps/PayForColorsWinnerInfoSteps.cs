@@ -7,46 +7,72 @@ using Rhino.Mocks;
 using TheS.Casinova.Colors.Commands;
 using TheS.Casinova.Colors.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PerfEx.Infrastructure.Validation;
 
 namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
 {
     [Binding]
     public class PayForColorsWinnerInfoSteps : ColorsGameStepsBase
     {
-        [Given(@"System has userName 'tle','boy','ae','ku','au'")]
-        public void GivenSystemHasUserNameTleBoyAeKuAu()
+        private PayForColorsWinnerInfoCommand _cmd;
+        private string _trackingID;
+
+        [Given(@"PayForColorWinner Informations as : UserName '(.*)' RoundID '(.*)' ActionType '(.*)'")]
+        public void GivenPayForColorWinnerInformationsAsUserNameXRoundIDXActionTypeX(string userName, int roundID,string action)
         {
-            ScenarioContext.Current.Pending();
+            _cmd = new PayForColorsWinnerInfoCommand {
+                PlayerActionInfo = new PlayerActionInformation { 
+                    UserName = userName,
+                    RoundID = roundID,
+                    ActionType = action
+                }
+            };
         }
 
-        [Given(@"TrackingID is '(.*)'")]
-        public void GivenTrackingIDIsX(string trackingId)
+        [Given(@"The system generated TrackingID:'(.*)' for PayForColorWinnerInfo")]
+        public void GivenTheSystemGeneratedTrackingIDXForPayForColorWinnerInfo(string trackingID)
         {
-            ScenarioContext.Current.Pending();
+            _trackingID = trackingID;
         }
 
-        [Given(@"Expected call PayForWinnerInfo")]
-        public void GivenExpectedCallPayForWinnerInfo()
+        //Validate input
+        [When(@"Call PayForColorsWinnerInfoExecutor\(\) for validate PayForColorWinner informations")]
+        public void WhenCallPayForColorsWinnerInfoExecutorForValidatePayForColorWinnerInformations()
         {
-            ScenarioContext.Current.Pending();
+            try {
+                PayForWinnerInfo.Execute(_cmd, (x) => { });
+                Assert.Fail("Shouldn't be here");
+            }
+            catch (Exception ex) {
+                Assert.IsInstanceOfType(ex,
+                   typeof(ValidationErrorException));
+            };
         }
 
-        [When(@"Call PayForWinnerInfo\(RoundID '(.*)'\) by userName '(.*)'")]
-        public void WhenCallPayForWinnerInfoRoundID5ByUserNameNit(int roundId, string userName)
+        //Test function
+        [When(@"Call PayForColorsWinnerInfoExecutor\(\)")]
+        public void WhenCallPayForColorsWinnerInfoExecutor()
         {
-            ScenarioContext.Current.Pending();
+            try {
+                PayForWinnerInfo.Execute(_cmd, (x) => { });
+            }
+            catch (Exception ex) {
+                Assert.IsInstanceOfType(ex,
+                    typeof(ValidationErrorException));
+            };
         }
 
-        [Then(@"TrackingID of PayForWinner should be '(.*)'")]
-        public void ThenTrackingIDShouldBeX(string trackingId)
+        [Then(@"PayForColorWinnerInfo get null and skip checking trackingID")]
+        public void ThenPayForColorWinnerInfoGetNullAndSkipCheckingTrackingID()
         {
-            ScenarioContext.Current.Pending();
+            Assert.IsTrue(true, "Get null and skip checking trackingID");
+           
         }
 
-        [Then(@"TrackingID  of PayForWinner should be null")]
-        public void ThenTrackingIDOfPayForWinnerShouldBeNull()
+        [Then(@"TrackingID for PayForColorWinnerInfo should be :'(.*)'")]
+        public void ThenTrackingIDForPayForColorWinnerInfoShouldBeX(string trackingID)
         {
-            ScenarioContext.Current.Pending();
+            Assert.AreEqual(trackingID, _trackingID, "Get trackingID accept");
         }
     }
 }

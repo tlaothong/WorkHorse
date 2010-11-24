@@ -64,9 +64,9 @@ this.ScenarioSetup(scenarioInfo);
 #line 8
 testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initialized");
 #line 9
-testRunner.And("sent UserName: \'OhAe\' and expected Balance: \'95\'");
+testRunner.And("sent UserProfileBalance: \'OhAe\' and expected Balance: \'95\'");
 #line 10
-testRunner.When("call PayForColorsWinnerInfo(UserName: \'OhAe\', Balance: \'100\')");
+testRunner.When("call PayForColorsWinnerInfo(UserProfileBalance: \'OhAe\', Balance: \'100\')");
 #line 11
 testRunner.Then("the player information should be saved by calling IColorsGameDataAccess.ApplyActi" +
                     "on(PlayerInformation, cmd)");
@@ -86,9 +86,9 @@ this.ScenarioSetup(scenarioInfo);
 #line 15
 testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initialized");
 #line 16
-testRunner.And("sent UserName: \'OhAe\' and expected Balance: \'0\'");
+testRunner.And("sent UserProfileBalance: \'OhAe\' and expected Balance: \'0\'");
 #line 17
-testRunner.When("call PayForColorsWinnerInfo(UserName: \'OhAe\', Balance: \'5\')");
+testRunner.When("call PayForColorsWinnerInfo(UserProfileBalance: \'OhAe\', Balance: \'5\')");
 #line 18
 testRunner.Then("the player information should be saved by calling IColorsGameDataAccess.ApplyActi" +
                     "on(PlayerInformation, cmd)");
@@ -108,7 +108,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 22
 testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initialized");
 #line 23
-testRunner.When("call PayForColorsWinnerInfo(UserName: \'OhAe\', Balance: \'0\')");
+testRunner.When("call PayForColorsWinnerInfo(UserProfileBalance: \'OhAe\', Balance: \'0\')");
 #line 24
 testRunner.Then("ระบบแจ้งเตือนว่าเงินไม่พอ");
 #line hidden
@@ -127,7 +127,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 28
 testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initialized");
 #line 29
-testRunner.When("call PayForColorsWinnerInfo(UserName: \'OhAe\', Balance: \'-10\')");
+testRunner.When("call PayForColorsWinnerInfo(UserProfileBalance: \'OhAe\', Balance: \'-10\')");
 #line 30
 testRunner.Then("ระบบแจ้งเตือนว่าเงินไม่พอ");
 #line hidden

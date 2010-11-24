@@ -55,7 +55,12 @@ namespace sPerf_Web.Areas.Profile.Controllers {
             public readonly string Friends = "Friends";
             public readonly string Inbox = "Inbox";
             public readonly string Banners = "Banners";
-            public readonly string AdvanceSearch = "AdvanceSearch";
+            public readonly string photocomment = "photocomment";
+            public readonly string Compare_Archeivement = "Compare_Archeivement";
+            public readonly string FriendList = "FriendList";
+            public readonly string Popup_Comment_Archeivement = "Popup_Comment_Archeivement";
+            public readonly string Comment_Archeivement = "Comment_Archeivement";
+            public readonly string Filter = "Filter";
         }
 
 
@@ -64,14 +69,18 @@ namespace sPerf_Web.Areas.Profile.Controllers {
         public ViewNames Views { get { return s_views; } }
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ViewNames {
-            public readonly string AdvanceSearch = "~/Areas/Profile/Views/Profile/AdvanceSearch.ascx";
             public readonly string Archievement = "~/Areas/Profile/Views/Profile/Archievement.aspx";
-            public readonly string Banners = "~/Areas/Profile/Views/Profile/Banners.ascx";
             public readonly string Blog = "~/Areas/Profile/Views/Profile/Blog.aspx";
-            public readonly string Friends = "~/Areas/Profile/Views/Profile/Friends.aspx";
+            public readonly string Comment_Archeivement = "~/Areas/Profile/Views/Profile/Comment_Archeivement.ascx";
+            public readonly string Compare_Archeivement = "~/Areas/Profile/Views/Profile/Compare_Archeivement.ascx";
+            public readonly string Filter = "~/Areas/Profile/Views/Profile/Filter.ascx";
+            public readonly string FriendList = "~/Areas/Profile/Views/Profile/FriendList.ascx";
             public readonly string Inbox = "~/Areas/Profile/Views/Profile/Inbox.aspx";
             public readonly string Index = "~/Areas/Profile/Views/Profile/Index.aspx";
+            public readonly string index_comment = "~/Areas/Profile/Views/Profile/index_comment.ascx";
             public readonly string Photo = "~/Areas/Profile/Views/Profile/Photo.aspx";
+            public readonly string photocomment = "~/Areas/Profile/Views/Profile/photocomment.ascx";
+            public readonly string Popup_Comment_Archeivement = "~/Areas/Profile/Views/Profile/Popup_Comment_Archeivement.ascx";
             public readonly string Profile = "~/Areas/Profile/Views/Profile/Profile.aspx";
             public readonly string SubMenu = "~/Areas/Profile/Views/Profile/SubMenu.ascx";
             public readonly string Web = "~/Areas/Profile/Views/Profile/Web.config";
@@ -127,8 +136,33 @@ namespace sPerf_Web.Areas.Profile.Controllers {
             return callInfo;
         }
 
-        public override System.Web.Mvc.ActionResult AdvanceSearch() {
-            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.AdvanceSearch);
+        public override System.Web.Mvc.ActionResult photocomment() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.photocomment);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult Compare_Archeivement() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Compare_Archeivement);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult FriendList() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.FriendList);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult Popup_Comment_Archeivement() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Popup_Comment_Archeivement);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult Comment_Archeivement() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Comment_Archeivement);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult Filter() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Filter);
             return callInfo;
         }
 

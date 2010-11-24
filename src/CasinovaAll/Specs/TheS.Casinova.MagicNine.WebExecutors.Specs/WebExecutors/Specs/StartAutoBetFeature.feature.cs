@@ -29,8 +29,8 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "StartAutoBet", "In order to start auto bet\r\nAs a sysytem\r\nI want to sent StartAutoBet information" +
-                    " to back server", ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "StartAutoBet", "In order to start auto bet\r\nAs a system\r\nI want to sent StartAutoBet information " +
+                    "to back server", ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -52,10 +52,10 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs
             testRunner.OnScenarioEnd();
         }
         
-        public virtual void ระบบไดรบขอมลการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer(string userName, string roundID, string amount, string interval)
+        public virtual void StartAutoBetระบบไดรบขอมลการลงเดมพนแบบอตโนมตระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID(string userName, string roundID, string amount, string interval)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูลการลงเดิมพันแบบอัตโนมัติจาก client และทำการส่งข้อมูลไปยัง back se" +
-                    "rver", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[StartAutoBet]ระบบได้รับข้อมูลการลงเดิมพันแบบอัตโนมัติ ระบบทำการตรวจสอบข้อมูล ข้อ" +
+                    "มูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID", new string[] {
                         "record_mock"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
@@ -65,63 +65,74 @@ testRunner.Given("The StartAutoBetExecutor has been created and initialized");
 testRunner.And(string.Format("Sent StartAutoBetInformation userName\'{0}\', roundId \'{1}\',amount \'{2}\', Interval " +
                         "\'{3}\'", userName, roundID, amount, interval));
 #line 10
-testRunner.And("Web service has TrackingID for start auto bet: \'DA1FE75E-9042-4FC5-B3CF-1E973D215" +
-                    "2F7\'");
+testRunner.When("Call StartAutoBetExecutor() for validation");
 #line 11
-testRunner.When(string.Format("Call StartAutoBetExecutor(userName\'{0}\', roundId \'{1}\',amount \'{2}\', Interval \'{3" +
-                        "}\')", userName, roundID, amount, interval));
-#line 12
-testRunner.Then("TrackingID of  start auto bet for client and back server should be : \'DA1FE75E-90" +
-                    "42-4FC5-B3CF-1E973D2152F7\'");
-#line 13
-testRunner.Then("The system can\'t sent StartAutoBetInformation to back server");
+testRunner.Then("Get null and skip checking trackingID for start auto bet");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลการลงเดิมพันแบบอัตโนมัติจาก client และทำการส่งข้อมูลไปยัง back se" +
-            "rver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[StartAutoBet]ระบบได้รับข้อมูลการลงเดิมพันแบบอัตโนมัติ ระบบทำการตรวจสอบข้อมูล ข้อ" +
+            "มูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StartAutoBet")]
-        public virtual void ระบบไดรบขอมลการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer_Variant0()
+        public virtual void StartAutoBetระบบไดรบขอมลการลงเดมพนแบบอตโนมตระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant0()
         {
-            this.ระบบไดรบขอมลการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer("Nit", "1", "100", "10");
+            this.StartAutoBetระบบไดรบขอมลการลงเดมพนแบบอตโนมตระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID("", "1", "100", "10");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลการลงเดิมพันแบบอัตโนมัติจาก client และทำการส่งข้อมูลไปยัง back se" +
-            "rver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[StartAutoBet]ระบบได้รับข้อมูลการลงเดิมพันแบบอัตโนมัติ ระบบทำการตรวจสอบข้อมูล ข้อ" +
+            "มูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StartAutoBet")]
-        public virtual void ระบบไดรบขอมลการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer_Variant1()
+        public virtual void StartAutoBetระบบไดรบขอมลการลงเดมพนแบบอตโนมตระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant1()
         {
-            this.ระบบไดรบขอมลการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer("", "1", "100", "10");
+            this.StartAutoBetระบบไดรบขอมลการลงเดมพนแบบอตโนมตระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID("Nit", "-2", "100", "10");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลการลงเดิมพันแบบอัตโนมัติจาก client และทำการส่งข้อมูลไปยัง back se" +
-            "rver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[StartAutoBet]ระบบได้รับข้อมูลการลงเดิมพันแบบอัตโนมัติ ระบบทำการตรวจสอบข้อมูล ข้อ" +
+            "มูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StartAutoBet")]
-        public virtual void ระบบไดรบขอมลการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer_Variant2()
+        public virtual void StartAutoBetระบบไดรบขอมลการลงเดมพนแบบอตโนมตระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant2()
         {
-            this.ระบบไดรบขอมลการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer("Nit", "0", "100", "10");
+            this.StartAutoBetระบบไดรบขอมลการลงเดมพนแบบอตโนมตระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID("Nit", "1", "-100", "1");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลการลงเดิมพันแบบอัตโนมัติจาก client และทำการส่งข้อมูลไปยัง back se" +
-            "rver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[StartAutoBet]ระบบได้รับข้อมูลการลงเดิมพันแบบอัตโนมัติ ระบบทำการตรวจสอบข้อมูล ข้อ" +
+            "มูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StartAutoBet")]
-        public virtual void ระบบไดรบขอมลการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer_Variant3()
+        public virtual void StartAutoBetระบบไดรบขอมลการลงเดมพนแบบอตโนมตระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant3()
         {
-            this.ระบบไดรบขอมลการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer("Nit", "1", "0", "10");
+            this.StartAutoBetระบบไดรบขอมลการลงเดมพนแบบอตโนมตระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID("Nit", "1", "100", "0");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลการลงเดิมพันแบบอัตโนมัติจาก client และทำการส่งข้อมูลไปยัง back se" +
-            "rver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[StartAutoBet]ระบบได้รับข้อมูลการลงเดิมพันแบบอัตโนมัติ ระบบทำการตรวจสอบข้อมูล ข้อ" +
+            "มูลถูกต้อง ระบบทำการ generate trackingID")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StartAutoBet")]
-        public virtual void ระบบไดรบขอมลการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer_Variant4()
+        public virtual void StartAutoBetระบบไดรบขอมลการลงเดมพนแบบอตโนมตระบบทำการตรวจสอบขอมลขอมลถกตองระบบทำการGenerateTrackingID()
         {
-            this.ระบบไดรบขอมลการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer("Nit", "1", "100", "0");
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[StartAutoBet]ระบบได้รับข้อมูลการลงเดิมพันแบบอัตโนมัติ ระบบทำการตรวจสอบข้อมูล ข้อ" +
+                    "มูลถูกต้อง ระบบทำการ generate trackingID", new string[] {
+                        "record_mock"});
+#line 21
+this.ScenarioSetup(scenarioInfo);
+#line 22
+testRunner.Given("The StartAutoBetExecutor has been created and initialized");
+#line 23
+testRunner.And("Sent StartAutoBetInformation userName\'Bebo\', roundId \'2\',amount \'50\', Interval \'2" +
+                    "\'");
+#line 24
+testRunner.And("The system generated TrackingID for start auto bet:\'955D6ACDE4E04D1C90ACF3715BB26" +
+                    "85A\'");
+#line 25
+testRunner.When("Call StartAutoBetExecutor()");
+#line 26
+testRunner.Then("TrackingID for start auto bet should be :\'955D6ACDE4E04D1C90ACF3715BB2685A\'");
+#line hidden
+            testRunner.CollectScenarioErrors();
         }
     }
 }

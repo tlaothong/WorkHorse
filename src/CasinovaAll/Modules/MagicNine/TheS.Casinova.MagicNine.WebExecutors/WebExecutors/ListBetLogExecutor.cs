@@ -5,6 +5,8 @@ using System.Text;
 using PerfEx.Infrastructure.CommandPattern;
 using TheS.Casinova.MagicNine.Commands;
 using TheS.Casinova.MagicNine.DAL;
+using PerfEx.Infrastructure.Validation;
+using PerfEx.Infrastructure;
 
 namespace TheS.Casinova.MagicNine.WebExecutors
 {
@@ -15,16 +17,24 @@ namespace TheS.Casinova.MagicNine.WebExecutors
         : SynchronousCommandExecutorBase<ListBetLogCommand>
     {
        private IListBetLog _iListBetLog;
+       private IDependencyContainer _container;
 
-       public ListBetLogExecutor(IMagicNineGameDataQuery dqr) 
+       public ListBetLogExecutor(IMagicNineGameDataQuery dqr, IDependencyContainer container) 
        {
            _iListBetLog = dqr;
+           _container = container;
        }
 
        protected override void ExecuteCommand(ListBetLogCommand command)
        {
+           //Validation
+           var errors = ValidationHelper.Validate(_container, command.BetInfo, command);
+           if (errors.Any()) {
+               throw new ValidationErrorException(errors);
+           }
+
            //TODO: Generate trackingID
-          command.BetInformations = _iListBetLog.List(command);
+          command.BetInformation = _iListBetLog.List(command);
        }
     }
 }

@@ -11,6 +11,7 @@ using PerfEx.Infrastructure.Validation;
 namespace TheS.Casinova.Colors.WebExecutors
 {
     /// <summary>
+    /// 
     /// สร้าง active round
     /// </summary>
     public class CreateGameRoundConfigExecutor
@@ -26,7 +27,8 @@ namespace TheS.Casinova.Colors.WebExecutors
  
         protected override void ExecuteCommand(CreateGameRoundConfigurationCommand command)
         {
-            var errors = ValidationHelper.Validate(_container, command.Tables, command);
+            //Validation
+            var errors = ValidationHelper.Validate(_container, command.GameRoundConfig, command);
             if (errors.Any()) {
                 throw new ValidationErrorException(errors);
             }

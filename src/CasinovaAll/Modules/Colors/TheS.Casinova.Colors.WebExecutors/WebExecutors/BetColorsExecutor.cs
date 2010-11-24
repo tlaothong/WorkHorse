@@ -6,6 +6,8 @@ using PerfEx.Infrastructure.CommandPattern;
 using TheS.Casinova.Colors.Commands;
 using TheS.Casinova.Colors.BackServices;
 using TheS.Casinova.Colors.DAL;
+using PerfEx.Infrastructure;
+using PerfEx.Infrastructure.Validation;
 
 namespace TheS.Casinova.Colors.WebExecutors
 {
@@ -16,13 +18,21 @@ namespace TheS.Casinova.Colors.WebExecutors
         : SynchronousCommandExecutorBase<BetCommand>
     {
         private IBet _iBet;
-        public BetColorsExecutor(IColorsGameBackService dac) 
+        private IDependencyContainer _container;
+        public BetColorsExecutor(IColorsGameBackService dac, IDependencyContainer container) 
         {
             _iBet = dac;
+            _container = container;
         }
 
         protected override void ExecuteCommand(BetCommand command) 
         {
+            //Validation
+            var errors = ValidationHelper.Validate(_container, command.BetPlayerActionInfo, command);
+            if (errors.Any()) {
+                throw new ValidationErrorException(errors);
+            }
+            //TODO: Generate TrackingID
             _iBet.PlayerBet(command);
         }
     }

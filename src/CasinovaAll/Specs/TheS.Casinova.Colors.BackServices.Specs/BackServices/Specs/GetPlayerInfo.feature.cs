@@ -58,7 +58,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
 #line 7
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "UserName",
+                        "UserProfileBalance",
                         "Balance"});
             table1.AddRow(new string[] {
                         "OhAe",
@@ -94,7 +94,7 @@ testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initia
 #line 18
 testRunner.And("sent userName: \'OhAe\' and expected player\'s balance should be \'463.61\'");
 #line 19
-testRunner.When("call Get(PayForColorsWinnerInfoCommand), UserName: \'OhAe\'");
+testRunner.When("call Get(PayForColorsWinnerInfoCommand), UserProfileBalance: \'OhAe\'");
 #line 20
 testRunner.Then("the result should be same as expected balance");
 #line hidden
@@ -117,7 +117,7 @@ testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initia
 #line 25
 testRunner.And("sent userName: \'Au\' and expected player\'s balance should be \'234.00\'");
 #line 26
-testRunner.When("call Get(PayForColorsWinnerInfoCommand), UserName: \'Au\'");
+testRunner.When("call Get(PayForColorsWinnerInfoCommand), UserProfileBalance: \'Au\'");
 #line 27
 testRunner.Then("the result should be same as expected balance");
 #line hidden

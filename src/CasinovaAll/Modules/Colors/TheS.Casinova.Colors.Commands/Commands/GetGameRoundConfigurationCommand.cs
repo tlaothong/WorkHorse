@@ -12,14 +12,13 @@ namespace TheS.Casinova.Colors.Commands
     public class GetGameRoundConfigurationCommand
     {
         //input
-
         /// <summary>
         /// ชื่อ config ที่ต้องการดึงข้อมูล
+        /// 1.ConfigName ชื่อ config
         /// </summary>
-        public string Name { get; set; }
+        public GameRoundConfiguration GameRoundConfig { get; set; }
 
         //output
-
         /// <summary>
         /// Config ที่ต้องการ
         /// </summary>

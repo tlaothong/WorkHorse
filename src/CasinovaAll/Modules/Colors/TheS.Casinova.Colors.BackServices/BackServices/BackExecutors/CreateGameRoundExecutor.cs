@@ -32,24 +32,24 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
             };
 
             //ดึงข้อมูลโต๊ะเกมที่สามารถเล่นได้
-            listActiveGameRoundsCmd.ActiveRounds = _iListActiveGameRounds.List(listActiveGameRoundsCmd);
+            listActiveGameRoundsCmd.ActiveGameRoundInfo = _iListActiveGameRounds.List(listActiveGameRoundsCmd);
 
             GetGameRoundConfigurationCommand getGameRoundConfigCmd = new GetGameRoundConfigurationCommand {
-                Name = command.ConfigName,
+                GameRoundConfiguration = command.GameRoundConfigName,
             };
 
             //ดึงข้อมูลการตั้งค่าที่ต้องการ
             getGameRoundConfigCmd.GameRoundConfiguration = _iGetGameRoundConfig.Get(getGameRoundConfigCmd);
 
             //กำหนดจำนวนโต๊ะเกมที่ต้องสร้างเพิ่ม
-            int nOfRoundToCreate = getGameRoundConfigCmd.GameRoundConfiguration.TableAmount - listActiveGameRoundsCmd.ActiveRounds.Count() + bufferRoundsCount;
+            int nOfRoundToCreate = getGameRoundConfigCmd.GameRoundConfiguration.TableAmount - listActiveGameRoundsCmd.ActiveGameRoundInfo.Count() + bufferRoundsCount;
 
-            GameRoundInformation lastActiveRound = listActiveGameRoundsCmd.ActiveRounds.LastOrDefault();
+            GameRoundInformation lastActiveRound = listActiveGameRoundsCmd.ActiveGameRoundInfo.LastOrDefault();
 
             GameRoundInformation nextRound = new GameRoundInformation();
 
             for (int i = 0; i < nOfRoundToCreate; i++) {
-                if (listActiveGameRoundsCmd.ActiveRounds.Count() > 0) {
+                if (listActiveGameRoundsCmd.ActiveGameRoundInfo.Count() > 0) {
                     lastActiveRound.StartTime = lastActiveRound.StartTime.AddMinutes(getGameRoundConfigCmd.GameRoundConfiguration.Interval);
                     lastActiveRound.EndTime = lastActiveRound.StartTime.AddMinutes(getGameRoundConfigCmd.GameRoundConfiguration.GameDuration);
                     lastActiveRound.RoundID += 1;
@@ -62,7 +62,7 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
 
                     List<GameRoundInformation> list = new List<GameRoundInformation>();
                     list.Add(lastActiveRound);
-                    listActiveGameRoundsCmd.ActiveRounds = list;
+                    listActiveGameRoundsCmd.ActiveGameRoundInfo = list;
                 }
 
                 nextRound = new GameRoundInformation {

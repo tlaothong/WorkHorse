@@ -3,15 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TheS.Casinova.Colors.Models;
+using TheS.Casinova.PlayerProfile.Models;
 
 namespace TheS.Casinova.Colors.Commands
 {
    public class GetBalanceCommand
     {
        //input
-       public string UserName { get; set; } //username ของผู้เล่น
+       /// <summary>
+       /// ชื่อผู้เล่นที่ต้องการข้อมูลยอดเงินในบัญชี
+       /// 1. username ของผู้เล่น
+       /// </summary>
+       public UserProfile UserProfile { get; set; } 
 
        //output
-       public PlayerInformation Balance { get; set; } //ยอดเงินในบัญชีของผู้เล่น
+       /// <summary>
+       /// ยอดเงินในบัญชีของผู้เล่น
+       /// </summary>
+       public UserProfile UserProfileBalance { get; set; } 
     }
 }

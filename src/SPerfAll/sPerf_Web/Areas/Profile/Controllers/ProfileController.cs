@@ -47,7 +47,27 @@ namespace sPerf_Web.Areas.Profile.Controllers
         {
             return View();
         }
-        public virtual ActionResult AdvanceSearch()
+        public virtual ActionResult photocomment()
+        {
+            return View();
+        }
+        public virtual ActionResult Compare_Archeivement()
+        {
+            return View();
+        }
+        public virtual ActionResult FriendList()
+        {
+            return View();
+        }
+        public virtual ActionResult Popup_Comment_Archeivement()
+        {
+            return View();
+        }
+        public virtual ActionResult Comment_Archeivement()
+        {
+            return View();
+        }
+        public virtual ActionResult Filter()
         {
             return View();
         }

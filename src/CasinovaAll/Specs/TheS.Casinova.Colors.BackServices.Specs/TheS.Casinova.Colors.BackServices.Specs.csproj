@@ -121,10 +121,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Modules\Colors\TheS.Casinova.Colors.BackServices.Contracts\TheS.Casinova.Colors.BackServices.Contracts.csproj">
-      <Project>{886E0C88-2499-4DA9-98E2-253BDC0ABE5B}</Project>
-      <Name>TheS.Casinova.Colors.BackServices.Contracts</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Modules\Colors\TheS.Casinova.Colors.BackServices\TheS.Casinova.Colors.BackServices.csproj">
       <Project>{2D3ECC97-9634-412B-A816-7B5883718E14}</Project>
       <Name>TheS.Casinova.Colors.BackServices</Name>

@@ -22,7 +22,7 @@ namespace TheS.Casinova.PlayerAccount.BackServices.BackExecutors
         protected override void ExecuteCommand(EditPlayerAccountCommand command)
         {
             PlayerAccountInformation playerAccountInfo = new PlayerAccountInformation {
-                PlayerAccoundID = command.PlayerAccoundID,
+                CardType = command.CardType,
                 UserName = command.UserName,
                 AccountType = command.AccountType,
                 AccountNo = command.AccountNo,

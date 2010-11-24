@@ -12,9 +12,16 @@ namespace TheS.Casinova.Colors.Commands
     public class GetGameResultCommand
     {
         //input
-        public int RoundID { get; set; } // username of player
+        /// <summary>
+        /// ข้อมูลโต๊ะเกมที่ต้องการผลเกม
+        /// 1. RoundID รอบของโต๊ะเกม
+        /// </summary>
+        public GameRoundInformation GameRoundInfo { get; set; } 
 
         //output
-        public GameRoundInformation GameResult { get; set; } //return data of game result
+        /// <summary>
+        /// ข้อมูลผลการเล่นเกม
+        /// </summary>
+        public GameRoundInformation GameResultGameRoundInfo { get; set; } 
     }
 }

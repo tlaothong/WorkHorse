@@ -18,6 +18,6 @@ namespace TheS.Casinova.PlayerAccount.Commands
         /// <summary>
         /// รหัสบัญชีที่จะยกเลิก
         /// </summary>
-        public int PlayerAccoundID { get; set; }
+        public string CardType { get; set; }
     }
 }

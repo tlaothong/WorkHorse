@@ -13,15 +13,15 @@ namespace TheS.Casinova.MagicNine.Commands
     {
         //input
         /// <summary>
-        /// โต๊ะเกมที่ active
+        /// สถานะที่ Active
         /// </summary>
         public bool Active { get; set; }
          
         //output
 
         /// <summary>
-        /// ข้อมูลโต๊ะเกมทั้งหมด
+        /// ข้อมูลโต๊ะเกมทั้งหมดที่ Active
         /// </summary>
-        public IEnumerable<GameRoundInformation> GameRoundInfos { get; set; }
+        public IEnumerable<GameRoundInformation> ActiveGameRoundInfo { get; set; }
     }
 }

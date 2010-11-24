@@ -12,22 +12,17 @@ namespace TheS.Casinova.MagicNine.Commands
     public class ListBetLogCommand
     {
         //input
-
         /// <summary>
-        /// โต๊ะเกมที่ลงพนัน
+        /// ข้อมูลเพื่อลิสต์การลงเดิมพัน
+        /// 1. RoundID รอบของโต๊ะที่ลงพนัน
+        /// 2. UserName ชื่อผู้เล่นที่ลงพนัน
         /// </summary>
-        public int RoundID { get; set; }
-
-        /// <summary>
-        /// ชื่อผู้เล่นที่ลงพนัน
-        /// </summary>
-        public string UserName { get; set; }
+        public BetInformation BetInfo { get; set; }
 
         //output
-
         /// <summary>
         /// ข้อมูลการลงพนันทั้งหมด
         /// </summary>
-        public IEnumerable<BetInformation> BetInformations { get; set; }
+        public IEnumerable<BetInformation> BetInformation { get; set; }
     }
 }

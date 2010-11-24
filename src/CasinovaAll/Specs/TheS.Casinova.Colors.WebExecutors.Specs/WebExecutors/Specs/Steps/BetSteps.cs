@@ -4,41 +4,74 @@ using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
 using TheS.Casinova.Colors.Models;
+using TheS.Casinova.Colors.Commands;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PerfEx.Infrastructure.Validation;
 
 namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
 {
     [Binding]
     public class BetSteps : ColorsGameStepsBase
     {
+        private BetCommand _cmd;
+        private string _trackingID;
 
-        [Given(@"TrackingID of PlayerBet is '(.*)'")]
-        public void GivenTrackingIDOfPlayerBetIsX(string trackingId)
+        [Given(@"Bet Informations as : UserName '(.*)' RoundID '(.*)', ActionType '(.*)', Amount '(.*)'")]
+        public void GivenBetInformationsAsUserNameNitRoundID4ActionTypeWhiteAmount_50(string userName, int roundID, string actionType, double amount)
         {
-            ScenarioContext.Current.Pending();
+            _cmd = new BetCommand {
+                BetPlayerActionInfo = new PlayerActionInformation { 
+                    UserName = userName,
+                    RoundID = roundID,
+                    ActionType = actionType,
+                    Amount = amount
+                }
+            };
         }
 
-        [Given(@"Expected call PlayerBet")]
-        public void GivenExpectedCallPlayerBet()
+        [Given(@"The system generated TrackingID:'(.*)'")]
+        public void GivenTheSystemGeneratedTrackingIDX(string trackingID)
         {
-            ScenarioContext.Current.Pending();
+            _trackingID = trackingID;
+        }
+        
+        //Validate input
+        [When(@"Call BetColorsExecutor\(\) for validate bet information")]
+        public void WhenCallBetColorsExecutorForValidateBetInformation()
+        {
+            try {
+                BetColorsGame.Execute(_cmd, (x) => { });
+                Assert.Fail("Shouldn't be here");
+            }
+            catch (Exception ex) {
+                Assert.IsInstanceOfType(ex,
+                    typeof(ValidationErrorException));
+            }
         }
 
-        [When(@"Call PlayerBet\(RoundID '(.*)', Amount '(.*)', Color '(.*)'\) by userName '(.*)'")]
-        public void WhenCallPlayerBetRoundID_5Amount100ColorBlackByUserNameNit(int roundId, int amount, string color, string userName)
+        //Test function
+        [When(@"Call BetColorsExecutor\(\)")]
+        public void WhenCallBetColorsExecutor()
         {
-            ScenarioContext.Current.Pending();
+            try {
+                BetColorsGame.Execute(_cmd, (x) => { });
+            }
+            catch (Exception ex) {
+                Assert.IsInstanceOfType(ex,
+                    typeof(ValidationErrorException));
+            }
         }
 
-        [Then(@"TrackingID of PlayerBet should be '(.*)'")]
-        public void ThenTrackingIDOfPlayerBetShouldBeX(string trackingId)
+        [Then(@"Get null and skip checking trackingID")]
+        public void ThenGetNullAndSkipCheckingTrackingID()
         {
-            ScenarioContext.Current.Pending();
+            Assert.IsTrue(true, "Get null and skip checking trackingID.");
         }
 
-        [Then(@"TrackingID of PlayerBet should be null")]
-        public void ThenTrackingIDOfPlayerBetShouldBeNull()
+        [Then(@"TrackingID should be :'(.*)'")]
+        public void ThenTrackingIDShouldBeX(string trackingID)
         {
-            ScenarioContext.Current.Pending();
+            Assert.AreEqual(trackingID, _trackingID, "Get trackingID accept");
         }
     }
 }

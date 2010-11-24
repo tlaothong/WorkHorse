@@ -10,15 +10,19 @@ namespace TheS.Casinova.MagicNine.Commands
     {
          //input
          /// <summary>
-         /// ชื่อของผู้เล่น
+         /// ข้อมูลชื่อผู้เล่น
+         /// 1. UserName ชื่อของผู้เล่น
          /// </summary>
-         public string UserName { get; set; }
+         public GamePlayAutoBetInformation GamePlayAutoBetInfo { get; set; }
+
          
          //output
          /// <summary>
          /// ข้อมูลการลงเดิมพันแบบอัตโนมัติ
          /// </summary>
-         public IEnumerable<GamePlayAutoBetInformation> GamePlayAutoBet { get; set; }
+         public IEnumerable<GamePlayAutoBetInformation> GamePlayAutoBetInformation { get; set; }
 
     }
 }
+
+

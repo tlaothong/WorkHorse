@@ -3,40 +3,75 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
+using TheS.Casinova.MagicNine.Commands;
+using TheS.Casinova.MagicNine.Models;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PerfEx.Infrastructure.Validation;
 
 namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
 {
     [Binding]
-    public class StartAutoBetSteps
+    public class StartAutoBetSteps : MagicNineGameStepsBase
     {
+        private StartAutoBetCommand _cmd;
+        private string _trackingID;
+
         [Given(@"Sent StartAutoBetInformation userName'(.*)', roundId '(.*)',amount '(.*)', Interval '(.*)'")]
-        public void GivenSentStartAutoBetInformationUserNameNitRoundId0Amount100Interval10(string userName, int roundId, int amount, int interval)
+        public void GivenSentStartAutoBetInformationUserNameNitRoundId0Amount100Interval10(string userName, int roundId, double amount, int interval)
         {
-            ScenarioContext.Current.Pending();
+            _cmd = new StartAutoBetCommand {
+                GamePlayAutoBetInfo = new GamePlayAutoBetInformation {
+                    UserName = userName,
+                    RoundID = roundId,
+                    Amount = amount,
+                    Interval = interval
+                }
+            };
         }
 
-        [Given(@"Web service has TrackingID for start auto bet: 'DA1FE75E-9042-4FC5-B3CF-1E973D2152F7'")]
-        public void GivenWebServiceHasTrackingIDForStartAutoBetDA1FE75E_9042_4FC5_B3CF_1E973D2152F7()
+        [Given(@"The system generated TrackingID for start auto bet:'(.*)'")]
+        public void GivenTheSystemGeneratedTrackingIDForStartAutoBetX(string trackingID)
         {
-            ScenarioContext.Current.Pending();
+            _trackingID = trackingID;
         }
 
-        [When(@"Call StartAutoBetExecutor\(userName'(.*)', roundId '(.*)',amount '(.*)', Interval '(.*)'\)")]
-        public void WhenCallStartAutoBetExecutorUserNameNitRoundId0Amount100Interval10(string userName, int roundId, int amount, int interval)
+        //Test function
+        [When(@"Call StartAutoBetExecutor\(\)")]
+        public void WhenCallStartAutoBetExecutor()
         {
-            ScenarioContext.Current.Pending();
+            try {
+                StartAutoBet.Execute(_cmd, (x) => { });
+            }
+            catch (Exception ex) {
+                Assert.IsInstanceOfType(ex,
+                    typeof(ValidationErrorException));
+            }
         }
 
-        [Then(@"TrackingID of  start auto bet for client and back server should be : 'DA1FE75E-9042-4FC5-B3CF-1E973D2152F7'")]
-        public void ThenTrackingIDOfStartAutoBetForClientAndBackServerShouldBeDA1FE75E_9042_4FC5_B3CF_1E973D2152F7()
+        //Validation
+        [When(@"Call StartAutoBetExecutor\(\) for validation")]
+        public void WhenCallStartAutoBetExecutorForValidation()
         {
-            ScenarioContext.Current.Pending();
+            try {
+                StartAutoBet.Execute(_cmd, (x) => { });
+                Assert.Fail("Shouldn't be here");
+            }
+            catch (Exception ex) {
+                Assert.IsInstanceOfType(ex,
+                    typeof(ValidationErrorException));
+            }
         }
 
-         [Then(@"The system can't sent StartAutoBetInformation to back server")]
-         public void ThenTheSystemCanTSentStartAutoBetInformationToBackServer()
+        [Then(@"TrackingID for start auto bet should be :'(.*)'")]
+        public void ThenTrackingIDForStartAutoBetShouldBeX(string trackingID)
         {
-            ScenarioContext.Current.Pending();
+            Assert.AreEqual(trackingID, _trackingID, "Get trackingID accept");
+        }
+
+        [Then(@"Get null and skip checking trackingID for start auto bet")]
+        public void ThenGetNullAndSkipCheckingTrackingIDForStartAutoBet()
+        {
+            Assert.IsTrue(true, "Get null and skip checking trackingID.");
         }
     }
 }

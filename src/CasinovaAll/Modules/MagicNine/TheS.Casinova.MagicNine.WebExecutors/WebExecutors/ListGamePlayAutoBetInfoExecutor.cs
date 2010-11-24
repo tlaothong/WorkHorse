@@ -5,6 +5,8 @@ using System.Text;
 using PerfEx.Infrastructure.CommandPattern;
 using TheS.Casinova.MagicNine.Commands;
 using TheS.Casinova.MagicNine.DAL;
+using PerfEx.Infrastructure.Validation;
+using PerfEx.Infrastructure;
 
 namespace TheS.Casinova.MagicNine.WebExecutors
 {
@@ -15,15 +17,24 @@ namespace TheS.Casinova.MagicNine.WebExecutors
         : SynchronousCommandExecutorBase<ListGamePlayAutoBetInfoCommand>
     {
        private IListGamePlayAutoBetInfo _iListGamePlayAutoBetInfo;
+       private IDependencyContainer _container;
 
-       public ListGamePlayAutoBetInfoExecutor(IMagicNineGameDataQuery dqr) 
+       public ListGamePlayAutoBetInfoExecutor(IMagicNineGameDataQuery dqr, IDependencyContainer container) 
        {
            _iListGamePlayAutoBetInfo = dqr;
+           _container = container;
        }
 
        protected override void ExecuteCommand(ListGamePlayAutoBetInfoCommand command)
        {
-           command.GamePlayAutoBet = _iListGamePlayAutoBetInfo.List(command);
+           //Validation
+           var errors = ValidationHelper.Validate(_container, command.GamePlayAutoBetInfo, command);
+           if (errors.Any()) {
+               throw new ValidationErrorException(errors);
+           }
+
+           //List game play auto bet information
+           command.GamePlayAutoBetInformation = _iListGamePlayAutoBetInfo.List(command);
        }
     }
 }

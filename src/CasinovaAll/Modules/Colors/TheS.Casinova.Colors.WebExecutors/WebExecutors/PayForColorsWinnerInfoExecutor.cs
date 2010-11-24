@@ -5,6 +5,8 @@ using System.Text;
 using TheS.Casinova.Colors.Commands;
 using PerfEx.Infrastructure.CommandPattern;
 using TheS.Casinova.Colors.BackServices;
+using PerfEx.Infrastructure;
+using PerfEx.Infrastructure.Validation;
 
 namespace TheS.Casinova.Colors.WebExecutors
 { 
@@ -15,16 +17,25 @@ namespace TheS.Casinova.Colors.WebExecutors
         : SynchronousCommandExecutorBase<PayForColorsWinnerInfoCommand>
     {
         private IPayForWinner _iPayForWinner;
+        private IDependencyContainer _container;
        
-        public PayForColorsWinnerInfoExecutor(IColorsGameBackService dac)
+        public PayForColorsWinnerInfoExecutor(IColorsGameBackService dac, IDependencyContainer container)
         {
             _iPayForWinner = dac;
+            _container = container;
         }
 
         protected override void ExecuteCommand(PayForColorsWinnerInfoCommand command)
         {
+            //Validation
+            var errors = ValidationHelper.Validate(_container, command.PlayerActionInfo, command);
+            if (errors.Any()) {
+                throw new ValidationErrorException(errors);
+            }
+
+            //TODO: Generate trackingID
             _iPayForWinner.PayForWinnerInfo(command);
-            //TODO: code for call web service
+            
         } 
     }
 }

@@ -29,8 +29,8 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "ListGamePlayAutoBetInfo", "In order to list game play auto bet information\r\nAs a math System\r\nI want to list" +
-                    " game play auto bet information by userName", ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "ListGamePlayAutoBetInfo", "In order to list game play auto bet information\r\nAs a System\r\nI want to list game" +
+                    " play auto bet information by userName", ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -54,12 +54,12 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล userName ถูกต้อง และใน server มีข้อมูลการลงเดิมพันแบบอัตโนมัติไว" +
-            "้ #ListGamePlayAutoBetInfo")]
+            "้ ระบบสามารถดึงข้อมูลการลงเดิมพันแบบอัตโนมัติได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListGamePlayAutoBetInfo")]
-        public virtual void ระบบไดรบขอมลUserNameถกตองและในServerมขอมลการลงเดมพนแบบอตโนมตไวListGamePlayAutoBetInfo()
+        public virtual void ระบบไดรบขอมลUserNameถกตองและในServerมขอมลการลงเดมพนแบบอตโนมตไวระบบสามารถดงขอมลการลงเดมพนแบบอตโนมตได()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล userName ถูกต้อง และใน server มีข้อมูลการลงเดิมพันแบบอัตโนมัติไว" +
-                    "้ #ListGamePlayAutoBetInfo", new string[] {
+                    "้ ระบบสามารถดึงข้อมูลการลงเดิมพันแบบอัตโนมัติได้", new string[] {
                         "record_mock"});
 #line 9
 this.ScenarioSetup(scenarioInfo);
@@ -72,16 +72,16 @@ testRunner.Given("The ListGamePlayAutoBetInfoExecutor has been created and initi
                         "Amount",
                         "Interval",
                         "MoneyRefund",
-                        "StartTrackingID",
-                        "StopTrackingID"});
+                        "BetTrackingID",
+                        "ThruDateTime"});
             table1.AddRow(new string[] {
                         "Nit",
                         "1",
                         "200",
                         "5",
-                        "",
+                        "0",
                         "083CE9EC-7459-4A5A-9771-DD3E04D192D6",
-                        ""});
+                        "00:00"});
             table1.AddRow(new string[] {
                         "Nit",
                         "2",
@@ -89,11 +89,21 @@ testRunner.Given("The ListGamePlayAutoBetInfoExecutor has been created and initi
                         "10",
                         "100",
                         "A92343C8-2484-4928-A95E-9BD3BAE17FD9",
-                        "8AF03309-CA2C-4781-9012-146003746309"});
+                        "12:00"});
+            table1.AddRow(new string[] {
+                        "OhAe",
+                        "1",
+                        "200",
+                        "2",
+                        "0",
+                        "DBAF58AD-EDB0-4BB8-AC8B-C783D23E73FC",
+                        "00:00"});
 #line 11
-testRunner.And("server has game play auto bet information as:", ((string)(null)), table1);
-#line 15
-testRunner.When("Call ListGamePlayAutoBetInfoExecutor");
+testRunner.And("Server has game play auto bet information as:", ((string)(null)), table1);
+#line 16
+testRunner.And("Sent UserName \'Nit\'");
+#line 17
+testRunner.When("Call ListGamePlayAutoBetInfoExecutor()");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "UserName",
@@ -101,16 +111,16 @@ testRunner.When("Call ListGamePlayAutoBetInfoExecutor");
                         "Amount",
                         "Interval",
                         "MoneyRefund",
-                        "StartTrackingID",
-                        "StopTrackingID"});
+                        "BetTrackingID",
+                        "ThruDateTime"});
             table2.AddRow(new string[] {
                         "Nit",
                         "1",
                         "200",
                         "5",
-                        "",
+                        "0",
                         "083CE9EC-7459-4A5A-9771-DD3E04D192D6",
-                        ""});
+                        "00:00"});
             table2.AddRow(new string[] {
                         "Nit",
                         "2",
@@ -118,25 +128,25 @@ testRunner.When("Call ListGamePlayAutoBetInfoExecutor");
                         "10",
                         "100",
                         "A92343C8-2484-4928-A95E-9BD3BAE17FD9",
-                        "8AF03309-CA2C-4781-9012-146003746309"});
-#line 16
-testRunner.Then("The GamePlayAutoBetInformation should be as :", ((string)(null)), table2);
+                        "12:00"});
+#line 18
+testRunner.Then("The game play auto bet information should be as :", ((string)(null)), table2);
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล userName ถูกต้อง แต่ใน server ไม่มีข้อมูลการลงเดิมพันแบบอัตโนมัต" +
-            "ิไว้ #ListGamePlayAutoBetInfo")]
+            "ิไว้ ได้ข้อมูลการลงเดิมพันแบบอัตโนมัติเป็น null")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListGamePlayAutoBetInfo")]
-        public virtual void ระบบไดรบขอมลUserNameถกตองแตในServerไมมขอมลการลงเดมพนแบบอตโนมตไวListGamePlayAutoBetInfo()
+        public virtual void ระบบไดรบขอมลUserNameถกตองแตในServerไมมขอมลการลงเดมพนแบบอตโนมตไวไดขอมลการลงเดมพนแบบอตโนมตเปนNull()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล userName ถูกต้อง แต่ใน server ไม่มีข้อมูลการลงเดิมพันแบบอัตโนมัต" +
-                    "ิไว้ #ListGamePlayAutoBetInfo", new string[] {
+                    "ิไว้ ได้ข้อมูลการลงเดิมพันแบบอัตโนมัติเป็น null", new string[] {
                         "record_mock"});
-#line 22
+#line 24
 this.ScenarioSetup(scenarioInfo);
-#line 23
+#line 25
 testRunner.Given("The ListGamePlayAutoBetInfoExecutor has been created and initialized");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
@@ -145,29 +155,38 @@ testRunner.Given("The ListGamePlayAutoBetInfoExecutor has been created and initi
                         "Amount",
                         "Interval",
                         "MoneyRefund",
-                        "StartTrackingID",
-                        "StopTrackingID"});
-#line 24
-testRunner.And("server has game play auto bet information as:", ((string)(null)), table3);
-#line 27
-testRunner.When("Call ListGamePlayAutoBetInfoExecutor");
-#line 28
-testRunner.Then("The GamePlayAutoBetInformation should be null");
-#line hidden
-            testRunner.CollectScenarioErrors();
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล userName ไม่ถูกต้อง #ListGamePlayAutoBetInfo")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListGamePlayAutoBetInfo")]
-        public virtual void ระบบไดรบขอมลUserNameไมถกตองListGamePlayAutoBetInfo()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล userName ไม่ถูกต้อง #ListGamePlayAutoBetInfo", new string[] {
-                        "record_mock"});
+                        "BetTrackingID",
+                        "ThruDateTime"});
+            table3.AddRow(new string[] {
+                        "Nit",
+                        "1",
+                        "200",
+                        "5",
+                        "0",
+                        "083CE9EC-7459-4A5A-9771-DD3E04D192D6",
+                        "00:00"});
+            table3.AddRow(new string[] {
+                        "Nit",
+                        "2",
+                        "300",
+                        "10",
+                        "100",
+                        "A92343C8-2484-4928-A95E-9BD3BAE17FD9",
+                        "12:00"});
+            table3.AddRow(new string[] {
+                        "OhAe",
+                        "1",
+                        "200",
+                        "2",
+                        "0",
+                        "DBAF58AD-EDB0-4BB8-AC8B-C783D23E73FC",
+                        "00:00"});
+#line 26
+testRunner.And("Server has game play auto bet information as:", ((string)(null)), table3);
 #line 31
-this.ScenarioSetup(scenarioInfo);
+testRunner.And("Sent UserName \'Gogo\'");
 #line 32
-testRunner.Given("The ListGamePlayAutoBetInfoExecutor has been created and initialized");
+testRunner.When("Call ListGamePlayAutoBetInfoExecutor()");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "UserName",
@@ -175,14 +194,31 @@ testRunner.Given("The ListGamePlayAutoBetInfoExecutor has been created and initi
                         "Amount",
                         "Interval",
                         "MoneyRefund",
-                        "StartTrackingID",
-                        "StopTrackingID"});
+                        "BetTrackingID",
+                        "ThruDateTime"});
 #line 33
-testRunner.And("server has game play auto bet information as:", ((string)(null)), table4);
-#line 36
-testRunner.When("Call ListGamePlayAutoBetInfoExecutor");
+testRunner.Then("The game play auto bet information should be as :", ((string)(null)), table4);
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบไม่ได้รับข้อมูล userName ระบบไม่สามารถลิสต์ข้อมูลการลงเดิมพันแบบอัตโนมัติได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListGamePlayAutoBetInfo")]
+        public virtual void ระบบไมไดรบขอมลUserNameระบบไมสามารถลสตขอมลการลงเดมพนแบบอตโนมตได()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบไม่ได้รับข้อมูล userName ระบบไม่สามารถลิสต์ข้อมูลการลงเดิมพันแบบอัตโนมัติได้", new string[] {
+                        "record_mock"});
 #line 37
-testRunner.Then("The GamePlayAutoBetInformation should be null");
+this.ScenarioSetup(scenarioInfo);
+#line 38
+testRunner.Given("The ListGamePlayAutoBetInfoExecutor has been created and initialized");
+#line 39
+testRunner.And("Sent UserName \'\' for validation");
+#line 40
+testRunner.When("Call ListGamePlayAutoBetInfoExecutor() for validate input");
+#line 41
+testRunner.Then("The game play auto bet information should be throw exception");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

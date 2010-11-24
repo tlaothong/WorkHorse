@@ -79,9 +79,7 @@
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTesting.Silverlight">
       <HintPath>$(MSBuildExtensionsPath)\..\Microsoft SDKs\Silverlight\v4.0\Toolkit\Apr10\Testing\Microsoft.VisualStudio.QualityTools.UnitTesting.Silverlight.dll</HintPath>
     </Reference>
-    <Reference Include="PerfEx.Infrastructure.Silverlight">
-      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Silverlight.dll</HintPath>
-    </Reference>
+    <Reference Include="PerfEx.Infrastructure.Silverlight, Version=1.7910.1116.799, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="PerfEx.Infrastructure.Silverlight.Advanced">
       <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Silverlight.Advanced.dll</HintPath>
     </Reference>
@@ -121,10 +119,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GetGameStatistics.feature</DependentUpon>
     </Compile>
-    <Compile Include="Colors\Specs\GetGamePlayInformation.feature.cs">
+    <Compile Include="Colors\Specs\GetListGamePlayInformation.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GetGamePlayInformation.feature</DependentUpon>
+      <DependentUpon>GetListGamePlayInformation.feature</DependentUpon>
     </Compile>
     <Compile Include="Colors\Specs\GetWinner.feature.cs">
       <AutoGen>True</AutoGen>
@@ -136,7 +134,7 @@
     </Compile>
     <Compile Include="Colors\Specs\Steps\BetStep.cs" />
     <Compile Include="Colors\Specs\Steps\CommonSteps.cs" />
-    <Compile Include="Colors\Specs\Steps\GetActiveGameRoundStep.cs" />
+    <Compile Include="Colors\Specs\Steps\GetActiveGameRoundsStep.cs" />
     <Compile Include="Colors\SpecEventDefinitions.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -165,9 +163,9 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>GetGameStatistics.feature.cs</LastGenOutput>
     </None>
-    <None Include="Colors\Specs\GetGamePlayInformation.feature">
+    <None Include="Colors\Specs\GetListGamePlayInformation.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>GetGamePlayInformation.feature.cs</LastGenOutput>
+      <LastGenOutput>GetListGamePlayInformation.feature.cs</LastGenOutput>
     </None>
     <None Include="Colors\Specs\GetWinner.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

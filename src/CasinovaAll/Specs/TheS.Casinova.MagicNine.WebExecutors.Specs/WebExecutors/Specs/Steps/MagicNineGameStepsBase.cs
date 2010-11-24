@@ -5,6 +5,7 @@ using System.Text;
 using TechTalk.SpecFlow;
 using TheS.Casinova.MagicNine.DAL;
 using TheS.Casinova.MagicNine.BackServices;
+using SpecFlowAssist;
 
 namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
 {
@@ -26,8 +27,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dac_StartAutoBet] as IStartAutoBet;
+                return ScenarioContext.Current.Get<IStartAutoBet>();
             }
         }
 
@@ -35,8 +35,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr_ListGamePlayAutoBetInfo] as IListGamePlayAutoBetInfo;
+                return ScenarioContext.Current.Get<IListGamePlayAutoBetInfo>();
             }
         }
 
@@ -44,8 +43,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr_ListActiveGameRound] as IListActiveGameRoundInfo;
+                return ScenarioContext.Current.Get<IListActiveGameRoundInfo>();
             }
         }
 
@@ -53,8 +51,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr_ListBetLog] as IListBetLog;
+                return ScenarioContext.Current.Get<IListBetLog>();
             }
         }
 
@@ -62,8 +59,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dac_Singlebet] as ISingleBet;
+                return ScenarioContext.Current.Get<ISingleBet>();
             }
         }
 
@@ -71,8 +67,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_ListGamePlayAutoBetInfo] as ListGamePlayAutoBetInfoExecutor;
+                return ScenarioContext.Current.Get<ListGamePlayAutoBetInfoExecutor>();
             }
         }
 
@@ -89,8 +84,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_StartAutoBet] as StartAutoBetExecutor;
+                return ScenarioContext.Current.Get<StartAutoBetExecutor>();
             }
         }
 
@@ -98,8 +92,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_ListActiveGameRound] as ListActiveGameRoundInfoExecutor;
+                return ScenarioContext.Current.Get<ListActiveGameRoundInfoExecutor>();
             }
         }
 
@@ -107,17 +100,15 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_ListBetLog] as ListBetLogExecutor;
+                return ScenarioContext.Current.Get<ListBetLogExecutor>();
             }
         }
 
-        protected SingleBetExecutor SingleBetExecutor
+        protected SingleBetExecutor SingleBet
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_SingleBet] as SingleBetExecutor;
+                return ScenarioContext.Current.Get<SingleBetExecutor>();
             }
         }
     }

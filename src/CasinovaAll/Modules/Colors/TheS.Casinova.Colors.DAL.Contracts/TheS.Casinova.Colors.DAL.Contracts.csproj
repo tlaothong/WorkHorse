@@ -51,6 +51,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\..\PlayerProfile\TheS.Casinova.PlayerProfile.Models\TheS.Casinova.PlayerProfile.Models.csproj">
+      <Project>{96BBA83F-EAA6-4EEA-BEC5-98F6AC39B943}</Project>
+      <Name>TheS.Casinova.PlayerProfile.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Shared\TheS.Casinova.Common.Commands\TheS.Casinova.Common.Commands.csproj">
       <Project>{B0BA601A-7B65-4973-9E00-4F9035883877}</Project>
       <Name>TheS.Casinova.Common.Commands</Name>

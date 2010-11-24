@@ -6,6 +6,8 @@ using PerfEx.Infrastructure.CommandPattern;
 using TheS.Casinova.Colors.Commands;
 using TheS.Casinova.Colors.DAL;
 using TheS.Casinova.Colors.Models;
+using PerfEx.Infrastructure.Validation;
+using PerfEx.Infrastructure;
 
 namespace TheS.Casinova.Colors.WebExecutors
 {
@@ -16,16 +18,23 @@ namespace TheS.Casinova.Colors.WebExecutors
          : SynchronousCommandExecutorBase<ListGamePlayInfoCommand>
     {
         private IListGamePlayInformation _iListGamePlayInfo;
+        private IDependencyContainer _container;
 
-        public ListGamePlayInfoExecutor(IColorsGameDataQuery dac)
+        public ListGamePlayInfoExecutor(IColorsGameDataQuery dqr, IDependencyContainer container )
         {
-            _iListGamePlayInfo = dac;
+            _iListGamePlayInfo = dqr;
+            _container = container;
         }
 
         protected override void ExecuteCommand(ListGamePlayInfoCommand command)
         {
-            //ตรวจสอบค่า username ว่ามีหรือไม่
-           command.GamePlayInfos = _iListGamePlayInfo.List(command);
+             //Validation
+             var errors = ValidationHelper.Validate(_container, command.GamePlayInfo, command);
+             if (errors.Any()) {
+                 throw new ValidationErrorException(errors);
+             }
+            
+            command.GamePlayInformation = _iListGamePlayInfo.List(command);
            
         }
     }

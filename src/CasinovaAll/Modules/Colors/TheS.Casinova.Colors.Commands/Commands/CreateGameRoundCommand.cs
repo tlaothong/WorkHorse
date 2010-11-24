@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TheS.Casinova.Colors.Models;
 
 namespace TheS.Casinova.Colors.Commands
 {
@@ -11,10 +12,10 @@ namespace TheS.Casinova.Colors.Commands
     public class CreateGameRoundCommand
     {
         //input
-
         /// <summary>
-        /// ชื่อ config ที่จะใช้สร้างโต๊ะเกม
+        /// ข้อมูลการสร้างโต๊ะเกม
+        /// 1. ConfigName ชื่อข้อมูลการสร้างโต๊ะเกม
         /// </summary>
-        public string ConfigName { get; set; }
+        public GameRoundConfiguration GameRoundConfigName { get; set; }
     }
 }

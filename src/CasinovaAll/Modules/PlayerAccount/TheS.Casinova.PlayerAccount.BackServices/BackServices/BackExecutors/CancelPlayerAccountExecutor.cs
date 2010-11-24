@@ -23,7 +23,7 @@ namespace TheS.Casinova.PlayerAccount.BackServices.BackExecutors
         {
             PlayerAccountInformation playerAccountInfo = new PlayerAccountInformation {
                 UserName = command.UserName,
-                PlayerAccoundID = command.PlayerAccoundID,
+                CardType = command.CardType,
             };
 
             _iCancelPlayerAccount.ApplyAction(playerAccountInfo, command);

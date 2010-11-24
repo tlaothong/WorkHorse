@@ -22,10 +22,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
              var activeGameRound = (from item in table.Rows
                                    select new GameRoundInformation{
                                        RoundID = Convert.ToInt32(item["RoundID"]),
-                                       StartTime = DateTime.Parse(item["StartTime"]),
-                                       EndTime = DateTime.Parse(item["EndTime"]),
                                        WinnerPoint = Convert.ToInt32(item["WinnerPoint"]),
-                                       GamePot = Convert.ToInt32(item["GamePot"]),
                                        Active = Convert.ToBoolean(item["Active"]),
                                    });
 
@@ -52,24 +49,18 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
             var qryExpected = (from item in table.Rows
                                select new {
                                    RoundID = Convert.ToInt32(item["RoundID"]),
-                                   StartTime = DateTime.Parse(item["StartTime"]),
-                                   EndTime = DateTime.Parse(item["EndTime"]),
                                    WinnerPoint = Convert.ToInt32(item["WinnerPoint"]),
-                                   GamePot = Convert.ToInt32(item["GamePot"]),
                                    Active = Convert.ToBoolean(item["Active"]),
                                });
 
-            var result = (from it in _cmd.GameRoundInfos
+            var result = (from it in _cmd.ActiveGameRoundInfo
                           select new {
-                              it.RoundID,
-                              it.StartTime,
-                              it.EndTime,
+                              RoundID = it.RoundID,
                               it.WinnerPoint,
-                              it.GamePot,
                               it.Active
                           });
 
-            CollectionAssert.AreEqual(qryExpected.ToArray(), result.ToArray(), "Active Round Information");
+            CollectionAssert.AreEqual(qryExpected.ToArray(), result.ToArray(), "Active RoundID Information");
 
         }
 

@@ -8,7 +8,7 @@ namespace TheS.Casinova.MagicNine.Models
     /// <summary>
     /// ข้อมูลการลงพนัน
     /// </summary>
-    public class BetInformation
+    public partial class BetInformation
     {
         /// <summary>
         /// รหัสโต๊ะเกมที่ลงพนัน
@@ -33,6 +33,6 @@ namespace TheS.Casinova.MagicNine.Models
         /// <summary>
         /// รหัสสำหรับตรวจสอบ
         /// </summary>
-        public Guid TrackingID { get; set; }
+        public Guid BetTrackingID { get; set; }
     }
 }
