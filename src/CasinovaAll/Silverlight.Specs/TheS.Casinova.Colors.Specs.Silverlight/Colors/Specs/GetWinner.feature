@@ -21,6 +21,8 @@ Background:
 Scenario: Get winner button has click save player action in PayLog
 	When Click get winner in game round 20 
 	Then PayLog has save RoundID='20', Count='1'
+	And Lot of TrackingID='{60AD85F6-3978-48AA-9286-E5A7344B77EC}' Is Retrieved
+	And PayLog has empty
 
 @record_mock
 Scenario: Get winner button has click more than one, game view model has save player action in PayLog more than one log

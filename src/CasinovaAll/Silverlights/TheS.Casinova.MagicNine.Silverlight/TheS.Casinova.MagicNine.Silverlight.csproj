@@ -101,6 +101,7 @@
       <DependentUpon>GameStatisticsUI.xaml</DependentUpon>
     </Compile>
     <Compile Include="MagicNine\GameApplicationInformation.cs" />
+    <Compile Include="MagicNine\MagicNineTrackingObserver.cs" />
     <Compile Include="MagicNine\Models\BetdataInfo.cs" />
     <Compile Include="MagicNine\Models\BetLog.cs" />
     <Compile Include="MagicNine\Models\GameTable.cs" />

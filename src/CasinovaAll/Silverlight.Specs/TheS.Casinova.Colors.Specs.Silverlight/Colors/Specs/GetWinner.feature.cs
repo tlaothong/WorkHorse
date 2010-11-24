@@ -88,6 +88,10 @@ this.ScenarioSetup(scenarioInfo);
 testRunner.When("Click get winner in game round 20");
 #line 23
 testRunner.Then("PayLog has save RoundID=\'20\', Count=\'1\'");
+#line 24
+testRunner.And("Lot of TrackingID=\'{60AD85F6-3978-48AA-9286-E5A7344B77EC}\' Is Retrieved");
+#line 25
+testRunner.And("PayLog has empty");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -102,15 +106,15 @@ testRunner.Then("PayLog has save RoundID=\'20\', Count=\'1\'");
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get winner button has click more than one, game view model has save player action" +
                     " in PayLog more than one log", new string[] {
                         "record_mock"});
-#line 26
-this.ScenarioSetup(scenarioInfo);
-#line 27
-testRunner.When("Click get winner in game round 20");
 #line 28
-testRunner.And("Click get winner in game round 20");
+this.ScenarioSetup(scenarioInfo);
 #line 29
-testRunner.And("Click get winner in game round 20");
+testRunner.When("Click get winner in game round 20");
 #line 30
+testRunner.And("Click get winner in game round 20");
+#line 31
+testRunner.And("Click get winner in game round 20");
+#line 32
 testRunner.Then("PayLog has save RoundID=\'20\', Count=\'3\'");
 #line hidden
             testRunner.CollectScenarioErrors();
@@ -124,27 +128,27 @@ testRunner.Then("PayLog has save RoundID=\'20\', Count=\'3\'");
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get winner button has click in another game roundID, pay log has save", new string[] {
                         "record_mock"});
-#line 33
-this.ScenarioSetup(scenarioInfo);
-#line 34
-testRunner.When("Click get winner in game round 20");
 #line 35
-testRunner.And("Click get winner in game round 20");
+this.ScenarioSetup(scenarioInfo);
 #line 36
-testRunner.And("Click get winner in game round 21");
+testRunner.When("Click get winner in game round 20");
 #line 37
-testRunner.And("Click get winner in game round 22");
-#line 38
-testRunner.And("Click get winner in game round 23");
-#line 39
 testRunner.And("Click get winner in game round 20");
+#line 38
+testRunner.And("Click get winner in game round 21");
+#line 39
+testRunner.And("Click get winner in game round 22");
 #line 40
-testRunner.Then("PayLog has save RoundID=\'20\', Count=\'3\'");
+testRunner.And("Click get winner in game round 23");
 #line 41
-testRunner.And("PayLog has save RoundID=\'21\', Count=\'1\'");
+testRunner.And("Click get winner in game round 20");
 #line 42
-testRunner.And("PayLog has save RoundID=\'22\', Count=\'1\'");
+testRunner.Then("PayLog has save RoundID=\'20\', Count=\'3\'");
 #line 43
+testRunner.And("PayLog has save RoundID=\'21\', Count=\'1\'");
+#line 44
+testRunner.And("PayLog has save RoundID=\'22\', Count=\'1\'");
+#line 45
 testRunner.And("PayLog has save RoundID=\'23\', Count=\'1\'");
 #line hidden
             testRunner.CollectScenarioErrors();
