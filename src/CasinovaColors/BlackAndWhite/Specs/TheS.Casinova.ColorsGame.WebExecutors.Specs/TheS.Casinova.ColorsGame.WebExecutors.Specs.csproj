@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0DB8D7AB-3677-413B-9610-D98C5AE126B6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TheS.Casinova.ColorsGame</RootNamespace>
+    <AssemblyName>TheS.Casinova.ColorsGame.WebExecutors.Specs</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core-Silverlight">
+      <HintPath>..\..\..\..\..\lib\Castle.Core-Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.DynamicProxy-Silverlight">
+      <HintPath>..\..\..\..\..\lib\Castle.DynamicProxy-Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\..\..\..\lib\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="PerfEx.Infrastructure">
+      <HintPath>..\..\..\..\..\lib\PerfEx.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="PerfEx.Infrastructure.Advanced">
+      <HintPath>..\..\..\..\..\lib\PerfEx.Infrastructure.Advanced.dll</HintPath>
+    </Reference>
+    <Reference Include="PerfEx.Infrastructure.Containers.StructureMapAdapter">
+      <HintPath>..\..\..\..\..\lib\PerfEx.Infrastructure.Containers.StructureMapAdapter.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\..\..\..\..\lib\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\..\..\..\..\lib\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TechTalk.SpecFlow">
+      <HintPath>..\..\..\..\..\lib\TechTalk.SpecFlow.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpecEventDefinitions.cs" />
+    <Compile Include="WebExecutors\CommandManagerStub.cs" />
+    <Compile Include="WebExecutors\Specs\GetGameRoundWinner.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GetGameRoundWinner.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\Steps\GenerateTrackingID.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GenerateTrackingID.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\Steps\CommonSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\GenerateTrackingIdSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\GenerateTrackingIdStepsBase.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\GetGameRoundWinnerSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\GetGameRoundWinnerStepsBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="WebExecutors\Specs\GetGameRoundWinner.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>GetGameRoundWinner.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\Steps\GenerateTrackingID.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>GenerateTrackingID.feature.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ColorsGame.Web\ColorsGame.Web.csproj">
+      <Project>{0CB3D1F8-EDD7-473D-8420-ACF4E5BA355F}</Project>
+      <Name>ColorsGame.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TheS.Casinova.ColorsGame.BackServices.Contracts\TheS.Casinova.ColorsGame.BackServices.Contracts.csproj">
+      <Project>{625662C6-61FF-4A91-B068-A1DA68D553A5}</Project>
+      <Name>TheS.Casinova.ColorsGame.BackServices.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TheS.Casinova.ColorsGame.Commands\TheS.Casinova.ColorsGame.Commands.csproj">
+      <Project>{D5E560E5-ED90-4E03-9924-D0A0822E7A49}</Project>
+      <Name>TheS.Casinova.ColorsGame.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TheS.Casinova.ColorsGame.DAL.Contracts\TheS.Casinova.ColorsGame.DAL.Contracts.csproj">
+      <Project>{9DBAD3C9-F195-4870-8F4E-3696C711EB98}</Project>
+      <Name>TheS.Casinova.ColorsGame.DAL.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TheS.Casinova.ColorsGame.Models\TheS.Casinova.ColorsGame.Models.csproj">
+      <Project>{49D8CCD8-5A87-4F04-AB8E-27F63CC41AB3}</Project>
+      <Name>TheS.Casinova.ColorsGame.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TheS.Casinova.ColorsGame.WebExecutors\TheS.Casinova.ColorsGame.WebExecutors.csproj">
+      <Project>{7A155B8C-5E41-469B-8FFB-59208D923C29}</Project>
+      <Name>TheS.Casinova.ColorsGame.WebExecutors</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

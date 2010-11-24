@@ -1,0 +1,169 @@
+﻿body
+{
+    background-color: Gray;
+    font-size: 11px;
+    font-family: Tahoma;
+}
+#header
+{
+    background: url(images/head.png) repeat-x;
+    height: 81px;
+}
+
+#logindisplay
+{
+    font-size: 1.1em;
+    display: block;
+    text-align: left;
+    color: White;
+}
+#site-logo
+{
+    position: absolute;
+    margin-left: 130px;
+    background: url(images/logo-eplearn.png) no-repeat;
+    width: 200px;
+    height: 80px;
+    
+}
+#global-search
+{
+    position: absolute;
+    margin-left: 830px;
+    background: url(images/search.png) no-repeat;
+    height: 50px;
+    width: 200px;
+}
+#avatar-face
+{
+    position: absolute;
+    margin-left: 980px;
+    background: url(images/avatar.png) no-repeat;
+    height: 50px;
+    width: 200px;
+}
+/*===StyleMenu===*/
+#main-menu
+{
+    margin-right: 167px;
+    font-family: Tahoma;
+    font-size: 12px;
+    margin-top: -39px;
+    float: right;
+}
+.linkmenu
+{
+    background-image: url(images/menu-bg.png);
+    width: 77px;
+    height: 46px;
+    margin-top: -8px;
+    float: left;
+    font-weight: bold;
+}
+.linkmenu .menu
+{
+    padding-top: 15px;
+    text-align: center;
+}
+.linkmenu a
+{
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+}
+.linkmenu a:visited
+{
+    text-decoration: none;
+    color: #fff;
+}
+.linkmenu:hover
+{
+    background-image: url(images/menu-bg-over.png);
+    width: 77px;
+    height: 46px;
+    margin-top: -8px;
+    float: left;
+    text-decoration: none;
+}
+/*===Sub-Menu===*/
+
+#sub-menu
+{
+    width: 1000px;
+    margin: 0 auto;
+}
+#sub-menu-container
+{
+    height: 18px;
+    text-align: right;
+    background: url(images/green.png);
+}
+#style-sub-menu
+{
+    margin-right: 150px;
+}
+/*===Content===*/
+#content-container
+{
+    background-color: #fff;
+    font-size: 12px;
+    font-family: Tahoma;
+}
+#main-style
+{
+    padding-left: 20px;
+    margin-top: 5px;
+}
+    
+/* FRAMES
+----------------------------------------------------------*/
+#main-top, #main-top span
+{
+    background: url(images/contentup.png) no-repeat;
+}
+#main-content
+{
+    background: url(images/contentdown.png) repeat-y;
+}
+
+/*===Footer===*/
+#footer-bar
+{
+    background: url(images/edgeline.png);
+    height: 19px;
+    bottom: 0px;
+    width: 100%;
+}
+.start-menu
+{
+    float: left;
+    background: url(images/epstart.png) no-repeat;
+    height: 21px;
+    width: 64px;
+}
+.news-marquee
+{
+    float: right;
+    background: url(images/newsbotton.png);  
+    height: 19px;
+    bottom: 0px;
+    width: 64px;
+}
+.news-marquee:hover
+{
+    background: url(images/newsboard.png) no-repeat;
+    height: 19px;
+    width: 815px;
+    bottom: 0px;
+}
+/*=======Fieldset======*/
+#el02 { /* Text and background colour, blue on light gray */
+    background-color:#fff
+}
+#el03 { /* Text and background colour, blue on light gray */
+    color:#00f;
+    background-color:#fff
+}
+#el07 {font-family:"Courier New",Courier} /* Different font */
+
+

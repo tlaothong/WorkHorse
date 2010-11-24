@@ -1,0 +1,619 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E7401212-9962-402A-B672-F3145B57526B}</ProjectGuid>
+    <ProjectTypeGuids>{F85E285D-A4E0-4152-9332-AB1D724D3325};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>sPerf_Web</RootNamespace>
+    <AssemblyName>sPerf_Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Areas\Club\ClubAreaRegistration.cs" />
+    <Compile Include="Areas\Club\Controllers\ClubController.cs" />
+    <Compile Include="Areas\Game\Controllers\GameController.cs" />
+    <Compile Include="Areas\Game\GameAreaRegistration.cs" />
+    <Compile Include="Areas\KnowledgeCenter\Controllers\KnowledgeCenterController.cs" />
+    <Compile Include="Areas\KnowledgeCenter\KnowledgeCenterAreaRegistration.cs" />
+    <Compile Include="Areas\Map\Controllers\MapController.cs" />
+    <Compile Include="Areas\Map\MapAreaRegistration.cs" />
+    <Compile Include="Areas\Profile\ProfileAreaRegistration.cs" />
+    <Compile Include="Areas\Profile\Controllers\ProfileController.cs" />
+    <Compile Include="Areas\Scholarship\Controllers\ScholarshipController.cs" />
+    <Compile Include="Areas\Scholarship\ScholarshipAreaRegistration.cs" />
+    <Compile Include="Club.ClubController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Game.GameController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HomeController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KnowledgeCenter.KnowledgeCenterController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Map.MapController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Profile.ProfileController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scholarship.ScholarshipController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SharedController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4MVC.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_themes\sPerf\aspnet_ajax.css" />
+    <Content Include="App_themes\sPerf\Sites.css" />
+    <Content Include="App_themes\sPerf\images\avatar.png" />
+    <Content Include="App_themes\sPerf\images\bmark.png" />
+    <Content Include="App_themes\sPerf\images\contentdown.png" />
+    <Content Include="App_themes\sPerf\images\contentup.png" />
+    <Content Include="App_themes\sPerf\images\edgeline.png" />
+    <Content Include="App_themes\sPerf\images\epstart.png" />
+    <Content Include="App_themes\sPerf\images\footer.png" />
+    <Content Include="App_themes\sPerf\images\green.png" />
+    <Content Include="App_themes\sPerf\images\head.png" />
+    <Content Include="App_themes\sPerf\images\loadingAnimation.gif" />
+    <Content Include="App_themes\sPerf\images\logo-eplearn.png" />
+    <Content Include="App_themes\sPerf\images\macFFBgHack.png" />
+    <Content Include="App_themes\sPerf\images\menu-bg-over.png" />
+    <Content Include="App_themes\sPerf\images\menu-bg.png" />
+    <Content Include="App_themes\sPerf\images\newsboard.png" />
+    <Content Include="App_themes\sPerf\images\newsbotton.png" />
+    <Content Include="App_themes\sPerf\images\search.png" />
+    <Content Include="App_themes\sPerf\images\text.png" />
+    <Content Include="App_themes\sPerf\Layout.css" />
+    <Content Include="App_themes\sPerf\StyleProfile.css" />
+    <Content Include="Areas\Club\Views\Club\AdvanceSearch.ascx" />
+    <Content Include="Areas\Club\Views\Club\Banners.ascx" />
+    <Content Include="Areas\Club\Views\Club\Index.aspx" />
+    <Content Include="Areas\Club\Views\Club\NewClub.aspx" />
+    <Content Include="Areas\Club\Views\Club\OptionClub.aspx" />
+    <Content Include="Areas\Club\Views\Club\SubMenu.ascx" />
+    <Content Include="Areas\Game\Views\Game\AdvanceSearch.ascx" />
+    <Content Include="Areas\Game\Views\Game\Banners.ascx" />
+    <Content Include="Areas\Game\Views\Game\GameOption.aspx" />
+    <Content Include="Areas\Game\Views\Game\Index.aspx" />
+    <Content Include="Areas\Game\Views\Game\SubMenu.ascx" />
+    <Content Include="Areas\Game\Views\Game\Tournament.aspx" />
+    <Content Include="Areas\Game\Views\Game\Upload.aspx" />
+    <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\AdvanceSearch.ascx" />
+    <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\Banners.ascx" />
+    <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\Index.aspx" />
+    <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\MyVideo.aspx" />
+    <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\Option.aspx" />
+    <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\PostNewVideos.ascx" />
+    <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\SubmenuVideo.ascx" />
+    <Content Include="Areas\Map\Views\Map\Index.aspx" />
+    <Content Include="Areas\Profile\Views\Profile\Archievement.aspx" />
+    <Content Include="Areas\Profile\Views\Profile\Comment_Archeivement.ascx" />
+    <Content Include="Areas\Profile\Views\Profile\Compare_Archeivement.ascx" />
+    <Content Include="Areas\Profile\Views\Profile\Filter.ascx" />
+    <Content Include="Areas\Profile\Views\Profile\FriendList.ascx" />
+    <Content Include="Areas\Profile\Views\Profile\index_comment.ascx" />
+    <Content Include="Areas\Profile\Views\Profile\Blog.aspx" />
+    <Content Include="Areas\Profile\Views\Profile\Inbox.aspx" />
+    <Content Include="Areas\Profile\Views\Profile\Index.aspx" />
+    <Content Include="Areas\Profile\Views\Profile\Photo.aspx" />
+    <Content Include="Areas\Profile\Views\Profile\photocomment.ascx" />
+    <Content Include="Areas\Profile\Views\Profile\Popup_Comment_Archeivement.ascx" />
+    <Content Include="Areas\Profile\Views\Profile\Profile.aspx" />
+    <Content Include="Areas\Profile\Views\Profile\SubMenu.ascx" />
+    <Content Include="Areas\Scholarship\Views\Scholarship\AdvanceSearch.ascx" />
+    <Content Include="Areas\Scholarship\Views\Scholarship\Banners.ascx" />
+    <Content Include="Areas\Scholarship\Views\Scholarship\Donate.aspx" />
+    <Content Include="Areas\Scholarship\Views\Scholarship\Index.aspx" />
+    <Content Include="Areas\Scholarship\Views\Scholarship\Option.aspx" />
+    <Content Include="Areas\Scholarship\Views\Scholarship\Recieved.aspx" />
+    <Content Include="Areas\Scholarship\Views\Scholarship\SubMenu.ascx" />
+    <Content Include="Areas\Scholarship\Views\Scholarship\Tournament.aspx" />
+    <Content Include="club.html" />
+    <Content Include="Content\galleria.css" />
+    <Content Include="Content\images\1.png" />
+    <Content Include="Content\images\2.png" />
+    <Content Include="Content\images\comment.png" />
+    <Content Include="Content\images\e1.png" />
+    <Content Include="Content\images\e2.png" />
+    <Content Include="Content\images\f1.png" />
+    <Content Include="Content\images\f2.png" />
+    <Content Include="Content\images\f3.png" />
+    <Content Include="Content\images\f4.png" />
+    <Content Include="Content\images\f5.png" />
+    <Content Include="Content\images\go.jpg" />
+    <Content Include="Content\images\go.png" />
+    <Content Include="Content\images\next-horizontal.png" />
+    <Content Include="Content\images\next-vertical.png" />
+    <Content Include="Content\images\nextPageArrow.gif" />
+    <Content Include="Content\images\picuser.png" />
+    <Content Include="Content\images\prev-horizontal.png" />
+    <Content Include="Content\images\prev-vertical.png" />
+    <Content Include="Content\images\prevPageArrow.gif" />
+    <Content Include="Content\images\ProfileAvatar.png" />
+    <Content Include="Content\images\star.PNG" />
+    <Content Include="Content\images\start.png" />
+    <Content Include="Content\img\flowing-rock.jpg" />
+    <Content Include="Content\img\grass-blades.jpg" />
+    <Content Include="Content\img\ladybug.jpg" />
+    <Content Include="Content\img\lightning.jpg" />
+    <Content Include="Content\img\lotus.jpg" />
+    <Content Include="Content\img\mojave.jpg" />
+    <Content Include="Content\img\pier.jpg" />
+    <Content Include="Content\img\sea-mist.jpg" />
+    <Content Include="Content\img\stones.jpg" />
+    <Content Include="Content\jquery-ui-1.8.6.custom.css" />
+    <Content Include="Content\jquery.ad-gallery.css" />
+    <Content Include="Content\jquery.autocomplete.css" />
+    <Content Include="Content\profile\1.jpg" />
+    <Content Include="Content\profile\10.jpg" />
+    <Content Include="Content\profile\11.jpg" />
+    <Content Include="Content\profile\12.jpg" />
+    <Content Include="Content\profile\13.jpg" />
+    <Content Include="Content\profile\14.jpg" />
+    <Content Include="Content\profile\2.jpg" />
+    <Content Include="Content\profile\3.jpg" />
+    <Content Include="Content\profile\4.jpg" />
+    <Content Include="Content\profile\5.jpg" />
+    <Content Include="Content\profile\6.jpg" />
+    <Content Include="Content\profile\7.jpg" />
+    <Content Include="Content\profile\8.jpg" />
+    <Content Include="Content\profile\9.jpg" />
+    <Content Include="Content\profile\ad_next.png" />
+    <Content Include="Content\profile\ad_prev.png" />
+    <Content Include="Content\profile\ad_scroll_back.png" />
+    <Content Include="Content\profile\ad_scroll_forward.png" />
+    <Content Include="Content\profile\LD.png" />
+    <Content Include="Content\profile\loader.gif" />
+    <Content Include="Content\profile\opa75.png" />
+    <Content Include="Content\profile\pic_friend\1.png" />
+    <Content Include="Content\profile\pic_friend\10.png" />
+    <Content Include="Content\profile\pic_friend\11.png" />
+    <Content Include="Content\profile\pic_friend\12.png" />
+    <Content Include="Content\profile\pic_friend\13.png" />
+    <Content Include="Content\profile\pic_friend\14.png" />
+    <Content Include="Content\profile\pic_friend\15.png" />
+    <Content Include="Content\profile\pic_friend\16.png" />
+    <Content Include="Content\profile\pic_friend\2.png" />
+    <Content Include="Content\profile\pic_friend\3.png" />
+    <Content Include="Content\profile\pic_friend\4.png" />
+    <Content Include="Content\profile\pic_friend\5.png" />
+    <Content Include="Content\profile\pic_friend\6.png" />
+    <Content Include="Content\profile\pic_friend\7.png" />
+    <Content Include="Content\profile\pic_friend\8.png" />
+    <Content Include="Content\profile\pic_friend\9.png" />
+    <Content Include="Content\profile\thumbs\t1.jpg" />
+    <Content Include="Content\profile\thumbs\t10.jpg" />
+    <Content Include="Content\profile\thumbs\t11.jpg" />
+    <Content Include="Content\profile\thumbs\t12.jpg" />
+    <Content Include="Content\profile\thumbs\t13.jpg" />
+    <Content Include="Content\profile\thumbs\t14.jpg" />
+    <Content Include="Content\profile\thumbs\t2.jpg" />
+    <Content Include="Content\profile\thumbs\t3.jpg" />
+    <Content Include="Content\profile\thumbs\t4.jpg" />
+    <Content Include="Content\profile\thumbs\t5.jpg" />
+    <Content Include="Content\profile\thumbs\t6.jpg" />
+    <Content Include="Content\profile\thumbs\t7.jpg" />
+    <Content Include="Content\profile\thumbs\t8.jpg" />
+    <Content Include="Content\profile\thumbs\t9.jpg" />
+    <Content Include="Content\skin.css" />
+    <Content Include="Content\images\wanida.jpg" />
+    <Content Include="Content\images\avartar.png" />
+    <Content Include="Content\images\banner1.jpg" />
+    <Content Include="Content\images\banner2.jpg" />
+    <Content Include="Content\images\banner3.jpg" />
+    <Content Include="Content\images\c1.gif" />
+    <Content Include="Content\images\Checked.gif" />
+    <Content Include="Content\images\club1.jpg" />
+    <Content Include="Content\images\club10.jpg" />
+    <Content Include="Content\images\club2.jpg" />
+    <Content Include="Content\images\club3.gif" />
+    <Content Include="Content\images\club4.jpg" />
+    <Content Include="Content\images\club5.jpg" />
+    <Content Include="Content\images\club6.png" />
+    <Content Include="Content\images\club7.jpg" />
+    <Content Include="Content\images\club8.jpg" />
+    <Content Include="Content\images\club9.jpg" />
+    <Content Include="Content\images\logo1.png" />
+    <Content Include="Content\images\logo2.png" />
+    <Content Include="Content\images\logo3.png" />
+    <Content Include="Content\images\logo4.png" />
+    <Content Include="Content\images\Logomonk.jpg" />
+    <Content Include="Content\images\onepeople.JPG" />
+    <Content Include="Content\images\searchbutton.png" />
+    <Content Include="Content\images\topfriend.JPG" />
+    <Content Include="Content\images\Unchecked_gray.gif" />
+    <Content Include="Content\jquery-ui-1.8.1.custom.css" />
+    <Content Include="Content\jquery-ui-1.8.2.custom.css" />
+    <Content Include="Content\jquery.ui.dialog.css" />
+    <Content Include="Content\movies.css" />
+    <Content Include="Content\ui.dialog.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="photocomment_dialog.html" />
+    <Content Include="profile.html" />
+    <Content Include="scholarship.html" />
+    <Content Include="Scripts\ajaxScripts\Date.HijriCalendar.debug.js" />
+    <Content Include="Scripts\ajaxScripts\Date.HijriCalendar.js" />
+    <Content Include="Scripts\ajaxScripts\Date.UmAlQuraCalendar.debug.js" />
+    <Content Include="Scripts\ajaxScripts\Date.UmAlQuraCalendar.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Accordion\AccordionBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Accordion\AccordionBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\extended\AlwaysVisibleControl\AlwaysVisibleControlBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\AlwaysVisibleControl\AlwaysVisibleControlBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Animation\AnimationBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Animation\AnimationBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Animation\Animations.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Animation\Animations.js" />
+    <Content Include="Scripts\ajaxScripts\extended\AutoComplete\AutoCompleteBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\AutoComplete\AutoCompleteBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Calendar\arrow-left.gif" />
+    <Content Include="Scripts\ajaxScripts\extended\Calendar\arrow-right.gif" />
+    <Content Include="Scripts\ajaxScripts\extended\Calendar\Calendar.css" />
+    <Content Include="Scripts\ajaxScripts\extended\Calendar\CalendarBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Calendar\CalendarBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\extended\CascadingDropDown\CascadingDropDownBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\CascadingDropDown\CascadingDropDownBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\extended\CollapsiblePanel\CollapsiblePanelBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\CollapsiblePanel\CollapsiblePanelBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\extended\ColorPicker\ColorPicker.css" />
+    <Content Include="Scripts\ajaxScripts\extended\ColorPicker\ColorPickerBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\ColorPicker\ColorPickerBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Common\Common.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Common\Common.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Common\DateTime.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Common\DateTime.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Common\Threading.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Common\Threading.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Compat\DragDrop\DragDropScripts.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Compat\DragDrop\DragDropScripts.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Compat\Timer\Timer.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Compat\Timer\Timer.js" />
+    <Content Include="Scripts\ajaxScripts\extended\ConfirmButton\confirmButtonBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\ConfirmButton\confirmButtonBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\extended\DragPanel\FloatingBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\DragPanel\FloatingBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\extended\DropDown\drop-arrow.gif" />
+    <Content Include="Scripts\ajaxScripts\extended\DropDown\DropDown.css" />
+    <Content Include="Scripts\ajaxScripts\extended\DropDown\DropDownBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\DropDown\DropDownBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\extended\DropShadow\DropShadowBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\DropShadow\DropShadowBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\extended\DynamicPopulate\DynamicPopulateBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\DynamicPopulate\DynamicPopulateBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\extended\ExtendedControls.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\ExtendedControls.js" />
+    <Content Include="Scripts\ajaxScripts\extended\ExtenderBase\BaseScripts.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\ExtenderBase\BaseScripts.js" />
+    <Content Include="Scripts\ajaxScripts\extended\FilteredTextBox\FilteredTextBoxBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\FilteredTextBox\FilteredTextBoxBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\extended\HoverExtender\HoverBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\HoverExtender\HoverBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\extended\HoverMenu\HoverMenuBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\HoverMenu\HoverMenuBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\extended\ListSearch\ListSearchBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\ListSearch\ListSearchBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\extended\MaskedEdit\MaskedEditBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\MaskedEdit\MaskedEditBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\extended\MaskedEdit\MaskedEditValidator.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\MaskedEdit\MaskedEditValidator.js" />
+    <Content Include="Scripts\ajaxScripts\extended\ModalPopup\ModalPopupBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\ModalPopup\ModalPopupBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\extended\MultiHandleSlider\Images\slider_h_handle.gif" />
+    <Content Include="Scripts\ajaxScripts\extended\MultiHandleSlider\Images\slider_h_handle_down.gif" />
+    <Content Include="Scripts\ajaxScripts\extended\MultiHandleSlider\Images\slider_h_handle_hover.gif" />
+    <Content Include="Scripts\ajaxScripts\extended\MultiHandleSlider\Images\slider_h_rail.gif" />
+    <Content Include="Scripts\ajaxScripts\extended\MultiHandleSlider\Images\slider_h_rail_outer.gif" />
+    <Content Include="Scripts\ajaxScripts\extended\MultiHandleSlider\Images\slider_v_handle.gif" />
+    <Content Include="Scripts\ajaxScripts\extended\MultiHandleSlider\Images\slider_v_handle_down.gif" />
+    <Content Include="Scripts\ajaxScripts\extended\MultiHandleSlider\Images\slider_v_handle_hover.gif" />
+    <Content Include="Scripts\ajaxScripts\extended\MultiHandleSlider\Images\slider_v_rail.gif" />
+    <Content Include="Scripts\ajaxScripts\extended\MultiHandleSlider\Images\slider_v_rail_outer.gif" />
+    <Content Include="Scripts\ajaxScripts\extended\MultiHandleSlider\MultiHandleSlider.css" />
+    <Content Include="Scripts\ajaxScripts\extended\MultiHandleSlider\MultiHandleSliderBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\MultiHandleSlider\MultiHandleSliderBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\extended\MutuallyExclusiveCheckBox\MutuallyExclusiveCheckBoxBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\MutuallyExclusiveCheckBox\MutuallyExclusiveCheckBoxBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\extended\NumericUpDown\NumericUpDownBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\NumericUpDown\NumericUpDownBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\extended\PagingBulletedList\PagingBulletedListBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\PagingBulletedList\PagingBulletedListBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\extended\PasswordStrength\PasswordStrengthExtenderBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\PasswordStrength\PasswordStrengthExtenderBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\extended\PopupControl\PopupControlBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\PopupControl\PopupControlBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\extended\PopupExtender\PopupBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\PopupExtender\PopupBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Rating\RatingBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Rating\RatingBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\extended\ResizableControl\ResizableControlBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\ResizableControl\ResizableControlBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\extended\RoundedCorners\RoundedCornersBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\RoundedCorners\RoundedCornersBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\images\fullpage_grouphover.png" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\images\fullpage_hover.png" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\images\fullpage_pressed.png" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\images\fullpage_rest.png" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\images\home_grouphover.png" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\images\home_hover.png" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\images\home_pressed.png" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\images\home_rest.png" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\images\zoomin_grouphover.png" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\images\zoomin_hover.png" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\images\zoomin_pressed.png" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\images\zoomin_rest.png" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\images\zoomout_grouphover.png" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\images\zoomout_hover.png" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\images\zoomout_pressed.png" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\images\zoomout_rest.png" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\Seadragon.Buttons.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\Seadragon.Buttons.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\Seadragon.Config.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\Seadragon.Config.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\Seadragon.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\Seadragon.DeepZoom.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\Seadragon.DeepZoom.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\Seadragon.DisplayRect.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\Seadragon.DisplayRect.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\Seadragon.Drawer.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\Seadragon.Drawer.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\Seadragon.ImageLoader.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\Seadragon.ImageLoader.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\Seadragon.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\Seadragon.MouseTracker.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\Seadragon.MouseTracker.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\Seadragon.Point.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\Seadragon.Point.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\Seadragon.Profiler.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\Seadragon.Profiler.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\Seadragon.Rect.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\Seadragon.Rect.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\Seadragon.Spring.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\Seadragon.Spring.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\Seadragon.Strings.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\Seadragon.Strings.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\Seadragon.TileSource.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\Seadragon.TileSource.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\Seadragon.Utils.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\Seadragon.Utils.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\Seadragon.Viewport.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Seadragon\Seadragon.Viewport.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Slider\Images\slider_h_handle.gif" />
+    <Content Include="Scripts\ajaxScripts\extended\Slider\Images\slider_h_rail.gif" />
+    <Content Include="Scripts\ajaxScripts\extended\Slider\Images\slider_v_handle.gif" />
+    <Content Include="Scripts\ajaxScripts\extended\Slider\Images\slider_v_rail.gif" />
+    <Content Include="Scripts\ajaxScripts\extended\Slider\Slider.css" />
+    <Content Include="Scripts\ajaxScripts\extended\Slider\SliderBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Slider\SliderBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\extended\SlideShow\SlideShowBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\SlideShow\SlideShowBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Tabs\tab-active-left.gif" />
+    <Content Include="Scripts\ajaxScripts\extended\Tabs\tab-active-right.gif" />
+    <Content Include="Scripts\ajaxScripts\extended\Tabs\tab-active.gif" />
+    <Content Include="Scripts\ajaxScripts\extended\Tabs\tab-hover-left.gif" />
+    <Content Include="Scripts\ajaxScripts\extended\Tabs\tab-hover-right.gif" />
+    <Content Include="Scripts\ajaxScripts\extended\Tabs\tab-hover.gif" />
+    <Content Include="Scripts\ajaxScripts\extended\Tabs\tab-left.gif" />
+    <Content Include="Scripts\ajaxScripts\extended\Tabs\tab-line.gif" />
+    <Content Include="Scripts\ajaxScripts\extended\Tabs\tab-right.gif" />
+    <Content Include="Scripts\ajaxScripts\extended\Tabs\tab.gif" />
+    <Content Include="Scripts\ajaxScripts\extended\Tabs\Tabs.css" />
+    <Content Include="Scripts\ajaxScripts\extended\Tabs\Tabs.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\Tabs\Tabs.js" />
+    <Content Include="Scripts\ajaxScripts\extended\TextboxWatermark\TextboxWatermark.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\TextboxWatermark\TextboxWatermark.js" />
+    <Content Include="Scripts\ajaxScripts\extended\ToggleButton\ToggleButton.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\ToggleButton\ToggleButton.js" />
+    <Content Include="Scripts\ajaxScripts\extended\UpdatePanelAnimation\UpdatePanelAnimationBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\UpdatePanelAnimation\UpdatePanelAnimationBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\extended\ValidatorCallout\alert-large.gif" />
+    <Content Include="Scripts\ajaxScripts\extended\ValidatorCallout\alert-small.gif" />
+    <Content Include="Scripts\ajaxScripts\extended\ValidatorCallout\close.gif" />
+    <Content Include="Scripts\ajaxScripts\extended\ValidatorCallout\ValidatorCallout.css" />
+    <Content Include="Scripts\ajaxScripts\extended\ValidatorCallout\ValidatorCalloutBehavior.debug.js" />
+    <Content Include="Scripts\ajaxScripts\extended\ValidatorCallout\ValidatorCalloutBehavior.js" />
+    <Content Include="Scripts\ajaxScripts\jquery.blockUI.js" />
+    <Content Include="Scripts\ajaxScripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\ajaxScripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\ajaxScripts\MicrosoftAjaxAdoNet.debug.js" />
+    <Content Include="Scripts\ajaxScripts\MicrosoftAjaxAdoNet.js" />
+    <Content Include="Scripts\ajaxScripts\MicrosoftAjaxApplicationServices.debug.js" />
+    <Content Include="Scripts\ajaxScripts\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="Scripts\ajaxScripts\MicrosoftAjaxComponentModel.debug.js" />
+    <Content Include="Scripts\ajaxScripts\MicrosoftAjaxComponentModel.js" />
+    <Content Include="Scripts\ajaxScripts\MicrosoftAjaxCore.debug.js" />
+    <Content Include="Scripts\ajaxScripts\MicrosoftAjaxCore.js" />
+    <Content Include="Scripts\ajaxScripts\MicrosoftAjaxDataContext.debug.js" />
+    <Content Include="Scripts\ajaxScripts\MicrosoftAjaxDataContext.js" />
+    <Content Include="Scripts\ajaxScripts\MicrosoftAjaxGlobalization.debug.js" />
+    <Content Include="Scripts\ajaxScripts\MicrosoftAjaxGlobalization.js" />
+    <Content Include="Scripts\ajaxScripts\MicrosoftAjaxHistory.debug.js" />
+    <Content Include="Scripts\ajaxScripts\MicrosoftAjaxHistory.js" />
+    <Content Include="Scripts\ajaxScripts\MicrosoftAjaxNetwork.debug.js" />
+    <Content Include="Scripts\ajaxScripts\MicrosoftAjaxNetwork.js" />
+    <Content Include="Scripts\ajaxScripts\MicrosoftAjaxSerialization.debug.js" />
+    <Content Include="Scripts\ajaxScripts\MicrosoftAjaxSerialization.js" />
+    <Content Include="Scripts\ajaxScripts\MicrosoftAjaxTemplates.debug.js" />
+    <Content Include="Scripts\ajaxScripts\MicrosoftAjaxTemplates.js" />
+    <Content Include="Scripts\ajaxScripts\MicrosoftAjaxTimer.debug.js" />
+    <Content Include="Scripts\ajaxScripts\MicrosoftAjaxTimer.js" />
+    <Content Include="Scripts\ajaxScripts\MicrosoftAjaxWebForms.debug.js" />
+    <Content Include="Scripts\ajaxScripts\MicrosoftAjaxWebForms.js" />
+    <Content Include="Scripts\ajaxScripts\MicrosoftAjaxWebServices.debug.js" />
+    <Content Include="Scripts\ajaxScripts\MicrosoftAjaxWebServices.js" />
+    <Content Include="Scripts\ajaxScripts\Start.debug.js" />
+    <Content Include="Scripts\ajaxScripts\Start.js" />
+    <Content Include="Scripts\jquery-1.3.2-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.3.2.js" />
+    <Content Include="Scripts\jquery-1.4.2-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.2.min.js" />
+    <Content Include="Scripts\jquery-1.4.4.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.1.custom.js" />
+    <Content Include="Content\jquery.hoverscroll-0.2.2.css" />
+    <Content Include="Scripts\jquery-ui-1.8.6.custom.min.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.ad-gallery.js" />
+    <Content Include="Scripts\jquery.ad-gallery.pack.js" />
+    <Content Include="Scripts\jquery.autocomplete.js" />
+    <Content Include="Scripts\jquery.galleria.js" />
+    <Content Include="Scripts\jquery.hoverscroll-0.2.2.js" />
+    <Content Include="Scripts\jquery.jcarousel.min.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\jquery.pager.js" />
+    <Content Include="Scripts\jquery.popupWindow.js" />
+    <Content Include="Scripts\jquery.tmpl.js" />
+    <Content Include="test.txt" />
+    <Content Include="Views\Home\AboutUs.aspx" />
+    <Content Include="Views\Home\AdvanceSearch.ascx" />
+    <Content Include="Views\Home\Banners.ascx" />
+    <Content Include="Views\Home\Cartoon.ascx" />
+    <Content Include="Views\Home\FAQTutorial.aspx" />
+    <Content Include="Views\Home\HightLight.aspx" />
+    <Content Include="Views\Home\Index.aspx" />
+    <Content Include="Views\Home\Option.aspx" />
+    <Content Include="Views\Home\SubMenu.ascx" />
+    <Content Include="Views\Home\Today.ascx" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="xap\avatar.xap" />
+    <Content Include="xap\Avatar_Silver.xap" />
+    <Content Include="xap\doyouknow.xap" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\MasterPage.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Club\Views\Web.config" />
+    <Content Include="Areas\Game\Views\Web.config" />
+    <Content Include="Areas\KnowledgeCenter\Views\Web.config" />
+    <Content Include="Areas\Profile\Views\Profile\Web.config" />
+    <Content Include="Areas\Scholarship\Views\Scholarship\Web.config" />
+    <Content Include="Areas\Map\Views\Map\Web.config" />
+    <None Include="T4MVC.settings.t4" />
+    <None Include="T4MVC.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>T4MVC.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target> -->
+  <Target Name="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(ProjectDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3195</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

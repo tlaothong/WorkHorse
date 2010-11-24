@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="BetRoom6">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="value" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BetRoom6Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BetRoom6Result" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BetRoom66">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="value" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BetRoom66Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BetRoom66Result" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BetRoom666">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="value" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BetRoom666Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BetRoom666Result" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BetRoom6666">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="value" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BetRoom6666Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BetRoom6666Result" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="BetRoom6SoapIn">
+    <wsdl:part name="parameters" element="tns:BetRoom6" />
+  </wsdl:message>
+  <wsdl:message name="BetRoom6SoapOut">
+    <wsdl:part name="parameters" element="tns:BetRoom6Response" />
+  </wsdl:message>
+  <wsdl:message name="BetRoom66SoapIn">
+    <wsdl:part name="parameters" element="tns:BetRoom66" />
+  </wsdl:message>
+  <wsdl:message name="BetRoom66SoapOut">
+    <wsdl:part name="parameters" element="tns:BetRoom66Response" />
+  </wsdl:message>
+  <wsdl:message name="BetRoom666SoapIn">
+    <wsdl:part name="parameters" element="tns:BetRoom666" />
+  </wsdl:message>
+  <wsdl:message name="BetRoom666SoapOut">
+    <wsdl:part name="parameters" element="tns:BetRoom666Response" />
+  </wsdl:message>
+  <wsdl:message name="BetRoom6666SoapIn">
+    <wsdl:part name="parameters" element="tns:BetRoom6666" />
+  </wsdl:message>
+  <wsdl:message name="BetRoom6666SoapOut">
+    <wsdl:part name="parameters" element="tns:BetRoom6666Response" />
+  </wsdl:message>
+  <wsdl:portType name="Devil6GameServiceSoap">
+    <wsdl:operation name="BetRoom6">
+      <wsdl:input message="tns:BetRoom6SoapIn" />
+      <wsdl:output message="tns:BetRoom6SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BetRoom66">
+      <wsdl:input message="tns:BetRoom66SoapIn" />
+      <wsdl:output message="tns:BetRoom66SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BetRoom666">
+      <wsdl:input message="tns:BetRoom666SoapIn" />
+      <wsdl:output message="tns:BetRoom666SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BetRoom6666">
+      <wsdl:input message="tns:BetRoom6666SoapIn" />
+      <wsdl:output message="tns:BetRoom6666SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Devil6GameServiceSoap" type="tns:Devil6GameServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BetRoom6">
+      <soap:operation soapAction="http://tempuri.org/BetRoom6" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BetRoom66">
+      <soap:operation soapAction="http://tempuri.org/BetRoom66" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BetRoom666">
+      <soap:operation soapAction="http://tempuri.org/BetRoom666" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BetRoom6666">
+      <soap:operation soapAction="http://tempuri.org/BetRoom6666" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Devil6GameServiceSoap12" type="tns:Devil6GameServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BetRoom6">
+      <soap12:operation soapAction="http://tempuri.org/BetRoom6" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BetRoom66">
+      <soap12:operation soapAction="http://tempuri.org/BetRoom66" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BetRoom666">
+      <soap12:operation soapAction="http://tempuri.org/BetRoom666" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BetRoom6666">
+      <soap12:operation soapAction="http://tempuri.org/BetRoom6666" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Devil6GameService">
+    <wsdl:port name="Devil6GameServiceSoap" binding="tns:Devil6GameServiceSoap">
+      <soap:address location="http://localhost:54650/Devil6GameService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Devil6GameServiceSoap12" binding="tns:Devil6GameServiceSoap12">
+      <soap12:address location="http://localhost:54650/Devil6GameService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
