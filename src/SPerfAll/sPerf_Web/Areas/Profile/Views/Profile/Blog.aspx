@@ -5,9 +5,11 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<link href="../../../../Content/jquery-ui-1.8.6.custom.css" rel="stylesheet" type="text/css" />
+<script src="../../../../Scripts/jquery-1.4.2.min.js" type="text/javascript"></script>
+<script src="../../../../Scripts/jquery-ui-1.8.6.custom.min.js" type="text/javascript"></script>
 
-    <h2>Blog</h2>
-
+<% Html.RenderPartial("FriendList"); %>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="SubMenu" runat="server">
