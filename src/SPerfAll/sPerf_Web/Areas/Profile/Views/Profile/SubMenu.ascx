@@ -23,8 +23,8 @@
                 </div>
             </td>
             <td>
-                <div id="friend">
-                    | <%=Html.ActionLink("Friend",MVC.Profile.Profile.Friends()) %>
+                <div class="linkSub">
+                    | <a href="#" id="FriendList">Friend List</a>
                 </div>
             </td>
             <td>

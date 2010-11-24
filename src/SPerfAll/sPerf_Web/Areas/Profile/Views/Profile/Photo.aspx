@@ -5,12 +5,14 @@
     Photo
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">    
-  <link href="../../../../Content/jquery.ad-gallery.css" rel="stylesheet" type="text/css" />
+  <link  href="../../../../Content/jquery.ad-gallery.css" rel="stylesheet" type="text/css" />
+  <link  href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../../Content/jquery-ui-1.8.6.custom.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-  <script src="../../../../Scripts/jquery.ad-gallery.js" type="text/javascript"></script>
+  <script  type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+  <script  type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+  <script  src="../../../../Scripts/jquery.ad-gallery.js" type="text/javascript"></script>
+
 <script type="text/javascript">
     $(function () {
         $('img.image1').data('ad-desc', 'Whoa! This description is set through elm.data("ad-desc") instead of using the longdesc attribute.<br>And it contains <strong>H</strong>ow <strong>T</strong>o <strong>M</strong>eet <strong>L</strong>adies... <em>What?</em> That aint what HTML stands for? Man...');
@@ -109,7 +111,7 @@
                   <option>เที่ยวเมืองไทย</option>
                   <option>เขาใหญ่</option>
                   <option>แล้วแต่จะเพิ่มนะคะ</option>
-                    </select><Label id="dialog" style="margin-left:175px; color:#69BA55; background-color:#E7E8E9; border:6px:solid:#E1E1E1:inherit;">Organize</label>
+                    </select><label id="dialog" style="margin-left:175px; color:#69BA55; background-color:#E7E8E9; border:6px:solid:#E1E1E1:inherit;">Organize</label>
     </div>
     <div style="margin-left:30px; color:#69BA55;"><input type="checkbox" />Use as display<label id="reports" style="text-decoration:underline; color:#69BA55; margin-left:10px">Report</label></div>
     <br />
@@ -198,7 +200,7 @@
         </div>
       </div>
     </div>
- <script type="text/javascript">
+<%-- <script type="text/javascript">
      $("#dialog").click(function () {
          $("#display").dialog({
              buttons: {
@@ -224,8 +226,8 @@
   </script>
 
 <div id="display" title="Dialog Title"></div>
-<div id="Report" title="Dialog Title"></div>
-
+<div id="Report" title="Dialog Title"></div>--%>
+<% Html.RenderPartial("FriendList"); %>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="SubMenu" runat="server">
     <% Html.RenderPartial("SubMenu"); %>

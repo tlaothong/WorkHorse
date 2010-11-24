@@ -789,6 +789,7 @@ namespace Links {
         public static readonly string jquery_1_4_2_min_js = Url("jquery-1.4.2.min.js");
         public static readonly string jquery_1_4_4_min_js = Url("jquery-1.4.4.min.js");
         public static readonly string jquery_ui_1_8_1_custom_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery-ui-1.8.1.custom.min.js") ? Url("jquery-ui-1.8.1.custom.min.js") : Url("jquery-ui-1.8.1.custom.js");
+        public static readonly string jquery_ui_1_8_6_custom_min_js = Url("jquery-ui-1.8.6.custom.min.js");
         public static readonly string jquery_ui_min_js = Url("jquery-ui.min.js");
         public static readonly string jquery_ad_gallery_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.ad-gallery.min.js") ? Url("jquery.ad-gallery.min.js") : Url("jquery.ad-gallery.js");
         public static readonly string jquery_ad_gallery_pack_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.ad-gallery.pack.min.js") ? Url("jquery.ad-gallery.pack.min.js") : Url("jquery.ad-gallery.pack.js");
@@ -890,6 +891,7 @@ namespace Links {
     
         public static readonly string jquery_ui_1_8_1_custom_css = Url("jquery-ui-1.8.1.custom.css");
         public static readonly string jquery_ui_1_8_2_custom_css = Url("jquery-ui-1.8.2.custom.css");
+        public static readonly string jquery_ui_1_8_6_custom_css = Url("jquery-ui-1.8.6.custom.css");
         public static readonly string jquery_ad_gallery_css = Url("jquery.ad-gallery.css");
         public static readonly string jquery_autocomplete_css = Url("jquery.autocomplete.css");
         public static readonly string jquery_hoverscroll_0_2_2_css = Url("jquery.hoverscroll-0.2.2.css");
@@ -918,7 +920,32 @@ namespace Links {
             public static readonly string ad_prev_png = Url("ad_prev.png");
             public static readonly string ad_scroll_back_png = Url("ad_scroll_back.png");
             public static readonly string ad_scroll_forward_png = Url("ad_scroll_forward.png");
+            public static readonly string LD_png = Url("LD.png");
+            public static readonly string loader_gif = Url("loader.gif");
             public static readonly string opa75_png = Url("opa75.png");
+            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+            public static class pic_friend {
+                private const string URLPATH = "~/Content/profile/pic_friend";
+                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                public static readonly string _1_png = Url("1.png");
+                public static readonly string _10_png = Url("10.png");
+                public static readonly string _11_png = Url("11.png");
+                public static readonly string _12_png = Url("12.png");
+                public static readonly string _13_png = Url("13.png");
+                public static readonly string _14_png = Url("14.png");
+                public static readonly string _15_png = Url("15.png");
+                public static readonly string _16_png = Url("16.png");
+                public static readonly string _2_png = Url("2.png");
+                public static readonly string _3_png = Url("3.png");
+                public static readonly string _4_png = Url("4.png");
+                public static readonly string _5_png = Url("5.png");
+                public static readonly string _6_png = Url("6.png");
+                public static readonly string _7_png = Url("7.png");
+                public static readonly string _8_png = Url("8.png");
+                public static readonly string _9_png = Url("9.png");
+            }
+        
             [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
             public static class thumbs {
                 private const string URLPATH = "~/Content/profile/thumbs";
