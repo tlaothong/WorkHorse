@@ -21,7 +21,7 @@ namespace TheS.Casinova.MagicNine.Commands
        /// <summary>
        /// จำนวนเงินทั้งหมดที่ลงเดิมพันแบบอัตโนมัติ
        /// </summary>
-        public int Amount { get; set; }
+        public double Amount { get; set; }
 
         /// <summary>
         /// ระยะห่างของเวลาในการลงเดิมพันแต่ละครั้ง

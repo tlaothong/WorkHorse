@@ -545,7 +545,7 @@ namespace TheS.Casinova.MagicNineSvc {
     [System.Runtime.Serialization.DataContractAttribute(Name="StartAutoBetCommand", Namespace="http://schemas.datacontract.org/2004/07/TheS.Casinova.MagicNine.Commands")]
     public partial class StartAutoBetCommand : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private int AmountField;
+        private double AmountField;
         
         private int IntervalField;
         
@@ -556,7 +556,7 @@ namespace TheS.Casinova.MagicNineSvc {
         private string UserNameField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Amount {
+        public double Amount {
             get {
                 return this.AmountField;
             }

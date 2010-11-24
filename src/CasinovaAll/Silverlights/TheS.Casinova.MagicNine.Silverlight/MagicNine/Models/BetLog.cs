@@ -11,11 +11,9 @@ using System.Windows.Shapes;
 
 namespace TheS.Casinova.MagicNine.Models
 {
-    public class GameTable
+    public class BetLog
     {
         public int Round { get; set; }
-        public string Name { get; set; }
-        public double Amount { get; set; }
-        public bool IsPlaying { get; set; }
+        public double BetOrder { get; set; }
     }
 }

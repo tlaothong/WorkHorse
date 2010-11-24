@@ -15,6 +15,7 @@ using System.Globalization;
 using TheS.Casinova.MagicNine.Models;
 using TheS.Casinova.MagicNine.Services;
 using System.Concurrency;
+using System.Linq;
 using PerfEx.Infrastructure.LotUpdate;
 
 namespace TheS.Casinova.MagicNine.ViewModels
@@ -27,46 +28,33 @@ namespace TheS.Casinova.MagicNine.ViewModels
         private double _pot;
         private double _amount;
         private ObservableCollection<string> _interval;
-        private ObservableCollection<double> _betLogData;
+        private ObservableCollection<BetLog> _betLogData;
         private ObservableCollection<GameTable> _tables;
 
-        private IMagicNineServiceAdapter _sva;
+        private IMagicNineServiceAdapter _svc;
         private IScheduler _scheduler;
         private IStatusTracker _statusTracker;
         private int _roundID;
+        private int _intervalSelect;
+        private bool _isAutobetStart;
 
         #endregion Fields
 
         #region Properties
 
-        internal IMagicNineServiceAdapter GameService
+        /// <summary>
+        /// ค่าของ Interval ที่เลือกอยู่
+        /// </summary>
+        public int IntervalSelect
         {
-            get
+            get { return _intervalSelect; }
+            set
             {
-                if (_sva == null)
+                if (_intervalSelect!=value)
                 {
-                    _sva = new MagicNineServiceAdapter();
+                    _intervalSelect = value; 
                 }
-                return _sva;
             }
-            set { _sva = value; }
-        }
-
-        internal IScheduler Scheduler
-        {
-            get { return _scheduler; }
-            set { _scheduler = value; }
-        }
-
-        internal System.Windows.Threading.Dispatcher Dispatcher
-        {
-            set { _scheduler = new DispatcherScheduler(value); }
-        }
-
-        internal IStatusTracker StatusTracker
-        {
-            get { return _statusTracker; }
-            set { _statusTracker = value; }
         }
 
         /// <summary>
@@ -101,9 +89,13 @@ namespace TheS.Casinova.MagicNine.ViewModels
         /// <summary>
         /// ข้อมูลเงินลงพนันที่ได้รับมาทั้งหมด
         /// </summary>
-        public ObservableCollection<double> BetLogData
+        public ObservableCollection<BetLog> BetLogData
         {
-            get { return _betLogData; }
+            get
+            {
+                var result = _betLogData.Where(c => c.Round.Equals(_roundID));
+                return new ObservableCollection<BetLog>(result);
+            }
             set
             {
                 _betLogData = value;
@@ -154,6 +146,36 @@ namespace TheS.Casinova.MagicNine.ViewModels
             }
         }
 
+        internal IMagicNineServiceAdapter GameService
+        {
+            get
+            {
+                if (_svc == null)
+                {
+                    _svc = new MagicNineServiceAdapter();
+                }
+                return _svc;
+            }
+            set { _svc = value; }
+        }
+
+        internal IScheduler Scheduler
+        {
+            get { return _scheduler; }
+            set { _scheduler = value; }
+        }
+
+        internal System.Windows.Threading.Dispatcher Dispatcher
+        {
+            set { _scheduler = new DispatcherScheduler(value); }
+        }
+
+        internal IStatusTracker StatusTracker
+        {
+            get { return _statusTracker; }
+            set { _statusTracker = value; }
+        }
+
         #endregion Properties
 
         #region Constructor
@@ -164,7 +186,7 @@ namespace TheS.Casinova.MagicNine.ViewModels
         public GamePlayViewModel()
         {
             _notify = new PropertyChangedNotifier(this, () => PropertyChanged);
-            _betLogData = new ObservableCollection<double>();
+            _betLogData = new ObservableCollection<BetLog>();
             _interval = new ObservableCollection<string>();
             _tables = new ObservableCollection<GameTable>();
 
@@ -212,13 +234,102 @@ namespace TheS.Casinova.MagicNine.ViewModels
         #endregion Constructor
 
         #region Methods
+        
+        public void GetListActiveGameRoundInformation()
+        {
+            var svc = _svc;
+            IDisposable dispostActive = null;
+            dispostActive = svc.GetListActiveGameRound().ObserveOn(Scheduler).Subscribe(
+                next =>
+                {
+                    foreach (var table in next.GameRoundInfos)
+                    {
+                        Tables.Add(new GameTable
+                        {
+                            Round = table.RoundID,
+                            Name = table.WinnerPoint.ToString(),
+                        });
+                    }
+                },
+                error =>
+                {
+                    // TODO: Magic9 Get list active game round information
+                },
+                () => dispostActive.Dispose()
+                );
+        }
+
+        public void GetLisGamePlayAutoBetInformation()
+        {
+            var svc = _svc;
+            IDisposable disposeAutoBet = null;
+            disposeAutoBet = svc.GetListGamePlayAutoBetInformation(new MagicNineSvc.ListGamePlayAutoBetInfoCommand())
+                .ObserveOn(Scheduler).Subscribe(
+                next =>
+                {
+                    foreach (var table in next.GamePlayAutoBet)
+                    {
+                        if (Tables.Any(c => c.Round.Equals(table.RoundID)))
+                        {
+                            var query = Tables.First(c => c.Round.Equals(table.RoundID));
+                            query.Amount = table.Amount;
+                            query.IsPlaying = true;
+                        }
+                    }
+                },
+                error =>
+                {
+                    // TODO: Magic9 Get list gameplay auto bet information
+                },
+                () => disposeAutoBet.Dispose()
+                );
+        }
+
+        public void GetListBetLog()
+        {
+            var svc = _svc;
+            IDisposable disposeGetBetLog = null;
+            disposeGetBetLog = svc.GetListBetLog(new MagicNineSvc.ListBetLogCommand { RoundID = RoundID })
+                .ObserveOn(Scheduler).Subscribe(
+                next =>
+                {
+                    foreach (var table in next.BetInformations)
+                    {
+                        BetLogData.Add(new BetLog
+                        {
+                            Round = table.RoundID,
+                            BetOrder = table.BetOrder
+                        });
+                    }
+                },
+                error =>
+                {
+                    // TODO: Magic9 Get list bet log error
+                },
+                () => disposeGetBetLog.Dispose()
+                );
+        }
 
         /// <summary>
         /// ลงเงินพนัน
         /// </summary>
         public void Bet()
         {
-            //TODO: Bet
+            var svc = _svc;
+            IDisposable disposeBet = null;
+            disposeBet = svc.BetSingle(new MagicNineSvc.SingleBetCommand { RoundID = RoundID })
+                .ObserveOn(Scheduler).Subscribe(
+                next =>
+                {
+                    // TODO: Magic9 Bet
+                    // Get trackingID and sent to observer follow this trackingID
+                },
+                error =>
+                {
+                    // TODO: Magic9 Bet error
+                },
+                () => disposeBet.Dispose()
+                );
         }
 
         /// <summary>
@@ -226,7 +337,49 @@ namespace TheS.Casinova.MagicNine.ViewModels
         /// </summary>
         public void StartStop()
         {
-            // TODO: StartStop
+            _isAutobetStart = !_isAutobetStart;
+            var svc = _svc;
+            IDisposable disposeStartAndStop = null;
+
+            if (_isAutobetStart)
+            {
+                // Start
+                disposeStartAndStop = svc.AutoBetOn(new MagicNineSvc.StartAutoBetCommand
+                {
+                    Amount = Amount,
+                    Interval = IntervalSelect,
+                    RoundID = RoundID
+                }).ObserveOn(Scheduler).Subscribe(
+                next =>
+                {
+                    // TODO: Magic9 Autobet start 
+                    // Get trackingID and sent to observer follow this trackingID
+                },
+                error =>
+                {
+                    // TODO: Magic9 Autobet start error
+                },
+                () => disposeStartAndStop.Dispose()
+                );
+            }
+            else
+            {
+                // Stop
+                disposeStartAndStop = svc.AutoBetOff(new MagicNineSvc.StopAutoBetCommand { RoundID = RoundID })
+                    .ObserveOn(Scheduler).Subscribe(
+                    onNext =>
+                    {
+                        // TODO: Magic9 Stop
+                        // Get trackingID and sent to observer follow this trackingID
+                    },
+                    error =>
+                    {
+                        // TODO: Magic9 Stop error
+                    },
+                    () => disposeStartAndStop.Dispose()
+                    );
+            }
+
         }
 
         #endregion Methods

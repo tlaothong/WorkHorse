@@ -29,7 +29,8 @@ namespace TheS.Casinova.Colors.Specs.Steps
             {
                 return Observable.Return(new ListGamePlayInfoCommand
                 {
-                    GamePlayInfos = ScenarioContext.Current.Get<IEnumerable<GamePlayInformation>>().ToArray()
+                    GamePlayInfos = new System.Collections.ObjectModel.ObservableCollection<GamePlayInformation>
+                    (ScenarioContext.Current.Get<IEnumerable<GamePlayInformation>>())
                 });
             };
 

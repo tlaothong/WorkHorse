@@ -28,7 +28,8 @@ namespace TheS.Casinova.Colors.Specs.Steps
             {
                 return Observable.Return(new ListActiveGameRoundCommand
                 {
-                    ActiveRounds = ScenarioContext.Current.Get<IEnumerable<GameRoundInformation>>().ToArray()
+                    ActiveRounds = new System.Collections.ObjectModel.ObservableCollection<GameRoundInformation>
+                    (ScenarioContext.Current.Get<IEnumerable<GameRoundInformation>>())
                 });
             };
 

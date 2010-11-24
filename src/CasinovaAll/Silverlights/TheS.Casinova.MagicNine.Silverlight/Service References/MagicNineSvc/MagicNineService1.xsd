@@ -34,7 +34,7 @@
   <xs:element name="SingleBetCommand" nillable="true" type="tns:SingleBetCommand" />
   <xs:complexType name="StartAutoBetCommand">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Amount" type="xs:int" />
+      <xs:element minOccurs="0" name="Amount" type="xs:double" />
       <xs:element minOccurs="0" name="Interval" type="xs:int" />
       <xs:element minOccurs="0" name="RoundID" type="xs:int" />
       <xs:element minOccurs="0" name="StartTrackingID" type="ser:guid" />
