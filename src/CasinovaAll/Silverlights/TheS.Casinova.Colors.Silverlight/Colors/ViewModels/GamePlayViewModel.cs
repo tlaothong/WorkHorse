@@ -398,8 +398,15 @@ namespace TheS.Casinova.Colors.ViewModels
             };
 
             // TODO: Colors observer follow trackingID
-            ColorsTrackingObserver observer = new ColorsTrackingObserver(() => Paylogs.Remove(log));
             Paylogs.Add(log);
+
+            Action onFoundTracking = () =>
+            {
+                Paylogs.Remove(log);
+                GetListGamePlayInformation();
+            };
+
+            ColorsTrackingObserver observer = new ColorsTrackingObserver(onFoundTracking);
             observer.Initialize(StatusTracker);
 
             // TODO: Colors RX GetWinnerInformation
@@ -409,16 +416,12 @@ namespace TheS.Casinova.Colors.ViewModels
                 next =>
                 {
                     observer.SetTrackingID(next.OnGoingTrackingID);
-                    //observer.SetTrackingID(next.OnGoingTrackingID);
 
                     // Display TotalAmountOfBlack, TotalAmountOfWhite, Winner
-                    //var result = Tables.FirstOrDefault(c => c.Round.Equals(RoundID));
                     //Winner = result.Winner;
                     //TotalAmountOfBlack = result.TotalBetBlack.ToString();
                     //TotalAmountOfWhite = result.TotalBetWhite.ToString();
-
-                    // TODO: Delete PayLog where TrackingID match
-                    // TODO: if trackingID = empty remove waiting status
+                    //If trackingID = empty remove waiting status
                 },
                 error =>
                 {

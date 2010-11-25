@@ -22,26 +22,25 @@ namespace TheS.Casinova.Colors.Specs.Steps
         [Given(@"Setup trackingID for getwinner (.*)")]
         public void GivenSetupTrackingID(string trackingID)
         {
+            var mocks = ScenarioContext.Current.Get<MockRepository>();
             var svc = ScenarioContext.Current.Get<IColorsServiceAdapter>();
             var tracker = ScenarioContext.Current.Get<IStatusTracker>();
-            var subject = ScenarioContext.Current.Get<Subject<TrackingInformation>>();
 
-            SetupResult.For(tracker.Watch(null)).IgnoreArguments().Return(subject);
 
-            //Func<PayForColorsWinnerInfoCommand, IObservable<PayForColorsWinnerInfoCommand>> _mockGetWinnerInformation = cmd =>
-            //{
-            //    return Observable.Return(new PayForColorsWinnerInfoCommand
-            //    {
-            //        RoundID = cmd.RoundID,
-            //        OnGoingTrackingID = Guid.NewGuid(),
-            //    });
-            //};
+            Func<PayForColorsWinnerInfoCommand, IObservable<PayForColorsWinnerInfoCommand>> _mockGetWinnerInformation = cmd =>
+            {
+                return Observable.Return(new PayForColorsWinnerInfoCommand
+                {
+                    RoundID = cmd.RoundID,
+                    OnGoingTrackingID = Guid.NewGuid(),
+                });
+            };
 
-            //using (mocks.Record())
-            //{
-            //    SetupResult.For(svc.GetWinnerInformation(null)).IgnoreArguments().Do(_mockGetWinnerInformation);
-            //    SetupResult.For(tracker.Watch(null)).IgnoreArguments().Return(subject);
-            //}
+            using (mocks.Record())
+            {
+                SetupResult.For(svc.GetWinnerInformation(null)).IgnoreArguments().Do(_mockGetWinnerInformation);
+                SetupResult.For(tracker.Watch(null)).IgnoreArguments().Return(ScenarioContext.Current.Get<Subject<TrackingInformation>>());
+            }
         }
 
         #endregion Background
@@ -58,20 +57,21 @@ namespace TheS.Casinova.Colors.Specs.Steps
         [Then(@"PayLog has save RoundID='(.*)', Count='(.*)'")]
         public void ThenPayLogHasSaveRoundID20(int gameRound,int count)
         {
-            var actual = ScenarioContext.Current.Get<GamePlayViewModel>().Paylogs.Where(c => c.RoundID.Equals(gameRound));
-            Assert.IsTrue(actual.Count() >= 1, "Pay log has save");
-            Assert.AreEqual(count, actual.Count(), "Log count");
+            var viewModel = ScenarioContext.Current.Get<GamePlayViewModel>().Paylogs.Where(c => c.RoundID.Equals(gameRound));
+            Assert.IsTrue(viewModel.Count() >= 1, "Pay log has save");
+            Assert.AreEqual(count, viewModel.Count(), "Log count");
         }
 
         [Then(@"Lot of TrackingID='(.*)' Is Retrieved")]
         public void ThenLotOfTrackingID(string trackingID)
         {
+            var gid = Guid.Parse(trackingID);
             var subject = ScenarioContext.Current.Get<Subject<TrackingInformation>>();
             subject.OnNext(new TrackingInformation
             {
-                LotNo = "1",
-                TrackingID = Guid.Parse(trackingID),
-                Status = "ok"
+                LotNo = "789",
+                TrackingID = gid,
+                Status = "ok",
             });
         }
 
@@ -81,7 +81,7 @@ namespace TheS.Casinova.Colors.Specs.Steps
             var viewModel = ScenarioContext.Current.Get<GamePlayViewModel>();
 
             const int EmptyList = 0;
-            Assert.AreEqual(viewModel.Paylogs.Count, EmptyList,"Paylog is empty");
+            Assert.AreEqual(EmptyList, viewModel.Paylogs.Count, "Paylog is empty");
         }
     }
 }
