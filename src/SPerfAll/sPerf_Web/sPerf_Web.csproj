@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_themes\sPerf\aspnet_ajax.css" />
+    <Content Include="App_themes\sPerf\images\logo-eplearn.png" />
     <Content Include="App_themes\sPerf\Sites.css" />
     <Content Include="App_themes\sPerf\images\avatar.png" />
     <Content Include="App_themes\sPerf\images\bmark.png" />
@@ -125,7 +126,6 @@
     <Content Include="App_themes\sPerf\images\green.png" />
     <Content Include="App_themes\sPerf\images\head.png" />
     <Content Include="App_themes\sPerf\images\loadingAnimation.gif" />
-    <Content Include="App_themes\sPerf\images\logo-eplearn.png" />
     <Content Include="App_themes\sPerf\images\macFFBgHack.png" />
     <Content Include="App_themes\sPerf\images\menu-bg-over.png" />
     <Content Include="App_themes\sPerf\images\menu-bg.png" />
