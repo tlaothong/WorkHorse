@@ -2,6 +2,60 @@
 <link href="../../../../Content/jquery-ui-1.8.6.custom.css" rel="stylesheet" type="text/css" />
 <script src="../../../../Scripts/jquery-1.4.2.min.js" type="text/javascript"></script>
 <script src="../../../../Scripts/jquery-ui-1.8.6.custom.min.js" type="text/javascript"></script>
+<script language="javascript" type="text/javascript">
+    function showHide(shID) {
+        if (document.getElementById(shID)) {
+            if (document.getElementById(shID + '-show').style.display != 'none') {
+                document.getElementById(shID + '-show').style.display = 'none';
+                document.getElementById(shID).style.display = 'block';
+            }
+            else {
+                document.getElementById(shID + '-show').style.display = 'inline';
+                document.getElementById(shID).style.display = 'none';
+            }
+        }
+    }
+</script>
+<style type="text/css">
+    /* This CSS is just for presentational purposes. */
+    #listContent
+    {
+        margin-top: 20px;
+    }
+    #wrap
+    {
+        font: 1.3em/1.3 Arial, Helvetica, sans-serif;
+        width: 30em;
+        margin: 0 auto;
+        padding: 1em;
+        background-color: #fff;
+    }
+    h1
+    {
+        font-size: 200%;
+    }
+    
+    /* This CSS is used for the Show/Hide functionality. */
+    .more
+    {
+        display: none;
+    }
+    a.showLink, a.hideLink
+    {
+        text-decoration: none;
+        color: #36f;
+        padding-left: 8px;
+        background: transparent url(down.gif) no-repeat left;
+    }
+    a.hideLink
+    {
+        background: transparent url(up.gif) no-repeat left;
+    }
+    a.showLink:hover, a.hideLink:hover
+    {
+        border-bottom: 1px dotted #36f;
+    }
+</style>
 <%--script for New comment--%>
 <script type="text/javascript">
     $(function () {
@@ -9,6 +63,7 @@
         $("#dialog").dialog({
             autoOpen: false,
             width: 450,
+            modal: true,
             title:'New Comment',
             buttons: {
                 "Cancel": function () {
@@ -35,6 +90,7 @@
         // Dialog
         $("#sellAll").dialog({
             autoOpen: false,
+            modal: true,
             width: 600,
             buttons: {
                 "Ok": function () {
@@ -61,6 +117,7 @@
         // Dialog
         $("#showReport").dialog({
             autoOpen: false,
+            modal: true,
             width: 450,
             title: 'Report Problem',
             buttons: {
@@ -82,7 +139,20 @@
 
 </script>
 
-<table><tr><td><div ><label id="dialog_link"style="background-color:#DEDFE1; padding:2px 2px 2px 2px;border:1px solid gray inherit;">Comment(50)</label></div></td><td><div id="seell" style="text-decoration: underline; color:Blue; margin-left:45px;">SeeAll</div></td></tr></table>
+<table>
+    <tr>
+        <td>
+            <div >
+                <label id="dialog_link"style="background-color:#939597; padding:2px 4px 2px 4px;border: 1px solid gray; color:White;">comment  (251)</label>
+            </div>
+        </td>
+        <td>
+            <a href="#"><div id="seell" style="text-decoration: underline; color:Gray; margin-left:28px;">
+                SeeAll
+            </div></a>
+       </td>
+   </tr>
+</table>
 <%--div for comment dialog--%>
 <div id="dialog">
 <table>
@@ -134,7 +204,7 @@ testddddd
             </tr>
         </table>
         <div style="width:150px;">ทดสอบข้อความเพื่อใช้ทำงานของการเขียนคอมเม้น</div>
-        <label class="reports" style="text-decoration: underline; color:Blue; margin-left:120px;">report</label>
+        <a href="#"><label class="reports" style="text-decoration: underline; color:Gray; margin-left:115px;">report</label></a>
         <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;  width:150px;"></div>
 
     </div>
@@ -150,7 +220,7 @@ testddddd
             </tr>
         </table>
         <div style="width:150px;">ทดสอบข้อความเพื่อใช้ทำงานของการเขียนคอมเม้น</div>
-        <label class="reports" style="text-decoration: underline; color:Blue; margin-left:120px;">report</label>
+        <a href="#"><label class="reports" style="text-decoration: underline; color:Gray; margin-left:115px;">report</label></a>
         <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;  width:150px;"></div>
 
     </div>
@@ -166,7 +236,7 @@ testddddd
             </tr>
         </table>
         <div style="width:150px;">ทดสอบข้อความเพื่อใช้ทำงานของการเขียนคอมเม้น</div>
-        <label class="reports" style="text-decoration: underline; color:Blue; margin-left:120px;">report</label>
+        <a href="#"><label class="reports" style="text-decoration: underline; color:Gray; margin-left:115px;">report</label></a>
         <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;width:150px;"></div>
     </div>
     <div>
@@ -181,7 +251,7 @@ testddddd
             </tr>
         </table>
         <div style="width:150px;">ทดสอบข้อความเพื่อใช้ทำงานของการเขียนคอมเม้น</div>
-        <label class="reports" style="text-decoration: underline; color:Blue; margin-left:120px;">report</label>
+        <a href="#"><label class="reports" style="text-decoration: underline; color:Gray; margin-left:115px;">report</label></a>
         <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;width:150px;"></div>
 
     </div>
@@ -197,11 +267,95 @@ testddddd
             </tr>
         </table>
         <div style="width:150px;">ทดสอบข้อความเพื่อใช้ทำงานของการเขียนคอมเม้น</div>
-        <label class="reports" style="text-decoration: underline; color:Blue; margin-left:120px;">report</label>
+        <a href="#"><label class="reports" style="text-decoration: underline; color:Gray; margin-left:115px;">report</label></a>
         <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;width:150px;"></div>
 
     </div>
+            <a href="#" id="example-show" class="showLink" onclick="showHide('example');return false;">
+            SeeMore...</a>
+        <div id="example" class="more showLink">
 
+    <%--แสดงส่วนหลังเมื่อมีการตลิก more...--%>
+        <div>
+            <table>
+                <tr>
+                    <td valign="top">
+                        <img src="/Content/images/e1.png" />
+                    </td>
+                    <td valign="top">
+                        Wanida
+                    </td>
+                </tr>
+            </table>
+            <div style="width:150px;">ทดสอบข้อความเพื่อใช้ทำงานของการเขียนคอมเม้น</div>
+            <a href="#"><label class="reports" style="text-decoration: underline; color:Gray; margin-left:115px;">report</label></a>
+            <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;width:150px;"></div>
+
+        </div>
+            <div>
+            <table>
+                <tr>
+                    <td valign="top">
+                        <img src="/Content/images/e1.png" />
+                    </td>
+                    <td valign="top">
+                        Wanida
+                    </td>
+                </tr>
+            </table>
+            <div style="width:150px;">ทดสอบข้อความเพื่อใช้ทำงานของการเขียนคอมเม้น</div>
+            <a href="#"><label class="reports" style="text-decoration: underline; color:Gray; margin-left:115px;">report</label></a>
+            <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;width:150px;"></div>
+
+        </div>
+            <div>
+            <table>
+                <tr>
+                    <td valign="top">
+                        <img src="/Content/images/e1.png" />
+                    </td>
+                    <td valign="top">
+                        Wanida
+                    </td>
+                </tr>
+            </table>
+            <div style="width:150px;">ทดสอบข้อความเพื่อใช้ทำงานของการเขียนคอมเม้น</div>
+            <a href="#"><label class="reports" style="text-decoration: underline; color:Gray; margin-left:115px;">report</label></a>
+            <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;width:150px;"></div>
+
+        </div>
+            <div>
+            <table>
+                <tr>
+                    <td valign="top">
+                        <img src="/Content/images/e1.png" />
+                    </td>
+                    <td valign="top">
+                        Wanida
+                    </td>
+                </tr>
+            </table>
+            <div style="width:150px;">ทดสอบข้อความเพื่อใช้ทำงานของการเขียนคอมเม้น</div>
+            <a href="#"><label class="reports" style="text-decoration: underline; color:Gray; margin-left:115px;">report</label></a>
+            <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;width:150px;"></div>
+
+        </div>
+            <div>
+            <table>
+                <tr>
+                    <td valign="top">
+                        <img src="/Content/images/e1.png" />
+                    </td>
+                    <td valign="top">
+                        Wanida
+                    </td>
+                </tr>
+            </table>
+            <div style="width:150px;">ทดสอบข้อความเพื่อใช้ทำงานของการเขียนคอมเม้น</div>
+            <a href="#"><label class="reports" style="text-decoration: underline; color:Gray; margin-left:115px;">report</label></a>
+            <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;width:150px;"></div>
+
+        </div>
+    </div>
+    <%--end more...--%>
 </div>
-<br />
-<table><tr><td></td><td><label style="text-decoration: underline; color:Blue">more..</label></td></tr></table>

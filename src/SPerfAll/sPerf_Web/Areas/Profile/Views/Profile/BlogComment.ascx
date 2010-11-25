@@ -57,7 +57,7 @@
 <script type="text/javascript">
     $(function () {
         // Dialog
-        $("#dialogphoto").dialog({
+        $("#dialogblog").dialog({
             autoOpen: false,
             modal: true,
             width: 450,
@@ -73,8 +73,8 @@
         });
 
         // Dialog Link
-        $('#dialog_linkphoto').click(function () {
-            $('#dialogphoto').dialog('open');
+        $('#dialog_linkblog').click(function () {
+            $('#dialogblog').dialog('open');
             return false;
         });
     });
@@ -135,11 +135,12 @@
     });
 
 </script>
+
 <table>
     <tr>
         <td>
             <div >
-                <label id="dialog_linkphoto"style="background-color:#939597; padding:2px 4px 2px 4px;border: 1px solid gray; color:White;">comment  (251)</label>
+                <label id="dialog_linkblog"style="background-color:#939597; padding:2px 4px 2px 4px;border: 1px solid gray; color:White;">comment  (251)</label>
             </div>
         </td>
         <td>
@@ -148,8 +149,9 @@
             </div></a>
        </td>
    </tr>
-</table><%--div for comment dialog--%>
-<div id="dialogphoto">
+</table>
+<%--div for comment dialog--%>
+<div id="dialogblog">
 <table>
         <tr>
             <td valign="top">Pet Society<br /><input type="checkbox" />   Rating  : <img src="/Content/images/star.PNG" /><br />
@@ -250,8 +252,23 @@ testddddd
         <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;width:150px;"></div>
 
     </div>
+    <div>
+        <table>
+            <tr>
+                <td valign="top">
+                    <img src="/Content/images/e1.png" />
+                </td>
+                <td valign="top">
+                    Wanida
+                </td>
+            </tr>
+        </table>
+        <div style="width:150px;">ทดสอบข้อความเพื่อใช้ทำงานของการเขียนคอมเม้น</div>
+        <a href="#"><label class="reports" style="text-decoration: underline; color:Gray; margin-left:115px;">report</label></a>
+        <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;width:150px;"></div>
 
-                <a href="#" id="example-show" class="showLink" onclick="showHide('example');return false;">
+    </div>
+                    <a href="#" id="example-show" class="showLink" onclick="showHide('example');return false;">
             SeeMore...</a>
         <div id="example" class="more showLink">
 
@@ -338,4 +355,5 @@ testddddd
         </div>
     </div>
     <%--end more...--%>
+
 </div>

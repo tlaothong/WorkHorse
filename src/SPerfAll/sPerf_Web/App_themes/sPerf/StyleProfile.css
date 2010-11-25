@@ -3,6 +3,7 @@
     float: left; 
     padding-left: 10px; 
     width: 100px;
+    margin-top:10px;
 }
 .picuser img
 {
@@ -12,8 +13,8 @@
 .friend
 {
     background-color: #D1D3D4;
-    margin-left: 10px; 
-    margin-top: 20px; 
+    margin-left: -100px; 
+    margin-top: 40px; 
     float: left;
     width: 150px;
     height: 25px;
@@ -50,15 +51,15 @@
 .logevent
 {
     background-color: #D1D3D4;
-    margin-left: 5px; 
-    margin-top: 20px; 
+    margin-left: 173px; 
+    margin-top: -25px; 
     float: left;
     width: 420px;
     height: 20px;
 }
 .logeventall
 {
-    padding-left: 355px;
+    padding-left: 350px;
     margin-top: 5px;
 }
 .logeventall a
