@@ -16,7 +16,7 @@ using TheS.Casinova.Colors.Services;
 namespace TheS.Casinova.Colors.Specs.Steps
 {
     [Binding]
-    public class GetActiveGameRoundsStep
+    public class GetActiveGameRoundStep
     {
         [Given(@"Back service have active game rounds are:")]
         public void GivenBackServiceHaveActiveGameRoundsAre(Table table)
@@ -28,7 +28,8 @@ namespace TheS.Casinova.Colors.Specs.Steps
             {
                 return Observable.Return(new ListActiveGameRoundCommand
                 {
-                    ActiveRounds = ScenarioContext.Current.Get<IEnumerable<GameRoundInformation>>().ToArray()
+                    ActiveRounds = new System.Collections.ObjectModel.ObservableCollection<GameRoundInformation>
+                    (ScenarioContext.Current.Get<IEnumerable<GameRoundInformation>>())
                 });
             };
 

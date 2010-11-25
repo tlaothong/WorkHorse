@@ -24,7 +24,7 @@ Background:
 		|Miolynet	|4		|15			|{91FFE007-9030-4F94-84DF-05729B120019}	|{FCA0EA8F-1C7B-4EF1-A9B9-7357E4C25FCC}	|9						|71						|
 		|Miolynet	|4		|15			|{91FFE007-9030-4F94-84DF-05729B120019}	|{5107D995-51BD-494C-87C1-44E29D701DE3}	|9						|71						|
 		|Miolynet	|4		|15			|{91FFE007-9030-4F94-84DF-05729B120019}	|{6B6017D0-A709-4AA3-81AD-20FD483C2D79}	|20						|71						|
-		|Miolynet	|4		|15			|{6B6017D0-A709-4AA3-81AD-20FD483C2D79}	|{6B6017D0-A709-4AA3-81AD-20FD483C2D79}	|140					|71						|
+		|Miolynet	|4		|15			|{91FFE007-9030-4F94-84DF-05729B120019}	|{6B6017D0-A709-4AA3-81AD-20FD483C2D79}	|140					|71						|
 
 @record_mock
 Scenario: Send request get list game play information to web server 
@@ -55,9 +55,12 @@ web server have any game play information is owner name and username match and m
 Scenario: Send request get list game play information to web server 
 TrackingID and OnGoingTrackingID is not match, it request get list game play information until TrackingID and OnGoingTrackingID match
 	When Send request GetListGamePlayInformation( 'Miolynet' )
+	And Web service execute new bet are
+		|UserName	|TableID|RoundID	|TrackingID								|OnGoingTrackingID						|TotalBetAmountOfBlack	|TotalBetAmountOfWhite	|
+		|Miolynet	|4		|15			|{6B6017D0-A709-4AA3-81AD-20FD483C2D79}	|{6B6017D0-A709-4AA3-81AD-20FD483C2D79}	|142					|71						|
 	Then Tables in GamePlayViewModel display game play information are
 		|Round	|Amount	|TotalBetBlack	|TotalBetWhite	|
-		|15		|211	|140			|71				|
+		|15		|213	|142			|71				|
 
 @record_mock
 Scenario: Send request get list game play information to web server 

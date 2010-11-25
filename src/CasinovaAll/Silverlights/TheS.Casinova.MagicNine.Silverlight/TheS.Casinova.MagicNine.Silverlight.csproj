@@ -66,7 +66,16 @@
     <Reference Include="PerfEx.Infrastructure.Silverlight">
       <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Silverlight.dll</HintPath>
     </Reference>
+    <Reference Include="PerfEx.Infrastructure.Silverlight.Advanced">
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Silverlight.Advanced.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.Composition, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.CoreEx, Version=1.0.2698.204, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Interactive, Version=1.0.2698.204, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Observable, Version=1.0.0.204, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Reactive, Version=1.0.2698.204, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows" />
     <Reference Include="system" />
     <Reference Include="System.Core" />
@@ -93,11 +102,14 @@
     </Compile>
     <Compile Include="MagicNine\GameApplicationInformation.cs" />
     <Compile Include="MagicNine\Models\BetdataInfo.cs" />
+    <Compile Include="MagicNine\Models\BetLog.cs" />
     <Compile Include="MagicNine\Models\GameTable.cs" />
     <Compile Include="MagicNine\Models\WinnerInfo.cs" />
     <Compile Include="MagicNine\Popups\BetData.xaml.cs">
       <DependentUpon>BetData.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MagicNine\Services\IMagicNineServiceAdapter.cs" />
+    <Compile Include="MagicNine\Services\MagicNineServiceAdapter.cs" />
     <Compile Include="MagicNine\Silverlight\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -126,6 +138,11 @@
       <DependentUpon>StatisticPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\MagicNineSvc\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="MagicNine\Silverlight\App.xaml">
@@ -183,6 +200,38 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
+    <None Include="Service References\MagicNineSvc\MagicNineService.wsdl" />
+    <None Include="Service References\MagicNineSvc\MagicNineService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MagicNineSvc\MagicNineService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MagicNineSvc\MagicNineService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MagicNineSvc\MagicNineService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MagicNineSvc\TheS.Casinova.MagicNineSvc.ListActiveGameRoundInfoCommand.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MagicNineSvc\TheS.Casinova.MagicNineSvc.ListBetLogCommand.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MagicNineSvc\TheS.Casinova.MagicNineSvc.ListGamePlayAutoBetInfoCommand.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MagicNineSvc\TheS.Casinova.MagicNineSvc.SingleBetCommand.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MagicNineSvc\TheS.Casinova.MagicNineSvc.StartAutoBetCommand.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MagicNineSvc\TheS.Casinova.MagicNineSvc.StopAutoBetCommand.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TheS.Casinova.Common.Silverlight\TheS.Casinova.Common.Silverlight.csproj">
@@ -192,6 +241,27 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="MagicNine\Assets\Images\Logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\MagicNineSvc\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MagicNineSvc\MagicNineService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MagicNineSvc\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MagicNineSvc\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MagicNineSvc\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

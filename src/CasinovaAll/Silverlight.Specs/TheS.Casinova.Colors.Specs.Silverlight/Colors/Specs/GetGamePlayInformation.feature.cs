@@ -22,7 +22,7 @@ namespace TheS.Casinova.Colors.Specs
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "GetListGamePlayInformation.feature"
+#line 1 "GetGamePlayInformation.feature"
 #line hidden
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.ClassInitializeAttribute()]
@@ -152,7 +152,7 @@ testRunner.Given("Create and initialize GamePlayViewModel and Colors game servic
                         "Miolynet",
                         "4",
                         "15",
-                        "{6B6017D0-A709-4AA3-81AD-20FD483C2D79}",
+                        "{91FFE007-9030-4F94-84DF-05729B120019}",
                         "{6B6017D0-A709-4AA3-81AD-20FD483C2D79}",
                         "140",
                         "71"});
@@ -277,17 +277,36 @@ this.ScenarioSetup(scenarioInfo);
 testRunner.When("Send request GetListGamePlayInformation( \'Miolynet\' )");
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "UserName",
+                        "TableID",
+                        "RoundID",
+                        "TrackingID",
+                        "OnGoingTrackingID",
+                        "TotalBetAmountOfBlack",
+                        "TotalBetAmountOfWhite"});
+            table5.AddRow(new string[] {
+                        "Miolynet",
+                        "4",
+                        "15",
+                        "{6B6017D0-A709-4AA3-81AD-20FD483C2D79}",
+                        "{6B6017D0-A709-4AA3-81AD-20FD483C2D79}",
+                        "142",
+                        "71"});
+#line 58
+testRunner.And("Web service execute new bet are", ((string)(null)), table5);
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                         "Round",
                         "Amount",
                         "TotalBetBlack",
                         "TotalBetWhite"});
-            table5.AddRow(new string[] {
+            table6.AddRow(new string[] {
                         "15",
-                        "211",
-                        "140",
+                        "213",
+                        "142",
                         "71"});
-#line 58
-testRunner.Then("Tables in GamePlayViewModel display game play information are", ((string)(null)), table5);
+#line 61
+testRunner.Then("Tables in GamePlayViewModel display game play information are", ((string)(null)), table6);
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -302,23 +321,23 @@ testRunner.Then("Tables in GamePlayViewModel display game play information are",
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Send request get list game play information to web server\r\nTrackingID and OnGoing" +
                     "TrackingID is match", new string[] {
                         "record_mock"});
-#line 63
+#line 66
 this.ScenarioSetup(scenarioInfo);
-#line 65
+#line 68
 testRunner.When("Send request GetListGamePlayInformation( \'Sakul\' )");
 #line hidden
-            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
                         "Round",
                         "Amount",
                         "TotalBetBlack",
                         "TotalBetWhite"});
-            table6.AddRow(new string[] {
+            table7.AddRow(new string[] {
                         "12",
                         "170",
                         "150",
                         "20"});
-#line 66
-testRunner.Then("Tables in GamePlayViewModel display game play information are", ((string)(null)), table6);
+#line 69
+testRunner.Then("Tables in GamePlayViewModel display game play information are", ((string)(null)), table7);
 #line hidden
             testRunner.CollectScenarioErrors();
         }

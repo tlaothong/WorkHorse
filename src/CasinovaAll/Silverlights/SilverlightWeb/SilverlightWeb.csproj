@@ -79,6 +79,10 @@
       <DependentUpon>ColorsService.svc</DependentUpon>
     </Compile>
     <Compile Include="wsv\IColorsService.cs" />
+    <Compile Include="wsv\IMagicNineService.cs" />
+    <Compile Include="wsv\MagicNineService.svc.cs">
+      <DependentUpon>MagicNineService.svc</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="CasinovaAllStarsTestPage.aspx" />
@@ -153,6 +157,7 @@
     <Content Include="Views\Shared\Site.Master" />
     <Content Include="Views\Web.config" />
     <Content Include="wsv\ColorsService.svc" />
+    <Content Include="wsv\MagicNineService.svc" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -165,6 +170,10 @@
     <ProjectReference Include="..\..\Modules\Colors\TheS.Casinova.Colors.Models\TheS.Casinova.Colors.Models.csproj">
       <Project>{D6D472FB-4D74-4852-A0C7-AF4558B46C29}</Project>
       <Name>TheS.Casinova.Colors.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\MagicNine\TheS.Casinova.MagicNine.Commands\TheS.Casinova.MagicNine.Commands.csproj">
+      <Project>{1F2B601A-3E92-4904-8609-5D59E62A5DB1}</Project>
+      <Name>TheS.Casinova.MagicNine.Commands</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
@@ -182,7 +191,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>60642</DevelopmentServerPort>
+          <DevelopmentServerPort>50156</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

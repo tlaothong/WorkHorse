@@ -37,7 +37,7 @@ namespace TheS.Casinova.Colors.ViewModels
         private ObservableCollection<PayLog> _paylogs;
         private IColorsServiceAdapter _sva;
         private IScheduler _scheduler;
-        private IStatusTracker _tracker;
+        private IStatusTracker _statusTracker;
         private int _roundID;
         private double _betAmount;
         private GameStatisticsViewModel _gameResult;
@@ -192,10 +192,10 @@ namespace TheS.Casinova.Colors.ViewModels
             set { _scheduler = new DispatcherScheduler(value); }
         }
 
-        internal IStatusTracker Tracker
+        internal IStatusTracker StatusTracker
         {
-            get { return _tracker; }
-            set { _tracker = value; }
+            get { return _statusTracker; }
+            set { _statusTracker = value; }
         }
 
         #endregion Properties
@@ -277,25 +277,15 @@ namespace TheS.Casinova.Colors.ViewModels
 
         #region Methods
 
-        public void BetBlack()
-        {
-            bet();
-        }
-
-        public void BetWhite()
-        {
-            const bool betWhite = false;
-            bet(betWhite);
-        }
-
         public void GetListActiveGameRounds()
         {
-            var svc = GameService;
+            var svc = _sva;
 
             IDisposable disposeGameRounds = null;
             disposeGameRounds = svc.GetListActiveGameRound().ObserveOn(Scheduler).Subscribe(
                 next =>
                 {
+                    Tables.Clear();
                     foreach (var table in next.ActiveRounds)
                         Tables.Add(new GameTable
                         {
@@ -315,7 +305,7 @@ namespace TheS.Casinova.Colors.ViewModels
 
         public void GetListGamePlayInformation()
         {
-            var svc = GameService;
+            var svc = _sva;
             IDisposable disposeGamePlayInformation = null;
             disposeGamePlayInformation = svc.GetListGamePlayInformation(new ListGamePlayInfoCommand()).
                 ObserveOn(Scheduler).Subscribe(
@@ -367,13 +357,14 @@ namespace TheS.Casinova.Colors.ViewModels
 
         public void GetWinnerInformation()
         {
+            var svc = _sva;
+
             // TODO: Sub account balance
             Paylogs.Add(new PayLog
             {
                 RoundID = RoundID,
                 Amount = _costWinnerInformation
             });
-            var svc = GameService;
 
             // TODO: Colors RX GetWinnerInformation
             IDisposable disposeGetWinnerInformation = null;
@@ -382,7 +373,9 @@ namespace TheS.Casinova.Colors.ViewModels
                 next =>
                 {
                     // TODO: Colors observer follow trackingID
-                    //GetListGamePlayInformation();
+                    ColorsTrackingObserver observer = new ColorsTrackingObserver(() => { });
+                    observer.Initialize(StatusTracker);
+                    observer.SetTrackingID(next.OnGoingTrackingID);
 
                     // Display TotalAmountOfBlack, TotalAmountOfWhite, Winner
                     //var result = Tables.FirstOrDefault(c => c.Round.Equals(RoundID));
@@ -405,7 +398,7 @@ namespace TheS.Casinova.Colors.ViewModels
 
         public void GetGameResult()
         {
-            var svc = GameService;
+            var svc = _sva;
 
             IDisposable disposeGameResult = null;
             disposeGameResult = svc.GetGameResult(new GetGameResultCommand { RoundID = RoundID })
@@ -434,21 +427,33 @@ namespace TheS.Casinova.Colors.ViewModels
                 );
         }
 
+        public void BetBlack()
+        {
+            bet();
+        }
+
+        public void BetWhite()
+        {
+            const bool betWhite = false;
+            bet(betWhite);
+        }
+
         private void bet(bool betBlack = true)
         {
+            var svc = _sva;
+
             const string BetInBlack = "Black";
             const string BetInWhite = "White";
             string selectColor = BetInWhite;
             if (betBlack) selectColor = BetInBlack;
 
-            Paylogs.Add(new PayLog
+            var paylog = new PayLog
             {
                 Amount = BetAmount,
                 RoundID = RoundID,
                 Colors = selectColor
-            });
-
-            var svc = GameService;
+            };
+            Paylogs.Add(paylog);
 
             IDisposable disposeBet = null;
             disposeBet = svc.Bet(new BetCommand
@@ -460,10 +465,11 @@ namespace TheS.Casinova.Colors.ViewModels
                 next =>
                 {
                     // TODO: Colors RX Bet
-                    // Get OnGoingTrackingID
                     // Sent to observer follow this OnGoingTrackingID
-                    // Observer found TrackingID in lot
-                    // Request get list game play information
+                    ColorsTrackingObserver observer = new ColorsTrackingObserver(() => { });
+                    observer.Initialize(StatusTracker);
+                    observer.SetTrackingID(next.TrackingID);
+
                     // Display TotalBetAmountOfBlack, TotalBetAmountOfWhite, Winner
                     // Check TrackingID and OnGoingTrackingID
                     // Delete PayLog in TrackingID

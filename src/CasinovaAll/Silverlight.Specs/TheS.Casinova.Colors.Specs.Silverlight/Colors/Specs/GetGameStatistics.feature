@@ -13,6 +13,7 @@ Background:
 		|1			|1523		|4526		|452		|
 		|2			|445		|12399		|1155		|
 		|3			|75663		|45266		|5632		|
+		|4			|500		|500		|100		|
 
 
 @record_mock
@@ -29,6 +30,11 @@ Scenario: Request game result to web server, server have roundID match (roundID 
 Scenario: Request game result to web server, server have roundID match (roundID = 3)
 	When Request GetGameResult( roundID = '3' )
 	Then Game has display game result Winner='White', BlackPot='75663', WhitePot='45266', Hands='5632'
+
+@record_mock
+Scenario: Black pot and White pot are equal, White win
+	When Request GetGameResult( roundID = '4' )
+	Then Game has display game result Winner='White', BlackPot='500', WhitePot='500', Hands='100'
 
 @record_mock
 Scenario: Request game result to web server, server don't have roundID match (roundID = 99)

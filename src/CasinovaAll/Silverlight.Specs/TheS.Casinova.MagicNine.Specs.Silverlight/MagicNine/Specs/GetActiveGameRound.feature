@@ -11,48 +11,48 @@
 	5.Create game table from list active game rounds and display game tables (Silverlight)
 
 Background:
-	Given Create and initialize GamePlayViewModel and Colors game service
+	Given Create and initialize GamePlayViewModel and MagicNine game service
 
 @record_mock
 Scenario: Send request GetListActiveGameRounds to web server 
-server have list active game rounds and send it back to client
 	Given Back service have active game rounds are:
-		|RoundID|StartTime				|EndTime				|
-		|1		|2010-11-17 09:00:00	|2010-11-17 09:15:00	|
-		|2		|2010-11-17 09:15:00	|2010-11-17 09:30:00	|
-		|3		|2010-11-17 09:30:00	|2010-11-17 09:45:00	|
+		|RoundID|WinnerPoint	|
+		|1		|9				|
+		|2		|99				|
+		|3		|999			|
+		|4		|9999			|
 	When Send request GetListActiveGameRounds() to web server
 	Then Tables in GamePlayViewModel has create from ListActivegameRounds
-		|Name	|Round	|StartTime				|EndTime				|
-		|Colors	|1		|2010-11-17 09:00:00	|2010-11-17 09:15:00	|
-		|Colors	|2		|2010-11-17 09:15:00	|2010-11-17 09:30:00	|
-		|Colors	|3		|2010-11-17 09:30:00	|2010-11-17 09:45:00	|
+		|Round	|Name	|
+		|1		|9		|
+		|2		|99		|
+		|3		|999	|
+		|4		|9999	|
 
 
 @record_mock
-Scenario: Send request GetListActiveGameRounds to web server 
-server don't have list active game rounds and send it empty back to client
+Scenario: Send request GetListActiveGameRounds to web server, don't have game active
 	Given Back service have active game rounds are:
-		|RoundID|StartTime				|EndTime				|
+		|RoundID|WinnerPoint	|
 	When Send request GetListActiveGameRounds() to web server
-	Then Tables in GamePlayViewModel don't create ListActivegameRounds
-		|Name	|Round	|StartTime				|EndTime				|
+	Then Tables in GamePlayViewModel has create from ListActivegameRounds
+		|RoundID|WinnerPoint	|
 
 @record_mock
 Scenario: Send request GetListActiveGameRounds to web server more than one request
-server have list active game rounds and send it back to client
 	Given Back service have active game rounds are:
-		|RoundID|StartTime				|EndTime				|
-		|1		|2010-11-17 09:00:00	|2010-11-17 09:15:00	|
-		|2		|2010-11-17 09:15:00	|2010-11-17 09:30:00	|
-		|3		|2010-11-17 09:30:00	|2010-11-17 09:45:00	|
+		|RoundID|WinnerPoint	|
+		|1		|9				|
+		|2		|99				|
+		|3		|999			|
+		|4		|9999			|
 	When Send request GetListActiveGameRounds() to web server
 	And Send request GetListActiveGameRounds() to web server
 	And Send request GetListActiveGameRounds() to web server
 	And Send request GetListActiveGameRounds() to web server
-	And Send request GetListActiveGameRounds() to web server
 	Then Tables in GamePlayViewModel has create from ListActivegameRounds
-		|Name	|Round	|StartTime				|EndTime				|
-		|Colors	|1		|2010-11-17 09:00:00	|2010-11-17 09:15:00	|
-		|Colors	|2		|2010-11-17 09:15:00	|2010-11-17 09:30:00	|
-		|Colors	|3		|2010-11-17 09:30:00	|2010-11-17 09:45:00	|
+		|Round	|Name	|
+		|1		|9		|
+		|2		|99		|
+		|3		|999	|
+		|4		|9999	|

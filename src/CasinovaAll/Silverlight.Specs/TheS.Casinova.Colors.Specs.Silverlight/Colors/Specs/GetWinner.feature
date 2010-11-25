@@ -15,7 +15,7 @@
 
 Background:
 	Given Create and initialize GamePlayViewModel and Colors game service
-	And Initialize mock for get winner information
+	And Setup trackingID for getwinner {60AD85F6-3978-48AA-9286-E5A7344B77EC}
 
 @record_mock
 Scenario: Get winner button has click save player action in PayLog

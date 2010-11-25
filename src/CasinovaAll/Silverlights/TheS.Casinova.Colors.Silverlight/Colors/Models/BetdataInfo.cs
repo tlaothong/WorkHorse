@@ -11,6 +11,9 @@ using System.Windows.Shapes;
 
 namespace TheS.Casinova.Colors.Models
 {
+    /// <summary>
+    /// For statistics \
+    /// </summary>
     public class BetdataInfo
     {
         /// <summary>

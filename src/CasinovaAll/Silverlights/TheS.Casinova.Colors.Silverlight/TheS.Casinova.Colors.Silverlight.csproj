@@ -104,6 +104,7 @@
       <DependentUpon>GameStatisticsUI.xaml</DependentUpon>
     </Compile>
     <Compile Include="Colors\GameApplicationInformation.cs" />
+    <Compile Include="Colors\ColorsTrackingObserver.cs" />
     <Compile Include="Colors\Models\GameTable.cs" />
     <Compile Include="Colors\Models\BetdataInfo.cs" />
     <Compile Include="Colors\Models\PayLog.cs" />

@@ -70,7 +70,7 @@ namespace TheS.Casinova.Colors.Specs
 #line 17
 testRunner.Given("Create and initialize GamePlayViewModel and Colors game service");
 #line 18
-testRunner.And("Initialize mock for get winner information");
+testRunner.And("Setup trackingID for getwinner {60AD85F6-3978-48AA-9286-E5A7344B77EC}");
 #line hidden
         }
         

@@ -13,12 +13,14 @@
 
 Background:
 	Given Create and initialize GamePlayViewModel and Colors game service
-	And Initialize mock for bet
+	And Setup trackingID for bet {E8481A68-7F9F-4466-B7B8-1355ED2D32C6}
 
 @record_mock
 Scenario: Bet button has click save player action in PayLog
 	When Click Bet black amount=30 in game round=15
 	Then PayLog count='1' are 
+	And Lot of TrackingID='{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}' Is Retrieved
+	And Paylog have save information are
 		|RoundID	|Amount	|Colors	|
 		|15			|30		|Black	|
 
@@ -30,6 +32,8 @@ Scenario: Bet button has click more than one, save player action in PayLog
 	And Click Bet black amount=55 in game round=15
 	And Click Bet black amount=1 in game round=15
 	Then PayLog count='5' are 
+	And Lot of TrackingID='{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}' Is Retrieved
+	And Paylog have save information are
 		|RoundID	|Amount	|Colors	|
 		|15			|30		|Black	|
 		|15			|45		|Black	|
@@ -45,6 +49,8 @@ Scenario: Bet button has click more than one and difference colors, save player 
 	And Click Bet black amount=55 in game round=15
 	And Click Bet white amount=1 in game round=15
 	Then PayLog count='5' are 
+	And Lot of TrackingID='{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}' Is Retrieved
+	And Paylog have save information are
 		|RoundID	|Amount	|Colors	|
 		|15			|30		|Black	|
 		|15			|45		|White	|
@@ -60,6 +66,8 @@ Scenario: Bet button has click more than one and difference roundID, save player
 	And Click Bet black amount=55 in game round=18
 	And Click Bet black amount=1 in game round=19
 	Then PayLog count='5' are 
+	And Lot of TrackingID='{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}' Is Retrieved
+	And Paylog have save information are
 		|RoundID	|Amount	|Colors	|
 		|15			|30		|Black	|
 		|16			|45		|Black	|
@@ -76,6 +84,8 @@ Scenario: Bet button has click more than one and difference roundID and colors, 
 	And Click Bet black amount=1 in game round=19
 	And Click Bet black amount=100 in game round=15
 	Then PayLog count='6' are 
+	And Lot of TrackingID='{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}' Is Retrieved
+	And Paylog have save information are
 		|RoundID	|Amount	|Colors	|
 		|15			|30		|White	|
 		|16			|45		|Black	|

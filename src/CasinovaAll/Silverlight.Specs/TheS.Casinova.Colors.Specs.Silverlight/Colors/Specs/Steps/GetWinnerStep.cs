@@ -10,6 +10,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TheS.Casinova.ColorsSvc;
 using Rhino.Mocks;
 using TheS.Casinova.Colors.Services;
+using PerfEx.Infrastructure.LotUpdate;
 
 namespace TheS.Casinova.Colors.Specs.Steps
 {
@@ -18,24 +19,28 @@ namespace TheS.Casinova.Colors.Specs.Steps
     {
         #region Background
 
-        [Given(@"Initialize mock for get winner information")]
-        public void InitializeMockForGetWinnerInformation()
+
+        [Given(@"Setup trackingID for getwinner (.*)")]
+        public void GivenSetupTrackingID(string trackingID)
         {
             var mocks = ScenarioContext.Current.Get<MockRepository>();
             var svc = ScenarioContext.Current.Get<IColorsServiceAdapter>();
+            var statusTracker = ScenarioContext.Current.Get<IStatusTracker>();
+            var subject = ScenarioContext.Current.Get<Subject<TrackingInformation>>();
 
             Func<PayForColorsWinnerInfoCommand, IObservable<PayForColorsWinnerInfoCommand>> _mockGetWinnerInformation = cmd =>
             {
                 return Observable.Return(new PayForColorsWinnerInfoCommand
                 {
                     RoundID = cmd.RoundID,
-                    OnGoingTrackingID = Guid.NewGuid()
+                    OnGoingTrackingID = Guid.NewGuid(),
                 });
             };
 
             using (mocks.Record())
             {
                 SetupResult.For(svc.GetWinnerInformation(null)).IgnoreArguments().Do(_mockGetWinnerInformation);
+                SetupResult.For(statusTracker.Watch(null)).IgnoreArguments().Return(subject);
             }
         }
 
