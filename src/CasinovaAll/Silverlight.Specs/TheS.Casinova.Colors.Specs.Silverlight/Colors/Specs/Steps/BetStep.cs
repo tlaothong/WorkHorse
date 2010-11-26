@@ -77,16 +77,6 @@ namespace TheS.Casinova.Colors.Specs.Steps
             Assert.AreEqual(payLogCount, viewModel.Paylogs.Count, "Pay log count");
         }
 
-        [Then(@"Lot of TrackingID='(.*)' Is Retrieved")]
-        public void ThenLotOfTrackingID(string trackingID)
-        {
-             var subject = ScenarioContext.Current.Get<Subject<TrackingInformation>>();
-             subject.OnNext(new TrackingInformation
-             {
-                 TrackingID = Guid.Parse(trackingID)
-             });
-        }
-
         [Then(@"Paylog have save information are")]
         public void ThenPaylogHaveSaveInformationAre(Table table)
         {

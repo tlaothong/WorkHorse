@@ -44,12 +44,69 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs
         public virtual void ScenarioSetup(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioStart(scenarioInfo);
+            this.FeatureBackground();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCleanupAttribute()]
         public virtual void ScenarioTearDown()
         {
             testRunner.OnScenarioEnd();
+        }
+        
+        public virtual void FeatureBackground()
+        {
+#line 6
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Code",
+                        "Amount",
+                        "UserName",
+                        "CanUser"});
+            table1.AddRow(new string[] {
+                        "jK2A",
+                        "500",
+                        "Boy",
+                        "true"});
+            table1.AddRow(new string[] {
+                        "K9a1",
+                        "1000",
+                        "Tao",
+                        "true"});
+            table1.AddRow(new string[] {
+                        "Gh5E",
+                        "5000",
+                        "Nit",
+                        "false"});
+#line 7
+testRunner.Given("(VoucherToBonusChips)server has voucher information as:", ((string)(null)), table1);
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "MinChipToMoneyExchange",
+                        "MinMoneyToChipExchange",
+                        "MoneyToChipRate",
+                        "MoneyToBonusChipRate",
+                        "ChipToBonusChipRate",
+                        "VoucherToBonusChipRate"});
+            table2.AddRow(new string[] {
+                        "exchange1",
+                        "1000",
+                        "1000",
+                        "1",
+                        "2",
+                        "1",
+                        "1"});
+            table2.AddRow(new string[] {
+                        "Boy",
+                        "2000",
+                        "2000",
+                        "1",
+                        "2",
+                        "1.5",
+                        "1"});
+#line 13
+testRunner.Given("(VoucherToBonusChips)server has exchange setting information as:", ((string)(null)), table2);
+#line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
@@ -60,15 +117,28 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้เล่นแลกคูปองเป็นชิฟตาย มีคูปองตามรหัสที่ระบุและคูปองยังไม่ถูกใช้งาน, ระบบตรวจส" +
                     "อบคูปองและเพิ่มชิฟตายให้กับผู้เล่น", new string[] {
+                        "record_mock",
                         "record_mock"});
-#line 7
+#line 19
 this.ScenarioSetup(scenarioInfo);
-#line 8
+#line 20
 testRunner.Given("The VoucherToBounusChipsExecutor has been created and initialized");
-#line 9
-testRunner.When("Pending for next task");
-#line 10
-testRunner.Then("Pending for next task");
+#line 21
+testRunner.And("(VoucherToBonusChips)sent Code: \'jK2A\' the voucher information should recieved");
+#line 22
+testRunner.And("(VoucherToBonusChips)request voucher avaliable for exchange");
+#line 23
+testRunner.And("(VoucherToBonusChips)sent ExchangeSettingName: \'exchange1\' the exchange setting s" +
+                    "hould recieved");
+#line 24
+testRunner.And("(VoucherToBonusChips)voucher should be update(Code: \'jK2A\')");
+#line 25
+testRunner.And("(VoucherToBonusChips)the user bonus chips should be adding(UserName: \'OhAe\', Amou" +
+                    "nt:\'500\')");
+#line 26
+testRunner.When("call VoucherToBonusChipsExecutor(Code: \'jK2A\', UserName: \'OhAe\')");
+#line 27
+testRunner.Then("the player profile should be update");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -80,15 +150,20 @@ testRunner.Then("Pending for next task");
         public virtual void ผเลนแลกคปองเปนชฟตายมคปองตามรหสทระบและคปองถกใชงานแลวระบบตรวจสอบคปองและแจงเตอน()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้เล่นแลกคูปองเป็นชิฟตาย มีคูปองตามรหัสที่ระบุและคูปองถูกใช้งานแล้ว, ระบบตรวจสอบ" +
-                    "คูปองและแจ้งเตือน", ((string[])(null)));
-#line 12
+                    "คูปองและแจ้งเตือน", new string[] {
+                        "record_mock"});
+#line 30
 this.ScenarioSetup(scenarioInfo);
-#line 13
+#line 31
 testRunner.Given("The VoucherToBounusChipsExecutor has been created and initialized");
-#line 14
-testRunner.When("Pending for next task");
-#line 15
-testRunner.Then("Pending for next task");
+#line 32
+testRunner.And("(VoucherToBonusChips)sent Code: \'Gh5E\' the voucher information should recieved");
+#line 33
+testRunner.And("(VoucherToBonusChips)request voucher not avaliable for exchange");
+#line 34
+testRunner.When("call VoucherToBonusChipsExecutor(Code: \'Gh5E\', UserName: \'OhAe\')");
+#line 35
+testRunner.Then("abort operation");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -98,14 +173,15 @@ testRunner.Then("Pending for next task");
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "VoucherToBonusChips")]
         public virtual void ผเลนแลกคปองเปนชฟตายไมมคปองตามรหสทระบระบบตรวจสอบคปองและแจงเตอน()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้เล่นแลกคูปองเป็นชิฟตาย ไม่มีคูปองตามรหัสที่ระบุ, ระบบตรวจสอบคูปองและแจ้งเตือน", ((string[])(null)));
-#line 17
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้เล่นแลกคูปองเป็นชิฟตาย ไม่มีคูปองตามรหัสที่ระบุ, ระบบตรวจสอบคูปองและแจ้งเตือน", new string[] {
+                        "record_mock"});
+#line 38
 this.ScenarioSetup(scenarioInfo);
-#line 18
+#line 39
 testRunner.Given("The VoucherToBounusChipsExecutor has been created and initialized");
-#line 19
+#line 40
 testRunner.When("Pending for next task");
-#line 20
+#line 41
 testRunner.Then("Pending for next task");
 #line hidden
             testRunner.CollectScenarioErrors();

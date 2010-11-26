@@ -5,6 +5,8 @@ using System.Text;
 using TheS.Casinova.Colors.DAL;
 using TechTalk.SpecFlow;
 using TheS.Casinova.Colors.BackServices.BackExecutors;
+using PerfEx.Infrastructure;
+using TheS.Casinova.Colors.BackServices.Validators;
 
 namespace TheS.Casinova.Colors.BackServices.Specs
 {

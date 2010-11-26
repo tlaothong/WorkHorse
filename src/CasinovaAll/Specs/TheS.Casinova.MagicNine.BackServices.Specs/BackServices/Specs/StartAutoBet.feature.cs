@@ -58,79 +58,140 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "UserName",
-                        "Balance"});
+                        "NonRefundable",
+                        "Refundable"});
             table1.AddRow(new string[] {
                         "OhAe",
-                        "463.61"});
+                        "463.61",
+                        "200"});
             table1.AddRow(new string[] {
                         "Boy",
-                        "121.99"});
+                        "0.99",
+                        "0"});
             table1.AddRow(new string[] {
                         "Toommy",
-                        "36.95"});
+                        "36.95",
+                        "37"});
             table1.AddRow(new string[] {
                         "Au",
-                        "234.00"});
+                        "234.00",
+                        "326"});
+            table1.AddRow(new string[] {
+                        "Game",
+                        "1",
+                        "5"});
+            table1.AddRow(new string[] {
+                        "Khag",
+                        "0.52",
+                        "45"});
+            table1.AddRow(new string[] {
+                        "Ple",
+                        "0.99",
+                        "452"});
 #line 8
-testRunner.Given("(AutoBet)server has player information as:", ((string)(null)), table1);
+testRunner.Given("(StartAutoBet)server has player information as:", ((string)(null)), table1);
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ได้รับข้อมูลการลงเงิน, ผู้เล่นมีเงินพอ ระบบหักเงินผู้เล่นตามเงินที่ลงพนัน และส่งข" +
-            "้อมูลให้ระบบ AutoBet Engine ทำงานต่อ")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(StartAutoBet)ผู้เล่นลงพนันอัตโนมัติ โดยผู้เล่นมีชิฟพอและชิฟตายมากกว่าจำนวนเงินที" +
+            "่ลงพนัน ระบบบันทึกประวัติการลงพนันของผู้เล่นและหักเฉพาะชิฟตาย แล้วส่งข้อมูลให้ระ" +
+            "บบ AutoBet Engine ทำงานต่อ")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StartAutoBet")]
-        public virtual void ไดรบขอมลการลงเงนผเลนมเงนพอระบบหกเงนผเลนตามเงนทลงพนนและสงขอมลใหระบบAutoBetEngineทำงานตอ()
+        public virtual void StartAutoBetผเลนลงพนนอตโนมตโดยผเลนมชฟพอและชฟตายมากกวาจำนวนเงนทลงพนนระบบบนทกประวตการลงพนนของผเลนและหกเฉพาะชฟตายแลวสงขอมลใหระบบAutoBetEngineทำงานตอ()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ได้รับข้อมูลการลงเงิน, ผู้เล่นมีเงินพอ ระบบหักเงินผู้เล่นตามเงินที่ลงพนัน และส่งข" +
-                    "้อมูลให้ระบบ AutoBet Engine ทำงานต่อ", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(StartAutoBet)ผู้เล่นลงพนันอัตโนมัติ โดยผู้เล่นมีชิฟพอและชิฟตายมากกว่าจำนวนเงินที" +
+                    "่ลงพนัน ระบบบันทึกประวัติการลงพนันของผู้เล่นและหักเฉพาะชิฟตาย แล้วส่งข้อมูลให้ระ" +
+                    "บบ AutoBet Engine ทำงานต่อ", new string[] {
                         "record_mock",
                         "record_mock"});
-#line 16
-this.ScenarioSetup(scenarioInfo);
-#line 17
-testRunner.Given("The StartAutoBetExecutor has been created and initialized");
-#line 18
-testRunner.And("sent name: \'OhAe\' the player\'s balance should recieved, for autobet");
 #line 19
-testRunner.And("the player\'s balance should be update correct, Amount: \'200\'");
+this.ScenarioSetup(scenarioInfo);
 #line 20
-testRunner.And("the StartAutoBet shoule be call as: (UserName: \'OhAe\', RoundID: \'1\', Amount: \'200" +
-                    "\', Interval: \'5\', BetTrackingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\')");
+testRunner.Given("The StartAutoBetExecutor has been created and initialized");
 #line 21
-testRunner.When("call StartAutoBetExecutor(UserName: \'OhAe\', RoundID: \'1\', Amount: \'200\', Interval" +
-                    ": \'5\', BetTrackingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\')");
+testRunner.And("(StartAutoBet)sent name: \'OhAe\' the player\'s balance should recieved");
 #line 22
-testRunner.Then("the player information should be update and call StartAutoBet");
+testRunner.And("(StartAutoBet)the player\'s balance should be update only bonuschips, Amount: \'200" +
+                    "\'");
+#line 23
+testRunner.And("the autobet information should be update assume dateTime as: \'2553/11/24 14:43\'(U" +
+                    "serName: \'OhAe\', RoundID: \'1\', Amount: \'200\', Interval: \'5\', AutoBetTrackingID: " +
+                    "\'B21F8971-DBAB-400F-9D95-151BA24875C1\', BetTrackingID: \'A21F8971-DBAB-400F-9D95-" +
+                    "151BA24875C2\')");
+#line 24
+testRunner.And("the StartAuto Engine shoule be call as: (UserName: \'OhAe\', RoundID: \'1\', Amount: " +
+                    "\'200\', Interval: \'5\', AutoBetTrackingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\'," +
+                    " BetTrackingID: \'A21F8971-DBAB-400F-9D95-151BA24875C2\')");
+#line 25
+testRunner.When("call StartAutoBetExecutor(UserName: \'OhAe\', RoundID: \'1\', Amount: \'200\', Interval" +
+                    ": \'5\', AutoBetTrackingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\', BetTrackingID:" +
+                    " \'A21F8971-DBAB-400F-9D95-151BA24875C2\')");
+#line 26
+testRunner.Then("autobet engine should be execute");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ได้รับข้อมูลการลงเงิน, ผู้เล่นมีเงินพอ ระบบหักเงินผู้เล่นตามเงินที่ลงพนัน และส่งข" +
-            "้อมูลให้ระบบ AutoBet Engine ทำงานต่อ2")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(StartAutoBet)ผู้เล่นลงพนันอัตโนมัติ โดยผู้เล่นมีชิฟพอและชิฟตายน้อยกว่าค่าดูสีที่" +
+            "ชนะระบบหักชิฟเป็นเพิ่ม ระบบบันทึกประวัติการลงพนันของผู้เล่นและหักเฉพาะชิฟตาย แล้" +
+            "วส่งข้อมูลให้ระบบ AutoBet Engine ทำงานต่อ")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StartAutoBet")]
-        public virtual void ไดรบขอมลการลงเงนผเลนมเงนพอระบบหกเงนผเลนตามเงนทลงพนนและสงขอมลใหระบบAutoBetEngineทำงานตอ2()
+        public virtual void StartAutoBetผเลนลงพนนอตโนมตโดยผเลนมชฟพอและชฟตายนอยกวาคาดสทชนะระบบหกชฟเปนเพมระบบบนทกประวตการลงพนนของผเลนและหกเฉพาะชฟตายแลวสงขอมลใหระบบAutoBetEngineทำงานตอ()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ได้รับข้อมูลการลงเงิน, ผู้เล่นมีเงินพอ ระบบหักเงินผู้เล่นตามเงินที่ลงพนัน และส่งข" +
-                    "้อมูลให้ระบบ AutoBet Engine ทำงานต่อ2", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(StartAutoBet)ผู้เล่นลงพนันอัตโนมัติ โดยผู้เล่นมีชิฟพอและชิฟตายน้อยกว่าค่าดูสีที่" +
+                    "ชนะระบบหักชิฟเป็นเพิ่ม ระบบบันทึกประวัติการลงพนันของผู้เล่นและหักเฉพาะชิฟตาย แล้" +
+                    "วส่งข้อมูลให้ระบบ AutoBet Engine ทำงานต่อ", new string[] {
                         "record_mock"});
-#line 25
-this.ScenarioSetup(scenarioInfo);
-#line 26
-testRunner.Given("The StartAutoBetExecutor has been created and initialized");
-#line 27
-testRunner.And("sent name: \'Au\' the player\'s balance should recieved, for autobet");
-#line 28
-testRunner.And("the player\'s balance should be update correct, Amount: \'100\'");
 #line 29
-testRunner.And("the StartAutoBet shoule be call as: (UserName: \'Au\', RoundID: \'1\', Amount: \'100\'," +
-                    " Interval: \'5\', BetTrackingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\')");
+this.ScenarioSetup(scenarioInfo);
 #line 30
-testRunner.When("call StartAutoBetExecutor(UserName: \'Au\', RoundID: \'1\', Amount: \'100\', Interval: " +
-                    "\'5\', BetTrackingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\')");
+testRunner.Given("The StartAutoBetExecutor has been created and initialized");
 #line 31
-testRunner.Then("the player information should be update and call StartAutoBet");
+testRunner.And("(StartAutoBet)sent name: \'Ple\' the player\'s balance should recieved");
+#line 32
+testRunner.And("(StartAutoBet)the player\'s balance should be update both chips, Amount: \'200\'");
+#line 33
+testRunner.And("the autobet information should be update assume dateTime as: \'2553/11/24 14:43\'(U" +
+                    "serName: \'Ple\', RoundID: \'1\', Amount: \'200\', Interval: \'5\', AutoBetTrackingID: \'" +
+                    "B21F8971-DBAB-400F-9D95-151BA24875C1\', BetTrackingID: \'A21F8971-DBAB-400F-9D95-1" +
+                    "51BA24875C2\')");
+#line 34
+testRunner.And("the StartAuto Engine shoule be call as: (UserName: \'Ple\', RoundID: \'1\', Amount: \'" +
+                    "200\', Interval: \'5\', AutoBetTrackingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\', " +
+                    "BetTrackingID: \'A21F8971-DBAB-400F-9D95-151BA24875C2\')");
+#line 35
+testRunner.When("call StartAutoBetExecutor(UserName: \'Ple\', RoundID: \'1\', Amount: \'200\', Interval:" +
+                    " \'5\', AutoBetTrackingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\', BetTrackingID: " +
+                    "\'A21F8971-DBAB-400F-9D95-151BA24875C2\')");
+#line 36
+testRunner.Then("autobet engine should be execute");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(StartAutoBet)ผู้เล่นลงพนันอัตโนมัติ โดยผู้เล่นมีเงินไม่พอ ระบบแจ้งเตือนผู้เล่นว่" +
+            "าเงินไม่พอ")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StartAutoBet")]
+        public virtual void StartAutoBetผเลนลงพนนอตโนมตโดยผเลนมเงนไมพอระบบแจงเตอนผเลนวาเงนไมพอ()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(StartAutoBet)ผู้เล่นลงพนันอัตโนมัติ โดยผู้เล่นมีเงินไม่พอ ระบบแจ้งเตือนผู้เล่นว่" +
+                    "าเงินไม่พอ", new string[] {
+                        "record_mock"});
+#line 39
+this.ScenarioSetup(scenarioInfo);
+#line 40
+testRunner.Given("The StartAutoBetExecutor has been created and initialized");
+#line 41
+testRunner.And("(StartAutoBet)sent name: \'Ple\' the player\'s balance should recieved");
+#line 42
+testRunner.When("Expected exeception and call StartAutoBetExecutor(UserName: \'Ple\', RoundID: \'1\', " +
+                    "Amount: \'5200\', Interval: \'5\', AutoBetTrackingID: \'B21F8971-DBAB-400F-9D95-151BA" +
+                    "24875C1\', BetTrackingID: \'A21F8971-DBAB-400F-9D95-151BA24875C2\')");
+#line 43
+testRunner.Then("the result should be throw exception");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

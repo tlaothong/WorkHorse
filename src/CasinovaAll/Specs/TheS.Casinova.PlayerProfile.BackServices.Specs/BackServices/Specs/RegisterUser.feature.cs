@@ -67,18 +67,18 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs
             table1.AddRow(new string[] {
                         "Au"});
 #line 7
-testRunner.Given("server has user profile information as:", ((string)(null)), table1);
+testRunner.Given("(RegisterUser)server has user profile information as:", ((string)(null)), table1);
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้เล่นสมัครโดยมีผู้แนะนำมาด้วย, ระบบบันทึกข้อมูล และส่งรหัสยืนยันให้ EmailSender" +
-            " ส่ง E-mail รหัสยืนยันให้ผู้เล่น")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(RegisterUser)ผู้เล่นสมัครโดยมีผู้แนะนำมาด้วย, ระบบบันทึกข้อมูล และส่งรหัสยืนยันใ" +
+            "ห้ EmailSender ส่ง E-mail รหัสยืนยันให้ผู้เล่น")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "RegisterUser")]
-        public virtual void ผเลนสมครโดยมผแนะนำมาดวยระบบบนทกขอมลและสงรหสยนยนใหEmailSenderสงE_Mailรหสยนยนใหผเลน()
+        public virtual void RegisterUserผเลนสมครโดยมผแนะนำมาดวยระบบบนทกขอมลและสงรหสยนยนใหEmailSenderสงE_Mailรหสยนยนใหผเลน()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้เล่นสมัครโดยมีผู้แนะนำมาด้วย, ระบบบันทึกข้อมูล และส่งรหัสยืนยันให้ EmailSender" +
-                    " ส่ง E-mail รหัสยืนยันให้ผู้เล่น", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(RegisterUser)ผู้เล่นสมัครโดยมีผู้แนะนำมาด้วย, ระบบบันทึกข้อมูล และส่งรหัสยืนยันใ" +
+                    "ห้ EmailSender ส่ง E-mail รหัสยืนยันให้ผู้เล่น", new string[] {
                         "record_mock"});
 #line 15
 this.ScenarioSetup(scenarioInfo);
@@ -99,28 +99,26 @@ testRunner.Then("the result should be create");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้เล่นสมัครโดยมีผู้แนะนำมาด้วย, ระบบบันทึกข้อมูล และส่งรหัสยืนยันให้ EmailSender" +
-            " ส่ง E-mail รหัสยืนยันให้ผู้เล่น2")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(RegisterUser)ผู้เล่นสมัครโดยมีผู้แนะนำมาด้วย แต่ไม่มีผู้แนะนำในระบบ, ระบบแจ้งเตื" +
+            "อนผู้เล่น")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "RegisterUser")]
-        public virtual void ผเลนสมครโดยมผแนะนำมาดวยระบบบนทกขอมลและสงรหสยนยนใหEmailSenderสงE_Mailรหสยนยนใหผเลน2()
+        public virtual void RegisterUserผเลนสมครโดยมผแนะนำมาดวยแตไมมผแนะนำในระบบระบบแจงเตอนผเลน()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้เล่นสมัครโดยมีผู้แนะนำมาด้วย, ระบบบันทึกข้อมูล และส่งรหัสยืนยันให้ EmailSender" +
-                    " ส่ง E-mail รหัสยืนยันให้ผู้เล่น2", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(RegisterUser)ผู้เล่นสมัครโดยมีผู้แนะนำมาด้วย แต่ไม่มีผู้แนะนำในระบบ, ระบบแจ้งเตื" +
+                    "อนผู้เล่น", new string[] {
                         "record_mock"});
 #line 23
 this.ScenarioSetup(scenarioInfo);
 #line 24
 testRunner.Given("The RegisterUserExecutor has been created and initialized");
 #line 25
-testRunner.And("the upline should be avaliable(UserName: \'Boy\')");
+testRunner.And("the upline should be unvaliable(UserName: \'Ple\')");
 #line 26
-testRunner.And("the user profile should be create(UserName: \'OhAe\', Password: \'1234\', E-mail: \'ab" +
-                    "c@abc.com\', CellPhone: \'0812345678\', Upline: \'Boy\', VeriflyCode: \'A2SK\')");
+testRunner.When("Expected exception and call RegisterUserExecutor(UserName: \'OhAe\', Password: \'123" +
+                    "4\', E-mail: \'abc@abc.com\', CellPhone: \'0812345678\', Upline: \'Ple\', VeriflyCode: " +
+                    "\'A2SK\')");
 #line 27
-testRunner.When("call RegisterUserExecutor(UserName: \'OhAe\', Password: \'1234\', E-mail: \'abc@abc.co" +
-                    "m\', CellPhone: \'0812345678\', Upline: \'Boy\', VeriflyCode: \'A2SK\')");
-#line 28
-testRunner.Then("the result should be create");
+testRunner.Then("the result should be throw exception");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

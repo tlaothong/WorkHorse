@@ -44,12 +44,89 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs
         public virtual void ScenarioSetup(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioStart(scenarioInfo);
+            this.FeatureBackground();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCleanupAttribute()]
         public virtual void ScenarioTearDown()
         {
             testRunner.OnScenarioEnd();
+        }
+        
+        public virtual void FeatureBackground()
+        {
+#line 7
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "MinChipToMoneyExchange",
+                        "MinMoneyToChipExchange",
+                        "MoneyToChipRate",
+                        "MoneyToBonusChipRate",
+                        "ChipToBonusChipRate",
+                        "VoucherToBonusChipRate"});
+            table1.AddRow(new string[] {
+                        "exchange1",
+                        "1000",
+                        "1000",
+                        "1",
+                        "1",
+                        "1",
+                        "1"});
+            table1.AddRow(new string[] {
+                        "Boy",
+                        "2000",
+                        "2000",
+                        "1",
+                        "2",
+                        "1.5",
+                        "1"});
+#line 8
+testRunner.Given("(MoneyToChips)server has exchange setting information as:", ((string)(null)), table1);
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "UserName",
+                        "FirstName",
+                        "LastName",
+                        "AccountType",
+                        "CardType",
+                        "AccountNo",
+                        "CVV",
+                        "ExpireDate",
+                        "Active"});
+            table2.AddRow(new string[] {
+                        "OhAe",
+                        "Sirinarin",
+                        "AAA",
+                        "Primary",
+                        "VISA",
+                        "123445677891",
+                        "1234",
+                        "2009/12",
+                        "True"});
+            table2.AddRow(new string[] {
+                        "OhAe",
+                        "Siriwasan",
+                        "AAA",
+                        "Secondary",
+                        "Mastercard",
+                        "852612246578",
+                        "5135",
+                        "2009/9",
+                        "True"});
+            table2.AddRow(new string[] {
+                        "Nit",
+                        "Nittaya",
+                        "BBB",
+                        "Primary",
+                        "Mastercard",
+                        "551654787921",
+                        "1549",
+                        "2009/10",
+                        "True"});
+#line 13
+testRunner.And("(MoneyToChips)server has player account information as:", ((string)(null)), table2);
+#line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
@@ -60,11 +137,30 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้เล่นแลกเงินเป็นชิฟเป็น บัตรเครดิตของผู้เล่นถูกต้อง ระบุจำนวนเงินมากกว่าจำนวนขั" +
                     "้นต่ำ, ระบบตรวจสอบบัตรเครดิตเพื่อชำระเงินและเพิ่มชิฟเป็นให้กับผู้เล่น", new string[] {
+                        "record_mock",
                         "record_mock"});
-#line 7
+#line 20
 this.ScenarioSetup(scenarioInfo);
-#line 8
+#line 21
 testRunner.Given("The MoneyToChipsExecutor has been created and initialized");
+#line 22
+testRunner.And("sent ExchangeSettingName: \'exchange1\' the exchange setting should recieved");
+#line 23
+testRunner.And("exchange amount: \'2000\' should be more than minimum exchange rate");
+#line 24
+testRunner.And("sent UserName: \'OhAe\', AccountType: \'Primary\' the player account information shou" +
+                    "ld recieved");
+#line 25
+testRunner.And("the PayExchangeEngine should be call and complete transaction sent UserName: \'OhA" +
+                    "e\', Amount: \'2000\', CardType: \'VISA\', FistName: \'Sirinarin\', LastName: \'AAA\', Ac" +
+                    "countNo: \'123445677891\', CVV: \'1234\', ExpireDate: \'2009/12\'");
+#line 26
+testRunner.And("the user chips should be adding(UserName: \'OhAe\', Amount:\'2000\')");
+#line 27
+testRunner.When("call MoneyToChipsExecutor(UserName: \'OhAe\', Amount: \'2000\', AccountType: \'Primary" +
+                    "\')");
+#line 28
+testRunner.Then("the result should be update");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -76,11 +172,21 @@ testRunner.Given("The MoneyToChipsExecutor has been created and initialized");
         public virtual void ผเลนแลกเงนเปนชฟเปนบตรเครดตของผเลนถกตองระบจำนวนนอยกวาจำนวนขนตำระบบไมอนญาตใหแลกเงน()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้เล่นแลกเงินเป็นชิฟเป็น บัตรเครดิตของผู้เล่นถูกต้อง ระบุจำนวนน้อยกว่าจำนวนขั้นต" +
-                    "่ำ, ระบบไม่อนุญาติให้แลกเงิน", ((string[])(null)));
-#line 10
+                    "่ำ, ระบบไม่อนุญาติให้แลกเงิน", new string[] {
+                        "record_mock"});
+#line 31
 this.ScenarioSetup(scenarioInfo);
-#line 11
+#line 32
 testRunner.Given("The MoneyToChipsExecutor has been created and initialized");
+#line 33
+testRunner.And("sent ExchangeSettingName: \'exchange1\' the exchange setting should recieved");
+#line 34
+testRunner.And("exchange amount: \'500\' should be less than minimum exchange rate");
+#line 35
+testRunner.When("call MoneyToChipsExecutor(UserName: \'OhAe\', Amount: \'500\', AccountType: \'Primary\'" +
+                    ")");
+#line 36
+testRunner.Then("the result should be update");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -92,11 +198,16 @@ testRunner.Given("The MoneyToChipsExecutor has been created and initialized");
         public virtual void ผเลนแลกเงนเปนชฟเปนบตรเครดตของผเลนไมถกตองระบบไมอนญาตใหแลกเงน()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้เล่นแลกเงินเป็นชิฟเป็น บัตรเครดิตของผู้เล่นไม่ถูกต้อง ระบบไม่อนุญาติให้แลกเงิน" +
-                    "", ((string[])(null)));
-#line 13
+                    "", new string[] {
+                        "record_mock"});
+#line 39
 this.ScenarioSetup(scenarioInfo);
-#line 14
+#line 40
 testRunner.Given("The MoneyToChipsExecutor has been created and initialized");
+#line 41
+testRunner.When("Pending for next task");
+#line 42
+testRunner.Then("Pending for next task");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

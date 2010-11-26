@@ -8,6 +8,6 @@ namespace TheS.Casinova.ChipExchange.BackServices
 {
     public interface IPayExchangeEngine
     {
-        void PayExchange(PayExchangeCommand command);
+        bool PayExchange(PayExchangeCommand command);
     }
 }

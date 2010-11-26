@@ -11,6 +11,11 @@ namespace TheS.Casinova.PlayerAccount.Models
     public class PlayerAccountInformation
     {
         /// <summary>
+        /// รหัสบัญชีของผู้เล่น
+        /// </summary>
+        public int PlayerAccoundID { get; set; }
+
+        /// <summary>
         /// ชื่อผู้เล่น
         /// </summary>
         public string UserName { get; set; }

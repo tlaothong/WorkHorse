@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TheS.Casinova.MagicNine.Models;
+using TheS.Casinova.PlayerProfile.Models;
 
 namespace TheS.Casinova.MagicNine.Commands
 {
@@ -22,5 +23,10 @@ namespace TheS.Casinova.MagicNine.Commands
         /// ข้อมูลผู้เล่นที่จะได้รับ
         /// </summary>
         public PlayerInformation PlayerInfo { get; set; }
+
+        /// <summary>
+        /// ข้อมูลผู้เล่นที่จะได้รับ
+        /// </summary>
+        public UserProfile UserProfile { get; set; }
     }
 }

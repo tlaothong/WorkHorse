@@ -16,16 +16,21 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
         public const string Key_Dac_IncreasePlayerBonusChipsByMoney = "mockDac_IncreasePlayerBonusChipsByMoney";
         public const string Key_Dac_IncreasePlayerBonusChipsByVoucher = "mockDac_IncreasePlayerBonusChipsByVoucher";
         public const string Key_Dac_UpdateUsedVoucher = "mockDac_UpdateUsedVoucher";
+        public const string Key_Dac_UpdateUserProfile = "mockDac_UpdateUserProfile";
+        public const string Key_Dac_CreateVoucherInfo = "mockDac_CreateVoucherInfo";
 
         public const string Key_Dqr_GetExchangeSetting = "mockDqr_GetExchangeSetting";
         public const string Key_Dqr_GetPlayerAccountInfo = "mockDqr_GetPlayerAccountInfo";
         public const string Key_Dqr_GetMLNInfo = "mockDqr_GetMLNInfo";
         public const string Key_Dqr_GetVoucherInfo = "mockDqr_GetVoucherInfo";
+        public const string Key_Dqr_GetUserProfile = "mockDqr_GetUserProfile";
 
         public const string Key_PayExchangeEngine = "PayExchangeEngine";
         public const string Key_MoneyToChips = "MoneyToChips";
         public const string Key_MoneyToBonusChips = "MoneyToBonusChips";
         public const string Key_VoucherToBonusChips = "VoucherToBonusChips";
+        public const string Key_GenerateVoucherCode = "GenerateVoucherCode";
+        public const string Key_PayVoucher = "PayVoucher";
 
         MockRepository Mocks { get { return SpecEventDefinitions.Mocks; } }
 
@@ -74,6 +79,23 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
             ScenarioContext.Current[Key_Dac_UpdateUsedVoucher] = dac;
             ScenarioContext.Current[Key_Dac_IncreasePlayerBonusChipsByVoucher] = dac;
             ScenarioContext.Current[Key_VoucherToBonusChips] = new VoucherToBonusChipsExecutor(dac, dqr);
+        }
+
+        [Given(@"The PayVoucherExecutor has been created and initialized")]
+        public void GivenThePayVoucherExecutorHasBeenCreatedAndInitialized()
+        {
+            var dac = Mocks.DynamicMock<IChipExchangeDataAccess>();
+            var dqr = Mocks.DynamicMock<IChipExchangeDataBackQuery>();
+            var svc = Mocks.DynamicMock<IGenerateVoucherCode>();
+
+            ScenarioContext.Current[Key_Dqr_GetUserProfile] = dqr;
+
+            ScenarioContext.Current[Key_Dac_UpdateUserProfile] = dac;
+            ScenarioContext.Current[Key_Dac_CreateVoucherInfo] = dac;
+
+            ScenarioContext.Current[Key_GenerateVoucherCode] = svc;
+
+            ScenarioContext.Current[Key_PayVoucher] = new PayVoucherExecutor(svc, dac, dqr);
         }
     }
 }

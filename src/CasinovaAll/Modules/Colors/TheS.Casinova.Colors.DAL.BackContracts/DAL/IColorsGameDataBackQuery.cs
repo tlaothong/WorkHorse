@@ -5,6 +5,7 @@ using System.Text;
 using PerfEx.Infrastructure.Data;
 using TheS.Casinova.Colors.Commands;
 using TheS.Casinova.Colors.Models;
+using TheS.Casinova.PlayerProfile.Models;
 
 namespace TheS.Casinova.Colors.DAL
 {
@@ -20,7 +21,7 @@ namespace TheS.Casinova.Colors.DAL
     /// ดึงข้อมูลผู้เล่น
     /// </summary>
     public interface IGetPlayerInfo
-        : IFetchSingleData<PlayerInformation, GetPlayerInfoCommand>
+        : IFetchSingleData<UserProfile, GetPlayerInfoCommand>
     { }
 
     /// <summary>

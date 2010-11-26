@@ -5,6 +5,7 @@ using System.Text;
 using TheS.Casinova.Colors.Models;
 using TheS.Casinova.Colors.Commands;
 using PerfEx.Infrastructure.Data;
+using TheS.Casinova.PlayerProfile.Models;
 
 namespace TheS.Casinova.Colors.DAL
 {
@@ -21,7 +22,7 @@ namespace TheS.Casinova.Colors.DAL
     /// อัพเดทข้อมูลผู้เล่น
     /// </summary>
     public interface IUpdatePlayerInfoBalance
-        : IDataAction<PlayerInformation, UpdatePlayerInfoBalanceCommand>
+        : IDataAction<UserProfile, UpdatePlayerInfoBalanceCommand>
     { }
 
     /// <summary>

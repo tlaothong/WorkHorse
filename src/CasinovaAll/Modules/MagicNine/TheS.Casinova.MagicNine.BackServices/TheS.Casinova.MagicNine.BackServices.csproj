@@ -54,13 +54,20 @@
     <Compile Include="BackServices\BackExecutors\StartAutoBetExecutor.cs" />
     <Compile Include="BackServices\BackExecutors\StopAutoBetExecutor.cs" />
     <Compile Include="BackServices\IAutoBetEngine.cs" />
+    <Compile Include="BackServices\Validators\AutoBetInformation_StopAutoBetValidators.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BackServices\Validators\UserProfile_SingleBetValidators.cs" />
+    <Compile Include="BackServices\Validators\UserProfile_StartAutoBetValidators.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\..\PlayerProfile\TheS.Casinova.PlayerProfile.Models\TheS.Casinova.PlayerProfile.Models.csproj">
+      <Project>{96BBA83F-EAA6-4EEA-BEC5-98F6AC39B943}</Project>
+      <Name>TheS.Casinova.PlayerProfile.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TheS.Casinova.MagicNine.Commands\TheS.Casinova.MagicNine.Commands.csproj">
       <Project>{1F2B601A-3E92-4904-8609-5D59E62A5DB1}</Project>
       <Name>TheS.Casinova.MagicNine.Commands</Name>

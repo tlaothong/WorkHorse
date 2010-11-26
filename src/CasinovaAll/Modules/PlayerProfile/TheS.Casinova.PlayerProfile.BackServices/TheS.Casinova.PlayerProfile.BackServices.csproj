@@ -53,7 +53,12 @@
     <Compile Include="BackServices\BackExecutors\ChangeEmailExecutor.cs" />
     <Compile Include="BackServices\BackExecutors\ChangePasswordExecutor.cs" />
     <Compile Include="BackServices\BackExecutors\RegisterUserExecutor.cs" />
-    <Compile Include="BackServices\BackExecutors\VeriflyUserExecutor.cs" />
+    <Compile Include="BackServices\BackExecutors\VerifyUserExecutor.cs" />
+    <Compile Include="BackServices\IEmailSender.cs" />
+    <Compile Include="BackServices\Validators\UserProfile_ChangeEmailValidators.cs" />
+    <Compile Include="BackServices\Validators\UserProfile_ChangePasswordValidators.cs" />
+    <Compile Include="BackServices\Validators\UserProfile_RegisterUserValidators.cs" />
+    <Compile Include="BackServices\Validators\UserProfile_VerifyUserValidators.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
