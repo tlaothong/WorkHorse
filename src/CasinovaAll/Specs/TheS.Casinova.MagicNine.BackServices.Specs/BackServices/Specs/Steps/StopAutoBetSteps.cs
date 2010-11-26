@@ -34,7 +34,7 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
             foreach (var item in qry) {
                 GamePlayAutoBetInformation it = new GamePlayAutoBetInformation {
                     UserName = item.UserName,
-                    Round = item.Round,                    
+                    RoundID = item.Round,                    
                 };
 
                 if (item.ThruDateTime == "null") {
@@ -54,7 +54,7 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
         public void GivenStopAutoBetSentNameXRoundIDXTheAutobetInformationShouldRecieved(string userName, int roundID)
         {
             _expectAutoBetInfo = (from item in _autoBetInfos
-                                  where item.UserName == userName && item.Round == roundID
+                                  where item.UserName == userName && item.RoundID == roundID
                                   select item).FirstOrDefault();
 
             SetupResult.For(Dqr_GetAutoBetInfo.Get(new StopAutoBetCommand()))
@@ -62,7 +62,7 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
 
             _autoBetInfo = new GamePlayAutoBetInformation {
                 UserName = _expectAutoBetInfo.UserName,
-                Round = _expectAutoBetInfo.Round,
+                RoundID = _expectAutoBetInfo.RoundID,
                 StopTrackingID = _expectAutoBetInfo.StopTrackingID,
             };
         }
@@ -71,7 +71,7 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
         public void GivenStopAutoBetTheAutobetInformationShouldBeUpdateAsUserNameXRoundIDXStopTrackingIDX(string userName, int roundID, string stopTrackigID)
         {
             Action<GamePlayAutoBetInformation, StopAutoBetCommand> checkData = (autoBetInfo, cmd) => {
-                Assert.AreEqual(roundID, autoBetInfo.Round, "RoundID");                
+                Assert.AreEqual(roundID, autoBetInfo.RoundID, "RoundID");                
                 Assert.AreEqual(userName, autoBetInfo.UserName, "UserName");
                 Assert.AreEqual(Guid.Parse(stopTrackigID), autoBetInfo.StopTrackingID, "StopTrackingID");
             };
@@ -85,7 +85,7 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
         {
             Action<GamePlayAutoBetInformation, StopAutoBetCommand> checkData = (autoBetInfo, cmd) => {
                 Assert.AreEqual(userName, autoBetInfo.UserName, "UserName");
-                Assert.AreEqual(roundID, autoBetInfo.Round, "RoundID");
+                Assert.AreEqual(roundID, autoBetInfo.RoundID, "RoundID");
                 Assert.AreEqual(Guid.Parse(stopTrackingID), autoBetInfo.StopTrackingID, "StopTrackingID");
             };
 
@@ -99,7 +99,7 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
             StopAutoBetCommand cmd = new StopAutoBetCommand {
                 GamePlayAutoBetInfo = new GamePlayAutoBetInformation {
                     UserName = userName,
-                    Round = roundID,
+                    RoundID = roundID,
                     StopTrackingID = Guid.Parse(stopTrackingID),
                 },
             };
@@ -114,7 +114,7 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
                 StopAutoBetCommand cmd = new StopAutoBetCommand {
                     GamePlayAutoBetInfo = new GamePlayAutoBetInformation {
                         UserName = userName,
-                        Round = roundID,
+                        RoundID = roundID,
                         StopTrackingID = Guid.Parse(stopTrackingID),
                     },
                 };
