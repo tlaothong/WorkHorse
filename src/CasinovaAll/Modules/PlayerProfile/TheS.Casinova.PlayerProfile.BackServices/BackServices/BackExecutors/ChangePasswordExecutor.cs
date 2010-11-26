@@ -6,6 +6,8 @@ using TheS.Casinova.PlayerProfile.Commands;
 using PerfEx.Infrastructure.CommandPattern;
 using TheS.Casinova.PlayerProfile.DAL;
 using TheS.Casinova.PlayerProfile.Models;
+using PerfEx.Infrastructure;
+using PerfEx.Infrastructure.Validation;
 
 namespace TheS.Casinova.PlayerProfile.BackServices.BackExecutors
 {
@@ -13,35 +15,25 @@ namespace TheS.Casinova.PlayerProfile.BackServices.BackExecutors
         : SynchronousCommandExecutorBase<ChangePasswordCommand>
     {
         private IChangePassword _iChangePassword;
-        private IGetUserProfile _iGetUserProfile;
+        private IDependencyContainer _container;
 
-        public ChangePasswordExecutor(IPlayerProfileDataAccess dac, IPlayerProfileDataBackQuery dqr)
+        public ChangePasswordExecutor(IDependencyContainer container, IPlayerProfileDataAccess dac)
         {
             _iChangePassword = dac;
-            _iGetUserProfile = dqr;
+            _container = container;
         }
 
         protected override void ExecuteCommand(ChangePasswordCommand command)
         {
-            GetUserProfileCommand getUserProfileCmd = new GetUserProfileCommand { 
-                UserName = command.UserName 
-            };
-
-            getUserProfileCmd.PlayerProfile = _iGetUserProfile.Get(getUserProfileCmd);
-
-            //ตรวจสอบรหัสผ่านเดิมว่าถูกต้องหรือไม่
-            if (getUserProfileCmd.PlayerProfile.Password == command.OldPassword) {
-                UserProfile userProfile = new UserProfile {
-                    UserName = command.UserName,
-                    Password = command.NewPassword,
-                };
-
-                //บันทึกรหัสผ่านใหม่
-                _iChangePassword.ApplyAction(userProfile, command);
+            ValidationErrorCollection errorValidations = new ValidationErrorCollection();
+            ValidationHelper.Validate(_container, command.UserProfile, command, errorValidations);
+            if (errorValidations.Any()) {
+                throw new ValidationErrorException(errorValidations);
             }
-            else {
-                Console.WriteLine("############### รหัสผ่านเดิม ไม่ถูกต้อง ######################");
-            }
+
+            //บันทึกรหัสผ่านใหม่
+            command.UserProfile.Password = command.NewPassword;
+            _iChangePassword.ApplyAction(command.UserProfile, command);
         }
     }
 }

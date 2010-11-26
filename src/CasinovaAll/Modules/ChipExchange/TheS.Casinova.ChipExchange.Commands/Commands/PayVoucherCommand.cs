@@ -19,6 +19,6 @@ namespace TheS.Casinova.ChipExchange.Commands
         /// <summary>
         /// จำนวนเงิน
         /// </summary>
-        public int Amount { get; set; }
+        public double Amount { get; set; }
     }
 }

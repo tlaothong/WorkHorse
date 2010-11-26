@@ -2,29 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TheS.Casinova.Colors.Models;
 
 namespace TheS.Casinova.Colors.Commands
 {
     /// <summary>
-    /// อัพเดทข้อมูลผู้ชนะในโต๊ะเกมที่ผู้เล่นลงพนันไว้
+    /// อัพเดทข้อมูลสีที่ชนะในโต๊ะเกมที่ผู้เล่นลงพนันไว้
     /// </summary>
     public class UpdateRoundWinnerCommand 
         : PayForColorsWinnerInfoCommand
     {
         //input
         /// <summary>
-        /// รหัสสำหรับตรวจสอบความถูกต้อง
+        /// ข้อมูลผู้เล่นที่จะบันทึกสีที่ชนะ
         /// </summary>
-        public Guid TrackingID { get; set; }
-
-        /// <summary>
-        /// เวลาที่อัพเดทข้อมูล
-        /// </summary>
-        public DateTime LastUpdate { get; set; }
-
-        /// <summary>
-        /// ข้อมูลผู้ชนะ
-        /// </summary>
-        public string Winner { get; set; }
+        public GamePlayInformation GamePlayInformation { get; set; }
     }
 }

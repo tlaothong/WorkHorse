@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TheS.Casinova.Colors.Models;
+using TheS.Casinova.PlayerProfile.Models;
 
 namespace TheS.Casinova.Colors.Commands
 {
@@ -21,6 +22,6 @@ namespace TheS.Casinova.Colors.Commands
         /// <summary>
         /// ข้อมูลผู้เล่นที่จะได้รับ
         /// </summary>
-        public PlayerInformation PlayerInfo { get; set; }
+        public UserProfile UserProfile { get; set; }
     }
 }

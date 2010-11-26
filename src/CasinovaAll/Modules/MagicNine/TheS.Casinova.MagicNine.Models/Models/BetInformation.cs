@@ -34,5 +34,10 @@ namespace TheS.Casinova.MagicNine.Models
         /// รหัสสำหรับตรวจสอบ
         /// </summary>
         public Guid BetTrackingID { get; set; }
+
+        /// <summary>
+        /// จำนวนเงินที่ลงพนัน
+        /// </summary>
+        public double Amount { get; set; }
     }
 }

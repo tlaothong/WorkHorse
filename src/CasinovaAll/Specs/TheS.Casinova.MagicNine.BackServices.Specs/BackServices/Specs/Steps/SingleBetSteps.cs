@@ -7,6 +7,8 @@ using TheS.Casinova.MagicNine.Models;
 using Rhino.Mocks;
 using TheS.Casinova.MagicNine.Commands;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TheS.Casinova.PlayerProfile.Models;
+using PerfEx.Infrastructure.Validation;
 
 namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
 {
@@ -14,90 +16,77 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
     public class SingleBetSteps
         : MagicNineStepsBase
     {
-        private IEnumerable<PlayerInformation> _playerInfos;
-        private IEnumerable<GameRoundInformation> _gameRoundInfos;
+        private IEnumerable<UserProfile> _playerProfiles;
+        private UserProfile _playerProfile;
 
-        [Given(@"server has player information as:")]
-        public void GivenServerHasPlayerInformationAs(Table table)
+        [Given(@"\(SingleBet\)server has player information as:")]
+        public void GivenSingleBetServerHasPlayerInformationAs(Table table)
         {
-            _playerInfos = (from item in table.Rows
-                            select new PlayerInformation { 
+            _playerProfiles = (from item in table.Rows
+                            select new UserProfile { 
                                 UserName = item["UserName"],
-                                Balance = Convert.ToDouble(item["Balance"]),
+                                Refundable = Convert.ToDouble(item["Refundable"]),
+                                NonRefundable = Convert.ToDouble(item["NonRefundable"]),
                             });
         }
 
-        [Given(@"server has game round information as:")]
-        public void GivenServerHasGameRoundInformationAs(Table table)
+        [Given(@"\(SingleBet\)sent name: '(.*)' the player's balance should recieved")]
+        public void GivenSingleBetSentNameOhAeThePlayerSBalanceShouldRecieved(string userName)
         {
-            _gameRoundInfos = (from item in table.Rows
-                               select new GameRoundInformation { 
-                                   RoundID = Convert.ToInt32(item["RoundID"]),
-                                   //StartTime = DateTime.Parse(item["StartTime"]),
-                                   //EndTime = DateTime.Parse(item["EndTime"]), null value
-                                   //GamePot = Convert.ToInt32(item["GamePot"]),
-                                   WinnerPoint = Convert.ToInt32(item["WinnerPoint"]),
-                                   Active = Convert.ToBoolean(item["Active"]),
-                               });
-        }
-
-        [Given(@"sent RoundID: '(.*)' the round pot should recieved")]
-        public void GivenSentRoundIDXTheRoundPotShouldRecieved(int roundID)
-        {
-            //var qry = (from item in _gameRoundInfos
-            //           where item.RoundID == roundID
-            //           select item.GamePot).FirstOrDefault();
-
-            //SetupResult.For(Dqr_GetGameRoundPot.Get(new GetGameRoundPotCommand()))
-            //    .IgnoreArguments().Return(qry);
-            ScenarioContext.Current.Pending();
-        }
-
-        [Given(@"sent name: '(.*)' the player's balance should recieved")]
-        public void GivenSentNameOhAeThePlayerSBalanceShouldRecieved(string userName)
-        {
-            var qry = (from item in _playerInfos
+            var _expectPlayerProfile = (from item in _playerProfiles
                        where item.UserName == userName
                        select item).FirstOrDefault();
 
             SetupResult.For(Dqr_GetPlayerInfo.Get(new GetPlayerInfoCommand()))
-                .IgnoreArguments().Return(qry);            
+                .IgnoreArguments().Return(_expectPlayerProfile);
+
+            _playerProfile = new UserProfile {
+                UserName = _expectPlayerProfile.UserName,
+                NonRefundable = _expectPlayerProfile.NonRefundable,
+                Refundable = _expectPlayerProfile.Refundable,
+            };
         }
 
-        [Given(@"the expected balance should be: '(.*)'")]
-        public void GivenTheExpectedBalanceShouldBeX(double expectBalance)
+        [Given(@"the player's balance should be update only bonuschips, Amount: '(.*)'")]
+        public void GivenThePlayerSBalanceShouldBeUpdateOnlyBonuschipsAmountX(double amount)
         {
-            Action<PlayerInformation, UpdatePlayerInfoBalanceCommand> checkData = (playerInfo, cmd) => 
-            {
-                Assert.AreEqual(expectBalance, playerInfo.Balance, "Balance");
+            _playerProfile.NonRefundable -= amount;
+
+            Action<UserProfile, UpdatePlayerInfoBalanceCommand> CheckCallMethod = (playerProfile, cmd) => {
+                Assert.AreEqual(_playerProfile.UserName, playerProfile.UserName, "UserName");
+                Assert.AreEqual(_playerProfile.Refundable, playerProfile.Refundable, "Refundable");
+                Assert.AreEqual(_playerProfile.NonRefundable, playerProfile.NonRefundable, "NonRefundable");
             };
 
-            Dac_UpdatePlayerInfoBalance.ApplyAction(new PlayerInformation(), new UpdatePlayerInfoBalanceCommand());
-            LastCall.IgnoreArguments().Do(checkData);
+            Dac_UpdatePlayerInfoBalance.ApplyAction(new UserProfile(), new UpdatePlayerInfoBalanceCommand());
+            LastCall.IgnoreArguments().Do(CheckCallMethod);
         }
 
-        [Given(@"the round information\(RoundID: '(.*)', GamePot: '(.*)'\) should be update")]
-        public void GivenTheRoundInformationRoundIDXGamePotXShouldBeUpdate(int roundID, int gamePot)
+        [Given(@"\(SingleBet\)the player's balance should be update both chips, Amount: '(.*)'")]
+        public void GivenSingleBetThePlayerSBalanceShouldBeUpdateBothChipsAmountX(double amount)
         {
-            Action<GameRoundInformation, UpdateGameRoundPotCommand> checkData = (gameRoundInfo, cmd) => 
-            {
-                Assert.AreEqual(roundID, gameRoundInfo.RoundID, "RoundID");
-                //Assert.AreEqual(gamePot, gameRoundInfo.GamePot, "GamePot");
+            _playerProfile.Refundable -= amount - _playerProfile.NonRefundable;
+            _playerProfile.NonRefundable = 0;
+
+            Action<UserProfile, UpdatePlayerInfoBalanceCommand> CheckCallMethod = (playerProfile, cmd) => {
+                Assert.AreEqual(_playerProfile.UserName, playerProfile.UserName, "UserName");
+                Assert.AreEqual(_playerProfile.Refundable, playerProfile.Refundable, "Refundable");
+                Assert.AreEqual(_playerProfile.NonRefundable, playerProfile.NonRefundable, "NonRefundable");
             };
 
-            Dac_UpdateGameRoundPot.ApplyAction(new GameRoundInformation(), new UpdateGameRoundPotCommand());
-            LastCall.IgnoreArguments().Do(checkData);
+            Dac_UpdatePlayerInfoBalance.ApplyAction(new UserProfile(), new UpdatePlayerInfoBalanceCommand());
+            LastCall.IgnoreArguments().Do(CheckCallMethod);
         }
 
-        [Given(@"the bet information\(RoundID: '(.*)', UserName: '(.*)', BetOrder: '(.*)', BetTrackingID: '(.*)'\) should be create")]
-        public void GivenTheBetInformationRoundIDXUserNameXTrackingIDXShouldBeCreate(int roundID, string userName, int betOrder, string trackingID)
+        [Given(@"the bet information assume dateTime as: '(.*)'\(RoundID: '(.*)', UserName: '(.*)', TrackingID: '(.*)', DateTime: '(.*)'\) should be create")]
+        public void GivenTheBetInformationAssumeDateTimeAsXRoundIDXUserNameXTrackingIDXDateTimeXShouldBeCreate(DateTime assumeDateTime, int roundID, string userName, string trackingID, DateTime dateTime)
         {
-            Func<BetInformation, SingleBetCommand, BetInformation> checkData = (betInfo, cmd) => 
-            {
+            Func<BetInformation, SingleBetCommand, BetInformation> checkData = (betInfo, cmd) => {
                 Assert.AreEqual(roundID, betInfo.RoundID, "RoundID");
                 Assert.AreEqual(userName, betInfo.UserName, "UserName");
-                Assert.AreEqual(betOrder, betInfo.BetOrder, "BetOrder");
                 Assert.AreEqual(Guid.Parse(trackingID), betInfo.BetTrackingID, "BetTrackingID");
+
+                //define datetime by assume datetime
                 return betInfo;
             };
 
@@ -105,24 +94,37 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
             LastCall.IgnoreArguments().Do(checkData);
         }
 
-        [Given(@"the expected balance less than bet cost")]
-        public void GivenTheExpectedBalanceLessThanBetCost()
-        {
-            ScenarioContext.Current.Pending();
-        }
-
-        [When(@"call SingleBet\(RoundID: '(.*)', UserName: '(.*)', BetTrackingID: '(.*)'\)")]
-        public void WhenCallSingleBetRoundIDXUserNameXTrackingIDX(int roundID, string userName, string trackingID)
+        [When(@"call SingleBetExecutor\(RoundID: '(.*)', UserName: '(.*)', TrackingID: '(.*)'\)")]
+        public void WhenCallSingleBetExecutorRoundIDXUserNameXTrackingIDX(int roundID, string userName, string betTrackingID)
         {
             SingleBetCommand cmd = new SingleBetCommand {
                 BetInfo = new BetInformation {
                     RoundID = roundID,
                     UserName = userName,
-                    BetTrackingID = Guid.Parse(trackingID),
-                }
+                    BetTrackingID = Guid.Parse(betTrackingID),
+                },
             };
 
             SingleBetExecutor.Execute(cmd, (x) => { });
+        }
+
+        [When(@"Expected exception and call SingleBetExecutor\(RoundID: '(.*)', UserName: '(.*)', TrackingID: '(.*)'\)")]
+        public void WhenExpectedExceptionAndCallSingleBetExecutorRoundIDXUserNameXTrackingIDX(int roundID, string userName, string betTrackingID)
+        {
+            try {
+                SingleBetCommand cmd = new SingleBetCommand {
+                    BetInfo = new BetInformation {
+                        RoundID = roundID,
+                        UserName = userName,
+                        BetTrackingID = Guid.Parse(betTrackingID),
+                    },
+                };
+                SingleBetExecutor.Execute(cmd, (x) => { });
+                Assert.Fail("Shouldn't be here!");
+            }
+            catch (Exception ex) {
+                Assert.IsInstanceOfType(ex, typeof(ValidationErrorException));
+            }
         }
 
         [Then(@"the result should be create")]
@@ -131,10 +133,10 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
             Assert.IsTrue(true, "Expectation has been verified in the end of block When.");
         }
 
-        [Then(@"server should throw an error")]
-        public void ThenServerShouldThrowAnError()
+        [Then(@"the result should be throw exception")]
+        public void ThenTheResultShouldBeThrowException()
         {
-            ScenarioContext.Current.Pending();
+            Assert.IsTrue(true, "Expectation has been verified in the end of block When.");
         }
     }
 }

@@ -13,23 +13,8 @@ namespace TheS.Casinova.Colors.Commands
     {
         //input
         /// <summary>
-        /// รหัสโต๊ะเกมที่ถูกดำเนินการ
+        /// ข้อมูลการดำเนินการของผู้เล่น
         /// </summary>
-        public int RoundID { get; set; }
-
-        /// <summary>
-        /// ชื่อผู้เล่นที่ดำเนินการ
-        /// </summary>
-        public string UserName { get; set; }
-
-        /// <summary>
-        /// จำนวนเงินค่าดำเนินการ
-        /// </summary>
-        public double Amount { get; set; }
-
-        /// <summary>
-        /// ประเภทการดำเนินการ
-        /// </summary>
-        public string ActionType { get; set; }
+        public PlayerActionInformation PlayerActionInfo { get; set; }
     }
 }

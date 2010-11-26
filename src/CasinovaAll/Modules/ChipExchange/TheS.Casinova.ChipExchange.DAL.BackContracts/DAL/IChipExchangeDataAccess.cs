@@ -13,7 +13,9 @@ namespace TheS.Casinova.ChipExchange.DAL
         IIncreasePlayerChipsByMoney,
         IIncreasePlayerBonusChipsByMoney,
         IIncreasePlayerBonusChipsByVoucher,
-        IUpdateUsedVoucher
+        IUpdateUserProfile,
+        IUpdateUsedVoucher,
+        ICreateVoucherInformation
     { }
 
     public interface IIncreasePlayerChipsByMoney
@@ -28,7 +30,15 @@ namespace TheS.Casinova.ChipExchange.DAL
         : IDataAction<ExchangeInformation, MoneyToBonusChipsCommand>
     { }
 
+    public interface IUpdateUserProfile
+        : IDataAction<UserProfile, PayVoucherCommand>
+    { }
+
     public interface IUpdateUsedVoucher
         : IDataAction<VoucherInformation, UpdateUsedVoucherCommand>
+    { }
+
+    public interface ICreateVoucherInformation
+        : ICreateData<VoucherInformation, PayVoucherCommand>
     { }
 }

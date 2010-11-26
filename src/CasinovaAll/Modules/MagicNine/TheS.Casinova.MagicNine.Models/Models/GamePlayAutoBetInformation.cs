@@ -26,7 +26,17 @@ namespace TheS.Casinova.MagicNine.Models
         public double Amount { get; set; }
 
         /// <summary>
-        /// ระยะห่างของเวลาในการลงเดิมพันแต่ละครั้ง เป็นวินาที
+        /// ชิฟตายที่ใช้ลงพนัน
+        /// </summary>
+        public double BonusChips { get; set; }
+
+        /// <summary>
+        /// ชิฟเป็นที่ใช้ลงพนัน
+        /// </summary>
+        public double Chips { get; set; }
+
+        /// <summary>
+        /// ระยะห่างของเวลาในการลงเดิมพันแต่ละครั้ง
         /// </summary>
         public int Interval { get; set; }
 
@@ -46,6 +56,11 @@ namespace TheS.Casinova.MagicNine.Models
         public Guid BetTrackingID { get; set; }
 
         /// <summary>
+        /// tracking id เมื่อหยุด autobet
+        /// </summary>
+        public Guid StopTrackingID { get; set; }
+
+        /// <summary>
         /// เวลาเริ่มการลงเดิมพันแบบอัตโนมัติ
         /// </summary>
         public DateTime FromDateTime { get; set; }
@@ -53,7 +68,7 @@ namespace TheS.Casinova.MagicNine.Models
         /// <summary>
         /// เวลาสิ้นสุดการลงเดิมพันแบบอัตโนมัติ
         /// </summary>
-        public DateTime ThruDateTime { get; set; }
+        public DateTime ?ThruDateTime { get; set; }
 
         /// <summary>
         /// หมายเลข Lot

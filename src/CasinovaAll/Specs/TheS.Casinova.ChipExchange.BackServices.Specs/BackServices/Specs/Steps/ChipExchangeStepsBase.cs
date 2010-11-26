@@ -46,6 +46,24 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
             }
         }
 
+        protected IUpdateUserProfile Dac_UpdateUserProfile
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_Dac_UpdateUserProfile] as IUpdateUserProfile;
+            }
+        }
+
+        protected ICreateVoucherInformation Dac_CreateVoucherInfo
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_Dac_CreateVoucherInfo] as ICreateVoucherInformation;
+            }
+        }
+
         protected IGetExchangeSetting Dqr_GetExchangeSetting
         {
             get
@@ -73,12 +91,21 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
             }
         }
 
-        protected IGetVoucherInfo Dqr_GetVoucher
+        protected IGetVoucherInfo Dqr_GetVoucherInfo
         {
             get
             {
                 return ScenarioContext.Current[
                     CommonSteps.Key_Dqr_GetVoucherInfo] as IGetVoucherInfo;
+            }
+        }
+
+        protected IGetUserProfile Dqr_GetUserProfile
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_Dqr_GetUserProfile] as IGetUserProfile;
             }
         }
 
@@ -88,6 +115,15 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
             {
                 return ScenarioContext.Current[
                     CommonSteps.Key_PayExchangeEngine] as IPayExchangeEngine;
+            }
+        }
+
+        protected IGenerateVoucherCode Svc_GenerateVoucherCode
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_GenerateVoucherCode] as IGenerateVoucherCode;
             }
         }
 
@@ -115,6 +151,15 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
             {
                 return ScenarioContext.Current[
                     CommonSteps.Key_VoucherToBonusChips] as VoucherToBonusChipsExecutor;
+            }
+        }
+
+        protected PayVoucherExecutor PayVoucherExecutor 
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_PayVoucher] as PayVoucherExecutor;
             }
         }
     }
