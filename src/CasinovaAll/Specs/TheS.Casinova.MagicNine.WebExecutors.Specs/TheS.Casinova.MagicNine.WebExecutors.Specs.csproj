@@ -109,6 +109,7 @@
       <DependentUpon>StopAutoBetFeature.feature</DependentUpon>
     </Compile>
     <Compile Include="WebExecutors\UnitSpecs\SingleBetExecutorSpecs.cs" />
+    <Compile Include="WebExecutors\UnitSpecs\StartAutoBetExecutorSpecs.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Modules\Chat\TheS.Casinova.Chat.BackProviders\TheS.Casinova.Chat.BackProviders.csproj">

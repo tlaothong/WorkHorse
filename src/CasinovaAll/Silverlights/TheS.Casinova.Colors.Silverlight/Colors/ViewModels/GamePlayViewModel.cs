@@ -26,34 +26,27 @@ namespace TheS.Casinova.Colors.ViewModels
     {
         #region Fields
 
-        private PropertyChangedNotifier _notify;
-        private DateTime _gameTime;
-        private string _winner;
-        private string _winnerInformation;
-        private string _totalAmountOfBlack;
-        private string _totalAmountOfWhite;
-        private ObservableCollection<GameTable> _tables;
-
-        private ObservableCollection<PayLog> _paylogs;
-        private IColorsServiceAdapter _sva;
-        private IScheduler _scheduler;
-        private IStatusTracker _tracker;
         private int _roundID;
-        private double _betAmount;
-        private GameStatisticsViewModel _gameResult;
         private bool _isSecondGetWinnerInformation;
+        private string _winnerInformation;
+        private double _betAmount;
         private double _costWinnerInformation;
+        private IScheduler _scheduler;
+        private IColorsServiceAdapter _sva;
+        private IStatusTracker _statusTracker;
+        private PropertyChangedNotifier _notify;
+        private GameStatisticsViewModel _gameResult;
+        private ObservableCollection<GameTable> _tables;
+        private ObservableCollection<PayLog> _paylogs;
+
 
         #endregion Fields
 
         #region Properties
 
-        internal ObservableCollection<PayLog> Paylogs
-        {
-            get { return _paylogs; }
-            set { _paylogs = value; }
-        }
-
+        /// <summary>
+        /// ผลลัพท์
+        /// </summary>
         public GameStatisticsViewModel GameResult
         {
             get { return _gameResult; }
@@ -67,6 +60,25 @@ namespace TheS.Casinova.Colors.ViewModels
             }
         }
 
+        /// <summary>
+        /// ค่าใช้จ่ายในการขอดูข้อมูล Winner
+        /// </summary>
+        public double CostWinnerInformation
+        {
+            get { return _costWinnerInformation; }
+            set
+            {
+                if (_costWinnerInformation!=value)
+                {
+                    _costWinnerInformation = value;
+                    _notify.Raise(() => CostWinnerInformation); 
+                }
+            }
+        }
+
+        /// <summary>
+        /// จำนวนที่ทำการลงเงินพนัน
+        /// </summary>
         public double BetAmount
         {
             get { return _betAmount; }
@@ -80,6 +92,9 @@ namespace TheS.Casinova.Colors.ViewModels
             }
         }
 
+        /// <summary>
+        /// Game round identify
+        /// </summary>
         public int RoundID
         {
             get { return _roundID; }
@@ -87,83 +102,94 @@ namespace TheS.Casinova.Colors.ViewModels
             {
                 if (_roundID!=value)
                 {
-                    _roundID = value;
-                    _notify.Raise(() => RoundID); 
+                    _roundID = value; 
                 }
             }
         }
 
+        /// <summary>
+        /// Game tables
+        /// </summary>
         public ObservableCollection<GameTable> Tables
         {
             get { return _tables; }
             set
             {
-                _tables = value;
-                _notify.Raise(() => Tables);
-            }
-        }
-
-        public string TotalAmountOfWhite
-        {
-            get { return _totalAmountOfWhite; }
-            set
-            {
-                if (_totalAmountOfWhite != value)
+                if (_tables!=value)
                 {
-                    _totalAmountOfWhite = value;
-                    _notify.Raise(() => TotalAmountOfWhite);
+                    _tables = value; 
                 }
             }
         }
 
-        public string TotalAmountOfBlack
-        {
-            get { return _totalAmountOfBlack; }
-            set
-            {
-                if (_totalAmountOfBlack != value)
-                {
-                    _totalAmountOfBlack = value;
-                    _notify.Raise(() => TotalAmountOfBlack);
-                }
-            }
-        }
-
+        /// <summary>
+        /// ข้อมูลที่แสดงวิธีการใช้งานการขอดู Winner
+        /// </summary>
         public string WinnerInformation
         {
             get { return _winnerInformation; }
             set
             {
-                if (_winnerInformation != value)
+                if (_winnerInformation!=value)
                 {
                     _winnerInformation = value;
-                    _notify.Raise(() => WinnerInformation);
+                    _notify.Raise(() => WinnerInformation); 
                 }
             }
         }
 
+        /// <summary>
+        /// เงินที่ลงพนันไว้ในสี ดำ
+        /// </summary>
+        public double TotalAmountOfBlack
+        {
+            get
+            {
+                return ThisGameTableInformation.TotalBetBlack;
+            }
+        }
+
+        /// <summary>
+        /// เงินที่ลงพนันไว้ในสี ขาว
+        /// </summary>
+        public double TotalAmountOfWhite
+        {
+            get
+            {
+                return ThisGameTableInformation.TotalBetWhite;
+            }
+        }
+
+        /// <summary>
+        /// สีที่ชนะ
+        /// </summary>
         public string Winner
         {
-            get { return _winner; }
-            set
+            get
             {
-                if (_winner != value)
-                {
-                    _winner = value;
-                    _notify.Raise(() => Winner);
-                }
+                return ThisGameTableInformation.Winner;
             }
         }
 
-        public DateTime GameTime
+        /// <summary>
+        /// เวลาที่เหลือ
+        /// </summary>
+        public TimeSpan GameTime
         {
-            get { return _gameTime; }
+            get
+            {
+                return ThisGameTableInformation.GameTime;
+            }
+        }
+
+        internal ObservableCollection<PayLog> Paylogs
+        {
+            get { return _paylogs; }
             set
             {
-                if (_gameTime != value)
+                if (_paylogs!=value)
                 {
-                    _gameTime = value;
-                    _notify.Raise(() => GameTime);
+                    _paylogs = value; 
                 }
             }
         }
@@ -192,10 +218,15 @@ namespace TheS.Casinova.Colors.ViewModels
             set { _scheduler = new DispatcherScheduler(value); }
         }
 
-        internal IStatusTracker Tracker
+        internal IStatusTracker StatusTracker
         {
-            get { return _tracker; }
-            set { _tracker = value; }
+            get { return _statusTracker; }
+            set { _statusTracker = value; }
+        }
+
+        private GameTable ThisGameTableInformation
+        {
+            get { return _tables.First(c => c.Round.Equals(_roundID)); }
         }
 
         #endregion Properties
@@ -277,25 +308,15 @@ namespace TheS.Casinova.Colors.ViewModels
 
         #region Methods
 
-        public void BetBlack()
-        {
-            bet();
-        }
-
-        public void BetWhite()
-        {
-            const bool betWhite = false;
-            bet(betWhite);
-        }
-
         public void GetListActiveGameRounds()
         {
-            var svc = GameService;
+            var svc = _sva;
 
             IDisposable disposeGameRounds = null;
             disposeGameRounds = svc.GetListActiveGameRound().ObserveOn(Scheduler).Subscribe(
                 next =>
                 {
+                    Tables.Clear();
                     foreach (var table in next.ActiveRounds)
                         Tables.Add(new GameTable
                         {
@@ -315,7 +336,7 @@ namespace TheS.Casinova.Colors.ViewModels
 
         public void GetListGamePlayInformation()
         {
-            var svc = GameService;
+            var svc = _sva;
             IDisposable disposeGamePlayInformation = null;
             disposeGamePlayInformation = svc.GetListGamePlayInformation(new ListGamePlayInfoCommand()).
                 ObserveOn(Scheduler).Subscribe(
@@ -367,13 +388,26 @@ namespace TheS.Casinova.Colors.ViewModels
 
         public void GetWinnerInformation()
         {
+            var svc = _sva;
+
             // TODO: Sub account balance
-            Paylogs.Add(new PayLog
+            var log = new PayLog
             {
                 RoundID = RoundID,
-                Amount = _costWinnerInformation
-            });
-            var svc = GameService;
+                Amount = _costWinnerInformation,
+            };
+
+            // TODO: Colors observer follow trackingID
+            Paylogs.Add(log);
+
+            Action onFoundTracking = () =>
+            {
+                Paylogs.Remove(log);
+                GetListGamePlayInformation();
+            };
+
+            ColorsTrackingObserver observer = new ColorsTrackingObserver(onFoundTracking);
+            observer.Initialize(StatusTracker);
 
             // TODO: Colors RX GetWinnerInformation
             IDisposable disposeGetWinnerInformation = null;
@@ -381,17 +415,13 @@ namespace TheS.Casinova.Colors.ViewModels
                 .ObserveOn(Scheduler).Subscribe(
                 next =>
                 {
-                    // TODO: Colors observer follow trackingID
-                    //GetListGamePlayInformation();
+                    observer.SetTrackingID(next.OnGoingTrackingID);
 
                     // Display TotalAmountOfBlack, TotalAmountOfWhite, Winner
-                    //var result = Tables.FirstOrDefault(c => c.Round.Equals(RoundID));
                     //Winner = result.Winner;
                     //TotalAmountOfBlack = result.TotalBetBlack.ToString();
                     //TotalAmountOfWhite = result.TotalBetWhite.ToString();
-
-                    // TODO: Delete PayLog where TrackingID match
-                    // TODO: if trackingID = empty remove waiting status
+                    //If trackingID = empty remove waiting status
                 },
                 error =>
                 {
@@ -405,7 +435,7 @@ namespace TheS.Casinova.Colors.ViewModels
 
         public void GetGameResult()
         {
-            var svc = GameService;
+            var svc = _sva;
 
             IDisposable disposeGameResult = null;
             disposeGameResult = svc.GetGameResult(new GetGameResultCommand { RoundID = RoundID })
@@ -434,21 +464,33 @@ namespace TheS.Casinova.Colors.ViewModels
                 );
         }
 
+        public void BetBlack()
+        {
+            bet();
+        }
+
+        public void BetWhite()
+        {
+            const bool betWhite = false;
+            bet(betWhite);
+        }
+
         private void bet(bool betBlack = true)
         {
+            var svc = _sva;
+
             const string BetInBlack = "Black";
             const string BetInWhite = "White";
             string selectColor = BetInWhite;
             if (betBlack) selectColor = BetInBlack;
 
-            Paylogs.Add(new PayLog
+            var paylog = new PayLog
             {
                 Amount = BetAmount,
                 RoundID = RoundID,
                 Colors = selectColor
-            });
-
-            var svc = GameService;
+            };
+            Paylogs.Add(paylog);
 
             IDisposable disposeBet = null;
             disposeBet = svc.Bet(new BetCommand
@@ -460,10 +502,11 @@ namespace TheS.Casinova.Colors.ViewModels
                 next =>
                 {
                     // TODO: Colors RX Bet
-                    // Get OnGoingTrackingID
                     // Sent to observer follow this OnGoingTrackingID
-                    // Observer found TrackingID in lot
-                    // Request get list game play information
+                    ColorsTrackingObserver observer = new ColorsTrackingObserver(() => { });
+                    observer.Initialize(StatusTracker);
+                    observer.SetTrackingID(next.TrackingID);
+
                     // Display TotalBetAmountOfBlack, TotalBetAmountOfWhite, Winner
                     // Check TrackingID and OnGoingTrackingID
                     // Delete PayLog in TrackingID

@@ -204,7 +204,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
         public void WhenCallPayForColorsWinnerInfoUserNameXRoundIDXOnGoingTrackingIDX(string userName, int roundID, string onGoingTrackingID)
         {
             PayForColorsWinnerInfoCommand cmd = new PayForColorsWinnerInfoCommand {
-                PlayerActionInfoUserName = new PlayerActionInformation {
+                PlayerActionInfo = new PlayerActionInformation {
                     UserName = userName,
                     RoundID = roundID,
                 },

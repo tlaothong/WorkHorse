@@ -27,7 +27,7 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
                 RoundID = 1
             };
             var cmd = new PayForColorsWinnerInfoCommand {
-                PlayerActionInfoUserName = model,
+                PlayerActionInfo = model,
             };
 
             PayForColorsWinnerInfoExecutor xcutor = new PayForColorsWinnerInfoExecutor(
@@ -46,7 +46,7 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
                 RoundID = -2
             };
             var cmd = new PayForColorsWinnerInfoCommand {
-                PlayerActionInfoUserName = model,
+                PlayerActionInfo = model,
             };
 
             PayForColorsWinnerInfoExecutor xcutor = new PayForColorsWinnerInfoExecutor(
@@ -68,7 +68,7 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
                 ActionType = null,
             };
             var cmd = new PayForColorsWinnerInfoCommand {
-                PlayerActionInfoUserName = model,
+                PlayerActionInfo = model,
             };
 
             PayForColorsWinnerInfoExecutor xcutor = new PayForColorsWinnerInfoExecutor(

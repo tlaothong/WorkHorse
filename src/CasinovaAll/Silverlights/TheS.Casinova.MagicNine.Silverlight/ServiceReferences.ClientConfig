@@ -1,0 +1,17 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_IMagicNineService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://localhost:60642/wsv/MagicNineService.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IMagicNineService"
+                contract="MagicNineSvc.IMagicNineService" name="BasicHttpBinding_IMagicNineService" />
+        </client>
+    </system.serviceModel>
+</configuration>

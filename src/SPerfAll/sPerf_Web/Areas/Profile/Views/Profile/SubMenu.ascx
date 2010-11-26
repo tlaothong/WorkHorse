@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<dynamic>" %>
-   <div style="float: right; margin-right:-72px;">
+   <div style="float: right; margin-right:160px;">
     <table>
             <tr>
                 <td>
@@ -23,8 +23,8 @@
                 </div>
             </td>
             <td>
-                <div id="friend">
-                    | <%=Html.ActionLink("Friend",MVC.Profile.Profile.Friends()) %>
+                <div class="linkSub">
+                    | <a href="#" id="FriendList">Friend List</a>
                 </div>
             </td>
             <td>

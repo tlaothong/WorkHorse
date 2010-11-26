@@ -14,7 +14,7 @@ namespace TheS.Casinova.Colors.Commands
        //input
        /// <summary>
        /// ข้อมูลเพื่อสร้างโต๊ะเกม
-        /// 1. TableName ชื่อโต๊ะเกม
+        /// 1. ConfigName ชื่อโต๊ะเกม
         /// 2. TableAmount จำนวนโต๊ะเกมที่ต้องการสร้าง
         /// 3. GameDuration ระยะเวลาของเกมแต่ละ round
         /// 4. Interval ระยะห่างในการเริ่มเกมแต่ละ round

@@ -11,15 +11,19 @@ namespace TheS.Casinova.MagicNine.Models
     {
         public class MD
         {
+            [Required]
             public string UserName { get; set; }
 
-            public int Round { get; set; }
+            [Range(0,int.MaxValue)]
+            public int RoundID { get; set; }
 
-            public int Amount { get; set; }
+            [Range(0,double.MaxValue)]
+            public double Amount { get; set; }
 
+            [Range(1,int.MaxValue)]
             public int Interval { get; set; }
 
-            public int MoneyRefund { get; set; }
+            public double MoneyRefund { get; set; }
 
             public Guid AutoBetTrackingID { get; set; }
 

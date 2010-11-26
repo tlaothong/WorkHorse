@@ -20,7 +20,7 @@ namespace TheS.Casinova.Colors.Commands
         ///  4. ActionType 
         ///  5. TrackingID รหัสที่ใช้ในการตรวจสอบ
         /// </summary>
-        public PlayerActionInformation PlayerActionInfo { get; set; }
+        public PlayerActionInformation BetPlayerActionInfo { get; set; }
 
     }
 }

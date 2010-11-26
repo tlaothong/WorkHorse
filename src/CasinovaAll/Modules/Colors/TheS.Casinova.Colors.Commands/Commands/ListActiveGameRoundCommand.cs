@@ -21,7 +21,7 @@ namespace TheS.Casinova.Colors.Commands
        /// <summary>
         /// ข้อมูลโต๊ะเกมที่ active
        /// </summary>
-        public IEnumerable<GameRoundInformation> GameRoundInfo { get; set; } 
+        public IEnumerable<GameRoundInformation> ActiveGameRoundInfo { get; set; } 
 
     }
 }

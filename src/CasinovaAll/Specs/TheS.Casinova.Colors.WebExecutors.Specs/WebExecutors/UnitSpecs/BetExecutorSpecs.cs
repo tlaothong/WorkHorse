@@ -32,7 +32,7 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
                 Amount = 500,
             };
             var cmd = new BetCommand {
-                PlayerActionInfo = model,
+                BetPlayerActionInfo = model,
             };
 
             BetColorsExecutor xcutor = new BetColorsExecutor(
@@ -55,7 +55,7 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
                 Amount = 500,
             };
             var cmd = new BetCommand {
-                PlayerActionInfo = model,
+                BetPlayerActionInfo = model,
             };
 
             BetColorsExecutor xcutor = new BetColorsExecutor(
@@ -78,7 +78,7 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
                 Amount = 500,
             };
             var cmd = new BetCommand {
-                PlayerActionInfo = model,
+                BetPlayerActionInfo = model,
             };
 
             BetColorsExecutor xcutor = new BetColorsExecutor(
@@ -101,7 +101,7 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
                 Amount = -500,
             };
             var cmd = new BetCommand {
-                PlayerActionInfo = model,
+                BetPlayerActionInfo = model,
             };
 
             BetColorsExecutor xcutor = new BetColorsExecutor(

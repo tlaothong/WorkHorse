@@ -29,7 +29,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "ListBetLog", "In order to list bet log\r\nAs a system\r\nI want to list bet log of player", ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "ListBetLog", "In order to list bet log\r\nAs a system\r\nI want to list player\'s bet log", ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -43,7 +43,6 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs
         public virtual void ScenarioSetup(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioStart(scenarioInfo);
-            this.FeatureBackground();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCleanupAttribute()]
@@ -52,9 +51,17 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs
             testRunner.OnScenarioEnd();
         }
         
-        public virtual void FeatureBackground()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล UserName และ RoundID ถูกต้อง ระบบสามารถลีสต์ข้อมูล Bet log ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListBetLog")]
+        public virtual void ระบบไดรบขอมลUserNameและRoundIDถกตองระบบสามารถลสตขอมลBetLogได()
         {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล UserName และ RoundID ถูกต้อง ระบบสามารถลีสต์ข้อมูล Bet log ได้", new string[] {
+                        "record_mock"});
 #line 7
+this.ScenarioSetup(scenarioInfo);
+#line 8
+testRunner.Given("The ListBetLogExecutor has been created and initialized");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "UserName",
@@ -66,47 +73,32 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs
                         "Nit",
                         "1",
                         "10:00",
-                        "5",
+                        "1",
                         "03D51BC1-1656-454B-8CB2-4202BA8C21D7"});
             table1.AddRow(new string[] {
-                        "Nit",
+                        "Boy",
                         "1",
                         "10:05",
-                        "9",
+                        "2",
                         "09630A4D-0B6C-4672-95F0-0AE5E48614FD"});
             table1.AddRow(new string[] {
-                        "Nit",
+                        "Boy",
                         "1",
                         "10:10",
-                        "17",
+                        "3",
                         "2ED52C48-5C9A-471B-9335-DDAE19F44BE6"});
             table1.AddRow(new string[] {
                         "Nit",
                         "1",
                         "10:15",
-                        "26",
+                        "4",
                         "833278AF-A221-4916-90CD-96951051F40F"});
-#line 8
+#line 9
 testRunner.Given("server has player information as:", ((string)(null)), table1);
-#line hidden
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับ userName และ roundId ถูกต้อง")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListBetLog")]
-        public virtual void ระบบไดรบUserNameและRoundIdถกตอง()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับ userName และ roundId ถูกต้อง", new string[] {
-                        "record_mock",
-                        "record_mock"});
+#line 15
+testRunner.And("Sent UserName\'Nit\', RoundID \'1\' for test function");
 #line 16
-this.ScenarioSetup(scenarioInfo);
-#line 17
-testRunner.Given("The ListBetLogExecutor has been created and initialized");
-#line 18
-testRunner.And("Expect execute ListBetLogCommand");
-#line 19
-testRunner.When("Call ListBetLogExecutor(userName\'Nit\', roundId \'1\')");
+testRunner.When("Call ListBetLogExecutor()");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "UserName",
@@ -118,106 +110,142 @@ testRunner.When("Call ListBetLogExecutor(userName\'Nit\', roundId \'1\')");
                         "Nit",
                         "1",
                         "10:00",
-                        "5",
+                        "1",
                         "03D51BC1-1656-454B-8CB2-4202BA8C21D7"});
             table2.AddRow(new string[] {
                         "Nit",
                         "1",
-                        "10:05",
-                        "9",
-                        "09630A4D-0B6C-4672-95F0-0AE5E48614FD"});
-            table2.AddRow(new string[] {
-                        "Nit",
-                        "1",
-                        "10:10",
-                        "17",
-                        "2ED52C48-5C9A-471B-9335-DDAE19F44BE6"});
-            table2.AddRow(new string[] {
-                        "Nit",
-                        "1",
                         "10:15",
-                        "26",
+                        "4",
                         "833278AF-A221-4916-90CD-96951051F40F"});
-#line 20
+#line 17
 testRunner.Then("The result of BetLog should be :", ((string)(null)), table2);
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับ userName ไม่ถูกต้อง #ListBetLog")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับ UserName และ RoundID แต่ใน database ยังไม่มีบันทึกการลงเดิมพันของผู้เล" +
+            "่น ได้ข้อมูล Bet log เป็น null")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListBetLog")]
-        public virtual void ระบบไดรบUserNameไมถกตองListBetLog()
+        public virtual void ระบบไดรบUserNameและRoundIDแตในDatabaseยงไมมบนทกการลงเดมพนของผเลนไดขอมลBetLogเปนNull()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับ userName ไม่ถูกต้อง #ListBetLog", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับ UserName และ RoundID แต่ใน database ยังไม่มีบันทึกการลงเดิมพันของผู้เล" +
+                    "่น ได้ข้อมูล Bet log เป็น null", new string[] {
                         "record_mock"});
-#line 28
+#line 23
 this.ScenarioSetup(scenarioInfo);
-#line 29
+#line 24
 testRunner.Given("The ListBetLogExecutor has been created and initialized");
-#line 30
-testRunner.When("Call ListBetLogExecutor(userName\'\', roundId \'1\')");
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "UserName",
+                        "RoundID",
+                        "BetDateTime",
+                        "BetOrder",
+                        "BetTrackingID"});
+            table3.AddRow(new string[] {
+                        "Nit",
+                        "1",
+                        "10:00",
+                        "1",
+                        "03D51BC1-1656-454B-8CB2-4202BA8C21D7"});
+            table3.AddRow(new string[] {
+                        "Boy",
+                        "1",
+                        "10:05",
+                        "2",
+                        "09630A4D-0B6C-4672-95F0-0AE5E48614FD"});
+            table3.AddRow(new string[] {
+                        "Boy",
+                        "1",
+                        "10:10",
+                        "3",
+                        "2ED52C48-5C9A-471B-9335-DDAE19F44BE6"});
+            table3.AddRow(new string[] {
+                        "Nit",
+                        "1",
+                        "10:15",
+                        "4",
+                        "833278AF-A221-4916-90CD-96951051F40F"});
+#line 25
+testRunner.Given("server has player information as:", ((string)(null)), table3);
 #line 31
-testRunner.Then("The result of BetLog should be null");
+testRunner.And("Sent UserName\'Ae\', RoundID \'2\' for test function");
+#line 32
+testRunner.When("Call ListBetLogExecutor()");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "UserName",
+                        "RoundID",
+                        "BetDateTime",
+                        "BetOrder",
+                        "BetTrackingID"});
+#line 33
+testRunner.Then("The result of BetLog should be :", ((string)(null)), table4);
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับ roundId  ไม่ถูกต้อง #ListBetLog")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับ UserName ไม่ถูกต้อง ระบบไม่สามารถลีสต์ข้อมูล Bet log ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListBetLog")]
-        public virtual void ระบบไดรบRoundIdไมถกตองListBetLog()
+        public virtual void ระบบไดรบUserNameไมถกตองระบบไมสามารถลสตขอมลBetLogได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับ roundId  ไม่ถูกต้อง #ListBetLog", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับ UserName ไม่ถูกต้อง ระบบไม่สามารถลีสต์ข้อมูล Bet log ได้", new string[] {
                         "record_mock"});
-#line 34
-this.ScenarioSetup(scenarioInfo);
-#line 35
-testRunner.Given("The ListBetLogExecutor has been created and initialized");
-#line 36
-testRunner.When("Call ListBetLogExecutor(userName\'Nit\', roundId \'-1\')");
 #line 37
-testRunner.Then("The result of BetLog should be null");
-#line hidden
-            testRunner.CollectScenarioErrors();
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับ userName และ roundId  ไม่ถูกต้อง #ListBetLog")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListBetLog")]
-        public virtual void ระบบไดรบUserNameและRoundIdไมถกตองListBetLog()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับ userName และ roundId  ไม่ถูกต้อง #ListBetLog", new string[] {
-                        "record_mock"});
+this.ScenarioSetup(scenarioInfo);
+#line 38
+testRunner.Given("The ListBetLogExecutor has been created and initialized");
+#line 39
+testRunner.And("Sent UserName\'\', RoundID \'1\' for validate");
 #line 40
-this.ScenarioSetup(scenarioInfo);
+testRunner.When("Call ListBetLogExecutor() for validate input information");
 #line 41
-testRunner.Given("The ListBetLogExecutor has been created and initialized");
-#line 42
-testRunner.When("Call ListBetLogExecutor(userName\'\', roundId \'-1\')");
-#line 43
-testRunner.Then("The result of BetLog should be null");
+testRunner.Then("The result of BetLog should be throw exception");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับ userName และ roundId แต่ใน database ยังไม่มีบันทึกการลงเดิมพันของผู้เล" +
-            "่น #ListBetLog")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับ RoundID ไม่ถูกต้อง ระบบไม่สามารถลีสต์ข้อมูล Bet log ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListBetLog")]
-        public virtual void ระบบไดรบUserNameและRoundIdแตในDatabaseยงไมมบนทกการลงเดมพนของผเลนListBetLog()
+        public virtual void ระบบไดรบRoundIDไมถกตองระบบไมสามารถลสตขอมลBetLogได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับ userName และ roundId แต่ใน database ยังไม่มีบันทึกการลงเดิมพันของผู้เล" +
-                    "่น #ListBetLog", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับ RoundID ไม่ถูกต้อง ระบบไม่สามารถลีสต์ข้อมูล Bet log ได้", new string[] {
                         "record_mock"});
-#line 46
+#line 44
 this.ScenarioSetup(scenarioInfo);
-#line 47
+#line 45
 testRunner.Given("The ListBetLogExecutor has been created and initialized");
+#line 46
+testRunner.And("Sent UserName\'Nit\', RoundID \'-1\' for validate");
+#line 47
+testRunner.When("Call ListBetLogExecutor() for validate input information");
 #line 48
-testRunner.When("Call ListBetLogExecutor(userName\'Ae\', roundId \'2\')");
-#line 49
-testRunner.Then("The result of BetLog should be null");
+testRunner.Then("The result of BetLog should be throw exception");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับ UserName และ RoundID  ไม่ถูกต้อง ระบบไม่สามารถลีสต์ข้อมูล Bet log ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListBetLog")]
+        public virtual void ระบบไดรบUserNameและRoundIDไมถกตองระบบไมสามารถลสตขอมลBetLogได()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับ UserName และ RoundID  ไม่ถูกต้อง ระบบไม่สามารถลีสต์ข้อมูล Bet log ได้", new string[] {
+                        "record_mock"});
+#line 51
+this.ScenarioSetup(scenarioInfo);
+#line 52
+testRunner.Given("The ListBetLogExecutor has been created and initialized");
+#line 53
+testRunner.And("Sent UserName\'\', RoundID \'-1\' for validate");
+#line 54
+testRunner.When("Call ListBetLogExecutor() for validate input information");
+#line 55
+testRunner.Then("The result of BetLog should be throw exception");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

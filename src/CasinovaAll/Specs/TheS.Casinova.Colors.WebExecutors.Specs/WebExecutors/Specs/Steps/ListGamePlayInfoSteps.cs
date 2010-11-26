@@ -46,7 +46,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
                 .IgnoreArguments().Return(_resultGamePlayInfo);
 
             _cmd = new ListGamePlayInfoCommand {
-                GamePlayInfoUserName = new GamePlayInformation {
+                GamePlayInfo = new GamePlayInformation {
                     UserName = userName
                 }
             };
@@ -84,8 +84,8 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
                          select new {
                              UserName = Convert.ToString(item["UserName"]),
                              RoundID = Convert.ToInt32(item["RoundID"]),
-                             TotalBetAmountOfBlack = Convert.ToDouble(item["TotalBetBlack"]),
-                             TotalBetAmountOfWhite = Convert.ToDouble(item["TotalBetWhite"]),
+                             TotalBetBlack = Convert.ToDouble(item["TotalBetBlack"]),
+                             TotalBetWhite = Convert.ToDouble(item["TotalBetWhite"]),
                              Winner = Convert.ToString(item["Winner"]),
                              TrackingID = Guid.Parse(item["TrackingID"]),
                              OnGoingTrackingID = Guid.Parse(item["OnGoingTrackingID"]),
@@ -95,21 +95,15 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
                          select new {
                             UserName = item.UserName,
                             RoundID = item.RoundID,
-                            TotalBetAmountOfBlack = item.TotalBetBlack,
-                            TotalBetAmountOfWhite = item.TotalBetWhite,
+                            TotalBetBlack = item.TotalBetBlack,
+                            TotalBetfWhite = item.TotalBetWhite,
                             Winner = item.Winner,
                             TrackingID = item.TrackingID,
                             OnGoingTrackingID = item.OnGoingTrackingID,
                             WinnerLastUpdate = item.WinnerLastUpdate
                          };
 
-            CollectionAssert.AreEqual(expect.ToArray(), actual.ToArray());
-        }
-
-        [Then(@"The game play information should be null")]
-        public void ThenTheGamePlayInformationShouldBeNull()
-        {
-            Assert.IsTrue(true, "The server don't have game result information");
+            CollectionAssert.AreEqual(expect.ToArray(), actual.ToArray(),"Game play information");
         }
 
         [Then(@"The game play information should be throw exception")]

@@ -21,7 +21,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         {
              var activeGameRound = (from item in table.Rows
                                    select new GameRoundInformation{
-                                       Round = Convert.ToInt32(item["RoundID"]),
+                                       RoundID = Convert.ToInt32(item["RoundID"]),
                                        WinnerPoint = Convert.ToInt32(item["WinnerPoint"]),
                                        Active = Convert.ToBoolean(item["Active"]),
                                    });
@@ -53,9 +53,9 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
                                    Active = Convert.ToBoolean(item["Active"]),
                                });
 
-            var result = (from it in _cmd.GameRoundInfo
+            var result = (from it in _cmd.ActiveGameRoundInfo
                           select new {
-                              RoundID = it.Round,
+                              RoundID = it.RoundID,
                               it.WinnerPoint,
                               it.Active
                           });

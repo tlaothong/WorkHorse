@@ -21,7 +21,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         public void GivenPayForColorWinnerInformationsAsUserNameXRoundIDXActionTypeX(string userName, int roundID,string action)
         {
             _cmd = new PayForColorsWinnerInfoCommand {
-                PlayerActionInfoUserName = new PlayerActionInformation { 
+                PlayerActionInfo = new PlayerActionInformation { 
                     UserName = userName,
                     RoundID = roundID,
                     ActionType = action

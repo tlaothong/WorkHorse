@@ -20,7 +20,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         public void GivenBetInformationsAsUserNameNitRoundID4ActionTypeWhiteAmount_50(string userName, int roundID, string actionType, double amount)
         {
             _cmd = new BetCommand {
-                PlayerActionInfo = new PlayerActionInformation { 
+                BetPlayerActionInfo = new PlayerActionInformation { 
                     UserName = userName,
                     RoundID = roundID,
                     ActionType = actionType,

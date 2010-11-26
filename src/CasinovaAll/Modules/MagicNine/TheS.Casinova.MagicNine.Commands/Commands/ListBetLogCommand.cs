@@ -13,6 +13,7 @@ namespace TheS.Casinova.MagicNine.Commands
     {
         //input
         /// <summary>
+        /// ข้อมูลเพื่อลิสต์การลงเดิมพัน
         /// 1. RoundID รอบของโต๊ะที่ลงพนัน
         /// 2. UserName ชื่อผู้เล่นที่ลงพนัน
         /// </summary>

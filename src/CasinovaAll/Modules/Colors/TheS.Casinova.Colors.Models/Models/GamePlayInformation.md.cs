@@ -14,7 +14,7 @@ namespace TheS.Casinova.Colors.Models
             [Required]
             public string UserName { get; set; }
 
-            public int Round { get; set; }
+            public int RoundID { get; set; }
 
             public Guid TrackingID { get; set; }
 

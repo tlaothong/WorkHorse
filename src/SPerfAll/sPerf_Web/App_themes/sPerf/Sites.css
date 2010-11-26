@@ -7,7 +7,7 @@
 #header
 {
     background: url(images/head.png) repeat-x;
-    height: 81px;
+    height: 60px;
 }
 
 #logindisplay
@@ -22,25 +22,27 @@
     position: absolute;
     margin-left: 130px;
     background: url(images/logo-eplearn.png) no-repeat;
-    width: 200px;
-    height: 80px;
+    width: 111px;
+    height: 57px;
     
 }
 #global-search
 {
     position: absolute;
-    margin-left: 830px;
+    margin-left: 840px;
     background: url(images/search.png) no-repeat;
-    height: 50px;
-    width: 200px;
+    top: 35px;
+    height: 20px;
+    width: 143px;
 }
 #avatar-face
 {
     position: absolute;
-    margin-left: 980px;
+    margin-left: 988px;
+    top:35px;
     background: url(images/avatar.png) no-repeat;
-    height: 50px;
-    width: 200px;
+    height: 24px;
+    width: 21px;
 }
 /*===StyleMenu===*/
 #main-menu
@@ -48,21 +50,21 @@
     margin-right: 167px;
     font-family: Tahoma;
     font-size: 12px;
-    margin-top: -39px;
+    margin-top: -34px;
     float: right;
 }
 .linkmenu
 {
     background-image: url(images/menu-bg.png);
-    width: 77px;
-    height: 46px;
-    margin-top: -8px;
+    width: 80px;
+    height: 32px;
+    margin-right: -1px;
     float: left;
     font-weight: bold;
 }
 .linkmenu .menu
 {
-    padding-top: 15px;
+    margin-top: 10px;
     text-align: center;
 }
 .linkmenu a
@@ -79,9 +81,8 @@
 .linkmenu:hover
 {
     background-image: url(images/menu-bg-over.png);
-    width: 77px;
-    height: 46px;
-    margin-top: -8px;
+    width: 80px;
+    height: 32px;
     float: left;
     text-decoration: none;
 }
@@ -158,7 +159,6 @@
 }
 /*=======Fieldset======*/
 #el02 { /* Text and background colour, blue on light gray */
-    color:#00f;
     background-color:#fff
 }
 #el03 { /* Text and background colour, blue on light gray */

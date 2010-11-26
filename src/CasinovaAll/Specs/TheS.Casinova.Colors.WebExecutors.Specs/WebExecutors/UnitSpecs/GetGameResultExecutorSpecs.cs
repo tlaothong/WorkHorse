@@ -30,7 +30,7 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
                RoundID = -5,
             };
             var cmd = new GetGameResultCommand{
-                GameRoundInfoRound = model,
+                GameResultGameRoundInfo = model,
             };
 
             GetGameResultExecutor xcutor = new GetGameResultExecutor(

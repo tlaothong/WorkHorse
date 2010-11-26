@@ -83,6 +83,11 @@ testRunner.Given("Create and initialize GamePlayViewModel and Colors game servic
                         "75663",
                         "45266",
                         "5632"});
+            table1.AddRow(new string[] {
+                        "4",
+                        "500",
+                        "500",
+                        "100"});
 #line 11
 testRunner.And("Web server have game results are", ((string)(null)), table1);
 #line hidden
@@ -96,11 +101,11 @@ testRunner.And("Web server have game results are", ((string)(null)), table1);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Request game result to web server, server have roundID match (roundID = 1)", new string[] {
                         "record_mock"});
-#line 19
-this.ScenarioSetup(scenarioInfo);
 #line 20
-testRunner.When("Request GetGameResult( roundID = \'1\' )");
+this.ScenarioSetup(scenarioInfo);
 #line 21
+testRunner.When("Request GetGameResult( roundID = \'1\' )");
+#line 22
 testRunner.Then("Game has display game result Winner=\'Black\', BlackPot=\'1523\', WhitePot=\'4526\', Ha" +
                     "nds=\'452\'");
 #line hidden
@@ -115,11 +120,11 @@ testRunner.Then("Game has display game result Winner=\'Black\', BlackPot=\'1523\
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Request game result to web server, server have roundID match (roundID = 2)", new string[] {
                         "record_mock"});
-#line 24
-this.ScenarioSetup(scenarioInfo);
 #line 25
-testRunner.When("Request GetGameResult( roundID = \'2\' )");
+this.ScenarioSetup(scenarioInfo);
 #line 26
+testRunner.When("Request GetGameResult( roundID = \'2\' )");
+#line 27
 testRunner.Then("Game has display game result Winner=\'Black\', BlackPot=\'445\', WhitePot=\'12399\', Ha" +
                     "nds=\'1155\'");
 #line hidden
@@ -134,13 +139,32 @@ testRunner.Then("Game has display game result Winner=\'Black\', BlackPot=\'445\'
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Request game result to web server, server have roundID match (roundID = 3)", new string[] {
                         "record_mock"});
-#line 29
-this.ScenarioSetup(scenarioInfo);
 #line 30
-testRunner.When("Request GetGameResult( roundID = \'3\' )");
+this.ScenarioSetup(scenarioInfo);
 #line 31
+testRunner.When("Request GetGameResult( roundID = \'3\' )");
+#line 32
 testRunner.Then("Game has display game result Winner=\'White\', BlackPot=\'75663\', WhitePot=\'45266\', " +
                     "Hands=\'5632\'");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Black pot and White pot are equal, White win")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Get game statistics")]
+        [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
+        public virtual void BlackPotAndWhitePotAreEqualWhiteWin()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Black pot and White pot are equal, White win", new string[] {
+                        "record_mock"});
+#line 35
+this.ScenarioSetup(scenarioInfo);
+#line 36
+testRunner.When("Request GetGameResult( roundID = \'4\' )");
+#line 37
+testRunner.Then("Game has display game result Winner=\'White\', BlackPot=\'500\', WhitePot=\'500\', Hand" +
+                    "s=\'100\'");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -155,11 +179,11 @@ testRunner.Then("Game has display game result Winner=\'White\', BlackPot=\'75663
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Request game result to web server, server don\'t have roundID match (roundID = 99)" +
                     "", new string[] {
                         "record_mock"});
-#line 34
+#line 40
 this.ScenarioSetup(scenarioInfo);
-#line 35
+#line 41
 testRunner.When("Request GetGameResult( roundID = \'99\' )");
-#line 36
+#line 42
 testRunner.Then("Game result is null");
 #line hidden
             testRunner.CollectScenarioErrors();
@@ -175,11 +199,11 @@ testRunner.Then("Game result is null");
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Request game result to web server, server don\'t have roundID match (roundID = -1)" +
                     "", new string[] {
                         "record_mock"});
-#line 39
+#line 45
 this.ScenarioSetup(scenarioInfo);
-#line 40
+#line 46
 testRunner.When("Request GetGameResult( roundID = \'-1\' )");
-#line 41
+#line 47
 testRunner.Then("Game result is null");
 #line hidden
             testRunner.CollectScenarioErrors();

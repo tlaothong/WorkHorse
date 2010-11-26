@@ -43,7 +43,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
                 .IgnoreArguments().Return(_getGameResult);
 
             _cmd = new GetGameResultCommand {
-                GameRoundInfoRound = new GameRoundInformation {
+                GameResultGameRoundInfo = new GameRoundInformation {
                     RoundID = roundId,
                 }
             };

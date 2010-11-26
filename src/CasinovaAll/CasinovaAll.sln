@@ -305,6 +305,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheS.Casinova.TwoWins.Silverlight", "Silverlights\TheS.Casinova.TwoWins.Silverlight\TheS.Casinova.TwoWins.Silverlight.csproj", "{0DFECD7E-1363-406E-A492-3ABFD06E18D7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheS.Casinova.MagicNine.Silverlight", "Silverlights\TheS.Casinova.MagicNine.Silverlight\TheS.Casinova.MagicNine.Silverlight.csproj", "{C8789CB7-3EB0-44FE-BC6C-5B530E80D15A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5C015B2B-E630-4915-926C-54A2E4F92F46} = {5C015B2B-E630-4915-926C-54A2E4F92F46}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheS.Casinova.DevilSix.Silverlight", "Silverlights\TheS.Casinova.DevilSix.Silverlight\TheS.Casinova.DevilSix.Silverlight.csproj", "{1621C1D1-A6CE-4327-84FD-E89241BB6D56}"
 EndProject

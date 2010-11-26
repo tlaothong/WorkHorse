@@ -114,15 +114,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GetActiveGameRound.feature</DependentUpon>
     </Compile>
+    <Compile Include="Colors\Specs\GetGamePlayInformation.feature.cs" />
     <Compile Include="Colors\Specs\GetGameStatistics.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GetGameStatistics.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Colors\Specs\GetListGamePlayInformation.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GetListGamePlayInformation.feature</DependentUpon>
     </Compile>
     <Compile Include="Colors\Specs\GetWinner.feature.cs">
       <AutoGen>True</AutoGen>
@@ -134,10 +130,10 @@
     </Compile>
     <Compile Include="Colors\Specs\Steps\BetStep.cs" />
     <Compile Include="Colors\Specs\Steps\CommonSteps.cs" />
-    <Compile Include="Colors\Specs\Steps\GetActiveGameRoundsStep.cs" />
     <Compile Include="Colors\SpecEventDefinitions.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Colors\Specs\Steps\GetActiveGameRoundStep.cs" />
     <Compile Include="Colors\Specs\Steps\GetGameStatisticsStep.cs" />
     <Compile Include="Colors\Specs\Steps\GetListGamePlayInformationStep.cs" />
     <Compile Include="Colors\Specs\Steps\GetWinnerStep.cs" />
@@ -159,13 +155,13 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>GetActiveGameRound.feature.cs</LastGenOutput>
     </None>
+    <None Include="Colors\Specs\GetGamePlayInformation.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>GetGamePlayInformation1.feature.cs</LastGenOutput>
+    </None>
     <None Include="Colors\Specs\GetGameStatistics.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>GetGameStatistics.feature.cs</LastGenOutput>
-    </None>
-    <None Include="Colors\Specs\GetListGamePlayInformation.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>GetListGamePlayInformation.feature.cs</LastGenOutput>
     </None>
     <None Include="Colors\Specs\GetWinner.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

@@ -11,6 +11,7 @@ using TheS.Casinova.Colors.ViewModels;
 using System.Concurrency;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TheS.Casinova.Colors.Models;
+using PerfEx.Infrastructure.LotUpdate;
 
 namespace TheS.Casinova.Colors.Specs.Steps
 {
@@ -19,11 +20,13 @@ namespace TheS.Casinova.Colors.Specs.Steps
     {
         #region Background
 
-        [Given(@"Initialize mock for bet")]
-        public void GivenInitializeMockForBet()
+        [Given(@"Setup trackingID for bet (.*)")]
+        public void GivenSetupTrackingID(string trackingID)
         {
             var mocks = ScenarioContext.Current.Get<MockRepository>();
             var svc = ScenarioContext.Current.Get<IColorsServiceAdapter>();
+            var statusTracker = ScenarioContext.Current.Get<IStatusTracker>();
+            var subject = ScenarioContext.Current.Get<Subject<TrackingInformation>>();
 
             Func<BetCommand, IObservable<BetCommand>> _mockBet = cmd =>
             {
@@ -32,8 +35,8 @@ namespace TheS.Casinova.Colors.Specs.Steps
                     Amount = cmd.Amount,
                     Color = cmd.Color,
                     RoundID = cmd.RoundID,
-                    TrackingID = Guid.NewGuid(),
-                    UserName = cmd.UserName
+                    TrackingID = Guid.Parse(trackingID),
+                    UserName = cmd.UserName,
                 };
                 return Observable.Return(result);
             };
@@ -41,13 +44,14 @@ namespace TheS.Casinova.Colors.Specs.Steps
             using (mocks.Record())
             {
                 SetupResult.For(svc.Bet(null)).IgnoreArguments().Do(_mockBet);
+                SetupResult.For(statusTracker.Watch(null)).IgnoreArguments().Return(subject);
             }
         }
 
         #endregion Background
 
         [When(@"Click Bet black amount=(.*) in game round=(.*)")]
-        public void WhenClickBetBlackAmount30InGameRound15(int amount,int gameRound)
+        public void WhenClickBetBlackAmount(int amount,int gameRound)
         {
             var viewModel = ScenarioContext.Current.Get<GamePlayViewModel>();
             viewModel.RoundID = gameRound;
@@ -57,7 +61,7 @@ namespace TheS.Casinova.Colors.Specs.Steps
         }
 
         [When(@"Click Bet white amount=(.*) in game round=(.*)")]
-        public void WhenClickBetWhiteAmount30InGameRound15(int amount, int gameRound)
+        public void WhenClickBetWhiteAmount(int amount, int gameRound)
         {
             var viewModel = ScenarioContext.Current.Get<GamePlayViewModel>();
             viewModel.RoundID = gameRound;
@@ -67,19 +71,25 @@ namespace TheS.Casinova.Colors.Specs.Steps
         }
 
         [Then(@"PayLog count='(.*)' are")]
-        public void ThenPayLogAre(int payLogCount,Table table)
+        public void ThenPayLogAre(int payLogCount)
+        {
+            var viewModel = ScenarioContext.Current.Get<GamePlayViewModel>();
+            Assert.AreEqual(payLogCount, viewModel.Paylogs.Count, "Pay log count");
+        }
+
+        [Then(@"Paylog have save information are")]
+        public void ThenPaylogHaveSaveInformationAre(Table table)
         {
             var payLog = ScenarioContext.Current.Get<GamePlayViewModel>().Paylogs;
             var actual = payLog.ToArray<PayLog>();
             var expect = (from c in table.Rows
-                         select new PayLog
-                         {
-                             Amount = int.Parse(c["Amount"]),
-                             Colors = c["Colors"],
-                             RoundID = int.Parse(c["RoundID"]),
-                         }).ToArray<PayLog>();
+                          select new PayLog
+                          {
+                              Amount = int.Parse(c["Amount"]),
+                              Colors = c["Colors"],
+                              RoundID = int.Parse(c["RoundID"]),
+                          }).ToArray<PayLog>();
 
-            Assert.AreEqual(payLogCount, payLog.Count, "Pay log count");
             for (int index = 0; index < payLog.Count; index++)
             {
                 Assert.AreEqual(expect[index].RoundID, actual[index].RoundID, "RoundID");

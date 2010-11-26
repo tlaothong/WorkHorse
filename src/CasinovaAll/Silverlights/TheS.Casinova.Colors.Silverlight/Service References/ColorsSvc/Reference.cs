@@ -20,12 +20,12 @@ namespace TheS.Casinova.ColorsSvc {
     [System.Runtime.Serialization.DataContractAttribute(Name="ListActiveGameRoundCommand", Namespace="http://schemas.datacontract.org/2004/07/TheS.Casinova.Colors.Commands")]
     public partial class ListActiveGameRoundCommand : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private TheS.Casinova.ColorsSvc.GameRoundInformation[] ActiveRoundsField;
+        private System.Collections.ObjectModel.ObservableCollection<TheS.Casinova.ColorsSvc.GameRoundInformation> ActiveRoundsField;
         
         private System.DateTime FromTimeField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public TheS.Casinova.ColorsSvc.GameRoundInformation[] ActiveRounds {
+        public System.Collections.ObjectModel.ObservableCollection<TheS.Casinova.ColorsSvc.GameRoundInformation> ActiveRounds {
             get {
                 return this.ActiveRoundsField;
             }
@@ -170,12 +170,12 @@ namespace TheS.Casinova.ColorsSvc {
     [System.Runtime.Serialization.DataContractAttribute(Name="ListGamePlayInfoCommand", Namespace="http://schemas.datacontract.org/2004/07/TheS.Casinova.Colors.Commands")]
     public partial class ListGamePlayInfoCommand : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private TheS.Casinova.ColorsSvc.GamePlayInformation[] GamePlayInfosField;
+        private System.Collections.ObjectModel.ObservableCollection<TheS.Casinova.ColorsSvc.GamePlayInformation> GamePlayInfosField;
         
         private string UserNameField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public TheS.Casinova.ColorsSvc.GamePlayInformation[] GamePlayInfos {
+        public System.Collections.ObjectModel.ObservableCollection<TheS.Casinova.ColorsSvc.GamePlayInformation> GamePlayInfos {
             get {
                 return this.GamePlayInfosField;
             }

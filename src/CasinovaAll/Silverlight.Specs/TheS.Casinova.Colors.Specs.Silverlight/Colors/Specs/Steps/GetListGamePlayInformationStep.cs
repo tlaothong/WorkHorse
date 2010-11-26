@@ -29,7 +29,8 @@ namespace TheS.Casinova.Colors.Specs.Steps
             {
                 return Observable.Return(new ListGamePlayInfoCommand
                 {
-                    GamePlayInfos = ScenarioContext.Current.Get<IEnumerable<GamePlayInformation>>().ToArray()
+                    GamePlayInfos = new System.Collections.ObjectModel.ObservableCollection<GamePlayInformation>
+                    (ScenarioContext.Current.Get<IEnumerable<GamePlayInformation>>())
                 });
             };
 
@@ -67,6 +68,12 @@ namespace TheS.Casinova.Colors.Specs.Steps
             var viewModel = ScenarioContext.Current.Get<GamePlayViewModel>();
             viewModel.GetListGamePlayInformation();
             ScenarioContext.Current.Get<TestScheduler>().Run();
+        }
+
+        [When(@"Web service execute new bet are")]
+        public void WhenWebServiceExecuteNewBetAre(Table table)
+        {
+            ScenarioContext.Current.Pending();
         }
 
         [Then(@"Tables in GamePlayViewModel display game play information are")]

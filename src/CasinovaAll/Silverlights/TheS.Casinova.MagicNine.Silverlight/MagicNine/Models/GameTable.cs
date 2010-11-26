@@ -13,6 +13,7 @@ namespace TheS.Casinova.MagicNine.Models
 {
     public class GameTable
     {
+        public int Round { get; set; }
         public string Name { get; set; }
         public double Amount { get; set; }
         public bool IsPlaying { get; set; }

@@ -18,7 +18,7 @@ namespace TheS.Casinova.MagicNine.Models
         /// <summary>
         /// รหัสโต๊ะเกมที่ลงพนัน
         /// </summary>
-        public int Round { get; set; }
+        public int RoundID { get; set; }
 
         /// <summary>
         /// จำนวนเงินทั้งหมดที่ลงเดิมพันแบบอัตโนมัติ
@@ -43,15 +43,15 @@ namespace TheS.Casinova.MagicNine.Models
         /// <summary>
         /// จำนวนเงินที่ได้คืน
         /// </summary>
-        public int MoneyRefund { get; set; }
+        public double MoneyRefund { get; set; }
 
         /// <summary>
-        /// tracking id เมื่อเริ่ม autobet
+        /// รหัสตรวจสอบใช้บอกว่ามีการลงเดิมพันแบบอัตโนมัติ
         /// </summary>
         public Guid AutoBetTrackingID { get; set; }
 
         /// <summary>
-        /// tracking id เพื่อตรวจสอบการลงพนัน
+        /// รหัสที่ใช้ตรวจสอบการการลงเดิมพัน
         /// </summary>
         public Guid BetTrackingID { get; set; }
 

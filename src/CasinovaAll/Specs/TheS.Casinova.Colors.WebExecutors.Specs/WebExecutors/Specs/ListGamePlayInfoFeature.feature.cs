@@ -166,8 +166,18 @@ testRunner.Given("The ListGamePlayInfoExecutor has been created and initialized"
 testRunner.And("Sent userName\'BabyBoy\' for list game play information");
 #line 28
 testRunner.When("Call ListGamePlayInfoExecutor()");
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "UserName",
+                        "RoundID",
+                        "TotalBetBlack",
+                        "TotalBetWhite",
+                        "Winner",
+                        "WinnerLastUpdate",
+                        "TrackingID",
+                        "OnGoingTrackingID"});
 #line 29
-testRunner.Then("The game play information should be null");
+testRunner.Then("The game play information should be :", ((string)(null)), table3);
 #line hidden
             testRunner.CollectScenarioErrors();
         }

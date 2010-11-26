@@ -28,7 +28,7 @@ namespace TheS.Casinova.Colors.WebExecutors
         protected override void ExecuteCommand(PayForColorsWinnerInfoCommand command)
         {
             //Validation
-            var errors = ValidationHelper.Validate(_container, command.PlayerActionInfoUserName, command);
+            var errors = ValidationHelper.Validate(_container, command.PlayerActionInfo, command);
             if (errors.Any()) {
                 throw new ValidationErrorException(errors);
             }
