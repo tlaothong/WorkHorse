@@ -28,13 +28,40 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
                     CommonSteps.Key_Dac_UpdatePlayerInfoBalance] as IUpdatePlayerInfoBalance;
             }
         }
-        
+
+        protected IUpdateAutoBetInfo Dac_UpdateAutoBetInfo
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_Dac_UpdateAutoBetInfo] as IUpdateAutoBetInfo;
+            }
+        }
+
+        protected ICreateAutoBetInfo Dac_CreateAutoBetInfo
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_Dac_CreateAutoBetInfo] as ICreateAutoBetInfo;
+            }
+        }
+
         protected IGetPlayerInfo Dqr_GetPlayerInfo
         {
             get
             {
                 return ScenarioContext.Current[
                     CommonSteps.Key_Dqr_GetPlayerInfo] as IGetPlayerInfo;
+            }
+        }
+
+        protected IGetAutoBetInfo Dqr_GetAutoBetInfo
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_Dqr_GetAutoBetInfo] as IGetAutoBetInfo;
             }
         }
 

@@ -26,7 +26,7 @@ namespace TheS.Casinova.PlayerProfile.DAL
     /// ยืนยันการสมัครของผู้เล่น
     /// </summary>
     public interface IVeriflyUser
-        : IDataAction<string, VeriflyUserCommand>
+        : IDataAction<UserProfile, VerifyUserCommand>
     { }
 
     /// <summary>

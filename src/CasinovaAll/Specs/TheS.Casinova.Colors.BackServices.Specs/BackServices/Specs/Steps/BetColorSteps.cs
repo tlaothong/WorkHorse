@@ -79,8 +79,8 @@ namespace TheS.Casinova.Colors.BackServices.Specs
             LastCall.IgnoreArguments().Do(CheckCallMethod);
         }
 
-        [Given(@"the player action information should be update as: \(UserName: (.*), RoundID: (.*), Amount: (.*), Color: (.*), TrackingID: (.*)\)")]
-        public void GivenThePlayerActionInformationShouldBeUpdateAsUserNameXRoundIDXAmountXColorXTrackingIDX(string userName, int roundID, string amount, string color, string trackingID)
+        [Given(@"the player action information should be update assume dateTime as: '2553/3/12 10:23'\(UserName: (.*), RoundID: (.*), Amount: (.*), Color: (.*), TrackingID: (.*)\)")]
+        public void GivenThePlayerActionInformationShouldBeUpdateAssumeDateTimeAs25533121023UserNameOhAeRoundID12Amount500ColorWhiteTrackingIDB21F8971_DBAB_400F_9D95_151BA24875C1(string userName, int roundID, string amount, string color, string trackingID)        
         {
             PlayerActionInformation _expected = new PlayerActionInformation {
                 RoundID = roundID,
@@ -95,7 +95,6 @@ namespace TheS.Casinova.Colors.BackServices.Specs
                 Assert.AreEqual(_expected.UserName, playerActionInfo.UserName, "UserName");
                 Assert.AreEqual(_expected.ActionType, playerActionInfo.ActionType, "ActionType");
                 Assert.AreEqual(_expected.Amount, playerActionInfo.Amount, "Amount");
-
                 return playerActionInfo;
             };
             Dac_CreatePlayerActionInfo.Create(new PlayerActionInformation(), new CreatePlayerActionInfoCommand());
@@ -105,14 +104,13 @@ namespace TheS.Casinova.Colors.BackServices.Specs
         [When(@"call BetColorExecutor\(UserName: (.*), RoundID: (.*), Amount: (.*), Color: (.*), TrackingID: (.*)\)")]
         public void WhenCallBetColorExecutorUserNameXRoundIDXAmountXColorXTrackingIDX(string userName, int roundID, double amount, string color, string trackingID)
         {
-            BetCommand cmd = new BetCommand 
-            {
-                PlayerActionInformation = new PlayerActionInformation {
-                UserName = userName,
-                RoundID = roundID,
-                Amount = amount,
-                ActionType = color,
-                TrackingID = Guid.Parse(trackingID),                    
+            BetCommand cmd = new BetCommand {
+                PlayerActionInfo = new PlayerActionInformation {
+                    UserName = userName,
+                    RoundID = roundID,
+                    Amount = amount,
+                    ActionType = color,
+                    TrackingID = Guid.Parse(trackingID),
                 }
             };
             BetColorExecutor.Execute(cmd, (x) => { });
@@ -123,7 +121,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
         {
             try {
                 BetCommand cmd = new BetCommand {
-                    PlayerActionInformation = new PlayerActionInformation {
+                    PlayerActionInfo = new PlayerActionInformation {
                         UserName = userName,
                         RoundID = roundID,
                         Amount = amount,

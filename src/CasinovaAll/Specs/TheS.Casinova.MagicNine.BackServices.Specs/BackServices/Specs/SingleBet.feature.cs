@@ -109,16 +109,16 @@ this.ScenarioSetup(scenarioInfo);
 #line 20
 testRunner.Given("The SingleBetExecutor has been created and initialized");
 #line 21
-testRunner.And("sent name: \'OhAe\' the player\'s balance should recieved");
+testRunner.And("(SingleBet)sent name: \'OhAe\' the player\'s balance should recieved");
 #line 22
-testRunner.And("(SingleBet)the player\'s balance should be update only bonuschips, Amount: \'1\'");
+testRunner.And("the player\'s balance should be update only bonuschips, Amount: \'1\'");
 #line 23
 testRunner.And("the bet information assume dateTime as: \'2553/3/12 10:23\'(RoundID: \'1\', UserName:" +
                     " \'OhAe\', TrackingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\', DateTime: \'2553/3/1" +
                     "2 10:23\') should be create");
 #line 24
-testRunner.When("call SingleBet(RoundID: \'1\', UserName: \'OhAe\', TrackingID: \'B21F8971-DBAB-400F-9D" +
-                    "95-151BA24875C1\')");
+testRunner.When("call SingleBetExecutor(RoundID: \'1\', UserName: \'OhAe\', TrackingID: \'B21F8971-DBAB" +
+                    "-400F-9D95-151BA24875C1\')");
 #line 25
 testRunner.Then("the result should be create");
 #line hidden
@@ -141,16 +141,16 @@ this.ScenarioSetup(scenarioInfo);
 #line 29
 testRunner.Given("The SingleBetExecutor has been created and initialized");
 #line 30
-testRunner.And("sent name: \'OhAe\' the player\'s balance should recieved");
+testRunner.And("(SingleBet)sent name: \'Khag\' the player\'s balance should recieved");
 #line 31
-testRunner.And("(SingleBet)the player\'s balance should be update only bonuschips, Amount: \'1\'");
+testRunner.And("(SingleBet)the player\'s balance should be update both chips, Amount: \'1\'");
 #line 32
 testRunner.And("the bet information assume dateTime as: \'2553/3/12 10:23\'(RoundID: \'1\', UserName:" +
-                    " \'OhAe\', TrackingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\', DateTime: \'2553/3/1" +
+                    " \'Khag\', TrackingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\', DateTime: \'2553/3/1" +
                     "2 10:23\') should be create");
 #line 33
-testRunner.When("call SingleBet(RoundID: \'1\', UserName: \'OhAe\', TrackingID: \'B21F8971-DBAB-400F-9D" +
-                    "95-151BA24875C1\')");
+testRunner.When("call SingleBetExecutor(RoundID: \'1\', UserName: \'Khag\', TrackingID: \'B21F8971-DBAB" +
+                    "-400F-9D95-151BA24875C1\')");
 #line 34
 testRunner.Then("the result should be create");
 #line hidden
@@ -158,62 +158,25 @@ testRunner.Then("the result should be create");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ได้รับข้อมูล RoundID, UserName, ระบบตรวจสอบเงินสำหรับลงพนันพอ, ระบบหักเงินผู้เล่น" +
-            "และบันทึกข้อมูลการลงพนัน2")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(SingleBet)ผู้เล่นลงพนันเอง โดยผู้เล่นมีชิฟไม่พอ ระบบแจ้งเตือนว่าผู้เล่นมีชิฟไม่พ" +
+            "อลงพนัน")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SingleBet")]
-        public virtual void ไดรบขอมลRoundIDUserNameระบบตรวจสอบเงนสำหรบลงพนนพอระบบหกเงนผเลนและบนทกขอมลการลงพนน2()
+        public virtual void SingleBetผเลนลงพนนเองโดยผเลนมชฟไมพอระบบแจงเตอนวาผเลนมชฟไมพอลงพนน()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ได้รับข้อมูล RoundID, UserName, ระบบตรวจสอบเงินสำหรับลงพนันพอ, ระบบหักเงินผู้เล่น" +
-                    "และบันทึกข้อมูลการลงพนัน2", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(SingleBet)ผู้เล่นลงพนันเอง โดยผู้เล่นมีชิฟไม่พอ ระบบแจ้งเตือนว่าผู้เล่นมีชิฟไม่พ" +
+                    "อลงพนัน", new string[] {
                         "record_mock"});
 #line 37
 this.ScenarioSetup(scenarioInfo);
 #line 38
 testRunner.Given("The SingleBetExecutor has been created and initialized");
 #line 39
-testRunner.And("sent name: \'Nit\' the player\'s balance should recieved");
+testRunner.And("(SingleBet)sent name: \'Boy\' the player\'s balance should recieved");
 #line 40
-testRunner.And("sent RoundID: \'3\' the round pot should recieved");
+testRunner.When("Expected exception and call SingleBetExecutor(RoundID: \'2\', UserName: \'Boy\', Trac" +
+                    "kingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\')");
 #line 41
-testRunner.And("the expected balance should be: \'35.99\'");
-#line 42
-testRunner.And("the round information(RoundID: \'3\', GamePot: \'713\') should be update");
-#line 43
-testRunner.And("the bet information(RoundID: \'3\', UserName: \'Nit\', BetOrder: \'713\', TrackingID: \'" +
-                    "B21F8971-DBAB-400F-9D95-151BA24875C1\') should be create");
-#line 44
-testRunner.When("call SingleBet(RoundID: \'3\', UserName: \'Nit\', TrackingID: \'B21F8971-DBAB-400F-9D9" +
-                    "5-151BA24875C1\')");
-#line 45
-testRunner.Then("the result should be create");
-#line hidden
-            testRunner.CollectScenarioErrors();
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ได้รับข้อมูล RoundID, UserName, ระบบตรวจสอบเงินสำหรับลงพนันไม่พอ, ระบบแจ้งเตือนว่" +
-            "าเงินผู้เล่นไม่พอ")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SingleBet")]
-        public virtual void ไดรบขอมลRoundIDUserNameระบบตรวจสอบเงนสำหรบลงพนนไมพอระบบแจงเตอนวาเงนผเลนไมพอ()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ได้รับข้อมูล RoundID, UserName, ระบบตรวจสอบเงินสำหรับลงพนันไม่พอ, ระบบแจ้งเตือนว่" +
-                    "าเงินผู้เล่นไม่พอ", new string[] {
-                        "record_mock"});
-#line 48
-this.ScenarioSetup(scenarioInfo);
-#line 49
-testRunner.Given("The SingleBetExecutor has been created and initialized");
-#line 50
-testRunner.And("sent name: \'Au\' the player\'s balance should recieved");
-#line 51
-testRunner.And("sent RoundID: \'2\' the round pot should recieved");
-#line 52
-testRunner.And("the expected balance less than bet cost");
-#line 53
-testRunner.When("call SingleBet(RoundID: \'2\', UserName: \'Au\', TrackingID: \'B21F8971-DBAB-400F-9D95" +
-                    "-151BA24875C1\')");
-#line 54
-testRunner.Then("server should throw an error");
+testRunner.Then("the result should be throw exception");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

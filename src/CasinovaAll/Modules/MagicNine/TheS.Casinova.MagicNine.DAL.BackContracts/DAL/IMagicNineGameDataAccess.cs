@@ -11,8 +11,10 @@ namespace TheS.Casinova.MagicNine.DAL
 {
     public interface IMagicNineGameDataAccess :
         ISingleBet,
+        ICreateAutoBetInfo,
         IUpdatePlayerInfoBalance,
-        IUpdateGameRoundPot
+        IUpdateGameRoundPot,
+        IUpdateAutoBetInfo
     { }
 
     /// <summary>
@@ -20,6 +22,13 @@ namespace TheS.Casinova.MagicNine.DAL
     /// </summary>
     public interface ISingleBet
         : ICreateData<BetInformation, SingleBetCommand>
+    { }
+
+    /// <summary>
+    /// บันทึกข้อมูลการลงพนันอัตโนมัติ
+    /// </summary>
+    public interface ICreateAutoBetInfo
+        : ICreateData<GamePlayAutoBetInformation, StartAutoBetCommand>
     { }
 
     /// <summary>
@@ -34,5 +43,12 @@ namespace TheS.Casinova.MagicNine.DAL
     /// </summary>
     public interface IUpdateGameRoundPot
         : IDataAction<GameRoundInformation, UpdateGameRoundPotCommand>
+    { }
+
+    /// <summary>
+    /// อัพเดทข้อมูล stop trackingID เมื่อมีการหยุด autobet
+    /// </summary>
+    public interface IUpdateAutoBetInfo
+        : IDataAction<GamePlayAutoBetInformation, StopAutoBetCommand>
     { }
 }

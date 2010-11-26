@@ -37,7 +37,7 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
 
             //ดึงข้อมูลผู้เล่นเพื่อหักเงิน
             GetPlayerInfoCommand getPlayerInfoCmd = new GetPlayerInfoCommand {
-                UserName = command.PlayerActionInformation.UserName,
+                UserName = command.PlayerActionInfo.UserName,
             };
 
             getPlayerInfoCmd.UserProfile = _iGetPlayerInfo.Get(getPlayerInfoCmd);
@@ -46,7 +46,7 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
             ValidationErrorCollection errorsValidation = new ValidationErrorCollection();
 
             ValidationHelper.Validate(_container, getPlayerInfoCmd.UserProfile, command, errorsValidation);
-            ValidationHelper.Validate(_container, command.PlayerActionInformation, command, errorsValidation);
+            ValidationHelper.Validate(_container, command.PlayerActionInfo, command, errorsValidation);
 
             if (errorsValidation.Any()) {
                 throw new ValidationErrorException(errorsValidation);
@@ -55,15 +55,15 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
             //บันทึกข้อมูลผู้เล่นที่ถูกหักเงิน
             UpdatePlayerInfoBalanceCommand updateBalanceCmd = new UpdatePlayerInfoBalanceCommand();
 
-            if (getPlayerInfoCmd.UserProfile.NonRefundable < command.PlayerActionInformation.Amount) {
-                getPlayerInfoCmd.UserProfile.Refundable -= command.PlayerActionInformation.Amount - getPlayerInfoCmd.UserProfile.NonRefundable;
+            if (getPlayerInfoCmd.UserProfile.NonRefundable < command.PlayerActionInfo.Amount) {
+                getPlayerInfoCmd.UserProfile.Refundable -= command.PlayerActionInfo.Amount - getPlayerInfoCmd.UserProfile.NonRefundable;
                 getPlayerInfoCmd.UserProfile.NonRefundable = 0;
             }
-            else if (getPlayerInfoCmd.UserProfile.NonRefundable >= command.PlayerActionInformation.Amount) {
-                getPlayerInfoCmd.UserProfile.NonRefundable -= command.PlayerActionInformation.Amount;
+            else if (getPlayerInfoCmd.UserProfile.NonRefundable >= command.PlayerActionInfo.Amount) {
+                getPlayerInfoCmd.UserProfile.NonRefundable -= command.PlayerActionInfo.Amount;
             }
 
-            updateBalanceCmd.UserName = command.PlayerActionInformation.UserName;
+            updateBalanceCmd.UserName = command.PlayerActionInfo.UserName;
 
             //หักเงินผู้เล่นตามเงินที่ต้องการลงพนัน
             updateBalanceCmd.NonRefundable = getPlayerInfoCmd.UserProfile.NonRefundable;
@@ -77,13 +77,16 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
 
             //บันทึกข้อมูลการดำเนินงานของผู้เล่น
             CreatePlayerActionInfoCommand createPlayerActionInfoCmd = new CreatePlayerActionInfoCommand {
-                UserName  = command.PlayerActionInformation.UserName,
-                RoundID  = command.PlayerActionInformation.RoundID,
-                Amount  = command.PlayerActionInformation.Amount,
-                ActionType  = command.PlayerActionInformation.ActionType,
+                PlayerActionInfo = new PlayerActionInformation {
+                    UserName = command.PlayerActionInfo.UserName,
+                    RoundID = command.PlayerActionInfo.RoundID,
+                    Amount = command.PlayerActionInfo.Amount,
+                    ActionType = command.PlayerActionInfo.ActionType,
+                    ActionDateTime = DateTime.Now,
+                }
             };
-
-            _iCreatePlayerActionInfo.Create(command.PlayerActionInformation, createPlayerActionInfoCmd);
+            
+            _iCreatePlayerActionInfo.Create(command.PlayerActionInfo, createPlayerActionInfoCmd);
 
             #endregion Create player action information
 

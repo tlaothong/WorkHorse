@@ -11,7 +11,7 @@ namespace TheS.Casinova.MagicNine.Commands
        //input
        /// <summary>
        /// 1. UserName ชื่อผู้เล่น
-       /// 2. Round รอบโต๊ะเกมที่ลงเดิมพัน
+       /// 2. RoundID รอบโต๊ะเกมที่ลงเดิมพัน
        /// 3. Amount จำนวนเงินทั้งหมดที่ลงเดิมพันแบบอัตโนมัติ
         ///4. Interval ระยะห่างของเวลาในการลงเดิมพันแต่ละครั้ง
         /// </summary>

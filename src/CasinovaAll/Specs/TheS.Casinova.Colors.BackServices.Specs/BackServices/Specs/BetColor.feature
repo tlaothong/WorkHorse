@@ -13,11 +13,11 @@ Background:
 	|Au			|234.00			|326			|
 
 @record_mock
-Scenario Outline: ผู้เล่นเลือกลงเงินพนันสีขาวหรือดำ โดยผู้เล่นมีชิฟพอและชิฟตายมากกว่าเงินลงพนัน ระบบบันทึกประวัติการดำเนินการ(พนัน)ของผู้เล่นและหักเฉพาะชิฟตาย
+Scenario Outline: (BetColor)ผู้เล่นเลือกลงเงินพนันสีขาวหรือดำ โดยผู้เล่นมีชิฟพอและชิฟตายมากกว่าเงินลงพนัน ระบบบันทึกประวัติการดำเนินการ(พนัน)ของผู้เล่นและหักเฉพาะชิฟตาย
 	Given The BetColorExecutor has been created and initialized
 	And sent name: <UserName> the player's balance should recieved, for bet color
 	And the player's balance should be update only bonuschips, Amount: <Amount>
-	And the player action information should be update as: (UserName: <UserName>, RoundID: <RoundID>, Amount: <Amount>, Color: <Color>, TrackingID: <TrackingID>)
+	And the player action information should be update assume dateTime as: '2553/3/12 10:23'(UserName: <UserName>, RoundID: <RoundID>, Amount: <Amount>, Color: <Color>, TrackingID: <TrackingID>)
 	When call BetColorExecutor(UserName: <UserName>, RoundID: <RoundID>, Amount: <Amount>, Color: <Color>, TrackingID: <TrackingID>)
 	Then the player action information should be created
 Examples:
@@ -29,11 +29,11 @@ Examples:
 	|12			|OhAe		|9.99		|White	|B21F8971-DBAB-400F-9D95-151BA24875C1|
 
 @record_mock
-Scenario Outline: ผู้เล่นเลือกลงเงินพนันสีขาวหรือดำ โดยผู้เล่นมีชิฟพอและชิฟตายน้อยกว่าเงินลงพนันระบบหักชิฟเป็นเพิ่ม ระบบบันทึกประวัติการดำเนินการ(พนัน)ของผู้เล่นและหักชิฟเป็นและชิฟตาย
+Scenario Outline: (BetColor)ผู้เล่นเลือกลงเงินพนันสีขาวหรือดำ โดยผู้เล่นมีชิฟพอและชิฟตายน้อยกว่าเงินลงพนันระบบหักชิฟเป็นเพิ่ม ระบบบันทึกประวัติการดำเนินการ(พนัน)ของผู้เล่นและหักชิฟเป็นและชิฟตาย
 	Given The BetColorExecutor has been created and initialized
 	And sent name: <UserName> the player's balance should recieved, for bet color
 	And the player's balance should be update both chips, Amount: <Amount>
-	And the player action information should be update as: (UserName: <UserName>, RoundID: <RoundID>, Amount: <Amount>, Color: <Color>, TrackingID: <TrackingID>)
+	And the player action information should be update assume dateTime as: '2553/3/12 10:23'(UserName: <UserName>, RoundID: <RoundID>, Amount: <Amount>, Color: <Color>, TrackingID: <TrackingID>)
 	When call BetColorExecutor(UserName: <UserName>, RoundID: <RoundID>, Amount: <Amount>, Color: <Color>, TrackingID: <TrackingID>)
 	Then the player action information should be created
 Examples:
@@ -45,7 +45,7 @@ Examples:
 	|12			|OhAe		|480.99		|White	|B21F8971-DBAB-400F-9D95-151BA24875C1|
 
 @record_mock
-Scenario Outline: ผู้เล่นลงเงินพนัน โดยผู้เล่นมีเงินไม่พอ ระบบแจ้งเตือนผู้เล่่นว่าเงินไม่พอ
+Scenario Outline: (BetColor)ผู้เล่นลงเงินพนัน โดยผู้เล่นมีเงินไม่พอ ระบบแจ้งเตือนผู้เล่่นว่าเงินไม่พอ
 	Given The BetColorExecutor has been created and initialized
 	And sent name: <UserName> the player's balance should recieved, for bet color
 	When Expected exception and call BetColorExecutor(UserName: <UserName>, RoundID: <RoundID>, Amount: <Amount>, Color: <Color>, TrackingID: <TrackingID>)
@@ -59,7 +59,7 @@ Examples:
 	|12			|OhAe		|687.99		|White	|B21F8971-DBAB-400F-9D95-151BA24875C1|
 
 	@record_mock
-Scenario Outline: ผู้เล่นเลือกลงเงินพนันไม่ใช่สีขาวหรือดำ ระบบแจ้งเตือนผู้เล่่นว่าการลงพนันไม่ถูกต้อง
+Scenario Outline: (BetColor)ผู้เล่นเลือกลงเงินพนันไม่ใช่สีขาวหรือดำ ระบบแจ้งเตือนผู้เล่่นว่าการลงพนันไม่ถูกต้อง
 	Given The BetColorExecutor has been created and initialized
 	And sent name: <UserName> the player's balance should recieved, for bet color
 	When Expected exception and call BetColorExecutor(UserName: <UserName>, RoundID: <RoundID>, Amount: <Amount>, Color: <Color>, TrackingID: <TrackingID>)

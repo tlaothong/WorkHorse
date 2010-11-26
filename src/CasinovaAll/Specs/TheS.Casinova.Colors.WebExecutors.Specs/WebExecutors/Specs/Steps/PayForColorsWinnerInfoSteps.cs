@@ -23,7 +23,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
             _cmd = new PayForColorsWinnerInfoCommand {
                 PlayerActionInfoUserName = new PlayerActionInformation { 
                     UserName = userName,
-                    Round = roundID,
+                    RoundID = roundID,
                     ActionType = action
                 }
             };

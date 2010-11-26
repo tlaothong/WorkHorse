@@ -16,13 +16,13 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         private SingleBetCommand _cmd;
         private string _trackingID;
 
-        [Given(@"SingleBet Informations as : UserName '(.*)' Round '(.*)'")]
+        [Given(@"SingleBet Informations as : UserName '(.*)' RoundID '(.*)'")]
         public void GivenSingleBetInformationsAsUserNameXRoundIDX(string userName, int roundId)
         {
             _cmd = new SingleBetCommand {
                 BetInfo = new BetInformation { 
                     UserName = userName,
-                    Round = roundId
+                    RoundID = roundId
                 }
             };
         }

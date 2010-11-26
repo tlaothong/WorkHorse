@@ -68,7 +68,7 @@ testRunner.Given("The ListGamePlayAutoBetInfoExecutor has been created and initi
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "UserName",
-                        "Round",
+                        "RoundID",
                         "Amount",
                         "Interval",
                         "MoneyRefund",
@@ -97,7 +97,7 @@ testRunner.When("Call ListGamePlayAutoBetInfoExecutor");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "UserName",
-                        "Round",
+                        "RoundID",
                         "Amount",
                         "Interval",
                         "MoneyRefund",
@@ -141,7 +141,7 @@ testRunner.Given("The ListGamePlayAutoBetInfoExecutor has been created and initi
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "UserName",
-                        "Round",
+                        "RoundID",
                         "Amount",
                         "Interval",
                         "MoneyRefund",
@@ -171,7 +171,7 @@ testRunner.Given("The ListGamePlayAutoBetInfoExecutor has been created and initi
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "UserName",
-                        "Round",
+                        "RoundID",
                         "Amount",
                         "Interval",
                         "MoneyRefund",

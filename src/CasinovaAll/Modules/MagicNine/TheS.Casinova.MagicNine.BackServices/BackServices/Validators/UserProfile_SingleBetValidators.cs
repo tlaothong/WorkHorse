@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using TheS.Casinova.Colors.Commands;
 using TheS.Casinova.PlayerProfile.Models;
+using TheS.Casinova.MagicNine.Commands;
 using PerfEx.Infrastructure.Validation;
 
-namespace TheS.Casinova.Colors.BackServices.Validators
+namespace TheS.Casinova.MagicNine.BackServices.Validators
 {
-    public class UserProfile_PayForWinnerInfoValidators
-        : ValidatorBase<UserProfile, PayForColorsWinnerInfoCommand>
+    public class UserProfile_SingleBetValidators
+        : ValidatorBase<UserProfile, SingleBetCommand>
     {
-        public override void Validate(UserProfile entity, PayForColorsWinnerInfoCommand command, ValidationErrorCollection errors)
+        public override void Validate(UserProfile entity, SingleBetCommand command, ValidationErrorCollection errors)
         {
-            if ((entity.NonRefundable + entity.Refundable) < command.PlayerActionInfoUserName.Amount) {
+            if (entity.Refundable + entity.NonRefundable < command.BetInfo.Amount) {
                 errors.Add(new ValidationError {
                     Instance = entity,
                     ErrorMessage = "จำนวนชิฟที่มีอยู่ไม่พอลงเงินพนัน",

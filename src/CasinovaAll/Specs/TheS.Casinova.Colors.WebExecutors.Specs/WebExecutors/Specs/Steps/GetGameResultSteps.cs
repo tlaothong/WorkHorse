@@ -23,7 +23,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         {
             _GameResult = from item in table.Rows
                           select new GameRoundInformation { 
-                              Round = Convert.ToInt32(item["RoundID"]),
+                              RoundID = Convert.ToInt32(item["RoundID"]),
                               StartTime = DateTime.Parse(item["StartTime"]),
                               EndTime = DateTime.Parse(item["EndTime"]),
                               BlackPot = Convert.ToDouble(item["BlackPot"]),
@@ -36,7 +36,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         public void GivenSentRoundID2ForGetGameResult(int roundId)
         {
             _getGameResult = (from item in _GameResult
-                       where item.Round == roundId                     
+                       where item.RoundID == roundId                     
                       select item).FirstOrDefault();
 
             SetupResult.For(Dqr_GetGameResult.Get(new GetGameResultCommand()))
@@ -44,7 +44,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
 
             _cmd = new GetGameResultCommand {
                 GameRoundInfoRound = new GameRoundInformation {
-                    Round = roundId,
+                    RoundID = roundId,
                 }
             };
         }
@@ -77,7 +77,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         [Then(@"the game result should be : RoundID '(.*)' StartTime '(.*)' EndTime '(.*)' BlackPot '(.*)' WhitePot '(.*)' HandCount '(.*)'")]
         public void ThenTheGameResultShouldBeRoundIDXStartTimeXEndTimeXBlackPotXWhitePotXHandCountX(int roundId, DateTime startTime, DateTime endTime, double blackPot, double whitePot,int handCount)
         {
-            Assert.AreEqual(roundId, _getGameResult.Round);
+            Assert.AreEqual(roundId, _getGameResult.RoundID);
             Assert.AreEqual(startTime, _getGameResult.StartTime);
             Assert.AreEqual(endTime, _getGameResult.EndTime);
             Assert.AreEqual(blackPot, _getGameResult.BlackPot);

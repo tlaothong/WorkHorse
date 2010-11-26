@@ -11,29 +11,31 @@ using PerfEx.Infrastructure.Validation;
 
 namespace TheS.Casinova.PlayerProfile.BackServices.BackExecutors
 {
-    public class ChangePasswordExecutor
-        : SynchronousCommandExecutorBase<ChangePasswordCommand>
+    public class VerifyUserExecutor
+        : SynchronousCommandExecutorBase<VerifyUserCommand>
     {
-        private IChangePassword _iChangePassword;
+        private IVeriflyUser _iVeriflyUser;
         private IDependencyContainer _container;
 
-        public ChangePasswordExecutor(IDependencyContainer container, IPlayerProfileDataAccess dac)
+        public VerifyUserExecutor(IDependencyContainer container, IPlayerProfileDataAccess dac)
         {
-            _iChangePassword = dac;
+            _iVeriflyUser = dac;
             _container = container;
         }
 
-        protected override void ExecuteCommand(ChangePasswordCommand command)
+        protected override void ExecuteCommand(VerifyUserCommand command)
         {
             ValidationErrorCollection errorValidations = new ValidationErrorCollection();
+
+            //ตรวจสอบรหัสยืนยันว่าถูกต้องหรือไม่
             ValidationHelper.Validate(_container, command.UserProfile, command, errorValidations);
             if (errorValidations.Any()) {
                 throw new ValidationErrorException(errorValidations);
             }
 
-            //บันทึกรหัสผ่านใหม่
-            command.UserProfile.Password = command.NewPassword;
-            _iChangePassword.ApplyAction(command.UserProfile, command);
+            //ระบบยืนยันการสมัคร
+            command.UserProfile.Active = true;
+            _iVeriflyUser.ApplyAction(command.UserProfile, command);
         }
     }
 }

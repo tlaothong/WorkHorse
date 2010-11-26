@@ -22,7 +22,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
             _cmd = new BetCommand {
                 PlayerActionInfo = new PlayerActionInformation { 
                     UserName = userName,
-                    Round = roundID,
+                    RoundID = roundID,
                     ActionType = actionType,
                     Amount = amount
                 }

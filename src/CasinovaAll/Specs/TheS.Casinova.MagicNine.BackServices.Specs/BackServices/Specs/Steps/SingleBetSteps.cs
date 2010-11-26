@@ -8,6 +8,7 @@ using Rhino.Mocks;
 using TheS.Casinova.MagicNine.Commands;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TheS.Casinova.PlayerProfile.Models;
+using PerfEx.Infrastructure.Validation;
 
 namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
 {
@@ -29,8 +30,8 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
                             });
         }
 
-        [Given(@"sent name: '(.*)' the player's balance should recieved")]
-        public void GivenSentNameOhAeThePlayerSBalanceShouldRecieved(string userName)
+        [Given(@"\(SingleBet\)sent name: '(.*)' the player's balance should recieved")]
+        public void GivenSingleBetSentNameOhAeThePlayerSBalanceShouldRecieved(string userName)
         {
             var _expectPlayerProfile = (from item in _playerProfiles
                        where item.UserName == userName
@@ -46,10 +47,26 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
             };
         }
 
-        [Given(@"\(SingleBet\)the player's balance should be update only bonuschips, Amount: '(.*)'")]
-        public void GivenSingleBetThePlayerSBalanceShouldBeUpdateOnlyBonuschipsAmountX(double amount)
+        [Given(@"the player's balance should be update only bonuschips, Amount: '(.*)'")]
+        public void GivenThePlayerSBalanceShouldBeUpdateOnlyBonuschipsAmountX(double amount)
         {
             _playerProfile.NonRefundable -= amount;
+
+            Action<UserProfile, UpdatePlayerInfoBalanceCommand> CheckCallMethod = (playerProfile, cmd) => {
+                Assert.AreEqual(_playerProfile.UserName, playerProfile.UserName, "UserName");
+                Assert.AreEqual(_playerProfile.Refundable, playerProfile.Refundable, "Refundable");
+                Assert.AreEqual(_playerProfile.NonRefundable, playerProfile.NonRefundable, "NonRefundable");
+            };
+
+            Dac_UpdatePlayerInfoBalance.ApplyAction(new UserProfile(), new UpdatePlayerInfoBalanceCommand());
+            LastCall.IgnoreArguments().Do(CheckCallMethod);
+        }
+
+        [Given(@"\(SingleBet\)the player's balance should be update both chips, Amount: '(.*)'")]
+        public void GivenSingleBetThePlayerSBalanceShouldBeUpdateBothChipsAmountX(double amount)
+        {
+            _playerProfile.Refundable -= amount - _playerProfile.NonRefundable;
+            _playerProfile.NonRefundable = 0;
 
             Action<UserProfile, UpdatePlayerInfoBalanceCommand> CheckCallMethod = (playerProfile, cmd) => {
                 Assert.AreEqual(_playerProfile.UserName, playerProfile.UserName, "UserName");
@@ -67,11 +84,9 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
             Func<BetInformation, SingleBetCommand, BetInformation> checkData = (betInfo, cmd) => {
                 Assert.AreEqual(roundID, betInfo.RoundID, "RoundID");
                 Assert.AreEqual(userName, betInfo.UserName, "UserName");
-                Assert.AreEqual(Guid.Parse(trackingID), betInfo.TrackingID, "TrackingID");
+                Assert.AreEqual(Guid.Parse(trackingID), betInfo.BetTrackingID, "BetTrackingID");
 
                 //define datetime by assume datetime
-                betInfo.BetDateTime = assumeDateTime;
-                Assert.AreEqual(dateTime, betInfo.BetDateTime, "BetDateTime");
                 return betInfo;
             };
 
@@ -79,22 +94,37 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
             LastCall.IgnoreArguments().Do(checkData);
         }
 
-        [Given(@"the expected balance less than bet cost")]
-        public void GivenTheExpectedBalanceLessThanBetCost()
+        [When(@"call SingleBetExecutor\(RoundID: '(.*)', UserName: '(.*)', TrackingID: '(.*)'\)")]
+        public void WhenCallSingleBetExecutorRoundIDXUserNameXTrackingIDX(int roundID, string userName, string betTrackingID)
         {
-            ScenarioContext.Current.Pending();
-        }
-
-        [When(@"call SingleBet\(RoundID: '(.*)', UserName: '(.*)', TrackingID: '(.*)'\)")]
-        public void WhenCallSingleBetRoundIDXUserNameXTrackingIDX(int roundID, string userName, string trackingID)
-        {            
             SingleBetCommand cmd = new SingleBetCommand {
-                RoundID = roundID,
-                UserName = userName,                
-                TrackingID = Guid.Parse(trackingID),
+                BetInfo = new BetInformation {
+                    RoundID = roundID,
+                    UserName = userName,
+                    BetTrackingID = Guid.Parse(betTrackingID),
+                },
             };
 
             SingleBetExecutor.Execute(cmd, (x) => { });
+        }
+
+        [When(@"Expected exception and call SingleBetExecutor\(RoundID: '(.*)', UserName: '(.*)', TrackingID: '(.*)'\)")]
+        public void WhenExpectedExceptionAndCallSingleBetExecutorRoundIDXUserNameXTrackingIDX(int roundID, string userName, string betTrackingID)
+        {
+            try {
+                SingleBetCommand cmd = new SingleBetCommand {
+                    BetInfo = new BetInformation {
+                        RoundID = roundID,
+                        UserName = userName,
+                        BetTrackingID = Guid.Parse(betTrackingID),
+                    },
+                };
+                SingleBetExecutor.Execute(cmd, (x) => { });
+                Assert.Fail("Shouldn't be here!");
+            }
+            catch (Exception ex) {
+                Assert.IsInstanceOfType(ex, typeof(ValidationErrorException));
+            }
         }
 
         [Then(@"the result should be create")]
@@ -103,10 +133,10 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
             Assert.IsTrue(true, "Expectation has been verified in the end of block When.");
         }
 
-        [Then(@"server should throw an error")]
-        public void ThenServerShouldThrowAnError()
+        [Then(@"the result should be throw exception")]
+        public void ThenTheResultShouldBeThrowException()
         {
-            ScenarioContext.Current.Pending();
+            Assert.IsTrue(true, "Expectation has been verified in the end of block When.");
         }
     }
 }

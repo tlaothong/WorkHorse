@@ -14,7 +14,7 @@ namespace TheS.Casinova.Colors.Models
         /// <summary>
         /// รหัสโต๊ะเกมที่ลงพนัน
         /// </summary>
-        public int Round { get; set; }
+        public int RoundID { get; set; }
 
         /// <summary>
         /// ชื่อผู้เล่นที่ลงพนัน
@@ -35,5 +35,10 @@ namespace TheS.Casinova.Colors.Models
         /// trackingID use to verify
         /// </summary>
         public Guid TrackingID { get; set; }
+
+        /// <summary>
+        /// action datetime
+        /// </summary>
+        public DateTime ActionDateTime { get; set; }
     }
 }

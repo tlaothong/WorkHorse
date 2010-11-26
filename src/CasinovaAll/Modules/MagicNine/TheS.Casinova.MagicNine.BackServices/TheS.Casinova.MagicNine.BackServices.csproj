@@ -54,8 +54,10 @@
     <Compile Include="BackServices\BackExecutors\StartAutoBetExecutor.cs" />
     <Compile Include="BackServices\BackExecutors\StopAutoBetExecutor.cs" />
     <Compile Include="BackServices\IAutoBetEngine.cs" />
+    <Compile Include="BackServices\Validators\AutoBetInformation_StopAutoBetValidators.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Validators\UserProfileValidators.cs" />
+    <Compile Include="BackServices\Validators\UserProfile_SingleBetValidators.cs" />
+    <Compile Include="BackServices\Validators\UserProfile_StartAutoBetValidators.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

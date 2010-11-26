@@ -203,9 +203,11 @@ namespace TheS.Casinova.Colors.BackServices.Specs
         [When(@"call PayForColorsWinnerInfo\(UserName: '(.*)', RoundID: '(.*)', OnGoingTrackingID: '(.*)'\)")]
         public void WhenCallPayForColorsWinnerInfoUserNameXRoundIDXOnGoingTrackingIDX(string userName, int roundID, string onGoingTrackingID)
         {
-            PayForColorsWinnerInfoCommand cmd = new PayForColorsWinnerInfoCommand { 
-                UserName = userName,
-                RoundID = roundID,
+            PayForColorsWinnerInfoCommand cmd = new PayForColorsWinnerInfoCommand {
+                PlayerActionInfoUserName = new PlayerActionInformation {
+                    UserName = userName,
+                    RoundID = roundID,
+                },
                 OnGoingTrackingID = Guid.Parse(onGoingTrackingID),
             };
             PayForColorsWinnerInfoExecutor.Execute(cmd, (x) => { });
@@ -216,9 +218,11 @@ namespace TheS.Casinova.Colors.BackServices.Specs
         {
             try {
                 PayForColorsWinnerInfoCommand cmd = new PayForColorsWinnerInfoCommand {
-                    UserName = userName,
-                    RoundID = roundID,
-                    OnGoingTrackingID = Guid.Parse(onGoingTrackingID),
+                    PlayerActionInfoUserName = new PlayerActionInformation {
+                        UserName = userName,
+                        RoundID = roundID,
+                    },
+                    OnGoingTrackingID = Guid.Parse(onGoingTrackingID),                    
                 };
                 PayForColorsWinnerInfoExecutor.Execute(cmd, (x) => { });
                 Assert.Fail("Shouldn't be here!");

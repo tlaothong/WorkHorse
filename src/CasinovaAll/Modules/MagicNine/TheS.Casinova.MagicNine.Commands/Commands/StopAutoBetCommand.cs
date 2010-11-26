@@ -10,8 +10,9 @@ namespace TheS.Casinova.MagicNine.Commands
     {
         //input
         /// <summary>
-        /// 1. Round รอบโต๊ะเกมที่ลงเดิมพัน
+        /// 1. RoundID รอบโต๊ะเกมที่ลงเดิมพัน
         /// 2. UserName ชื่อผู้เล่น
+        /// 3. StopTrackingID รหัสตรวจสอบสำหรับหยุด autobet
         /// </summary>
         public GamePlayAutoBetInformation GamePlayAutoBetInfo { get; set; }
 

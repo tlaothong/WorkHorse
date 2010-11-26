@@ -58,7 +58,7 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
                                        LastName = item["LastName"],
                                        AccountType = item["AccountType"],
                                        CardType = item["CardType"],
-                                       AccountNo = Convert.ToDouble(item["AccountNo"]),
+                                       AccountNo = item["AccountNo"],
                                        CVV = Convert.ToInt32(item["CVV"]),
                                        ExpireDate = Convert.ToDateTime(item["ExpireDate"]),
                                        Active = Convert.ToBoolean(item["Active"]),

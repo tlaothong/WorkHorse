@@ -77,51 +77,51 @@ testRunner.Given("(ChangePassword)server has user profile information as:", ((st
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ได้รับรหัสผ่านที่ต้องการเปลี่ยน, ระบบเปลี่ยนแปลงรหัสผ่านของผู้เล่นในระบบ")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(ChangePassword)ผู้เล่นต้องการเปลี่ยนรหัสผ่านใหม่ โดยระบุรหัสผ่านเดิมถูกต้อง, ระบ" +
+            "บเปลี่ยนแปลงรหัสผ่านของผู้เล่นในระบบ")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ChangePassword")]
-        public virtual void ไดรบรหสผานทตองการเปลยนระบบเปลยนแปลงรหสผานของผเลนในระบบ()
+        public virtual void ChangePasswordผเลนตองการเปลยนรหสผานใหมโดยระบรหสผานเดมถกตองระบบเปลยนแปลงรหสผานของผเลนในระบบ()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ได้รับรหัสผ่านที่ต้องการเปลี่ยน, ระบบเปลี่ยนแปลงรหัสผ่านของผู้เล่นในระบบ", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(ChangePassword)ผู้เล่นต้องการเปลี่ยนรหัสผ่านใหม่ โดยระบุรหัสผ่านเดิมถูกต้อง, ระบ" +
+                    "บเปลี่ยนแปลงรหัสผ่านของผู้เล่นในระบบ", new string[] {
                         "record_mock"});
 #line 15
 this.ScenarioSetup(scenarioInfo);
 #line 16
 testRunner.Given("The ChangePassword has been created and initialized");
 #line 17
-testRunner.And("the old password should be correct(UserName: \'OhAe\', OldPassword: \'ugmK\')");
+testRunner.And("(ChangePassword)the player profile should be recieved(UserName: \'OhAe\')");
 #line 18
-testRunner.And("the user profile should be update(UserName: \'OhAe\', OldPassword: \'ugmK\', NewPassw" +
-                    "ord: \'5321\')");
+testRunner.And("the user profile should be update(UserName: \'OhAe\', NewPassword: \'5321\')");
 #line 19
 testRunner.When("call ChangePasswordExecutor(UserName: \'OhAe\', OldPassword: \'ugmK\', NewPassword: \'" +
                     "5321\')");
 #line 20
-testRunner.Then("the password should be update in user profile");
+testRunner.Then("the password should be update");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ได้รับรหัสผ่านที่ต้องการเปลี่ยน, ระบบเปลี่ยนแปลงรหัสผ่านของผู้เล่นในระบบ2")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(ChangePassword)ผู้เล่นต้องการเปลี่ยนรหัสผ่านใหม่ โดยระบุรหัสผ่านเดิมไม่ถูกต้อง, " +
+            "ระบบเปลี่ยนแปลงรหัสผ่านของผู้เล่นในระบบ")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ChangePassword")]
-        public virtual void ไดรบรหสผานทตองการเปลยนระบบเปลยนแปลงรหสผานของผเลนในระบบ2()
+        public virtual void ChangePasswordผเลนตองการเปลยนรหสผานใหมโดยระบรหสผานเดมไมถกตองระบบเปลยนแปลงรหสผานของผเลนในระบบ()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ได้รับรหัสผ่านที่ต้องการเปลี่ยน, ระบบเปลี่ยนแปลงรหัสผ่านของผู้เล่นในระบบ2", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(ChangePassword)ผู้เล่นต้องการเปลี่ยนรหัสผ่านใหม่ โดยระบุรหัสผ่านเดิมไม่ถูกต้อง, " +
+                    "ระบบเปลี่ยนแปลงรหัสผ่านของผู้เล่นในระบบ", new string[] {
                         "record_mock"});
 #line 23
 this.ScenarioSetup(scenarioInfo);
 #line 24
 testRunner.Given("The ChangePassword has been created and initialized");
 #line 25
-testRunner.And("the old password should be correct(UserName: \'Boy\', OldPassword: \'ugmK\')");
+testRunner.And("(ChangePassword)the player profile should be recieved(UserName: \'OhAe\')");
 #line 26
-testRunner.And("the user profile should be update(UserName: \'Boy\', OldPassword: \'ugmK\', NewPasswo" +
-                    "rd: \'5321\')");
+testRunner.When("Expected exception and call ChangePasswordExecutor(UserName: \'OhAe\', OldPassword:" +
+                    " \'YgmK\', NewPassword: \'5321\')");
 #line 27
-testRunner.When("call ChangePasswordExecutor(UserName: \'Boy\', OldPassword: \'ugmK\', NewPassword: \'5" +
-                    "321\')");
-#line 28
-testRunner.Then("the password should be update in user profile");
+testRunner.Then("the result should be throw exception");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
