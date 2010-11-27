@@ -71,12 +71,21 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
+    <Compile Include="BackServices\Specs\PayVoucher.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PayVoucher.feature</DependentUpon>
+    </Compile>
     <Compile Include="BackServices\Specs\Steps\ChipExchangeStepsBase.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="BackServices\Specs\Steps\CommonSteps.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BackServices\Specs\Steps\MoneyToBonusChipsSteps.cs" />
+    <Compile Include="BackServices\Specs\Steps\MoneyToChipsSteps.cs" />
+    <Compile Include="BackServices\Specs\Steps\PayVoucherSteps.cs" />
+    <Compile Include="BackServices\Specs\Steps\VoucherToBonusChipsSteps.cs" />
     <Compile Include="BackServices\Specs\VoucherToBonusChips.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -106,6 +115,14 @@
       <Project>{4D33D4E0-40CE-4AF2-A30F-53FCAE1A2886}</Project>
       <Name>TheS.Casinova.ChipExchange.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Modules\PlayerAccount\TheS.Casinova.PlayerAccount.Models\TheS.Casinova.PlayerAccount.Models.csproj">
+      <Project>{28B48276-2905-4A6C-9BBA-09007F7E7084}</Project>
+      <Name>TheS.Casinova.PlayerAccount.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\PlayerProfile\TheS.Casinova.PlayerProfile.Models\TheS.Casinova.PlayerProfile.Models.csproj">
+      <Project>{96BBA83F-EAA6-4EEA-BEC5-98F6AC39B943}</Project>
+      <Name>TheS.Casinova.PlayerProfile.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Modules\Shared\TheS.Casinova.Common.Commands\TheS.Casinova.Common.Commands.csproj">
       <Project>{B0BA601A-7B65-4973-9E00-4F9035883877}</Project>
       <Name>TheS.Casinova.Common.Commands</Name>
@@ -116,7 +133,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="BackServices\App.config" />
+    <None Include="BackServices\App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="BackServices\Specs\MoneyToBonusChips.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>MoneyToBonusChips.feature.cs</LastGenOutput>
@@ -124,6 +143,10 @@
     <None Include="BackServices\Specs\MoneyToChips.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>MoneyToChips.feature.cs</LastGenOutput>
+    </None>
+    <None Include="BackServices\Specs\PayVoucher.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>PayVoucher.feature.cs</LastGenOutput>
     </None>
     <None Include="BackServices\Specs\VoucherToBonusChips.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

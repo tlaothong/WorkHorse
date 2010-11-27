@@ -35,5 +35,10 @@ namespace TheS.Casinova.Colors.Models
         /// trackingID use to verify
         /// </summary>
         public Guid TrackingID { get; set; }
+
+        /// <summary>
+        /// action datetime
+        /// </summary>
+        public DateTime ActionDateTime { get; set; }
     }
 }

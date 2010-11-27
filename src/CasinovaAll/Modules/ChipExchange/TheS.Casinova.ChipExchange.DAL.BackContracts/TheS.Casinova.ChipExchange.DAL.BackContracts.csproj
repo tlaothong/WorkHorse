@@ -49,6 +49,7 @@
     <Compile Include="Commands\GetExchangeSettingCommand.cs" />
     <Compile Include="Commands\GetMLNInfoCommand.cs" />
     <Compile Include="Commands\GetPlayerAccountInfoCommand.cs" />
+    <Compile Include="Commands\GetUserProfileCommand.cs" />
     <Compile Include="Commands\GetVoucherInfoCommand.cs" />
     <Compile Include="Commands\UpdateUsedVoucherCommand.cs" />
     <Compile Include="DAL\IChipExchangeDataAccess.cs" />

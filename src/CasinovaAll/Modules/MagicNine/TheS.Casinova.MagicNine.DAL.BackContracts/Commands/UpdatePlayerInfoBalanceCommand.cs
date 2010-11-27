@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TheS.Casinova.PlayerProfile.Models;
 
 namespace TheS.Casinova.MagicNine.Commands
 {
     /// <summary>
-    /// อัพเดทยอดเงินของผู้เล่น
+    /// อัพเดทชิฟของผู้เล่น
     /// </summary>
     public class UpdatePlayerInfoBalanceCommand 
-        : SingleBetCommand
     {        
-        //output
+        //input
         /// <summary>
-        /// จำนวนยอดเงินคงเหลือ
+        /// ข้อมูลผู้เล่นที่จะอัพเดทชิฟ
         /// </summary>
-        public double Balance { get; set; }
+        public UserProfile UserProfile { get; set; }
     }
 }

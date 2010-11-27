@@ -5,8 +5,8 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-<%-- submenu for friends--%>
-    <div style="background-color: #dedfe1; width: 330px; padding-left: 278px;">
+   <%-- submenu for friends--%>
+    <%--<div style="background-color: #dedfe1; width: 330px; padding-left: 278px;">
         <table style="margin-bottom: 10px;">
             <tr>
                 <th style="background-color: White; border: 1px solid #afb0b3; padding-left: 5px;
@@ -31,11 +31,12 @@
                 </th>
             </tr>
         </table>
-    </div>
+    </div>--%>
+
     <div class="picuser">
         <img src="/Content/images/picuser.png" alt="user" /></div>
     <%-- My Profile--%>
-    <div style="float: left; padding-left: 50px;">
+    <div style="float: left; padding-left: 50px; margin-top:10px;">
         <div>
             Name: Dick Kapooook
         </div>
@@ -55,14 +56,14 @@
             School : Bare body University
         </div>
     </div>
-    <div style="float: left; padding-left: 50px;">
-        <img src="/Content/images/ProfileAvatar.png" alt="Avatar" /></div>
+    <div style="float: left; padding-left: 35px; margin-top:10px;">
+        <img src="/Content/images/avartar_index.png" alt="Avatar" /></div>
     <%-- Top Friends--%>
     <div class="friend">
         <div class="stylefriend">
             Friends</div>
         <div class="styleall">
-            <a href="#">See All</a></div>
+            <a href="#">see sll</a></div>
         <div class="friendall">
             <a href="#">
                 <img src="/Content/images/f1.png" alt="" /><br />
@@ -92,7 +93,7 @@
         <div class="stylefriend">
             Log Events</div>
         <div class="logeventall">
-            <a href="#">See All</a></div>
+            <a href="#">see all</a></div>
         <table>
             <tr class="logpostevent">
                 <td class="eventborder">

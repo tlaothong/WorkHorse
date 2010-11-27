@@ -43,6 +43,7 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs
         public virtual void ScenarioSetup(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioStart(scenarioInfo);
+            this.FeatureBackground();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCleanupAttribute()]
@@ -51,25 +52,100 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs
             testRunner.OnScenarioEnd();
         }
         
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ได้รับข้อมูลผู้เล่นที่จะยกเลิกลงพนัน, ระบบส่งข้อมูลให้ AutoBet Engine ทำงานต่อไป")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StopAutoBet")]
-        public virtual void ไดรบขอมลผเลนทจะยกเลกลงพนนระบบสงขอมลใหAutoBetEngineทำงานตอไป()
+        public virtual void FeatureBackground()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ได้รับข้อมูลผู้เล่นที่จะยกเลิกลงพนัน, ระบบส่งข้อมูลให้ AutoBet Engine ทำงานต่อไป", new string[] {
-                        "record_mock"});
 #line 7
-this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "UserName",
+                        "RoundID",
+                        "ThruDateTime"});
+            table1.AddRow(new string[] {
+                        "OhAe",
+                        "1",
+                        "2553/11/24 19:43"});
+            table1.AddRow(new string[] {
+                        "Boy",
+                        "2",
+                        "null"});
+            table1.AddRow(new string[] {
+                        "Toommy",
+                        "3",
+                        "2553/11/24 14:43"});
+            table1.AddRow(new string[] {
+                        "Au",
+                        "1",
+                        "2553/11/24 14:43"});
+            table1.AddRow(new string[] {
+                        "Game",
+                        "1",
+                        "2553/11/27 18:43"});
+            table1.AddRow(new string[] {
+                        "Khag",
+                        "3",
+                        "null"});
+            table1.AddRow(new string[] {
+                        "Ple",
+                        "4",
+                        "2553/11/24 14:43"});
 #line 8
+testRunner.Given("(StopAutoBet)server has autobet information as:", ((string)(null)), table1);
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(StopAutoBet)ผู้เล่นหยุดการลงพนันอัตโนมัติ การลงพนันอัตโนมัติต้องการหยุดยังทำงานอ" +
+            "ยู่ ระบบส่งข้อมูลการยกเลิกลงพนันให้ระบบ AutoBet Engine ทำงานต่อ")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StopAutoBet")]
+        public virtual void StopAutoBetผเลนหยดการลงพนนอตโนมตการลงพนนอตโนมตตองการหยดยงทำงานอยระบบสงขอมลการยกเลกลงพนนใหระบบAutoBetEngineทำงานตอ()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(StopAutoBet)ผู้เล่นหยุดการลงพนันอัตโนมัติ การลงพนันอัตโนมัติต้องการหยุดยังทำงานอ" +
+                    "ยู่ ระบบส่งข้อมูลการยกเลิกลงพนันให้ระบบ AutoBet Engine ทำงานต่อ", new string[] {
+                        "record_mock",
+                        "record_mock"});
+#line 19
+this.ScenarioSetup(scenarioInfo);
+#line 20
 testRunner.Given("The StopAutoBetExecutor has been created and initialized");
-#line 9
-testRunner.And("the StopAutoBet shoule be call as: (UserName: \'OhAe\', RoundID: \'1\', BetTrackingID: \'" +
-                    "B21F8971-DBAB-400F-9D95-151BA24875C1\')");
-#line 10
-testRunner.When("call StopAutoBetExecutor(UserName: \'OhAe\', RoundID: \'1\', BetTrackingID: \'B21F8971-DB" +
-                    "AB-400F-9D95-151BA24875C1\')");
-#line 11
+#line 21
+testRunner.And("(StopAutoBet)sent name: \'Boy\' roundID: \'2\' the autobet information should recieve" +
+                    "d");
+#line 22
+testRunner.And("(StopAutoBet)the autobet information should be update as(UserName: \'Boy\', RoundID" +
+                    ": \'2\', StopTrackingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\')");
+#line 23
+testRunner.And("the StopAutoBet shoule be call as: (UserName: \'Boy\', RoundID: \'2\', StopTrackingID" +
+                    ": \'B21F8971-DBAB-400F-9D95-151BA24875C1\')");
+#line 24
+testRunner.When("call StopAutoBetExecutor(UserName: \'Boy\', RoundID: \'2\', StopTrackingID: \'B21F8971" +
+                    "-DBAB-400F-9D95-151BA24875C1\')");
+#line 25
 testRunner.Then("server should call StopAutoBet");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(StopAutoBet)ผู้เล่นหยุดการลงพนันอัตโนมัติ การลงพนันอัตโนมัติต้องการหยุดได้ถูกหยุ" +
+            "ดไปแล้ว ระบบแจ้งเตือนผู้เล่นว่าเงินไม่พอ")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StopAutoBet")]
+        public virtual void StopAutoBetผเลนหยดการลงพนนอตโนมตการลงพนนอตโนมตตองการหยดไดถกหยดไปแลวระบบแจงเตอนผเลนวาเงนไมพอ()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(StopAutoBet)ผู้เล่นหยุดการลงพนันอัตโนมัติ การลงพนันอัตโนมัติต้องการหยุดได้ถูกหยุ" +
+                    "ดไปแล้ว ระบบแจ้งเตือนผู้เล่นว่าเงินไม่พอ", new string[] {
+                        "record_mock"});
+#line 28
+this.ScenarioSetup(scenarioInfo);
+#line 29
+testRunner.Given("The StopAutoBetExecutor has been created and initialized");
+#line 30
+testRunner.And("(StopAutoBet)sent name: \'OhAe\' roundID: \'1\' the autobet information should reciev" +
+                    "ed");
+#line 31
+testRunner.When("Expected exeception and call StopAutoBetExecutor(UserName: \'OhAe\', RoundID: \'1\', " +
+                    "StopTrackingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\')");
+#line 32
+testRunner.Then("the result should be throw exception");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

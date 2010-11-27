@@ -7,6 +7,7 @@ using TheS.Casinova.PlayerProfile.Models;
 using Rhino.Mocks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TheS.Casinova.PlayerProfile.Commands;
+using PerfEx.Infrastructure.Validation;
 
 namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
 {
@@ -22,12 +23,13 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
             _userProfiles = (from item in table.Rows
                              select new UserProfile { 
                                  UserName = item["UserName"],
+                                 Password = item["Password"],
                                  Email = item["E-mail"],
                              });
         }
 
-        [Given(@"the old email should be correct\(UserName: '(.*)', OldE-mail: '(.*)'\)")]
-        public void GivenTheOldEmailShouldBeCorrectUserNameXOldE_MailX(string userName, string oldEmail)
+        [Given(@"the player profile should be recieved\(UserName: '(.*)'\)")]
+        public void GivenThePlayerProfileShouldBeRecievedUserNameXPasswordXOldE_MailX(string userName)
         {
             var qry = (from item in _userProfiles
                        where item.UserName == userName 
@@ -35,8 +37,6 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
 
             SetupResult.For(Dqr_GetUserProfile.Get(new Commands.GetUserProfileCommand()))
                 .IgnoreArguments().Return(qry);
-
-            Assert.AreEqual(qry.Email, oldEmail, "OldEmail");
         }
 
         [Given(@"the new email should be unique\(NewE-mail: '(.*)'\)")]
@@ -46,14 +46,12 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
                        where item.Email == newEmail
                        select item).FirstOrDefault();
 
-            SetupResult.For(Dqr_GetUserProfile.Get(new Commands.GetUserProfileCommand()))
+            SetupResult.For(Dqr_GetUserProfileByEmail.Get(new GetUserProfileByEmailCommand()))
                 .IgnoreArguments().Return(qry);
-
-            Assert.IsNull(qry, "Is unique email");
         }
 
-        [Given(@"the user profile should be update\(UserName: '(.*)', OldE-mail: '(.*)', NewE-mail: '(.*)'\)")]
-        public void GivenTheUserProfileShouldBeUpdateUserNameXOldE_MailXNewE_MailX(string userName, string oldEmail, string newEmail)
+        [Given(@"the user profile should be update\(UserName: '(.*)', NewE-mail: '(.*)'\)")]
+        public void GivenTheUserProfileShouldBeUpdateUserNameXNewE_MailX(string userName, string newEmail)
         {
             Action<UserProfile, ChangeEmailCommand> checkData = (userProfile, cmd) => {
                 Assert.AreEqual(userName, userProfile.UserName, "UserName");
@@ -64,20 +62,44 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
             LastCall.IgnoreArguments().Do(checkData);
         }
 
-        [When(@"call ChangeEmailExecutor\(UserName: '(.*)', OldE-mail: '(.*)', NewE-mail: '(.*)'\)")]
-        public void WhenCallChangeEmailExecutorUserNameXOldE_MailXNewE_MailX(string userName, string oldEmail, string newEmail)
+        [When(@"call ChangeEmailExecutor\(UserName: '(.*)', Password: '(.*)', OldE-mail: '(.*)', NewE-mail: '(.*)'\)")]
+        public void WhenCallChangeEmailExecutorUserNameXPasswordXOldE_MailXNewE_MailX(string userName, string password, string oldEmail, string newEmail)
         {
             ChangeEmailCommand cmd = new ChangeEmailCommand {
-                UserName = userName,
-                OldEmail = oldEmail,
+                UserProfile = new UserProfile {
+                    UserName = userName,
+                    Email = oldEmail,
+                    Password = password,
+                },
                 NewEmail = newEmail,
             };
 
             ChangeEmailExecutor.Execute(cmd, (x) => { });
         }
 
-        [Then(@"the e-mail should be update in user profile")]
-        public void ThenTheE_MailShouldBeUpdateInUserProfile()
+        [When(@"Expected exception and call ChangeEmailExecutor\(UserName: '(.*)', Password: '(.*)', OldE-mail: '(.*)', NewE-mail: '(.*)'\)")]
+        public void WhenExpectedExceptionAndCallChangeEmailExecutorUserNameXPasswordXOldE_MailXNewE_MailX(string userName, string password, string oldEmail, string newEmail)
+        {
+            try {
+                ChangeEmailCommand cmd = new ChangeEmailCommand {
+                    UserProfile = new UserProfile {
+                        UserName = userName,
+                        Email = oldEmail,
+                        Password = password,
+                    },
+                    NewEmail = newEmail,
+                };
+
+                ChangeEmailExecutor.Execute(cmd, (x) => { });
+                Assert.Fail("Shouldn't be here!");
+            }
+            catch (Exception ex) {
+                Assert.IsInstanceOfType(ex, typeof(ValidationErrorException));
+            }
+        }
+
+        [Then(@"the e-mail should be update")]
+        public void ThenTheE_MailShouldBeUpdate()
         {
             Assert.IsTrue(true, "Expectation has been verified in the end of block When.");
         }

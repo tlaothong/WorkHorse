@@ -5,13 +5,16 @@ using System.Text;
 using TheS.Casinova.MagicNine.Models;
 using TheS.Casinova.MagicNine.Commands;
 using PerfEx.Infrastructure.Data;
+using TheS.Casinova.PlayerProfile.Models;
 
 namespace TheS.Casinova.MagicNine.DAL
 {
     public interface IMagicNineGameDataAccess :
         ISingleBet,
+        ICreateAutoBetInfo,
         IUpdatePlayerInfoBalance,
-        IUpdateGameRoundPot
+        IUpdateGameRoundPot,
+        IUpdateAutoBetInfo
     { }
 
     /// <summary>
@@ -22,10 +25,17 @@ namespace TheS.Casinova.MagicNine.DAL
     { }
 
     /// <summary>
+    /// บันทึกข้อมูลการลงพนันอัตโนมัติ
+    /// </summary>
+    public interface ICreateAutoBetInfo
+        : ICreateData<GamePlayAutoBetInformation, StartAutoBetCommand>
+    { }
+
+    /// <summary>
     /// อัพเดทข้อมูลผู้เล่น
     /// </summary>
     public interface IUpdatePlayerInfoBalance
-        : IDataAction<PlayerInformation, UpdatePlayerInfoBalanceCommand>
+        : IDataAction<UserProfile, UpdatePlayerInfoBalanceCommand>
     { }
 
     /// <summary>
@@ -33,5 +43,12 @@ namespace TheS.Casinova.MagicNine.DAL
     /// </summary>
     public interface IUpdateGameRoundPot
         : IDataAction<GameRoundInformation, UpdateGameRoundPotCommand>
+    { }
+
+    /// <summary>
+    /// อัพเดทข้อมูล stop trackingID เมื่อมีการหยุด autobet
+    /// </summary>
+    public interface IUpdateAutoBetInfo
+        : IDataAction<GamePlayAutoBetInformation, StopAutoBetCommand>
     { }
 }

@@ -9,8 +9,7 @@
 <script src="../../../../Scripts/jquery-1.4.2.min.js" type="text/javascript"></script>
 <script src="../../../../Scripts/jquery-ui-1.8.6.custom.min.js" type="text/javascript"></script>
 
-    <div style="background-color: #DFE1E3; padding: 2px 3px 5px 3px; position: fixed;
-        width: 625px; z-index: 9;">
+    <div style="background-color: #DFE1E3; width: 100%; height: 30px; z-index: 9; margin-top: -10px">
         <div style="margin-bottom: 10px;">
             <label style="float: left; margin-left: 20px;">
                 Dick Kapooook's Archeivement</label><label style="margin-left: 10px; color: #5FB546;
@@ -26,7 +25,7 @@
                 </select></div>
         </div>
     </div>
-    <div style="background-color: #505151; padding-top: 10px; padding-bottom: 20px; margin-top: 25px;
+    <div style="background-color: #505151; padding-top: 10px; padding-bottom: 20px;
         position: relative;">
         <div style="background-color: White; border: 1px solid gray; margin-left: 50px; width: 50px;
             text-align: center; color: #5FB546;">
@@ -80,8 +79,7 @@
                 <label>
                     SeeMore...</label></div>
         </div>
-        <div style="width: 150px; margin-top: -600px; margin-right: 20px; margin-left: 430px;
-            position: fixed;">
+        <div style="width: 150px; margin-top: -600px; margin-right: 20px; margin-left: 430px; position: absolute;">
             <div>
                 <div style="border: 2px solid #333333; width: 80px; text-align: center; margin-bottom: -2px;">
                     <a href="#" style="color: #5FB546; text-decoration: none;">Lastest</a>

@@ -7,6 +7,14 @@ using TechTalk.SpecFlow;
 using TheS.Casinova.Colors.DAL;
 using TheS.Casinova.Colors.BackServices.BackExecutors;
 using TheS.Casinova.Colors.Models;
+using PerfEx.Infrastructure;
+using TheS.Casinova.Colors.BackServices.Validators;
+using PerfEx.Infrastructure.Containers.StructureMapAdapter;
+using TheS.Casinova.PlayerProfile.Models;
+using TheS.Casinova.Colors.Commands;
+using PerfEx.Infrastructure.Validation;
+using SpecFlowAssist;
+using PerfEx.Infrastructure.CommandPattern;
 
 namespace TheS.Casinova.Colors.BackServices.Specs
 {
@@ -31,6 +39,8 @@ namespace TheS.Casinova.Colors.BackServices.Specs
         public const string Key_CreateGameRoundConfigurations = "CreateGameRoundConfigurations";
         public const string Key_CreateGameRound = "CreateGameRound";
 
+        public const string Key_UserProfile_BetColorValidator = "UserProfile_BetColorValidator";
+
         MockRepository Mocks { get { return SpecEventDefinitions.Mocks; } }
 
         [Given(@"The PayForColorsWinnerInfoExecutor has been created and initialized")]
@@ -38,6 +48,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
         {
             var dac = Mocks.DynamicMock<IColorsGameDataAccess>();
             var dqr = Mocks.DynamicMock<IColorsGameDataBackQuery>();
+            var container = Mocks.DynamicMock<IDependencyContainer>();
 
             ScenarioContext.Current[Key_Dac_UpdatePlayerInfoBalance] = dac; 
             ScenarioContext.Current[Key_Dac_CreatePlayerActionInfo] = dac;
@@ -48,7 +59,8 @@ namespace TheS.Casinova.Colors.BackServices.Specs
             ScenarioContext.Current[Key_Dqr_ListPlayerActionInfo] = dqr;
             ScenarioContext.Current[Key_Dqr_GetRoundInfo] = dqr;
 
-            ScenarioContext.Current[Key_PayForColorsWinnerInfoExecutor] = new PayForColorsWinnerInfoExecutor(dac, dqr);
+            setupValidators(out container);
+            ScenarioContext.Current[Key_PayForColorsWinnerInfoExecutor] = new PayForColorsWinnerInfoExecutor(container, dac, dqr);
         }
 
         [Given(@"The BetColorExecutor has been created and initialized")]
@@ -56,13 +68,15 @@ namespace TheS.Casinova.Colors.BackServices.Specs
         {
             var dac = Mocks.DynamicMock<IColorsGameDataAccess>();
             var dqr = Mocks.DynamicMock<IColorsGameDataBackQuery>();
+            var container = Mocks.DynamicMock<IDependencyContainer>();
 
             ScenarioContext.Current[Key_Dac_UpdatePlayerInfoBalance] = dac;
             ScenarioContext.Current[Key_Dac_CreatePlayerActionInfo] = dac;
 
             ScenarioContext.Current[Key_Dqr_GetPlayerInfo] = dqr;
 
-            ScenarioContext.Current[Key_BetColorExecutor] = new BetColorExecutor(dac, dqr);
+            setupValidators(out container);
+            ScenarioContext.Current[Key_BetColorExecutor] = new BetColorExecutor(container, dac, dqr);
         }
 
         [Given(@"The CreateGameRoundConfigurationExecutor has been created and initialized")]
@@ -75,7 +89,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
             ScenarioContext.Current[Key_CreateGameRoundConfigurations] = new CreateGameRoundConfigurationExecutor(dac);
         }
 
-        [Given(@"The CreateGameRoundExecutor has been created and initialized")]
+        [Given(@"The CreateGameRoundsExecutor has been created and initialized")]
         public void GivenTheCreateGameRoundsExecutorHasBeenCreatedAndInitialized()
         {
             var dac = Mocks.DynamicMock<IColorsGameDataAccess>();
@@ -87,6 +101,27 @@ namespace TheS.Casinova.Colors.BackServices.Specs
             ScenarioContext.Current[Key_Dqr_GetGameRoundConfiguration] = dqr;
 
             ScenarioContext.Current[Key_CreateGameRound] = new CreateGameRoundExecutor(dac, dqr);
+        }
+
+        private static void setupValidators(out IDependencyContainer container)
+        {
+            var fac = new StructureMapAbstractFactory();
+            var reg = fac.CreateRegistry();
+
+            reg.Register<IValidator<UserProfile, BetCommand>
+                , UserProfileValidators>();
+            reg.Register<IValidator<PlayerActionInformation, NullCommand>
+                , PlayerActionInformationValidators>();
+            reg.Register<IValidator<UserProfile, PayForColorsWinnerInfoCommand>
+                , UserProfile_PayForWinnerInfoValidators>();
+
+
+            //reg.RegisterInstance<IColorsGameDataBackQuery>
+            //    (ScenarioContext.Current.Get<IColorsGameDataBackQuery>(Key_Dac_CreatePlayerActionInfo));
+            //reg.Register<IServiceObjectProvider<IColorsGameDataBackQuery>,
+            //    DependencyInjectionServiceObjectProviderAdapter<IColorsGameDataBackQuery, IColorsGameDataBackQuery>>();
+
+            container = fac.CreateContainer(reg);
         }
     }
 }

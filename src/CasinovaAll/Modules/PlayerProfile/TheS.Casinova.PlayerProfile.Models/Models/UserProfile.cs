@@ -38,12 +38,12 @@ namespace TheS.Casinova.PlayerProfile.Models
         /// <summary>
         /// จำนวนชิพเป็น
         /// </summary>
-        public int Refundable { get; set; }
+        public double Refundable { get; set; }
 
         /// <summary>
         /// จำนวนชิพตาย
         /// </summary>
-        public int NonRefundable { get; set; }
+        public double NonRefundable { get; set; }
 
         /// <summary>
         /// สถานะการเปิดใช้งาน account

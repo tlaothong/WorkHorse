@@ -58,60 +58,64 @@ namespace TheS.Casinova.Colors.BackServices.Specs
 #line 6
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ConfigName",
+                        "Name",
                         "TableAmount",
                         "GameDuration",
-                        "Interval"});
+                        "Interval",
+                        "BufferRoundsCount"});
             table1.AddRow(new string[] {
                         "config1",
                         "4",
                         "30",
-                        "5"});
+                        "5",
+                        "1"});
             table1.AddRow(new string[] {
                         "config2",
                         "5",
                         "20",
-                        "8"});
+                        "8",
+                        "1"});
             table1.AddRow(new string[] {
                         "config3",
-                        "4",
+                        "3",
                         "30",
-                        "15"});
+                        "5",
+                        "1"});
             table1.AddRow(new string[] {
                         "config4",
                         "5",
                         "10",
-                        "3"});
+                        "3",
+                        "1"});
             table1.AddRow(new string[] {
                         "config5",
                         "7",
                         "15",
-                        "10"});
+                        "10",
+                        "1"});
 #line 7
-testRunner.Given("server has GameRoundConfig information as:", ((string)(null)), table1);
+testRunner.Given("server has GameRoundConfiguration information as:", ((string)(null)), table1);
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ได้รับข้อมูล config และไม่มีโต๊ะเกมที่เริ่มเล่นอยู่ในระบบ, ระบบสร้างโต๊ะเกมใหม่ทั" +
-            "้งหมด")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(CreateGameRounds)ได้รับข้อมูล config มีโต๊ะเกมที่เริ่มเล่นอยู่ในระบบไม่ตรงกับค่า" +
+            "ที่ตั้งไว้, ระบบสร้างโต๊ะเกมที่เหลือ")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Create Game Rounds")]
-        public virtual void ไดรบขอมลConfigและไมมโตะเกมทเรมเลนอยในระบบระบบสรางโตะเกมใหมทงหมด()
+        public virtual void CreateGameRoundsไดรบขอมลConfigมโตะเกมทเรมเลนอยในระบบไมตรงกบคาทตงไวระบบสรางโตะเกมทเหลอ()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ได้รับข้อมูล config และไม่มีโต๊ะเกมที่เริ่มเล่นอยู่ในระบบ, ระบบสร้างโต๊ะเกมใหม่ทั" +
-                    "้งหมด", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(CreateGameRounds)ได้รับข้อมูล config มีโต๊ะเกมที่เริ่มเล่นอยู่ในระบบไม่ตรงกับค่า" +
+                    "ที่ตั้งไว้, ระบบสร้างโต๊ะเกมที่เหลือ", new string[] {
                         "record_mock"});
 #line 16
 this.ScenarioSetup(scenarioInfo);
 #line 17
 testRunner.Given("The CreateGameRoundsExecutor has been created and initialized");
 #line 18
-testRunner.And("sent ConfigName: \'config1\', the GameRoundConfig should recieved data as GameRoun" +
-                    "dConfiguration(ConfigName: \'config1\', TableAmount: \'4\', GameDuration: \'30\', Inverval: " +
-                    "\'5\')");
+testRunner.And("sent Name: \'config1\', the GameRoundConfiguration should recieved");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                        "GameRoundInfo",
+                        "RoundID",
                         "StartTime",
                         "EndTime"});
             table2.AddRow(new string[] {
@@ -130,7 +134,7 @@ testRunner.And("sent ConfigName: \'config1\', the GameRoundConfig should recieve
 testRunner.And("server should recieved the active game round data as:", ((string)(null)), table2);
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
-                        "GameRoundInfo",
+                        "RoundID",
                         "StartTime",
                         "EndTime"});
             table3.AddRow(new string[] {
@@ -144,10 +148,10 @@ testRunner.And("server should recieved the active game round data as:", ((string
 #line 25
 testRunner.And("Expect result should be create as:", ((string)(null)), table3);
 #line 30
-testRunner.When("call CreateGameRound(GameRoundConfig: \'config1\')");
+testRunner.When("call CreateGameRound(ConfigName: \'config1\')");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
-                        "GameRoundInfo",
+                        "RoundID",
                         "StartTime",
                         "EndTime"});
             table4.AddRow(new string[] {
@@ -177,85 +181,129 @@ testRunner.Then("the result should be create data as:", ((string)(null)), table4
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ได้รับข้อมูล config และไม่มีโต๊ะเกมที่เริ่มเล่นอยู่ในระบบ, ระบบสร้างโต๊ะเกมใหม่ทั" +
-            "้งหมด2")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(CreateGameRounds)ได้รับข้อมูล config มีโต๊ะเกมที่เริ่มเล่นอยู่ในระบบตรงกับค่าที่" +
+            "ตั้งไว้, ระบบเสมือนทำงานสำเร็จ")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Create Game Rounds")]
-        public virtual void ไดรบขอมลConfigและไมมโตะเกมทเรมเลนอยในระบบระบบสรางโตะเกมใหมทงหมด2()
+        public virtual void CreateGameRoundsไดรบขอมลConfigมโตะเกมทเรมเลนอยในระบบตรงกบคาทตงไวระบบเสมอนทำงานสำเรจ()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ได้รับข้อมูล config และไม่มีโต๊ะเกมที่เริ่มเล่นอยู่ในระบบ, ระบบสร้างโต๊ะเกมใหม่ทั" +
-                    "้งหมด2", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(CreateGameRounds)ได้รับข้อมูล config มีโต๊ะเกมที่เริ่มเล่นอยู่ในระบบตรงกับค่าที่" +
+                    "ตั้งไว้, ระบบเสมือนทำงานสำเร็จ", new string[] {
                         "record_mock"});
 #line 40
 this.ScenarioSetup(scenarioInfo);
 #line 41
 testRunner.Given("The CreateGameRoundsExecutor has been created and initialized");
 #line 42
-testRunner.And("sent ConfigName: \'config1\', the GameRoundConfig should recieved data as GameRoun" +
-                    "dConfiguration(ConfigName: \'config1\', TableAmount: \'4\', GameDuration: \'30\', Inverval: " +
-                    "\'5\')");
+testRunner.And("sent Name: \'config1\', the GameRoundConfiguration should recieved");
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
-                        "GameRoundInfo",
+                        "RoundID",
                         "StartTime",
                         "EndTime"});
-#line 43
-testRunner.And("server should recieved the active game round data as:", ((string)(null)), table5);
-#line hidden
-            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
-                        "GameRoundInfo",
-                        "StartTime",
-                        "EndTime"});
-            table6.AddRow(new string[] {
+            table5.AddRow(new string[] {
                         "1",
                         "2553/3/12 10:00",
                         "2553/3/12 10:30"});
-            table6.AddRow(new string[] {
+            table5.AddRow(new string[] {
                         "2",
                         "2553/3/12 10:05",
                         "2553/3/12 10:35"});
-            table6.AddRow(new string[] {
+            table5.AddRow(new string[] {
                         "3",
                         "2553/3/12 10:10",
                         "2553/3/12 10:40"});
-            table6.AddRow(new string[] {
+            table5.AddRow(new string[] {
                         "4",
                         "2553/3/12 10:15",
                         "2553/3/12 10:45"});
-            table6.AddRow(new string[] {
+            table5.AddRow(new string[] {
                         "5",
                         "2553/3/12 10:20",
                         "2553/3/12 10:50"});
-#line 46
-testRunner.And("Expect result should be create as:", ((string)(null)), table6);
-#line 54
-testRunner.When("call CreateGameRound(GameRoundConfig: \'config1\')");
+#line 43
+testRunner.And("server should recieved the active game round data as:", ((string)(null)), table5);
+#line 51
+testRunner.When("call CreateGameRound(ConfigName: \'config1\')");
+#line 52
+testRunner.Then("the result should be same as old");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(CreateGameRounds)ได้รับข้อมูล config ไม่มีโต๊ะเกมที่เริ่มเล่นอยู่ในระบบ, ระบบสร้" +
+            "างโต๊ะเกมใหม่ทั้งหมด")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Create Game Rounds")]
+        public virtual void CreateGameRoundsไดรบขอมลConfigไมมโตะเกมทเรมเลนอยในระบบระบบสรางโตะเกมใหมทงหมด()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(CreateGameRounds)ได้รับข้อมูล config ไม่มีโต๊ะเกมที่เริ่มเล่นอยู่ในระบบ, ระบบสร้" +
+                    "างโต๊ะเกมใหม่ทั้งหมด", new string[] {
+                        "record_mock"});
+#line 55
+this.ScenarioSetup(scenarioInfo);
+#line 56
+testRunner.Given("The CreateGameRoundsExecutor has been created and initialized");
+#line 57
+testRunner.And("sent Name: \'config3\', the GameRoundConfiguration should recieved");
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "RoundID",
+                        "StartTime",
+                        "EndTime"});
+#line 58
+testRunner.And("server should recieved the active game round data as:", ((string)(null)), table6);
 #line hidden
             TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
-                        "GameRoundInfo",
+                        "RoundID",
                         "StartTime",
                         "EndTime"});
             table7.AddRow(new string[] {
                         "1",
                         "2553/3/12 10:00",
-                        "12/3/2553 10:30"});
+                        "2553/3/12 10:30"});
             table7.AddRow(new string[] {
                         "2",
                         "2553/3/12 10:05",
-                        "12/3/2553 10:35"});
+                        "2553/3/12 10:35"});
             table7.AddRow(new string[] {
                         "3",
                         "2553/3/12 10:10",
-                        "12/3/2553 10:40"});
+                        "2553/3/12 10:40"});
             table7.AddRow(new string[] {
                         "4",
                         "2553/3/12 10:15",
+                        "2553/3/12 10:45"});
+#line 61
+testRunner.And("Expect result should be create at datetime (2553/3/12 10:00):", ((string)(null)), table7);
+#line 68
+testRunner.When("call CreateGameRound(ConfigName: \'config1\')");
+#line hidden
+            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                        "RoundID",
+                        "StartTime",
+                        "EndTime"});
+            table8.AddRow(new string[] {
+                        "1",
+                        "2553/3/12 10:00",
+                        "12/3/2553 10:30"});
+            table8.AddRow(new string[] {
+                        "2",
+                        "2553/3/12 10:05",
+                        "12/3/2553 10:35"});
+            table8.AddRow(new string[] {
+                        "3",
+                        "2553/3/12 10:10",
+                        "12/3/2553 10:40"});
+            table8.AddRow(new string[] {
+                        "4",
+                        "2553/3/12 10:15",
                         "12/3/2553 10:45"});
-            table7.AddRow(new string[] {
+            table8.AddRow(new string[] {
                         "5",
                         "2553/3/12 10:20",
                         "12/3/2553 10:50"});
-#line 55
-testRunner.Then("the result should be create data as:", ((string)(null)), table7);
+#line 69
+testRunner.Then("the result should be create data as:", ((string)(null)), table8);
 #line hidden
             testRunner.CollectScenarioErrors();
         }

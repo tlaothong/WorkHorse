@@ -7,6 +7,7 @@ using TheS.Casinova.PlayerProfile.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Rhino.Mocks;
 using TheS.Casinova.PlayerProfile.Commands;
+using PerfEx.Infrastructure.Validation;
 
 namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
 {
@@ -16,18 +17,18 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
     {
         private IEnumerable<UserProfile> _userProfiles;
 
-        [Given(@"\(VeriflyUser\) server has user profile information as:")]
+        [Given(@"\(VerifyUser\) server has user profile information as:")]
         public void GivenVeriflyUserServerHasUserProfileInformationAs(Table table)
         {
             _userProfiles = (from item in table.Rows
                              select new UserProfile {
                                  UserName = item["UserName"],
-                                 VeriflyCode = item["VeriflyCode"],
+                                 VeriflyCode = item["VerifyCode"],
                              });
         }
 
-        [Given(@"sent name: '(.*)' and VeriflyCode: '(.*)' the verifly code should be correct")]
-        public void GivenSentNameXAndVeriflyCodeXTheVeriflyCodeShouldBeCorrect(string userName, string veriflyCode)
+        [Given(@"sent name: '(.*)' the player profile should recieved")]
+        public void GivenSentNameXThePlayerProfileShouldRecieved(string userName)
         {
             var qry = (from item in _userProfiles   
                        where item.UserName == userName
@@ -35,27 +36,50 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
 
             SetupResult.For(Dqr_GetUserProfile.Get(new Commands.GetUserProfileCommand()))
                 .IgnoreArguments().Return(qry);
-
-            Assert.AreEqual(veriflyCode, qry.VeriflyCode, "VeriflyCode");
         }
 
-        [Given(@"the user profile\(UserName: '(.*)', VeriflyCode: '(.*)'\) should be activate")]
-        public void GivenTheUserProfileUserNameXVeriflyCodeXShouldBeActivate(string userName, string veriflyCode)
+        [Given(@"the user profile\(UserName: '(.*)'\) should be activate")]
+        public void GivenTheUserProfileUserNameXShouldBeActivate(string userName)
         {
-            Action<string, VeriflyUserCommand> checkData = (name, cmd) => {
-                Assert.AreEqual(userName, name, "UserName");
+            Action<UserProfile, VerifyUserCommand> checkData = (userProfile, cmd) => {
+                Assert.AreEqual(userName, userProfile.UserName, "UserName");
+                Assert.IsTrue(userProfile.Active, "Active");
             };
 
-            Dac_VeriflyUser.ApplyAction(userName, new Commands.VeriflyUserCommand());
+            Dac_VeriflyUser.ApplyAction(new UserProfile(), new Commands.VerifyUserCommand());
             LastCall.IgnoreArguments().Do(checkData);
         }
 
         [When(@"call VeriflyUserExecutor\(UserName: '(.*)', VeriflyCode: '(.*)'\)")]
         public void WhenCallVeriflyUserExecutorUserNameXVeriflyCodeX(string userName, string veriflyCode)
         {
-            VeriflyUserCommand cmd = new VeriflyUserCommand { UserName = userName, VeriflyCode = veriflyCode };
+            VerifyUserCommand cmd = new VerifyUserCommand {
+                UserProfile = new UserProfile {
+                    UserName = userName,
+                    VeriflyCode = veriflyCode
+                }
+            };
 
             VeriflyUserExecutor.Execute(cmd, (x) => { });
+        }
+
+        [When(@"Expected exception and call VeriflyUserExecutor\(UserName: '(.*)', VeriflyCode: '(.*)'\)")]
+        public void WhenExpectedExceptionAndCallVeriflyUserExecutorUserNameXVeriflyCodeX(string userName, string veriflyCode)
+        {
+            try {
+                VerifyUserCommand cmd = new VerifyUserCommand {
+                    UserProfile = new UserProfile {
+                        UserName = userName,
+                        VeriflyCode = veriflyCode
+                    }
+                };
+
+                VeriflyUserExecutor.Execute(cmd, (x) => { });
+                Assert.Fail("Shouldn't be here!");
+            }
+            catch (Exception ex) {
+                Assert.IsInstanceOfType(ex, typeof(ValidationErrorException));
+            }
         }
 
         [Then(@"the result should be update")]
@@ -67,7 +91,7 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
         [Then(@"the server should throw an error")]
         public void ThenTheServerShouldThrowAnError()
         {
-            ScenarioContext.Current.Pending();
+            Assert.IsTrue(true, "Expectation has been verified in the end of block When.");
         }
     }
 }

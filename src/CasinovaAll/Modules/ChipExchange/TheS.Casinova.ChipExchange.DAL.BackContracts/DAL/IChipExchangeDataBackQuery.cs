@@ -14,11 +14,12 @@ namespace TheS.Casinova.ChipExchange.DAL
         IGetExchangeSetting,
         IGetPlayerAccountInfo,
         IGetMLNInfo,
+        IGetUserProfile,
         IGetVoucherInfo
     { }
 
     public interface IGetExchangeSetting
-        : IFetchSingleData<ExchangeSetting, GetExchangeSettingCommand>
+        : IFetchSingleData<ExchangeSettingInformation, GetExchangeSettingCommand>
     { }
 
     public interface IGetPlayerAccountInfo
@@ -27,6 +28,10 @@ namespace TheS.Casinova.ChipExchange.DAL
 
     public interface IGetMLNInfo
         : IFetchSingleData<MultiLevelNetworkInformation, GetMLNInfoCommand>
+    { }
+
+    public interface IGetUserProfile
+        : IFetchSingleData<UserProfile, GetUserProfileCommand>
     { }
 
     public interface IGetVoucherInfo

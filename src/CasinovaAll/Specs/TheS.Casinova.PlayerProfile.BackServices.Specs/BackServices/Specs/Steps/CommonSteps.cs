@@ -7,6 +7,13 @@ using Rhino.Mocks;
 using TheS.Casinova.MagicNine.BackServices;
 using TheS.Casinova.PlayerProfile.DAL;
 using TheS.Casinova.PlayerProfile.BackServices.BackExecutors;
+using PerfEx.Infrastructure;
+using PerfEx.Infrastructure.Containers.StructureMapAdapter;
+using TheS.Casinova.PlayerProfile.Models;
+using TheS.Casinova.PlayerProfile.Commands;
+using PerfEx.Infrastructure.Validation;
+using SpecFlowAssist;
+using TheS.Casinova.PlayerProfile.BackServices.Validators;
 
 namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
 {
@@ -32,12 +39,15 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
         public void GivenTheRegisterUserExecutorHasBeenCreatedAndInitialized()
         {
             var dac = Mocks.DynamicMock<IPlayerProfileDataAccess>();
+            var svc = Mocks.DynamicMock<IEmailSender>();
             var dqr = Mocks.DynamicMock<IPlayerProfileDataBackQuery>();
+            var container = Mocks.DynamicMock<IDependencyContainer>();
 
             ScenarioContext.Current[Key_Dac_RegisterUser] = dac;
             ScenarioContext.Current[Key_Dqr_GetUserProfile] = dqr;
 
-            ScenarioContext.Current[Key_RegisterUser] = new RegisterUserExecutor(dac, dqr);
+            setupValidators(out container);
+            ScenarioContext.Current[Key_RegisterUser] = new RegisterUserExecutor(container, svc, dac);
         }
 
         [Given(@"The VeriflyUserExecutor has been created and initialized")]
@@ -45,11 +55,13 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
         {
             var dac = Mocks.DynamicMock<IPlayerProfileDataAccess>();
             var dqr = Mocks.DynamicMock<IPlayerProfileDataBackQuery>();
+            var container = Mocks.DynamicMock<IDependencyContainer>();
 
             ScenarioContext.Current[Key_Dac_VeriflyUser] = dac;
             ScenarioContext.Current[Key_Dqr_GetUserProfile] = dqr;
 
-            ScenarioContext.Current[Key_VeriflyUser] = new VeriflyUserExecutor(dac, dqr);
+            setupValidators(out container);
+            ScenarioContext.Current[Key_VeriflyUser] = new VerifyUserExecutor(container, dac);
         }
 
         [Given(@"The ChangePassword has been created and initialized")]
@@ -57,11 +69,13 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
         {
             var dac = Mocks.DynamicMock<IPlayerProfileDataAccess>();
             var dqr = Mocks.DynamicMock<IPlayerProfileDataBackQuery>();
+            var container = Mocks.DynamicMock<IDependencyContainer>();
 
             ScenarioContext.Current[Key_Dac_ChangePassword] = dac;
             ScenarioContext.Current[Key_Dqr_GetUserProfile] = dqr;
 
-            ScenarioContext.Current[Key_ChangePassword] = new ChangePasswordExecutor(dac, dqr);
+            setupValidators(out container);
+            ScenarioContext.Current[Key_ChangePassword] = new ChangePasswordExecutor(container, dac);
         }
 
         [Given(@"The ChangeEmail has been created and initialized")]
@@ -69,12 +83,36 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
         {
             var dac = Mocks.DynamicMock<IPlayerProfileDataAccess>();
             var dqr = Mocks.DynamicMock<IPlayerProfileDataBackQuery>();
+            var container = Mocks.DynamicMock<IDependencyContainer>();
 
             ScenarioContext.Current[Key_Dac_ChangeEmail] = dac;
             ScenarioContext.Current[Key_Dqr_GetUserProfile] = dqr;
             ScenarioContext.Current[Key_Dqr_GetUserProfileByEmail] = dqr;
 
-            ScenarioContext.Current[Key_ChangeEmail] = new ChangeEmailExecutor(dac, dqr);
+            setupValidators(out container);
+            ScenarioContext.Current[Key_ChangeEmail] = new ChangeEmailExecutor(container, dac, dqr);
+        }
+
+        private static void setupValidators(out IDependencyContainer container)
+        {
+            var fac = new StructureMapAbstractFactory();
+            var reg = fac.CreateRegistry();
+
+            reg.Register<IValidator<UserProfile, RegisterUserCommand>
+                , UserProfile_RegisterUserValidators>();
+            reg.Register<IValidator<UserProfile, VerifyUserCommand>
+                , UserProfile_VerifyUserValidators>();
+            reg.Register<IValidator<UserProfile, ChangeEmailCommand>
+                , UserProfile_ChangeEmailValidators>();
+            reg.Register<IValidator<UserProfile, ChangePasswordCommand>
+                , UserProfile_ChangePasswordValidators>();
+
+            reg.RegisterInstance<IPlayerProfileDataBackQuery>
+                (ScenarioContext.Current.Get<IPlayerProfileDataBackQuery>(Key_Dqr_GetUserProfile));
+            reg.Register<IServiceObjectProvider<IPlayerProfileDataBackQuery>,
+                DependencyInjectionServiceObjectProviderAdapter<IPlayerProfileDataBackQuery, IPlayerProfileDataBackQuery>>();
+
+            container = fac.CreateContainer(reg);
         }
     }
 }

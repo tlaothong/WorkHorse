@@ -37,6 +37,15 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
             }
         }
 
+        protected IGetUserProfileByEmail Dqr_GetUserProfileByEmail
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_Dqr_GetUserProfileByEmail] as IGetUserProfileByEmail;
+            }
+        }
+
         protected IChangePassword Dac_ChangePassword
         {
             get
@@ -64,12 +73,12 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
             }
         }
 
-        protected VeriflyUserExecutor VeriflyUserExecutor
+        protected VerifyUserExecutor VeriflyUserExecutor
         {
             get
             {
                 return ScenarioContext.Current[
-                    CommonSteps.Key_VeriflyUser] as VeriflyUserExecutor;
+                    CommonSteps.Key_VeriflyUser] as VerifyUserExecutor;
             }
         }
 
