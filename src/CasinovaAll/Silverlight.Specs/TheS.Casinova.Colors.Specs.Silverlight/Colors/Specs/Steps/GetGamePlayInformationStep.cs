@@ -31,7 +31,8 @@ namespace TheS.Casinova.Colors.Specs.Steps
                              TotalBetAmountOfBlack = Convert.ToDouble(it["TotalBetAmountOfBlack"]),
                              TotalBetAmountOfWhite = Convert.ToDouble(it["TotalBetAmountOfWhite"]),
                              TrackingID = Guid.Parse(it["TrackingID"]),
-                             OnGoingTrackingID = Guid.Parse(it["OnGoingTrackingID"])
+                             Winner = it["Winner"],
+                             OnGoingTrackingID = Guid.Parse(it["OnGoingTrackingID"]),
                          };
             ScenarioContext.Current.Set<IEnumerable<GamePlayInformation>>(result);
 

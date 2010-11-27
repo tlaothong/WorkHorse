@@ -75,7 +75,8 @@ testRunner.Given("Create and initialize GamePlayViewModel and Colors game servic
                         "TrackingID",
                         "OnGoingTrackingID",
                         "TotalBetAmountOfBlack",
-                        "TotalBetAmountOfWhite"});
+                        "TotalBetAmountOfWhite",
+                        "Winner"});
             table1.AddRow(new string[] {
                         "Zazzy",
                         "5",
@@ -83,7 +84,8 @@ testRunner.Given("Create and initialize GamePlayViewModel and Colors game servic
                         "{EC3DACCA-3474-4FCA-B1F6-112E043A5C44}",
                         "{EC3DACCA-3474-4FCA-B1F6-112E043A5C44}",
                         "72",
-                        "565"});
+                        "565",
+                        "Black"});
             table1.AddRow(new string[] {
                         "Zazzy",
                         "6",
@@ -91,7 +93,8 @@ testRunner.Given("Create and initialize GamePlayViewModel and Colors game servic
                         "{EB4A0CEB-9766-4E33-B932-D16246039808}",
                         "{EB4A0CEB-9766-4E33-B932-D16246039808}",
                         "55",
-                        "21"});
+                        "21",
+                        "Black"});
             table1.AddRow(new string[] {
                         "Zazzy",
                         "7",
@@ -99,7 +102,8 @@ testRunner.Given("Create and initialize GamePlayViewModel and Colors game servic
                         "{3424E571-F05F-47AF-ACCA-0EF095A9A883}",
                         "{3424E571-F05F-47AF-ACCA-0EF095A9A883}",
                         "43",
-                        "44"});
+                        "44",
+                        "Black"});
             table1.AddRow(new string[] {
                         "Sakul",
                         "1",
@@ -107,7 +111,8 @@ testRunner.Given("Create and initialize GamePlayViewModel and Colors game servic
                         "{EADA0D2A-0F50-4BDA-8CB5-0E937D163A84}",
                         "{9D559F32-A146-40DE-8FA5-CF0600394692}",
                         "100",
-                        "20"});
+                        "20",
+                        "Black"});
             table1.AddRow(new string[] {
                         "Sakul",
                         "1",
@@ -115,7 +120,8 @@ testRunner.Given("Create and initialize GamePlayViewModel and Colors game servic
                         "{58D6267D-AAEC-4CAD-B1EF-DB861C9D5603}",
                         "{58D6267D-AAEC-4CAD-B1EF-DB861C9D5603}",
                         "150",
-                        "20"});
+                        "20",
+                        "Black"});
             table1.AddRow(new string[] {
                         "Miolynet",
                         "4",
@@ -123,7 +129,8 @@ testRunner.Given("Create and initialize GamePlayViewModel and Colors game servic
                         "{91FFE007-9030-4F94-84DF-05729B120019}",
                         "{63089E73-26AD-4034-A07F-97B6F9DD89A5}",
                         "0",
-                        "71"});
+                        "71",
+                        "Black"});
             table1.AddRow(new string[] {
                         "Miolynet",
                         "4",
@@ -131,7 +138,8 @@ testRunner.Given("Create and initialize GamePlayViewModel and Colors game servic
                         "{91FFE007-9030-4F94-84DF-05729B120019}",
                         "{FCA0EA8F-1C7B-4EF1-A9B9-7357E4C25FCC}",
                         "9",
-                        "71"});
+                        "71",
+                        "Black"});
             table1.AddRow(new string[] {
                         "Miolynet",
                         "4",
@@ -139,7 +147,8 @@ testRunner.Given("Create and initialize GamePlayViewModel and Colors game servic
                         "{91FFE007-9030-4F94-84DF-05729B120019}",
                         "{5107D995-51BD-494C-87C1-44E29D701DE3}",
                         "9",
-                        "71"});
+                        "71",
+                        "Black"});
             table1.AddRow(new string[] {
                         "Miolynet",
                         "4",
@@ -147,7 +156,8 @@ testRunner.Given("Create and initialize GamePlayViewModel and Colors game servic
                         "{91FFE007-9030-4F94-84DF-05729B120019}",
                         "{6B6017D0-A709-4AA3-81AD-20FD483C2D79}",
                         "20",
-                        "71"});
+                        "71",
+                        "Black"});
             table1.AddRow(new string[] {
                         "Miolynet",
                         "4",
@@ -155,7 +165,8 @@ testRunner.Given("Create and initialize GamePlayViewModel and Colors game servic
                         "{91FFE007-9030-4F94-84DF-05729B120019}",
                         "{6B6017D0-A709-4AA3-81AD-20FD483C2D79}",
                         "140",
-                        "71"});
+                        "71",
+                        "Black"});
 #line 16
 testRunner.And("Web server have game play information are", ((string)(null)), table1);
 #line hidden

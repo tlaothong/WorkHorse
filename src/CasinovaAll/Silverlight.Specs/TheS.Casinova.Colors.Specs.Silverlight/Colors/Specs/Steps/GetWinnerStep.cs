@@ -17,23 +17,7 @@ namespace TheS.Casinova.Colors.Specs.Steps
     [Binding]
     public class GetWinnerStep
     {
-        private int _callCount = 0;
-
-        [Given(@"Setup trackingID for getwinner (.*)")]
-        public void GivenSetupTrackingID(string trackingID)
-        {
-            var mocks = ScenarioContext.Current.Get<MockRepository>();
-            var svc = ScenarioContext.Current.Get<IColorsServiceAdapter>();
-            var tracker = ScenarioContext.Current.Get<IStatusTracker>();
-            var subject = ScenarioContext.Current.Get<Subject<TrackingInformation>>();
-
-            SetupResult.For(tracker.Watch(null)).IgnoreArguments().Return(subject);
-            SetupResult.For(svc.GetWinnerInformation(null)).IgnoreArguments().Return(Observable.Return(new PayForColorsWinnerInfoCommand
-            {
-                RoundID = 123,
-                OnGoingTrackingID = Guid.Parse(trackingID)
-            }));
-        }
+        private int _generateTrackingCount;
 
         [Given(@"Setup web service trackingID are")]
         public void GivenSetupWebServiceTrackingIDAre(Table table)
@@ -49,9 +33,16 @@ namespace TheS.Casinova.Colors.Specs.Steps
             var tracker = ScenarioContext.Current.Get<IStatusTracker>();
             var subject = ScenarioContext.Current.Get<Subject<TrackingInformation>>();
 
+            Func<PayForColorsWinnerInfoCommand, IObservable<PayForColorsWinnerInfoCommand>> func = cmd =>
+            {
+                return Observable.Return(new PayForColorsWinnerInfoCommand
+                {
+                    OnGoingTrackingID = trackings[_generateTrackingCount++].OnGoingTrackingID
+                });
+            };
+
             SetupResult.For(tracker.Watch(null)).IgnoreArguments().Return(subject);
-            SetupResult.For(svc.GetWinnerInformation(null)).IgnoreArguments().Return(Observable.Return(
-                trackings[_callCount++]));
+            SetupResult.For(svc.GetWinnerInformation(null)).IgnoreArguments().Do(func);
         }
 
         [When(@"Click get winner in game round (.*)")]
@@ -70,18 +61,6 @@ namespace TheS.Casinova.Colors.Specs.Steps
             Assert.AreEqual(count, payLog.Count(), "Paylog count");
         }
 
-        [Then(@"Lot of TrackingID='(.*)' Is Retrieved")]
-        public void ThenLotOfTrackingID(string trackingID)
-        {
-            var subject = ScenarioContext.Current.Get<Subject<TrackingInformation>>();
-            subject.OnNext(new TrackingInformation
-            {
-                LotNo = "789",
-                TrackingID = Guid.Parse(trackingID),
-                Status = "ok",
-            });
-        }
-
         [Then(@"Lot of TrackingIDs has Retrieved are")]
         public void ThenLotOfTrackingIDsHasRetrievedAre(Table table)
         {
@@ -97,7 +76,7 @@ namespace TheS.Casinova.Colors.Specs.Steps
             {
                 subject.OnNext(new TrackingInformation
                 {
-                    LotNo = "789",
+                    LotNo = "123",
                     TrackingID = tracking.OnGoingTrackingID,
                     Status = "ok",
                 });

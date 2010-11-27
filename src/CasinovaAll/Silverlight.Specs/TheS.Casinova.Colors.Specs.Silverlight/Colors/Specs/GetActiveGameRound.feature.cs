@@ -70,14 +70,12 @@ testRunner.Given("Create and initialize GamePlayViewModel and Colors game servic
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Send request GetListActiveGameRounds to web server\r\nserver have list active game " +
-            "rounds and send it back to client")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Request active game rounds web server send active list")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Get active game round")]
         [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
-        public virtual void SendRequestGetListActiveGameRoundsToWebServer_ServerHaveListActiveGameRoundsAndSendItBackToClient()
+        public virtual void RequestActiveGameRoundsWebServerSendActiveList()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Send request GetListActiveGameRounds to web server\r\nserver have list active game " +
-                    "rounds and send it back to client", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Request active game rounds web server send active list", new string[] {
                         "record_mock"});
 #line 17
 this.ScenarioSetup(scenarioInfo);
@@ -98,9 +96,9 @@ this.ScenarioSetup(scenarioInfo);
                         "3",
                         "2010-11-17 09:30:00",
                         "2010-11-17 09:45:00"});
-#line 19
+#line 18
 testRunner.Given("Back service have active game rounds are:", ((string)(null)), table1);
-#line 24
+#line 23
 testRunner.When("Send request GetListActiveGameRounds() to web server");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -123,32 +121,30 @@ testRunner.When("Send request GetListActiveGameRounds() to web server");
                         "3",
                         "2010-11-17 09:30:00",
                         "2010-11-17 09:45:00"});
-#line 25
+#line 24
 testRunner.Then("Tables in GamePlayViewModel has create from ListActivegameRounds", ((string)(null)), table2);
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Send request GetListActiveGameRounds to web server\r\nserver don\'t have list active" +
-            " game rounds and send it empty back to client")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Request active game rounds web server don\'t have active game rounds")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Get active game round")]
         [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
-        public virtual void SendRequestGetListActiveGameRoundsToWebServer_ServerDonTHaveListActiveGameRoundsAndSendItEmptyBackToClient()
+        public virtual void RequestActiveGameRoundsWebServerDonTHaveActiveGameRounds()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Send request GetListActiveGameRounds to web server\r\nserver don\'t have list active" +
-                    " game rounds and send it empty back to client", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Request active game rounds web server don\'t have active game rounds", new string[] {
                         "record_mock"});
-#line 33
+#line 32
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "RoundID",
                         "StartTime",
                         "EndTime"});
-#line 35
+#line 33
 testRunner.Given("Back service have active game rounds are:", ((string)(null)), table3);
-#line 37
+#line 35
 testRunner.When("Send request GetListActiveGameRounds() to web server");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
@@ -156,23 +152,23 @@ testRunner.When("Send request GetListActiveGameRounds() to web server");
                         "Round",
                         "StartTime",
                         "EndTime"});
-#line 38
+#line 36
 testRunner.Then("Tables in GamePlayViewModel don\'t create ListActivegameRounds", ((string)(null)), table4);
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Send request GetListActiveGameRounds to web server more than one request\r\nserver " +
-            "have list active game rounds and send it back to client")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Request active game rounds web server send active list (Request more thand 1 requ" +
+            "est)")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Get active game round")]
         [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
-        public virtual void SendRequestGetListActiveGameRoundsToWebServerMoreThanOneRequest_ServerHaveListActiveGameRoundsAndSendItBackToClient()
+        public virtual void RequestActiveGameRoundsWebServerSendActiveListRequestMoreThand1Request()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Send request GetListActiveGameRounds to web server more than one request\r\nserver " +
-                    "have list active game rounds and send it back to client", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Request active game rounds web server send active list (Request more thand 1 requ" +
+                    "est)", new string[] {
                         "record_mock"});
-#line 42
+#line 40
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
@@ -191,17 +187,17 @@ this.ScenarioSetup(scenarioInfo);
                         "3",
                         "2010-11-17 09:30:00",
                         "2010-11-17 09:45:00"});
-#line 44
+#line 41
 testRunner.Given("Back service have active game rounds are:", ((string)(null)), table5);
-#line 49
+#line 46
 testRunner.When("Send request GetListActiveGameRounds() to web server");
+#line 47
+testRunner.And("Send request GetListActiveGameRounds() to web server");
+#line 48
+testRunner.And("Send request GetListActiveGameRounds() to web server");
+#line 49
+testRunner.And("Send request GetListActiveGameRounds() to web server");
 #line 50
-testRunner.And("Send request GetListActiveGameRounds() to web server");
-#line 51
-testRunner.And("Send request GetListActiveGameRounds() to web server");
-#line 52
-testRunner.And("Send request GetListActiveGameRounds() to web server");
-#line 53
 testRunner.And("Send request GetListActiveGameRounds() to web server");
 #line hidden
             TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
@@ -224,7 +220,7 @@ testRunner.And("Send request GetListActiveGameRounds() to web server");
                         "3",
                         "2010-11-17 09:30:00",
                         "2010-11-17 09:45:00"});
-#line 54
+#line 51
 testRunner.Then("Tables in GamePlayViewModel has create from ListActivegameRounds", ((string)(null)), table6);
 #line hidden
             testRunner.CollectScenarioErrors();
