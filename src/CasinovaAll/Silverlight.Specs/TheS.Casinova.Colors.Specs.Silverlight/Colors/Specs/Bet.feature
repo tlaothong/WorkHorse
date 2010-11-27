@@ -13,26 +13,33 @@
 
 Background:
 	Given Create and initialize GamePlayViewModel and Colors game service
-	And Setup trackingID for bet {E8481A68-7F9F-4466-B7B8-1355ED2D32C6}
 
 @record_mock
 Scenario: Bet button has click save player action in PayLog
+	Given Setup trackingID for bet {E8481A68-7F9F-4466-B7B8-1355ED2D32C6}
 	When Click Bet black amount=30 in game round=15
 	Then PayLog count='1' are 
-	And Lot of TrackingID='{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}' Is Retrieved
 	And Paylog have save information are
 		|RoundID	|Amount	|Colors	|
 		|15			|30		|Black	|
+	And Lot of TrackingID='{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}' Is Retrieved
+	And PayLog has empty
 
 @record_mock
 Scenario: Bet button has click more than one, save player action in PayLog
+	Given Setup web service trackingID for bets
+		|TrackingID								|
+		|{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}	|
+		|{A301887F-DF03-4151-AD50-D6C1C7218736}	|
+		|{2BEC0C07-975A-4B73-859E-87450CCADE14}	|
+		|{4DDB378C-9C75-4E96-BB19-D61FD93207C8}	|
+		|{FDAFEA76-CC7C-4C95-86EA-72393C5954A0}	|
 	When Click Bet black amount=30 in game round=15
 	And Click Bet black amount=45 in game round=15
 	And Click Bet black amount=50 in game round=15
 	And Click Bet black amount=55 in game round=15
 	And Click Bet black amount=1 in game round=15
 	Then PayLog count='5' are 
-	And Lot of TrackingID='{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}' Is Retrieved
 	And Paylog have save information are
 		|RoundID	|Amount	|Colors	|
 		|15			|30		|Black	|
@@ -40,16 +47,30 @@ Scenario: Bet button has click more than one, save player action in PayLog
 		|15			|50		|Black	|
 		|15			|55		|Black	|
 		|15			|1		|Black	|
+	And Bet Lot has Retrieved are
+		|TrackingID								|
+		|{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}	|
+		|{A301887F-DF03-4151-AD50-D6C1C7218736}	|
+		|{2BEC0C07-975A-4B73-859E-87450CCADE14}	|
+		|{4DDB378C-9C75-4E96-BB19-D61FD93207C8}	|
+		|{FDAFEA76-CC7C-4C95-86EA-72393C5954A0}	|
+	And PayLog has empty
 
 @record_mock
 Scenario: Bet button has click more than one and difference colors, save player action in PayLog
+	Given Setup web service trackingID for bets
+		|TrackingID								|
+		|{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}	|
+		|{A301887F-DF03-4151-AD50-D6C1C7218736}	|
+		|{2BEC0C07-975A-4B73-859E-87450CCADE14}	|
+		|{4DDB378C-9C75-4E96-BB19-D61FD93207C8}	|
+		|{FDAFEA76-CC7C-4C95-86EA-72393C5954A0}	|
 	When Click Bet black amount=30 in game round=15
 	And Click Bet white amount=45 in game round=15
 	And Click Bet white amount=50 in game round=15
 	And Click Bet black amount=55 in game round=15
 	And Click Bet white amount=1 in game round=15
 	Then PayLog count='5' are 
-	And Lot of TrackingID='{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}' Is Retrieved
 	And Paylog have save information are
 		|RoundID	|Amount	|Colors	|
 		|15			|30		|Black	|
@@ -57,16 +78,31 @@ Scenario: Bet button has click more than one and difference colors, save player 
 		|15			|50		|White	|
 		|15			|55		|Black	|
 		|15			|1		|White	|
+	And Lot of TrackingID='{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}' Is Retrieved
+	And Bet Lot has Retrieved are
+		|TrackingID								|
+		|{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}	|
+		|{A301887F-DF03-4151-AD50-D6C1C7218736}	|
+		|{2BEC0C07-975A-4B73-859E-87450CCADE14}	|
+		|{4DDB378C-9C75-4E96-BB19-D61FD93207C8}	|
+		|{FDAFEA76-CC7C-4C95-86EA-72393C5954A0}	|
+	And PayLog has empty
 
 @record_mock
 Scenario: Bet button has click more than one and difference roundID, save player action in PayLog
+	Given Setup web service trackingID for bets
+		|TrackingID								|
+		|{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}	|
+		|{A301887F-DF03-4151-AD50-D6C1C7218736}	|
+		|{2BEC0C07-975A-4B73-859E-87450CCADE14}	|
+		|{4DDB378C-9C75-4E96-BB19-D61FD93207C8}	|
+		|{FDAFEA76-CC7C-4C95-86EA-72393C5954A0}	|
 	When Click Bet black amount=30 in game round=15
 	And Click Bet black amount=45 in game round=16
 	And Click Bet black amount=50 in game round=17
 	And Click Bet black amount=55 in game round=18
 	And Click Bet black amount=1 in game round=19
 	Then PayLog count='5' are 
-	And Lot of TrackingID='{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}' Is Retrieved
 	And Paylog have save information are
 		|RoundID	|Amount	|Colors	|
 		|15			|30		|Black	|
@@ -74,9 +110,25 @@ Scenario: Bet button has click more than one and difference roundID, save player
 		|17			|50		|Black	|
 		|18			|55		|Black	|
 		|19			|1		|Black	|
+	And Bet Lot has Retrieved are
+		|TrackingID								|
+		|{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}	|
+		|{A301887F-DF03-4151-AD50-D6C1C7218736}	|
+		|{2BEC0C07-975A-4B73-859E-87450CCADE14}	|
+		|{4DDB378C-9C75-4E96-BB19-D61FD93207C8}	|
+		|{FDAFEA76-CC7C-4C95-86EA-72393C5954A0}	|
+	And PayLog has empty
 
 @record_mock
 Scenario: Bet button has click more than one and difference roundID and colors, save player action in PayLog
+	Given Setup web service trackingID for bets
+		|TrackingID								|
+		|{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}	|
+		|{A301887F-DF03-4151-AD50-D6C1C7218736}	|
+		|{2BEC0C07-975A-4B73-859E-87450CCADE14}	|
+		|{4DDB378C-9C75-4E96-BB19-D61FD93207C8}	|
+		|{FDAFEA76-CC7C-4C95-86EA-72393C5954A0}	|
+		|{098FCF3A-B002-4206-A61F-E6CD765100F5}	|
 	When Click Bet white amount=30 in game round=15
 	And Click Bet black amount=45 in game round=16
 	And Click Bet white amount=50 in game round=17
@@ -84,7 +136,6 @@ Scenario: Bet button has click more than one and difference roundID and colors, 
 	And Click Bet black amount=1 in game round=19
 	And Click Bet black amount=100 in game round=15
 	Then PayLog count='6' are 
-	And Lot of TrackingID='{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}' Is Retrieved
 	And Paylog have save information are
 		|RoundID	|Amount	|Colors	|
 		|15			|30		|White	|
@@ -93,3 +144,12 @@ Scenario: Bet button has click more than one and difference roundID and colors, 
 		|18			|55		|White	|
 		|19			|1		|Black	|
 		|15			|100	|Black	|
+	And Bet Lot has Retrieved are
+		|TrackingID								|
+		|{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}	|
+		|{A301887F-DF03-4151-AD50-D6C1C7218736}	|
+		|{2BEC0C07-975A-4B73-859E-87450CCADE14}	|
+		|{4DDB378C-9C75-4E96-BB19-D61FD93207C8}	|
+		|{FDAFEA76-CC7C-4C95-86EA-72393C5954A0}	|
+		|{098FCF3A-B002-4206-A61F-E6CD765100F5}	|
+	And PayLog has empty

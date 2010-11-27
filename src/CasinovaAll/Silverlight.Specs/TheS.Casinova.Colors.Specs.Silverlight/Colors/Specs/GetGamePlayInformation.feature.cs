@@ -162,18 +162,16 @@ testRunner.And("Web server have game play information are", ((string)(null)), ta
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Send request get list game play information to web server\r\nweb server have any ga" +
-            "me play information is owner name and username match")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Web server have game play information match")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Get list game play information")]
         [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
-        public virtual void SendRequestGetListGamePlayInformationToWebServer_WebServerHaveAnyGamePlayInformationIsOwnerNameAndUsernameMatch()
+        public virtual void WebServerHaveGamePlayInformationMatch()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Send request get list game play information to web server\r\nweb server have any ga" +
-                    "me play information is owner name and username match", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Web server have game play information match", new string[] {
                         "record_mock"});
 #line 30
 this.ScenarioSetup(scenarioInfo);
-#line 32
+#line 31
 testRunner.When("Send request GetListGamePlayInformation( \'Sakul\' )");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -186,25 +184,23 @@ testRunner.When("Send request GetListGamePlayInformation( \'Sakul\' )");
                         "170",
                         "150",
                         "20"});
-#line 33
+#line 32
 testRunner.Then("Tables in GamePlayViewModel display game play information are", ((string)(null)), table2);
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Send request get list game play information to web server\r\nweb server don\'t have " +
-            "any game play information is owner name and username match")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Web server don\'t have game play information match")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Get list game play information")]
         [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
-        public virtual void SendRequestGetListGamePlayInformationToWebServer_WebServerDonTHaveAnyGamePlayInformationIsOwnerNameAndUsernameMatch()
+        public virtual void WebServerDonTHaveGamePlayInformationMatch()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Send request get list game play information to web server\r\nweb server don\'t have " +
-                    "any game play information is owner name and username match", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Web server don\'t have game play information match", new string[] {
                         "record_mock"});
-#line 38
+#line 37
 this.ScenarioSetup(scenarioInfo);
-#line 40
+#line 38
 testRunner.When("Send request GetListGamePlayInformation( \'Mary\' )");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
@@ -212,25 +208,23 @@ testRunner.When("Send request GetListGamePlayInformation( \'Mary\' )");
                         "Amount",
                         "TotalBetBlack",
                         "TotalBetWhite"});
-#line 41
+#line 39
 testRunner.Then("Tables in GamePlayViewModel display game play information are", ((string)(null)), table3);
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Send request get list game play information to web server\r\nweb server have any ga" +
-            "me play information is owner name and username match and multi tableID, roundID")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Web server have multi game play information match")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Get list game play information")]
         [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
-        public virtual void SendRequestGetListGamePlayInformationToWebServer_WebServerHaveAnyGamePlayInformationIsOwnerNameAndUsernameMatchAndMultiTableIDRoundID()
+        public virtual void WebServerHaveMultiGamePlayInformationMatch()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Send request get list game play information to web server\r\nweb server have any ga" +
-                    "me play information is owner name and username match and multi tableID, roundID", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Web server have multi game play information match", new string[] {
                         "record_mock"});
-#line 45
+#line 43
 this.ScenarioSetup(scenarioInfo);
-#line 47
+#line 44
 testRunner.When("Send request GetListGamePlayInformation( \'Zazzy\' )");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
@@ -253,30 +247,53 @@ testRunner.When("Send request GetListGamePlayInformation( \'Zazzy\' )");
                         "87",
                         "43",
                         "44"});
-#line 48
+#line 45
 testRunner.Then("Tables in GamePlayViewModel display game play information are", ((string)(null)), table4);
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Send request get list game play information to web server\r\nTrackingID and OnGoing" +
-            "TrackingID is not match, it request get list game play information until Trackin" +
-            "gID and OnGoingTrackingID match")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Send request get TrackingID and OnGoingTrackingID is match")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Get list game play information")]
         [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
-        public virtual void SendRequestGetListGamePlayInformationToWebServer_TrackingIDAndOnGoingTrackingIDIsNotMatchItRequestGetListGamePlayInformationUntilTrackingIDAndOnGoingTrackingIDMatch()
+        public virtual void SendRequestGetTrackingIDAndOnGoingTrackingIDIsMatch()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Send request get list game play information to web server\r\nTrackingID and OnGoing" +
-                    "TrackingID is not match, it request get list game play information until Trackin" +
-                    "gID and OnGoingTrackingID match", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Send request get TrackingID and OnGoingTrackingID is match", new string[] {
                         "record_mock"});
-#line 55
+#line 52
 this.ScenarioSetup(scenarioInfo);
-#line 57
-testRunner.When("Send request GetListGamePlayInformation( \'Miolynet\' )");
+#line 53
+testRunner.When("Send request GetListGamePlayInformation( \'Sakul\' )");
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Round",
+                        "Amount",
+                        "TotalBetBlack",
+                        "TotalBetWhite"});
+            table5.AddRow(new string[] {
+                        "12",
+                        "170",
+                        "150",
+                        "20"});
+#line 54
+testRunner.Then("Tables in GamePlayViewModel display game play information are", ((string)(null)), table5);
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("TrackingID and OnGoingTrackingID is not match, request until match")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Get list game play information")]
+        [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
+        public virtual void TrackingIDAndOnGoingTrackingIDIsNotMatchRequestUntilMatch()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("TrackingID and OnGoingTrackingID is not match, request until match", new string[] {
+                        "record_mock"});
+#line 59
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                         "UserName",
                         "TableID",
                         "RoundID",
@@ -284,47 +301,34 @@ testRunner.When("Send request GetListGamePlayInformation( \'Miolynet\' )");
                         "OnGoingTrackingID",
                         "TotalBetAmountOfBlack",
                         "TotalBetAmountOfWhite"});
-            table5.AddRow(new string[] {
+            table6.AddRow(new string[] {
                         "Miolynet",
                         "4",
                         "15",
-                        "{6B6017D0-A709-4AA3-81AD-20FD483C2D79}",
-                        "{6B6017D0-A709-4AA3-81AD-20FD483C2D79}",
-                        "142",
+                        "{91FFE007-9030-4F94-84DF-05729B120019}",
+                        "{888B4811-BD2A-44CD-8360-D62CC9E577FA}",
+                        "145",
                         "71"});
-#line 58
-testRunner.And("Web service execute new bet are", ((string)(null)), table5);
-#line hidden
-            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Round",
-                        "Amount",
-                        "TotalBetBlack",
-                        "TotalBetWhite"});
             table6.AddRow(new string[] {
+                        "Miolynet",
+                        "4",
                         "15",
-                        "213",
-                        "142",
+                        "{91FFE007-9030-4F94-84DF-05729B120019}",
+                        "{840DBB7D-3EE8-4EA5-8300-D67139F1CD69}",
+                        "160",
                         "71"});
-#line 61
-testRunner.Then("Tables in GamePlayViewModel display game play information are", ((string)(null)), table6);
-#line hidden
-            testRunner.CollectScenarioErrors();
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Send request get list game play information to web server\r\nTrackingID and OnGoing" +
-            "TrackingID is match")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Get list game play information")]
-        [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
-        public virtual void SendRequestGetListGamePlayInformationToWebServer_TrackingIDAndOnGoingTrackingIDIsMatch()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Send request get list game play information to web server\r\nTrackingID and OnGoing" +
-                    "TrackingID is match", new string[] {
-                        "record_mock"});
-#line 66
-this.ScenarioSetup(scenarioInfo);
-#line 68
-testRunner.When("Send request GetListGamePlayInformation( \'Sakul\' )");
+            table6.AddRow(new string[] {
+                        "Miolynet",
+                        "4",
+                        "15",
+                        "{5F4C2F9C-D2C1-4EB3-ADAD-A7BF557E80BF}",
+                        "{5F4C2F9C-D2C1-4EB3-ADAD-A7BF557E80BF}",
+                        "175",
+                        "90"});
+#line 60
+testRunner.Given("Web service execute new bet are", ((string)(null)), table6);
+#line 65
+testRunner.When("Send request GetListGamePlayInformation( \'Miolynet\' )");
 #line hidden
             TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
                         "Round",
@@ -332,11 +336,11 @@ testRunner.When("Send request GetListGamePlayInformation( \'Sakul\' )");
                         "TotalBetBlack",
                         "TotalBetWhite"});
             table7.AddRow(new string[] {
-                        "12",
-                        "170",
-                        "150",
-                        "20"});
-#line 69
+                        "15",
+                        "265",
+                        "175",
+                        "90"});
+#line 66
 testRunner.Then("Tables in GamePlayViewModel display game play information are", ((string)(null)), table7);
 #line hidden
             testRunner.CollectScenarioErrors();

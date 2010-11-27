@@ -15,32 +15,13 @@ using TheS.Casinova.Colors.Services;
 namespace TheS.Casinova.Colors.Specs.Steps
 {
     [Binding]
-    public class GetListGamePlayInformationStep
+    public class GetGamePlayInformationStep
     {
         #region Background
 
         [Given(@"Web server have game play information are")]
         public void GivenWebServerHaveGamePlayInformationAre(Table table)
         {
-            var mocks = ScenarioContext.Current.Get<MockRepository>();
-            var svc = ScenarioContext.Current.Get<IColorsServiceAdapter>();
-
-            Func<ListGamePlayInfoCommand, IObservable<ListGamePlayInfoCommand>> _mockGetGamePlayInformation = cmd =>
-            {
-                return Observable.Return(new ListGamePlayInfoCommand
-                {
-                    GamePlayInfos = new System.Collections.ObjectModel.ObservableCollection<GamePlayInformation>
-                    (ScenarioContext.Current.Get<IEnumerable<GamePlayInformation>>())
-                });
-            };
-
-            using (mocks.Record())
-            {
-                SetupResult.For(svc.GetListGamePlayInformation(null)).IgnoreArguments().Do(_mockGetGamePlayInformation);
-                svc.GetListGamePlayInformation(null);
-                LastCall.IgnoreArguments().Do(_mockGetGamePlayInformation);
-            }
-
             var result = from it in table.Rows
                          select new GamePlayInformation
                          {
@@ -52,11 +33,51 @@ namespace TheS.Casinova.Colors.Specs.Steps
                              TrackingID = Guid.Parse(it["TrackingID"]),
                              OnGoingTrackingID = Guid.Parse(it["OnGoingTrackingID"])
                          };
-
             ScenarioContext.Current.Set<IEnumerable<GamePlayInformation>>(result);
+
+            var mocks = ScenarioContext.Current.Get<MockRepository>();
+            var svc = ScenarioContext.Current.Get<IColorsServiceAdapter>();
+            Func<ListGamePlayInfoCommand, IObservable<ListGamePlayInfoCommand>> func = cmd =>
+            {
+                return Observable.Return(new ListGamePlayInfoCommand
+                {
+                    GamePlayInfos = new System.Collections.ObjectModel.ObservableCollection<GamePlayInformation>
+                    (ScenarioContext.Current.Get<IEnumerable<GamePlayInformation>>())
+                });
+            };
+            SetupResult.For(svc.GetListGamePlayInformation(null)).IgnoreArguments().Do(func);
         }
 
         #endregion Background
+
+        [Given(@"Web service execute new bet are")]
+        public void WhenWebServiceExecuteNewBetAre(Table table)
+        {
+            var result = from it in table.Rows
+                         select new GamePlayInformation
+                         {
+                             UserName = it["UserName"],
+                             TableID = Convert.ToInt32(it["TableID"]),
+                             RoundID = Convert.ToInt32(it["RoundID"]),
+                             TotalBetAmountOfBlack = Convert.ToDouble(it["TotalBetAmountOfBlack"]),
+                             TotalBetAmountOfWhite = Convert.ToDouble(it["TotalBetAmountOfWhite"]),
+                             TrackingID = Guid.Parse(it["TrackingID"]),
+                             OnGoingTrackingID = Guid.Parse(it["OnGoingTrackingID"])
+                         };
+            ScenarioContext.Current.Set<IEnumerable<GamePlayInformation>>(result);
+
+            Func<ListGamePlayInfoCommand, IObservable<ListGamePlayInfoCommand>> func = cmd =>
+            {
+                return Observable.Return(new ListGamePlayInfoCommand
+                {
+                    GamePlayInfos = new System.Collections.ObjectModel.ObservableCollection<GamePlayInformation>
+                    (ScenarioContext.Current.Get<IEnumerable<GamePlayInformation>>())
+                });
+            };
+            var svc = ScenarioContext.Current.Get<IColorsServiceAdapter>();
+            svc.GetListGamePlayInformation(null);
+            LastCall.IgnoreArguments().Do(func);
+        }
 
         [When(@"Send request GetListGamePlayInformation\( '(.*)' \)")]
         public void WhenSendRequestGetListGamePlayInformation(string username)
@@ -68,12 +89,6 @@ namespace TheS.Casinova.Colors.Specs.Steps
             var viewModel = ScenarioContext.Current.Get<GamePlayViewModel>();
             viewModel.GetListGamePlayInformation();
             ScenarioContext.Current.Get<TestScheduler>().Run();
-        }
-
-        [When(@"Web service execute new bet are")]
-        public void WhenWebServiceExecuteNewBetAre(Table table)
-        {
-            ScenarioContext.Current.Pending();
         }
 
         [Then(@"Tables in GamePlayViewModel display game play information are")]

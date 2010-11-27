@@ -15,31 +15,79 @@
 
 Background:
 	Given Create and initialize GamePlayViewModel and Colors game service
-	And Setup trackingID for getwinner {60AD85F6-3978-48AA-9286-E5A7344B77EC}
 
 @record_mock
 Scenario: Get winner button has click save player action in PayLog
+	Given Setup trackingID for getwinner {60AD85F6-3978-48AA-9286-E5A7344B77EC}
 	When Click get winner in game round 20 
 	Then PayLog has save RoundID='20', Count='1'
 	And Lot of TrackingID='{60AD85F6-3978-48AA-9286-E5A7344B77EC}' Is Retrieved
 	And PayLog has empty
 
 @record_mock
-Scenario: Get winner button has click more than one, game view model has save player action in PayLog more than one log
+Scenario: Get winner button has click save player action in PayLog 3 times
+	Given Setup web service trackingID are
+		|TrackingID									|
+		|{60AD85F6-3978-48AA-9286-E5A7344B77EC}		|
+		|{A82FA8E6-1BCC-443E-A61A-F81B8B4DED83}		|
+		|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}		|
 	When Click get winner in game round 20 
 	And Click get winner in game round 20 
 	And Click get winner in game round 20 
 	Then PayLog has save RoundID='20', Count='3'
+	And Lot of TrackingIDs has Retrieved are
+		|TrackingID									|
+		|{60AD85F6-3978-48AA-9286-E5A7344B77EC}		|
+		|{A82FA8E6-1BCC-443E-A61A-F81B8B4DED83}		|
+		|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}		|
+	And PayLog has empty
 
 @record_mock
-Scenario: Get winner button has click in another game roundID, pay log has save
+Scenario: Get winner 3 times using another game roundID
+	Given Setup web service trackingID are
+		|TrackingID									|
+		|{60AD85F6-3978-48AA-9286-E5A7344B77EC}		|
+		|{A82FA8E6-1BCC-443E-A61A-F81B8B4DED83}		|
+		|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}		|
 	When Click get winner in game round 20 
-	And Click get winner in game round 20
 	And Click get winner in game round 21 
 	And Click get winner in game round 22 
-	And Click get winner in game round 23
-	And Click get winner in game round 20
-	Then PayLog has save RoundID='20', Count='3'
+	Then PayLog has save RoundID='20', Count='1'
 	And PayLog has save RoundID='21', Count='1'
 	And PayLog has save RoundID='22', Count='1'
+	And Lot of TrackingIDs has Retrieved are
+		|TrackingID									|
+		|{60AD85F6-3978-48AA-9286-E5A7344B77EC}		|
+		|{A82FA8E6-1BCC-443E-A61A-F81B8B4DED83}		|
+		|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}		|
+	And PayLog has empty
+
+@record_mock
+Scenario: Get winner 6 times using another game roundID
+	Given Setup web service trackingID are
+		|TrackingID									|
+		|{60AD85F6-3978-48AA-9286-E5A7344B77EC}		|
+		|{A82FA8E6-1BCC-443E-A61A-F81B8B4DED83}		|
+		|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}		|
+		|{2C8EE9D1-A106-4216-AA57-E44554F822A8}		|
+		|{89D5613E-8007-4AAA-8A4D-AF16014B2D5F}		|
+		|{50EA817A-512E-469E-982F-8377F0EF84A6}		|
+	When Click get winner in game round 20 
+	And Click get winner in game round 21 
+	And Click get winner in game round 22 
+	And Click get winner in game round 22 
+	And Click get winner in game round 23 
+	And Click get winner in game round 22 
+	Then PayLog has save RoundID='20', Count='1'
+	And PayLog has save RoundID='21', Count='1'
+	And PayLog has save RoundID='22', Count='3'
 	And PayLog has save RoundID='23', Count='1'
+	And Lot of TrackingIDs has Retrieved are
+		|TrackingID									|
+		|{60AD85F6-3978-48AA-9286-E5A7344B77EC}		|
+		|{A82FA8E6-1BCC-443E-A61A-F81B8B4DED83}		|
+		|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}		|
+		|{2C8EE9D1-A106-4216-AA57-E44554F822A8}		|
+		|{89D5613E-8007-4AAA-8A4D-AF16014B2D5F}		|
+		|{50EA817A-512E-469E-982F-8377F0EF84A6}		|
+	And PayLog has empty

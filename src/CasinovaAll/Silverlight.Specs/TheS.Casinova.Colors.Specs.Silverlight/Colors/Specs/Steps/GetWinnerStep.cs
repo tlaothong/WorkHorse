@@ -17,7 +17,7 @@ namespace TheS.Casinova.Colors.Specs.Steps
     [Binding]
     public class GetWinnerStep
     {
-        #region Background
+        private int _callCount = 0;
 
         [Given(@"Setup trackingID for getwinner (.*)")]
         public void GivenSetupTrackingID(string trackingID)
@@ -25,25 +25,34 @@ namespace TheS.Casinova.Colors.Specs.Steps
             var mocks = ScenarioContext.Current.Get<MockRepository>();
             var svc = ScenarioContext.Current.Get<IColorsServiceAdapter>();
             var tracker = ScenarioContext.Current.Get<IStatusTracker>();
+            var subject = ScenarioContext.Current.Get<Subject<TrackingInformation>>();
 
-
-            Func<PayForColorsWinnerInfoCommand, IObservable<PayForColorsWinnerInfoCommand>> _mockGetWinnerInformation = cmd =>
+            SetupResult.For(tracker.Watch(null)).IgnoreArguments().Return(subject);
+            SetupResult.For(svc.GetWinnerInformation(null)).IgnoreArguments().Return(Observable.Return(new PayForColorsWinnerInfoCommand
             {
-                return Observable.Return(new PayForColorsWinnerInfoCommand
-                {
-                    RoundID = cmd.RoundID,
-                    OnGoingTrackingID = Guid.NewGuid(),
-                });
-            };
-
-            using (mocks.Record())
-            {
-                SetupResult.For(svc.GetWinnerInformation(null)).IgnoreArguments().Do(_mockGetWinnerInformation);
-                SetupResult.For(tracker.Watch(null)).IgnoreArguments().Return(ScenarioContext.Current.Get<Subject<TrackingInformation>>());
-            }
+                RoundID = 123,
+                OnGoingTrackingID = Guid.Parse(trackingID)
+            }));
         }
 
-        #endregion Background
+        [Given(@"Setup web service trackingID are")]
+        public void GivenSetupWebServiceTrackingIDAre(Table table)
+        {
+            var trackings = (from c in table.Rows
+                            select new PayForColorsWinnerInfoCommand
+                            {
+                                OnGoingTrackingID = Guid.Parse(c["TrackingID"])
+                            }).ToArray<PayForColorsWinnerInfoCommand>();
+
+            var mocks = ScenarioContext.Current.Get<MockRepository>();
+            var svc = ScenarioContext.Current.Get<IColorsServiceAdapter>();
+            var tracker = ScenarioContext.Current.Get<IStatusTracker>();
+            var subject = ScenarioContext.Current.Get<Subject<TrackingInformation>>();
+
+            SetupResult.For(tracker.Watch(null)).IgnoreArguments().Return(subject);
+            SetupResult.For(svc.GetWinnerInformation(null)).IgnoreArguments().Return(Observable.Return(
+                trackings[_callCount++]));
+        }
 
         [When(@"Click get winner in game round (.*)")]
         public void WhenClickGetWinnerInGameRound20(int gameRound)
@@ -55,24 +64,44 @@ namespace TheS.Casinova.Colors.Specs.Steps
         }
 
         [Then(@"PayLog has save RoundID='(.*)', Count='(.*)'")]
-        public void ThenPayLogHasSaveRoundID20(int gameRound,int count)
+        public void ThenPayLogHasSaveRoundID20(int gameRound, int count)
         {
-            var viewModel = ScenarioContext.Current.Get<GamePlayViewModel>().Paylogs.Where(c => c.RoundID.Equals(gameRound));
-            Assert.IsTrue(viewModel.Count() >= 1, "Pay log has save");
-            Assert.AreEqual(count, viewModel.Count(), "Log count");
+            var payLog = ScenarioContext.Current.Get<GamePlayViewModel>().Paylogs.Where(c => c.RoundID.Equals(gameRound));
+            Assert.AreEqual(count, payLog.Count(), "Paylog count");
         }
 
         [Then(@"Lot of TrackingID='(.*)' Is Retrieved")]
         public void ThenLotOfTrackingID(string trackingID)
         {
-            var gid = Guid.Parse(trackingID);
             var subject = ScenarioContext.Current.Get<Subject<TrackingInformation>>();
             subject.OnNext(new TrackingInformation
             {
                 LotNo = "789",
-                TrackingID = gid,
+                TrackingID = Guid.Parse(trackingID),
                 Status = "ok",
             });
+        }
+
+        [Then(@"Lot of TrackingIDs has Retrieved are")]
+        public void ThenLotOfTrackingIDsHasRetrievedAre(Table table)
+        {
+            var trackingsRetrieved = (from c in table.Rows
+                             select new PayForColorsWinnerInfoCommand
+                             {
+                                 OnGoingTrackingID = Guid.Parse(c["TrackingID"])
+                             }).ToArray<PayForColorsWinnerInfoCommand>();
+
+            var subject = ScenarioContext.Current.Get<Subject<TrackingInformation>>();
+
+            foreach (var tracking in trackingsRetrieved)
+            {
+                subject.OnNext(new TrackingInformation
+                {
+                    LotNo = "789",
+                    TrackingID = tracking.OnGoingTrackingID,
+                    Status = "ok",
+                });
+            }
         }
 
         [Then(@"PayLog has empty")]

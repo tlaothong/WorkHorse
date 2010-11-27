@@ -67,8 +67,6 @@ namespace TheS.Casinova.Colors.Specs
 #line 14
 #line 15
 testRunner.Given("Create and initialize GamePlayViewModel and Colors game service");
-#line 16
-testRunner.And("Setup trackingID for bet {E8481A68-7F9F-4466-B7B8-1355ED2D32C6}");
 #line hidden
         }
         
@@ -80,14 +78,14 @@ testRunner.And("Setup trackingID for bet {E8481A68-7F9F-4466-B7B8-1355ED2D32C6}"
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Bet button has click save player action in PayLog", new string[] {
                         "record_mock"});
-#line 19
+#line 18
 this.ScenarioSetup(scenarioInfo);
+#line 19
+testRunner.Given("Setup trackingID for bet {E8481A68-7F9F-4466-B7B8-1355ED2D32C6}");
 #line 20
 testRunner.When("Click Bet black amount=30 in game round=15");
 #line 21
 testRunner.Then("PayLog count=\'1\' are");
-#line 22
-testRunner.And("Lot of TrackingID=\'{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}\' Is Retrieved");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "RoundID",
@@ -97,8 +95,12 @@ testRunner.And("Lot of TrackingID=\'{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}\' Is 
                         "15",
                         "30",
                         "Black"});
-#line 23
+#line 22
 testRunner.And("Paylog have save information are", ((string)(null)), table1);
+#line 25
+testRunner.And("Lot of TrackingID=\'{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}\' Is Retrieved");
+#line 26
+testRunner.And("PayLog has empty");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -111,49 +113,79 @@ testRunner.And("Paylog have save information are", ((string)(null)), table1);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Bet button has click more than one, save player action in PayLog", new string[] {
                         "record_mock"});
-#line 28
-this.ScenarioSetup(scenarioInfo);
 #line 29
-testRunner.When("Click Bet black amount=30 in game round=15");
-#line 30
-testRunner.And("Click Bet black amount=45 in game round=15");
-#line 31
-testRunner.And("Click Bet black amount=50 in game round=15");
-#line 32
-testRunner.And("Click Bet black amount=55 in game round=15");
-#line 33
-testRunner.And("Click Bet black amount=1 in game round=15");
-#line 34
-testRunner.Then("PayLog count=\'5\' are");
-#line 35
-testRunner.And("Lot of TrackingID=\'{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}\' Is Retrieved");
+this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "TrackingID"});
+            table2.AddRow(new string[] {
+                        "{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}"});
+            table2.AddRow(new string[] {
+                        "{A301887F-DF03-4151-AD50-D6C1C7218736}"});
+            table2.AddRow(new string[] {
+                        "{2BEC0C07-975A-4B73-859E-87450CCADE14}"});
+            table2.AddRow(new string[] {
+                        "{4DDB378C-9C75-4E96-BB19-D61FD93207C8}"});
+            table2.AddRow(new string[] {
+                        "{FDAFEA76-CC7C-4C95-86EA-72393C5954A0}"});
+#line 30
+testRunner.Given("Setup web service trackingID for bets", ((string)(null)), table2);
+#line 37
+testRunner.When("Click Bet black amount=30 in game round=15");
+#line 38
+testRunner.And("Click Bet black amount=45 in game round=15");
+#line 39
+testRunner.And("Click Bet black amount=50 in game round=15");
+#line 40
+testRunner.And("Click Bet black amount=55 in game round=15");
+#line 41
+testRunner.And("Click Bet black amount=1 in game round=15");
+#line 42
+testRunner.Then("PayLog count=\'5\' are");
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "RoundID",
                         "Amount",
                         "Colors"});
-            table2.AddRow(new string[] {
+            table3.AddRow(new string[] {
                         "15",
                         "30",
                         "Black"});
-            table2.AddRow(new string[] {
+            table3.AddRow(new string[] {
                         "15",
                         "45",
                         "Black"});
-            table2.AddRow(new string[] {
+            table3.AddRow(new string[] {
                         "15",
                         "50",
                         "Black"});
-            table2.AddRow(new string[] {
+            table3.AddRow(new string[] {
                         "15",
                         "55",
                         "Black"});
-            table2.AddRow(new string[] {
+            table3.AddRow(new string[] {
                         "15",
                         "1",
                         "Black"});
-#line 36
-testRunner.And("Paylog have save information are", ((string)(null)), table2);
+#line 43
+testRunner.And("Paylog have save information are", ((string)(null)), table3);
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "TrackingID"});
+            table4.AddRow(new string[] {
+                        "{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}"});
+            table4.AddRow(new string[] {
+                        "{A301887F-DF03-4151-AD50-D6C1C7218736}"});
+            table4.AddRow(new string[] {
+                        "{2BEC0C07-975A-4B73-859E-87450CCADE14}"});
+            table4.AddRow(new string[] {
+                        "{4DDB378C-9C75-4E96-BB19-D61FD93207C8}"});
+            table4.AddRow(new string[] {
+                        "{FDAFEA76-CC7C-4C95-86EA-72393C5954A0}"});
+#line 50
+testRunner.And("Bet Lot has Retrieved are", ((string)(null)), table4);
+#line 57
+testRunner.And("PayLog has empty");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -168,49 +200,81 @@ testRunner.And("Paylog have save information are", ((string)(null)), table2);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Bet button has click more than one and difference colors, save player action in P" +
                     "ayLog", new string[] {
                         "record_mock"});
-#line 45
+#line 60
 this.ScenarioSetup(scenarioInfo);
-#line 46
-testRunner.When("Click Bet black amount=30 in game round=15");
-#line 47
-testRunner.And("Click Bet white amount=45 in game round=15");
-#line 48
-testRunner.And("Click Bet white amount=50 in game round=15");
-#line 49
-testRunner.And("Click Bet black amount=55 in game round=15");
-#line 50
-testRunner.And("Click Bet white amount=1 in game round=15");
-#line 51
-testRunner.Then("PayLog count=\'5\' are");
-#line 52
-testRunner.And("Lot of TrackingID=\'{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}\' Is Retrieved");
 #line hidden
-            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "TrackingID"});
+            table5.AddRow(new string[] {
+                        "{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}"});
+            table5.AddRow(new string[] {
+                        "{A301887F-DF03-4151-AD50-D6C1C7218736}"});
+            table5.AddRow(new string[] {
+                        "{2BEC0C07-975A-4B73-859E-87450CCADE14}"});
+            table5.AddRow(new string[] {
+                        "{4DDB378C-9C75-4E96-BB19-D61FD93207C8}"});
+            table5.AddRow(new string[] {
+                        "{FDAFEA76-CC7C-4C95-86EA-72393C5954A0}"});
+#line 61
+testRunner.Given("Setup web service trackingID for bets", ((string)(null)), table5);
+#line 68
+testRunner.When("Click Bet black amount=30 in game round=15");
+#line 69
+testRunner.And("Click Bet white amount=45 in game round=15");
+#line 70
+testRunner.And("Click Bet white amount=50 in game round=15");
+#line 71
+testRunner.And("Click Bet black amount=55 in game round=15");
+#line 72
+testRunner.And("Click Bet white amount=1 in game round=15");
+#line 73
+testRunner.Then("PayLog count=\'5\' are");
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                         "RoundID",
                         "Amount",
                         "Colors"});
-            table3.AddRow(new string[] {
+            table6.AddRow(new string[] {
                         "15",
                         "30",
                         "Black"});
-            table3.AddRow(new string[] {
+            table6.AddRow(new string[] {
                         "15",
                         "45",
                         "White"});
-            table3.AddRow(new string[] {
+            table6.AddRow(new string[] {
                         "15",
                         "50",
                         "White"});
-            table3.AddRow(new string[] {
+            table6.AddRow(new string[] {
                         "15",
                         "55",
                         "Black"});
-            table3.AddRow(new string[] {
+            table6.AddRow(new string[] {
                         "15",
                         "1",
                         "White"});
-#line 53
-testRunner.And("Paylog have save information are", ((string)(null)), table3);
+#line 74
+testRunner.And("Paylog have save information are", ((string)(null)), table6);
+#line 81
+testRunner.And("Lot of TrackingID=\'{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}\' Is Retrieved");
+#line hidden
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                        "TrackingID"});
+            table7.AddRow(new string[] {
+                        "{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}"});
+            table7.AddRow(new string[] {
+                        "{A301887F-DF03-4151-AD50-D6C1C7218736}"});
+            table7.AddRow(new string[] {
+                        "{2BEC0C07-975A-4B73-859E-87450CCADE14}"});
+            table7.AddRow(new string[] {
+                        "{4DDB378C-9C75-4E96-BB19-D61FD93207C8}"});
+            table7.AddRow(new string[] {
+                        "{FDAFEA76-CC7C-4C95-86EA-72393C5954A0}"});
+#line 82
+testRunner.And("Bet Lot has Retrieved are", ((string)(null)), table7);
+#line 89
+testRunner.And("PayLog has empty");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -225,49 +289,79 @@ testRunner.And("Paylog have save information are", ((string)(null)), table3);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Bet button has click more than one and difference roundID, save player action in " +
                     "PayLog", new string[] {
                         "record_mock"});
-#line 62
+#line 92
 this.ScenarioSetup(scenarioInfo);
-#line 63
-testRunner.When("Click Bet black amount=30 in game round=15");
-#line 64
-testRunner.And("Click Bet black amount=45 in game round=16");
-#line 65
-testRunner.And("Click Bet black amount=50 in game round=17");
-#line 66
-testRunner.And("Click Bet black amount=55 in game round=18");
-#line 67
-testRunner.And("Click Bet black amount=1 in game round=19");
-#line 68
-testRunner.Then("PayLog count=\'5\' are");
-#line 69
-testRunner.And("Lot of TrackingID=\'{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}\' Is Retrieved");
 #line hidden
-            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                        "TrackingID"});
+            table8.AddRow(new string[] {
+                        "{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}"});
+            table8.AddRow(new string[] {
+                        "{A301887F-DF03-4151-AD50-D6C1C7218736}"});
+            table8.AddRow(new string[] {
+                        "{2BEC0C07-975A-4B73-859E-87450CCADE14}"});
+            table8.AddRow(new string[] {
+                        "{4DDB378C-9C75-4E96-BB19-D61FD93207C8}"});
+            table8.AddRow(new string[] {
+                        "{FDAFEA76-CC7C-4C95-86EA-72393C5954A0}"});
+#line 93
+testRunner.Given("Setup web service trackingID for bets", ((string)(null)), table8);
+#line 100
+testRunner.When("Click Bet black amount=30 in game round=15");
+#line 101
+testRunner.And("Click Bet black amount=45 in game round=16");
+#line 102
+testRunner.And("Click Bet black amount=50 in game round=17");
+#line 103
+testRunner.And("Click Bet black amount=55 in game round=18");
+#line 104
+testRunner.And("Click Bet black amount=1 in game round=19");
+#line 105
+testRunner.Then("PayLog count=\'5\' are");
+#line hidden
+            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
                         "RoundID",
                         "Amount",
                         "Colors"});
-            table4.AddRow(new string[] {
+            table9.AddRow(new string[] {
                         "15",
                         "30",
                         "Black"});
-            table4.AddRow(new string[] {
+            table9.AddRow(new string[] {
                         "16",
                         "45",
                         "Black"});
-            table4.AddRow(new string[] {
+            table9.AddRow(new string[] {
                         "17",
                         "50",
                         "Black"});
-            table4.AddRow(new string[] {
+            table9.AddRow(new string[] {
                         "18",
                         "55",
                         "Black"});
-            table4.AddRow(new string[] {
+            table9.AddRow(new string[] {
                         "19",
                         "1",
                         "Black"});
-#line 70
-testRunner.And("Paylog have save information are", ((string)(null)), table4);
+#line 106
+testRunner.And("Paylog have save information are", ((string)(null)), table9);
+#line hidden
+            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+                        "TrackingID"});
+            table10.AddRow(new string[] {
+                        "{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}"});
+            table10.AddRow(new string[] {
+                        "{A301887F-DF03-4151-AD50-D6C1C7218736}"});
+            table10.AddRow(new string[] {
+                        "{2BEC0C07-975A-4B73-859E-87450CCADE14}"});
+            table10.AddRow(new string[] {
+                        "{4DDB378C-9C75-4E96-BB19-D61FD93207C8}"});
+            table10.AddRow(new string[] {
+                        "{FDAFEA76-CC7C-4C95-86EA-72393C5954A0}"});
+#line 113
+testRunner.And("Bet Lot has Retrieved are", ((string)(null)), table10);
+#line 120
+testRunner.And("PayLog has empty");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -282,55 +376,89 @@ testRunner.And("Paylog have save information are", ((string)(null)), table4);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Bet button has click more than one and difference roundID and colors, save player" +
                     " action in PayLog", new string[] {
                         "record_mock"});
-#line 79
+#line 123
 this.ScenarioSetup(scenarioInfo);
-#line 80
-testRunner.When("Click Bet white amount=30 in game round=15");
-#line 81
-testRunner.And("Click Bet black amount=45 in game round=16");
-#line 82
-testRunner.And("Click Bet white amount=50 in game round=17");
-#line 83
-testRunner.And("Click Bet white amount=55 in game round=18");
-#line 84
-testRunner.And("Click Bet black amount=1 in game round=19");
-#line 85
-testRunner.And("Click Bet black amount=100 in game round=15");
-#line 86
-testRunner.Then("PayLog count=\'6\' are");
-#line 87
-testRunner.And("Lot of TrackingID=\'{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}\' Is Retrieved");
 #line hidden
-            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+                        "TrackingID"});
+            table11.AddRow(new string[] {
+                        "{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}"});
+            table11.AddRow(new string[] {
+                        "{A301887F-DF03-4151-AD50-D6C1C7218736}"});
+            table11.AddRow(new string[] {
+                        "{2BEC0C07-975A-4B73-859E-87450CCADE14}"});
+            table11.AddRow(new string[] {
+                        "{4DDB378C-9C75-4E96-BB19-D61FD93207C8}"});
+            table11.AddRow(new string[] {
+                        "{FDAFEA76-CC7C-4C95-86EA-72393C5954A0}"});
+            table11.AddRow(new string[] {
+                        "{098FCF3A-B002-4206-A61F-E6CD765100F5}"});
+#line 124
+testRunner.Given("Setup web service trackingID for bets", ((string)(null)), table11);
+#line 132
+testRunner.When("Click Bet white amount=30 in game round=15");
+#line 133
+testRunner.And("Click Bet black amount=45 in game round=16");
+#line 134
+testRunner.And("Click Bet white amount=50 in game round=17");
+#line 135
+testRunner.And("Click Bet white amount=55 in game round=18");
+#line 136
+testRunner.And("Click Bet black amount=1 in game round=19");
+#line 137
+testRunner.And("Click Bet black amount=100 in game round=15");
+#line 138
+testRunner.Then("PayLog count=\'6\' are");
+#line hidden
+            TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
                         "RoundID",
                         "Amount",
                         "Colors"});
-            table5.AddRow(new string[] {
+            table12.AddRow(new string[] {
                         "15",
                         "30",
                         "White"});
-            table5.AddRow(new string[] {
+            table12.AddRow(new string[] {
                         "16",
                         "45",
                         "Black"});
-            table5.AddRow(new string[] {
+            table12.AddRow(new string[] {
                         "17",
                         "50",
                         "White"});
-            table5.AddRow(new string[] {
+            table12.AddRow(new string[] {
                         "18",
                         "55",
                         "White"});
-            table5.AddRow(new string[] {
+            table12.AddRow(new string[] {
                         "19",
                         "1",
                         "Black"});
-            table5.AddRow(new string[] {
+            table12.AddRow(new string[] {
                         "15",
                         "100",
                         "Black"});
-#line 88
-testRunner.And("Paylog have save information are", ((string)(null)), table5);
+#line 139
+testRunner.And("Paylog have save information are", ((string)(null)), table12);
+#line hidden
+            TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
+                        "TrackingID"});
+            table13.AddRow(new string[] {
+                        "{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}"});
+            table13.AddRow(new string[] {
+                        "{A301887F-DF03-4151-AD50-D6C1C7218736}"});
+            table13.AddRow(new string[] {
+                        "{2BEC0C07-975A-4B73-859E-87450CCADE14}"});
+            table13.AddRow(new string[] {
+                        "{4DDB378C-9C75-4E96-BB19-D61FD93207C8}"});
+            table13.AddRow(new string[] {
+                        "{FDAFEA76-CC7C-4C95-86EA-72393C5954A0}"});
+            table13.AddRow(new string[] {
+                        "{098FCF3A-B002-4206-A61F-E6CD765100F5}"});
+#line 147
+testRunner.And("Bet Lot has Retrieved are", ((string)(null)), table13);
+#line 155
+testRunner.And("PayLog has empty");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

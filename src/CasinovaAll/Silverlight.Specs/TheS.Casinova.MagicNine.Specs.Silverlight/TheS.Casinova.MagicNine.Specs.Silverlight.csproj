@@ -103,6 +103,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MagicNine\SpecEventDefinitions.cs" />
     <Compile Include="MagicNine\Specs\GetActiveGameRound.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
