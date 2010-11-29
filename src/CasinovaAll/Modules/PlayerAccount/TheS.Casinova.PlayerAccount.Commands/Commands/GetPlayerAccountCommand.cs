@@ -22,5 +22,11 @@ namespace TheS.Casinova.PlayerAccount.Commands
         /// ข้อมูลบัญชีของผู้เล่น
         /// </summary>
         public PlayerAccountInformation PlayerAccountInfo { get; set; }
+
+        /// <summary>
+        /// บัญชีผู้เล่นที่ต้องการดึงข้อมูล
+        /// 1.UserName ชื่อผู้เล่น
+        /// </summary>
+        public PlayerAccountInformation PlayerAccountInfoInput { get; set; }
     }
 }

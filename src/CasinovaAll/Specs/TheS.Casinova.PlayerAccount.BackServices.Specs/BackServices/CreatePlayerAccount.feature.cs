@@ -57,7 +57,7 @@ namespace TheS.Casinova.PlayerAccount.BackServices
         public virtual void AddTwoNumbers()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add two numbers", new string[] {
-                        "mytag"});
+                        "record_mock"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
