@@ -12,6 +12,8 @@
   <script  type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
   <script  type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
   <script  src="../../../../Scripts/jquery.ad-gallery.js" type="text/javascript"></script>
+  <script src="../../../../Scripts/jquery-ui-1.8.6.custom.min.js" type="text/javascript"></script>
+
 
 <script type="text/javascript">
     $(function () {
@@ -104,6 +106,61 @@
         display: block;
       }
   </style>
+  <%--script for report--%>
+<script type="text/javascript">
+    $(function () {
+        // Dialog
+        $("#showReportphotopage").dialog({
+            autoOpen: false,
+            modal: true,
+            width: 450,
+            title: 'Report Problem',
+            buttons: {
+                "Cancel": function () {
+                    $(this).dialog("close");
+                },
+                "Send": function () {
+                    $(this).dialog("close");
+                }
+            }
+        });
+
+        // Dialog Link
+        $('.reportsphotopage').click(function () {
+            $('#showReportphotopage').dialog('open');
+            return false;
+        });
+    });
+
+</script>
+
+<%--script for organize--%>
+<script type="text/javascript">
+    $(function () {
+        // Dialog
+        $("#showorganize").dialog({
+            autoOpen: false,
+            modal: true,
+            width: 450,
+            title: 'Photo Organize',
+            buttons: {
+                "Cancel": function () {
+                    $(this).dialog("close");
+                },
+                "Send": function () {
+                    $(this).dialog("close");
+                }
+            }
+        });
+
+        // Dialog Link
+        $('.organizes').click(function () {
+            $('#showorganize').dialog('open');
+            return false;
+        });
+    });
+
+</script>
 <div id="container">
 <div style="margin-left:30px;">ToomMy's Album  <select id="switch-effect" style="margin-top:5px;">
                   <option>วันปีใหม่ 2553</option>
@@ -111,9 +168,49 @@
                   <option>เที่ยวเมืองไทย</option>
                   <option>เขาใหญ่</option>
                   <option>แล้วแต่จะเพิ่มนะคะ</option>
-                    </select><label id="dialog" style="margin-left:175px; color:#69BA55; background-color:#E7E8E9; border:6px:solid:#E1E1E1:inherit;">Organize</label>
+                    </select><label class="organizes" style="margin-left:40px; color:#808285; background-color:#E7E8E9;padding:2px 4px 2px 4px;border: 1px solid gray;">Organize</label>
     </div>
-    <div style="margin-left:30px; color:#69BA55;"><input type="checkbox" />Use as display<label id="reports" style="text-decoration:underline; color:#69BA55; margin-left:10px">Report</label></div>
+    <div style="margin-left:30px; color:#69BA55;"><input type="checkbox" />Use as display<label class="reportsphotopage" style="text-decoration:underline; color:#69BA55; margin-left:10px">Report</label></div>
+    <%--div for report dialog--%>
+    <div id="showReportphotopage">
+    <table>
+            <tr>
+                <td valign="top">
+                    <img src="/Content/images/ProfileAvatar.png" />
+                </td>
+                <td valign="top">username: Wanida<br />DateTime(1/8/2552 12:50:45)<br />
+                    <select>
+                          <option>Inappriate content</option>
+                          <option>Bug</option>
+                          <option>Error</option>
+                    </select><br /><br />
+                    Topic : <input type="text" title="Some Text"/>
+                    <textarea rows="10"; cols="27">Details.....</textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <%--div for organize dialog--%>
+    <div id="showorganize">
+    <%--<table>
+            <tr>
+                <td valign="top">
+                    <img src="/Content/images/ProfileAvatar.png" />
+                </td>
+                <td valign="top">username: Wanida<br />DateTime(1/8/2552 12:50:45)<br />
+                    <select>
+                          <option>Inappriate content</option>
+                          <option>Bug</option>
+                          <option>Error</option>
+                    </select><br /><br />
+                    Topic : <input type="text" title="Some Text"/>
+                    <textarea rows="10"; cols="27">Details.....</textarea>
+                </td>
+            </tr>
+        </table>--%>
+        รอการทำข้อมูลข้างในจากพี่พายด้วย
+    </div>
     <br />
  <div id="gallery" class="ad-gallery">
     <div class="ad-image-wrapper"></div>
@@ -200,33 +297,6 @@
         </div>
       </div>
     </div>
-<%-- <script type="text/javascript">
-     $("#dialog").click(function () {
-         $("#display").dialog({
-             buttons: {
-                 "Ok": function () {
-                     $(this).dialog("close");
-                 }
-             }
-         });
-         title: "Dialog Title";
-     });
-  </script>
- <script type="text/javascript">
-      $("#reports").click(function () {
-          $("#Report").dialog({
-              buttons: {
-                  "Ok": function () {
-                      $(this).dialog("close");
-                  }
-              }
-          });
-          title: "Dialog Title";
-      });
-  </script>
-
-<div id="display" title="Dialog Title"></div>
-<div id="Report" title="Dialog Title"></div>--%>
 <% Html.RenderPartial("FriendList"); %>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="SubMenu" runat="server">

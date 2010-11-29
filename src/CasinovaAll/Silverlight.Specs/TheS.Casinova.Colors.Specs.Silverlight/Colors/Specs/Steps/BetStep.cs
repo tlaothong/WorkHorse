@@ -18,40 +18,41 @@ namespace TheS.Casinova.Colors.Specs.Steps
     [Binding]
     public class BetStep
     {
-        #region Background
+        private int _generateTrackingCount;
 
-        [Given(@"Setup trackingID for bet (.*)")]
-        public void GivenSetupTrackingID(string trackingID)
+        [Given(@"Setup web service trackingID for bets")]
+        public void GivenSetupWebServiceTrackingIDForBets(Table table)
         {
+            var trackings = (from c in table.Rows
+                            select new BetCommand
+                            {
+                                TrackingID = Guid.Parse(c["TrackingID"])
+                            }).ToArray<BetCommand>();
+
             var mocks = ScenarioContext.Current.Get<MockRepository>();
             var svc = ScenarioContext.Current.Get<IColorsServiceAdapter>();
             var statusTracker = ScenarioContext.Current.Get<IStatusTracker>();
             var subject = ScenarioContext.Current.Get<Subject<TrackingInformation>>();
 
-            Func<BetCommand, IObservable<BetCommand>> _mockBet = cmd =>
+            Func<BetCommand, IObservable<BetCommand>> func = cmd =>
             {
                 var result = new BetCommand
                 {
                     Amount = cmd.Amount,
                     Color = cmd.Color,
                     RoundID = cmd.RoundID,
-                    TrackingID = Guid.Parse(trackingID),
+                    TrackingID = trackings[_generateTrackingCount++].TrackingID,
                     UserName = cmd.UserName,
                 };
                 return Observable.Return(result);
             };
 
-            using (mocks.Record())
-            {
-                SetupResult.For(svc.Bet(null)).IgnoreArguments().Do(_mockBet);
-                SetupResult.For(statusTracker.Watch(null)).IgnoreArguments().Return(subject);
-            }
+            SetupResult.For(svc.Bet(null)).IgnoreArguments().Do(func);
+            SetupResult.For(statusTracker.Watch(null)).IgnoreArguments().Return(subject);
         }
 
-        #endregion Background
-
         [When(@"Click Bet black amount=(.*) in game round=(.*)")]
-        public void WhenClickBetBlackAmount(int amount,int gameRound)
+        public void WhenClickBetBlackAmount(int amount, int gameRound)
         {
             var viewModel = ScenarioContext.Current.Get<GamePlayViewModel>();
             viewModel.RoundID = gameRound;
@@ -70,11 +71,33 @@ namespace TheS.Casinova.Colors.Specs.Steps
             ScenarioContext.Current.Get<TestScheduler>().Run();
         }
 
-        [Then(@"PayLog count='(.*)' are")]
+        [Then(@"PayLog count='(.*)'")]
         public void ThenPayLogAre(int payLogCount)
         {
             var viewModel = ScenarioContext.Current.Get<GamePlayViewModel>();
             Assert.AreEqual(payLogCount, viewModel.Paylogs.Count, "Pay log count");
+        }
+
+        [Then(@"Bet Lot has Retrieved are")]
+        public void ThenBetLotHasRetrievedAre(Table table)
+        {
+            var trackingsRetrieved = (from c in table.Rows
+                             select new BetCommand
+                             {
+                                 TrackingID = Guid.Parse(c["TrackingID"])
+                             }).ToArray<BetCommand>();
+
+            var subject = ScenarioContext.Current.Get<Subject<TrackingInformation>>();
+
+            foreach (var tracking in trackingsRetrieved)
+            {
+                subject.OnNext(new TrackingInformation
+                {
+                    LotNo = "789",
+                    TrackingID = tracking.TrackingID,
+                    Status = "ok",
+                });
+            }
         }
 
         [Then(@"Paylog have save information are")]
@@ -96,6 +119,13 @@ namespace TheS.Casinova.Colors.Specs.Steps
                 Assert.AreEqual(expect[index].Colors, actual[index].Colors, "Colors");
                 Assert.AreEqual(expect[index].Amount, actual[index].Amount, "Amount");
             }
+        }
+
+        [Then(@"PayLog have (.*) record for looking trackingID in lot")]
+        public void ThenPayLogHave1RecordForLookingTrackingIDInLot(int waitCount)
+        {
+            var actual = ScenarioContext.Current.Get<GamePlayViewModel>().Paylogs;
+            Assert.AreEqual(waitCount, actual.Count, "Paylogs have waiting count");
         }
     }
 }

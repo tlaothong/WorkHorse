@@ -377,6 +377,12 @@ namespace TheS.Casinova.Colors.ViewModels
                             //GetListGamePlayInformation();
                         }
                     }
+                    // TODO: Display TotalAmountOfBlack, TotalAmountOfWhite, Winner
+                    const int PayLogEmpty = 0;
+                    if (_paylogs.Count == PayLogEmpty)
+                    {
+                        // TODO: if PayLog = empty remove waiting status
+                    }
                 },
                 error =>
                 {
@@ -390,38 +396,28 @@ namespace TheS.Casinova.Colors.ViewModels
         {
             var svc = _sva;
 
-            // TODO: Sub account balance
+            // TODO: Sub account balance UI
+
             var log = new PayLog
             {
                 RoundID = RoundID,
                 Amount = _costWinnerInformation,
             };
 
-            // TODO: Colors observer follow trackingID
-            Paylogs.Add(log);
-
-            Action onFoundTracking = () =>
+            ColorsTrackingObserver observer = new ColorsTrackingObserver(() =>
             {
                 Paylogs.Remove(log);
-                GetListGamePlayInformation();
-            };
-
-            ColorsTrackingObserver observer = new ColorsTrackingObserver(onFoundTracking);
+                //GetListGamePlayInformation();
+            });
+            Paylogs.Add(log);
             observer.Initialize(StatusTracker);
 
-            // TODO: Colors RX GetWinnerInformation
             IDisposable disposeGetWinnerInformation = null;
             disposeGetWinnerInformation = svc.GetWinnerInformation(new PayForColorsWinnerInfoCommand { RoundID = RoundID })
                 .ObserveOn(Scheduler).Subscribe(
                 next =>
                 {
                     observer.SetTrackingID(next.OnGoingTrackingID);
-
-                    // Display TotalAmountOfBlack, TotalAmountOfWhite, Winner
-                    //Winner = result.Winner;
-                    //TotalAmountOfBlack = result.TotalBetBlack.ToString();
-                    //TotalAmountOfWhite = result.TotalBetWhite.ToString();
-                    //If trackingID = empty remove waiting status
                 },
                 error =>
                 {
@@ -484,13 +480,20 @@ namespace TheS.Casinova.Colors.ViewModels
             string selectColor = BetInWhite;
             if (betBlack) selectColor = BetInBlack;
 
-            var paylog = new PayLog
+            var log = new PayLog
             {
                 Amount = BetAmount,
                 RoundID = RoundID,
                 Colors = selectColor
             };
-            Paylogs.Add(paylog);
+
+            ColorsTrackingObserver observer = new ColorsTrackingObserver(() =>
+            {
+                Paylogs.Remove(log);
+                //GetListGamePlayInformation();
+            });
+            Paylogs.Add(log);
+            observer.Initialize(StatusTracker);
 
             IDisposable disposeBet = null;
             disposeBet = svc.Bet(new BetCommand
@@ -501,16 +504,7 @@ namespace TheS.Casinova.Colors.ViewModels
             }).ObserveOn(Scheduler).Subscribe(
                 next =>
                 {
-                    // TODO: Colors RX Bet
-                    // Sent to observer follow this OnGoingTrackingID
-                    ColorsTrackingObserver observer = new ColorsTrackingObserver(() => { });
-                    observer.Initialize(StatusTracker);
                     observer.SetTrackingID(next.TrackingID);
-
-                    // Display TotalBetAmountOfBlack, TotalBetAmountOfWhite, Winner
-                    // Check TrackingID and OnGoingTrackingID
-                    // Delete PayLog in TrackingID
-                    // If Paylog empty remove waiting
                 },
                 error =>
                 {

@@ -14,8 +14,7 @@ Background:
 	Given Create and initialize GamePlayViewModel and Colors game service
 
 @record_mock
-Scenario: Send request GetListActiveGameRounds to web server 
-server have list active game rounds and send it back to client
+Scenario: Request active game rounds web server send active list
 	Given Back service have active game rounds are:
 		|RoundID|StartTime				|EndTime				|
 		|1		|2010-11-17 09:00:00	|2010-11-17 09:15:00	|
@@ -30,8 +29,7 @@ server have list active game rounds and send it back to client
 
 
 @record_mock
-Scenario: Send request GetListActiveGameRounds to web server 
-server don't have list active game rounds and send it empty back to client
+Scenario: Request active game rounds web server don't have active game rounds
 	Given Back service have active game rounds are:
 		|RoundID|StartTime				|EndTime				|
 	When Send request GetListActiveGameRounds() to web server
@@ -39,8 +37,7 @@ server don't have list active game rounds and send it empty back to client
 		|Name	|Round	|StartTime				|EndTime				|
 
 @record_mock
-Scenario: Send request GetListActiveGameRounds to web server more than one request
-server have list active game rounds and send it back to client
+Scenario: Request active game rounds web server send active list (Request more thand 1 request)
 	Given Back service have active game rounds are:
 		|RoundID|StartTime				|EndTime				|
 		|1		|2010-11-17 09:00:00	|2010-11-17 09:15:00	|
