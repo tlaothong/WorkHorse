@@ -13,7 +13,7 @@ namespace TheS.Casinova.Colors.BackServices.Validators
     {
         public override void Validate(UserProfile entity, BetCommand command, ValidationErrorCollection errors)
         {
-            if (entity.NonRefundable + entity.Refundable < command.PlayerActionInfo.Amount) {
+            if (entity.NonRefundable + entity.Refundable < command.BetPlayerActionInfo.Amount) {
                 errors.Add(new ValidationError {
                     Instance = entity,
                     ErrorMessage = "จำนวนชิฟที่มีอยู่ไม่พอลงเงินพนัน",

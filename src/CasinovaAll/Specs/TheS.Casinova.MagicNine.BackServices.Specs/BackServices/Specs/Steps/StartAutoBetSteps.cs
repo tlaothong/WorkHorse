@@ -83,7 +83,7 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
         public void GivenTheAutobetInformationShouldBeUpdateAssumeDateTimeAsXUserNameXRoundIDXAmountXIntervalXAutoBetTrackingIDXBetTrackingIDX(string dateTime, string userName, int roundID, double amount, int interval, string autoBetTrackingID, string betTrackingID)
         {
             Func<GamePlayAutoBetInformation, StartAutoBetCommand, GamePlayAutoBetInformation> checkData = (autoBetInfo, cmd) => {
-                Assert.AreEqual(roundID, autoBetInfo.Round, "RoundID");
+                Assert.AreEqual(roundID, autoBetInfo.RoundID, "RoundID");
                 Assert.AreEqual(userName, autoBetInfo.UserName, "UserName");
                 Assert.AreEqual(amount, autoBetInfo.Amount, "Amount");
                 Assert.AreEqual(interval, autoBetInfo.Interval, "Interval");
@@ -102,7 +102,7 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
         public void GivenTheStartAutoEngineShouleBeCallAsUserNameXRoundIDXAmountXIntervalXAutoBetTrackingIDXBetTrackingIDX(string userName, int roundID, double amount, int interval, string autoBetTrackingID, string betTrackingID)
         {
             Action<GamePlayAutoBetInformation, StartAutoBetCommand> checkData = (autoBetInfo, cmd) => {
-                Assert.AreEqual(roundID, autoBetInfo.Round, "RoundID");
+                Assert.AreEqual(roundID, autoBetInfo.RoundID, "RoundID");
                 Assert.AreEqual(userName, autoBetInfo.UserName, "UserName");
                 Assert.AreEqual(amount, autoBetInfo.Amount, "Amount");
                 Assert.AreEqual(interval, autoBetInfo.Interval, "Interval");
@@ -118,7 +118,7 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
         {
             StartAutoBetCommand cmd = new StartAutoBetCommand {
                 GamePlayAutoBetInfo = new GamePlayAutoBetInformation {
-                    Round = roundID,
+                    RoundID = roundID,
                     UserName = userName,
                     Amount = amount,
                     Interval = interval,
@@ -136,7 +136,7 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
             try {
                 StartAutoBetCommand cmd = new StartAutoBetCommand {
                     GamePlayAutoBetInfo = new GamePlayAutoBetInformation {
-                        Round = roundID,
+                        RoundID = roundID,
                         UserName = userName,
                         Amount = amount,
                         Interval = interval,

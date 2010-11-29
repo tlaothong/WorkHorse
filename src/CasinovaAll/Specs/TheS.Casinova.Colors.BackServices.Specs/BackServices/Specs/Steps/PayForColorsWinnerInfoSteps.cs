@@ -218,7 +218,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
         {
             try {
                 PayForColorsWinnerInfoCommand cmd = new PayForColorsWinnerInfoCommand {
-                    PlayerActionInfoUserName = new PlayerActionInformation {
+                    PlayerActionInfo = new PlayerActionInformation {
                         UserName = userName,
                         RoundID = roundID,
                     },

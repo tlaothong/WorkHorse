@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TheS.Casinova.PlayerAccount.Models;
 
 namespace TheS.Casinova.PlayerAccount.Commands
 {
@@ -39,5 +40,17 @@ namespace TheS.Casinova.PlayerAccount.Commands
         /// สถานะการทำงาน
         /// </summary>
         public bool Active { get; set; }
+
+        /// <summary>
+        /// ข้อมูลบัญชีที่ผู้เล่นสมัคร
+        /// 1.UserName ชื่อผู้เล่น
+        /// 2.AccountType ประเภทบัญชี
+        /// 3.AccountNo หมายเลขบัญชี
+        /// 4.CVV รหัสตรวจสอบหมายเลขบัญชี
+        /// 5.ExpireDate วันหมดอายุของบัญชี
+        /// 6.FirstName ชื่อ
+        /// 7.LastName สกุล
+        /// </summary>
+        public PlayerAccountInformation PlayerAccountInfo { get; set; }
     }
 }
