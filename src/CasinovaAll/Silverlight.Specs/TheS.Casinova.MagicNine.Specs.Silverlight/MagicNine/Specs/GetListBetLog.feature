@@ -38,10 +38,22 @@ Scenario: Send request get bet log to web server roundID = 3
 		|3		|0			|2010-11-17 09:00:00	|
 
 @record_mock
+Scenario: Send request get bet log (more than 1)
+	When Send request GetListBetlog( 'Sakul' ) RoundID='1'
+	And Send request GetListBetlog( 'Sakul' ) RoundID='1'
+	And Send request GetListBetlog( 'Sakul' ) RoundID='1'
+	And Send request GetListBetlog( 'Sakul' ) RoundID='1'
+	And Send request GetListBetlog( 'Sakul' ) RoundID='1'
+	Then Dispaly bet log are
+		|Round	|BetOrder	|BetDateTime			|
+		|1		|72			|2010-11-17 09:00:00	|
+		|1		|11			|2010-11-17 09:00:00	|
+
+@record_mock
 Scenario: Send request get bet log to web server don't have username match
 	When Send request GetListBetlog( 'Mary' ) RoundID='1'
 	Then Dispaly bet log are
-		|Round	|BetOrder	|BetDateTime			|
+		|Round	|BetOrder	|BetDateTime		|
 
 @record_mock
 Scenario: Send request get bet log to web server don't have rounID match

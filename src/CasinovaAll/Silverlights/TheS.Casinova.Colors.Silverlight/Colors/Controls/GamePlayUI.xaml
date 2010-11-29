@@ -4,9 +4,16 @@
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:TheS_Casinova_Colors_ViewModels="clr-namespace:TheS.Casinova.Colors.ViewModels"
+	xmlns:TheS_Casinova_Colors_Models="clr-namespace:TheS.Casinova.Colors.Models"
 	mc:Ignorable="d"
 	x:Class="TheS.Casinova.GamePlayUI"
 	d:DesignWidth="640" d:DesignHeight="480" Width="500" Height="400">
+	<UserControl.Resources>
+		<TheS_Casinova_Colors_ViewModels:GamePlayUIViewModel x:Key="GamePlayUIViewModelDataSource" d:IsDataSource="True"/>
+	</UserControl.Resources>
+	<UserControl.DataContext>
+		<Binding Source="{StaticResource GamePlayUIViewModelDataSource}"/>
+	</UserControl.DataContext>
 
 	<Grid x:Name="LayoutRoot">
 		<Grid.RowDefinitions>
@@ -16,7 +23,7 @@
 		<Rectangle Stroke="Black" Grid.RowSpan="2"/>
 		<Grid>
 			<Rectangle Fill="Black" Stroke="Black"/>
-			<TextBlock x:Name="Title" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Title" VerticalAlignment="Center" Margin="8,0,0,0" FontSize="21.333" Foreground="White" FontWeight="Bold"/>
+			<TextBlock x:Name="Title" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Title}" VerticalAlignment="Center" Margin="8,0,0,0" FontSize="21.333" Foreground="White" FontWeight="Bold"/>
 		</Grid>
 		<Grid Grid.Row="1">
 			<Grid.RowDefinitions>
@@ -24,12 +31,18 @@
 				<RowDefinition Height="0.489*"/>
 				<RowDefinition Height="0.356*"/>
 			</Grid.RowDefinitions>
-			<TextBlock x:Name="GameTime" TextWrapping="Wrap" Text="GameTime" FontSize="21.333" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+			<StackPanel Margin="187,13,186,12" Orientation="Horizontal" d:LayoutOverrides="Height" HorizontalAlignment="Center">
+				<TextBlock x:Name="Hours" TextWrapping="Wrap" Text="{Binding RemainingGameTime.Hours, Mode=OneWay}" FontSize="21.333" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center"/>
+				<TextBlock TextWrapping="Wrap" Text=":" FontSize="21.333" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center"/>
+				<TextBlock x:Name="Minutes" TextWrapping="Wrap" Text="{Binding RemainingGameTime.Minutes, Mode=OneWay}" FontSize="21.333" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center"/>
+				<TextBlock TextWrapping="Wrap" Text=":" FontSize="21.333" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center"/>
+				<TextBlock x:Name="Seconds" TextWrapping="Wrap" Text="{Binding RemainingGameTime.Seconds, Mode=OneWay}" FontSize="21.333" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center"/>
+			</StackPanel>
 			<Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
 				<Rectangle Fill="#FFEBEBEB" RadiusY="4" RadiusX="4" Stroke="Black" VerticalAlignment="Center" Height="45"/>
 				<StackPanel VerticalAlignment="Center">
-					<TextBlock x:Name="Winner" TextWrapping="Wrap" Text="Winner" FontSize="16" Margin="72,0,71,0" d:LayoutOverrides="Width" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-					<TextBlock x:Name="WinnerInformation" TextWrapping="Wrap" Text="WinnerInformation" TextAlignment="Center"/>
+					<TextBlock x:Name="Winner" TextWrapping="Wrap" Text="{Binding Winner}" FontSize="16" Margin="72,0,71,0" d:LayoutOverrides="Width" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+					<TextBlock x:Name="WinnerInformation" TextWrapping="Wrap" Text="{Binding GetWinnerInformation}" TextAlignment="Center"/>
 				</StackPanel>
 			</Grid>
 			<Grid Margin="95,0" Grid.Row="2" Height="66" VerticalAlignment="Top">
@@ -39,11 +52,11 @@
 				</Grid.ColumnDefinitions>
 				<Grid VerticalAlignment="Top" d:LayoutOverrides="GridBox" Margin="0,0,4,0">
 					<Button x:Name="BetBlack" Content="Black" Margin="0,0,0,20" Height="46" VerticalAlignment="Bottom"/>
-					<TextBlock x:Name="TotalAmountOfBlack" TextWrapping="Wrap" Text="TotalAmountOfBlack" TextAlignment="Center" VerticalAlignment="Bottom"/>
+					<TextBlock x:Name="TotalAmountOfBlack" TextWrapping="Wrap" Text="{Binding TotalAmountOfBlack}" TextAlignment="Center" VerticalAlignment="Bottom"/>
 				</Grid>
 				<Grid VerticalAlignment="Top" Grid.Column="1" Margin="4,0,0,0">
 					<Button x:Name="BetWhite" Content="White" Margin="0,0,0,20" VerticalAlignment="Bottom" Height="46"/>
-					<TextBlock x:Name="TotalAmountOfWhite" TextWrapping="Wrap" Text="TotalAmountOfWhite" TextAlignment="Center" VerticalAlignment="Bottom"/>
+					<TextBlock x:Name="TotalAmountOfWhite" TextWrapping="Wrap" Text="{Binding TotalAmountOfWhite}" TextAlignment="Center" VerticalAlignment="Bottom"/>
 				</Grid>
 			</Grid>
 		</Grid>

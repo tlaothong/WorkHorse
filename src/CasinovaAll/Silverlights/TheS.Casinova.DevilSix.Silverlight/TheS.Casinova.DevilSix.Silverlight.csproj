@@ -108,9 +108,6 @@
     <Compile Include="DevilSix\ViewModels\StatisticsChartViewModel.cs" />
     <Compile Include="DevilSix\ViewModels\GamePlayViewModel.cs" />
     <Compile Include="DevilSix\ViewModels\GameStatisticsViewModel.cs" />
-    <Compile Include="DevilSix\Views\BetDataPage.xaml.cs">
-      <DependentUpon>BetDataPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="DevilSix\Views\GamePlayPage.xaml.cs">
       <DependentUpon>GamePlayPage.xaml</DependentUpon>
     </Compile>
@@ -150,10 +147,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DevilSix\Silverlight\MainPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="DevilSix\Views\BetDataPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

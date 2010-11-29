@@ -101,11 +101,11 @@ testRunner.And("Web server have game results are", ((string)(null)), table1);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Request game result to web server, server have roundID match (roundID = 1)", new string[] {
                         "record_mock"});
-#line 20
+#line 19
 this.ScenarioSetup(scenarioInfo);
-#line 21
+#line 20
 testRunner.When("Request GetGameResult( roundID = \'1\' )");
-#line 22
+#line 21
 testRunner.Then("Game has display game result Winner=\'Black\', BlackPot=\'1523\', WhitePot=\'4526\', Ha" +
                     "nds=\'452\'");
 #line hidden
@@ -120,11 +120,11 @@ testRunner.Then("Game has display game result Winner=\'Black\', BlackPot=\'1523\
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Request game result to web server, server have roundID match (roundID = 2)", new string[] {
                         "record_mock"});
-#line 25
+#line 24
 this.ScenarioSetup(scenarioInfo);
-#line 26
+#line 25
 testRunner.When("Request GetGameResult( roundID = \'2\' )");
-#line 27
+#line 26
 testRunner.Then("Game has display game result Winner=\'Black\', BlackPot=\'445\', WhitePot=\'12399\', Ha" +
                     "nds=\'1155\'");
 #line hidden
@@ -139,11 +139,11 @@ testRunner.Then("Game has display game result Winner=\'Black\', BlackPot=\'445\'
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Request game result to web server, server have roundID match (roundID = 3)", new string[] {
                         "record_mock"});
-#line 30
+#line 29
 this.ScenarioSetup(scenarioInfo);
-#line 31
+#line 30
 testRunner.When("Request GetGameResult( roundID = \'3\' )");
-#line 32
+#line 31
 testRunner.Then("Game has display game result Winner=\'White\', BlackPot=\'75663\', WhitePot=\'45266\', " +
                     "Hands=\'5632\'");
 #line hidden
@@ -158,11 +158,11 @@ testRunner.Then("Game has display game result Winner=\'White\', BlackPot=\'75663
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Black pot and White pot are equal, White win", new string[] {
                         "record_mock"});
-#line 35
+#line 34
 this.ScenarioSetup(scenarioInfo);
-#line 36
+#line 35
 testRunner.When("Request GetGameResult( roundID = \'4\' )");
-#line 37
+#line 36
 testRunner.Then("Game has display game result Winner=\'White\', BlackPot=\'500\', WhitePot=\'500\', Hand" +
                     "s=\'100\'");
 #line hidden
@@ -179,11 +179,11 @@ testRunner.Then("Game has display game result Winner=\'White\', BlackPot=\'500\'
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Request game result to web server, server don\'t have roundID match (roundID = 99)" +
                     "", new string[] {
                         "record_mock"});
-#line 40
+#line 39
 this.ScenarioSetup(scenarioInfo);
-#line 41
+#line 40
 testRunner.When("Request GetGameResult( roundID = \'99\' )");
-#line 42
+#line 41
 testRunner.Then("Game result is null");
 #line hidden
             testRunner.CollectScenarioErrors();
@@ -199,11 +199,11 @@ testRunner.Then("Game result is null");
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Request game result to web server, server don\'t have roundID match (roundID = -1)" +
                     "", new string[] {
                         "record_mock"});
-#line 45
+#line 44
 this.ScenarioSetup(scenarioInfo);
-#line 46
+#line 45
 testRunner.When("Request GetGameResult( roundID = \'-1\' )");
-#line 47
+#line 46
 testRunner.Then("Game result is null");
 #line hidden
             testRunner.CollectScenarioErrors();

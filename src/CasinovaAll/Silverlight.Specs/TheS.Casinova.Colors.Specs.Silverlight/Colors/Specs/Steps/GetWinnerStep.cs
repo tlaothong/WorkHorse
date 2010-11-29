@@ -46,7 +46,8 @@ namespace TheS.Casinova.Colors.Specs.Steps
         public void WhenClickGetWinnerInGameRound20(int gameRound)
         {
             var viewModel = ScenarioContext.Current.Get<GamePlayViewModel>();
-            viewModel.RoundID = gameRound;
+
+            viewModel.SelectedGameRoundID = gameRound;
             viewModel.GetWinnerInformation();
             ScenarioContext.Current.Get<TestScheduler>().Run();
         }

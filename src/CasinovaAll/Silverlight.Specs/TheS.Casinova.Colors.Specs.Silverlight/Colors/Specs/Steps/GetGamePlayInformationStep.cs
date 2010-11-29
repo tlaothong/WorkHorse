@@ -50,41 +50,11 @@ namespace TheS.Casinova.Colors.Specs.Steps
 
         #endregion Background
 
-        [Given(@"Web service execute new bet are")]
-        public void WhenWebServiceExecuteNewBetAre(Table table)
-        {
-            var result = from it in table.Rows
-                         select new GamePlayInformation
-                         {
-                             UserName = it["UserName"],
-                             TableID = Convert.ToInt32(it["TableID"]),
-                             RoundID = Convert.ToInt32(it["RoundID"]),
-                             TotalBetAmountOfBlack = Convert.ToDouble(it["TotalBetAmountOfBlack"]),
-                             TotalBetAmountOfWhite = Convert.ToDouble(it["TotalBetAmountOfWhite"]),
-                             TrackingID = Guid.Parse(it["TrackingID"]),
-                             OnGoingTrackingID = Guid.Parse(it["OnGoingTrackingID"])
-                         };
-            ScenarioContext.Current.Set<IEnumerable<GamePlayInformation>>(result);
-
-            Func<ListGamePlayInfoCommand, IObservable<ListGamePlayInfoCommand>> func = cmd =>
-            {
-                return Observable.Return(new ListGamePlayInfoCommand
-                {
-                    GamePlayInfos = new System.Collections.ObjectModel.ObservableCollection<GamePlayInformation>
-                    (ScenarioContext.Current.Get<IEnumerable<GamePlayInformation>>())
-                });
-            };
-            var svc = ScenarioContext.Current.Get<IColorsServiceAdapter>();
-            svc.GetListGamePlayInformation(null);
-            LastCall.IgnoreArguments().Do(func);
-        }
-
-        [When(@"Send request GetListGamePlayInformation\( '(.*)' \)")]
+        [When(@"Send request GetListGamePlayInformation username=(.*)")]
         public void WhenSendRequestGetListGamePlayInformation(string username)
         {
-            var result = ScenarioContext.Current.Get<IEnumerable<GamePlayInformation>>();
-            var gameTable = from c in result where c.UserName.Equals(username) select c;
-            ScenarioContext.Current.Set<IEnumerable<GamePlayInformation>>(gameTable);
+            var result = ScenarioContext.Current.Get<IEnumerable<GamePlayInformation>>().Where(c => c.UserName.Equals(username));
+            ScenarioContext.Current.Set(result);
 
             var viewModel = ScenarioContext.Current.Get<GamePlayViewModel>();
             viewModel.GetListGamePlayInformation();
@@ -95,29 +65,35 @@ namespace TheS.Casinova.Colors.Specs.Steps
         public void ThenTablesInGamePlayViewModelDisplayGamePlayInformationAre(Table table)
         {
             var expected = (from it in table.Rows
-                         select new GameTable
+                            select new GamePlayUIViewModel
                          {
-                             Round = Convert.ToInt32(it["Round"]),
+                             RoundID = Convert.ToInt32(it["Round"]),
                              Amount = Convert.ToInt32(it["Amount"]),
-                             TotalBetBlack = Convert.ToInt64(it["TotalBetBlack"]),
-                             TotalBetWhite = Convert.ToInt64(it["TotalBetWhite"]),
-                         }).ToArray<GameTable>();
+                             TotalAmountOfBlack = Convert.ToInt64(it["TotalBetBlack"]),
+                             TotalAmountOfWhite = Convert.ToInt64(it["TotalBetWhite"]),
+                             Winner = it["Winner"]
+                         }).ToArray<GamePlayUIViewModel>();
 
-            var actual = (from c in ScenarioContext.Current.Get<GamePlayViewModel>().Tables
-                         select new GameTable
+            var actual = (from c in ScenarioContext.Current.Get<GamePlayViewModel>().ActiveGameRoundTables
+                          select new GamePlayUIViewModel
                          {
-                             Round = c.Round,
-                             Amount = c.TotalBetBlack + c.TotalBetWhite,
-                             TotalBetBlack = c.TotalBetBlack,
-                             TotalBetWhite = c.TotalBetWhite,
-                         }).ToArray<GameTable>();
+                             RoundID = c.RoundID,
+                             Amount = c.TotalAmountOfBlack + c.TotalAmountOfWhite,
+                             TotalAmountOfBlack = c.TotalAmountOfBlack,
+                             TotalAmountOfWhite = c.TotalAmountOfWhite,
+                             Winner = c.Winner
+                         }).ToArray<GamePlayUIViewModel>();
+
+
+            Assert.AreEqual(expected.Count(), actual.Count(), "Expect game count");
 
             for (int index = 0; index < actual.Count(); index++)
             {
-                Assert.AreEqual(expected[index].Round, actual[index].Round, "Game round");
+                Assert.AreEqual(expected[index].RoundID, actual[index].RoundID, "Game round id");
                 Assert.AreEqual(expected[index].Amount, actual[index].Amount, "Amount");
-                Assert.AreEqual(expected[index].TotalBetBlack, actual[index].TotalBetBlack, "TotalBetBlack");
-                Assert.AreEqual(expected[index].TotalBetWhite, actual[index].TotalBetWhite, "TotalBetWhite");
+                Assert.AreEqual(expected[index].TotalAmountOfBlack, actual[index].TotalAmountOfBlack, "TotalBetBlack");
+                Assert.AreEqual(expected[index].TotalAmountOfWhite, actual[index].TotalAmountOfWhite, "TotalBetWhite");
+                Assert.AreEqual(expected[index].Winner, actual[index].Winner, "Winner");
             }
         }
     }

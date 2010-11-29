@@ -15,7 +15,6 @@ Background:
 		|3			|75663		|45266		|5632		|
 		|4			|500		|500		|100		|
 
-
 @record_mock
 Scenario: Request game result to web server, server have roundID match (roundID = 1)
 	When Request GetGameResult( roundID = '1' )

@@ -56,7 +56,7 @@ namespace TheS.Casinova.Colors.Specs.Steps
         public void WhenClickBetBlackAmount(int amount, int gameRound)
         {
             var viewModel = ScenarioContext.Current.Get<GamePlayViewModel>();
-            viewModel.RoundID = gameRound;
+            viewModel.SelectedGameRoundID = gameRound;
             viewModel.BetAmount = amount;
             viewModel.BetBlack();
             ScenarioContext.Current.Get<TestScheduler>().Run();
@@ -66,7 +66,7 @@ namespace TheS.Casinova.Colors.Specs.Steps
         public void WhenClickBetWhiteAmount(int amount, int gameRound)
         {
             var viewModel = ScenarioContext.Current.Get<GamePlayViewModel>();
-            viewModel.RoundID = gameRound;
+            viewModel.SelectedGameRoundID = gameRound;
             viewModel.BetAmount = amount;
             viewModel.BetWhite();
             ScenarioContext.Current.Get<TestScheduler>().Run();
@@ -77,6 +77,27 @@ namespace TheS.Casinova.Colors.Specs.Steps
         {
             var viewModel = ScenarioContext.Current.Get<GamePlayViewModel>();
             Assert.AreEqual(payLogCount, viewModel.Paylogs.Count, "Pay log count");
+        }
+
+        [Then(@"Paylog have save information are")]
+        public void ThenPaylogHaveSaveInformationAre(Table table)
+        {
+            var payLog = ScenarioContext.Current.Get<GamePlayViewModel>().Paylogs;
+            var actual = payLog.ToArray<PayLog>();
+            var expect = (from c in table.Rows
+                          select new PayLog
+                          {
+                              Amount = int.Parse(c["Amount"]),
+                              Colors = c["Colors"],
+                              RoundID = int.Parse(c["RoundID"]),
+                          }).ToArray<PayLog>();
+
+            for (int index = 0; index < payLog.Count; index++)
+            {
+                Assert.AreEqual(expect[index].RoundID, actual[index].RoundID, "RoundID");
+                Assert.AreEqual(expect[index].Colors, actual[index].Colors, "Colors");
+                Assert.AreEqual(expect[index].Amount, actual[index].Amount, "Amount");
+            }
         }
 
         [Then(@"Bet Lot has Retrieved are")]
@@ -98,27 +119,6 @@ namespace TheS.Casinova.Colors.Specs.Steps
                     TrackingID = tracking.TrackingID,
                     Status = "ok",
                 });
-            }
-        }
-
-        [Then(@"Paylog have save information are")]
-        public void ThenPaylogHaveSaveInformationAre(Table table)
-        {
-            var payLog = ScenarioContext.Current.Get<GamePlayViewModel>().Paylogs;
-            var actual = payLog.ToArray<PayLog>();
-            var expect = (from c in table.Rows
-                          select new PayLog
-                          {
-                              Amount = int.Parse(c["Amount"]),
-                              Colors = c["Colors"],
-                              RoundID = int.Parse(c["RoundID"]),
-                          }).ToArray<PayLog>();
-
-            for (int index = 0; index < payLog.Count; index++)
-            {
-                Assert.AreEqual(expect[index].RoundID, actual[index].RoundID, "RoundID");
-                Assert.AreEqual(expect[index].Colors, actual[index].Colors, "Colors");
-                Assert.AreEqual(expect[index].Amount, actual[index].Amount, "Amount");
             }
         }
 

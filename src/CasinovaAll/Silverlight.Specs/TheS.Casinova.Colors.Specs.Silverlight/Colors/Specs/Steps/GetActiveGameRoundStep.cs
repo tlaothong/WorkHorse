@@ -49,13 +49,18 @@ namespace TheS.Casinova.Colors.Specs.Steps
         [Then(@"Tables in GamePlayViewModel has create from ListActivegameRounds")]
         public void ThenServerRespondListActiveGameRoundAre(Table table)
         {
-            var actual = ScenarioContext.Current.Get<GamePlayViewModel>().Tables;
-            var expected = table.CreateSet<GameTable>().ToArray<GameTable>();
+            var actual = ScenarioContext.Current.Get<GamePlayViewModel>().ActiveGameRoundTables;
+            var expected = (from c in table.Rows
+                           select new GameRoundInformation
+                           {
+                               RoundID = int.Parse(c["Round"]),
+                               StartTime = DateTime.Parse(c["StartTime"]),
+                               EndTime = DateTime.Parse(c["EndTime"])
+                           }).ToArray<GameRoundInformation>();
 
             for (int index = 0; index < actual.Count; index++)
             {
-                Assert.AreEqual(expected[index].Name, actual[index].Name, "Name");
-                Assert.AreEqual(expected[index].Round, actual[index].Round, "Round");
+                Assert.AreEqual(expected[index].RoundID, actual[index].RoundID, "RoundID");
                 Assert.AreEqual(expected[index].StartTime, actual[index].StartTime, "StartTime");
                 Assert.AreEqual(expected[index].EndTime, actual[index].EndTime, "EndTime");
             }
@@ -67,8 +72,8 @@ namespace TheS.Casinova.Colors.Specs.Steps
         [Then(@"Tables in GamePlayViewModel don't create ListActivegameRounds")]
         public void ThenTablesInGamePlayViewModelDonTCreateListActivegameRounds(Table table)
         {
-            var actual = ScenarioContext.Current.Get<GamePlayViewModel>().Tables;
-            var expected = table.CreateSet<GameTable>();
+            var actual = ScenarioContext.Current.Get<GamePlayViewModel>().ActiveGameRoundTables;
+            var expected = table.CreateSet<GamePlayUIViewModel>();
 
             CollectionAssert.AreEqual(expected.ToArray(), actual.ToArray());
             Assert.IsTrue(actual.Count <= 0, "Tables not have rows");
