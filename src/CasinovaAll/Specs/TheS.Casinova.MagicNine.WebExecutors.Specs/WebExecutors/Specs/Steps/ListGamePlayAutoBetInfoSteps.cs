@@ -22,7 +22,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         public void GivenServerHasGamePlayAutoBetInformationAs(Table table)
         {
             _gamePlayAutoBet = from item in table.Rows
-                               select new GamePlayAutoBetInformation { 
+                               select new GamePlayAutoBetInformation {
                                    RoundID = Convert.ToInt32(item["RoundID"]),
                                    UserName = Convert.ToString(item["UserName"]),
                                    Amount = Convert.ToDouble(item["Amount"]),
@@ -36,8 +36,8 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         public void GivenSentUserNameGogo(string userName)
         {
             _listGamePlayAutoBet = (from item in _gamePlayAutoBet
-                           where item.UserName == userName 
-                           select item);
+                                    where item.UserName == userName
+                                    select item);
 
             SetupResult.For(Dqr_ListGamePlayAutoBetInfo.List(new ListGamePlayAutoBetInfoCommand()))
                .IgnoreArguments().Return(_listGamePlayAutoBet);
@@ -116,6 +116,6 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         public void ThenTheGamePlayAutoBetInformationShouldBeThrowException()
         {
             Assert.IsTrue(true, "Exception has been verified in the end of block When.");
-        }   
+        }
     }
 }

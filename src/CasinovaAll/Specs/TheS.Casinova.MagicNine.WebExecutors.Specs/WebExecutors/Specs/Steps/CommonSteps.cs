@@ -20,11 +20,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
     [Binding]
     public class CommonSteps
     {
-        public const string Key_Dac_StopAutoBet = "mockDac_StopAutoBet";
-        public const string Key_StopAutoBet = "StopAutoBet";
-
-       
-        MockRepository Mocks { get { return SpecEventDefinitions.Mocks; } }
+         MockRepository Mocks { get { return SpecEventDefinitions.Mocks; } }
 
         //List bet log specs initialized
         [Given(@"The ListBetLogExecutor has been created and initialized")]
@@ -98,8 +94,11 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         {
             var dac = Mocks.DynamicMock<IMagicNineGameBackService>();
 
-            ScenarioContext.Current[Key_Dac_StopAutoBet] = dac;
-            ScenarioContext.Current[Key_StopAutoBet] = new StopAutoBetExecutor(dac);
+            IDependencyContainer container;
+            setupValidators(out container);
+            ScenarioContext.Current.Set<IStopAutoBet>(dac);
+            ScenarioContext.Current.Set<StopAutoBetExecutor>(
+                new StopAutoBetExecutor(dac, container));
         }
 
         private static void setupValidators(out IDependencyContainer container)
@@ -110,8 +109,15 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
             reg.Register<IValidator<BetInformation, NullCommand>
                 , DataAnnotationValidator<BetInformation, NullCommand>>();
 
-            reg.Register<IValidator<GamePlayAutoBetInformation, NullCommand>
-               , DataAnnotationValidator<GamePlayAutoBetInformation, NullCommand>>();
+            reg.Register<IValidator<GamePlayAutoBetInformation, StartAutoBetCommand>
+               , DataAnnotationValidator<GamePlayAutoBetInformation, StartAutoBetCommand>>();
+
+            reg.Register<IValidator<GamePlayAutoBetInformation, StopAutoBetCommand>
+               , DataAnnotationValidator<GamePlayAutoBetInformation, StopAutoBetCommand>>();
+
+            reg.Register<IValidator<GamePlayAutoBetInformation, ListGamePlayAutoBetInfoCommand>
+              , DataAnnotationValidator<GamePlayAutoBetInformation, ListGamePlayAutoBetInfoCommand>>();
+
 
             container = fac.CreateContainer(reg);
         }

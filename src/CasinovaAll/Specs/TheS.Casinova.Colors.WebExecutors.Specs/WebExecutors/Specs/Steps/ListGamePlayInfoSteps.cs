@@ -96,7 +96,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
                             UserName = item.UserName,
                             RoundID = item.RoundID,
                             TotalBetBlack = item.TotalBetBlack,
-                            TotalBetfWhite = item.TotalBetWhite,
+                            TotalBetWhite = item.TotalBetWhite,
                             Winner = item.Winner,
                             TrackingID = item.TrackingID,
                             OnGoingTrackingID = item.OnGoingTrackingID,
