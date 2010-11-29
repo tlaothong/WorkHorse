@@ -35,4 +35,5 @@ namespace TheS.Casinova.PlayerAccount.DAL
     public interface IGetPlayerAccountInfoByAccountType
         : IFetchSingleData<PlayerAccountInformation, GetPlayerAccountInfoByAccountTypeCommand>
     { }
+
 }
