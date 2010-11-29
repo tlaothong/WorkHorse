@@ -23,6 +23,7 @@ namespace TheS.Casinova.Colors.Specs.Steps
         [Given(@"Setup web service trackingID for bets")]
         public void GivenSetupWebServiceTrackingIDForBets(Table table)
         {
+
             var trackings = (from c in table.Rows
                             select new BetCommand
                             {

@@ -21,6 +21,11 @@ Background:
 		|{4DDB378C-9C75-4E96-BB19-D61FD93207C8}	|
 		|{FDAFEA76-CC7C-4C95-86EA-72393C5954A0}	|
 		|{098FCF3A-B002-4206-A61F-E6CD765100F5}	|
+	And Web server have game play information are
+		|UserName	|TableID|RoundID	|TrackingID								|OnGoingTrackingID						|TotalBetAmountOfBlack	|TotalBetAmountOfWhite	|Winner	|
+		|Sakul		|1		|20			|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}	|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}	|100					|20						|Black	|
+		|Sakul		|2		|21			|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}	|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}	|100					|20						|White	|
+		|Sakul		|3		|22			|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}	|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}	|100					|20						|White	|
 
 @record_mock
 Scenario: Bet button has click save player action in PayLog

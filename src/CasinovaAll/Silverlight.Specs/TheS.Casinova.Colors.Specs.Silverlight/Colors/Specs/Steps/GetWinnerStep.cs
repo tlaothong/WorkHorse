@@ -23,12 +23,9 @@ namespace TheS.Casinova.Colors.Specs.Steps
         public void GivenSetupWebServiceTrackingIDAre(Table table)
         {
             var trackings = (from c in table.Rows
-                            select new PayForColorsWinnerInfoCommand
-                            {
-                                OnGoingTrackingID = Guid.Parse(c["TrackingID"])
-                            }).ToArray<PayForColorsWinnerInfoCommand>();
+                             select new PayForColorsWinnerInfoCommand { OnGoingTrackingID = Guid.Parse(c["TrackingID"]) })
+                            .ToArray<PayForColorsWinnerInfoCommand>();
 
-            var mocks = ScenarioContext.Current.Get<MockRepository>();
             var svc = ScenarioContext.Current.Get<IColorsServiceAdapter>();
             var tracker = ScenarioContext.Current.Get<IStatusTracker>();
             var subject = ScenarioContext.Current.Get<Subject<TrackingInformation>>();

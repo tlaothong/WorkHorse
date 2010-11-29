@@ -21,7 +21,6 @@ namespace TheS.Casinova.Colors.Specs.Steps
         [Given(@"Back service have active game rounds are:")]
         public void GivenBackServiceHaveActiveGameRoundsAre(Table table)
         {
-            var mocks = ScenarioContext.Current.Get<MockRepository>();
             var svc = ScenarioContext.Current.Get<IColorsServiceAdapter>();
 
             Func<IObservable<ListActiveGameRoundCommand>> _mockGetListActiveGameRounds = () =>
@@ -33,13 +32,11 @@ namespace TheS.Casinova.Colors.Specs.Steps
                 });
             };
 
-            using (mocks.Record())
-            {
-                SetupResult.For(svc.GetListActiveGameRound()).Do(_mockGetListActiveGameRounds);
-            }
+            SetupResult.For(svc.GetListActiveGameRound()).Do(_mockGetListActiveGameRounds);
+
 
             ScenarioContext.Current.Set<IEnumerable<GameRoundInformation>>(table.CreateSet<GameRoundInformation>());
-        } 
+        }
 
         [When(@"Send request GetListActiveGameRounds\(\) to web server")]
         public void WhenSendRequestGetListActiveGameRoundsToWebServer()

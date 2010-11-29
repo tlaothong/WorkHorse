@@ -36,7 +36,6 @@ namespace TheS.Casinova.Colors.Specs.Steps
                          };
             ScenarioContext.Current.Set<IEnumerable<GamePlayInformation>>(result);
 
-            var mocks = ScenarioContext.Current.Get<MockRepository>();
             var svc = ScenarioContext.Current.Get<IColorsServiceAdapter>();
             Func<ListGamePlayInfoCommand, IObservable<ListGamePlayInfoCommand>> func = cmd =>
             {
@@ -46,7 +45,7 @@ namespace TheS.Casinova.Colors.Specs.Steps
                     (ScenarioContext.Current.Get<IEnumerable<GamePlayInformation>>())
                 });
             };
-            SetupResult.For(svc.GetListGamePlayInformation(null)).IgnoreArguments().Do(func);
+            Expect.Call(svc.GetListGamePlayInformation(null)).IgnoreArguments().Do(func);
         }
 
         #endregion Background
