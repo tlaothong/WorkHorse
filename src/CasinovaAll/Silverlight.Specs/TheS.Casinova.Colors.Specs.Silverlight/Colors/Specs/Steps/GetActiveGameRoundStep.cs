@@ -46,17 +46,11 @@ namespace TheS.Casinova.Colors.Specs.Steps
             ScenarioContext.Current.Get<TestScheduler>().Run();
         }
 
-        [Then(@"Tables in GamePlayViewModel has create from ListActivegameRounds")]
+        [Then(@"Tables in GamePlayViewModel has create from ListActiveGameRounds")]
         public void ThenServerRespondListActiveGameRoundAre(Table table)
         {
             var actual = ScenarioContext.Current.Get<GamePlayViewModel>().ActiveGameRoundTables;
-            var expected = (from c in table.Rows
-                           select new GameRoundInformation
-                           {
-                               RoundID = int.Parse(c["Round"]),
-                               StartTime = DateTime.Parse(c["StartTime"]),
-                               EndTime = DateTime.Parse(c["EndTime"])
-                           }).ToArray<GameRoundInformation>();
+            var expected = table.CreateSet<GameRoundInformation>().ToArray<GameRoundInformation>();
 
             for (int index = 0; index < actual.Count; index++)
             {
@@ -69,7 +63,7 @@ namespace TheS.Casinova.Colors.Specs.Steps
             Assert.IsNotNull(actual, "Tables not null");
         }
 
-        [Then(@"Tables in GamePlayViewModel don't create ListActivegameRounds")]
+        [Then(@"Tables in GamePlayViewModel don't create ListActiveGameRounds")]
         public void ThenTablesInGamePlayViewModelDonTCreateListActivegameRounds(Table table)
         {
             var actual = ScenarioContext.Current.Get<GamePlayViewModel>().ActiveGameRoundTables;

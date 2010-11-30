@@ -150,12 +150,12 @@ testRunner.When("Send request GetListActiveGameRounds() to web server");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Get winner button has click save player action in PayLog")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Get winner button has click, save player action in PayLog")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Get winner")]
         [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
         public virtual void GetWinnerButtonHasClickSavePlayerActionInPayLog()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get winner button has click save player action in PayLog", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get winner button has click, save player action in PayLog", new string[] {
                         "record_mock"});
 #line 39
 this.ScenarioSetup(scenarioInfo);
@@ -212,12 +212,12 @@ testRunner.And("PayLog has empty");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Get winner 3 times using another game roundID")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Get winner 3 times by different game roundID")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Get winner")]
         [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
-        public virtual void GetWinner3TimesUsingAnotherGameRoundID()
+        public virtual void GetWinner3TimesByDifferentGameRoundID()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get winner 3 times using another game roundID", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get winner 3 times by different game roundID", new string[] {
                         "record_mock"});
 #line 61
 this.ScenarioSetup(scenarioInfo);

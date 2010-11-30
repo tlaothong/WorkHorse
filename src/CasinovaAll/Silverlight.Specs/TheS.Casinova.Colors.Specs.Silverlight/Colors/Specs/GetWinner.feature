@@ -36,7 +36,7 @@ Background:
 	When Send request GetListActiveGameRounds() to web server
 
 @record_mock
-Scenario: Get winner button has click save player action in PayLog
+Scenario: Get winner button has click, save player action in PayLog
 	When Click get winner in game round 1
 	Then PayLog has save RoundID='1', Count='1'
 	And Lot of TrackingIDs has Retrieved are
@@ -58,7 +58,7 @@ Scenario: Get winner button has click save player action in PayLog 3 times
 	And PayLog has empty
 
 @record_mock
-Scenario: Get winner 3 times using another game roundID
+Scenario: Get winner 3 times by different game roundID
 	When Click get winner in game round 1 
 	And Click get winner in game round 2 
 	And Click get winner in game round 3 

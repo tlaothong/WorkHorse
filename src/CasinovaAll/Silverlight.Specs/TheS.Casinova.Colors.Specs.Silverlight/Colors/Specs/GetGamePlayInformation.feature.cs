@@ -126,7 +126,7 @@ testRunner.Given("Create and initialize GamePlayViewModel and Colors game servic
                         "Miolynet",
                         "2",
                         "14",
-                        "{6B6017D0-A709-4AA3-81AD-20FD483C2D79}",
+                        "{91FFE007-9030-4F94-84DF-05729B120019}",
                         "{6B6017D0-A709-4AA3-81AD-20FD483C2D79}",
                         "220",
                         "80",
@@ -272,23 +272,53 @@ testRunner.Then("Tables in GamePlayViewModel display game play information are",
                         "record_mock"});
 #line 51
 this.ScenarioSetup(scenarioInfo);
-#line 52
-testRunner.When("Send request GetListGamePlayInformation username=Miolynet");
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "UserName",
+                        "TableID",
+                        "RoundID",
+                        "TrackingID",
+                        "OnGoingTrackingID",
+                        "TotalBetAmountOfBlack",
+                        "TotalBetAmountOfWhite",
+                        "Winner"});
+            table5.AddRow(new string[] {
+                        "Miolynet",
+                        "2",
+                        "14",
+                        "{91FFE007-9030-4F94-84DF-05729B120019}",
+                        "{6B6017D0-A709-4AA3-81AD-20FD483C2D79}",
+                        "20",
+                        "71",
+                        "Black"});
+            table5.AddRow(new string[] {
+                        "Miolynet",
+                        "2",
+                        "14",
+                        "{6B6017D0-A709-4AA3-81AD-20FD483C2D79}",
+                        "{6B6017D0-A709-4AA3-81AD-20FD483C2D79}",
+                        "220",
+                        "80",
+                        "White"});
+#line 52
+testRunner.Given("Web server have game play information are", ((string)(null)), table5);
+#line 56
+testRunner.When("Send request GetListGamePlayInformation username=Miolynet");
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                         "Round",
                         "Amount",
                         "TotalBetBlack",
                         "TotalBetWhite",
                         "Winner"});
-            table5.AddRow(new string[] {
+            table6.AddRow(new string[] {
                         "14",
                         "300",
                         "220",
                         "80",
                         "White"});
-#line 53
-testRunner.Then("Tables in GamePlayViewModel display game play information are", ((string)(null)), table5);
+#line 57
+testRunner.Then("Tables in GamePlayViewModel display game play information are", ((string)(null)), table6);
 #line hidden
             testRunner.CollectScenarioErrors();
         }

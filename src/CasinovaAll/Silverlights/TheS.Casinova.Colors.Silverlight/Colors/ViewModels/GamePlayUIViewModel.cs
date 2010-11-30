@@ -12,10 +12,12 @@ using System.Windows.Shapes;
 namespace TheS.Casinova.Colors.ViewModels
 {
     /// <summary>
-    /// ViewModel ของหน้าเล่นเกม
+    /// ViewModel ของหน้า Game play
     /// </summary>
     public class GamePlayUIViewModel
     {
+        #region Properties
+
         /// <summary>
         /// รอบของเกม
         /// </summary>
@@ -92,5 +94,7 @@ namespace TheS.Casinova.Colors.ViewModels
         /// TrackingID ที่กำลังทำงานล่าสุด
         /// </summary>
         public Guid OnGoingTrackingID { get; set; }
+
+        #endregion Properties
     }
 }

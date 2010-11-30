@@ -19,9 +19,13 @@ using TheS.Casinova.ColorsSvc;
 using TheS.Casinova.Colors.Services;
 using System.Concurrency;
 using PerfEx.Infrastructure.LotUpdate;
+using TheS.Casinova.Colors.Views;
 
 namespace TheS.Casinova.Colors.ViewModels
 {
+    /// <summary>
+    /// ViewModel ของหน้า Game rooms
+    /// </summary>
     public class GamePlayViewModel : INotifyPropertyChanged
     {
         #region Fields
@@ -29,32 +33,16 @@ namespace TheS.Casinova.Colors.ViewModels
         private int _selectedGameRoundID;
         private double _betAmount;
         private IScheduler _scheduler;
-        private IColorsServiceAdapter _sva;
+        private IColorsServiceAdapter _svc;
         private IStatusTracker _statusTracker;
         private PropertyChangedNotifier _notify;
         private GameStatisticsViewModel _gameResult;
         private ObservableCollection<GamePlayUIViewModel> _activeGameRoundTables;
-        private ObservableCollection<PayLog> _paylogs;
+        private ObservableCollection<PayLog> _payLogs;
 
         #endregion Fields
 
         #region Properties
-
-        /// <summary>
-        /// ผลลัพธ์
-        /// </summary>
-        public GameStatisticsViewModel GameResult
-        {
-            get { return _gameResult; }
-            set
-            {
-                if (_gameResult!=value)
-                {
-                    _gameResult = value;
-                    _notify.Raise(() => GameResult); 
-                }
-            }
-        }
 
         /// <summary>
         /// เกมที่สามารถร่วมเล่นได้
@@ -72,49 +60,97 @@ namespace TheS.Casinova.Colors.ViewModels
             }
         }
 
-        internal ObservableCollection<PayLog> Paylogs
+        /// <summary>
+        /// จำนวนเงินที่ทำการลงพนัน
+        /// </summary>
+        public double BetAmount
         {
-            get { return _paylogs; }
+            get { return _betAmount; }
             set
             {
-                if (_paylogs!=value)
+                if (_betAmount != value)
                 {
-                    _paylogs = value; 
+                    _betAmount = value;
                 }
             }
         }
 
+        /// <summary>
+        /// ข้อมูลการลงเงินพนันที่ยังไม่สำเร็จ
+        /// </summary>
+        internal ObservableCollection<PayLog> PayLogs
+        {
+            get { return _payLogs; }
+            set
+            {
+                if (_payLogs!=value)
+                {
+                    _payLogs = value; 
+                }
+            }
+        }
+
+        /// <summary>
+        /// ผลสรุปสีที่ชนะในรอบเกมนี้
+        /// </summary>
+        internal GameStatisticsViewModel GameResult
+        {
+            get { return _gameResult; }
+            set
+            {
+                if (_gameResult != value)
+                {
+                    _gameResult = value;
+                    _notify.Raise(() => GameResult);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Service
+        /// </summary>
         internal Services.IColorsServiceAdapter GameService
         {
             get
             {
-                if (_sva == null)
+                if (_svc == null)
                 {
-                    _sva = new ColorsServiceAdapter();
+                    _svc = new ColorsServiceAdapter();
                 }
-                return _sva;
+                return _svc;
             }
-            set { _sva = value; }
+            set { _svc = value; }
         }
 
+        /// <summary>
+        /// Scheduler
+        /// </summary>
         internal IScheduler Scheduler
         {
             get { return _scheduler; }
             set { _scheduler = value; }
         }
 
+        /// <summary>
+        /// Dispatcher
+        /// </summary>
         internal System.Windows.Threading.Dispatcher Dispatcher
         {
             set { _scheduler = new DispatcherScheduler(value); }
         }
 
+        /// <summary>
+        /// StatusTracker
+        /// </summary>
         internal IStatusTracker StatusTracker
         {
             get { return _statusTracker; }
             set { _statusTracker = value; }
         }
 
-        // รอบของเกมที่ถูกเลือกอยู่
+        /// <summary>
+        /// รอบของเกมที่ถูกเลือกอยู่
+        /// </summary>
         internal int SelectedGameRoundID
         {
             get { return _selectedGameRoundID; }
@@ -127,28 +163,18 @@ namespace TheS.Casinova.Colors.ViewModels
             }
         }
 
-        // จำนวนเงินที่ทำการลงพนัน
-        public double BetAmount
-        {
-            get { return _betAmount; }
-            set
-            {
-                if (_betAmount!=value)
-                {
-                    _betAmount = value; 
-                }
-            }
-        }
-
         #endregion Properties
 
         #region Constructors
 
+        /// <summary>
+        /// Initialize game play
+        /// </summary>
         public GamePlayViewModel()
         {
             _notify = new PropertyChangedNotifier(this, () => PropertyChanged);
             _activeGameRoundTables = new ObservableCollection<GamePlayUIViewModel>();
-            _paylogs = new ObservableCollection<PayLog>();
+            _payLogs = new ObservableCollection<PayLog>();
 
             #region Designer properties
 
@@ -224,8 +250,9 @@ namespace TheS.Casinova.Colors.ViewModels
         /// </summary>
         public void GetListActiveGameRounds()
         {
-            var svc = _sva;
+            var svc = _svc;
 
+            // sent command to web service and subscribe
             IDisposable disposeGameRounds = null;
             disposeGameRounds = svc.GetListActiveGameRound().ObserveOn(Scheduler).Subscribe(
                 next =>
@@ -253,10 +280,14 @@ namespace TheS.Casinova.Colors.ViewModels
                 );
         }
 
-        public void GetGameResult()
+        /// <summary>
+        /// เรียกขอผลสรุปการเล่นเกมของรอบนี้
+        /// </summary>
+        public void GetStatistics()
         {
-            var svc = _sva;
+            var svc = _svc;
 
+            // sent command to web service and subscribe
             IDisposable disposeGameResult = null;
             disposeGameResult = svc.GetGameResult(new GetGameResultCommand { RoundID = _selectedGameRoundID })
                 .ObserveOn(Scheduler).Subscribe(
@@ -265,15 +296,23 @@ namespace TheS.Casinova.Colors.ViewModels
                     var result = next.GameResult;
                     if (result != null)
                     {
+                        // Set up game result
                         string winner = "Black";
                         if (result.WhitePot <= result.BlackPot) winner = "White";
-                        GameResult = new GameStatisticsViewModel
+                        _gameResult = new GameStatisticsViewModel
                         {
                             Winner = winner,
                             Hands = result.HandCount,
                             BlackPot = result.BlackPot,
                             WhitePot = result.WhitePot,
                         };
+
+                        // Create and initialize statistics windows
+                        var cw = new StatisticsWindow();
+                        cw.GameStatisticsUI.DataContext = _gameResult;
+
+                        // Display statistics windows
+                        cw.Show();
                     }
                 },
                 error =>
@@ -289,7 +328,9 @@ namespace TheS.Casinova.Colors.ViewModels
         /// </summary>
         public void GetListGamePlayInformation()
         {
-            var svc = _sva;
+            var svc = _svc;
+
+            // sent command to web service and subscribe
             IDisposable disposeGamePlayInformation = null;
             disposeGamePlayInformation = svc.GetListGamePlayInformation(new ListGamePlayInfoCommand()).
                 ObserveOn(Scheduler).Subscribe(
@@ -338,7 +379,7 @@ namespace TheS.Casinova.Colors.ViewModels
                     
                     // Check paylog for change game status
                     const int PayLogEmpty = 0;
-                    if (_paylogs.Count == PayLogEmpty)
+                    if (_payLogs.Count == PayLogEmpty)
                     {
                         // TODO: if PayLog = empty remove waiting status
                     }
@@ -357,8 +398,9 @@ namespace TheS.Casinova.Colors.ViewModels
         public void GetWinnerInformation()
         {
             // TODO: Colors Sub account balance UI
-            var svc = _sva;
+            var svc = _svc;
 
+            // select game request get winner
             var gameSelected = _activeGameRoundTables.FirstOrDefault(c => c.RoundID.Equals(_selectedGameRoundID));
             if (gameSelected != null)
             {
@@ -368,14 +410,18 @@ namespace TheS.Casinova.Colors.ViewModels
                     Amount = gameSelected.CostWinnerInformation
                 };
 
+                // initialize tracking observer
                 var observer = new ColorsTrackingObserver(() =>
                 {
-                    Paylogs.Remove(getWinnerLog);
+                    PayLogs.Remove(getWinnerLog);
                     GetListGamePlayInformation();
                 });
-                Paylogs.Add(getWinnerLog);
                 observer.Initialize(StatusTracker);
 
+                // add pay log
+                PayLogs.Add(getWinnerLog);
+
+                // sent command to web service and subscribe
                 IDisposable disposeGetWinnerInformation = null;
                 disposeGetWinnerInformation = svc.GetWinnerInformation(new PayForColorsWinnerInfoCommand { RoundID = _selectedGameRoundID })
                     .ObserveOn(Scheduler).Subscribe(
@@ -387,6 +433,7 @@ namespace TheS.Casinova.Colors.ViewModels
                     () => disposeGetWinnerInformation.Dispose()
                     );
 
+                // set game have request get winner information
                 gameSelected.IsSecondGetWinnerInformation = true;
             }
         }
@@ -408,11 +455,11 @@ namespace TheS.Casinova.Colors.ViewModels
             bet(betWhite);
         }
 
-        // เริ่มทำการลงพนัน
+        // เริ่มทำการลงพนันในสีที่เลือก
         private void bet(bool betBlack = true)
         {
             // TODO: Colors Sub account balance UI
-            var svc = _sva;
+            var svc = _svc;
 
             // Select color for bet
             const string BetInBlack = "Black";
@@ -427,14 +474,18 @@ namespace TheS.Casinova.Colors.ViewModels
                 Colors = selectColor
             };
 
+            // initialize tracking observer
             ColorsTrackingObserver observer = new ColorsTrackingObserver(() =>
             {
-                Paylogs.Remove(betLog);
+                PayLogs.Remove(betLog);
                 GetListGamePlayInformation();
             });
-            Paylogs.Add(betLog);
             observer.Initialize(StatusTracker);
 
+            // add pay log
+            PayLogs.Add(betLog);
+
+            // sent command to web service and subscribe
             IDisposable disposeBet = null;
             disposeBet = svc.Bet(new BetCommand
             {

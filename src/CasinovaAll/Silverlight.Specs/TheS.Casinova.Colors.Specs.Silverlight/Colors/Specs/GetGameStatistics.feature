@@ -1,10 +1,10 @@
 ﻿Feature: N2N Get game statistics
 	1.Game timeout (Silverlight)
 	2.Send request get game result identify game round by roundID to web server (Silverlight)
-	3.Send POT TotalAmountOfBlack and TotablAmountOfWhite where GameRoundID and roundID match back to client (Web Server)
-	4.Compare POT between TotalAmountOfBlack and TotalAmountOfWhite for winner (Silverlight)
+	3.Send POT TotalAmountOfBlack and TotablAmountOfWhite back to client (Web Server)
+	4.Compare POT between TotalAmountOfBlack and TotalAmountOfWhite for color winner (Silverlight)
 	5.Display winner, TotalAmountOfBlack and TotalAmountOfWhite (Silverlight)
-	6.If player have bet in winner pot gmae has display congratulation and pay award (Silverlight)
+	6.If player have bet in winner pot game has display congratulation and pay award (Silverlight)
 
 Background:
 	Given Create and initialize GamePlayViewModel and Colors game service

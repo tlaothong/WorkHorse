@@ -56,7 +56,7 @@ namespace TheS.Casinova.Colors.Specs.Steps
             ScenarioContext.Current.Set<GameRoundInformation>(queryResult);
 
             var viewModel = ScenarioContext.Current.Get<GamePlayViewModel>();
-            viewModel.GetGameResult();
+            viewModel.GetStatistics();
             ScenarioContext.Current.Get<TestScheduler>().Run();
         }
 

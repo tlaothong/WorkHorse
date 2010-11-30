@@ -55,7 +55,7 @@ namespace TheS.Casinova.Colors.Specs.Steps
         [Then(@"PayLog has save RoundID='(.*)', Count='(.*)'")]
         public void ThenPayLogHasSaveRoundID20(int gameRound, int count)
         {
-            var payLog = ScenarioContext.Current.Get<GamePlayViewModel>().Paylogs.Where(c => c.RoundID.Equals(gameRound));
+            var payLog = ScenarioContext.Current.Get<GamePlayViewModel>().PayLogs.Where(c => c.RoundID.Equals(gameRound));
             Assert.AreEqual(count, payLog.Count(), "Paylog count");
         }
 
@@ -87,7 +87,7 @@ namespace TheS.Casinova.Colors.Specs.Steps
             var viewModel = ScenarioContext.Current.Get<GamePlayViewModel>();
 
             const int EmptyList = 0;
-            Assert.AreEqual(EmptyList, viewModel.Paylogs.Count, "Paylog is empty");
+            Assert.AreEqual(EmptyList, viewModel.PayLogs.Count, "Paylog is empty");
         }
     }
 }

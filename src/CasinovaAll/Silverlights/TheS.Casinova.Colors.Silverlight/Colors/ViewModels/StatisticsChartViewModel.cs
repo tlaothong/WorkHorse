@@ -15,6 +15,9 @@ using System.Collections.Generic;
 
 namespace TheS.Casinova.Colors.ViewModels
 {
+    /// <summary>
+    /// ViewModel ของหน้าสถิติ (กราฟ)
+    /// </summary>
     public class StatisticsChartViewModel : INotifyPropertyChanged
     {
         #region Fields
@@ -33,6 +36,22 @@ namespace TheS.Casinova.Colors.ViewModels
 
         #region Properties
 
+        /// <summary>
+        /// ข้อมูลของกราฟเส้นตรงที่เป็นสีดำ
+        /// </summary>
+        public ObservableCollection<KeyValuePair<DateTime, double>> LineInformationsBlack
+        {
+            get { return _lineInformationsBlack; }
+            set
+            {
+                _lineInformationsBlack = value;
+                _notify.Raise(() => LineInformationsBlack);
+            }
+        }
+
+        /// <summary>
+        /// ข้อมูลของกราฟเส้นตรงที่เป็นสีขาว
+        /// </summary>
         public ObservableCollection<KeyValuePair<DateTime, double>> LineInformationsWhite
         {
             get { return _lineInformationsWhite; }
@@ -43,46 +62,9 @@ namespace TheS.Casinova.Colors.ViewModels
             }
         }
 
-        public ObservableCollection<KeyValuePair<DateTime, double>> BarInformationsWhite
-        {
-            get { return _barInformationsWhite; }
-            set
-            {
-                _barInformationsWhite = value;
-                _notify.Raise(() => BarInformationsWhite);
-            }
-        }
-
-        public double Interval
-        {
-            get { return _interval; }
-            set
-            {
-                _interval = value;
-                _notify.Raise(() => Interval);
-            }
-        }
-
-        public double Maximum
-        {
-            get { return _maximum; }
-            set
-            {
-                _maximum = value;
-                _notify.Raise(() => Maximum);
-            }
-        }
-
-        public string ChartName
-        {
-            get { return _chartName; }
-            set
-            {
-                _chartName = value;
-                _notify.Raise(() => ChartName);
-            }
-        }
-
+        /// <summary>
+        /// ข้อมูลของกราฟแท่งที่เป็นสีดำ
+        /// </summary>
         public ObservableCollection<KeyValuePair<DateTime, double>> BarInformationsBlack
         {
             get { return _barInformationsBlack; }
@@ -93,13 +75,55 @@ namespace TheS.Casinova.Colors.ViewModels
             }
         }
 
-        public ObservableCollection<KeyValuePair<DateTime, double>> LineInformationsBlack
+        /// <summary>
+        /// ข้อมูลของกราฟแท่งที่เป็นสีขาว
+        /// </summary>
+        public ObservableCollection<KeyValuePair<DateTime, double>> BarInformationsWhite
         {
-            get { return _lineInformationsBlack; }
+            get { return _barInformationsWhite; }
             set
             {
-                _lineInformationsBlack = value;
-                _notify.Raise(() => LineInformationsBlack);
+                _barInformationsWhite = value;
+                _notify.Raise(() => BarInformationsWhite);
+            }
+        }
+
+        /// <summary>
+        /// ความถี่
+        /// </summary>
+        public double Interval
+        {
+            get { return _interval; }
+            set
+            {
+                _interval = value;
+                _notify.Raise(() => Interval);
+            }
+        }
+
+        /// <summary>
+        /// ค่าสูงสุดของความถี่
+        /// </summary>
+        public double Maximum
+        {
+            get { return _maximum; }
+            set
+            {
+                _maximum = value;
+                _notify.Raise(() => Maximum);
+            }
+        }
+
+        /// <summary>
+        /// ชื่อกราฟ
+        /// </summary>
+        public string ChartName
+        {
+            get { return _chartName; }
+            set
+            {
+                _chartName = value;
+                _notify.Raise(() => ChartName);
             }
         }
 
@@ -120,6 +144,9 @@ namespace TheS.Casinova.Colors.ViewModels
 
         #region Constructors
 
+        /// <summary>
+        /// Initialize statistics chart view model
+        /// </summary>
         public StatisticsChartViewModel()
         {
             _notify = new PerfEx.Infrastructure.PropertyChangedNotifier(this, () => PropertyChanged);
@@ -129,13 +156,16 @@ namespace TheS.Casinova.Colors.ViewModels
             _lineInformationsWhite = new ObservableCollection<KeyValuePair<DateTime, double>>();
             _barInformationsWhite = new ObservableCollection<KeyValuePair<DateTime, double>>();
 
-            if (DesignerProperties.IsInDesignTool) {
+            #region Designer view
+
+            if (DesignerProperties.IsInDesignTool)
+            {
 
                 ChartName = "Colors 85";
 
                 Random random = new Random();
                 DateTime time = DateTime.Now;
-                double potBlack = 0,potWhite = 0;
+                double potBlack = 0, potWhite = 0;
                 for (int count = 0; count < 20; count++)
                 {
                     var data = new KeyValuePair<DateTime, double>(time, potBlack);
@@ -155,17 +185,19 @@ namespace TheS.Casinova.Colors.ViewModels
                 Interval = (int)(Maximum / 5);
                 Maximum += Interval;
 
-                Informations.Add(new BetdataInfo {
+                Informations.Add(new BetdataInfo
+                {
                     Color = "White",
                     Player = "OhLanla",
                     Round = 123,
-                    Time = new DateTime(2010,11,3,12,32,50),
+                    Time = new DateTime(2010, 11, 3, 12, 32, 50),
                     WinColor = "Black",
                     Bet = 35,
                     WhitePot = 35,
                     BlackPot = 21,
                 });
-                Informations.Add(new BetdataInfo {
+                Informations.Add(new BetdataInfo
+                {
                     Color = "White",
                     Player = "Okacho",
                     Round = 123,
@@ -175,7 +207,8 @@ namespace TheS.Casinova.Colors.ViewModels
                     WhitePot = 1234,
                     BlackPot = 521,
                 });
-                Informations.Add(new BetdataInfo {
+                Informations.Add(new BetdataInfo
+                {
                     Color = "White",
                     Player = "Maximum",
                     Round = 123,
@@ -187,6 +220,8 @@ namespace TheS.Casinova.Colors.ViewModels
                     BlackPot = 789,
                 });
             }
+
+            #endregion Designer view
         }
 
         #endregion Constructors
