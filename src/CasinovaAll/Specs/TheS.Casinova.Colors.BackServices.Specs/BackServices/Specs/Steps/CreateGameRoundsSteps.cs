@@ -24,7 +24,7 @@ namespace TheS.Casinova.Colors.BackServices
         {
             _roundConfig = (from item in table.Rows
                             select new GameRoundConfiguration {
-                                TableName = item["Name"],
+                                ConfigName = item["Name"],
                                 TableAmount = Convert.ToInt32(item["TableAmount"]),
                                 GameDuration = Convert.ToInt32(item["GameDuration"]),
                                 Interval = Convert.ToInt32(item["Interval"]),
@@ -49,7 +49,7 @@ namespace TheS.Casinova.Colors.BackServices
          public void GivenSentNameXTheGameRoundConfigurationShouldRecieved(string name)
          {
             _expectConfig = (from item in _roundConfig
-                             where item.TableName == name
+                             where item.ConfigName == name
                              select item).FirstOrDefault();
 
             SetupResult.For(Dqr_GetGameRoundConfiguration.Get(new GetGameRoundConfigurationCommand()))
@@ -118,8 +118,8 @@ namespace TheS.Casinova.Colors.BackServices
         public void WhenCallCreateGameRoundConfigNameX(string configName)
         {
             CreateGameRoundCommand cmd = new CreateGameRoundCommand {
-                GameRoundConfig = new GameRoundConfiguration {
-                    TableName = configName
+                GameRoundConfigName = new GameRoundConfiguration {
+                    ConfigName = configName
                 },
             };
             CreateGameRoundsExecutor.Execute(cmd, (x) => { });            

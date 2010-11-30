@@ -6,7 +6,6 @@
     xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:TheS_Casinova_Colors_ViewModels="clr-namespace:TheS.Casinova.Colors.ViewModels" x:Class="TheS.Casinova.Colors.Controls.GameStatisticsUI"
     mc:Ignorable="d"
     d:DesignHeight="270" d:DesignWidth="560">
-    
 	<UserControl.Resources>
 		<TheS_Casinova_Colors_ViewModels:GameStatisticsViewModel x:Key="GameStatisticsViewModelDataSource" d:IsDataSource="True"/>
 	</UserControl.Resources>

@@ -105,7 +105,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
         public void WhenCallBetColorExecutorUserNameXRoundIDXAmountXColorXTrackingIDX(string userName, int roundID, double amount, string color, string trackingID)
         {
             BetCommand cmd = new BetCommand {
-                PlayerActionInfo = new PlayerActionInformation {
+                BetPlayerActionInfo = new PlayerActionInformation {
                     UserName = userName,
                     RoundID = roundID,
                     Amount = amount,
@@ -121,7 +121,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
         {
             try {
                 BetCommand cmd = new BetCommand {
-                    PlayerActionInfo = new PlayerActionInformation {
+                    BetPlayerActionInfo = new PlayerActionInformation {
                         UserName = userName,
                         RoundID = roundID,
                         Amount = amount,

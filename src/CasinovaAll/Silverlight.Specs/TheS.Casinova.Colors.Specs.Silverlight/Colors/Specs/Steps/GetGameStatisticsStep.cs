@@ -17,11 +17,10 @@ namespace TheS.Casinova.Colors.Specs.Steps
     public class GetGameStatisticsStep
     {
         #region Background
-        
+
         [Given(@"Web server have game results are")]
         public void GivenWebServerHaveGameResultsAre(Table table)
         {
-            var mocks = ScenarioContext.Current.Get<MockRepository>();
             var svc = ScenarioContext.Current.Get<IColorsServiceAdapter>();
 
             Func<GetGameResultCommand, IObservable<GetGameResultCommand>> _mockGetGameResult = cmd =>
@@ -32,10 +31,8 @@ namespace TheS.Casinova.Colors.Specs.Steps
                 });
             };
 
-            using (mocks.Record())
-            {
-                SetupResult.For(svc.GetGameResult(null)).IgnoreArguments().Do(_mockGetGameResult);
-            }
+            SetupResult.For(svc.GetGameResult(null)).IgnoreArguments().Do(_mockGetGameResult);
+
 
             var result = from it in table.Rows
                          select new GameRoundInformation
@@ -59,7 +56,7 @@ namespace TheS.Casinova.Colors.Specs.Steps
             ScenarioContext.Current.Set<GameRoundInformation>(queryResult);
 
             var viewModel = ScenarioContext.Current.Get<GamePlayViewModel>();
-            viewModel.GetGameResult();
+            viewModel.GetStatistics();
             ScenarioContext.Current.Get<TestScheduler>().Run();
         }
 

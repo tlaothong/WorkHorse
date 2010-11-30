@@ -30,27 +30,27 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
             };
 
             //ดึงข้อมูลโต๊ะเกมที่สามารถเล่นได้
-            listActiveGameRoundsCmd.GameRoundInfo = _iListActiveGameRounds.List(listActiveGameRoundsCmd);
+            listActiveGameRoundsCmd.ActiveGameRoundInfo = _iListActiveGameRounds.List(listActiveGameRoundsCmd);
 
             GetGameRoundConfigurationCommand getGameRoundConfigCmd = new GetGameRoundConfigurationCommand {
-                GameRoundConfigTableName = command.GameRoundConfig,
+                GameRoundConfig = command.GameRoundConfigName,
             };
 
             //ดึงข้อมูลการตั้งค่าที่ต้องการ
             getGameRoundConfigCmd.GameRoundConfig = _iGetGameRoundConfig.Get(getGameRoundConfigCmd);
 
             //กำหนดจำนวนโต๊ะเกมที่ต้องสร้างเพิ่ม
-            int nOfRoundToCreate = getGameRoundConfigCmd.GameRoundConfig.TableAmount - listActiveGameRoundsCmd.GameRoundInfo.Count() 
+            int nOfRoundToCreate = getGameRoundConfigCmd.GameRoundConfig.TableAmount - listActiveGameRoundsCmd.ActiveGameRoundInfo.Count() 
                 + getGameRoundConfigCmd.GameRoundConfig.BufferRoundsCount;
 
             //ตรวจสอบว่ามีโต๊ะเกมที่ต้องสร้างใหม่หรือไม่
             if (nOfRoundToCreate > 0) {
-                GameRoundInformation lastActiveRound = listActiveGameRoundsCmd.GameRoundInfo.LastOrDefault();
+                GameRoundInformation lastActiveRound = listActiveGameRoundsCmd.ActiveGameRoundInfo.LastOrDefault();
 
             GameRoundInformation nextRound = new GameRoundInformation();
 
                 for (int i = 0; i < nOfRoundToCreate; i++) {
-                    if (listActiveGameRoundsCmd.GameRoundInfo.Count() > 0) {
+                    if (listActiveGameRoundsCmd.ActiveGameRoundInfo.Count() > 0) {
                         lastActiveRound.StartTime = lastActiveRound.StartTime.AddMinutes(getGameRoundConfigCmd.GameRoundConfig.Interval);
                         lastActiveRound.EndTime = lastActiveRound.StartTime.AddMinutes(getGameRoundConfigCmd.GameRoundConfig.GameDuration);
                         lastActiveRound.RoundID += 1;
@@ -63,7 +63,7 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
 
                         List<GameRoundInformation> list = new List<GameRoundInformation>();
                         list.Add(lastActiveRound);
-                        listActiveGameRoundsCmd.GameRoundInfo = list;
+                        listActiveGameRoundsCmd.ActiveGameRoundInfo = list;
                     }
 
                     nextRound = new GameRoundInformation {

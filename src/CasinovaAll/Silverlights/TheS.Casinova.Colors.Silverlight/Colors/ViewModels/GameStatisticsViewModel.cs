@@ -12,6 +12,9 @@ using System.ComponentModel;
 
 namespace TheS.Casinova.Colors.ViewModels
 {
+    /// <summary>
+    /// ViewModel ของหน้าสถิติ
+    /// </summary>
     public class GameStatisticsViewModel : INotifyPropertyChanged
     {
         #region Fields
@@ -52,6 +55,9 @@ namespace TheS.Casinova.Colors.ViewModels
             }
         }
 
+        /// <summary>
+        /// จำนวนเงินที่ถูกลงในสีขาวทั้งหมดในรอบนี้
+        /// </summary>
         public double WhitePot
         {
             get { return _whitePot; }
@@ -64,6 +70,9 @@ namespace TheS.Casinova.Colors.ViewModels
             }
         }
 
+        /// <summary>
+        /// จำนวนเงินที่ถูกลงในสีดำทั้งหมดในรอบนี้
+        /// </summary>
         public double BlackPot
         {
             get { return _blackPot; }
@@ -76,6 +85,9 @@ namespace TheS.Casinova.Colors.ViewModels
             }
         }
 
+        /// <summary>
+        /// จำนวนมือทั้งหมดที่ลงในรอบนี้
+        /// </summary>
         public int Hands
         {
             get { return _hands; }
@@ -88,6 +100,9 @@ namespace TheS.Casinova.Colors.ViewModels
             }
         }
 
+        /// <summary>
+        /// สีที่ชนะในรอบนี้
+        /// </summary>
         public string Winner
         {
             get { return _winner; }
@@ -104,16 +119,24 @@ namespace TheS.Casinova.Colors.ViewModels
 
         #region Constructors
 
+        /// <summary>
+        /// Initialize game statistics view model
+        /// </summary>
         public GameStatisticsViewModel()
         {
             _notify = new PerfEx.Infrastructure.PropertyChangedNotifier(this, () => PropertyChanged);
 
-            if (DesignerProperties.IsInDesignTool) {
+            #region Designer view
+            
+            if (DesignerProperties.IsInDesignTool)
+            {
                 Winner = "Balck";
                 BlackPot = 456781;
                 WhitePot = 12314;
                 Hands = 1254;
             }
+
+            #endregion Designer view
         }
 
         #endregion Constructors

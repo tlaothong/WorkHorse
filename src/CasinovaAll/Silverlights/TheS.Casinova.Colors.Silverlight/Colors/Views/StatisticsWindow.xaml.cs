@@ -10,15 +10,19 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace TheS.Casinova.Colors.Popups
+namespace TheS.Casinova.Colors.Views
 {
-    public partial class BetData : ChildWindow
+    public partial class StatisticsWindow : ChildWindow
     {
-        public BetData()
+        public StatisticsWindow()
         {
             InitializeComponent();
         }
 
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = false;
+        }
     }
 }
 

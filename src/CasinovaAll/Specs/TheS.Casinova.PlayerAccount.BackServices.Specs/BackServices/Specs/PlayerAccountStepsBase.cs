@@ -16,7 +16,7 @@ namespace TheS.Casinova.PlayerAccount.BackServices.Specs.Steps
             get
             {
                 return ScenarioContext.Current[
-                    CommonSteps.Key_Dac_CancelPlayerAccount] as ICancelPlayerAccount;
+                    CommonSteps.Key_Dac_CancelPlayerAccountInfo] as ICancelPlayerAccount;
             }
         }
 
@@ -25,7 +25,7 @@ namespace TheS.Casinova.PlayerAccount.BackServices.Specs.Steps
             get
             {
                 return ScenarioContext.Current[
-                    CommonSteps.Key_CancelPlayerAccount] as CancelPlayerAccountExecutor;
+                    CommonSteps.Key_CancelPlayerAccountInfo] as CancelPlayerAccountExecutor;
             }
         }
     }

@@ -40,7 +40,7 @@ Scenario: Send request get list auto bet game play information to web server, do
 		|4		|9999	|0		|false		|
 
 @record_mock
-Scenario: Send request get list auto bet game play information to web server more than one request
+Scenario: Send request get list auto bet game play information (more than 1)
 	When Send request GetListGamePlayAutoBet( 'Sakul' )
 	And Send request GetListGamePlayAutoBet( 'Sakul' )
 	Then Tables in GamePlayViewModel display game play information are

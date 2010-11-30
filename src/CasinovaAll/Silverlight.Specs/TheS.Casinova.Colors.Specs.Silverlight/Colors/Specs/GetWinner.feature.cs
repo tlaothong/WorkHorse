@@ -69,87 +69,308 @@ namespace TheS.Casinova.Colors.Specs
 #line 16
 #line 17
 testRunner.Given("Create and initialize GamePlayViewModel and Colors game service");
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "RoundID",
+                        "StartTime",
+                        "EndTime"});
+            table1.AddRow(new string[] {
+                        "1",
+                        "2010-11-17 09:00:00",
+                        "2010-11-17 09:15:00"});
+            table1.AddRow(new string[] {
+                        "2",
+                        "2010-11-17 09:15:00",
+                        "2010-11-17 09:30:00"});
+            table1.AddRow(new string[] {
+                        "3",
+                        "2010-11-17 09:30:00",
+                        "2010-11-17 09:45:00"});
 #line 18
-testRunner.And("Setup trackingID for getwinner {60AD85F6-3978-48AA-9286-E5A7344B77EC}");
+testRunner.And("Back service have active game rounds are:", ((string)(null)), table1);
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "TrackingID"});
+            table2.AddRow(new string[] {
+                        "{60AD85F6-3978-48AA-9286-E5A7344B77EC}"});
+            table2.AddRow(new string[] {
+                        "{A82FA8E6-1BCC-443E-A61A-F81B8B4DED83}"});
+            table2.AddRow(new string[] {
+                        "{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}"});
+            table2.AddRow(new string[] {
+                        "{2C8EE9D1-A106-4216-AA57-E44554F822A8}"});
+            table2.AddRow(new string[] {
+                        "{89D5613E-8007-4AAA-8A4D-AF16014B2D5F}"});
+            table2.AddRow(new string[] {
+                        "{50EA817A-512E-469E-982F-8377F0EF84A6}"});
+#line 23
+testRunner.And("Setup web service trackingID are", ((string)(null)), table2);
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "UserName",
+                        "TableID",
+                        "RoundID",
+                        "TrackingID",
+                        "OnGoingTrackingID",
+                        "TotalBetAmountOfBlack",
+                        "TotalBetAmountOfWhite",
+                        "Winner"});
+            table3.AddRow(new string[] {
+                        "Sakul",
+                        "1",
+                        "1",
+                        "{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}",
+                        "{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}",
+                        "100",
+                        "20",
+                        "Black"});
+            table3.AddRow(new string[] {
+                        "Sakul",
+                        "2",
+                        "2",
+                        "{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}",
+                        "{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}",
+                        "100",
+                        "20",
+                        "White"});
+            table3.AddRow(new string[] {
+                        "Sakul",
+                        "3",
+                        "3",
+                        "{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}",
+                        "{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}",
+                        "100",
+                        "20",
+                        "White"});
+#line 31
+testRunner.And("Web server have game play information are", ((string)(null)), table3);
+#line 36
+testRunner.When("Send request GetListActiveGameRounds() to web server");
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Get winner button has click save player action in PayLog")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Get winner button has click, save player action in PayLog")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Get winner")]
         [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
         public virtual void GetWinnerButtonHasClickSavePlayerActionInPayLog()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get winner button has click save player action in PayLog", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get winner button has click, save player action in PayLog", new string[] {
                         "record_mock"});
-#line 21
+#line 39
 this.ScenarioSetup(scenarioInfo);
-#line 22
-testRunner.When("Click get winner in game round 20");
-#line 23
-testRunner.Then("PayLog has save RoundID=\'20\', Count=\'1\'");
-#line 24
-testRunner.And("Lot of TrackingID=\'{60AD85F6-3978-48AA-9286-E5A7344B77EC}\' Is Retrieved");
-#line 25
+#line 40
+testRunner.When("Click get winner in game round 1");
+#line 41
+testRunner.Then("PayLog has save RoundID=\'1\', Count=\'1\'");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "TrackingID"});
+            table4.AddRow(new string[] {
+                        "{60AD85F6-3978-48AA-9286-E5A7344B77EC}"});
+#line 42
+testRunner.And("Lot of TrackingIDs has Retrieved are", ((string)(null)), table4);
+#line 45
 testRunner.And("PayLog has empty");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Get winner button has click more than one, game view model has save player action" +
-            " in PayLog more than one log")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Get winner button has click save player action in PayLog 3 times")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Get winner")]
         [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
-        public virtual void GetWinnerButtonHasClickMoreThanOneGameViewModelHasSavePlayerActionInPayLogMoreThanOneLog()
+        public virtual void GetWinnerButtonHasClickSavePlayerActionInPayLog3Times()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get winner button has click more than one, game view model has save player action" +
-                    " in PayLog more than one log", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get winner button has click save player action in PayLog 3 times", new string[] {
                         "record_mock"});
-#line 28
+#line 48
 this.ScenarioSetup(scenarioInfo);
-#line 29
-testRunner.When("Click get winner in game round 20");
-#line 30
-testRunner.And("Click get winner in game round 20");
-#line 31
-testRunner.And("Click get winner in game round 20");
-#line 32
-testRunner.Then("PayLog has save RoundID=\'20\', Count=\'3\'");
+#line 49
+testRunner.When("Click get winner in game round 1");
+#line 50
+testRunner.And("Click get winner in game round 1");
+#line 51
+testRunner.And("Click get winner in game round 1");
+#line 52
+testRunner.Then("PayLog has save RoundID=\'1\', Count=\'3\'");
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "TrackingID"});
+            table5.AddRow(new string[] {
+                        "{60AD85F6-3978-48AA-9286-E5A7344B77EC}"});
+            table5.AddRow(new string[] {
+                        "{A82FA8E6-1BCC-443E-A61A-F81B8B4DED83}"});
+            table5.AddRow(new string[] {
+                        "{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}"});
+#line 53
+testRunner.And("Lot of TrackingIDs has Retrieved are", ((string)(null)), table5);
+#line 58
+testRunner.And("PayLog has empty");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Get winner button has click in another game roundID, pay log has save")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Get winner 3 times by different game roundID")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Get winner")]
         [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
-        public virtual void GetWinnerButtonHasClickInAnotherGameRoundIDPayLogHasSave()
+        public virtual void GetWinner3TimesByDifferentGameRoundID()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get winner button has click in another game roundID, pay log has save", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get winner 3 times by different game roundID", new string[] {
                         "record_mock"});
-#line 35
+#line 61
 this.ScenarioSetup(scenarioInfo);
-#line 36
-testRunner.When("Click get winner in game round 20");
-#line 37
-testRunner.And("Click get winner in game round 20");
-#line 38
-testRunner.And("Click get winner in game round 21");
-#line 39
-testRunner.And("Click get winner in game round 22");
-#line 40
-testRunner.And("Click get winner in game round 23");
-#line 41
-testRunner.And("Click get winner in game round 20");
-#line 42
-testRunner.Then("PayLog has save RoundID=\'20\', Count=\'3\'");
-#line 43
-testRunner.And("PayLog has save RoundID=\'21\', Count=\'1\'");
-#line 44
-testRunner.And("PayLog has save RoundID=\'22\', Count=\'1\'");
-#line 45
-testRunner.And("PayLog has save RoundID=\'23\', Count=\'1\'");
+#line 62
+testRunner.When("Click get winner in game round 1");
+#line 63
+testRunner.And("Click get winner in game round 2");
+#line 64
+testRunner.And("Click get winner in game round 3");
+#line 65
+testRunner.Then("PayLog has save RoundID=\'1\', Count=\'1\'");
+#line 66
+testRunner.And("PayLog has save RoundID=\'2\', Count=\'1\'");
+#line 67
+testRunner.And("PayLog has save RoundID=\'3\', Count=\'1\'");
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "TrackingID"});
+            table6.AddRow(new string[] {
+                        "{60AD85F6-3978-48AA-9286-E5A7344B77EC}"});
+            table6.AddRow(new string[] {
+                        "{A82FA8E6-1BCC-443E-A61A-F81B8B4DED83}"});
+            table6.AddRow(new string[] {
+                        "{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}"});
+#line 68
+testRunner.And("Lot of TrackingIDs has Retrieved are", ((string)(null)), table6);
+#line 73
+testRunner.And("PayLog has empty");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Get winner 6 times using another game roundID")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Get winner")]
+        [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
+        public virtual void GetWinner6TimesUsingAnotherGameRoundID()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get winner 6 times using another game roundID", new string[] {
+                        "record_mock"});
+#line 76
+this.ScenarioSetup(scenarioInfo);
+#line 77
+testRunner.When("Click get winner in game round 1");
+#line 78
+testRunner.And("Click get winner in game round 1");
+#line 79
+testRunner.And("Click get winner in game round 1");
+#line 80
+testRunner.And("Click get winner in game round 2");
+#line 81
+testRunner.And("Click get winner in game round 2");
+#line 82
+testRunner.And("Click get winner in game round 3");
+#line 83
+testRunner.Then("PayLog has save RoundID=\'1\', Count=\'3\'");
+#line 84
+testRunner.And("PayLog has save RoundID=\'2\', Count=\'2\'");
+#line 85
+testRunner.And("PayLog has save RoundID=\'3\', Count=\'1\'");
+#line hidden
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                        "TrackingID"});
+            table7.AddRow(new string[] {
+                        "{60AD85F6-3978-48AA-9286-E5A7344B77EC}"});
+            table7.AddRow(new string[] {
+                        "{A82FA8E6-1BCC-443E-A61A-F81B8B4DED83}"});
+            table7.AddRow(new string[] {
+                        "{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}"});
+            table7.AddRow(new string[] {
+                        "{2C8EE9D1-A106-4216-AA57-E44554F822A8}"});
+            table7.AddRow(new string[] {
+                        "{89D5613E-8007-4AAA-8A4D-AF16014B2D5F}"});
+            table7.AddRow(new string[] {
+                        "{50EA817A-512E-469E-982F-8377F0EF84A6}"});
+#line 86
+testRunner.And("Lot of TrackingIDs has Retrieved are", ((string)(null)), table7);
+#line 94
+testRunner.And("PayLog has empty");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Get winner more than one, lot not retriev (1 case)")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Get winner")]
+        [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
+        public virtual void GetWinnerMoreThanOneLotNotRetriev1Case()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get winner more than one, lot not retriev (1 case)", new string[] {
+                        "record_mock"});
+#line 97
+this.ScenarioSetup(scenarioInfo);
+#line 98
+testRunner.When("Click get winner in game round 1");
+#line 99
+testRunner.And("Click get winner in game round 1");
+#line 100
+testRunner.And("Click get winner in game round 1");
+#line 101
+testRunner.Then("PayLog has save RoundID=\'1\', Count=\'3\'");
+#line hidden
+            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                        "TrackingID"});
+            table8.AddRow(new string[] {
+                        "{60AD85F6-3978-48AA-9286-E5A7344B77EC}"});
+            table8.AddRow(new string[] {
+                        "{A82FA8E6-1BCC-443E-A61A-F81B8B4DED83}"});
+#line 102
+testRunner.And("Lot of TrackingIDs has Retrieved are", ((string)(null)), table8);
+#line 106
+testRunner.And("PayLog have 1 record for looking trackingID in lot");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Get winner more than one, lot not retriev (more than 1 wait lot trackingID)")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Get winner")]
+        [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
+        public virtual void GetWinnerMoreThanOneLotNotRetrievMoreThan1WaitLotTrackingID()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get winner more than one, lot not retriev (more than 1 wait lot trackingID)", new string[] {
+                        "record_mock"});
+#line 109
+this.ScenarioSetup(scenarioInfo);
+#line 110
+testRunner.When("Click get winner in game round 1");
+#line 111
+testRunner.And("Click get winner in game round 1");
+#line 112
+testRunner.And("Click get winner in game round 2");
+#line 113
+testRunner.And("Click get winner in game round 2");
+#line 114
+testRunner.And("Click get winner in game round 1");
+#line 115
+testRunner.And("Click get winner in game round 3");
+#line 116
+testRunner.Then("PayLog has save RoundID=\'1\', Count=\'3\'");
+#line 117
+testRunner.And("PayLog has save RoundID=\'2\', Count=\'2\'");
+#line 118
+testRunner.And("PayLog has save RoundID=\'3\', Count=\'1\'");
+#line hidden
+            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                        "TrackingID"});
+            table9.AddRow(new string[] {
+                        "{60AD85F6-3978-48AA-9286-E5A7344B77EC}"});
+#line 119
+testRunner.And("Lot of TrackingIDs has Retrieved are", ((string)(null)), table9);
+#line 122
+testRunner.And("PayLog have 5 record for looking trackingID in lot");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

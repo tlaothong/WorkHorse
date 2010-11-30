@@ -192,14 +192,12 @@ testRunner.Then("Tables in GamePlayViewModel display game play information are",
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Send request get list auto bet game play information to web server more than one " +
-            "request")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Send request get list auto bet game play information (more than 1)")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Get list game play auto bet information")]
         [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
-        public virtual void SendRequestGetListAutoBetGamePlayInformationToWebServerMoreThanOneRequest()
+        public virtual void SendRequestGetListAutoBetGamePlayInformationMoreThan1()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Send request get list auto bet game play information to web server more than one " +
-                    "request", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Send request get list auto bet game play information (more than 1)", new string[] {
                         "record_mock"});
 #line 43
 this.ScenarioSetup(scenarioInfo);
