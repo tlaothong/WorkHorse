@@ -105,6 +105,7 @@
     </Compile>
     <Compile Include="Colors\GameApplicationInformation.cs" />
     <Compile Include="Colors\ColorsTrackingObserver.cs" />
+    <Compile Include="Colors\Models\GameResult.cs" />
     <Compile Include="Colors\ViewModels\GamePlayUIViewModel.cs" />
     <Compile Include="Colors\Models\BetdataInfo.cs" />
     <Compile Include="Colors\Models\PayLog.cs" />
@@ -119,6 +120,7 @@
     <Compile Include="Colors\Silverlight\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Colors\ViewModels\GameResultViewModel.cs" />
     <Compile Include="Colors\ViewModels\StatisticsChartViewModel.cs" />
     <Compile Include="Colors\ViewModels\GamePlayViewModel.cs" />
     <Compile Include="Colors\ViewModels\GameStatisticsViewModel.cs" />
@@ -130,9 +132,6 @@
     </Compile>
     <Compile Include="Colors\Views\HowToPlayWindow.xaml.cs">
       <DependentUpon>HowToPlayWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Colors\Views\StatisticsWindow.xaml.cs">
-      <DependentUpon>StatisticsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\ColorsSvc\Reference.cs">
@@ -181,10 +180,6 @@
     <Page Include="Colors\Views\ResourceDictionary01.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Colors\Views\StatisticsWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Properties\DesignTimeResources.xaml" Condition="'$(DesignTime)'=='true' OR ('$(SolutionPath)'!='' AND Exists('$(SolutionPath)') AND '$(BuildingInsideVisualStudio)'!='true' AND '$(BuildingInsideExpressionBlend)'!='true')">
       <Generator>MSBuild:Compile</Generator>

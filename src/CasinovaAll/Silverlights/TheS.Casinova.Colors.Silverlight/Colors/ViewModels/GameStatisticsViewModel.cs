@@ -9,6 +9,8 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.ComponentModel;
+using System.Collections.ObjectModel;
+using TheS.Casinova.Colors.Models;
 
 namespace TheS.Casinova.Colors.ViewModels
 {
@@ -20,12 +22,9 @@ namespace TheS.Casinova.Colors.ViewModels
         #region Fields
 
         private PerfEx.Infrastructure.PropertyChangedNotifier _notify;
-        private string _winner;
-        private int _hands;
-        private double _blackPot;
-        private double _whitePot;
         private DateTime _firstData;
         private DateTime _secondData;
+        private GameResult _result;
 
         #endregion Fields
 
@@ -55,62 +54,15 @@ namespace TheS.Casinova.Colors.ViewModels
             }
         }
 
-        /// <summary>
-        /// จำนวนเงินที่ถูกลงในสีขาวทั้งหมดในรอบนี้
-        /// </summary>
-        public double WhitePot
+        public GameResult GameResult
         {
-            get { return _whitePot; }
+            get { return _result; }
             set
             {
-                if (_whitePot!=value) {
-                    _whitePot = value;
-                    _notify.Raise(() => WhitePot); 
-                }
-            }
-        }
-
-        /// <summary>
-        /// จำนวนเงินที่ถูกลงในสีดำทั้งหมดในรอบนี้
-        /// </summary>
-        public double BlackPot
-        {
-            get { return _blackPot; }
-            set
-            {
-                if (_blackPot!=value) {
-                    _blackPot = value;
-                    _notify.Raise(() => BlackPot); 
-                }
-            }
-        }
-
-        /// <summary>
-        /// จำนวนมือทั้งหมดที่ลงในรอบนี้
-        /// </summary>
-        public int Hands
-        {
-            get { return _hands; }
-            set
-            {
-                if (_hands != value) {
-                    _hands = value;
-                    _notify.Raise(() => Hands); 
-                }
-            }
-        }
-
-        /// <summary>
-        /// สีที่ชนะในรอบนี้
-        /// </summary>
-        public string Winner
-        {
-            get { return _winner; }
-            set
-            {
-                if (_winner!=value) {
-                    _winner = value;
-                    _notify.Raise(() => Winner); 
+                if (_result!=value)
+                {
+                    _result = value;
+                    _notify.Raise(() => GameResult); 
                 }
             }
         }
@@ -125,15 +77,19 @@ namespace TheS.Casinova.Colors.ViewModels
         public GameStatisticsViewModel()
         {
             _notify = new PerfEx.Infrastructure.PropertyChangedNotifier(this, () => PropertyChanged);
+            _result = new GameResult();
 
             #region Designer view
             
             if (DesignerProperties.IsInDesignTool)
             {
-                Winner = "Balck";
-                BlackPot = 456781;
-                WhitePot = 12314;
-                Hands = 1254;
+                GameResult = new GameResult
+                {
+                        Winner = "Balck",
+                        BlackPot = 456781,
+                        WhitePot = 12314,
+                        Hands = 1254 
+                };
             }
 
             #endregion Designer view
