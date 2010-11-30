@@ -75,7 +75,7 @@
     </label>
     <label style="color: Gray; float: left; margin-left: 5px;">
         (152)</label><div>
-            <a href="#" style="color: Gray; margin-left: 40px;">SeeAll</a></div>
+            <a href="#" class="SeeAll" style="color: Gray; margin-left: 40px;">SeeAll</a></div>
 </div>
 <div id="listContent">
     <div style="width: 159; height: 400px;">
@@ -99,7 +99,7 @@
                 (1 day ago) danm fantasic nice
             </div>
             <div style="width: 30px; float: right;">
-                <a href="#" style="color: gray; text-decoration: none;">report</a>
+                <a href="#" class="Report" style="color: gray; text-decoration: none;">report</a>
             </div>
         </div>
         <div style="margin-bottom: 5px; padding-bottom: 5px; width: 159px; margin-left: 5px;
@@ -119,7 +119,7 @@
                 (1 day ago) Not funny, and they from Aqua Teen HuForce
             </div>
             <div style="width: 30px; float: right;">
-                <a href="#" style="float: right; color: gray; text-decoration: none;">report</a>
+                <a href="#" class="Report" style="float: right; color: gray; text-decoration: none;">report</a>
             </div>
         </div>
         <br />
@@ -143,7 +143,7 @@
                 (17 hours ago) which joke woz dat?
             </div>
             <div style="width: 30px; float: right;">
-                <a href="#" style="float: right; color: gray; text-decoration: none;">report</a>
+                <a href="#" class="Report" style="float: right; color: gray; text-decoration: none;">report</a>
             </div>
             <div style="clear: both; margin-left: 5px;">
                 <a href="#" class="bookmark" onclick="showStuff1('comment2'); return false;">See More...</a></div>
@@ -166,7 +166,7 @@
                 (1 day ago) this sucked
             </div>
             <div style="width: 30px; float: right;">
-                <a href="#" style="float: right; color: gray; text-decoration: none;">report</a>
+                <a href="#" class="Report" style="float: right; color: gray; text-decoration: none;">report</a>
             </div>
             <div style="clear: both; margin-left: 5px;">
                 <a href="#" class="bookmark" onclick="showStuff2('comment3'); return false;">See More...</a></div>
@@ -189,7 +189,7 @@
                 (1 day ago) this sucked
             </div>
             <div style="width: 30px; float: right;">
-                <a href="#" style="float: right; color: gray; text-decoration: none;">report</a>
+                <a href="#" class="Report" style="float: right; color: gray; text-decoration: none;">report</a>
             </div>
         </div>
     </div>
