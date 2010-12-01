@@ -7,6 +7,7 @@ using Rhino.Mocks;
 using TheS.Casinova.ColorsGame;
 using TheS.Casinova.PlayerProfile.BackServices;
 using TheS.Casinova.PlayerProfile.DAL;
+using SpecFlowAssist;
 
 namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
 {
@@ -17,8 +18,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dac_RegisterUser] as IRegisterUser;
+                return ScenarioContext.Current.Get<IRegisterUser>();
             }
         }
 
@@ -26,8 +26,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr_CheckUserName] as ICheckUserName;
+                return ScenarioContext.Current.Get<ICheckUserName>();
             }
         }
 
@@ -35,8 +34,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr_GetPlayerEmail] as ICheckEmail;
+                return ScenarioContext.Current.Get<ICheckEmail>();
             }
         }
 
@@ -44,26 +42,23 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr_CheckUpline] as ICheckUpline;
+                return ScenarioContext.Current.Get<ICheckUpline>();
             }
         }
 
-        protected IListActionLog Dqr_ListActioLog
+        protected IListActionLog Dqr_ListActionLog
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr_ListActionLog] as IListActionLog;
+                return ScenarioContext.Current.Get<IListActionLog>();
             }
         }
 
-        protected IGetUserProfile Dqr_UserProfile
+        protected IGetUserProfile Dqr_GetUserProfile
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr_GetUserProfile] as IGetUserProfile;
+                return ScenarioContext.Current.Get<IGetUserProfile>();
             }
         }
 
@@ -72,8 +67,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dac_ChangePassword] as IChangePassword;
+                return ScenarioContext.Current.Get<IChangePassword>();
             }
         }
 
@@ -81,8 +75,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr_GetPlayerPassword] as IGetPlayerPassword;
+                return ScenarioContext.Current.Get<IGetPlayerPassword>();
             }
         }
 
@@ -90,8 +83,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dac_ChangeEmail] as IChangeEmail;
+                return ScenarioContext.Current.Get<IChangeEmail>();
             }
         }
 
@@ -99,8 +91,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr_GetPlayerEmail] as IGetPlayerEmail;
+                return ScenarioContext.Current.Get<IGetPlayerEmail>();
             }
         }
 
@@ -109,8 +100,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_RegisterUser] as RegisterUserExecutor;
+                return ScenarioContext.Current.Get<RegisterUserExecutor>();
             }
         }
 
@@ -118,8 +108,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_ListActionLog] as ListActionLogExecutor;
+                return ScenarioContext.Current.Get<ListActionLogExecutor>();
             }
         }
 
@@ -127,8 +116,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_GetUserProfile] as GetUserProfileExecutor;
+                return ScenarioContext.Current.Get<GetUserProfileExecutor>();
             }
         }
 
@@ -136,8 +124,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_ChangePassword] as ChangePasswordExecutor;
+                return ScenarioContext.Current.Get<ChangePasswordExecutor>();
             }
         }
 
@@ -145,8 +132,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_ChangeEmail] as ChangeEmailExecutor;
+                return ScenarioContext.Current.Get<ChangeEmailExecutor>();
             }
         }
     }

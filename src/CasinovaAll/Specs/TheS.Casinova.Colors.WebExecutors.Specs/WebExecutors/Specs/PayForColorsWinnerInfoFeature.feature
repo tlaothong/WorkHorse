@@ -4,7 +4,7 @@
 	I want to sent information for pay colors winner
 
 @record_mock
-Scenario Outline: ระบบได้รับข้อมูล PayForColorsWinnerInformation ระบบทำการตรวจสอบข้อมูล ข้อมูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID
+Scenario Outline:[PayForColorsWinner]ระบบได้รับข้อมูล PayForColorsWinnerInformation ระบบทำการตรวจสอบข้อมูล ข้อมูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID
 	Given The PayForColorsWinnerInfoExecutor has been created and initialized
 	And   PayForColorWinner Informations as : UserName '<UserName>' RoundID '<RoundID>' ActionType '<ActionType>'
 	When  Call PayForColorsWinnerInfoExecutor() for validate PayForColorWinner informations
@@ -16,7 +16,7 @@ Examples:
 	|Nit	 	|-2			|	Black	|
 	|Nit	 	|2			|			|
 
-Scenario: ระบบได้รับข้อมูล PayForColorsWinnerInformation ระบบทำการตรวจสอบข้อมูล ข้อมูลถูกต้อง ระบบทำการ generate trackingID
+Scenario:[PayForColorsWinner]ระบบได้รับข้อมูล PayForColorsWinnerInformation ระบบทำการตรวจสอบข้อมูล ข้อมูลถูกต้อง ระบบทำการ generate trackingID
 	Given The PayForColorsWinnerInfoExecutor has been created and initialized
 	And   PayForColorWinner Informations as : UserName 'Nataya' RoundID '3' ActionType 'PayForWinner'
 	And   The system generated TrackingID:'955D6ACDE4E04D1C90ACF3715BB2685A' for PayForColorWinnerInfo

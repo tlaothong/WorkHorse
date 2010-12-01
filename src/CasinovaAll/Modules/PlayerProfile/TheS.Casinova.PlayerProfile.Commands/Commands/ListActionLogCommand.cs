@@ -12,10 +12,13 @@ namespace TheS.Casinova.PlayerProfile.Commands
    public class ListActionLogCommand
     {
        //input
-       /// <summary>
-       /// ชื่อของผู้เล่น
-       /// </summary>
-        public string UserName { get; set; }
+        //public string UserName { get; set; }
+
+        /// <summary>
+        /// ข้อมูลการลิสต์ action log
+        /// 1.UserName ชื่อของผู้เล่น
+        /// </summary>
+        public ActionLog ListActionLogInfo { get; set; }
 
        //output
        /// <summary>

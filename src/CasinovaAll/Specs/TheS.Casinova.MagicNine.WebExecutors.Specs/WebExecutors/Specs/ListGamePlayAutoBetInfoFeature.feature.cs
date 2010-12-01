@@ -120,7 +120,7 @@ testRunner.When("Call ListGamePlayAutoBetInfoExecutor()");
                         "5",
                         "0",
                         "083CE9EC-7459-4A5A-9771-DD3E04D192D6",
-                        ""});
+                        "00:00"});
             table2.AddRow(new string[] {
                         "Nit",
                         "2",

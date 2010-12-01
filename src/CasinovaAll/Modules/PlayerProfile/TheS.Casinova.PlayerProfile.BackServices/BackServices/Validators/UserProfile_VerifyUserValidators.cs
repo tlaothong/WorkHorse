@@ -22,7 +22,9 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Validators
         public override void Validate(UserProfile entity, VerifyUserCommand command, ValidationErrorCollection errors)
         {
             GetUserProfileCommand getUserProfileCmd = new GetUserProfileCommand {
-                UserName = entity.UserName
+                GetUserProfileInfo = new UserProfile {
+                    UserName = entity.UserName
+                }
             };
             var userProfile = _iGetUserProfile.Get(getUserProfileCmd);
 
@@ -32,7 +34,7 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Validators
                     ErrorMessage = "ไม่มีชื่อผู้เล่นนี้ในระบบ",
                 });
             }
-            else if (entity.VeriflyCode != userProfile.VeriflyCode) {
+            else if (entity.VerifyCode != userProfile.VerifyCode) {
                 errors.Add(new ValidationError {
                     Instance = entity,
                     ErrorMessage = "รหัสยืนยันไม่ถูกต้อง",

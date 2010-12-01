@@ -15,26 +15,28 @@ using PerfEx.Infrastructure.Containers.StructureMapAdapter;
 using TheS.Casinova.MagicNine.Commands;
 using SpecFlowAssist;
 
+
 namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
 {
     [Binding]
     public class CommonSteps
     {
-         MockRepository Mocks { get { return SpecEventDefinitions.Mocks; } }
+
+        MockRepository Mocks { get { return SpecEventDefinitions.Mocks; } }
 
         //List bet log specs initialized
         [Given(@"The ListBetLogExecutor has been created and initialized")]
         public void GivenTheListBetLogExecutorHasBeenCreatedAndInitialized()
         {
-             var dqr = Mocks.DynamicMock<IMagicNineGameDataQuery>();
+            var dqr = Mocks.DynamicMock<IMagicNineGameDataQuery>();
 
-             IDependencyContainer container;
+            IDependencyContainer container;
 
-             setupValidators(out container);
+            setupValidators(out container);
 
-             ScenarioContext.Current.Set<IListBetLog>(dqr);
-             ScenarioContext.Current.Set<ListBetLogExecutor>(
-                new ListBetLogExecutor(dqr, container));
+            ScenarioContext.Current.Set<IListBetLog>(dqr);
+            ScenarioContext.Current.Set<ListBetLogExecutor>(
+               new ListBetLogExecutor(dqr, container));
         }
 
         //Single bet specs initialized
@@ -48,7 +50,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
             ScenarioContext.Current.Set<ISingleBet>(dac);
             ScenarioContext.Current.Set<SingleBetExecutor>(
                 new SingleBetExecutor(dac, container));
- 
+
         }
 
         //List active game round specs initialized

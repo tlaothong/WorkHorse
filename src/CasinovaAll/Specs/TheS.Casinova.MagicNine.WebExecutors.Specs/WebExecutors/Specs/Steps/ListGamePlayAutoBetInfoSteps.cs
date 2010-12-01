@@ -18,6 +18,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         private IEnumerable<GamePlayAutoBetInformation> _gamePlayAutoBet;
         private IEnumerable<GamePlayAutoBetInformation> _listGamePlayAutoBet;
 
+
         [Given(@"Server has game play auto bet information as:")]
         public void GivenServerHasGamePlayAutoBetInformationAs(Table table)
         {
@@ -96,7 +97,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
                                Amount = Convert.ToDouble(item["Amount"]),
                                Interval = Convert.ToInt32(item["Interval"]),
                                BetTrackingID = Guid.Parse(item["BetTrackingID"]),
-                               ThruDateTime = DateTime.Parse(item["ThruDateTime"])
+                               ThruDateTime = (DateTime?)DateTime.Parse(item["ThruDateTime"])
                            };
 
             var actual = from item in _listGamePlayAutoBet
@@ -116,6 +117,6 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         public void ThenTheGamePlayAutoBetInformationShouldBeThrowException()
         {
             Assert.IsTrue(true, "Exception has been verified in the end of block When.");
-        }
+        }   
     }
 }

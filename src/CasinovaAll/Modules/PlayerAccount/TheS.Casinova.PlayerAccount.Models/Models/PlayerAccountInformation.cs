@@ -8,7 +8,7 @@ namespace TheS.Casinova.PlayerAccount.Models
     /// <summary>
     /// ข้อมูลบัญชีของผู้เล่น
     /// </summary>
-    public class PlayerAccountInformation
+    public partial class PlayerAccountInformation
     {
         /// <summary>
         /// รหัสบัญชีของผู้เล่น
@@ -48,7 +48,7 @@ namespace TheS.Casinova.PlayerAccount.Models
         /// <summary>
         /// รหัสตรวจสอบหมายเลขบัญชี
         /// </summary>
-        public int CVV { get; set; }
+        public string CVV { get; set; }
 
         /// <summary>
         /// วันหมดอายุของบัญชี

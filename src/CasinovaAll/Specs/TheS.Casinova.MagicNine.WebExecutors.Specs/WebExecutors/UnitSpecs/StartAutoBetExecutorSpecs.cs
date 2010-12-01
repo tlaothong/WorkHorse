@@ -86,7 +86,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.UnitSpecs
 
         [TestMethod]
         [ExpectedException(typeof(ValidationErrorException))]
-        public void ValidateStartAutoBetExecutor_IntervalMustNotLowerThan1()
+        public void ValidateStartAutoBetExecutor_IntervalMustNotLowerThan0()
         {
             IDependencyContainer container;
             IMagicNineGameBackService svc;
@@ -96,7 +96,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.UnitSpecs
                 UserName = "Natayit",
                 RoundID = 1,
                 Amount = 100,
-                Interval = 0
+                Interval = -1
             };
             var cmd = new StartAutoBetCommand {
                 GamePlayAutoBetInfo = model,

@@ -23,7 +23,7 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
             _userProfiles = (from item in table.Rows
                              select new UserProfile {
                                  UserName = item["UserName"],
-                                 VeriflyCode = item["VerifyCode"],
+                                 VerifyCode = item["VerifyCode"],
                              });
         }
 
@@ -56,7 +56,7 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
             VerifyUserCommand cmd = new VerifyUserCommand {
                 UserProfile = new UserProfile {
                     UserName = userName,
-                    VeriflyCode = veriflyCode
+                    VerifyCode = veriflyCode
                 }
             };
 
@@ -70,7 +70,7 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
                 VerifyUserCommand cmd = new VerifyUserCommand {
                     UserProfile = new UserProfile {
                         UserName = userName,
-                        VeriflyCode = veriflyCode
+                        VerifyCode = veriflyCode
                     }
                 };
 

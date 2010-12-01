@@ -6,7 +6,7 @@
 @record_mock
 Background:
 Given Server has player account information as:
-	|PlayerAccountID|UserName	|AccountType |AccountNo			|CVV	| ExpireDate |Active|
+	|AccountType	|UserName	|CardType	 |AccountNo			|CVV	| ExpireDate |Active|
 	|Primary		|OhAe		|Visa		 |1802345673888921	|0253	|10/31/2010	 |True	|
 	|Primary		|Boy		|Master	Card |0019342567188211	|4830	|11/30/2010  |True	|
 	|Primary		|Nit		|Visa		 |0012214544543212	|3223	|12/31/2010  |True	|	

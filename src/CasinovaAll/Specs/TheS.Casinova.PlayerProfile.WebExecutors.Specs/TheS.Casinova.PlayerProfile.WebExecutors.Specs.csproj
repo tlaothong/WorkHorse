@@ -40,8 +40,14 @@
     <Reference Include="PerfEx.Infrastructure.Advanced">
       <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Advanced.dll</HintPath>
     </Reference>
+    <Reference Include="PerfEx.Infrastructure.Containers.StructureMapAdapter">
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Containers.StructureMapAdapter.dll</HintPath>
+    </Reference>
     <Reference Include="Rhino.Mocks">
       <HintPath>..\..\..\..\lib\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="SpecFlowAssist">
+      <HintPath>..\..\..\..\lib\SpecFlowAssist.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -58,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitSpecs\UserProfileSpecs.cs" />
     <Compile Include="WebExecutors\SpecEventDefinitions.cs" />
     <Compile Include="WebExecutors\Specs\ChangeEmailFeature.feature.cs">
       <AutoGen>True</AutoGen>

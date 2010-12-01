@@ -6,6 +6,7 @@ using TechTalk.SpecFlow;
 using TheS.Casinova.PlayerAccount.BackServices;
 using TheS.Casinova.PlayerAccount.WebExecutors;
 using TheS.Casinova.PlayerAccount.DAL;
+using SpecFlowAssist;
 
 namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs.Steps
 {
@@ -44,8 +45,7 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr_ListPlayerAccount] as IListPlayerAccount;
+                return ScenarioContext.Current.Get<IListPlayerAccount>();
             }
         }
 
@@ -80,8 +80,7 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_ListPlayerAccount] as ListPlayerAccountExecutor;
+                return ScenarioContext.Current.Get<ListPlayerAccountExecutor>();
             }
         }
     }

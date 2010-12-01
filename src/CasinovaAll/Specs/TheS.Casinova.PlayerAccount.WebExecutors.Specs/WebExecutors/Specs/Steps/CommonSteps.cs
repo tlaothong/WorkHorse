@@ -8,6 +8,11 @@ using TheS.Casinova.Colors.WebExecutors;
 using TheS.Casinova.PlayerAccount.BackServices;
 using TheS.Casinova.PlayerAccount.Commands;
 using TheS.Casinova.PlayerAccount.DAL;
+using PerfEx.Infrastructure;
+using PerfEx.Infrastructure.Validation;
+using TheS.Casinova.PlayerAccount.Models;
+using PerfEx.Infrastructure.Containers.StructureMapAdapter;
+using SpecFlowAssist;
 
 namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs.Steps
 {
@@ -16,8 +21,6 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs.Steps
     {
         public const string Key_Dac_CancelPlayerAccount = "mockDac_CancelPlayerAccount";
         public const string Key_CancelPlayerAccount = "mock_CancelPlayerAccount";
-        public const string Key_Dqr_ListPlayerAccount = "mockDqr_ListPlayerAccount";
-        public const string Key_ListPlayerAccount = "mock_ListPlayerAccount";
         public const string Key_Dqr_GetPlayerAccount = "mockDqr_GetPlayerAccount";
         public const string Key_GetPlayerAccount = "mock_GetPlayerAccount";
         public const string Key_Dac_EditPlayerAccount = "mockDac_EditPlayerAccount";
@@ -43,8 +46,13 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs.Steps
         {
             var dqr = Mocks.DynamicMock<IPlayerAccountModuleDataQuery>();
 
-            ScenarioContext.Current[Key_Dqr_ListPlayerAccount] = dqr;
-            ScenarioContext.Current[Key_ListPlayerAccount] = new ListPlayerAccountCommand();
+            IDependencyContainer container;
+
+            setupValidators(out container);
+
+            ScenarioContext.Current.Set<IListPlayerAccount>(dqr);
+            ScenarioContext.Current.Set<ListPlayerAccountExecutor>(
+               new ListPlayerAccountExecutor(dqr, container));
         }
 
         //Get player account specs initialized
@@ -75,6 +83,17 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs.Steps
 
             ScenarioContext.Current[Key_Dac_CreatePlayerAccount] = dac;
             ScenarioContext.Current[Key_CreatePlayerAccount] = new CreatePlayerAccountCommand();
+        }
+
+        private static void setupValidators(out IDependencyContainer container)
+        {
+            var fac = new StructureMapAbstractFactory();
+            var reg = fac.CreateRegistry();
+
+            reg.Register<IValidator<PlayerAccountInformation, ListPlayerAccountCommand>
+                , DataAnnotationValidator<PlayerAccountInformation, ListPlayerAccountCommand>>();
+
+            container = fac.CreateContainer(reg);
         }
 
     }

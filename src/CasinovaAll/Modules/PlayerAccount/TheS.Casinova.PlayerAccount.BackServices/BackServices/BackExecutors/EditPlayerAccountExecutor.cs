@@ -21,13 +21,13 @@ namespace TheS.Casinova.PlayerAccount.BackServices.BackExecutors
 
         protected override void ExecuteCommand(EditPlayerAccountCommand command)
         {
-            PlayerAccountInformation playerAccountInfo = new PlayerAccountInformation {
-                CardType = command.CardType,
-                UserName = command.UserName,
-                AccountType = command.AccountType,
-                AccountNo = command.AccountNo,
-                CVV = command.CVV,
-                ExpireDate = command.ExpireDate,
+            PlayerAccountInformation playerAccountInfo = new PlayerAccountInformation {               
+                CardType = command.PlayerAccountInfo.CardType,
+                UserName = command.PlayerAccountInfo.UserName,
+                AccountType = command.PlayerAccountInfo.AccountType,
+                AccountNo = command.PlayerAccountInfo.AccountNo,
+                CVV = command.PlayerAccountInfo.CVV,
+                ExpireDate = command.PlayerAccountInfo.ExpireDate,
             };
 
             _iEditPlayerAccount.ApplyAction(playerAccountInfo, command);

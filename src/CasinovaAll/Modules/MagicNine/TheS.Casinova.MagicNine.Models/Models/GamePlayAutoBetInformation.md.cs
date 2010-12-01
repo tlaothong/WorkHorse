@@ -35,7 +35,7 @@ namespace TheS.Casinova.MagicNine.Models
 
             public DateTime FromDateTime { get; set; }
 
-            public DateTime ThruDateTime { get; set; }
+            public DateTime ?ThruDateTime { get; set; }
 
             public int LotNo { get; set; }
         }

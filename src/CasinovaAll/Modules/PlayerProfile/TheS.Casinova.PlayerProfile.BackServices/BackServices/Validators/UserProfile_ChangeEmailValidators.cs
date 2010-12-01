@@ -24,14 +24,16 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Validators
         public override void Validate(UserProfile entity, ChangeEmailCommand command, ValidationErrorCollection errors)
         {
             GetUserProfileCommand getUserProfileCmd = new GetUserProfileCommand {
-                UserName = entity.UserName
+                GetUserProfileInfo = new UserProfile {
+                    UserName = entity.UserName
+                }
             };
             
             //ดึงข้อมูลผู้เล่นจากชื่อ
             var userProfile = _iGetUserProfile.Get(getUserProfileCmd);
       
             GetUserProfileByEmailCommand getUserProfileByEmailCmd = new GetUserProfileByEmailCommand {
-                Email = command.NewEmail,
+                Email = command.UserProfile.NewEmail,
             };
 
             //ดึงข้อมูลผู้เล่นจากอีเมลล์

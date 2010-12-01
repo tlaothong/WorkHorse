@@ -47,7 +47,7 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
                                        AccountType = item["AccountType"],
                                        CardType = item["CardType"],
                                        AccountNo = item["AccountNo"],
-                                       CVV = Convert.ToInt32(item["CVV"]),
+                                       CVV = Convert.ToString(item["CVV"]),
                                        ExpireDate = Convert.ToDateTime(item["ExpireDate"]),
                                        Active = Convert.ToBoolean(item["Active"]),
                                    });

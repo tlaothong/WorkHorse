@@ -12,7 +12,7 @@ Background:
 		|Lalaka	 |7			|11					|100			| White|15:00			|{046CDB68-8B43-431C-8584-11A6049C0CF4}|{F0A52B67-DC51-424F-BF2E-CA72D8E07FA8}| 
 
 @record_mock
-Scenario: ระบบได้รับข้อมูล username ถูกต้อง และมีข้อมูลการเล่นเกมของผู้เล่น ระบบลิสต์ข้อมูลโต๊ะเกมที่ผู้เล่นเคยเล่นไว้ได้
+Scenario:[ListGamePlayInfo]ระบบได้รับข้อมูล username ถูกต้อง และมีข้อมูลการเล่นเกมของผู้เล่น ระบบลิสต์ข้อมูลโต๊ะเกมที่ผู้เล่นเคยเล่นไว้ได้
 	Given The ListGamePlayInfoExecutor has been created and initialized
 	And   Sent userName'Lalaka' for list game play information
 	When  Call ListGamePlayInfoExecutor()
@@ -22,14 +22,14 @@ Scenario: ระบบได้รับข้อมูล username ถูกต
 		 |Lalaka  |7		|11					|100			| White|15:00			|{046CDB68-8B43-431C-8584-11A6049C0CF4}|{F0A52B67-DC51-424F-BF2E-CA72D8E07FA8}|
 
 @record_mock
-Scenario: ระบบได้รับข้อมูล username ถูกต้อง ระบบลิสต์ข้อมูลโต๊ะเกมแต่ไม่มีข้อมูล เนื่องจากผู้เล่นยังไม่เคยเล่นเกมที่โต๊ะใด ๆ 
+Scenario:[ListGamePlayInfo]ระบบได้รับข้อมูล username ถูกต้อง ระบบลิสต์ข้อมูลโต๊ะเกมแต่ไม่มีข้อมูล เนื่องจากผู้เล่นยังไม่เคยเล่นเกมที่โต๊ะใด ๆ 
 	Given The ListGamePlayInfoExecutor has been created and initialized	
 	And   Sent userName'BabyBoy' for list game play information
 	When  Call ListGamePlayInfoExecutor()
 	Then   The game play information should be :
 		  |UserName|RoundID	|TotalBetBlack	|TotalBetWhite	|Winner	|WinnerLastUpdate	|			TrackingID				   |		OnGoingTrackingID			  |
 @record_mockInfo
-Scenario: ระบบไม่ได้รับข้อมูล username ระบบลิสต์ข้อมูลโต๊ะเกมไม่ได้
+Scenario:[ListGamePlayInfo]ระบบไม่ได้รับข้อมูล username ระบบลิสต์ข้อมูลโต๊ะเกมไม่ได้
 	Given The ListGamePlayInfoExecutor has been created and initialized
 	And   Sent userName'' for list game play information
 	When  Call ListGamePlayInfoExecutor() for validate username

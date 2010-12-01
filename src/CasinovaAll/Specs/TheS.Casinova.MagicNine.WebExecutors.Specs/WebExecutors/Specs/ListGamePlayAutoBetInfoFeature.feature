@@ -16,8 +16,8 @@ Scenario: [ListGamePlayAutoBet]ระบบได้รับข้อมูล 
 	And  Sent UserName 'Nit' 
 	When Call ListGamePlayAutoBetInfoExecutor()
 	Then The game play auto bet information should be as :
-	      |UserName|RoundID	 |Amount|Interval|MoneyRefund|BetTrackingID							|ThruDateTime	|
-		 |Nit	  |1		 |200	|5		 |	0		 |083CE9EC-7459-4A5A-9771-DD3E04D192D6	|				|
+	     |UserName|RoundID	 |Amount|Interval|MoneyRefund|BetTrackingID							|ThruDateTime	|
+		 |Nit	  |1		 |200	|5		 |	0		 |083CE9EC-7459-4A5A-9771-DD3E04D192D6	|00:00			|
 		 |Nit	  |2		 |300	|10		 |	100		 |A92343C8-2484-4928-A95E-9BD3BAE17FD9	|12:00			|
 
 @record_mock

@@ -57,9 +57,9 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs
 #line 7
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "PlayerAccountID",
-                        "UserName",
                         "AccountType",
+                        "UserName",
+                        "CardType",
                         "AccountNo",
                         "CVV",
                         "ExpireDate",
@@ -94,13 +94,13 @@ testRunner.Given("Server has player account information as:", ((string)(null)), 
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล username ถูกต้อง ระบบสามารถดึงข้อมูลบัญชีของผู้เล่นได้ # GetPlay" +
-            "erAccount")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[]ระบบได้รับข้อมูล username ถูกต้อง ระบบสามารถดึงข้อมูลบัญชีของผู้เล่นได้ # GetPl" +
+            "ayerAccount")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GetPlayerAccount")]
         public virtual void ระบบไดรบขอมลUsernameถกตองระบบสามารถดงขอมลบญชของผเลนไดGetPlayerAccount()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล username ถูกต้อง ระบบสามารถดึงข้อมูลบัญชีของผู้เล่นได้ # GetPlay" +
-                    "erAccount", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[]ระบบได้รับข้อมูล username ถูกต้อง ระบบสามารถดึงข้อมูลบัญชีของผู้เล่นได้ # GetPl" +
+                    "ayerAccount", new string[] {
                         "record_mock",
                         "record_mock"});
 #line 15

@@ -58,8 +58,8 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
                 UserProfile = new UserProfile {
                     UserName = userName,
                     Password = oldPassword,
-                },
-                NewPassword = newPassword,
+                    NewPassword = newPassword
+                }
             };
 
             ChangePasswordExecutor.Execute(cmd, (x) => { });
@@ -73,8 +73,8 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
                     UserProfile = new UserProfile {
                         UserName = userName,
                         Password = oldPassword,
-                    },
-                    NewPassword = newPassword,
+                        NewPassword = newPassword
+                    }
                 };
 
                 ChangePasswordExecutor.Execute(cmd, (x) => { });

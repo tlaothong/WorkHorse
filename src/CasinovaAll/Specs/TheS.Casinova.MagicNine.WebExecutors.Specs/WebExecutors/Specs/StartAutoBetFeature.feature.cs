@@ -105,7 +105,7 @@ testRunner.Then("Get null and skip checking trackingID for start auto bet");
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StartAutoBet")]
         public virtual void StartAutoBetระบบไดรบขอมลการลงเดมพนแบบอตโนมตระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant3()
         {
-            this.StartAutoBetระบบไดรบขอมลการลงเดมพนแบบอตโนมตระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID("Nit", "1", "100", "0");
+            this.StartAutoBetระบบไดรบขอมลการลงเดมพนแบบอตโนมตระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID("Nit", "1", "100", "-1");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
