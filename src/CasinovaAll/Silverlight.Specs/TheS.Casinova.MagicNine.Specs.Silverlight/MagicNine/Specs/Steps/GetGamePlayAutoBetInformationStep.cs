@@ -17,54 +17,38 @@ namespace TheS.Casinova.MagicNine.Specs.Steps
     [Binding]
     public class GetGamePlayAutoBetInformationStep
     {
-        #region Background
-
         [Given(@"Web server have game play auto bet information are")]
         public void GivenWebServerHaveGamePlayAutoBetInformationAre(Table table)
         {
-            var mocks = ScenarioContext.Current.Get<MockRepository>();
+            var autoBetList = from c in table.Rows
+                                         select new GamePlayAutoBetInformation
+                                         {
+                                             UserName = c["UserName"],
+                                             RoundID = int.Parse(c["RoundID"]),
+                                             Amount = int.Parse(c["Amount"]),
+                                             Interval = int.Parse(c["Interval"]),
+                                             StratTrackingID = Guid.Parse(c["StratTrackingID"])
+                                         };
+            ScenarioContext.Current.Set(autoBetList);
+
             var svc = ScenarioContext.Current.Get<IMagicNineServiceAdapter>();
 
-            ScenarioContext.Current.Set<IEnumerable<GamePlayAutoBetInformation>>(table.CreateSet<GamePlayAutoBetInformation>());
-
-            Func<ListGamePlayAutoBetInfoCommand,IObservable<ListGamePlayAutoBetInfoCommand>> func = cmd=>{
+            Func<ListGamePlayAutoBetInfoCommand,IObservable<ListGamePlayAutoBetInfoCommand>> func = cmd =>{
                 return Observable.Return(new ListGamePlayAutoBetInfoCommand
                 {
                     GamePlayAutoBet = new System.Collections.ObjectModel.ObservableCollection<GamePlayAutoBetInformation>
                     (ScenarioContext.Current.Get<IEnumerable<GamePlayAutoBetInformation>>())
                 });
             };
-
-            using (mocks.Record())
-            {
-                SetupResult.For(svc.GetListGamePlayAutoBetInformation(null)).IgnoreArguments().Do(func);
-            }
-
+            SetupResult.For(svc.GetListGamePlayAutoBetInformation(null)).IgnoreArguments().Do(func);
         }
-
-        [Given(@"Client have active game rounds are:")]
-        public void GivenClientHaveActiveGameRoundsAre(Table table)
-        {
-            var viewModel = ScenarioContext.Current.Get<GamePlayViewModel>();
-            foreach (var gt in table.CreateSet<GameRoundInformation>())
-            {
-                viewModel.Tables.Add(new GameTable
-                {
-                    Round = gt.RoundID,
-                    Name = gt.WinnerPoint.ToString()
-                });
-            }
-        }
-
-        #endregion Background
 
         [When(@"Send request GetListGamePlayAutoBet\( '(.*)' \)")]
-        public void WhenSendRequestGetListGamePlayInformationMary(string username)
+        public void WhenSendRequestGetListGamePlayAutoBetMary(string username)
         {
-            var autoBetInformations = from c in ScenarioContext.Current.Get<IEnumerable<GamePlayAutoBetInformation>>().ToArray<GamePlayAutoBetInformation>()
-                                      where c.UserName.Equals(username)
-                                      select c;
-            ScenarioContext.Current.Set<IEnumerable<GamePlayAutoBetInformation>>(autoBetInformations);
+            var autoBetList = ScenarioContext.Current.Get<IEnumerable<GamePlayAutoBetInformation>>()
+                .Where(c => c.UserName.Equals(username));
+            ScenarioContext.Current.Set(autoBetList);
 
             var viewModel = ScenarioContext.Current.Get<GamePlayViewModel>();
             viewModel.GetLisGamePlayAutoBetInformation();
@@ -75,23 +59,28 @@ namespace TheS.Casinova.MagicNine.Specs.Steps
         public void ThenTablesInGamePlayViewModelDisplayGamePlayInformationAre(Table table)
         {
             var expect = (from c in table.Rows
-                         select new GameTable
+                         select new GamePlayUIViewModel
                          {
-                             Round = int.Parse( c["Round"]),
+                             RoundID = int.Parse(c["RoundID"]),
+                             WinnerPoint = int.Parse(c["WinnerPoint"]),
                              Amount = double.Parse(c["Amount"]),
-                             IsPlaying = bool.Parse(c["IsPlaying"])
-                         }).ToArray<GameTable>();
-            var actual = ScenarioContext.Current.Get<GamePlayViewModel>().Tables.ToArray<GameTable>();
+                             Interval = int.Parse(c["Interval"]),
+                             AutoBetTrackingID = Guid.Parse(c["StratTrackingID"])
+                         }).ToArray<GamePlayUIViewModel>();
 
-            const int EmptyTable = 0;
-            Assert.IsTrue(actual.Count() >= EmptyTable, "Table has create");
-            Assert.AreEqual(expect.Count(), actual.Count(), "Element count");
-            for (int elementIndex = 0; elementIndex < expect.Count(); elementIndex++)
+            var actual  = ScenarioContext.Current.Get<GamePlayViewModel>().ActiveGameRoundTables.ToArray<GamePlayUIViewModel>();
+
+            Assert.AreEqual(expect.Count(), actual.Count(), "Count");
+
+            for (int elementIndex = 0; elementIndex < actual.Count(); elementIndex++)
             {
-                Assert.AreEqual(expect[elementIndex].Round, actual[elementIndex].Round, "Round");
-                Assert.AreEqual(expect[elementIndex].Amount, actual[elementIndex].Amount, "Amount: "+elementIndex);
-                Assert.AreEqual(expect[elementIndex].IsPlaying, actual[elementIndex].IsPlaying, "IsPlaying");
+                Assert.AreEqual(expect[elementIndex].RoundID, actual[elementIndex].RoundID, "RoundID");
+                Assert.AreEqual(expect[elementIndex].WinnerPoint, actual[elementIndex].WinnerPoint, "WinnerPoint");
+                Assert.AreEqual(expect[elementIndex].Amount, actual[elementIndex].Amount, "Amount");
+                Assert.AreEqual(expect[elementIndex].Interval, actual[elementIndex].Interval, "Interval");
+                Assert.AreEqual(expect[elementIndex].AutoBetTrackingID, actual[elementIndex].AutoBetTrackingID, "AutoBetTrackingID");
             }
+
         }
     }
 }

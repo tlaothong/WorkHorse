@@ -18,15 +18,21 @@ namespace TheS.Casinova.MagicNine.Specs.Steps
     public class GetListBetLogStep
     {
         #region Background
-        
+
         [Given(@"Web server have list bet log are")]
         public void GivenWebServerHaveListBetLogAre(Table table)
         {
-            var mocks = ScenarioContext.Current.Get<MockRepository>();
+            var betLogs = from c in table.Rows
+                          select new BetInformation
+                          {
+                              RoundID = int.Parse(c["RoundID"]),
+                              UserName = c["UserName"],
+                              BetOrder = int.Parse(c["BetOrder"]),
+                              BetDateTime = DateTime.Parse(c["BetDateTime"])
+                          };
+            ScenarioContext.Current.Set(betLogs);
+
             var svc = ScenarioContext.Current.Get<IMagicNineServiceAdapter>();
-
-            ScenarioContext.Current.Set<IEnumerable<BetInformation>>(table.CreateSet<BetInformation>());
-
             Func<ListBetLogCommand, IObservable<ListBetLogCommand>> func = cmd =>
             {
                 return Observable.Return(new ListBetLogCommand
@@ -36,46 +42,48 @@ namespace TheS.Casinova.MagicNine.Specs.Steps
                 });
             };
 
-            using (mocks.Record())
-            {
-                SetupResult.For(svc.GetListBetLog(null)).IgnoreArguments().Do(func);
-            }
-
+            Expect.Call(svc.GetListBetLog(null)).IgnoreArguments().Do(func);
         }
 
         #endregion Background
 
         [When(@"Send request GetListBetlog\( '(.*)' \) RoundID='(.*)'")]
-        public void WhenSendRequestGetListBetlogSakulRoundID999(string username,int RoundID)
+        public void WhenSendRequestGetListBetlogSakulRoundID999(string username, int RoundID)
         {
-            var query = from c in ScenarioContext.Current.Get<IEnumerable<BetInformation>>().ToArray<BetInformation>()
-                        where c.RoundID.Equals(RoundID) && c.UserName.Equals(username)
-                        select c;
-            ScenarioContext.Current.Set<IEnumerable<BetInformation>>(query);
+            var betLogs = ScenarioContext.Current.Get<IEnumerable<BetInformation>>()
+                .Where(c => c.UserName.Equals(username) && c.RoundID.Equals(RoundID));
+            ScenarioContext.Current.Set(betLogs);
 
             var viewModel = ScenarioContext.Current.Get<GamePlayViewModel>();
+            const int EmptyActiveGameRound = 0;
+            Assert.IsTrue(viewModel.ActiveGameRoundTables.Count > EmptyActiveGameRound, "Get active game rounds");
+
             viewModel.GetListBetLog();
             ScenarioContext.Current.Get<TestScheduler>().Run();
         }
 
-        [Then(@"Dispaly bet log are")]
-        public void ThenDispalyBetLogAre(Table table)
+        [Then(@"Dispaly bet log int game roundID=(.*) are")]
+        public void ThenDispalyBetLogAre(int roundID, Table table)
         {
             var expect = (from c in table.Rows
-                         select new BetLog
-                         {
-                             Round = int.Parse(c["Round"]),
-                             BetOrder = double.Parse(c["BetOrder"]),
-                             BetDateTime = DateTime.Parse(c["BetDateTime"])
-                         }).ToArray<BetLog>();
-            var actual = ScenarioContext.Current.Get<GamePlayViewModel>().BetLogs.ToArray<BetLog>();
+                          select new BetLog
+                          {
+                              BetDateTime = DateTime.Parse(c["BetDateTime"]),
+                              BetOrder = int.Parse(c["BetOrder"])
+                          }).ToArray<BetLog>();
 
-            Assert.AreEqual(expect.Count(), actual.Count(), "Element count");
-            for (int elementIndex = 0; elementIndex < actual.Count(); elementIndex++)
+            var viewModel = ScenarioContext.Current.Get<GamePlayViewModel>()
+                .ActiveGameRoundTables.FirstOrDefault(c => c.RoundID.Equals(roundID));
+
+            if (viewModel != null)
             {
-                Assert.AreEqual(expect[elementIndex].Round, actual[elementIndex].Round, "Round");
-                Assert.AreEqual(expect[elementIndex].BetOrder, actual[elementIndex].BetOrder, "BetOrder");
-                Assert.AreEqual(expect[elementIndex].BetDateTime, actual[elementIndex].BetDateTime, "BetDateTime");
+                var actual = viewModel.BetLogs.ToArray<BetLog>();
+                Assert.AreEqual(expect.Count(), actual.Count(), "Count");
+                for (int elementIndex = 0; elementIndex < actual.Count(); elementIndex++)
+                {
+                    Assert.AreEqual(expect[elementIndex].BetDateTime, actual[elementIndex].BetDateTime, "BetDateTime");
+                    Assert.AreEqual(expect[elementIndex].BetOrder, actual[elementIndex].BetOrder, "BetOrder");
+                }
             }
         }
     }

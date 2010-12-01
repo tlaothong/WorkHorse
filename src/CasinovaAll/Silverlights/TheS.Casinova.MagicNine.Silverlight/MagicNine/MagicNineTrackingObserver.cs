@@ -15,6 +15,7 @@ namespace TheS.Casinova.MagicNine
     public class MagicNineTrackingObserver : TrackingObserverBase
     {
         private Action _action;
+
         public MagicNineTrackingObserver(Action action)
         {
             _action = action;
@@ -23,8 +24,8 @@ namespace TheS.Casinova.MagicNine
         protected override void OnUpdateTrackingInformation(TrackingInformation trackingInfo)
         {
             _action();
-            StatusTracker.ReleaseWatch(this);
-            Dispose();
+            //StatusTracker.ReleaseWatch(this);
+            //Dispose();
         }
     }
 }

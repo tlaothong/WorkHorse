@@ -17,6 +17,7 @@ using TheS.Casinova.MagicNine.Services;
 using System.Concurrency;
 using System.Linq;
 using PerfEx.Infrastructure.LotUpdate;
+using TheS.Casinova.MagicNineSvc;
 
 namespace TheS.Casinova.MagicNine.ViewModels
 {
@@ -29,108 +30,81 @@ namespace TheS.Casinova.MagicNine.ViewModels
         private IScheduler _scheduler;
         private IStatusTracker _statusTracker;
 
-        private double _amount;
-        private int _intervalSelected;
-        private int _roundID;
-        private ObservableCollection<string> _intervals;
-        private ObservableCollection<BetLog> _betLogs;
-        private ObservableCollection<GameTable> _tables;
-        private bool _isAutobetStart;
+        private int _selectedGameRoundID;
+        //TODO: GameResult
+        private ObservableCollection<GamePlayUIViewModel> _activeGameRoundTables;
+        private ObservableCollection<PayLog> _payLogs;
 
         #endregion Fields
 
         #region Properties
 
         /// <summary>
-        /// Game table list
+        /// ความถี่ของเวลาที่ใช้ในการลงเงินอัตโนมัติ
         /// </summary>
-        public ObservableCollection<GameTable> Tables
+        public int AutoBetInterval
         {
-            get { return _tables; }
+            get
+            {
+                return _activeGameRoundTables.First(c =>c.RoundID.Equals(_selectedGameRoundID)).Interval;
+            }
+        }
+
+        /// <summary>
+        /// เกมที่สามารถร่วมเล่นได้
+        /// </summary>
+        public ObservableCollection<GamePlayUIViewModel> ActiveGameRoundTables
+        {
+            get { return _activeGameRoundTables; }
             set
             {
-                if (_tables != value)
+                if (_activeGameRoundTables != value)
                 {
-                    _tables = value;
-                    _notify.Raise(() => Tables);
+                    _activeGameRoundTables = value;
+                    _notify.Raise(() => ActiveGameRoundTables);
                 }
             }
         }
 
         /// <summary>
-        /// ข้อมูลการ Bet ที่ผ่านมา
+        /// ข้อมูลการลงเงินพนันที่ยังไม่สำเร็จ
         /// </summary>
-        public ObservableCollection<BetLog> BetLogs
+        internal ObservableCollection<PayLog> PayLogs
         {
-            get { return _betLogs; }
+            get { return _payLogs; }
             set
             {
-                if (_betLogs != value)
+                if (_payLogs != value)
                 {
-                    _betLogs = value;
-                    _notify.Raise(() => BetLogs);
+                    _payLogs = value;
+                    _notify.Raise(() => PayLogs);
                 }
             }
         }
 
         /// <summary>
-        /// Intervals ที่มีให้เลือก
+        /// จำนวนเงินที่ทำการลงเงินอัตโนมัติ
         /// </summary>
-        public ObservableCollection<string> Intervals
+        internal double AutoBetAmount
         {
-            get { return _intervals; }
-            set
+            get
             {
-                if (_intervals != value)
-                {
-                    _intervals = value;
-                    _notify.Raise(() => Intervals);
-                }
+                return _activeGameRoundTables.First(c => c.RoundID.Equals(_selectedGameRoundID)).Amount;
             }
         }
 
         /// <summary>
-        /// Game round id
+        /// รอบเกมที่กำลังเล่นอยู่
         /// </summary>
-        public int RoundID
+        internal int SelectedGameRoundID
         {
-            get { return _roundID; }
+            get { return _selectedGameRoundID; }
             set
             {
-                if (_roundID != value)
+                if (_selectedGameRoundID != value)
                 {
-                    _roundID = value;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Interval ที่เลือก
-        /// </summary>
-        public int IntervalSelected
-        {
-            get { return _intervalSelected; }
-            set
-            {
-                if (_intervalSelected != value)
-                {
-                    _intervalSelected = value;
-                }
-            }
-        }
-
-        /// <summary>
-        /// จำนวนเงินที่ใช้ Auto bet
-        /// </summary>
-        public double Amount
-        {
-            get { return _amount; }
-            set
-            {
-                if (_amount != value)
-                {
-                    _amount = value;
-                    _notify.Raise(() => Amount);
+                    _selectedGameRoundID = value;
+                    _notify.Raise(() => SelectedGameRoundID);
                 }
             }
         }
@@ -178,74 +152,32 @@ namespace TheS.Casinova.MagicNine.ViewModels
         public GamePlayViewModel()
         {
             _notify = new PropertyChangedNotifier(this, () => PropertyChanged);
-            _betLogs = new ObservableCollection<BetLog>();
-            _intervals = new ObservableCollection<string>();
-            _tables = new ObservableCollection<GameTable>();
-
-            if (DesignerProperties.IsInDesignTool)
-            {
-                // Sample interval time
-                Intervals.Add("1 second");
-                Intervals.Add("2 second");
-                Intervals.Add("5 second");
-                Intervals.Add("10 second");
-                Intervals.Add("30 second");
-
-                Intervals.Add("1 minute");
-                Intervals.Add("2 minute");
-                Intervals.Add("5 minute");
-                Intervals.Add("10 minute");
-                Intervals.Add("30 minute");
-
-                Intervals.Add("1 hours");
-                Intervals.Add("2 hours");
-                Intervals.Add("3 hours");
-                Intervals.Add("5 hours");
-                Intervals.Add("12 hours");
-                Intervals.Add("24 hours");
-
-                // Sample tables
-                Tables.Add(new GameTable
-                {
-                    Name = "9",
-                });
-                Tables.Add(new GameTable
-                {
-                    Name = "99",
-                    Amount = 200,
-                    IsPlaying = true
-                });
-                Tables.Add(new GameTable
-                {
-                    Name = "999",
-                    Amount = 73,
-                    IsPlaying = true
-                });
-                Tables.Add(new GameTable
-                {
-                    Name = "9999",
-                });
-            }
+            _activeGameRoundTables = new ObservableCollection<GamePlayUIViewModel>();
+            _payLogs = new ObservableCollection<PayLog>();
         }
 
         #endregion Constructor
 
         #region Methods
 
+        /// <summary>
+        /// เรียกดูเกมที่สามารถเข้าเล่นได้
+        /// </summary>
         public void GetListActiveGameRoundInformation()
         {
             var svc = _svc;
+
             IDisposable dispostActive = null;
             dispostActive = svc.GetListActiveGameRound().ObserveOn(Scheduler).Subscribe(
                 next =>
                 {
-                    Tables.Clear();
-                    foreach (var table in next.GameRoundInfos)
+                    ActiveGameRoundTables.Clear();
+                    foreach (var active in next.GameRoundInfos)
                     {
-                        Tables.Add(new GameTable
+                        ActiveGameRoundTables.Add(new GamePlayUIViewModel
                         {
-                            Round = table.RoundID,
-                            Name = table.WinnerPoint.ToString(),
+                            RoundID = active.RoundID,
+                            WinnerPoint = active.WinnerPoint,
                         });
                     }
                 },
@@ -257,23 +189,26 @@ namespace TheS.Casinova.MagicNine.ViewModels
                 );
         }
 
+        /// <summary>
+        /// เรียกข้อมูลการลงพนันอัตโนมัติทั้งหมด
+        /// </summary>
         public void GetLisGamePlayAutoBetInformation()
         {
             var svc = _svc;
+
             IDisposable disposeAutoBet = null;
             disposeAutoBet = svc.GetListGamePlayAutoBetInformation(new MagicNineSvc.ListGamePlayAutoBetInfoCommand())
                 .ObserveOn(Scheduler).Subscribe(
                 next =>
                 {
-                    foreach (var table in next.GamePlayAutoBet)
+                    foreach (var autoBet in next.GamePlayAutoBet)
                     {
-                        if (Tables.Any(c => c.Round.Equals(table.RoundID)))
+                        if (_activeGameRoundTables.Any(c => c.RoundID.Equals(autoBet.RoundID)))
                         {
-                            var query = Tables.First(c => c.Round.Equals(table.RoundID));
-                            query.Amount = table.Amount;
-
-                            const double MaximumPlaying = 1;
-                            if (table.Amount >= MaximumPlaying) query.IsPlaying = true;
+                            var activeRound = _activeGameRoundTables.First(c => c.RoundID.Equals(autoBet.RoundID));
+                            activeRound.Amount = autoBet.Amount;
+                            activeRound.Interval = autoBet.Interval;
+                            activeRound.AutoBetTrackingID = autoBet.StratTrackingID;
                         }
                     }
                 },
@@ -285,23 +220,31 @@ namespace TheS.Casinova.MagicNine.ViewModels
                 );
         }
 
+        /// <summary>
+        /// เรียกข้อมูลการลงพนันที่ผ่านมาของทุกเกม
+        /// </summary>
         public void GetListBetLog()
         {
             var svc = _svc;
+
             IDisposable disposeGetBetLog = null;
-            disposeGetBetLog = svc.GetListBetLog(new MagicNineSvc.ListBetLogCommand { RoundID = RoundID })
+            disposeGetBetLog = svc.GetListBetLog(new MagicNineSvc.ListBetLogCommand { RoundID = _selectedGameRoundID })
                 .ObserveOn(Scheduler).Subscribe(
                 next =>
                 {
-                    BetLogs.Clear();
-                    foreach (var table in next.BetInformations)
+                    foreach (var activeRound in _activeGameRoundTables) activeRound.BetLogs.Clear();
+
+                    foreach (var betInfo in next.BetInformations)
                     {
-                        BetLogs.Add(new BetLog
-                         {
-                             Round = table.RoundID,
-                             BetOrder = table.BetOrder,
-                             BetDateTime = table.BetDateTime
-                         });
+                        var activeRound = _activeGameRoundTables.FirstOrDefault(c => c.RoundID.Equals(betInfo.RoundID));
+                        if (activeRound != null)
+                        {
+                            activeRound.BetLogs.Add(new BetLog
+                            {
+                                BetOrder = betInfo.BetOrder,
+                                BetDateTime = betInfo.BetDateTime
+                            });
+                        }
                     }
                 },
                 error =>
@@ -313,18 +256,38 @@ namespace TheS.Casinova.MagicNine.ViewModels
         }
 
         /// <summary>
-        /// ลงเงินพนัน
+        /// ทำการลงเงินพนัน
         /// </summary>
         public void Bet()
         {
+            // TODO: Sub account balance
+
             var svc = _svc;
+
+            // Save to PayLogs
+            const int BetCost = 1;
+            var payLog = new PayLog
+            {
+                Amount = BetCost,
+                RoundID = _selectedGameRoundID,
+            };
+
+            PayLogs.Add(payLog);
+
+            // Initialize observer follow tracking ID
+            var observer = new MagicNineTrackingObserver(() =>
+            {
+                PayLogs.Remove(payLog);
+                GetListBetLog();
+            });
+            observer.Initialize(StatusTracker);
+
             IDisposable disposeBet = null;
-            disposeBet = svc.BetSingle(new MagicNineSvc.SingleBetCommand { RoundID = RoundID })
+            disposeBet = svc.BetSingle(new MagicNineSvc.SingleBetCommand { RoundID = _selectedGameRoundID })
                 .ObserveOn(Scheduler).Subscribe(
                 next =>
                 {
-                    // TODO: Magic9 Bet
-                    // Get trackingID and sent to observer follow this trackingID
+                    observer.SetTrackingID(next.TrackingID);
                 },
                 error =>
                 {
@@ -334,54 +297,98 @@ namespace TheS.Casinova.MagicNine.ViewModels
                 );
         }
 
-        /// <summary>
-        /// ปิด/เปิด การเล่นอัตโนมัติ
-        /// </summary>
-        public void StartStop()
+        public void AutoBetStart()
         {
-            _isAutobetStart = !_isAutobetStart;
+            // TODO: Sub account balance
+
             var svc = _svc;
+
             IDisposable disposeStartAndStop = null;
 
-            if (_isAutobetStart)
+            // Payload add
+            var paylog = new PayLog
             {
-                // Start
-                disposeStartAndStop = svc.AutoBetOn(new MagicNineSvc.StartAutoBetCommand
+                RoundID = _selectedGameRoundID,
+                Amount = AutoBetAmount,
+            };
+            PayLogs.Add(paylog);
+
+            // Initialize observer follow trackingID
+            var observer = new MagicNineTrackingObserver(() =>
+            {
+                paylog.Amount--;
+
+                const int AutoBetFinish = 0;
+                if (paylog.Amount <= AutoBetFinish)
                 {
-                    Amount = _amount,
-                    Interval = _intervalSelected,
-                    RoundID = _roundID
-                }).ObserveOn(Scheduler).Subscribe(
-                next =>
+                    PayLogs.Remove(paylog);
+                }
+                GetListBetLog();
+            });
+            observer.Initialize(StatusTracker);
+
+            disposeStartAndStop = svc.AutoBetOn(new StartAutoBetCommand
+            {
+                Amount = AutoBetAmount,
+                Interval =  AutoBetInterval,
+                RoundID = _selectedGameRoundID
+            }).ObserveOn(Scheduler).Subscribe(
+            next =>
+            {
+                observer.SetTrackingID(next.StartTrackingID);
+            },
+            error =>
+            {
+                // TODO: Magic9 Autobet start error
+            },
+            () => disposeStartAndStop.Dispose()
+            );
+        }
+
+        /// <summary>
+        /// ปิดการลงพนันอัตโนมัติ
+        /// </summary>
+        public void AutoBetStop()
+        {
+            // TODO: Sub account balance
+
+            var svc = _svc;
+
+            // paylog save
+            var paylog = new PayLog
+            {
+                RoundID = _selectedGameRoundID,
+            };
+            PayLogs.Add(paylog);
+
+            // initialize observer follow trackingID
+            var observer = new MagicNineTrackingObserver(() =>
+            {
+                PayLogs.Remove(paylog);
+
+                // Turn off auto bet
+                const int AutoBetOff = 0;
+                var activeRound = ActiveGameRoundTables.FirstOrDefault(c => c.RoundID.Equals(paylog.RoundID));
+                if (activeRound != null) activeRound.Amount = AutoBetOff;
+
+                GetListBetLog();
+            });
+            observer.Initialize(StatusTracker);
+
+            IDisposable disposeStartAndStop = null;
+            disposeStartAndStop = svc.AutoBetOff(new MagicNineSvc.StopAutoBetCommand { RoundID = _selectedGameRoundID })
+                .ObserveOn(Scheduler).Subscribe(
+                onNext =>
                 {
-                    // TODO: Magic9 Autobet start 
-                    // Get trackingID and sent to observer follow this trackingID
+                    observer.SetTrackingID(onNext.StopTrackingID);
+                    paylog.TrackingID = onNext.StopTrackingID;
                 },
                 error =>
                 {
-                    // TODO: Magic9 Autobet start error
+                    // TODO: Magic9 Stop error
                 },
                 () => disposeStartAndStop.Dispose()
                 );
-            }
-            else
-            {
-                // Stop
-                disposeStartAndStop = svc.AutoBetOff(new MagicNineSvc.StopAutoBetCommand { RoundID = RoundID })
-                    .ObserveOn(Scheduler).Subscribe(
-                    onNext =>
-                    {
-                        // TODO: Magic9 Stop
-                        // Get trackingID and sent to observer follow this trackingID
-                    },
-                    error =>
-                    {
-                        // TODO: Magic9 Stop error
-                    },
-                    () => disposeStartAndStop.Dispose()
-                    );
-            }
-
         }
 
         #endregion Methods

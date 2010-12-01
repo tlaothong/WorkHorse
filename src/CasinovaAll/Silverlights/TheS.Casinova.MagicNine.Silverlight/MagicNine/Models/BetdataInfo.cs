@@ -11,7 +11,8 @@ using System.Windows.Shapes;
 
 namespace TheS.Casinova.MagicNine.Models
 {
-    public class BetdataInfo : WinnerInfo
+    // TODO: inherid WinnerInfo
+    public class BetdataInfo
     {
         public double Pot { get; set; }
     }

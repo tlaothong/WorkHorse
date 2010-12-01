@@ -104,6 +104,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MagicNine\SpecEventDefinitions.cs" />
+    <Compile Include="MagicNine\Specs\AutoBetStart.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutoBetStart.feature</DependentUpon>
+    </Compile>
+    <Compile Include="MagicNine\Specs\AutoBetStop.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutoBetStop.feature</DependentUpon>
+    </Compile>
+    <Compile Include="MagicNine\Specs\Bet.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Bet.feature</DependentUpon>
+    </Compile>
     <Compile Include="MagicNine\Specs\GetActiveGameRound.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -122,6 +137,9 @@
     <Compile Include="MagicNine\Specs\Silverlight\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MagicNine\Specs\Steps\AutoBetStartStep.cs" />
+    <Compile Include="MagicNine\Specs\Steps\AutoBetStopStep.cs" />
+    <Compile Include="MagicNine\Specs\Steps\BetStep.cs" />
     <Compile Include="MagicNine\Specs\Steps\CommonSteps.cs" />
     <Compile Include="MagicNine\Specs\Steps\GetActiveGameRoundStep.cs" />
     <Compile Include="MagicNine\Specs\Steps\GetGamePlayAutoBetInformationStep.cs" />
@@ -136,6 +154,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="MagicNine\Specs\AutoBetStart.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>AutoBetStart.feature.cs</LastGenOutput>
+    </None>
+    <None Include="MagicNine\Specs\AutoBetStop.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>AutoBetStop.feature.cs</LastGenOutput>
+    </None>
+    <None Include="MagicNine\Specs\Bet.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Bet.feature.cs</LastGenOutput>
+    </None>
     <None Include="MagicNine\Specs\GetActiveGameRound.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>GetActiveGameRound.feature.cs</LastGenOutput>

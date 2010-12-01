@@ -104,8 +104,7 @@
     <Compile Include="MagicNine\MagicNineTrackingObserver.cs" />
     <Compile Include="MagicNine\Models\BetdataInfo.cs" />
     <Compile Include="MagicNine\Models\BetLog.cs" />
-    <Compile Include="MagicNine\Models\GameTable.cs" />
-    <Compile Include="MagicNine\Models\WinnerInfo.cs" />
+    <Compile Include="MagicNine\Models\PayLog.cs" />
     <Compile Include="MagicNine\Popups\BetData.xaml.cs">
       <DependentUpon>BetData.xaml</DependentUpon>
     </Compile>
@@ -117,6 +116,7 @@
     <Compile Include="MagicNine\Silverlight\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MagicNine\ViewModels\GamePlayUIViewModel.cs" />
     <Compile Include="MagicNine\ViewModels\StatisticsChartViewModel.cs" />
     <Compile Include="MagicNine\ViewModels\GamePlayViewModel.cs" />
     <Compile Include="MagicNine\ViewModels\GameStatisticsViewModel.cs" />

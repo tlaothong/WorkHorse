@@ -19,7 +19,7 @@ namespace TheS.Casinova.MagicNine.ViewModels
         #region Fields
         
         private PerfEx.Infrastructure.PropertyChangedNotifier _notify;
-        private ObservableCollection<WinnerInfo> _informations;
+        //private ObservableCollection<WinnerInfo> _informations;
         private ObservableCollection<string> _games;
         private DateTime _firstData;
         private DateTime _secondData;
@@ -52,15 +52,15 @@ namespace TheS.Casinova.MagicNine.ViewModels
             }
         }
 
-        public ObservableCollection<WinnerInfo> Informations
-        {
-            get { return _informations; }
-            set
-            {
-                _informations = value;
-                _notify.Raise(() => Informations);
-            }
-        }
+        //public ObservableCollection<WinnerInfo> Informations
+        //{
+        //    get { return _informations; }
+        //    set
+        //    {
+        //        _informations = value;
+        //        _notify.Raise(() => Informations);
+        //    }
+        //}
 
         public ObservableCollection<string> Games
         {
@@ -79,15 +79,15 @@ namespace TheS.Casinova.MagicNine.ViewModels
         public GameStatisticsViewModel()
         {
             _notify = new PerfEx.Infrastructure.PropertyChangedNotifier(this, () => PropertyChanged);
-            _informations = new ObservableCollection<WinnerInfo>();
+            //_informations = new ObservableCollection<WinnerInfo>();
             _games = new ObservableCollection<string>();
 
             if (DesignerProperties.IsInDesignTool) {
-                Informations.Add(new WinnerInfo {
-                    Round = 1,
-                    Time = new DateTime(2010, 11, 3, 11, 23, 52),
-                    Winner = "Sakul"
-                });
+                //Informations.Add(new WinnerInfo {
+                //    Round = 1,
+                //    Time = new DateTime(2010, 11, 3, 11, 23, 52),
+                //    Winner = "Sakul"
+                //});
 
                 Games.Add("9");
                 Games.Add("99");
