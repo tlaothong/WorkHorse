@@ -25,8 +25,7 @@
     <div style="float: left;">
         | <a href="#" id="Popup">Post New Video</a>
     </div>
-    <div id="OptionClick" style="float: left;">
-        |
-        <%=Html.ActionLink("Option",MVC.KnowledgeCenter.KnowledgeCenter.Option()) %>
+    <div style="float: left;">
+        | <a href="#" id="Option_Click">Option</a>
     </div>
 </div>
