@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<dynamic>" %>
-<table>
+<table style="width: 160px;">
     <tbody>
         <tr>
             <td>
@@ -9,23 +9,24 @@
                 <br />
                 <br />
                 <a href=''>
-                    <img id="images1" src="/Content/images/banner2.jpg" style="border-width: 0px;" />
+                    <img id="images1" src="/Content/images/banner2.jpg" />
                 </a>
                 <table>
                     <tr>
                         <td>
-                SUPER เหมา โหลดเพลง RS ยกค่าย<br />
-                ไม่อั้น แค่เดือนละ 20 บาท โหลด<br />
-                ได้ทั้งเพลงรอสาย ริงโทน Fullsong<br />
-                MV ใช้ได้ทุกระบบสมัครเลยกด
-                <br />
-                *339<br />
-                <br /><label>
-                    --------------------------------------
-                </label></td>
+                            SUPER เหมา โหลดเพลง RS ยกค่าย<br />
+                            ไม่อั้น แค่เดือนละ 20 บาท โหลด<br />
+                            ได้ทั้งเพลงรอสาย ริงโทน Fullsong<br />
+                            MV ใช้ได้ทุกระบบสมัครเลยกด
+                            <br />
+                            *339<br />
+                            <br />
+                            <label>
+                                -------------------------------------
+                            </label>
+                        </td>
                     </tr>
                 </table>
-                
             </td>
         </tr>
         <tr>
@@ -34,7 +35,7 @@
                 <br />
                 <br />
                 <a href=''>
-                    <img id="images2" src="/Content/images/banner1.jpg" style="border-width: 0px;" />
+                    <img id="images2" src="/Content/images/banner1.jpg"  />
                 </a>
                 <table>
                     <tr>
@@ -46,7 +47,7 @@
                             ดาวน์โหลดได้เลย
                             <br />
                             <label>
-                                --------------------------------------
+                                -------------------------------------
                             </label>
                         </td>
                     </tr>
