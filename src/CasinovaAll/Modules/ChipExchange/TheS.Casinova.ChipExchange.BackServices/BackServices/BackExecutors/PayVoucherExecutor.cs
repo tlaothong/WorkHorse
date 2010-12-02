@@ -61,7 +61,14 @@ namespace TheS.Casinova.ChipExchange.BackServices.BackExecutors
             }
 
             //Update user profile(balance)
-            _iUpdateUserProfile.ApplyAction(getUserProfileCmd.UserProfile, command);
+            UpdateUserProfileCommand updateUserProfileCmd = new UpdateUserProfileCommand {
+                UserProfile = new UserProfile {
+                    UserName = getUserProfileCmd.UserProfile.UserName,
+                    NonRefundable = getUserProfileCmd.UserProfile.NonRefundable,
+                    Refundable = getUserProfileCmd.UserProfile.Refundable,
+                },
+            };
+            _iUpdateUserProfile.ApplyAction(getUserProfileCmd.UserProfile, updateUserProfileCmd);
 
             //Call GenerateVoucherCode service for generate voucher code
             command.VoucherInformation.VoucherCode = _iGenVoucherCode.GenerateVoucherCode();

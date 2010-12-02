@@ -125,6 +125,24 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
             ScenarioContext.Current[Key_PayVoucher] = new PayVoucherExecutor(container, svc, dac, dqr);
         }
 
+        [Given(@"The ChipsToMoneyExecutor has been created and initialized")]
+        public void GivenTheChipsToMoneyExecutorHasBeenCreatedAndInitialized()
+        {
+            var dac = Mocks.DynamicMock<IChipExchangeDataAccess>();
+            var dqr = Mocks.DynamicMock<IChipExchangeDataBackQuery>();
+            var container = Mocks.DynamicMock<IDependencyContainer>();
+
+            ScenarioContext.Current.Set<IGetUserProfile>(dqr);
+            ScenarioContext.Current.Set<IUpdateUserProfile>(dac);
+            ScenarioContext.Current.Set<ICreateChequeInformation>(dac);
+
+            ScenarioContext.Current.Set<IChipExchangeDataBackQuery>(dqr);
+
+            setupValidators(out container);
+            ScenarioContext.Current.Set<ChipsToMoneyExecutor>(
+                new ChipsToMoneyExecutor(container, dac, dqr));
+        }
+
         private static void setupValidators(out IDependencyContainer container)
         {
             var fac = new StructureMapAbstractFactory();

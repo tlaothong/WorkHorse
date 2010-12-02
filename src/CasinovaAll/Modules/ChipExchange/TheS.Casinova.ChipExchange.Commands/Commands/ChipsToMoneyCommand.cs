@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TheS.Casinova.ChipExchange.Models;
 
 namespace TheS.Casinova.ChipExchange.Commands
 {
@@ -25,5 +26,12 @@ namespace TheS.Casinova.ChipExchange.Commands
         /// จำนวนเงิน
         /// </summary>
         public int Amount { get; set; }
+
+        //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+        /// <summary>
+        /// ข้อมูลการแลกชิฟเป็นเงิน
+        /// </summary>
+        public ChequeInformation ChequeInfo { get; set; }
+        //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
     }
 }

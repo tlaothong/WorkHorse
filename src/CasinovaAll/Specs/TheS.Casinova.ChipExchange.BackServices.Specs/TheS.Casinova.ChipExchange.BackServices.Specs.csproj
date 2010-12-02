@@ -65,6 +65,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BackServices\SpecEventDefinitions.cs" />
+    <Compile Include="BackServices\Specs\ChipsToMoney.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChipsToMoney.feature</DependentUpon>
+    </Compile>
     <Compile Include="BackServices\Specs\MoneyToBonusChips.feature.cs">
       <DependentUpon>MoneyToBonusChips.feature</DependentUpon>
       <SubType>Code</SubType>
@@ -85,6 +90,7 @@
     <Compile Include="BackServices\Specs\Steps\ChipExchangeStepsBase.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BackServices\Specs\Steps\ChipsToMoneySteps.cs" />
     <Compile Include="BackServices\Specs\Steps\CommonSteps.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -141,6 +147,10 @@
   <ItemGroup>
     <None Include="BackServices\App.config">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="BackServices\Specs\ChipsToMoney.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ChipsToMoney.feature.cs</LastGenOutput>
     </None>
     <None Include="BackServices\Specs\MoneyToBonusChips.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

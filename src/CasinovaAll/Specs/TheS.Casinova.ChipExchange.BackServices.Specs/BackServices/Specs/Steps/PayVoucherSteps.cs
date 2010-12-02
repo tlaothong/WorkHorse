@@ -50,7 +50,7 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
                 Assert.AreEqual(bonusChips, userProfile.NonRefundable, "Bonus Chips");
             };
 
-            Dac_UpdateUserProfile.ApplyAction(new UserProfile(), new PayVoucherCommand());
+            Dac_UpdateUserProfile.ApplyAction(new UserProfile(), new UpdateUserProfileCommand());
             LastCall.IgnoreArguments().Do(checkData);
         }
 
