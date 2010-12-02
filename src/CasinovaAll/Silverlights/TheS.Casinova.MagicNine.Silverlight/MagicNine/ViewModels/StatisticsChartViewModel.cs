@@ -18,7 +18,7 @@ namespace TheS.Casinova.MagicNine.ViewModels
     public class StatisticsChartViewModel : INotifyPropertyChanged
     {
         #region Fields
-        
+
         private PerfEx.Infrastructure.PropertyChangedNotifier _notify;
         private ObservableCollection<BetdataInfo> _informations;
         private ObservableCollection<KeyValuePair<DateTime, double>> _lineInformations;
@@ -117,10 +117,25 @@ namespace TheS.Casinova.MagicNine.ViewModels
             _lineInformations = new ObservableCollection<KeyValuePair<DateTime, double>>();
             _barInformations = new ObservableCollection<KeyValuePair<DateTime, double>>();
 
-            if (DesignerProperties.IsInDesignTool) {
+            #region Designer view
 
+            if (DesignerProperties.IsInDesignTool)
+            {
+
+                // bet data
+                for (int count = 1; count < 40; count++)
+                {
+                    Informations.Add(new BetdataInfo
+                    {
+                        Round = 1,
+                        Time = new DateTime(2010, 11, 3, 11, 23, 52),
+                        Winner = "Tester",
+                        Pot = count
+                    });
+                }
+
+                // chart
                 ChartName = "Magic9 (1-956)";
-
                 Random random = new Random();
                 DateTime time = DateTime.Now;
                 double pot = 0;
@@ -139,8 +154,10 @@ namespace TheS.Casinova.MagicNine.ViewModels
                 }
                 Interval = (int)(Maximum / 5);
 
-               
+
             }
+
+            #endregion Designer view
         }
 
         #endregion Constructors

@@ -105,6 +105,7 @@
     <Compile Include="MagicNine\Models\BetdataInfo.cs" />
     <Compile Include="MagicNine\Models\BetLog.cs" />
     <Compile Include="MagicNine\Models\PayLog.cs" />
+    <Compile Include="MagicNine\Models\WinnerInfo.cs" />
     <Compile Include="MagicNine\Services\IMagicNineServiceAdapter.cs" />
     <Compile Include="MagicNine\Services\MagicNineServiceAdapter.cs" />
     <Compile Include="MagicNine\Silverlight\App.xaml.cs">

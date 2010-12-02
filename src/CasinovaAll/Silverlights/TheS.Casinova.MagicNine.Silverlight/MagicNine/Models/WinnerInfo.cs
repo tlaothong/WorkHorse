@@ -11,8 +11,10 @@ using System.Windows.Shapes;
 
 namespace TheS.Casinova.MagicNine.Models
 {
-    public class BetdataInfo : WinnerInfo
+    public class WinnerInfo
     {
-        public double Pot { get; set; }
+        public DateTime Time { get; set; }
+        public int Round { get; set; }
+        public string Winner { get; set; }
     }
 }
