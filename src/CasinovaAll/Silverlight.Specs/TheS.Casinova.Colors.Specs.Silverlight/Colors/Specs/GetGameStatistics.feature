@@ -18,29 +18,29 @@ Background:
 @record_mock
 Scenario: Request game result to web server, server have roundID match (roundID = 1)
 	When Request GetGameResult( roundID = '1' )
-	Then Game has display game result Winner='Black', BlackPot='1523', WhitePot='4526', Hands='452'
+	Then Game has display game result Winner='Black', BlackPot='1523', WhitePot='4526', Hands='452', roundID = 1
 
 @record_mock
 Scenario: Request game result to web server, server have roundID match (roundID = 2)
 	When Request GetGameResult( roundID = '2' )
-	Then Game has display game result Winner='Black', BlackPot='445', WhitePot='12399', Hands='1155'
+	Then Game has display game result Winner='Black', BlackPot='445', WhitePot='12399', Hands='1155', roundID = 2
 
 @record_mock
 Scenario: Request game result to web server, server have roundID match (roundID = 3)
 	When Request GetGameResult( roundID = '3' )
-	Then Game has display game result Winner='White', BlackPot='75663', WhitePot='45266', Hands='5632'
+	Then Game has display game result Winner='White', BlackPot='75663', WhitePot='45266', Hands='5632', roundID = 3
 
 @record_mock
 Scenario: Black pot and White pot are equal, White win
 	When Request GetGameResult( roundID = '4' )
-	Then Game has display game result Winner='White', BlackPot='500', WhitePot='500', Hands='100'
+	Then Game has display game result Winner='White', BlackPot='500', WhitePot='500', Hands='100', roundID = 4
 
 @record_mock
-Scenario: Request game result to web server, server don't have roundID match (roundID = 99)
+Scenario: Request game result to web server, server don't have roundID match (roundID = 99), roundID = 99
 	When Request GetGameResult( roundID = '99' )
 	Then Game result is null
 
 @record_mock
-Scenario: Request game result to web server, server don't have roundID match (roundID = -1)
+Scenario: Request game result to web server, server don't have roundID match (roundID = -1), roundID = -1
 	When Request GetGameResult( roundID = '-1' )
 	Then Game result is null

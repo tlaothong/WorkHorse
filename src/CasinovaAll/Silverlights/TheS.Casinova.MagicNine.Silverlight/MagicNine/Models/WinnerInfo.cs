@@ -13,8 +13,8 @@ namespace TheS.Casinova.MagicNine.Models
 {
     public class WinnerInfo
     {
-        public int Round { get; set; }
         public DateTime Time { get; set; }
+        public int Round { get; set; }
         public string Winner { get; set; }
     }
 }

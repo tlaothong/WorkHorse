@@ -107,7 +107,7 @@ this.ScenarioSetup(scenarioInfo);
 testRunner.When("Request GetGameResult( roundID = \'1\' )");
 #line 21
 testRunner.Then("Game has display game result Winner=\'Black\', BlackPot=\'1523\', WhitePot=\'4526\', Ha" +
-                    "nds=\'452\'");
+                    "nds=\'452\', roundID = 1");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -126,7 +126,7 @@ this.ScenarioSetup(scenarioInfo);
 testRunner.When("Request GetGameResult( roundID = \'2\' )");
 #line 26
 testRunner.Then("Game has display game result Winner=\'Black\', BlackPot=\'445\', WhitePot=\'12399\', Ha" +
-                    "nds=\'1155\'");
+                    "nds=\'1155\', roundID = 2");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -145,7 +145,7 @@ this.ScenarioSetup(scenarioInfo);
 testRunner.When("Request GetGameResult( roundID = \'3\' )");
 #line 31
 testRunner.Then("Game has display game result Winner=\'White\', BlackPot=\'75663\', WhitePot=\'45266\', " +
-                    "Hands=\'5632\'");
+                    "Hands=\'5632\', roundID = 3");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -164,20 +164,20 @@ this.ScenarioSetup(scenarioInfo);
 testRunner.When("Request GetGameResult( roundID = \'4\' )");
 #line 36
 testRunner.Then("Game has display game result Winner=\'White\', BlackPot=\'500\', WhitePot=\'500\', Hand" +
-                    "s=\'100\'");
+                    "s=\'100\', roundID = 4");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Request game result to web server, server don\'t have roundID match (roundID = 99)" +
-            "")]
+            ", roundID = 99")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Get game statistics")]
         [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
-        public virtual void RequestGameResultToWebServerServerDonTHaveRoundIDMatchRoundID99()
+        public virtual void RequestGameResultToWebServerServerDonTHaveRoundIDMatchRoundID99RoundID99()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Request game result to web server, server don\'t have roundID match (roundID = 99)" +
-                    "", new string[] {
+                    ", roundID = 99", new string[] {
                         "record_mock"});
 #line 39
 this.ScenarioSetup(scenarioInfo);
@@ -191,13 +191,13 @@ testRunner.Then("Game result is null");
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Request game result to web server, server don\'t have roundID match (roundID = -1)" +
-            "")]
+            ", roundID = -1")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Get game statistics")]
         [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
-        public virtual void RequestGameResultToWebServerServerDonTHaveRoundIDMatchRoundID_1()
+        public virtual void RequestGameResultToWebServerServerDonTHaveRoundIDMatchRoundID_1RoundID_1()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Request game result to web server, server don\'t have roundID match (roundID = -1)" +
-                    "", new string[] {
+                    ", roundID = -1", new string[] {
                         "record_mock"});
 #line 44
 this.ScenarioSetup(scenarioInfo);

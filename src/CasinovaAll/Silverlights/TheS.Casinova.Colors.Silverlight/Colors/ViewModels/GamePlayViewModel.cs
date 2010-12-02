@@ -36,7 +36,7 @@ namespace TheS.Casinova.Colors.ViewModels
         private IColorsServiceAdapter _svc;
         private IStatusTracker _statusTracker;
         private PropertyChangedNotifier _notify;
-        private GameStatisticsViewModel _gameResult;
+        private GameResultViewModel _gameResult;
         private ObservableCollection<GamePlayUIViewModel> _activeGameRoundTables;
         private ObservableCollection<PayLog> _payLogs;
 
@@ -93,7 +93,7 @@ namespace TheS.Casinova.Colors.ViewModels
         /// <summary>
         /// ผลสรุปสีที่ชนะในรอบเกมนี้
         /// </summary>
-        internal GameStatisticsViewModel GameResult
+        internal GameResultViewModel GameResult
         {
             get { return _gameResult; }
             set
@@ -299,20 +299,19 @@ namespace TheS.Casinova.Colors.ViewModels
                         // Set up game result
                         string winner = "Black";
                         if (result.WhitePot <= result.BlackPot) winner = "White";
-                        _gameResult = new GameStatisticsViewModel
+                        GameResult = new GameResultViewModel
                         {
-                            Winner = winner,
-                            Hands = result.HandCount,
-                            BlackPot = result.BlackPot,
-                            WhitePot = result.WhitePot,
+                            Result = new GameResult
+                            {
+                                Winner = winner,
+                                Hands = result.HandCount,
+                                BlackPot = result.BlackPot.ToString(),
+                                WhitePot = result.WhitePot.ToString(),
+                                RoundID = result.RoundID,
+                            }
                         };
 
-                        // Create and initialize statistics windows
-                        var cw = new StatisticsWindow();
-                        cw.GameStatisticsUI.DataContext = _gameResult;
-
-                        // Display statistics windows
-                        cw.Show();
+                        // TODO: Display game result
                     }
                 },
                 error =>

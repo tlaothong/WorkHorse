@@ -17,15 +17,18 @@ namespace TheS.Casinova.MagicNine.Specs.Steps
     [Binding]
     public class GetActiveGameRoundStep
     {
-        #region Background
-
         [Given(@"Back service have active game rounds are:")]
         public void GivenBackServiceHaveActiveGameRoundsAre(Table table)
         {
-            var mocks = ScenarioContext.Current.Get<MockRepository>();
-            var svc = ScenarioContext.Current.Get<IMagicNineServiceAdapter>();
-            ScenarioContext.Current.Set<IEnumerable<GameRoundInformation>>(table.CreateSet<GameRoundInformation>());
+            var activeGameRound = from c in table.Rows
+                                  select new GameRoundInformation
+                                  {
+                                      RoundID = int.Parse(c["RoundID"]),
+                                      WinnerPoint = int.Parse(c["WinnerPoint"])
+                                  };
+            ScenarioContext.Current.Set(activeGameRound);
 
+            var svc = ScenarioContext.Current.Get<IMagicNineServiceAdapter>();
             Func<IObservable<ListActiveGameRoundInfoCommand>> fun = () =>
             {
                 return Observable.Return(new ListActiveGameRoundInfoCommand
@@ -35,13 +38,8 @@ namespace TheS.Casinova.MagicNine.Specs.Steps
                 });
             };
 
-            using (mocks.Record())
-            {
-                SetupResult.For(svc.GetListActiveGameRound()).Do(fun);
-            }
+            SetupResult.For(svc.GetListActiveGameRound()).Do(fun);
         }
-
-        #endregion Background
         
         [When(@"Send request GetListActiveGameRounds\(\) to web server")]
         public void WhenSendRequestGetListActiveGameRoundsToWebServer()
@@ -54,13 +52,20 @@ namespace TheS.Casinova.MagicNine.Specs.Steps
         [Then(@"Tables in GamePlayViewModel has create from ListActivegameRounds")]
         public void ThenTablesInGamePlayViewModelHasCreateFromListActivegameRounds(Table table)
         {
-            var actual = ScenarioContext.Current.Get<GamePlayViewModel>().Tables;
-            var expect = table.CreateSet<GameTable>().ToArray<GameTable>();
+            var actual = ScenarioContext.Current.Get<GamePlayViewModel>().ActiveGameRoundTables;
+            var expect = (from c in table.Rows
+                          select new GamePlayUIViewModel
+                          {
+                              RoundID = int.Parse(c["RoundID"]),
+                              WinnerPoint = int.Parse(c["WinnerPoint"])
+                          }).ToArray<GamePlayUIViewModel>();
+
+            Assert.AreEqual(expect.Count(), actual.Count, "Count");
 
             for (int elementIndex = 0; elementIndex < actual.Count; elementIndex++)
             {
-                Assert.AreEqual(expect[elementIndex].Round, actual[elementIndex].Round, "Roud");
-                Assert.AreEqual(expect[elementIndex].Name, actual[elementIndex].Name, "Name");
+                Assert.AreEqual(expect[elementIndex].RoundID, actual[elementIndex].RoundID, "RoundID");
+                Assert.AreEqual(expect[elementIndex].WinnerPoint, actual[elementIndex].WinnerPoint, "WinnerPoint");
             }
         }
     }

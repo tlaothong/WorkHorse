@@ -18,24 +18,24 @@ namespace TheS.Casinova.MagicNine.Specs.Steps
         [Given(@"Create and initialize GamePlayViewModel and MagicNine game service")]
         public void GivenCreateAndInitializeGamePlayViewModelAndColorsGameService()
         {
-            MockRepository mocks = new MockRepository();
-            IMagicNineServiceAdapter svc = mocks.Stub<IMagicNineServiceAdapter>();
-            IStatusTracker statusTracker = mocks.Stub<IStatusTracker>();
-            Subject<TrackingInformation> subject = new Subject<TrackingInformation>();
-            TestScheduler scheduler = new TestScheduler();
-            GamePlayViewModel viewModel = new GamePlayViewModel
+            var mocks = ScenarioContext.Current.Get<MockRepository>();
+            var svc = mocks.Stub<IMagicNineServiceAdapter>();
+            var statusTracker = mocks.Stub<IStatusTracker>();
+            var scheduler = new TestScheduler();
+            var viewModel = new GamePlayViewModel
             {
                 Scheduler = scheduler,
                 GameService = svc,
                 StatusTracker = statusTracker
             };
+            var subject = new Subject<TrackingInformation>();
 
-            ScenarioContext.Current.Set<GamePlayViewModel>(viewModel);
-            ScenarioContext.Current.Set<TestScheduler>(scheduler);
-            ScenarioContext.Current.Set<MockRepository>(mocks);
-            ScenarioContext.Current.Set<IMagicNineServiceAdapter>(svc);
-            ScenarioContext.Current.Set<IStatusTracker>(statusTracker);
-            ScenarioContext.Current.Set<Subject<TrackingInformation>>(subject);
+            ScenarioContext.Current.Set(viewModel);
+            ScenarioContext.Current.Set(scheduler);
+            ScenarioContext.Current.Set(mocks);
+            ScenarioContext.Current.Set(svc);
+            ScenarioContext.Current.Set(statusTracker);
+            ScenarioContext.Current.Set(subject);
         }
     }
 }

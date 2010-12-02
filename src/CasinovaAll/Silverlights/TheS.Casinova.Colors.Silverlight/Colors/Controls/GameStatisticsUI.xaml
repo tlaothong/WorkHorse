@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:TheS_Casinova_Colors_ViewModels="clr-namespace:TheS.Casinova.Colors.ViewModels" x:Class="TheS.Casinova.Colors.Controls.GameStatisticsUI"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:TheS_Casinova_Colors_ViewModels="clr-namespace:TheS.Casinova.Colors.ViewModels" xmlns:local="clr-namespace:TheS.Casinova.Colors.Controls" x:Class="TheS.Casinova.Colors.Controls.GameStatisticsUI"
     mc:Ignorable="d"
     d:DesignHeight="270" d:DesignWidth="560">
 	<UserControl.Resources>
@@ -13,19 +13,12 @@
 		<Binding Source="{StaticResource GameStatisticsViewModelDataSource}"/>
 	</UserControl.DataContext>
     
-    <Grid x:Name="LayoutRoot">
+    <Grid x:Name="LayoutRoot" Background="White">
     	<VisualStateManager.VisualStateGroups>
     		<VisualStateGroup x:Name="OptionState">
     			<VisualState x:Name="Single"/>
     			<VisualState x:Name="Range">
     				<Storyboard>
-    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="SecondData">
-    						<DiscreteObjectKeyFrame KeyTime="0">
-    							<DiscreteObjectKeyFrame.Value>
-    								<Visibility>Visible</Visibility>
-    							</DiscreteObjectKeyFrame.Value>
-    						</DiscreteObjectKeyFrame>
-    					</ObjectAnimationUsingKeyFrames>
     					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock">
     						<DiscreteObjectKeyFrame KeyTime="0">
     							<DiscreteObjectKeyFrame.Value>
@@ -35,6 +28,13 @@
     					</ObjectAnimationUsingKeyFrames>
     					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(ContentControl.Content)" Storyboard.TargetName="OptionButton">
     						<DiscreteObjectKeyFrame KeyTime="0" Value="Range"/>
+    					</ObjectAnimationUsingKeyFrames>
+    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="grid">
+    						<DiscreteObjectKeyFrame KeyTime="0">
+    							<DiscreteObjectKeyFrame.Value>
+    								<Visibility>Visible</Visibility>
+    							</DiscreteObjectKeyFrame.Value>
+    						</DiscreteObjectKeyFrame>
     					</ObjectAnimationUsingKeyFrames>
     				</Storyboard>
     			</VisualState>
@@ -55,45 +55,54 @@
     			<ColumnDefinition Width="0.4*"/>
     		</Grid.ColumnDefinitions>
     		<Button x:Name="OptionButton" Content="Single" Margin="0,0,5,0" Click="OptionButton_Click" />
-
-    		<sdk:DatePicker x:Name="FirstData" d:LayoutOverrides="Height" Grid.Column="1" SelectedDate="{Binding FirstData}"/>
-    		<sdk:DatePicker x:Name="SecondData" d:LayoutOverrides="Height" Grid.Column="3" Visibility="Collapsed" SelectedDate="{Binding SecondData}"/>
     		<TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="to" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Collapsed"/>
+    		<Grid Grid.Column="1">
+    			<sdk:DatePicker x:Name="SingleDateTime" d:LayoutOverrides="Height" HorizontalAlignment="Right" SelectedDate="{Binding SingleDateTime}"/>
+    			<ComboBox x:Name="SingleRound" Margin="0,0,107,0" ItemsSource="{Binding SingleRoundID}"/>
+    		</Grid>
+    		<Grid x:Name="grid" Grid.Column="3" Margin="0,0,-1,0" Visibility="Collapsed">
+    			<sdk:DatePicker x:Name="RangeDateTime" d:LayoutOverrides="Height" HorizontalAlignment="Right" SelectedDate="{Binding RangeDateTime}"/>
+    			<ComboBox x:Name="RangeRound" Margin="0,0,107,0" ItemsSource="{Binding RangeRoundID}"/>
+
+    		</Grid>
 
     	</Grid>
-    	<StackPanel Margin="200,24,200,0" Grid.Row="1" VerticalAlignment="Top">
-    		<TextBlock TextWrapping="Wrap" Text="Winner" TextAlignment="Center" d:LayoutOverrides="GridBox" FontSize="13.333"/>
-    		<TextBlock x:Name="Winner" TextWrapping="Wrap" Text="{Binding Winner}" FontSize="21.333" FontWeight="Bold" TextAlignment="Center" TextDecorations="Underline" d:LayoutOverrides="GridBox"/>
-    		<Grid Margin="3" HorizontalAlignment="Center">
-    			<Rectangle Fill="#FFF4F4F5" Stroke="Black" RadiusX="1" RadiusY="1"/>
-    			<Grid Margin="3">
+    	<StackPanel Orientation="Vertical" Grid.Row="1" d:LayoutOverrides="Width, Height" VerticalAlignment="Center" HorizontalAlignment="Center">
+    		<StackPanel VerticalAlignment="Top">
+    			<TextBlock TextWrapping="Wrap" Text="Winner" TextAlignment="Center" d:LayoutOverrides="GridBox" FontSize="13.333"/>
+    			<TextBlock x:Name="Winner" TextWrapping="Wrap" Text="{Binding GameResult.Winner}" FontSize="21.333" FontWeight="Bold" TextAlignment="Center" TextDecorations="Underline" d:LayoutOverrides="GridBox"/>
+    			<Grid Margin="3" HorizontalAlignment="Center">
+    				<Rectangle Fill="#FFF4F4F5" Stroke="Black" RadiusX="1" RadiusY="1"/>
+    				<Grid Margin="3">
 
-    				<TextBlock TextWrapping="Wrap" Text="Hands:" TextAlignment="Center" FontWeight="Bold" HorizontalAlignment="Left" d:LayoutOverrides="Height"/>
-    				<TextBlock x:Name="Hands" TextWrapping="Wrap" Text="{Binding Hands}" Margin="47,0,0,0" d:LayoutOverrides="Height"/>
+    					<TextBlock TextWrapping="Wrap" Text="Hands:" TextAlignment="Center" FontWeight="Bold" HorizontalAlignment="Left" d:LayoutOverrides="Height"/>
+    					<TextBlock x:Name="Hands" TextWrapping="Wrap" Text="{Binding GameResult.Hands}" Margin="47,0,0,0" d:LayoutOverrides="Height"/>
+
+    				</Grid>
 
     			</Grid>
+
+    		</StackPanel>
+    		<Grid HorizontalAlignment="Center" Margin="0,5,0,0">
+    			<Grid.ColumnDefinitions>
+    				<ColumnDefinition Width="0.5*"/>
+    				<ColumnDefinition Width="0.5*"/>
+    			</Grid.ColumnDefinitions>
+    			<Grid.RowDefinitions>
+    				<RowDefinition Height="0.5*"/>
+    				<RowDefinition Height="0.5*"/>
+    			</Grid.RowDefinitions>
+    			<Rectangle Grid.ColumnSpan="2" Grid.RowSpan="2" Stroke="Black" RadiusX="2" RadiusY="2" StrokeThickness="2"/>
+    			<Rectangle Grid.ColumnSpan="2" Stroke="Black" StrokeThickness="2"/>
+
+    			<TextBlock TextWrapping="Wrap" Text="Black" FontSize="13.333" d:LayoutOverrides="Height, GridBox" Margin="8,4" HorizontalAlignment="Center" FontWeight="Bold" VerticalAlignment="Center"/>
+    			<TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="White" FontSize="13.333" d:LayoutOverrides="Height" Margin="8,4" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"/>
+    			<TextBlock x:Name="BlackPOT" TextWrapping="Wrap" Text="{Binding GameResult.BlackPot}" FontSize="13.333" d:LayoutOverrides="Height" Grid.Row="1" HorizontalAlignment="Center" Margin="8,4"/>
+    			<TextBlock x:Name="WhitePOT" TextWrapping="Wrap" Text="{Binding GameResult.WhitePot}" FontSize="13.333" d:LayoutOverrides="Height" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Margin="8,4"/>
 
     		</Grid>
 
     	</StackPanel>
-    	<Grid Grid.Row="1" VerticalAlignment="Bottom" Margin="0,0,0,35" HorizontalAlignment="Center">
-    		<Grid.ColumnDefinitions>
-    			<ColumnDefinition Width="0.5*"/>
-    			<ColumnDefinition Width="0.5*"/>
-    		</Grid.ColumnDefinitions>
-    		<Grid.RowDefinitions>
-    			<RowDefinition Height="0.5*"/>
-    			<RowDefinition Height="0.5*"/>
-    		</Grid.RowDefinitions>
-    		<Rectangle Grid.ColumnSpan="2" Grid.RowSpan="2" Stroke="Black" RadiusX="2" RadiusY="2" StrokeThickness="2"/>
-    		<Rectangle Grid.ColumnSpan="2" Stroke="Black" StrokeThickness="2"/>
-
-    		<TextBlock TextWrapping="Wrap" Text="Black" FontSize="13.333" d:LayoutOverrides="Height, GridBox" Margin="8,4" HorizontalAlignment="Center" FontWeight="Bold" VerticalAlignment="Center"/>
-    		<TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="White" FontSize="13.333" d:LayoutOverrides="Height" Margin="8,4" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"/>
-    		<TextBlock x:Name="BlackPOT" TextWrapping="Wrap" Text="{Binding BlackPot}" FontSize="13.333" d:LayoutOverrides="Height" Grid.Row="1" HorizontalAlignment="Center" Margin="8,4"/>
-    		<TextBlock x:Name="WhitePOT" TextWrapping="Wrap" Text="{Binding WhitePot}" FontSize="13.333" d:LayoutOverrides="Height" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Margin="8,4"/>
-
-    	</Grid>
 
     </Grid>
 </UserControl>

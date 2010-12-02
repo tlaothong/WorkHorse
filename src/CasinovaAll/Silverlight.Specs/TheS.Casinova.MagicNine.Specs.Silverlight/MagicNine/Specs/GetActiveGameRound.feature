@@ -14,7 +14,7 @@ Background:
 	Given Create and initialize GamePlayViewModel and MagicNine game service
 
 @record_mock
-Scenario: Send request GetListActiveGameRounds to web server 
+Scenario: Request active game rounds, get active game rounds
 	Given Back service have active game rounds are:
 		|RoundID|WinnerPoint	|
 		|1		|9				|
@@ -23,7 +23,7 @@ Scenario: Send request GetListActiveGameRounds to web server
 		|4		|9999			|
 	When Send request GetListActiveGameRounds() to web server
 	Then Tables in GamePlayViewModel has create from ListActivegameRounds
-		|Round	|Name	|
+		|RoundID|WinnerPoint	|
 		|1		|9		|
 		|2		|99		|
 		|3		|999	|
@@ -31,7 +31,7 @@ Scenario: Send request GetListActiveGameRounds to web server
 
 
 @record_mock
-Scenario: Send request GetListActiveGameRounds to web server, don't have game active
+Scenario: Request active game rounds,web server don't have game active
 	Given Back service have active game rounds are:
 		|RoundID|WinnerPoint	|
 	When Send request GetListActiveGameRounds() to web server
@@ -39,7 +39,7 @@ Scenario: Send request GetListActiveGameRounds to web server, don't have game ac
 		|RoundID|WinnerPoint	|
 
 @record_mock
-Scenario: Send request GetListActiveGameRounds to web server more than one request
+Scenario: Request active game rounds more than one request
 	Given Back service have active game rounds are:
 		|RoundID|WinnerPoint	|
 		|1		|9				|
@@ -51,7 +51,7 @@ Scenario: Send request GetListActiveGameRounds to web server more than one reque
 	And Send request GetListActiveGameRounds() to web server
 	And Send request GetListActiveGameRounds() to web server
 	Then Tables in GamePlayViewModel has create from ListActivegameRounds
-		|Round	|Name	|
+		|RoundID|WinnerPoint	|
 		|1		|9		|
 		|2		|99		|
 		|3		|999	|

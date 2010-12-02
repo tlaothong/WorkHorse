@@ -55,7 +55,7 @@
     		<ColumnDefinition/>
     	</Grid.ColumnDefinitions>
     	<TheS_Casinova:GamePlayUI Margin="0,0,204,0" d:LayoutOverrides="Width, HorizontalMargin" DataContext="{Binding SelectedItem, ElementName=listBox}"/>
-    	<ListBox x:Name="listBox" HorizontalAlignment="Right" ItemTemplate="{StaticResource GameTableTemplate}" ItemsSource="{Binding Tables}" Width="200" ItemContainerStyle="{StaticResource GameTableStyle}">
+    	<ListBox x:Name="listBox" HorizontalAlignment="Right" ItemTemplate="{StaticResource GameTableTemplate}" ItemsSource="{Binding ActiveGameRoundTables}" Width="200" ItemContainerStyle="{StaticResource GameTableStyle}">
     		<ListBox.ItemsPanel>
     			<ItemsPanelTemplate>
     				<StackPanel>

@@ -9,6 +9,8 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.ComponentModel;
+using System.Collections.ObjectModel;
+using TheS.Casinova.Colors.Models;
 
 namespace TheS.Casinova.Colors.ViewModels
 {
@@ -20,97 +22,92 @@ namespace TheS.Casinova.Colors.ViewModels
         #region Fields
 
         private PerfEx.Infrastructure.PropertyChangedNotifier _notify;
-        private string _winner;
-        private int _hands;
-        private double _blackPot;
-        private double _whitePot;
-        private DateTime _firstData;
-        private DateTime _secondData;
+        private GameResult _result;
+        private DateTime _singleDateTime;
+        private DateTime _rangeDateTime;
+        private int _singleRoundID;
+        private int _rangeRoundID;
 
         #endregion Fields
 
         #region Properties
 
-        public DateTime SecondData
+        /// <summary>
+        /// ช่วงเวลาของ Single
+        /// </summary>
+        public DateTime SingleDateTime
         {
-            get { return _secondData; }
+            get { return _singleDateTime; }
             set
             {
-                if (_secondData!=value) {
-                    _secondData = value;
-                    _notify.Raise(() => SecondData); 
-                }
-            }
-        }
-
-        public DateTime FirstData
-        {
-            get { return _firstData; }
-            set
-            {
-                if (_firstData!=value) {
-                    _firstData = value;
-                    _notify.Raise(() => FirstData); 
+                if (_singleDateTime != value)
+                {
+                    _singleDateTime = value;
+                    _notify.Raise(() => SingleDateTime);
                 }
             }
         }
 
         /// <summary>
-        /// จำนวนเงินที่ถูกลงในสีขาวทั้งหมดในรอบนี้
+        /// ช่วงเวลาของ Range
         /// </summary>
-        public double WhitePot
+        public DateTime RangeDateTime
         {
-            get { return _whitePot; }
+            get { return _rangeDateTime; }
             set
             {
-                if (_whitePot!=value) {
-                    _whitePot = value;
-                    _notify.Raise(() => WhitePot); 
+                if (_rangeDateTime != value)
+                {
+                    _rangeDateTime = value;
+                    _notify.Raise(() => RangeDateTime);
                 }
             }
         }
 
         /// <summary>
-        /// จำนวนเงินที่ถูกลงในสีดำทั้งหมดในรอบนี้
+        /// รอบของ Single
         /// </summary>
-        public double BlackPot
+        public int SingleRoundID
         {
-            get { return _blackPot; }
+            get { return _singleRoundID; }
             set
             {
-                if (_blackPot!=value) {
-                    _blackPot = value;
-                    _notify.Raise(() => BlackPot); 
+                if (_singleRoundID != value)
+                {
+                    _singleRoundID = value;
+                    _notify.Raise(() => SingleRoundID);
                 }
             }
         }
 
         /// <summary>
-        /// จำนวนมือทั้งหมดที่ลงในรอบนี้
+        /// รอบของ Range
         /// </summary>
-        public int Hands
+        public int RangeRoundID
         {
-            get { return _hands; }
+            get { return _rangeRoundID; }
             set
             {
-                if (_hands != value) {
-                    _hands = value;
-                    _notify.Raise(() => Hands); 
+                if (_rangeRoundID != value)
+                {
+                    _rangeRoundID = value;
+                    _notify.Raise(() => RangeRoundID);
                 }
             }
         }
 
         /// <summary>
-        /// สีที่ชนะในรอบนี้
+        /// ผมสรุปการเล่นเกม
         /// </summary>
-        public string Winner
+        public GameResult GameResult
         {
-            get { return _winner; }
+            get { return _result; }
             set
             {
-                if (_winner!=value) {
-                    _winner = value;
-                    _notify.Raise(() => Winner); 
+                if (_result!=value)
+                {
+                    _result = value;
+                    _notify.Raise(() => GameResult); 
                 }
             }
         }
@@ -125,21 +122,37 @@ namespace TheS.Casinova.Colors.ViewModels
         public GameStatisticsViewModel()
         {
             _notify = new PerfEx.Infrastructure.PropertyChangedNotifier(this, () => PropertyChanged);
+            _result = new GameResult();
 
             #region Designer view
             
             if (DesignerProperties.IsInDesignTool)
             {
-                Winner = "Balck";
-                BlackPot = 456781;
-                WhitePot = 12314;
-                Hands = 1254;
+                GameResult = new GameResult
+                {
+                        Winner = "Balck",
+                        BlackPot = "456781",
+                        WhitePot = "12314",
+                        Hands = 1254 
+                };
             }
 
             #endregion Designer view
         }
 
         #endregion Constructors
+
+        #region Methods
+
+        /// <summary>
+        /// เรียกดูข้อมูลผลสรุปการเล่นเกมที่กำหนด
+        /// </summary>
+        public void GetGameResult()
+        {
+            // TODO: Colors get game result
+        }
+
+        #endregion Methods
 
         #region INotifyPropertyChanged members
 

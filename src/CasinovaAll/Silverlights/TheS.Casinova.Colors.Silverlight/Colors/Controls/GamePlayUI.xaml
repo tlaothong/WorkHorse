@@ -7,7 +7,7 @@
 	xmlns:TheS_Casinova_Colors_Models="clr-namespace:TheS.Casinova.Colors.Models"
 	mc:Ignorable="d"
 	x:Class="TheS.Casinova.GamePlayUI"
-	d:DesignWidth="640" d:DesignHeight="480" Width="500" Height="400">
+	d:DesignWidth="640" d:DesignHeight="480">
 	<UserControl.Resources>
 		<TheS_Casinova_Colors_ViewModels:GamePlayUIViewModel x:Key="GamePlayUIViewModelDataSource" d:IsDataSource="True"/>
 	</UserControl.Resources>
