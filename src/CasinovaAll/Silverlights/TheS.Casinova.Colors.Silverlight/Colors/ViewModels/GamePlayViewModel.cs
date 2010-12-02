@@ -305,8 +305,8 @@ namespace TheS.Casinova.Colors.ViewModels
                             {
                                 Winner = winner,
                                 Hands = result.HandCount,
-                                BlackPot = result.BlackPot,
-                                WhitePot = result.WhitePot,
+                                BlackPot = result.BlackPot.ToString(),
+                                WhitePot = result.WhitePot.ToString(),
                                 RoundID = result.RoundID,
                             }
                         };

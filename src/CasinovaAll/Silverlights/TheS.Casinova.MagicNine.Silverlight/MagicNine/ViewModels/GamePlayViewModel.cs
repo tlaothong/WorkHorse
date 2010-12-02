@@ -157,6 +157,33 @@ namespace TheS.Casinova.MagicNine.ViewModels
             _notify = new PropertyChangedNotifier(this, () => PropertyChanged);
             _activeGameRoundTables = new ObservableCollection<GamePlayUIViewModel>();
             _payLogs = new ObservableCollection<PayLog>();
+
+            #region Designer properties
+
+            if (DesignerProperties.IsInDesignTool)
+            {
+                ActiveGameRoundTables.Add(new GamePlayUIViewModel
+                {
+                    Amount = 30,
+                    WinnerPoint = 9,
+                });
+                ActiveGameRoundTables.Add(new GamePlayUIViewModel
+                {
+                    Amount = 3,
+                    WinnerPoint = 99,
+                });
+                ActiveGameRoundTables.Add(new GamePlayUIViewModel
+                {
+                    WinnerPoint = 999,
+                });
+                ActiveGameRoundTables.Add(new GamePlayUIViewModel
+                {
+                    Amount = 145,
+                    WinnerPoint = 9999,
+                });
+            }
+
+            #endregion Designer properties
         }
 
         #endregion Constructor

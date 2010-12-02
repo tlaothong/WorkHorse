@@ -31,6 +31,9 @@ namespace TheS.Casinova.MagicNine.ViewModels
 
         #region Properties
 
+        /// <summary>
+        /// ความถี่
+        /// </summary>
         public double Interval
         {
             get { return _interval; }
@@ -41,6 +44,9 @@ namespace TheS.Casinova.MagicNine.ViewModels
             }
         }
 
+        /// <summary>
+        /// ค่าสูงสุดของความถี่
+        /// </summary>
         public double Maximum
         {
             get { return _maximum; }
@@ -51,6 +57,9 @@ namespace TheS.Casinova.MagicNine.ViewModels
             }
         }
 
+        /// <summary>
+        /// ชื่อกราฟ
+        /// </summary>
         public string ChartName
         {
             get { return _chartName; }
@@ -61,6 +70,9 @@ namespace TheS.Casinova.MagicNine.ViewModels
             }
         }
 
+        /// <summary>
+        /// ข้อมูลกราฟแท่ง
+        /// </summary>
         public ObservableCollection<KeyValuePair<DateTime, double>> BarInformations
         {
             get { return _barInformations; }
@@ -71,6 +83,9 @@ namespace TheS.Casinova.MagicNine.ViewModels
             }
         }
 
+        /// <summary>
+        /// ข้อมูลกราฟเส้น
+        /// </summary>
         public ObservableCollection<KeyValuePair<DateTime, double>> LineInformations
         {
             get { return _lineInformations; }

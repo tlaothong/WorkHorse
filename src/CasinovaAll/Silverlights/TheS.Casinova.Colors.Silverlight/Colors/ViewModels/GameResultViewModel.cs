@@ -18,22 +18,35 @@ namespace TheS.Casinova.Colors.ViewModels
     /// </summary>
     public class GameResultViewModel : INotifyPropertyChanged
     {
+        #region Fields
+        
         private PerfEx.Infrastructure.PropertyChangedNotifier _notify;
         private GameResult _result;
 
+        #endregion Fields
+
+        #region Properties
+        
+        /// <summary>
+        /// ผลสรุปการเล่นเกม
+        /// </summary>
         public GameResult Result
         {
             get { return _result; }
             set
             {
-                if (_result!=value)
+                if (_result != value)
                 {
                     _result = value;
-                    _notify.Raise(() => Result); 
+                    _notify.Raise(() => Result);
                 }
             }
         }
 
+        #endregion Properties
+
+        #region Constructors
+        
         /// <summary>
         /// Initialize game result view model
         /// </summary>
@@ -42,6 +55,8 @@ namespace TheS.Casinova.Colors.ViewModels
             _notify = new PerfEx.Infrastructure.PropertyChangedNotifier(this, () => PropertyChanged);
             _result = new GameResult();
         }
+
+        #endregion Constructors
 
         #region INotifyPropertyChanged Members
 

@@ -26,12 +26,12 @@ namespace TheS.Casinova.Colors.Models
         /// <summary>
         /// จำนวนเงินที่ถูกลงในสีขาวทั้งหมดในรอบนี้
         /// </summary>
-        public double WhitePot { get; set; }
+        public string WhitePot { get; set; }
 
         /// <summary>
         /// จำนวนเงินที่ถูกลงในสีดำทั้งหมดในรอบนี้
         /// </summary>
-        public double BlackPot { get; set; }
+        public string BlackPot { get; set; }
 
         /// <summary>
         /// จำนวนมือทั้งหมดที่ลงในรอบนี้

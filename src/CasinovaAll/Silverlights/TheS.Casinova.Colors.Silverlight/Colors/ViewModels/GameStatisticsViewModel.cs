@@ -22,38 +22,19 @@ namespace TheS.Casinova.Colors.ViewModels
         #region Fields
 
         private PerfEx.Infrastructure.PropertyChangedNotifier _notify;
-        private DateTime _firstData;
-        private DateTime _secondData;
+        private DateTime _firstDateTime;
+        private DateTime _secondDateTime;
+        private int _firstRoundID;
+        private int _secondRoundID;
         private GameResult _result;
 
         #endregion Fields
 
         #region Properties
 
-        public DateTime SecondData
-        {
-            get { return _secondData; }
-            set
-            {
-                if (_secondData!=value) {
-                    _secondData = value;
-                    _notify.Raise(() => SecondData); 
-                }
-            }
-        }
-
-        public DateTime FirstData
-        {
-            get { return _firstData; }
-            set
-            {
-                if (_firstData!=value) {
-                    _firstData = value;
-                    _notify.Raise(() => FirstData); 
-                }
-            }
-        }
-
+        /// <summary>
+        /// ผมสรุปการเล่นเกม
+        /// </summary>
         public GameResult GameResult
         {
             get { return _result; }
@@ -86,8 +67,8 @@ namespace TheS.Casinova.Colors.ViewModels
                 GameResult = new GameResult
                 {
                         Winner = "Balck",
-                        BlackPot = 456781,
-                        WhitePot = 12314,
+                        BlackPot = "456781",
+                        WhitePot = "12314",
                         Hands = 1254 
                 };
             }
@@ -96,6 +77,18 @@ namespace TheS.Casinova.Colors.ViewModels
         }
 
         #endregion Constructors
+
+        #region Methods
+
+        /// <summary>
+        /// เรียกดูข้อมูลผลสรุปการเล่นเกมที่กำหนด
+        /// </summary>
+        public void GetGameResult()
+        {
+            // TODO: Colors get game result
+        }
+
+        #endregion Methods
 
         #region INotifyPropertyChanged members
 

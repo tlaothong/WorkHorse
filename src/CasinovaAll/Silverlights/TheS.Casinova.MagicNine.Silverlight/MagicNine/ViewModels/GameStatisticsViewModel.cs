@@ -28,30 +28,6 @@ namespace TheS.Casinova.MagicNine.ViewModels
 
         #region Properties
 
-        public DateTime SecondData
-        {
-            get { return _secondData; }
-            set
-            {
-                if (_secondData!=value) {
-                    _secondData = value;
-                    _notify.Raise(() => SecondData); 
-                }
-            }
-        }
-
-        public DateTime FirstData
-        {
-            get { return _firstData; }
-            set
-            {
-                if (_firstData!=value) {
-                    _firstData = value;
-                    _notify.Raise(() => FirstData); 
-                }
-            }
-        }
-
         //public ObservableCollection<WinnerInfo> Informations
         //{
         //    get { return _informations; }
