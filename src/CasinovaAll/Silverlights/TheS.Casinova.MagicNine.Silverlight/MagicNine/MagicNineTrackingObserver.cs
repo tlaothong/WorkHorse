@@ -21,11 +21,15 @@ namespace TheS.Casinova.MagicNine
             _action = action;
         }
 
+        public void ReleaseWatch()
+        {
+            StatusTracker.ReleaseWatch(this);
+            Dispose();
+        }
+
         protected override void OnUpdateTrackingInformation(TrackingInformation trackingInfo)
         {
             _action();
-            //StatusTracker.ReleaseWatch(this);
-            //Dispose();
         }
     }
 }

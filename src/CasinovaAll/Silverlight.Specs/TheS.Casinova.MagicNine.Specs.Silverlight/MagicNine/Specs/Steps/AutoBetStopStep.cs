@@ -47,32 +47,30 @@ namespace TheS.Casinova.MagicNine.Specs.Steps
 
         #endregion Background
 
-        [Given(@"Setup Amount=(.*) in game roundID=(.*)")]
-        public void GivenSetupAmount20InGameRoundID20(int amount,int roundID)
+        [Given(@"Setup autobet game play viewmodel are")]
+        public void GivenSetupAmount20InGameRoundID20(Table table)
         {
             var viewModel = ScenarioContext.Current.Get<GamePlayViewModel>();
             const int ActiveGameRoundEmpty = 0;
             Assert.IsTrue(viewModel.ActiveGameRoundTables.Count != ActiveGameRoundEmpty, "Active game rounds has created");
 
-            viewModel.ActiveGameRoundTables.First(c => c.RoundID.Equals(roundID)).Amount = amount;
+            foreach (var tb in table.Rows)
+            {
+                int roundID = int.Parse(tb["RoundID"]);
+                int amount = int.Parse(tb["Amount"]);
+                viewModel.ActiveGameRoundTables.First(c => c.RoundID.Equals(roundID)).Amount = amount;
+            }
         }
 
         [When(@"I press AutoBetStop\(\) in game roundID=(.*)")]
         public void WhenIPressAutoBetStopInGameRoundID20(int roundID)
         {
             var viewModel = ScenarioContext.Current.Get<GamePlayViewModel>();
-            
+
             viewModel.SelectedGameRoundID = roundID;
             viewModel.AutoBetStop();
             ScenarioContext.Current.Get<TestScheduler>().Run();
         }
-
-        [Then(@"IsAutoBetOn is false, in game roundID=(.*)")]
-        public void ThenIsAutoBetOnIsFalseInGameRoundID20(int roundID)
-        {
-            var viewModel = ScenarioContext.Current.Get<GamePlayViewModel>().ActiveGameRoundTables.First(c => c.RoundID.Equals(roundID));
-            Assert.IsFalse(viewModel.IsAutoBetOn, "Auto bet is turn off" + viewModel.RoundID);
-
-        }
     }
 }
+

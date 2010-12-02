@@ -21,6 +21,9 @@ using TheS.Casinova.MagicNineSvc;
 
 namespace TheS.Casinova.MagicNine.ViewModels
 {
+    /// <summary>
+    /// Magic9 game play view model
+    /// </summary>
     public class GamePlayViewModel : INotifyPropertyChanged
     {
         #region Fields
@@ -31,7 +34,7 @@ namespace TheS.Casinova.MagicNine.ViewModels
         private IStatusTracker _statusTracker;
 
         private int _selectedGameRoundID;
-        //TODO: GameResult
+        //TODO: Magic9 GameResult
         private ObservableCollection<GamePlayUIViewModel> _activeGameRoundTables;
         private ObservableCollection<PayLog> _payLogs;
 
@@ -275,11 +278,13 @@ namespace TheS.Casinova.MagicNine.ViewModels
             PayLogs.Add(payLog);
 
             // Initialize observer follow tracking ID
-            var observer = new MagicNineTrackingObserver(() =>
-            {
-                PayLogs.Remove(payLog);
-                GetListBetLog();
-            });
+            MagicNineTrackingObserver observer = null;
+            observer = new MagicNineTrackingObserver(() =>
+             {
+                 PayLogs.Remove(payLog);
+                 GetListBetLog();
+                 observer.ReleaseWatch();
+             });
             observer.Initialize(StatusTracker);
 
             IDisposable disposeBet = null;
@@ -288,6 +293,7 @@ namespace TheS.Casinova.MagicNine.ViewModels
                 next =>
                 {
                     observer.SetTrackingID(next.TrackingID);
+                    payLog.TrackingID = next.TrackingID;
                 },
                 error =>
                 {
@@ -297,6 +303,9 @@ namespace TheS.Casinova.MagicNine.ViewModels
                 );
         }
 
+        /// <summary>
+        ///  เริ่มการลงพนันอัตโนมัติ
+        /// </summary>
         public void AutoBetStart()
         {
             // TODO: Sub account balance
@@ -314,16 +323,28 @@ namespace TheS.Casinova.MagicNine.ViewModels
             PayLogs.Add(paylog);
 
             // Initialize observer follow trackingID
-            var observer = new MagicNineTrackingObserver(() =>
+            MagicNineTrackingObserver observer = null;
+            observer = new MagicNineTrackingObserver(() =>
             {
-                paylog.Amount--;
+                GetListBetLog();
 
-                const int AutoBetFinish = 0;
-                if (paylog.Amount <= AutoBetFinish)
+                var activeRound = _activeGameRoundTables.FirstOrDefault(c => c.RoundID.Equals(paylog.RoundID));
+                if (activeRound != null)
+                {
+                    paylog.Amount--;
+                    activeRound.Amount--;
+                    const int AutoBetFinish = 0;
+                    if (paylog.Amount <= AutoBetFinish)
+                    {
+                        PayLogs.Remove(paylog);
+                        observer.ReleaseWatch();
+                    }
+                }
+                else
                 {
                     PayLogs.Remove(paylog);
+                    observer.ReleaseWatch();
                 }
-                GetListBetLog();
             });
             observer.Initialize(StatusTracker);
 
@@ -336,6 +357,7 @@ namespace TheS.Casinova.MagicNine.ViewModels
             next =>
             {
                 observer.SetTrackingID(next.StartTrackingID);
+                paylog.TrackingID = next.StartTrackingID;
             },
             error =>
             {
@@ -346,7 +368,7 @@ namespace TheS.Casinova.MagicNine.ViewModels
         }
 
         /// <summary>
-        /// ปิดการลงพนันอัตโนมัติ
+        /// ยกเลิกการลงพนันอัตโนมัติ
         /// </summary>
         public void AutoBetStop()
         {
@@ -362,16 +384,23 @@ namespace TheS.Casinova.MagicNine.ViewModels
             PayLogs.Add(paylog);
 
             // initialize observer follow trackingID
-            var observer = new MagicNineTrackingObserver(() =>
+            MagicNineTrackingObserver observer = null;
+            observer = new MagicNineTrackingObserver(() =>
             {
                 PayLogs.Remove(paylog);
 
                 // Turn off auto bet
                 const int AutoBetOff = 0;
                 var activeRound = ActiveGameRoundTables.FirstOrDefault(c => c.RoundID.Equals(paylog.RoundID));
-                if (activeRound != null) activeRound.Amount = AutoBetOff;
-
-                GetListBetLog();
+                if (activeRound != null)
+                {
+                    var refund = activeRound.Amount;
+                    // TODO: Refund account balance
+                    activeRound.Amount = AutoBetOff;
+                    GetListBetLog();
+                    observer.ReleaseWatch();
+                }
+                else GetListBetLog();
             });
             observer.Initialize(StatusTracker);
 

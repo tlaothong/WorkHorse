@@ -44,6 +44,7 @@ Scenario: Auto bet start normal case
 		|TrackingID									|
 		|{60AD85F6-3978-48AA-9286-E5A7344B77EC}		|
 	And PayLog has empty
+	And Auto bet has been turned off in active game roundID=1 and amount=0
 	And Dispaly bet log int game roundID=1 are
 		|BetOrder	|BetDateTime			|
 		|72			|2010-11-17 09:00:00	|
@@ -59,6 +60,22 @@ Scenario: Auto bet start auto bet amount 2
 		|{60AD85F6-3978-48AA-9286-E5A7344B77EC}		|
 		|{60AD85F6-3978-48AA-9286-E5A7344B77EC}		|
 	And PayLog has empty
+	And Auto bet has been turned off in active game roundID=1 and amount=0
+	And Dispaly bet log int game roundID=1 are
+		|BetOrder	|BetDateTime			|
+		|72			|2010-11-17 09:00:00	|
+		|11			|2010-11-17 09:00:30	|
+
+@record_mock
+Scenario: Auto bet start but lot not retrive all
+	When I press AutoBetStart button in game roundID=1, Amount=3
+	And Send request GetListBetlog( 'Sakul' ) RoundID='1'
+	Then PayLog has save RoundID='1', Count='1'
+	And Lot of TrackingIDs has Retrieved are
+		|TrackingID									|
+		|{60AD85F6-3978-48AA-9286-E5A7344B77EC}		|
+	And PayLog has save RoundID='1', Count='1'
+	And Auto bet has been turned on in active game roundID=1 and amount=2
 	And Dispaly bet log int game roundID=1 are
 		|BetOrder	|BetDateTime			|
 		|72			|2010-11-17 09:00:00	|

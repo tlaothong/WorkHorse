@@ -163,25 +163,32 @@ testRunner.When("Send request GetListActiveGameRounds() to web server");
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Request stop auto bet", new string[] {
                         "record_mock"});
-#line 41
+#line 40
 this.ScenarioSetup(scenarioInfo);
-#line 42
-testRunner.Given("Setup Amount=20 in game roundID=20");
-#line 43
-testRunner.When("I press AutoBetStop() in game roundID=20");
-#line 44
-testRunner.Then("PayLog has save RoundID=\'20\', Count=\'1\'");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
-                        "TrackingID"});
+                        "RoundID",
+                        "Amount"});
             table4.AddRow(new string[] {
-                        "{60AD85F6-3978-48AA-9286-E5A7344B77EC}"});
+                        "20",
+                        "20"});
+#line 41
+testRunner.Given("Setup autobet game play viewmodel are", ((string)(null)), table4);
+#line 44
+testRunner.When("I press AutoBetStop() in game roundID=20");
 #line 45
-testRunner.And("Lot of TrackingIDs has Retrieved are", ((string)(null)), table4);
-#line 48
-testRunner.And("PayLog has empty");
+testRunner.Then("PayLog has save RoundID=\'20\', Count=\'1\'");
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "TrackingID"});
+            table5.AddRow(new string[] {
+                        "{60AD85F6-3978-48AA-9286-E5A7344B77EC}"});
+#line 46
+testRunner.And("Lot of TrackingIDs has Retrieved are", ((string)(null)), table5);
 #line 49
-testRunner.And("IsAutoBetOn is false, in game roundID=20");
+testRunner.And("PayLog has empty");
+#line 50
+testRunner.And("Auto bet has been turned off in active game roundID=20 and amount=0");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -194,18 +201,19 @@ testRunner.And("IsAutoBetOn is false, in game roundID=20");
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Request stop auto bet (request more than 1 )", new string[] {
                         "record_mock"});
-#line 52
-this.ScenarioSetup(scenarioInfo);
 #line 53
-testRunner.Given("Setup Amount=20 in game roundID=20");
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "RoundID",
+                        "Amount"});
+            table6.AddRow(new string[] {
+                        "20",
+                        "20"});
 #line 54
-testRunner.When("I press AutoBetStop() in game roundID=20");
-#line 55
-testRunner.And("I press AutoBetStop() in game roundID=20");
-#line 56
-testRunner.And("I press AutoBetStop() in game roundID=20");
+testRunner.Given("Setup autobet game play viewmodel are", ((string)(null)), table6);
 #line 57
-testRunner.And("I press AutoBetStop() in game roundID=20");
+testRunner.When("I press AutoBetStop() in game roundID=20");
 #line 58
 testRunner.And("I press AutoBetStop() in game roundID=20");
 #line 59
@@ -213,30 +221,36 @@ testRunner.And("I press AutoBetStop() in game roundID=20");
 #line 60
 testRunner.And("I press AutoBetStop() in game roundID=20");
 #line 61
+testRunner.And("I press AutoBetStop() in game roundID=20");
+#line 62
+testRunner.And("I press AutoBetStop() in game roundID=20");
+#line 63
+testRunner.And("I press AutoBetStop() in game roundID=20");
+#line 64
 testRunner.Then("PayLog has save RoundID=\'20\', Count=\'7\'");
 #line hidden
-            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
                         "TrackingID"});
-            table5.AddRow(new string[] {
+            table7.AddRow(new string[] {
                         "{60AD85F6-3978-48AA-9286-E5A7344B77EC}"});
-            table5.AddRow(new string[] {
+            table7.AddRow(new string[] {
                         "{A82FA8E6-1BCC-443E-A61A-F81B8B4DED83}"});
-            table5.AddRow(new string[] {
+            table7.AddRow(new string[] {
                         "{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}"});
-            table5.AddRow(new string[] {
+            table7.AddRow(new string[] {
                         "{2C8EE9D1-A106-4216-AA57-E44554F822A8}"});
-            table5.AddRow(new string[] {
+            table7.AddRow(new string[] {
                         "{89D5613E-8007-4AAA-8A4D-AF16014B2D5F}"});
-            table5.AddRow(new string[] {
+            table7.AddRow(new string[] {
                         "{50EA817A-512E-469E-982F-8377F0EF84A6}"});
-            table5.AddRow(new string[] {
+            table7.AddRow(new string[] {
                         "{37C87086-FFBB-4C9A-87F9-F9A4C0CF6FB0}"});
-#line 62
-testRunner.And("Lot of TrackingIDs has Retrieved are", ((string)(null)), table5);
-#line 71
+#line 65
+testRunner.And("Lot of TrackingIDs has Retrieved are", ((string)(null)), table7);
+#line 74
 testRunner.And("PayLog has empty");
-#line 72
-testRunner.And("IsAutoBetOn is false, in game roundID=20");
+#line 75
+testRunner.And("Auto bet has been turned off in active game roundID=20 and amount=0");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -249,85 +263,98 @@ testRunner.And("IsAutoBetOn is false, in game roundID=20");
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Request stop auto bet (request more than 1 ) difference game roundID", new string[] {
                         "record_mock"});
-#line 75
-this.ScenarioSetup(scenarioInfo);
-#line 76
-testRunner.Given("Setup Amount=20 in game roundID=20");
-#line 77
-testRunner.And("Setup Amount=20 in game roundID=21");
 #line 78
-testRunner.And("Setup Amount=20 in game roundID=22");
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                        "RoundID",
+                        "Amount"});
+            table8.AddRow(new string[] {
+                        "20",
+                        "20"});
+            table8.AddRow(new string[] {
+                        "21",
+                        "20"});
+            table8.AddRow(new string[] {
+                        "22",
+                        "20"});
+            table8.AddRow(new string[] {
+                        "23",
+                        "20"});
+            table8.AddRow(new string[] {
+                        "24",
+                        "20"});
+            table8.AddRow(new string[] {
+                        "25",
+                        "20"});
+            table8.AddRow(new string[] {
+                        "26",
+                        "20"});
 #line 79
-testRunner.And("Setup Amount=20 in game roundID=23");
-#line 80
-testRunner.And("Setup Amount=20 in game roundID=24");
-#line 81
-testRunner.And("Setup Amount=20 in game roundID=25");
-#line 82
-testRunner.And("Setup Amount=20 in game roundID=26");
-#line 83
-testRunner.When("I press AutoBetStop() in game roundID=20");
-#line 84
-testRunner.And("I press AutoBetStop() in game roundID=21");
-#line 85
-testRunner.And("I press AutoBetStop() in game roundID=22");
-#line 86
-testRunner.And("I press AutoBetStop() in game roundID=23");
-#line 87
-testRunner.And("I press AutoBetStop() in game roundID=24");
+testRunner.Given("Setup autobet game play viewmodel are", ((string)(null)), table8);
 #line 88
-testRunner.And("I press AutoBetStop() in game roundID=25");
+testRunner.When("I press AutoBetStop() in game roundID=20");
 #line 89
-testRunner.And("I press AutoBetStop() in game roundID=26");
+testRunner.And("I press AutoBetStop() in game roundID=21");
 #line 90
-testRunner.Then("PayLog has save RoundID=\'20\', Count=\'1\'");
+testRunner.And("I press AutoBetStop() in game roundID=22");
 #line 91
-testRunner.Then("PayLog has save RoundID=\'21\', Count=\'1\'");
+testRunner.And("I press AutoBetStop() in game roundID=23");
 #line 92
-testRunner.Then("PayLog has save RoundID=\'22\', Count=\'1\'");
+testRunner.And("I press AutoBetStop() in game roundID=24");
 #line 93
-testRunner.Then("PayLog has save RoundID=\'23\', Count=\'1\'");
+testRunner.And("I press AutoBetStop() in game roundID=25");
 #line 94
-testRunner.Then("PayLog has save RoundID=\'24\', Count=\'1\'");
+testRunner.And("I press AutoBetStop() in game roundID=26");
 #line 95
-testRunner.Then("PayLog has save RoundID=\'25\', Count=\'1\'");
+testRunner.Then("PayLog has save RoundID=\'20\', Count=\'1\'");
 #line 96
+testRunner.Then("PayLog has save RoundID=\'21\', Count=\'1\'");
+#line 97
+testRunner.Then("PayLog has save RoundID=\'22\', Count=\'1\'");
+#line 98
+testRunner.Then("PayLog has save RoundID=\'23\', Count=\'1\'");
+#line 99
+testRunner.Then("PayLog has save RoundID=\'24\', Count=\'1\'");
+#line 100
+testRunner.Then("PayLog has save RoundID=\'25\', Count=\'1\'");
+#line 101
 testRunner.Then("PayLog has save RoundID=\'26\', Count=\'1\'");
 #line hidden
-            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
                         "TrackingID"});
-            table6.AddRow(new string[] {
+            table9.AddRow(new string[] {
                         "{60AD85F6-3978-48AA-9286-E5A7344B77EC}"});
-            table6.AddRow(new string[] {
+            table9.AddRow(new string[] {
                         "{A82FA8E6-1BCC-443E-A61A-F81B8B4DED83}"});
-            table6.AddRow(new string[] {
+            table9.AddRow(new string[] {
                         "{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}"});
-            table6.AddRow(new string[] {
+            table9.AddRow(new string[] {
                         "{2C8EE9D1-A106-4216-AA57-E44554F822A8}"});
-            table6.AddRow(new string[] {
+            table9.AddRow(new string[] {
                         "{89D5613E-8007-4AAA-8A4D-AF16014B2D5F}"});
-            table6.AddRow(new string[] {
+            table9.AddRow(new string[] {
                         "{50EA817A-512E-469E-982F-8377F0EF84A6}"});
-            table6.AddRow(new string[] {
+            table9.AddRow(new string[] {
                         "{37C87086-FFBB-4C9A-87F9-F9A4C0CF6FB0}"});
-#line 97
-testRunner.And("Lot of TrackingIDs has Retrieved are", ((string)(null)), table6);
-#line 106
-testRunner.And("PayLog has empty");
-#line 107
-testRunner.And("IsAutoBetOn is false, in game roundID=20");
-#line 108
-testRunner.And("IsAutoBetOn is false, in game roundID=21");
-#line 109
-testRunner.And("IsAutoBetOn is false, in game roundID=22");
-#line 110
-testRunner.And("IsAutoBetOn is false, in game roundID=23");
+#line 102
+testRunner.And("Lot of TrackingIDs has Retrieved are", ((string)(null)), table9);
 #line 111
-testRunner.And("IsAutoBetOn is false, in game roundID=24");
+testRunner.And("PayLog has empty");
 #line 112
-testRunner.And("IsAutoBetOn is false, in game roundID=25");
+testRunner.And("Auto bet has been turned off in active game roundID=20 and amount=0");
 #line 113
-testRunner.And("IsAutoBetOn is false, in game roundID=26");
+testRunner.And("Auto bet has been turned off in active game roundID=21 and amount=0");
+#line 114
+testRunner.And("Auto bet has been turned off in active game roundID=22 and amount=0");
+#line 115
+testRunner.And("Auto bet has been turned off in active game roundID=23 and amount=0");
+#line 116
+testRunner.And("Auto bet has been turned off in active game roundID=24 and amount=0");
+#line 117
+testRunner.And("Auto bet has been turned off in active game roundID=25 and amount=0");
+#line 118
+testRunner.And("Auto bet has been turned off in active game roundID=26 and amount=0");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -340,41 +367,48 @@ testRunner.And("IsAutoBetOn is false, in game roundID=26");
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Request stop auto bet, lot don\'t retrive all", new string[] {
                         "record_mock"});
-#line 116
-this.ScenarioSetup(scenarioInfo);
-#line 117
-testRunner.Given("Setup Amount=20 in game roundID=20");
-#line 118
-testRunner.When("I press AutoBetStop() in game roundID=20");
-#line 119
-testRunner.And("I press AutoBetStop() in game roundID=20");
-#line 120
-testRunner.And("I press AutoBetStop() in game roundID=20");
 #line 121
-testRunner.And("I press AutoBetStop() in game roundID=20");
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+                        "RoundID",
+                        "Amount"});
+            table10.AddRow(new string[] {
+                        "20",
+                        "20"});
 #line 122
-testRunner.And("I press AutoBetStop() in game roundID=20");
-#line 123
-testRunner.And("I press AutoBetStop() in game roundID=20");
-#line 124
-testRunner.And("I press AutoBetStop() in game roundID=20");
+testRunner.Given("Setup autobet game play viewmodel are", ((string)(null)), table10);
 #line 125
+testRunner.When("I press AutoBetStop() in game roundID=20");
+#line 126
+testRunner.And("I press AutoBetStop() in game roundID=20");
+#line 127
+testRunner.And("I press AutoBetStop() in game roundID=20");
+#line 128
+testRunner.And("I press AutoBetStop() in game roundID=20");
+#line 129
+testRunner.And("I press AutoBetStop() in game roundID=20");
+#line 130
+testRunner.And("I press AutoBetStop() in game roundID=20");
+#line 131
+testRunner.And("I press AutoBetStop() in game roundID=20");
+#line 132
 testRunner.Then("PayLog has save RoundID=\'20\', Count=\'7\'");
 #line hidden
-            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
                         "TrackingID"});
-            table7.AddRow(new string[] {
+            table11.AddRow(new string[] {
                         "{60AD85F6-3978-48AA-9286-E5A7344B77EC}"});
-            table7.AddRow(new string[] {
+            table11.AddRow(new string[] {
                         "{A82FA8E6-1BCC-443E-A61A-F81B8B4DED83}"});
-            table7.AddRow(new string[] {
+            table11.AddRow(new string[] {
                         "{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}"});
-#line 126
-testRunner.And("Lot of TrackingIDs has Retrieved are", ((string)(null)), table7);
-#line 131
+#line 133
+testRunner.And("Lot of TrackingIDs has Retrieved are", ((string)(null)), table11);
+#line 138
 testRunner.And("PayLog has save RoundID=\'20\', Count=\'4\'");
-#line 132
-testRunner.And("IsAutoBetOn is false, in game roundID=20");
+#line 139
+testRunner.And("Auto bet has been turned off in active game roundID=20 and amount=0");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
