@@ -64,19 +64,33 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BackServices\CancelPlayerAccount.feature.cs">
+    <Compile Include="BackServices\Specs\ActivatePlayerAccount.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ActivatePlayerAccount.feature</DependentUpon>
+    </Compile>
+    <Compile Include="BackServices\Specs\CancelPlayerAccount.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CancelPlayerAccount.feature</DependentUpon>
     </Compile>
-    <Compile Include="BackServices\CreatePlayerAccount.feature.cs">
+    <Compile Include="BackServices\Specs\CreatePlayerAccount.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CreatePlayerAccount.feature</DependentUpon>
     </Compile>
     <Compile Include="BackServices\SpecEventDefinitions.cs" />
-    <Compile Include="BackServices\Specs\CommonSteps.cs" />
-    <Compile Include="BackServices\Specs\PlayerAccountStepsBase.cs" />
+    <Compile Include="BackServices\Specs\EditPlayerAccount.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditPlayerAccount.feature</DependentUpon>
+    </Compile>
+    <Compile Include="BackServices\Specs\Steps\ActivatePlayerAccountSteps.cs" />
+    <Compile Include="BackServices\Specs\Steps\CancelPlayerAccoutSteps.cs" />
+    <Compile Include="BackServices\Specs\Steps\CommonSteps.cs" />
+    <Compile Include="BackServices\Specs\Steps\CreatePlayerAccountSteps.cs" />
+    <Compile Include="BackServices\Specs\Steps\EditPlayerAccountSteps.cs" />
+    <Compile Include="BackServices\Specs\Steps\PlayerAccountStepsBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
@@ -101,6 +115,10 @@
       <Project>{28B48276-2905-4A6C-9BBA-09007F7E7084}</Project>
       <Name>TheS.Casinova.PlayerAccount.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Modules\PlayerProfile\TheS.Casinova.PlayerProfile.Models\TheS.Casinova.PlayerProfile.Models.csproj">
+      <Project>{96BBA83F-EAA6-4EEA-BEC5-98F6AC39B943}</Project>
+      <Name>TheS.Casinova.PlayerProfile.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Modules\Shared\TheS.Casinova.Common.Commands\TheS.Casinova.Common.Commands.csproj">
       <Project>{B0BA601A-7B65-4973-9E00-4F9035883877}</Project>
       <Name>TheS.Casinova.Common.Commands</Name>
@@ -112,13 +130,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="BackServices\App.config" />
-    <None Include="BackServices\CancelPlayerAccount.feature">
+    <None Include="BackServices\Specs\ActivatePlayerAccount.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ActivatePlayerAccount.feature.cs</LastGenOutput>
+    </None>
+    <None Include="BackServices\Specs\CancelPlayerAccount.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>CancelPlayerAccount.feature.cs</LastGenOutput>
     </None>
-    <None Include="BackServices\CreatePlayerAccount.feature">
+    <None Include="BackServices\Specs\CreatePlayerAccount.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>CreatePlayerAccount.feature.cs</LastGenOutput>
+    </None>
+    <None Include="BackServices\Specs\EditPlayerAccount.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>EditPlayerAccount.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

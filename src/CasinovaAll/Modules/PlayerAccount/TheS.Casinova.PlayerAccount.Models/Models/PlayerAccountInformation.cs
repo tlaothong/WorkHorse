@@ -48,7 +48,7 @@ namespace TheS.Casinova.PlayerAccount.Models
         /// <summary>
         /// รหัสตรวจสอบหมายเลขบัญชี
         /// </summary>
-        public int CVV { get; set; }
+        public string CVV { get; set; }
 
         /// <summary>
         /// วันหมดอายุของบัญชี

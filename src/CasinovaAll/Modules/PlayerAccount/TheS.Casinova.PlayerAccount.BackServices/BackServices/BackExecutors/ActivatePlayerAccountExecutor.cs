@@ -5,40 +5,40 @@ using System.Text;
 using TheS.Casinova.PlayerAccount.Commands;
 using PerfEx.Infrastructure.CommandPattern;
 using TheS.Casinova.PlayerAccount.DAL;
-using TheS.Casinova.PlayerAccount.Models;
 using PerfEx.Infrastructure;
 using PerfEx.Infrastructure.Validation;
 using TheS.Casinova.PlayerProfile.Models;
 
 namespace TheS.Casinova.PlayerAccount.BackServices.BackExecutors
 {
-    public class CancelPlayerAccountExecutor
-        : SynchronousCommandExecutorBase<CancelPlayerAccountCommand>
+    public class ActivatePlayerAccountExecutor
+        : SynchronousCommandExecutorBase<ActivatePlayerAccountCommand>
     {
-        private ICancelPlayerAccount _iCancelPlayerAccount;
+        private IActivatePlayerAccount _iActivatePlayerAccount;
         private IDependencyContainer _container;
 
-        public CancelPlayerAccountExecutor(IDependencyContainer container, IPlayerAccountDataAccess dac)
+        public ActivatePlayerAccountExecutor(IDependencyContainer container, IPlayerAccountDataAccess dac)
         {
-            _iCancelPlayerAccount = dac;
+            _iActivatePlayerAccount = dac;
             _container = container;
         }
 
-        protected override void ExecuteCommand(CancelPlayerAccountCommand command)
+        protected override void ExecuteCommand(ActivatePlayerAccountCommand command)
         {
             ValidationErrorCollection errorValidations = new ValidationErrorCollection();
-            ValidationHelper.Validate(_container, command.PlayerAccountInfo, command, errorValidations);
 
             UserProfile userProfile = new UserProfile { UserName = command.PlayerAccountInfo.UserName, Password = command.Password };
             ValidationHelper.Validate(_container, userProfile, command, errorValidations);
+         
+            ValidationHelper.Validate(_container, command.PlayerAccountInfo, command, errorValidations);
 
             if (errorValidations.Any()) {
                 throw new ValidationErrorException(errorValidations);
             }
 
-            //ยกเลิกบัญชี
-            command.PlayerAccountInfo.Active = false;
-            _iCancelPlayerAccount.ApplyAction(command.PlayerAccountInfo, command);
+            //เปิดใช้งานบัญชี
+            command.PlayerAccountInfo.Active = true;
+            _iActivatePlayerAccount.ApplyAction(command.PlayerAccountInfo, command);
         }
     }
 }
