@@ -43,14 +43,8 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
         [When(@"Call RegisterUserExecutor\(\)")]
         public void WhenCallRegisterUserExecutor()
         {
-            try {
-                RegisterUser.Execute(_cmd, (x) => { });
-                //Assert.Fail("Shouldn't be here");
-            }
-            catch (Exception ex) {
-                Assert.IsInstanceOfType(ex,
-                    typeof(ValidationErrorException));
-            }
+           
+             RegisterUser.Execute(_cmd, (x) => { });          
         }
 
         //validation input

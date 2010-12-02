@@ -52,14 +52,8 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
         [When(@"Call ChangeEmailExecutor\(\)")]
         public void WhenCallChangeEmailExecutor()
         {
-            try {
-                ChangeEmail.Execute(_cmd, (x) => { });
-                Assert.Fail("Shouldn't be here");
-            }
-            catch (Exception ex) {
-                Assert.IsInstanceOfType(ex,
-                    typeof(ValidationErrorException));
-            }
+           
+            ChangeEmail.Execute(_cmd, (x) => { });        
         }
 
         [Then(@"Get null and skip checking trackingID for change email")]
@@ -71,8 +65,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
         [Then(@"TrackingID for change email should be :'(.*)'")]
         public void ThenTrackingIDForChangeEmailShouldBeX(string expectTrackingID)
         {
-            //Assert.AreEqual(expectTrackingID, _trackingID, "Get trackingID accept");
-            ScenarioContext.Current.Pending();
+            Assert.AreEqual(expectTrackingID, _trackingID, "Get trackingID accept");
         }
     }
 }

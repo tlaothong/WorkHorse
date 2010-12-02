@@ -89,18 +89,18 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs
                         "12/31/2010",
                         "True"});
 #line 8
-testRunner.Given("Server has player account information as:", ((string)(null)), table1);
+testRunner.Given("Server has player account information for get data as:", ((string)(null)), table1);
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[]ระบบได้รับข้อมูล username ถูกต้อง ระบบสามารถดึงข้อมูลบัญชีของผู้เล่นได้ # GetPl" +
-            "ayerAccount")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[GetPlayerAccount]ผู้เล่นต้องการข้อมูลบัญชีหลัก ระบบได้รับข้อมูลถูกต้อง และใน ser" +
+            "ver มีข้อมูลที่ระบบต้องการ ระบบสามารถดึงข้อมูลบัญชีของผู้เล่นได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GetPlayerAccount")]
-        public virtual void ระบบไดรบขอมลUsernameถกตองระบบสามารถดงขอมลบญชของผเลนไดGetPlayerAccount()
+        public virtual void GetPlayerAccountผเลนตองการขอมลบญชหลกระบบไดรบขอมลถกตองและในServerมขอมลทระบบตองการระบบสามารถดงขอมลบญชของผเลนได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[]ระบบได้รับข้อมูล username ถูกต้อง ระบบสามารถดึงข้อมูลบัญชีของผู้เล่นได้ # GetPl" +
-                    "ayerAccount", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[GetPlayerAccount]ผู้เล่นต้องการข้อมูลบัญชีหลัก ระบบได้รับข้อมูลถูกต้อง และใน ser" +
+                    "ver มีข้อมูลที่ระบบต้องการ ระบบสามารถดึงข้อมูลบัญชีของผู้เล่นได้", new string[] {
                         "record_mock",
                         "record_mock"});
 #line 15
@@ -108,58 +108,104 @@ this.ScenarioSetup(scenarioInfo);
 #line 16
 testRunner.Given("The GetPlayerAccountExecutor has been created and initialized");
 #line 17
-testRunner.And("Sent UserName \'Nit\'");
+testRunner.And("Sent UserName \'Nit\' AccountType \'Primary\'");
 #line 18
-testRunner.When("Call GetPlayerAccountExecutor");
+testRunner.When("Call GetPlayerAccountExecutor()");
 #line 19
-testRunner.Then("The result of get player account should be as : AccountType \'Visa\' AccountNo \'001" +
-                    "2214544543212\' CVV \'3223\' ExpireDate \'12/31/2010 \' Active \'true\'");
+testRunner.Then("The result of get player account should be as : CardType \'Visa\' AccountNo \'001221" +
+                    "4544543212\' CVV \'3223\' ExpireDate \'12/31/2010\'");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล username ที่ไม่มีใน server ระบบไม่สามารถดึงข้อมูลบัญชีของผู้เล่น" +
-            "ได้ # GetPlayerAccount")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[GetPlayerAccount]ผู้เล่นต้องการข้อมูลบัญชีสำรอง ระบบได้รับข้อมูลถูกต้อง แต่ใน se" +
+            "rver ยังไม่มีข้อมูลบัญชีสำรอง ระบบดึงข้อมูลบัญชีของผู้เล่น ไม่มีข้อมูลใดๆ")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GetPlayerAccount")]
-        public virtual void ระบบไดรบขอมลUsernameทไมมในServerระบบไมสามารถดงขอมลบญชของผเลนไดGetPlayerAccount()
+        public virtual void GetPlayerAccountผเลนตองการขอมลบญชสำรองระบบไดรบขอมลถกตองแตในServerยงไมมขอมลบญชสำรองระบบดงขอมลบญชของผเลนไมมขอมลใดๆ()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล username ที่ไม่มีใน server ระบบไม่สามารถดึงข้อมูลบัญชีของผู้เล่น" +
-                    "ได้ # GetPlayerAccount", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[GetPlayerAccount]ผู้เล่นต้องการข้อมูลบัญชีสำรอง ระบบได้รับข้อมูลถูกต้อง แต่ใน se" +
+                    "rver ยังไม่มีข้อมูลบัญชีสำรอง ระบบดึงข้อมูลบัญชีของผู้เล่น ไม่มีข้อมูลใดๆ", new string[] {
                         "record_mock"});
-#line 23
+#line 22
 this.ScenarioSetup(scenarioInfo);
-#line 24
+#line 23
 testRunner.Given("The GetPlayerAccountExecutor has been created and initialized");
+#line 24
+testRunner.And("Sent UserName \'Nit\' AccountType \'Secondary\'");
 #line 25
-testRunner.And("Sent UserName \'Meaw\'");
+testRunner.When("Call GetPlayerAccountExecutor()");
 #line 26
-testRunner.When("Call GetPlayerAccountExecutor");
-#line 27
 testRunner.Then("The result of get player account should be null");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบไม่ได้รับข้อมูล username ระบบไม่สามารถดึงข้อมูลบัญชีของผู้เล่นได้ # GetPlayer" +
-            "Account")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[GetPlayerAccount]ผู้เล่นต้องการข้อมูลบัญชีหลัก ระบบได้รับข้อมูล username ที่ไม่ม" +
+            "ีใน server ระบบดึงข้อมูลบัญชีของผู้เล่น ไม่มีข้อมูลใดๆ")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GetPlayerAccount")]
-        public virtual void ระบบไมไดรบขอมลUsernameระบบไมสามารถดงขอมลบญชของผเลนไดGetPlayerAccount()
+        public virtual void GetPlayerAccountผเลนตองการขอมลบญชหลกระบบไดรบขอมลUsernameทไมมในServerระบบดงขอมลบญชของผเลนไมมขอมลใดๆ()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบไม่ได้รับข้อมูล username ระบบไม่สามารถดึงข้อมูลบัญชีของผู้เล่นได้ # GetPlayer" +
-                    "Account", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[GetPlayerAccount]ผู้เล่นต้องการข้อมูลบัญชีหลัก ระบบได้รับข้อมูล username ที่ไม่ม" +
+                    "ีใน server ระบบดึงข้อมูลบัญชีของผู้เล่น ไม่มีข้อมูลใดๆ", new string[] {
                         "record_mock"});
 #line 30
 this.ScenarioSetup(scenarioInfo);
 #line 31
 testRunner.Given("The GetPlayerAccountExecutor has been created and initialized");
 #line 32
-testRunner.And("Sent UserName \'\'");
+testRunner.And("Sent UserName \'Meaw\' AccountType \'Primary\'");
 #line 33
-testRunner.When("Call GetPlayerAccountExecutor");
+testRunner.When("Call GetPlayerAccountExecutor()");
 #line 34
 testRunner.Then("The result of get player account should be null");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[GetPlayerAccount]ผู้เล่นต้องการข้อมูลบัญชีหลัก ระบบไม่ได้รับข้อมูล username ระบบ" +
+            "ไม่สามารถดึงข้อมูลบัญชีของผู้เล่นได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GetPlayerAccount")]
+        public virtual void GetPlayerAccountผเลนตองการขอมลบญชหลกระบบไมไดรบขอมลUsernameระบบไมสามารถดงขอมลบญชของผเลนได()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[GetPlayerAccount]ผู้เล่นต้องการข้อมูลบัญชีหลัก ระบบไม่ได้รับข้อมูล username ระบบ" +
+                    "ไม่สามารถดึงข้อมูลบัญชีของผู้เล่นได้", new string[] {
+                        "record_mock"});
+#line 37
+this.ScenarioSetup(scenarioInfo);
+#line 38
+testRunner.Given("The GetPlayerAccountExecutor has been created and initialized");
+#line 39
+testRunner.And("Sent UserName \'\' AccountType \'Primary\' for validate get player account");
+#line 40
+testRunner.When("Call GetPlayerAccountExecutor() for validate input");
+#line 41
+testRunner.Then("The result of get player account should be throw exception");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[GetPlayerAccount]ผู้เล่นต้องการข้อมูลบัญชีหลัก ระบบไม่ได้รับข้อมูล accountType ร" +
+            "ะบบไม่สามารถดึงข้อมูลบัญชีของผู้เล่นได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GetPlayerAccount")]
+        public virtual void GetPlayerAccountผเลนตองการขอมลบญชหลกระบบไมไดรบขอมลAccountTypeระบบไมสามารถดงขอมลบญชของผเลนได()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[GetPlayerAccount]ผู้เล่นต้องการข้อมูลบัญชีหลัก ระบบไม่ได้รับข้อมูล accountType ร" +
+                    "ะบบไม่สามารถดึงข้อมูลบัญชีของผู้เล่นได้", new string[] {
+                        "record_mock"});
+#line 44
+this.ScenarioSetup(scenarioInfo);
+#line 45
+testRunner.Given("The GetPlayerAccountExecutor has been created and initialized");
+#line 46
+testRunner.And("Sent UserName \'Nit\' AccountType \'\' for validate get player account");
+#line 47
+testRunner.When("Call GetPlayerAccountExecutor() for validate input");
+#line 48
+testRunner.Then("The result of get player account should be throw exception");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

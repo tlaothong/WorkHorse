@@ -52,13 +52,9 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         [When(@"Call GetGameResultExecutor\(\)")]
         public void WhenCallGetGameResultExecutor()
         {
-            try {
-                GetGameResult.Execute(_cmd, (x) => { });
-            }
-            catch (Exception ex) {
-                Assert.IsInstanceOfType(ex,
-                    typeof(ValidationErrorException));
-            }
+
+             GetGameResult.Execute(_cmd, (x) => { });
+
         }
 
         [When(@"Call GetGameResultExecutor\(\) for validate roundID")]

@@ -26,7 +26,7 @@ namespace TheS.Casinova.PlayerAccount.Models
 
            public string AccountNo { get; set; }
 
-           public int CVV { get; set; }
+           public string CVV { get; set; }
 
            public DateTime ExpireDate { get; set; }
 

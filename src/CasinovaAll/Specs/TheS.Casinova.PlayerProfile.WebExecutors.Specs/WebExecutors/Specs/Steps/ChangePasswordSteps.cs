@@ -52,14 +52,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
         [When(@"Call ChangePasswordExecutor\(\)")]
         public void WhenCallChangePasswordExecutor()
         {
-            try {
-                ChangePassword.Execute(_cmd, (x) => { });
-                Assert.Fail("Shouldn't be here");
-            }
-            catch (Exception ex) {
-                Assert.IsInstanceOfType(ex,
-                    typeof(ValidationErrorException));
-            }
+              ChangePassword.Execute(_cmd, (x) => { });
         }
 
         [Then(@"Get null and skip checking trackingID for change password")]

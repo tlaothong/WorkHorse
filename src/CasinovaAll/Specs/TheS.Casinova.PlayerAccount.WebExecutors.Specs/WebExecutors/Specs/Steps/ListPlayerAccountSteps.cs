@@ -37,7 +37,7 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs.Steps
         public void GivenSentUserNameForValidateListPlayerAccountInformation(string userName)
         {
             _cmd = new ListPlayerAccountCommand {
-                ListPlayerAccountInput = new PlayerAccountInformation {
+                PlayerAccountInfo = new PlayerAccountInformation {
                     UserName = userName
                 }
             };
@@ -54,7 +54,7 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs.Steps
                 .IgnoreArguments().Return(_listPlayerAccount);
 
             _cmd = new ListPlayerAccountCommand {
-                ListPlayerAccountInput = new PlayerAccountInformation { 
+                PlayerAccountInfo = new PlayerAccountInformation { 
                     UserName = userName
                 }
             };
@@ -78,14 +78,8 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs.Steps
         [When(@"Call ListPlayerAccountExecutor\(\)")]
         public void WhenCallListPlayerAccountExecutor()
         {
-            try {
-                ListPlayerAccount.Execute(_cmd, (x) => { });
-                //Assert.Fail("Shouldn't be here");
-            }
-            catch (Exception ex) {
-                Assert.IsInstanceOfType(ex,
-                    typeof(ValidationErrorException));
-            }
+           
+              ListPlayerAccount.Execute(_cmd, (x) => { });
         }
 
         [Then(@"The result of player account should be as:")]

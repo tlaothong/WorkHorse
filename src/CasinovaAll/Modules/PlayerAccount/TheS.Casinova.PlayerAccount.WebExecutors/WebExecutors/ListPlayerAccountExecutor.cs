@@ -7,6 +7,7 @@ using TheS.Casinova.PlayerAccount.Commands;
 using TheS.Casinova.PlayerAccount.DAL;
 using PerfEx.Infrastructure;
 using PerfEx.Infrastructure.Validation;
+using TheS.Casinova.PlayerAccount.Models;
 
 namespace TheS.Casinova.PlayerAccount.WebExecutors
 {
@@ -28,11 +29,17 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors
         protected override void ExecuteCommand(ListPlayerAccountCommand command)
         {
             //Validation
-            var errors = ValidationHelper.Validate(_container, command.ListPlayerAccountInput, command);
+            var errors = ValidationHelper.Validate(_container, command.PlayerAccountInfo, command);
             if (errors.Any()) {
                 throw new ValidationErrorException(errors);
             }
 
+            command = new ListPlayerAccountCommand {
+                PlayerAccountInfo = new PlayerAccountInformation { 
+                    UserName = command.PlayerAccountInfo.UserName,
+                    Active = true
+                }
+            };
             command.PlayerAccountInformation = _iListPlayerAccount.List(command);
         }
     }

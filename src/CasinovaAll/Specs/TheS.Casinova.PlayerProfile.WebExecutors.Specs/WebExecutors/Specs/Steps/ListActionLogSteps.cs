@@ -61,13 +61,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
         [When(@"Call ListActionLogExecutor\(\)")]
         public void WhenCallListActionLogExecutor()
         {
-            try {
-                ListActionLog.Execute(_cmd, (x) => { });
-            }
-            catch (Exception ex) {
-                Assert.IsInstanceOfType(ex,
-                    typeof(ValidationErrorException));
-            }
+            ListActionLog.Execute(_cmd, (x) => { });
         }
 
         //Validation

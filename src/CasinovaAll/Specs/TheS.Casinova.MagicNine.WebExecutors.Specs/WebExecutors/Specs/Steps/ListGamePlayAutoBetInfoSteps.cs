@@ -15,7 +15,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
     public class ListGamePlayAutoBetInfoSteps : MagicNineGameStepsBase
     {
         private ListGamePlayAutoBetInfoCommand _cmd;
-        private IEnumerable<GamePlayAutoBetInformation> _gamePlayAutoBet;
+        private IEnumerable<GamePlayAutoBetInformation>  _gamePlayAutoBet;
         private IEnumerable<GamePlayAutoBetInformation> _listGamePlayAutoBet;
 
 
@@ -45,7 +45,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
 
             _cmd = new ListGamePlayAutoBetInfoCommand {
                 GamePlayAutoBetInfo = new GamePlayAutoBetInformation {
-                    UserName = userName,
+                    UserName = userName
                 }
             };
         }
@@ -55,7 +55,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         {
             _cmd = new ListGamePlayAutoBetInfoCommand {
                 GamePlayAutoBetInfo = new GamePlayAutoBetInformation {
-                    UserName = userName,
+                    UserName = userName
                 }
             };
         }
@@ -64,13 +64,8 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         [When(@"Call ListGamePlayAutoBetInfoExecutor\(\)")]
         public void WhenCallListGamePlayAutoBetInfoExecutor()
         {
-            try {
-                ListGamePlayAutoBetInfo.Execute(_cmd, (x) => { });
-            }
-            catch (Exception ex) {
-                Assert.IsInstanceOfType(ex,
-                    typeof(ValidationErrorException));
-            }
+            ListGamePlayAutoBetInfo.Execute(_cmd, (x) => { });
+
         }
 
         //Validation

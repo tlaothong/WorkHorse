@@ -37,13 +37,8 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         [When(@"Call StopAutoBetExecutor\(\)")]
         public void WhenCallStopAutoBetExecutor()
         {
-            try {
-                StopAutoBet.Execute(_cmd, (x) => { });
-            }
-            catch (Exception ex) {
-                Assert.IsInstanceOfType(ex,
-                    typeof(ValidationErrorException));
-            }
+             StopAutoBet.Execute(_cmd, (x) => { });
+           
         }
 
         [Then(@"TrackingID for stop auto bet should be :'(.*)'")]

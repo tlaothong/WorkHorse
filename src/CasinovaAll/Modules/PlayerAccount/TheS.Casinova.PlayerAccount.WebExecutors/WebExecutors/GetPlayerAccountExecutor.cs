@@ -5,6 +5,9 @@ using System.Text;
 using PerfEx.Infrastructure.CommandPattern;
 using TheS.Casinova.PlayerAccount.Commands;
 using TheS.Casinova.PlayerAccount.DAL;
+using PerfEx.Infrastructure;
+using PerfEx.Infrastructure.Validation;
+using TheS.Casinova.PlayerAccount.Models;
 
 namespace TheS.Casinova.PlayerAccount.WebExecutors
 {
@@ -15,15 +18,29 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors
         : SynchronousCommandExecutorBase<GetPlayerAccountCommand>
     {
         private IGetPlayerAccount _iGetPlayerAccount;
+        private IDependencyContainer _container;
 
-        public GetPlayerAccountExecutor(IPlayerAccountModuleDataQuery dqr) 
+        public GetPlayerAccountExecutor(IPlayerAccountModuleDataQuery dqr, IDependencyContainer container) 
         {
             _iGetPlayerAccount = dqr;
+            _container = container;
         }
 
         protected override void ExecuteCommand(GetPlayerAccountCommand command)
         {
-            command.PlayerAccountInfo = _iGetPlayerAccount.Get(command);
+            //Validation
+            var errors = ValidationHelper.Validate(_container, command.PlayerAccountInfo, command);
+            if (errors.Any()) {
+                throw new ValidationErrorException(errors);
+            }
+
+            command = new GetPlayerAccountCommand {
+                PlayerAccountInfo = new PlayerAccountInformation {
+                    UserName = command.PlayerAccountInfo.UserName,
+                    Active = true
+                }
+            };
+            command.PlayerAccountInformation = _iGetPlayerAccount.Get(command);
         }
     }
 }

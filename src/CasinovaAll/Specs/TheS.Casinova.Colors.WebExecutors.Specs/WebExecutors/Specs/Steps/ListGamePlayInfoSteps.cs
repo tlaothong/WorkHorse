@@ -55,13 +55,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         [When(@"Call ListGamePlayInfoExecutor\(\)")]
         public void WhenCallListGamePlayInfoExecutorX()
         {
-            try {
                 ListGamePlayInfo.Execute(_cmd, (x) => { });
-            }
-            catch (Exception ex) {
-                Assert.IsInstanceOfType(ex,
-                    typeof(ValidationErrorException));
-            }
         }
 
         [When(@"Call ListGamePlayInfoExecutor\(\) for validate username")]

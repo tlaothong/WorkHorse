@@ -4,22 +4,23 @@
 	I want to cancel player account
 
 @record_mock
-Scenario: ระบบได้รับข้อมูล playerAccountID ถูกต้อง แล้วส่งไปยัง backserver
+Scenario:[CancelPlayerAccount]ระบบได้รับข้อมูลการยกเลิกบัญชีถูกต้อง ระบบสามารถ generate trackingID ได้
 	Given The CancelPlayerAccountExecutor has been created and initialized
-	And Sent PlayerAccountID '123' 
-	When Call CancelPlayerAccountExecutor
-	Then System can sent PlayerAccountID to backserver
+	And  Sent UserName 'Nit' AccountType 'Primary' for cancel player account
+	And  The system generated TrackingID for CancelPlayerAccount :'DEDE6BFD17484312848E13F26345C597'
+	When Call CancelPlayerAccountExecutor() 
+	Then TrackingID for CancelPlayerAccount should be : 'DEDE6BFD17484312848E13F26345C597'
 
 @record_mock
-Scenario: ระบบได้รับ playerAccountID ไม่ถูกต้อง ระบบไม่สามารถส่งข้อมูลไป backserver ได้
+Scenario:[CancelPlayerAccount]ระบบได้รับ playerAccountID ไม่ถูกต้อง ระบบไม่สามารถส่งข้อมูลไป backserver ได้
 	Given The CancelPlayerAccountExecutor has been created and initialized
-	And Sent PlayerAccountID '-13' 
-	When Call CancelPlayerAccountExecutor
-	Then System can't sent PlayerAccountID to backserver
+	And  Sent UserName '' AccountType 'Primary' for cancel player account
+	When Call CancelPlayerAccountExecutor() for validate input
+	Then  Get null and skip checking trackingID for cancel player account
 
 @record_mock
-Scenario: ระบบไม่ได้รับ playerAccountID ระบบไม่สามารถส่งข้อมูลไป backserver ได้
+Scenario:[CancelPlayerAccount]ระบบไม่ได้รับ playerAccountID ระบบไม่สามารถส่งข้อมูลไป backserver ได้
 	Given The CancelPlayerAccountExecutor has been created and initialized
-	And Sent PlayerAccountID '' 
-	When Call CancelPlayerAccountExecutor
-	Then System can't sent PlayerAccountID to backserver
+	And  Sent UserName 'Nit' AccountType '' for cancel player account
+	When Call CancelPlayerAccountExecutor() for validate input
+	Then  Get null and skip checking trackingID for cancel player account

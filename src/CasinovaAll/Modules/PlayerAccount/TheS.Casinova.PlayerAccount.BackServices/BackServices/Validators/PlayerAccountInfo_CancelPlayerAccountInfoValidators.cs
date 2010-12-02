@@ -31,10 +31,10 @@ namespace TheS.Casinova.PlayerAccount.BackServices.Validators
             getUserProfileCmd.UserProfileOutput = _iGetUserProfile.Get(getUserProfileCmd);
 
             GetPlayerAccountInfoByAccountTypeCommand getPlayerAccountInfoCmd = new GetPlayerAccountInfoByAccountTypeCommand {
-                PlayerAccountInfoInput = entity,
+                PlayerAccountInfo = entity,
             };
 
-            getPlayerAccountInfoCmd.PlayerAccountInfo = _iGetPlayerAccountInfoByAccountType.Get(getPlayerAccountInfoCmd);
+            getPlayerAccountInfoCmd.PlayerAccountInformation = _iGetPlayerAccountInfoByAccountType.Get(getPlayerAccountInfoCmd);
 
             if (getUserProfileCmd.UserProfileOutput.Password != command.Password) {
                 errors.Add(new ValidationError { 
@@ -43,9 +43,9 @@ namespace TheS.Casinova.PlayerAccount.BackServices.Validators
                 });
             }
 
-            if (getPlayerAccountInfoCmd.PlayerAccountInfo.Active != false) {
+            if (getPlayerAccountInfoCmd.PlayerAccountInformation.Active != false) {
                 errors.Add(new ValidationError {
-                    Instance = getPlayerAccountInfoCmd.PlayerAccountInfo,
+                    Instance = getPlayerAccountInfoCmd.PlayerAccountInformation,
                     ErrorMessage = "บัญชีนี้ได้ถูกยกเลิกไปแล้ว ไม่สามารถยกเลิกซ้ำได้",
                 });
             }

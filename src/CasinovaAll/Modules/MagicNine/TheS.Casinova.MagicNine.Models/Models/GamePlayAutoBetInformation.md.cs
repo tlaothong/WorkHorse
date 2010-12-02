@@ -14,7 +14,7 @@ namespace TheS.Casinova.MagicNine.Models
             [Required]
             public string UserName { get; set; }
 
-            [Range(1, 4)]
+            [Range(0, 3)]
             public int RoundID { get; set; }
 
             [Range(0, double.MaxValue)]

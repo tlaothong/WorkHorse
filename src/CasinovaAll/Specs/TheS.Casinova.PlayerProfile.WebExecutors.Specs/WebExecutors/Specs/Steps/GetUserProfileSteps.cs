@@ -67,14 +67,8 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
         [When(@"Call GetUserProfileExecutor\(\)")]
         public void WhenCallGetUserProfileExecutor()
         {
-            try {
-                GetUserProfile.Execute(_cmd, (x) => { });
-                Assert.Fail("Shouldn't be here");
-            }
-            catch (Exception ex) {
-                Assert.IsInstanceOfType(ex,
-                    typeof(ValidationErrorException));
-            }
+              GetUserProfile.Execute(_cmd, (x) => { });
+ 
         }
 
         //Validation

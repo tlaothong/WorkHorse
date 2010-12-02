@@ -53,13 +53,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         [When(@"Call PayForColorsWinnerInfoExecutor\(\)")]
         public void WhenCallPayForColorsWinnerInfoExecutor()
         {
-            try {
                 PayForWinnerInfo.Execute(_cmd, (x) => { });
-            }
-            catch (Exception ex) {
-                Assert.IsInstanceOfType(ex,
-                    typeof(ValidationErrorException));
-            };
         }
 
         [Then(@"PayForColorWinnerInfo get null and skip checking trackingID")]
