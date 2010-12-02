@@ -58,5 +58,23 @@ namespace TheS.Casinova.MagicNine.Specs.Steps
             viewModel.AutoBetStart();
             ScenarioContext.Current.Get<TestScheduler>().Run();
         }
+
+        [Then(@"Auto bet has been turned off in active game roundID=(.*) and amount=(.*)")]
+        public void ThenAutoBetHasBeenTurnOffInActiveGameRoundID1(int roundID,int amount)
+        {
+            var activegameRound = ScenarioContext.Current.Get<GamePlayViewModel>().ActiveGameRoundTables.First(c => c.RoundID.Equals(roundID));
+
+            Assert.AreEqual(amount, activegameRound.Amount, "Amount");
+            Assert.IsFalse(activegameRound.IsAutoBetOn, "Auto bet has been turn off");
+        }
+
+        [Then(@"Auto bet has been turned on in active game roundID=(.*) and amount=(.*)")]
+        public void ThenAutoBetHasBeenTurnOnInActiveGameRoundID1(int roundID, int amount)
+        {
+            var activegameRound = ScenarioContext.Current.Get<GamePlayViewModel>().ActiveGameRoundTables.First(c => c.RoundID.Equals(roundID));
+
+            Assert.AreEqual(amount, activegameRound.Amount, "Amount");
+            Assert.IsTrue(activegameRound.IsAutoBetOn, "Auto bet has been turn on");
+        }
     }
 }

@@ -37,7 +37,7 @@ namespace TheS.Casinova.Colors.ViewModels
         #region Properties
 
         /// <summary>
-        /// ข้อมูลของกราฟเส้นตรงที่เป็นสีดำ
+        /// ข้อมูลของกราฟเส้นที่เป็นสีดำ
         /// </summary>
         public ObservableCollection<KeyValuePair<DateTime, double>> LineInformationsBlack
         {
@@ -50,7 +50,7 @@ namespace TheS.Casinova.Colors.ViewModels
         }
 
         /// <summary>
-        /// ข้อมูลของกราฟเส้นตรงที่เป็นสีขาว
+        /// ข้อมูลของกราฟเส้นที่เป็นสีขาว
         /// </summary>
         public ObservableCollection<KeyValuePair<DateTime, double>> LineInformationsWhite
         {

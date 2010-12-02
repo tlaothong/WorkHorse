@@ -21,36 +21,14 @@ namespace TheS.Casinova.MagicNine.ViewModels
         private PerfEx.Infrastructure.PropertyChangedNotifier _notify;
         //private ObservableCollection<WinnerInfo> _informations;
         private ObservableCollection<string> _games;
-        private DateTime _firstData;
-        private DateTime _secondData;
+        private DateTime _singleDateTime;
+        private DateTime _rangeDateTime;
+        private int _singleRoundID;
+        private int _rangeRoundID;
 
         #endregion Fields
 
         #region Properties
-
-        public DateTime SecondData
-        {
-            get { return _secondData; }
-            set
-            {
-                if (_secondData!=value) {
-                    _secondData = value;
-                    _notify.Raise(() => SecondData); 
-                }
-            }
-        }
-
-        public DateTime FirstData
-        {
-            get { return _firstData; }
-            set
-            {
-                if (_firstData!=value) {
-                    _firstData = value;
-                    _notify.Raise(() => FirstData); 
-                }
-            }
-        }
 
         //public ObservableCollection<WinnerInfo> Informations
         //{
@@ -62,6 +40,74 @@ namespace TheS.Casinova.MagicNine.ViewModels
         //    }
         //}
 
+        /// <summary>
+        /// ช่วงเวลาของ Single
+        /// </summary>
+        public DateTime SingleDateTime
+        {
+            get { return _singleDateTime; }
+            set
+            {
+                if (_singleDateTime!=value)
+                {
+                    _singleDateTime = value;
+                    _notify.Raise(() => SingleDateTime); 
+                }
+            }
+        }
+
+        /// <summary>
+        /// ช่วงเวลาของ Range
+        /// </summary>
+        public DateTime RangeDateTime
+        {
+            get { return _rangeDateTime; }
+            set
+            {
+                if (_rangeDateTime!=value)
+                {
+                    _rangeDateTime = value;
+                    _notify.Raise(() => RangeDateTime);  
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// รอบของ Single
+        /// </summary>
+        public int SingleRoundID
+        {
+            get { return _singleRoundID; }
+            set
+            {
+                if (_singleRoundID!=value)
+                {
+                    _singleRoundID = value;
+                    _notify.Raise(() => SingleRoundID);  
+                }
+            }
+        }
+
+        /// <summary>
+        /// รอบของ Range
+        /// </summary>
+        public int RangeRoundID
+        {
+            get { return _rangeRoundID; }
+            set
+            {
+                if (_rangeRoundID!=value)
+                {
+                    _rangeRoundID = value;
+                    _notify.Raise(() => RangeRoundID);  
+                }
+            }
+        }
+
+        /// <summary>
+        /// ห้องเกมที่ต้องการดูข้อมูล
+        /// </summary>
         public ObservableCollection<string> Games
         {
             get { return _games; }

@@ -35,22 +35,25 @@ Background:
 		|{50EA817A-512E-469E-982F-8377F0EF84A6}		|
 		|{37C87086-FFBB-4C9A-87F9-F9A4C0CF6FB0}		|
 	When Send request GetListActiveGameRounds() to web server
-	
 
 @record_mock
 Scenario: Request stop auto bet
-	Given Setup Amount=20 in game roundID=20
+	Given Setup autobet game play viewmodel are
+		|RoundID|Amount	|
+		|20		|20		|
 	When I press AutoBetStop() in game roundID=20
 	Then PayLog has save RoundID='20', Count='1'
 	And Lot of TrackingIDs has Retrieved are
 		|TrackingID									|
 		|{60AD85F6-3978-48AA-9286-E5A7344B77EC}		|
 	And PayLog has empty
-	And IsAutoBetOn is false, in game roundID=20
+	And Auto bet has been turned off in active game roundID=20 and amount=0
 
 @record_mock
 Scenario: Request stop auto bet (request more than 1 )
-	Given Setup Amount=20 in game roundID=20
+	Given Setup autobet game play viewmodel are
+		|RoundID|Amount	|
+		|20		|20		|
 	When I press AutoBetStop() in game roundID=20
 	And I press AutoBetStop() in game roundID=20
 	And I press AutoBetStop() in game roundID=20
@@ -69,17 +72,19 @@ Scenario: Request stop auto bet (request more than 1 )
 		|{50EA817A-512E-469E-982F-8377F0EF84A6}		|
 		|{37C87086-FFBB-4C9A-87F9-F9A4C0CF6FB0}		|
 	And PayLog has empty
-	And IsAutoBetOn is false, in game roundID=20
+	And Auto bet has been turned off in active game roundID=20 and amount=0
 
 @record_mock
 Scenario: Request stop auto bet (request more than 1 ) difference game roundID
-	Given Setup Amount=20 in game roundID=20
-	And Setup Amount=20 in game roundID=21
-	And Setup Amount=20 in game roundID=22
-	And Setup Amount=20 in game roundID=23
-	And Setup Amount=20 in game roundID=24
-	And Setup Amount=20 in game roundID=25
-	And Setup Amount=20 in game roundID=26
+	Given Setup autobet game play viewmodel are
+		|RoundID|Amount		|
+		|20		|20			|
+		|21		|20			|
+		|22		|20			|
+		|23		|20			|
+		|24		|20			|
+		|25		|20			|
+		|26		|20			|
 	When I press AutoBetStop() in game roundID=20
 	And I press AutoBetStop() in game roundID=21
 	And I press AutoBetStop() in game roundID=22
@@ -104,17 +109,19 @@ Scenario: Request stop auto bet (request more than 1 ) difference game roundID
 		|{50EA817A-512E-469E-982F-8377F0EF84A6}		|
 		|{37C87086-FFBB-4C9A-87F9-F9A4C0CF6FB0}		|
 	And PayLog has empty
-	And IsAutoBetOn is false, in game roundID=20
-	And IsAutoBetOn is false, in game roundID=21
-	And IsAutoBetOn is false, in game roundID=22
-	And IsAutoBetOn is false, in game roundID=23
-	And IsAutoBetOn is false, in game roundID=24
-	And IsAutoBetOn is false, in game roundID=25
-	And IsAutoBetOn is false, in game roundID=26
+	And Auto bet has been turned off in active game roundID=20 and amount=0
+	And Auto bet has been turned off in active game roundID=21 and amount=0
+	And Auto bet has been turned off in active game roundID=22 and amount=0
+	And Auto bet has been turned off in active game roundID=23 and amount=0
+	And Auto bet has been turned off in active game roundID=24 and amount=0
+	And Auto bet has been turned off in active game roundID=25 and amount=0
+	And Auto bet has been turned off in active game roundID=26 and amount=0
 
 @record_mock
 Scenario: Request stop auto bet, lot don't retrive all
-	Given Setup Amount=20 in game roundID=20
+	Given Setup autobet game play viewmodel are
+		|RoundID|Amount		|
+		|20		|20			|
 	When I press AutoBetStop() in game roundID=20
 	And I press AutoBetStop() in game roundID=20
 	And I press AutoBetStop() in game roundID=20
@@ -129,4 +136,4 @@ Scenario: Request stop auto bet, lot don't retrive all
 		|{A82FA8E6-1BCC-443E-A61A-F81B8B4DED83}		|
 		|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}		|
 	And PayLog has save RoundID='20', Count='4'
-	And IsAutoBetOn is false, in game roundID=20
+	And Auto bet has been turned off in active game roundID=20 and amount=0

@@ -22,38 +22,83 @@ namespace TheS.Casinova.Colors.ViewModels
         #region Fields
 
         private PerfEx.Infrastructure.PropertyChangedNotifier _notify;
-        private DateTime _firstData;
-        private DateTime _secondData;
         private GameResult _result;
+        private DateTime _singleDateTime;
+        private DateTime _rangeDateTime;
+        private int _singleRoundID;
+        private int _rangeRoundID;
 
         #endregion Fields
 
         #region Properties
 
-        public DateTime SecondData
+        /// <summary>
+        /// ช่วงเวลาของ Single
+        /// </summary>
+        public DateTime SingleDateTime
         {
-            get { return _secondData; }
+            get { return _singleDateTime; }
             set
             {
-                if (_secondData!=value) {
-                    _secondData = value;
-                    _notify.Raise(() => SecondData); 
+                if (_singleDateTime != value)
+                {
+                    _singleDateTime = value;
+                    _notify.Raise(() => SingleDateTime);
                 }
             }
         }
 
-        public DateTime FirstData
+        /// <summary>
+        /// ช่วงเวลาของ Range
+        /// </summary>
+        public DateTime RangeDateTime
         {
-            get { return _firstData; }
+            get { return _rangeDateTime; }
             set
             {
-                if (_firstData!=value) {
-                    _firstData = value;
-                    _notify.Raise(() => FirstData); 
+                if (_rangeDateTime != value)
+                {
+                    _rangeDateTime = value;
+                    _notify.Raise(() => RangeDateTime);
                 }
             }
         }
 
+        /// <summary>
+        /// รอบของ Single
+        /// </summary>
+        public int SingleRoundID
+        {
+            get { return _singleRoundID; }
+            set
+            {
+                if (_singleRoundID != value)
+                {
+                    _singleRoundID = value;
+                    _notify.Raise(() => SingleRoundID);
+                }
+            }
+        }
+
+        /// <summary>
+        /// รอบของ Range
+        /// </summary>
+        public int RangeRoundID
+        {
+            get { return _rangeRoundID; }
+            set
+            {
+                if (_rangeRoundID != value)
+                {
+                    _rangeRoundID = value;
+                    _notify.Raise(() => RangeRoundID);
+                }
+            }
+        }
+
+        /// <summary>
+        /// ผมสรุปการเล่นเกม
+        /// </summary>
         public GameResult GameResult
         {
             get { return _result; }
@@ -86,8 +131,8 @@ namespace TheS.Casinova.Colors.ViewModels
                 GameResult = new GameResult
                 {
                         Winner = "Balck",
-                        BlackPot = 456781,
-                        WhitePot = 12314,
+                        BlackPot = "456781",
+                        WhitePot = "12314",
                         Hands = 1254 
                 };
             }
@@ -96,6 +141,18 @@ namespace TheS.Casinova.Colors.ViewModels
         }
 
         #endregion Constructors
+
+        #region Methods
+
+        /// <summary>
+        /// เรียกดูข้อมูลผลสรุปการเล่นเกมที่กำหนด
+        /// </summary>
+        public void GetGameResult()
+        {
+            // TODO: Colors get game result
+        }
+
+        #endregion Methods
 
         #region INotifyPropertyChanged members
 

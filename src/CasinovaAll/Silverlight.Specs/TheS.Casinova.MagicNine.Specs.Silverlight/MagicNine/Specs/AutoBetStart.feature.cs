@@ -168,6 +168,8 @@ testRunner.Then("PayLog has save RoundID=\'1\', Count=\'1\'");
 testRunner.And("Lot of TrackingIDs has Retrieved are", ((string)(null)), table4);
 #line 46
 testRunner.And("PayLog has empty");
+#line 47
+testRunner.And("Auto bet has been turned off in active game roundID=1 and amount=0");
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                         "BetOrder",
@@ -178,7 +180,7 @@ testRunner.And("PayLog has empty");
             table5.AddRow(new string[] {
                         "11",
                         "2010-11-17 09:00:30"});
-#line 47
+#line 48
 testRunner.And("Dispaly bet log int game roundID=1 are", ((string)(null)), table5);
 #line hidden
             testRunner.CollectScenarioErrors();
@@ -192,13 +194,13 @@ testRunner.And("Dispaly bet log int game roundID=1 are", ((string)(null)), table
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Auto bet start auto bet amount 2", new string[] {
                         "record_mock"});
-#line 53
-this.ScenarioSetup(scenarioInfo);
 #line 54
-testRunner.When("I press AutoBetStart button in game roundID=1, Amount=2");
+this.ScenarioSetup(scenarioInfo);
 #line 55
-testRunner.And("Send request GetListBetlog( \'Sakul\' ) RoundID=\'1\'");
+testRunner.When("I press AutoBetStart button in game roundID=1, Amount=2");
 #line 56
+testRunner.And("Send request GetListBetlog( \'Sakul\' ) RoundID=\'1\'");
+#line 57
 testRunner.Then("PayLog has save RoundID=\'1\', Count=\'1\'");
 #line hidden
             TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
@@ -207,10 +209,12 @@ testRunner.Then("PayLog has save RoundID=\'1\', Count=\'1\'");
                         "{60AD85F6-3978-48AA-9286-E5A7344B77EC}"});
             table6.AddRow(new string[] {
                         "{60AD85F6-3978-48AA-9286-E5A7344B77EC}"});
-#line 57
+#line 58
 testRunner.And("Lot of TrackingIDs has Retrieved are", ((string)(null)), table6);
-#line 61
+#line 62
 testRunner.And("PayLog has empty");
+#line 63
+testRunner.And("Auto bet has been turned off in active game roundID=1 and amount=0");
 #line hidden
             TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
                         "BetOrder",
@@ -221,8 +225,51 @@ testRunner.And("PayLog has empty");
             table7.AddRow(new string[] {
                         "11",
                         "2010-11-17 09:00:30"});
-#line 62
+#line 64
 testRunner.And("Dispaly bet log int game roundID=1 are", ((string)(null)), table7);
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Auto bet start but lot not retrive all")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Auto bet start")]
+        [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
+        public virtual void AutoBetStartButLotNotRetriveAll()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Auto bet start but lot not retrive all", new string[] {
+                        "record_mock"});
+#line 70
+this.ScenarioSetup(scenarioInfo);
+#line 71
+testRunner.When("I press AutoBetStart button in game roundID=1, Amount=3");
+#line 72
+testRunner.And("Send request GetListBetlog( \'Sakul\' ) RoundID=\'1\'");
+#line 73
+testRunner.Then("PayLog has save RoundID=\'1\', Count=\'1\'");
+#line hidden
+            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                        "TrackingID"});
+            table8.AddRow(new string[] {
+                        "{60AD85F6-3978-48AA-9286-E5A7344B77EC}"});
+#line 74
+testRunner.And("Lot of TrackingIDs has Retrieved are", ((string)(null)), table8);
+#line 77
+testRunner.And("PayLog has save RoundID=\'1\', Count=\'1\'");
+#line 78
+testRunner.And("Auto bet has been turned on in active game roundID=1 and amount=2");
+#line hidden
+            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                        "BetOrder",
+                        "BetDateTime"});
+            table9.AddRow(new string[] {
+                        "72",
+                        "2010-11-17 09:00:00"});
+            table9.AddRow(new string[] {
+                        "11",
+                        "2010-11-17 09:00:30"});
+#line 79
+testRunner.And("Dispaly bet log int game roundID=1 are", ((string)(null)), table9);
 #line hidden
             testRunner.CollectScenarioErrors();
         }
