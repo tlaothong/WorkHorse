@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5C015B2B-E630-4915-926C-54A2E4F92F46}</ProjectGuid>
+    <ProjectTypeGuids>{F85E285D-A4E0-4152-9332-AB1D724D3325};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SilverlightWeb</RootNamespace>
+    <AssemblyName>SilverlightWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <SilverlightApplicationList>{BFDA5F01-0ED8-45E3-BF5A-33060035EE6E}|..\TheS.Casinova.Colors.Silverlight\TheS.Casinova.Colors.Silverlight.csproj|ClientBin|False,{F7F57B1A-9AE2-4D9A-B106-57D4DFAF6B80}|..\..\Silverlight.Specs\TheS.Casinova.Colors.Specs.Silverlight\TheS.Casinova.Colors.Specs.Silverlight.csproj|ClientBin|False,{0DFECD7E-1363-406E-A492-3ABFD06E18D7}|..\TheS.Casinova.TwoWins.Silverlight\TheS.Casinova.TwoWins.Silverlight.csproj|ClientBin|False,{C8789CB7-3EB0-44FE-BC6C-5B530E80D15A}|..\TheS.Casinova.MagicNine.Silverlight\TheS.Casinova.MagicNine.Silverlight.csproj|ClientBin|False,{1621C1D1-A6CE-4327-84FD-E89241BB6D56}|..\TheS.Casinova.DevilSix.Silverlight\TheS.Casinova.DevilSix.Silverlight.csproj|ClientBin|False,{56389D5F-1DA5-4FD5-8429-C53AB79753AB}|..\..\Silverlight.Specs\TheS.Casinova.DevilSix.Specs.Silverlight\TheS.Casinova.DevilSix.Specs.Silverlight.csproj|ClientBin|False,{114C6F3D-38A0-4961-98F4-9ABEFF6E528B}|..\..\Silverlight.Specs\TheS.Casinova.MagicNine.Specs.Silverlight\TheS.Casinova.MagicNine.Specs.Silverlight.csproj|ClientBin|False,{0B269EFD-8716-401A-8013-D6720A8B901B}|..\..\Silverlight.Specs\TheS.Casinova.TwoWins.Specs.Silverlight\TheS.Casinova.TwoWins.Specs.Silverlight.csproj|ClientBin|False,{B82D39DB-A76D-4E1B-BC4B-279D6608A2EE}|..\TheS.Casinova.SupportContent.Silverlight\TheS.Casinova.SupportContent.Silverlight.csproj|ClientBin|False,{56F52A3E-4ECF-4E21-BBBD-EFB2E05F821E}|..\TheS.Casinova.Fortune.Silverlight\TheS.Casinova.Fortune.Silverlight.csproj|ClientBin|False,{8A17DC2D-1768-4AAA-B994-97E37A8CCCC8}|..\TheS.Casinova.Chat.Silverlight\TheS.Casinova.Chat.Silverlight.csproj|ClientBin|False,{6609B33D-D607-4E8C-A176-9017D50E2A09}|..\TheS.Casinova.PlayerAccount.Silverlight\TheS.Casinova.PlayerAccount.Silverlight.csproj|ClientBin|False,{2FA7B3C3-D042-4A67-BE1B-ED967E5DA927}|..\CasinovaAllStars\CasinovaAllStars.csproj|ClientBin|False</SilverlightApplicationList>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="wsv\ColorsService.svc.cs">
+      <DependentUpon>ColorsService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="wsv\IColorsService.cs" />
+    <Compile Include="wsv\IMagicNineService.cs" />
+    <Compile Include="wsv\MagicNineService.svc.cs">
+      <DependentUpon>MagicNineService.svc</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CasinovaAllStarsTestPage.aspx" />
+    <Content Include="CasinovaAllStarsTestPage.html" />
+    <Content Include="ClientBin\CasinovaAllStars.xap" />
+    <Content Include="ClientBin\TheS.Casinova.Chat.Silverlight.xap" />
+    <Content Include="ClientBin\TheS.Casinova.Colors.Silverlight.xap" />
+    <Content Include="ClientBin\TheS.Casinova.Colors.Specs.Silverlight.xap" />
+    <Content Include="ClientBin\TheS.Casinova.DevilSix.Silverlight.xap" />
+    <Content Include="ClientBin\TheS.Casinova.DevilSix.Specs.Silverlight.xap" />
+    <Content Include="ClientBin\TheS.Casinova.Fortune.Silverlight.xap" />
+    <Content Include="ClientBin\TheS.Casinova.MagicNine.Silverlight.xap" />
+    <Content Include="ClientBin\TheS.Casinova.MagicNine.Specs.Silverlight.xap" />
+    <Content Include="ClientBin\TheS.Casinova.PlayerAccount.Silverlight.xap" />
+    <Content Include="ClientBin\TheS.Casinova.SupportContent.Silverlight.xap" />
+    <Content Include="ClientBin\TheS.Casinova.TwoWins.Silverlight.xap" />
+    <Content Include="ClientBin\TheS.Casinova.TwoWins.Specs.Silverlight.xap" />
+    <Content Include="Global.asax" />
+    <Content Include="Silverlight.js" />
+    <Content Include="TheS.Casinova.Chat.SilverlightTestPage.aspx" />
+    <Content Include="TheS.Casinova.Chat.SilverlightTestPage.html" />
+    <Content Include="TheS.Casinova.Colors.SilverlightTestPage.aspx" />
+    <Content Include="TheS.Casinova.Colors.SilverlightTestPage.html" />
+    <Content Include="TheS.Casinova.Colors.Specs.SilverlightTestPage.aspx" />
+    <Content Include="TheS.Casinova.Colors.Specs.SilverlightTestPage.html" />
+    <Content Include="TheS.Casinova.DevilSix.SilverlightTestPage.aspx" />
+    <Content Include="TheS.Casinova.DevilSix.SilverlightTestPage.html" />
+    <Content Include="TheS.Casinova.DevilSix.Specs.SilverlightTestPage.aspx" />
+    <Content Include="TheS.Casinova.DevilSix.Specs.SilverlightTestPage.html" />
+    <Content Include="TheS.Casinova.Fortune.SilverlightTestPage.aspx" />
+    <Content Include="TheS.Casinova.Fortune.SilverlightTestPage.html" />
+    <Content Include="TheS.Casinova.MagicNine.SilverlightTestPage.aspx" />
+    <Content Include="TheS.Casinova.MagicNine.SilverlightTestPage.html" />
+    <Content Include="TheS.Casinova.MagicNine.Specs.SilverlightTestPage.aspx" />
+    <Content Include="TheS.Casinova.MagicNine.Specs.SilverlightTestPage.html" />
+    <Content Include="TheS.Casinova.PlayerAccount.SilverlightTestPage.aspx" />
+    <Content Include="TheS.Casinova.PlayerAccount.SilverlightTestPage.html" />
+    <Content Include="TheS.Casinova.SupportContent.SilverlightTestPage.aspx" />
+    <Content Include="TheS.Casinova.SupportContent.SilverlightTestPage.html" />
+    <Content Include="TheS.Casinova.TwoWins.SilverlightTestPage.aspx" />
+    <Content Include="TheS.Casinova.TwoWins.SilverlightTestPage.html" />
+    <Content Include="TheS.Casinova.TwoWins.Specs.SilverlightTestPage.aspx" />
+    <Content Include="TheS.Casinova.TwoWins.Specs.SilverlightTestPage.html" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\Account\ChangePassword.aspx" />
+    <Content Include="Views\Account\ChangePasswordSuccess.aspx" />
+    <Content Include="Views\Account\LogOn.aspx" />
+    <Content Include="Views\Account\Register.aspx" />
+    <Content Include="Views\Home\About.aspx" />
+    <Content Include="Views\Home\Index.aspx" />
+    <Content Include="Views\Shared\Error.aspx" />
+    <Content Include="Views\Shared\LogOnUserControl.ascx" />
+    <Content Include="Views\Shared\Site.Master" />
+    <Content Include="Views\Web.config" />
+    <Content Include="wsv\ColorsService.svc" />
+    <Content Include="wsv\MagicNineService.svc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Modules\Colors\TheS.Casinova.Colors.Commands\TheS.Casinova.Colors.Commands.csproj">
+      <Project>{D96B565C-21E4-4D24-9084-B4E5B89A8AB4}</Project>
+      <Name>TheS.Casinova.Colors.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Colors\TheS.Casinova.Colors.Models\TheS.Casinova.Colors.Models.csproj">
+      <Project>{D6D472FB-4D74-4852-A0C7-AF4558B46C29}</Project>
+      <Name>TheS.Casinova.Colors.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\MagicNine\TheS.Casinova.MagicNine.Commands\TheS.Casinova.MagicNine.Commands.csproj">
+      <Project>{1F2B601A-3E92-4904-8609-5D59E62A5DB1}</Project>
+      <Name>TheS.Casinova.MagicNine.Commands</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target> -->
+  <Target Name="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(ProjectDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50434</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

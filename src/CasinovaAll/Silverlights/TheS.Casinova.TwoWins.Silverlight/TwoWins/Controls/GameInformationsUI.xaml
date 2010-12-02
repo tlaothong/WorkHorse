@@ -1,0 +1,48 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:TheS_Casinova_TwoWins="clr-namespace:TheS.Casinova.TwoWins" x:Class="TheS.Casinova.TwoWins.Controls.GameInformationsUI"
+    mc:Ignorable="d"
+    d:DesignHeight="400" d:DesignWidth="500" Width="Auto" Height="Auto">
+    
+	<UserControl.Resources>
+		<TheS_Casinova_TwoWins:GameApplicationInformation x:Key="GameApplicationInformationDataSource" d:IsDataSource="True"/>
+	</UserControl.Resources>
+	<UserControl.DataContext>
+		<Binding Source="{StaticResource GameApplicationInformationDataSource}"/>
+	</UserControl.DataContext>
+    
+    <Grid x:Name="LayoutRoot" Background="White">
+    	<Grid.RowDefinitions>
+    		<RowDefinition Height="0.1*"/>
+    		<RowDefinition Height="0.9*"/>
+    	</Grid.RowDefinitions>
+    	<Rectangle Fill="#FFF4F4F5" Stroke="Black" Grid.RowSpan="2"/>
+    	<Grid>
+    		<Rectangle Fill="Black" Stroke="Black"/>
+    		<TextBlock TextWrapping="Wrap" Text="{Binding Name, Mode=OneWay}" FontWeight="Bold" FontSize="16" VerticalAlignment="Center" d:LayoutOverrides="HorizontalAlignment" HorizontalAlignment="Left" Margin="8,0,0,0" Foreground="White"/>
+    	</Grid>
+    	<StackPanel HorizontalAlignment="Left" Margin="8,8,0,8" Grid.Row="1" Width="130">
+    		<Image Width="130" Height="130" VerticalAlignment="Top" Source="/TheS.Casinova.TwoWins.Silverlight;component/TwoWins/Assets/Images/Logo.png" Stretch="Fill"/>
+    		<HyperlinkButton Content="Play" HorizontalAlignment="Left" Foreground="Red" NavigateUri="{Binding GameUri, Mode=OneWay}" d:LayoutOverrides="GridBox"/>
+    		<HyperlinkButton x:Name="HowToPlayHyperlinkButton" Content="How to play" Margin="0,0,60,0" Foreground="Red" Click="HowToPlayHyperlinkButton_Click" d:LayoutOverrides="Width, GridBox" />
+    	</StackPanel>
+    	<RichTextBox Margin="142,8,8,8" Grid.Row="1" IsReadOnly="True">
+    		<Paragraph>
+    			<Run Text="Game: Two Wins" FontWeight="Bold" FontSize="12"/>
+<LineBreak/>
+<LineBreak/>
+<Run Text="Standard Rules" FontWeight="Bold"/><LineBreak/>
+- Each game period last 12 hours, with 1 hour "Critical Time Period" during the last hour.<LineBreak/>
+- Each player has an infinite number of hands on which to place their bets. For each hand, players may place any number of whole-dollar bets.<LineBreak/>
+- Players may increase the amount of the bet in any of their hands as many times as they want, at any time before the critical time period occurs.<LineBreak/>
+- Players may neither decrease nor withdraw the amount of a bet in any of their hands during gameplay.<LineBreak/>
+- The bets each player places will be updated in the Main Pot in real time.<LineBreak/>
+- During a "Critical Time Period," each player may only update each of their hands once.<LineBreak/>
+* The bets on new hands within the "Critical Time Period" will not be available until the "critical time period" elapses.<LineBreak/> 		
+			</Paragraph>
+    	</RichTextBox>
+    </Grid>
+</UserControl>

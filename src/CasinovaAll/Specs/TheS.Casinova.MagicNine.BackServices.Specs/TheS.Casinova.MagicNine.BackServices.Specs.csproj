@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{85C5677C-7858-467C-A43B-C94FE5E3C677}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TheS.Casinova.MagicNine</RootNamespace>
+    <AssemblyName>TheS.Casinova.MagicNine.BackServices.Specs</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="PerfEx.Infrastructure, Version=1.7910.905.2789, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="PerfEx.Infrastructure.Advanced">
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Advanced.dll</HintPath>
+    </Reference>
+    <Reference Include="PerfEx.Infrastructure.Containers.StructureMapAdapter">
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Containers.StructureMapAdapter.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\..\..\..\lib\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="SpecFlowAssist">
+      <HintPath>..\..\..\..\lib\SpecFlowAssist.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="TechTalk.SpecFlow">
+      <HintPath>..\..\..\..\lib\TechTalk.SpecFlow.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BackServices\SpecEventDefinitions.cs" />
+    <Compile Include="BackServices\Specs\SingleBet.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SingleBet.feature</DependentUpon>
+    </Compile>
+    <Compile Include="BackServices\Specs\StartAutoBet.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StartAutoBet.feature</DependentUpon>
+    </Compile>
+    <Compile Include="BackServices\Specs\Steps\CommonSteps.cs" />
+    <Compile Include="BackServices\Specs\Steps\MagicNineStepsBase.cs" />
+    <Compile Include="BackServices\Specs\Steps\SingleBetSteps.cs" />
+    <Compile Include="BackServices\Specs\Steps\StartAutoBetSteps.cs" />
+    <Compile Include="BackServices\Specs\Steps\StopAutoBetSteps.cs" />
+    <Compile Include="BackServices\Specs\StopAutoBet.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StopAutoBet.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Modules\MagicNine\TheS.Casinova.MagicNine.BackServices\TheS.Casinova.MagicNine.BackServices.csproj">
+      <Project>{06EC360F-FCE4-4A09-9B74-39E5AEDC9159}</Project>
+      <Name>TheS.Casinova.MagicNine.BackServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\MagicNine\TheS.Casinova.MagicNine.Commands\TheS.Casinova.MagicNine.Commands.csproj">
+      <Project>{1F2B601A-3E92-4904-8609-5D59E62A5DB1}</Project>
+      <Name>TheS.Casinova.MagicNine.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\MagicNine\TheS.Casinova.MagicNine.DAL.BackContracts\TheS.Casinova.MagicNine.DAL.BackContracts.csproj">
+      <Project>{DFD74195-5A5A-4159-AE83-F7A7DC5B94EC}</Project>
+      <Name>TheS.Casinova.MagicNine.DAL.BackContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\MagicNine\TheS.Casinova.MagicNine.Models\TheS.Casinova.MagicNine.Models.csproj">
+      <Project>{F2779163-1D6E-4E6B-B070-65B09328854A}</Project>
+      <Name>TheS.Casinova.MagicNine.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\PlayerProfile\TheS.Casinova.PlayerProfile.Models\TheS.Casinova.PlayerProfile.Models.csproj">
+      <Project>{96BBA83F-EAA6-4EEA-BEC5-98F6AC39B943}</Project>
+      <Name>TheS.Casinova.PlayerProfile.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Shared\TheS.Casinova.Common.Commands\TheS.Casinova.Common.Commands.csproj">
+      <Project>{B0BA601A-7B65-4973-9E00-4F9035883877}</Project>
+      <Name>TheS.Casinova.Common.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Shared\TheS.Casinova.Common.Models\TheS.Casinova.Common.Models.csproj">
+      <Project>{6079CFCD-811A-4962-B021-8D3D14C0C45B}</Project>
+      <Name>TheS.Casinova.Common.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BackServices\App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BackServices\Specs\SingleBet.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SingleBet.feature.cs</LastGenOutput>
+    </None>
+    <None Include="BackServices\Specs\StartAutoBet.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>StartAutoBet.feature.cs</LastGenOutput>
+    </None>
+    <None Include="BackServices\Specs\StopAutoBet.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>StopAutoBet.feature.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

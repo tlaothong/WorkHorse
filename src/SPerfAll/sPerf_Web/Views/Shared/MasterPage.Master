@@ -1,0 +1,141 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+    </title>
+    <link href="../../Content/jquery-ui-1.8.1.custom.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/movies.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/jquery.ui.dialog.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/skin.css" rel="stylesheet" type="text/css" />
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+    <link href="../../Content/galleria.css" rel="stylesheet" type="text/css" />
+    <script src="../../Scripts/jquery-1.4.2.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery-ui-1.8.6.custom.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.pager.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.tmpl.js" type="text/javascript"></script>
+    <script src="../../Scripts/ajaxScripts/Start.debug.js" type="text/javascript"></script>
+    <script src="../../Scripts/ajaxScripts/extended/ExtendedControls.debug.js" type="text/javascript"></script>
+</head>
+<body>
+    <div id="page">
+        <div id="header">
+            <div id="login">
+            </div>
+            <div id="search-container">
+                <div id="global-search">
+                </div>
+                <div id="avatar-face">
+                </div>
+            </div>
+            <div id="logo">
+                <div id="site-logo">
+                </div>
+            </div>
+        </div>
+        <div id="menu-container">
+            <div id="main-menu">
+                <div class="linkmenu">
+                    <div class="menu">
+                        <%= Html.ActionLink("Home", MVC.Home.Index()) %>
+                    </div>
+                </div>
+                <div class="linkmenu">
+                    <div class="menu">
+                        <%= Html.ActionLink("Profile", MVC.Profile.Profile.Index()) %>
+                    </div>
+                </div>
+                <div class="linkmenu">
+                    <div class="menu">
+                        <%= Html.ActionLink("Scholarship", MVC.Scholarship.Scholarship.Index()) %>
+                    </div>
+                </div>
+                <div class="linkmenu">
+                    <div class="menu">
+                        <%= Html.ActionLink("Club", MVC.Club.Club.Index()) %>
+                    </div>
+                </div>
+                <div class="linkmenu">
+                    <div class="menu">
+                        <%= Html.ActionLink("Game", MVC.Game.Game.Index()) %>
+                    </div>
+                </div>
+                <div class="linkmenu">
+                    <div class="menu">
+                        <%= Html.ActionLink("Video", MVC.KnowledgeCenter.KnowledgeCenter.Index()) %>
+                    </div>
+                </div>
+                <div class="linkmenu">
+                    <div class="menu">
+                        <%= Html.ActionLink("Map", MVC.Map.Map.Index()) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="sub-menu-container">
+            <div id="sub-menu">
+                <div class="sub-menu">
+                    <asp:ContentPlaceHolder ID="SubMenu" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+        <div id="main-container">
+            <div id="main">
+                <div id="main-top">
+                </div>
+                <div id="main-content">
+                    <div id="content-container">
+                        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+
+                </div>
+                                    <%--div for side-bar--%>
+                    <div id="side-bar">
+                        <asp:ContentPlaceHolder ID="SideBar" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                <div id="avatar-container">
+                    <div class="avatar-bar">
+                        <object data="data:application/x-silverlight-2," type="application/x-silverlight-2"
+                            width="200px" height="210px">
+                            <param name="source" value="/xap/avatar.xap" />
+                            <param name="onerror" value="onSilverlightError" />
+                            <param name="minRuntimeVersion" value="2.0.31005.0" />
+                            <param name="autoUpgrade" value="true" />
+                            <a href="http://go.microsoft.com/fwlink/?LinkID=124807" style="text-decoration: none;">
+                                <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight"
+                                    style="border-style: none" />
+                            </a>
+                        </object>
+                    </div>
+                    <div class="doyouknow-bar">
+                        <object data="data:application/x-silverlight-2," type="application/x-silverlight-2"
+                            width="200px" height="245px">
+                            <param name="source" value="/xap/doyouknow.xap" />
+                            <param name="onerror" value="onSilverlightError" />
+                            <param name="minRuntimeVersion" value="2.0.31005.0" />
+                            <param name="autoUpgrade" value="true" />
+                            <a href="http://go.microsoft.com/fwlink/?LinkID=124807" style="text-decoration: none;">
+                                <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight"
+                                    style="border-style: none" />
+                            </a>
+                        </object>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <div id="footer-bar">
+                <div class="start-menu">
+                </div>
+                <div class="news-marquee">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

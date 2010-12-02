@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="77eb744d-f960-4731-be30-8961496116f8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:60642/wsv/MagicNineService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MagicNineService.xsd" MetadataType="Schema" ID="0ca5f9ac-158e-4fb1-a540-66314b521501" SourceId="1" SourceUrl="http://localhost:60642/wsv/MagicNineService.svc?xsd=xsd3" />
+    <MetadataFile FileName="MagicNineService1.xsd" MetadataType="Schema" ID="5cfa5be6-948f-4c42-bbc0-412eb6e3c1ad" SourceId="1" SourceUrl="http://localhost:60642/wsv/MagicNineService.svc?xsd=xsd2" />
+    <MetadataFile FileName="MagicNineService2.xsd" MetadataType="Schema" ID="60c51fc7-2e5c-4049-b897-252c80a978b5" SourceId="1" SourceUrl="http://localhost:60642/wsv/MagicNineService.svc?xsd=xsd0" />
+    <MetadataFile FileName="MagicNineService.disco" MetadataType="Disco" ID="c5b20c1d-ec29-4ffb-a46d-3611acbbfdd7" SourceId="1" SourceUrl="http://localhost:60642/wsv/MagicNineService.svc?disco" />
+    <MetadataFile FileName="MagicNineService.wsdl" MetadataType="Wsdl" ID="3f16b21a-04df-45fa-938b-5dfc92e60fb7" SourceId="1" SourceUrl="http://localhost:60642/wsv/MagicNineService.svc?wsdl" />
+    <MetadataFile FileName="MagicNineService3.xsd" MetadataType="Schema" ID="edcf1d4f-dc1d-4c7a-b0b6-9f8ef37af3c5" SourceId="1" SourceUrl="http://localhost:60642/wsv/MagicNineService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

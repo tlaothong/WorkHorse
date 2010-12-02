@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/TheS.Casinova.MagicNine.Commands" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TheS.Casinova.MagicNine.Commands" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:60642/wsv/MagicNineService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/TheS.Casinova.MagicNine.Models" />
+  <xs:import schemaLocation="http://localhost:60642/wsv/MagicNineService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ListActiveGameRoundInfoCommand">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Active" type="xs:boolean" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/TheS.Casinova.MagicNine.Models" minOccurs="0" name="GameRoundInfos" nillable="true" type="q1:ArrayOfGameRoundInformation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListActiveGameRoundInfoCommand" nillable="true" type="tns:ListActiveGameRoundInfoCommand" />
+  <xs:complexType name="ListGamePlayAutoBetInfoCommand">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/TheS.Casinova.MagicNine.Models" minOccurs="0" name="GamePlayAutoBet" nillable="true" type="q2:ArrayOfGamePlayAutoBetInformation" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListGamePlayAutoBetInfoCommand" nillable="true" type="tns:ListGamePlayAutoBetInfoCommand" />
+  <xs:complexType name="ListBetLogCommand">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/TheS.Casinova.MagicNine.Models" minOccurs="0" name="BetInformations" nillable="true" type="q3:ArrayOfBetInformation" />
+      <xs:element minOccurs="0" name="RoundID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListBetLogCommand" nillable="true" type="tns:ListBetLogCommand" />
+  <xs:complexType name="SingleBetCommand">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="RoundID" type="xs:int" />
+      <xs:element minOccurs="0" name="TrackingID" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SingleBetCommand" nillable="true" type="tns:SingleBetCommand" />
+  <xs:complexType name="StartAutoBetCommand">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:double" />
+      <xs:element minOccurs="0" name="Interval" type="xs:int" />
+      <xs:element minOccurs="0" name="RoundID" type="xs:int" />
+      <xs:element minOccurs="0" name="StartTrackingID" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StartAutoBetCommand" nillable="true" type="tns:StartAutoBetCommand" />
+  <xs:complexType name="StopAutoBetCommand">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="RoundID" type="xs:int" />
+      <xs:element minOccurs="0" name="StopTrackingID" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StopAutoBetCommand" nillable="true" type="tns:StopAutoBetCommand" />
+</xs:schema>

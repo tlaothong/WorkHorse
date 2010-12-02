@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:60642/wsv/MagicNineService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TheS.Casinova.MagicNine.Commands" />
+  <xs:element name="GetListActiveGameRound">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListActiveGameRoundResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/TheS.Casinova.MagicNine.Commands" minOccurs="0" name="GetListActiveGameRoundResult" nillable="true" type="q1:ListActiveGameRoundInfoCommand" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListGamePlayAutoBetInformation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/TheS.Casinova.MagicNine.Commands" minOccurs="0" name="cmd" nillable="true" type="q2:ListGamePlayAutoBetInfoCommand" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListGamePlayAutoBetInformationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/TheS.Casinova.MagicNine.Commands" minOccurs="0" name="GetListGamePlayAutoBetInformationResult" nillable="true" type="q3:ListGamePlayAutoBetInfoCommand" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListBetLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/TheS.Casinova.MagicNine.Commands" minOccurs="0" name="cmd" nillable="true" type="q4:ListBetLogCommand" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListBetLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/TheS.Casinova.MagicNine.Commands" minOccurs="0" name="GetListBetLogResult" nillable="true" type="q5:ListBetLogCommand" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BetSingle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/TheS.Casinova.MagicNine.Commands" minOccurs="0" name="cmd" nillable="true" type="q6:SingleBetCommand" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BetSingleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/TheS.Casinova.MagicNine.Commands" minOccurs="0" name="BetSingleResult" nillable="true" type="q7:SingleBetCommand" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AutoBetOn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/TheS.Casinova.MagicNine.Commands" minOccurs="0" name="cmd" nillable="true" type="q8:StartAutoBetCommand" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AutoBetOnResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/TheS.Casinova.MagicNine.Commands" minOccurs="0" name="AutoBetOnResult" nillable="true" type="q9:StartAutoBetCommand" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AutoBetOff">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/TheS.Casinova.MagicNine.Commands" minOccurs="0" name="cmd" nillable="true" type="q10:StopAutoBetCommand" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AutoBetOffResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/TheS.Casinova.MagicNine.Commands" minOccurs="0" name="AutoBetOffResult" nillable="true" type="q11:StopAutoBetCommand" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
