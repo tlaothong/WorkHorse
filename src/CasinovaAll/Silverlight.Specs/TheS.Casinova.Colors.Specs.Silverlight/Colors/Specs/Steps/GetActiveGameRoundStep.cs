@@ -21,7 +21,6 @@ namespace TheS.Casinova.Colors.Specs.Steps
         [Given(@"Back service have active game rounds are:")]
         public void GivenBackServiceHaveActiveGameRoundsAre(Table table)
         {
-            var mocks = ScenarioContext.Current.Get<MockRepository>();
             var svc = ScenarioContext.Current.Get<IColorsServiceAdapter>();
 
             Func<IObservable<ListActiveGameRoundCommand>> _mockGetListActiveGameRounds = () =>
@@ -33,13 +32,11 @@ namespace TheS.Casinova.Colors.Specs.Steps
                 });
             };
 
-            using (mocks.Record())
-            {
-                SetupResult.For(svc.GetListActiveGameRound()).Do(_mockGetListActiveGameRounds);
-            }
+            SetupResult.For(svc.GetListActiveGameRound()).Do(_mockGetListActiveGameRounds);
+
 
             ScenarioContext.Current.Set<IEnumerable<GameRoundInformation>>(table.CreateSet<GameRoundInformation>());
-        } 
+        }
 
         [When(@"Send request GetListActiveGameRounds\(\) to web server")]
         public void WhenSendRequestGetListActiveGameRoundsToWebServer()
@@ -49,16 +46,15 @@ namespace TheS.Casinova.Colors.Specs.Steps
             ScenarioContext.Current.Get<TestScheduler>().Run();
         }
 
-        [Then(@"Tables in GamePlayViewModel has create from ListActivegameRounds")]
+        [Then(@"Tables in GamePlayViewModel has create from ListActiveGameRounds")]
         public void ThenServerRespondListActiveGameRoundAre(Table table)
         {
-            var actual = ScenarioContext.Current.Get<GamePlayViewModel>().Tables;
-            var expected = table.CreateSet<GameTable>().ToArray<GameTable>();
+            var actual = ScenarioContext.Current.Get<GamePlayViewModel>().ActiveGameRoundTables;
+            var expected = table.CreateSet<GameRoundInformation>().ToArray<GameRoundInformation>();
 
             for (int index = 0; index < actual.Count; index++)
             {
-                Assert.AreEqual(expected[index].Name, actual[index].Name, "Name");
-                Assert.AreEqual(expected[index].Round, actual[index].Round, "Round");
+                Assert.AreEqual(expected[index].RoundID, actual[index].RoundID, "RoundID");
                 Assert.AreEqual(expected[index].StartTime, actual[index].StartTime, "StartTime");
                 Assert.AreEqual(expected[index].EndTime, actual[index].EndTime, "EndTime");
             }
@@ -67,11 +63,11 @@ namespace TheS.Casinova.Colors.Specs.Steps
             Assert.IsNotNull(actual, "Tables not null");
         }
 
-        [Then(@"Tables in GamePlayViewModel don't create ListActivegameRounds")]
+        [Then(@"Tables in GamePlayViewModel don't create ListActiveGameRounds")]
         public void ThenTablesInGamePlayViewModelDonTCreateListActivegameRounds(Table table)
         {
-            var actual = ScenarioContext.Current.Get<GamePlayViewModel>().Tables;
-            var expected = table.CreateSet<GameTable>();
+            var actual = ScenarioContext.Current.Get<GamePlayViewModel>().ActiveGameRoundTables;
+            var expected = table.CreateSet<GamePlayUIViewModel>();
 
             CollectionAssert.AreEqual(expected.ToArray(), actual.ToArray());
             Assert.IsTrue(actual.Count <= 0, "Tables not have rows");

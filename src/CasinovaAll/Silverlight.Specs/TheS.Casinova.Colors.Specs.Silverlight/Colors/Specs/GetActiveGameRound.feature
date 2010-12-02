@@ -14,30 +14,30 @@ Background:
 	Given Create and initialize GamePlayViewModel and Colors game service
 
 @record_mock
-Scenario: Request active game rounds web server send active list
+Scenario: Request active game rounds, web service sent list active game rounds
 	Given Back service have active game rounds are:
 		|RoundID|StartTime				|EndTime				|
 		|1		|2010-11-17 09:00:00	|2010-11-17 09:15:00	|
 		|2		|2010-11-17 09:15:00	|2010-11-17 09:30:00	|
 		|3		|2010-11-17 09:30:00	|2010-11-17 09:45:00	|
 	When Send request GetListActiveGameRounds() to web server
-	Then Tables in GamePlayViewModel has create from ListActivegameRounds
-		|Name	|Round	|StartTime				|EndTime				|
-		|Colors	|1		|2010-11-17 09:00:00	|2010-11-17 09:15:00	|
-		|Colors	|2		|2010-11-17 09:15:00	|2010-11-17 09:30:00	|
-		|Colors	|3		|2010-11-17 09:30:00	|2010-11-17 09:45:00	|
+	Then Tables in GamePlayViewModel has create from ListActiveGameRounds
+		|RoundID|StartTime				|EndTime				|
+		|1		|2010-11-17 09:00:00	|2010-11-17 09:15:00	|
+		|2		|2010-11-17 09:15:00	|2010-11-17 09:30:00	|
+		|3		|2010-11-17 09:30:00	|2010-11-17 09:45:00	|
 
 
 @record_mock
-Scenario: Request active game rounds web server don't have active game rounds
+Scenario: Request active game rounds but web server don't have active game rounds
 	Given Back service have active game rounds are:
 		|RoundID|StartTime				|EndTime				|
 	When Send request GetListActiveGameRounds() to web server
-	Then Tables in GamePlayViewModel don't create ListActivegameRounds
-		|Name	|Round	|StartTime				|EndTime				|
+	Then Tables in GamePlayViewModel don't create ListActiveGameRounds
+		|RoundID|StartTime				|EndTime				|
 
 @record_mock
-Scenario: Request active game rounds web server send active list (Request more thand 1 request)
+Scenario: Request active game rounds get active list (Request more thand 1 request)
 	Given Back service have active game rounds are:
 		|RoundID|StartTime				|EndTime				|
 		|1		|2010-11-17 09:00:00	|2010-11-17 09:15:00	|
@@ -48,8 +48,19 @@ Scenario: Request active game rounds web server send active list (Request more t
 	And Send request GetListActiveGameRounds() to web server
 	And Send request GetListActiveGameRounds() to web server
 	And Send request GetListActiveGameRounds() to web server
-	Then Tables in GamePlayViewModel has create from ListActivegameRounds
-		|Name	|Round	|StartTime				|EndTime				|
-		|Colors	|1		|2010-11-17 09:00:00	|2010-11-17 09:15:00	|
-		|Colors	|2		|2010-11-17 09:15:00	|2010-11-17 09:30:00	|
-		|Colors	|3		|2010-11-17 09:30:00	|2010-11-17 09:45:00	|
+	Then Tables in GamePlayViewModel has create from ListActiveGameRounds
+		|RoundID|StartTime				|EndTime				|
+		|1		|2010-11-17 09:00:00	|2010-11-17 09:15:00	|
+		|2		|2010-11-17 09:15:00	|2010-11-17 09:30:00	|
+		|3		|2010-11-17 09:30:00	|2010-11-17 09:45:00	|
+
+@record_mock
+Scenario: Request active game rounds but web server don't have active game rounds (Request more than 1 request)
+	Given Back service have active game rounds are:
+		|RoundID|StartTime				|EndTime				|
+	When Send request GetListActiveGameRounds() to web server
+	And Send request GetListActiveGameRounds() to web server
+	And Send request GetListActiveGameRounds() to web server
+	And Send request GetListActiveGameRounds() to web server
+	Then Tables in GamePlayViewModel don't create ListActiveGameRounds
+		|RoundID|StartTime				|EndTime				|

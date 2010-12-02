@@ -139,6 +139,8 @@
     <% Html.RenderPartial("Compare_Archeivement"); %>
     <% Html.RenderPartial("FriendList"); %>
     <% Html.RenderPartial("Popup_Comment_Archeivement"); %>
+    <% Html.RenderPartial("Report_Archeivement"); %>
+    <% Html.RenderPartial("SeeAll_Archeivement"); %>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="SubMenu" runat="server">

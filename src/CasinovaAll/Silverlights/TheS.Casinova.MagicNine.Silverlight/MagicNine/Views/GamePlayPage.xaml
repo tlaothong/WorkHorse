@@ -23,8 +23,8 @@
 					</Rectangle.Fill>
 				</Rectangle>
 				<StackPanel Margin="3">
-					<TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="13.333" Margin="0,0,1,0" d:LayoutOverrides="Width"/>
-					<Grid Margin="0,0,1,0" Visibility="{Binding IsPlaying, Converter={StaticResource BooleanToVisibilityConverter}}" >
+					<TextBlock Text="{Binding WinnerPoint}" FontWeight="Bold" FontSize="13.333" Margin="0,0,1,0" d:LayoutOverrides="Width"/>
+					<Grid Margin="0,0,1,0" Visibility="{Binding IsAutoBetOn, Converter={StaticResource BooleanToVisibilityConverter}}" >
 						<Rectangle RadiusY="1" RadiusX="1" Stroke="Black" Fill="#FFF5FFB7"/>
 						<Grid Margin="2">
 							<TextBlock TextWrapping="Wrap" Text="Sum:" d:LayoutOverrides="Height" HorizontalAlignment="Left"/>
@@ -41,7 +41,7 @@
     <Grid x:Name="LayoutRoot">
 
     	<TheS_Casinova_MagicNine_Controls:GamePlayUI Margin="0,0,204,0" Width="Auto" Height="Auto"/>
-    	<ListBox HorizontalAlignment="Right" Width="200" ItemTemplate="{StaticResource GameTableTemplate}" ItemsSource="{Binding Tables}">
+    	<ListBox HorizontalAlignment="Right" Width="200" ItemTemplate="{StaticResource GameTableTemplate}" ItemsSource="{Binding ActiveGameRoundTables}">
     		<ListBox.ItemContainerStyle>
     			<Style TargetType="ListBoxItem">
     				<Setter Property="Padding" Value="3"/>

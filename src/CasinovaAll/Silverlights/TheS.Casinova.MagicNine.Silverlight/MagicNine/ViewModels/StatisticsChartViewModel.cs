@@ -18,7 +18,7 @@ namespace TheS.Casinova.MagicNine.ViewModels
     public class StatisticsChartViewModel : INotifyPropertyChanged
     {
         #region Fields
-        
+
         private PerfEx.Infrastructure.PropertyChangedNotifier _notify;
         private ObservableCollection<BetdataInfo> _informations;
         private ObservableCollection<KeyValuePair<DateTime, double>> _lineInformations;
@@ -31,6 +31,9 @@ namespace TheS.Casinova.MagicNine.ViewModels
 
         #region Properties
 
+        /// <summary>
+        /// ความถี่
+        /// </summary>
         public double Interval
         {
             get { return _interval; }
@@ -41,6 +44,9 @@ namespace TheS.Casinova.MagicNine.ViewModels
             }
         }
 
+        /// <summary>
+        /// ค่าสูงสุดของความถี่
+        /// </summary>
         public double Maximum
         {
             get { return _maximum; }
@@ -51,6 +57,9 @@ namespace TheS.Casinova.MagicNine.ViewModels
             }
         }
 
+        /// <summary>
+        /// ชื่อกราฟ
+        /// </summary>
         public string ChartName
         {
             get { return _chartName; }
@@ -61,6 +70,9 @@ namespace TheS.Casinova.MagicNine.ViewModels
             }
         }
 
+        /// <summary>
+        /// ข้อมูลกราฟแท่ง
+        /// </summary>
         public ObservableCollection<KeyValuePair<DateTime, double>> BarInformations
         {
             get { return _barInformations; }
@@ -71,6 +83,9 @@ namespace TheS.Casinova.MagicNine.ViewModels
             }
         }
 
+        /// <summary>
+        /// ข้อมูลกราฟเส้น
+        /// </summary>
         public ObservableCollection<KeyValuePair<DateTime, double>> LineInformations
         {
             get { return _lineInformations; }
@@ -102,10 +117,25 @@ namespace TheS.Casinova.MagicNine.ViewModels
             _lineInformations = new ObservableCollection<KeyValuePair<DateTime, double>>();
             _barInformations = new ObservableCollection<KeyValuePair<DateTime, double>>();
 
-            if (DesignerProperties.IsInDesignTool) {
+            #region Designer view
 
+            if (DesignerProperties.IsInDesignTool)
+            {
+
+                // bet data
+                for (int count = 1; count < 40; count++)
+                {
+                    Informations.Add(new BetdataInfo
+                    {
+                        Round = 1,
+                        Time = new DateTime(2010, 11, 3, 11, 23, 52),
+                        Winner = "Tester",
+                        Pot = count
+                    });
+                }
+
+                // chart
                 ChartName = "Magic9 (1-956)";
-
                 Random random = new Random();
                 DateTime time = DateTime.Now;
                 double pot = 0;
@@ -124,61 +154,10 @@ namespace TheS.Casinova.MagicNine.ViewModels
                 }
                 Interval = (int)(Maximum / 5);
 
-                Informations.Add(new BetdataInfo {
-                    Pot = 99,
-                    Round = 1,
-                    Time = new DateTime(2010, 11, 3, 10, 53, 42),
-                    Winner = "Mioylnet"
-                });
-                Informations.Add(new BetdataInfo {
-                    Pot = 100,
-                    Round = 2,
-                    Time = new DateTime(2010, 11, 3, 10, 53, 43),
-                    Winner = "Mioylnet"
-                });
-                Informations.Add(new BetdataInfo {
-                    Pot = 101,
-                    Round = 2,
-                    Time = new DateTime(2010, 11, 3, 10, 53, 43),
-                    Winner = "Mioylnet"
-                });
-                Informations.Add(new BetdataInfo {
-                    Pot = 102,
-                    Round = 2,
-                    Time = new DateTime(2010, 11, 3, 10, 53, 43),
-                    Winner = "Mioylnet"
-                });
-                Informations.Add(new BetdataInfo {
-                    Pot = 103,
-                    Round = 2,
-                    Time = new DateTime(2010, 11, 3, 10, 53, 44),
-                    Winner = "Mioylnet"
-                });
-                Informations.Add(new BetdataInfo {
-                    Pot = 104,
-                    Round = 2,
-                    Time = new DateTime(2010, 11, 3, 10, 53, 44),
-                    Winner = "Mioylnet"
-                });
-                Informations.Add(new BetdataInfo {
-                    Pot = 105,
-                    Round = 2,
-                    Time = new DateTime(2010, 11, 3, 10, 53, 43),
-                    Winner = "Mioylnet"
-                });
-                Informations.Add(new BetdataInfo {
-                    Pot = 199,
-                    Round = 2,
-                    Time = new DateTime(2010, 11, 3, 10, 53, 52),
-                    Winner = "Mioylnet"
-                });
-                Informations.Add(new BetdataInfo {
-                    Pot = 299,
-                    Round = 3,
-                    Time = new DateTime(2010, 11, 3, 10, 54, 01),
-                    Winner = "Quad"
-                });
+
             }
+
+            #endregion Designer view
         }
 
         #endregion Constructors

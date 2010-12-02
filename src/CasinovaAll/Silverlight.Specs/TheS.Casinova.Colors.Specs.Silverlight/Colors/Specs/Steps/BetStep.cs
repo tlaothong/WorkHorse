@@ -23,6 +23,7 @@ namespace TheS.Casinova.Colors.Specs.Steps
         [Given(@"Setup web service trackingID for bets")]
         public void GivenSetupWebServiceTrackingIDForBets(Table table)
         {
+
             var trackings = (from c in table.Rows
                             select new BetCommand
                             {
@@ -55,7 +56,7 @@ namespace TheS.Casinova.Colors.Specs.Steps
         public void WhenClickBetBlackAmount(int amount, int gameRound)
         {
             var viewModel = ScenarioContext.Current.Get<GamePlayViewModel>();
-            viewModel.RoundID = gameRound;
+            viewModel.SelectedGameRoundID = gameRound;
             viewModel.BetAmount = amount;
             viewModel.BetBlack();
             ScenarioContext.Current.Get<TestScheduler>().Run();
@@ -65,7 +66,7 @@ namespace TheS.Casinova.Colors.Specs.Steps
         public void WhenClickBetWhiteAmount(int amount, int gameRound)
         {
             var viewModel = ScenarioContext.Current.Get<GamePlayViewModel>();
-            viewModel.RoundID = gameRound;
+            viewModel.SelectedGameRoundID = gameRound;
             viewModel.BetAmount = amount;
             viewModel.BetWhite();
             ScenarioContext.Current.Get<TestScheduler>().Run();
@@ -75,7 +76,28 @@ namespace TheS.Casinova.Colors.Specs.Steps
         public void ThenPayLogAre(int payLogCount)
         {
             var viewModel = ScenarioContext.Current.Get<GamePlayViewModel>();
-            Assert.AreEqual(payLogCount, viewModel.Paylogs.Count, "Pay log count");
+            Assert.AreEqual(payLogCount, viewModel.PayLogs.Count, "Pay log count");
+        }
+
+        [Then(@"Paylog have save information are")]
+        public void ThenPaylogHaveSaveInformationAre(Table table)
+        {
+            var payLog = ScenarioContext.Current.Get<GamePlayViewModel>().PayLogs;
+            var actual = payLog.ToArray<PayLog>();
+            var expect = (from c in table.Rows
+                          select new PayLog
+                          {
+                              Amount = int.Parse(c["Amount"]),
+                              Colors = c["Colors"],
+                              RoundID = int.Parse(c["RoundID"]),
+                          }).ToArray<PayLog>();
+
+            for (int index = 0; index < payLog.Count; index++)
+            {
+                Assert.AreEqual(expect[index].RoundID, actual[index].RoundID, "RoundID");
+                Assert.AreEqual(expect[index].Colors, actual[index].Colors, "Colors");
+                Assert.AreEqual(expect[index].Amount, actual[index].Amount, "Amount");
+            }
         }
 
         [Then(@"Bet Lot has Retrieved are")]
@@ -100,31 +122,10 @@ namespace TheS.Casinova.Colors.Specs.Steps
             }
         }
 
-        [Then(@"Paylog have save information are")]
-        public void ThenPaylogHaveSaveInformationAre(Table table)
-        {
-            var payLog = ScenarioContext.Current.Get<GamePlayViewModel>().Paylogs;
-            var actual = payLog.ToArray<PayLog>();
-            var expect = (from c in table.Rows
-                          select new PayLog
-                          {
-                              Amount = int.Parse(c["Amount"]),
-                              Colors = c["Colors"],
-                              RoundID = int.Parse(c["RoundID"]),
-                          }).ToArray<PayLog>();
-
-            for (int index = 0; index < payLog.Count; index++)
-            {
-                Assert.AreEqual(expect[index].RoundID, actual[index].RoundID, "RoundID");
-                Assert.AreEqual(expect[index].Colors, actual[index].Colors, "Colors");
-                Assert.AreEqual(expect[index].Amount, actual[index].Amount, "Amount");
-            }
-        }
-
         [Then(@"PayLog have (.*) record for looking trackingID in lot")]
         public void ThenPayLogHave1RecordForLookingTrackingIDInLot(int waitCount)
         {
-            var actual = ScenarioContext.Current.Get<GamePlayViewModel>().Paylogs;
+            var actual = ScenarioContext.Current.Get<GamePlayViewModel>().PayLogs;
             Assert.AreEqual(waitCount, actual.Count, "Paylogs have waiting count");
         }
     }

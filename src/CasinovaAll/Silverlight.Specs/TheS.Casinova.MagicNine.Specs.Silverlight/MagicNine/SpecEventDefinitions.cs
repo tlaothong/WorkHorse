@@ -11,7 +11,6 @@ namespace TheS.Casinova.MagicNine
     [Binding]
     public class SpecEventDefinitions
     {
-
         [BeforeScenarioBlock("record_mock")]
         public void BeforeScenarioBlock()
         {

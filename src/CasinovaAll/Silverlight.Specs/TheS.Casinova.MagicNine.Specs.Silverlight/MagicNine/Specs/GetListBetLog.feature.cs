@@ -62,41 +62,61 @@ testRunner.Given("Create and initialize GamePlayViewModel and MagicNine game ser
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "RoundID",
+                        "WinnerPoint"});
+            table1.AddRow(new string[] {
+                        "1",
+                        "9"});
+            table1.AddRow(new string[] {
+                        "2",
+                        "99"});
+            table1.AddRow(new string[] {
+                        "3",
+                        "999"});
+            table1.AddRow(new string[] {
+                        "4",
+                        "9999"});
+#line 9
+testRunner.And("Back service have active game rounds are:", ((string)(null)), table1);
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "RoundID",
                         "UserName",
                         "BetOrder",
                         "BetDateTime"});
-            table1.AddRow(new string[] {
+            table2.AddRow(new string[] {
                         "1",
                         "Sakul",
                         "72",
                         "2010-11-17 09:00:00"});
-            table1.AddRow(new string[] {
+            table2.AddRow(new string[] {
                         "1",
                         "Sakul",
                         "11",
-                        "2010-11-17 09:00:00"});
-            table1.AddRow(new string[] {
+                        "2010-11-17 09:00:30"});
+            table2.AddRow(new string[] {
                         "2",
                         "Sakul",
                         "91",
-                        "2010-11-17 09:00:00"});
-            table1.AddRow(new string[] {
+                        "2010-11-17 09:00:59"});
+            table2.AddRow(new string[] {
                         "3",
                         "Sakul",
                         "0",
-                        "2010-11-17 09:00:00"});
-            table1.AddRow(new string[] {
+                        "2010-11-17 09:01:00"});
+            table2.AddRow(new string[] {
                         "1",
                         "Miolynet",
                         "12",
-                        "2010-11-17 09:00:00"});
-            table1.AddRow(new string[] {
+                        "2010-11-17 10:11:00"});
+            table2.AddRow(new string[] {
                         "1",
                         "Miolynet",
                         "13",
-                        "2010-11-17 09:00:00"});
-#line 9
-testRunner.And("Web server have list bet log are", ((string)(null)), table1);
+                        "2010-11-18 07:23:50"});
+#line 15
+testRunner.And("Web server have list bet log are", ((string)(null)), table2);
+#line 23
+testRunner.When("Send request GetListActiveGameRounds() to web server");
 #line hidden
         }
         
@@ -108,25 +128,22 @@ testRunner.And("Web server have list bet log are", ((string)(null)), table1);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Send request get bet log to web server roundID = 1", new string[] {
                         "record_mock"});
-#line 19
+#line 26
 this.ScenarioSetup(scenarioInfo);
-#line 20
+#line 27
 testRunner.When("Send request GetListBetlog( \'Sakul\' ) RoundID=\'1\'");
 #line hidden
-            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Round",
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "BetOrder",
                         "BetDateTime"});
-            table2.AddRow(new string[] {
-                        "1",
+            table3.AddRow(new string[] {
                         "72",
                         "2010-11-17 09:00:00"});
-            table2.AddRow(new string[] {
-                        "1",
+            table3.AddRow(new string[] {
                         "11",
-                        "2010-11-17 09:00:00"});
-#line 21
-testRunner.Then("Dispaly bet log are", ((string)(null)), table2);
+                        "2010-11-17 09:00:30"});
+#line 28
+testRunner.Then("Dispaly bet log int game roundID=1 are", ((string)(null)), table3);
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -139,21 +156,19 @@ testRunner.Then("Dispaly bet log are", ((string)(null)), table2);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Send request get bet log to web server roundID = 2", new string[] {
                         "record_mock"});
-#line 27
+#line 34
 this.ScenarioSetup(scenarioInfo);
-#line 28
+#line 35
 testRunner.When("Send request GetListBetlog( \'Sakul\' ) RoundID=\'2\'");
 #line hidden
-            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Round",
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "BetOrder",
                         "BetDateTime"});
-            table3.AddRow(new string[] {
-                        "2",
+            table4.AddRow(new string[] {
                         "91",
-                        "2010-11-17 09:00:00"});
-#line 29
-testRunner.Then("Dispaly bet log are", ((string)(null)), table3);
+                        "2010-11-17 09:00:59"});
+#line 36
+testRunner.Then("Dispaly bet log int game roundID=2 are", ((string)(null)), table4);
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -166,21 +181,55 @@ testRunner.Then("Dispaly bet log are", ((string)(null)), table3);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Send request get bet log to web server roundID = 3", new string[] {
                         "record_mock"});
-#line 34
+#line 41
 this.ScenarioSetup(scenarioInfo);
-#line 35
+#line 42
 testRunner.When("Send request GetListBetlog( \'Sakul\' ) RoundID=\'3\'");
 #line hidden
-            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Round",
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                         "BetOrder",
                         "BetDateTime"});
-            table4.AddRow(new string[] {
-                        "3",
+            table5.AddRow(new string[] {
                         "0",
+                        "2010-11-17 09:01:00"});
+#line 43
+testRunner.Then("Dispaly bet log int game roundID=3 are", ((string)(null)), table5);
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Send request get bet log (more than 1)")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Get bet log")]
+        [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
+        public virtual void SendRequestGetBetLogMoreThan1()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Send request get bet log (more than 1)", new string[] {
+                        "record_mock"});
+#line 48
+this.ScenarioSetup(scenarioInfo);
+#line 49
+testRunner.When("Send request GetListBetlog( \'Sakul\' ) RoundID=\'1\'");
+#line 50
+testRunner.And("Send request GetListBetlog( \'Sakul\' ) RoundID=\'1\'");
+#line 51
+testRunner.And("Send request GetListBetlog( \'Sakul\' ) RoundID=\'1\'");
+#line 52
+testRunner.And("Send request GetListBetlog( \'Sakul\' ) RoundID=\'1\'");
+#line 53
+testRunner.And("Send request GetListBetlog( \'Sakul\' ) RoundID=\'1\'");
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "BetOrder",
+                        "BetDateTime"});
+            table6.AddRow(new string[] {
+                        "72",
                         "2010-11-17 09:00:00"});
-#line 36
-testRunner.Then("Dispaly bet log are", ((string)(null)), table4);
+            table6.AddRow(new string[] {
+                        "11",
+                        "2010-11-17 09:00:30"});
+#line 54
+testRunner.Then("Dispaly bet log int game roundID=1 are", ((string)(null)), table6);
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -193,17 +242,16 @@ testRunner.Then("Dispaly bet log are", ((string)(null)), table4);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Send request get bet log to web server don\'t have username match", new string[] {
                         "record_mock"});
-#line 41
+#line 60
 this.ScenarioSetup(scenarioInfo);
-#line 42
+#line 61
 testRunner.When("Send request GetListBetlog( \'Mary\' ) RoundID=\'1\'");
 #line hidden
-            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Round",
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
                         "BetOrder",
                         "BetDateTime"});
-#line 43
-testRunner.Then("Dispaly bet log are", ((string)(null)), table5);
+#line 62
+testRunner.Then("Dispaly bet log int game roundID=1 are", ((string)(null)), table7);
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -216,17 +264,16 @@ testRunner.Then("Dispaly bet log are", ((string)(null)), table5);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Send request get bet log to web server don\'t have rounID match", new string[] {
                         "record_mock"});
-#line 47
+#line 66
 this.ScenarioSetup(scenarioInfo);
-#line 48
+#line 67
 testRunner.When("Send request GetListBetlog( \'Sakul\' ) RoundID=\'999\'");
 #line hidden
-            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Round",
+            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
                         "BetOrder",
                         "BetDateTime"});
-#line 49
-testRunner.Then("Dispaly bet log are", ((string)(null)), table6);
+#line 68
+testRunner.Then("Dispaly bet log int game roundID=999 are", ((string)(null)), table8);
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -239,17 +286,16 @@ testRunner.Then("Dispaly bet log are", ((string)(null)), table6);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Send request get bet log to web server RoundID is minus", new string[] {
                         "record_mock"});
-#line 53
+#line 72
 this.ScenarioSetup(scenarioInfo);
-#line 54
+#line 73
 testRunner.When("Send request GetListBetlog( \'Sakul\' ) RoundID=\'-1\'");
 #line hidden
-            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Round",
+            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
                         "BetOrder",
                         "BetDateTime"});
-#line 55
-testRunner.Then("Dispaly bet log are", ((string)(null)), table7);
+#line 74
+testRunner.Then("Dispaly bet log int game roundID=-1 are", ((string)(null)), table9);
 #line hidden
             testRunner.CollectScenarioErrors();
         }

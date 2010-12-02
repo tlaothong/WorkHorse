@@ -13,6 +13,11 @@
 
 Background:
 	Given Create and initialize GamePlayViewModel and Colors game service
+	And Back service have active game rounds are:
+		|RoundID|StartTime				|EndTime				|
+		|1		|2010-11-17 09:00:00	|2010-11-17 09:15:00	|
+		|2		|2010-11-17 09:15:00	|2010-11-17 09:30:00	|
+		|3		|2010-11-17 09:30:00	|2010-11-17 09:45:00	|
 	And Setup web service trackingID for bets
 		|TrackingID								|
 		|{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}	|
@@ -21,14 +26,20 @@ Background:
 		|{4DDB378C-9C75-4E96-BB19-D61FD93207C8}	|
 		|{FDAFEA76-CC7C-4C95-86EA-72393C5954A0}	|
 		|{098FCF3A-B002-4206-A61F-E6CD765100F5}	|
+	And Web server have game play information are
+		|UserName	|TableID|RoundID	|TrackingID								|OnGoingTrackingID						|TotalBetAmountOfBlack	|TotalBetAmountOfWhite	|Winner	|
+		|Sakul		|1		|1			|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}	|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}	|100					|20						|Black	|
+		|Sakul		|2		|2			|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}	|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}	|100					|20						|White	|
+		|Sakul		|3		|3			|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}	|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}	|100					|20						|White	|
+	When Send request GetListActiveGameRounds() to web server
 
 @record_mock
 Scenario: Bet button has click save player action in PayLog
-	When Click Bet black amount=30 in game round=15
+	When Click Bet black amount=30 in game round=1
 	Then PayLog count='1'
 	And Paylog have save information are
 		|RoundID	|Amount	|Colors	|
-		|15			|30		|Black	|
+		|1			|30		|Black	|
 	And Bet Lot has Retrieved are
 		|TrackingID								|
 		|{E8481A68-7F9F-4466-B7B8-1355ED2D32C6}	|
