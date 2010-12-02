@@ -57,15 +57,12 @@
     		<Button x:Name="OptionButton" Content="Single" Margin="0,0,5,0" Click="OptionButton_Click" />
     		<TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="to" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Collapsed"/>
     		<Grid Grid.Column="1">
-
-    			<sdk:DatePicker x:Name="FirstDateTime" d:LayoutOverrides="Height" SelectedDate="{Binding FirstData}" Style="{StaticResource DatePickerCalendarOnlyStyle}"/>
-    			<ComboBox x:Name="FirstRound" Margin="0,0,23,0"/>
-
+    			<sdk:DatePicker x:Name="SingleDateTime" d:LayoutOverrides="Height" HorizontalAlignment="Right" SelectedDate="{Binding SingleDateTime}"/>
+    			<ComboBox x:Name="SingleRound" Margin="0,0,107,0" ItemsSource="{Binding SingleRoundID}"/>
     		</Grid>
     		<Grid x:Name="grid" Grid.Column="3" Margin="0,0,-1,0" Visibility="Collapsed">
-
-    			<sdk:DatePicker x:Name="SecondDateTime" d:LayoutOverrides="Height" SelectedDate="{Binding FirstData}" Style="{StaticResource DatePickerCalendarOnlyStyle}"/>
-    			<ComboBox x:Name="SecondRound" Margin="0,0,23,0"/>
+    			<sdk:DatePicker x:Name="RangeDateTime" d:LayoutOverrides="Height" HorizontalAlignment="Right" SelectedDate="{Binding RangeDateTime}"/>
+    			<ComboBox x:Name="RangeRound" Margin="0,0,107,0" ItemsSource="{Binding RangeRoundID}"/>
 
     		</Grid>
 

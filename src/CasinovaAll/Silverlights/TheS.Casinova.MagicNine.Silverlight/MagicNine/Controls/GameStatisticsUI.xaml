@@ -14,6 +14,11 @@
 				<TextBlock Text="{Binding Mode=OneWay}"/>
 			</StackPanel>
 		</DataTemplate>
+		<DataTemplate x:Key="StringTemplate1">
+			<StackPanel>
+				<TextBlock Text="{Binding Mode=OneWay}"/>
+			</StackPanel>
+		</DataTemplate>
 	</UserControl.Resources>
 	<UserControl.DataContext>
 		<Binding Source="{StaticResource GameStatisticsViewModelDataSource}"/>
@@ -25,13 +30,6 @@
     			<VisualState x:Name="Single"/>
     			<VisualState x:Name="Range">
     				<Storyboard>
-    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="SecondData">
-    						<DiscreteObjectKeyFrame KeyTime="0">
-    							<DiscreteObjectKeyFrame.Value>
-    								<Visibility>Visible</Visibility>
-    							</DiscreteObjectKeyFrame.Value>
-    						</DiscreteObjectKeyFrame>
-    					</ObjectAnimationUsingKeyFrames>
     					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock">
     						<DiscreteObjectKeyFrame KeyTime="0">
     							<DiscreteObjectKeyFrame.Value>
@@ -41,6 +39,13 @@
     					</ObjectAnimationUsingKeyFrames>
     					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(ContentControl.Content)" Storyboard.TargetName="OptionButton">
     						<DiscreteObjectKeyFrame KeyTime="0" Value="Range"/>
+    					</ObjectAnimationUsingKeyFrames>
+    					<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="grid">
+    						<DiscreteObjectKeyFrame KeyTime="0">
+    							<DiscreteObjectKeyFrame.Value>
+    								<Visibility>Visible</Visibility>
+    							</DiscreteObjectKeyFrame.Value>
+    						</DiscreteObjectKeyFrame>
     					</ObjectAnimationUsingKeyFrames>
     				</Storyboard>
     			</VisualState>
@@ -57,17 +62,20 @@
     	<Grid Margin="8" VerticalAlignment="Center">
     		<Grid.ColumnDefinitions>
     			<ColumnDefinition Width="0.15*"/>
-    			<ColumnDefinition Width="0.27*"/>
+    			<ColumnDefinition Width="0.4*"/>
     			<ColumnDefinition Width="0.05*"/>
-    			<ColumnDefinition Width="0.27*"/>
-				<ColumnDefinition Width="0.26*"/>
+    			<ColumnDefinition Width="0.4*"/>
     		</Grid.ColumnDefinitions>
     		<Button x:Name="OptionButton" Content="Single" Margin="0,0,5,0" Click="OptionButton_Click" />
-
-    		<sdk:DatePicker x:Name="FirstData" d:LayoutOverrides="Height" Grid.Column="1" SelectedDate="{Binding FirstData}"/>
-    		<sdk:DatePicker x:Name="SecondData" d:LayoutOverrides="Height" Grid.Column="3" Visibility="Collapsed" SelectedDate="{Binding SecondData}"/>
     		<TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="to" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Collapsed"/>
-    		<ComboBox x:Name="Games" d:LayoutOverrides="Height" Grid.Column="4" Margin="4,0,0,0" ItemTemplate="{StaticResource StringTemplate}" ItemsSource="{Binding Games}"/>
+    		<Grid Grid.Column="1">
+    			<sdk:DatePicker x:Name="SingleDateTime" d:LayoutOverrides="Height" HorizontalAlignment="Right" SelectedDate="{Binding SingleDateTime}"/>
+    			<ComboBox x:Name="SingleRoundID" Margin="0,0,107,0" ItemsSource="{Binding SingleRoundID}"/>
+    		</Grid>
+    		<Grid x:Name="grid" Grid.Column="3" Margin="-1,0,0,0" Visibility="Collapsed">
+    			<sdk:DatePicker x:Name="RangeDateTime" d:LayoutOverrides="Height" HorizontalAlignment="Right" SelectedDate="{Binding RangeDateTime}"/>
+    			<ComboBox x:Name="RangeRoundID" Margin="0,0,107,0" ItemsSource="{Binding RangeRoundID}"/>
+    		</Grid>
 
     	</Grid>
     	<sdk:DataGrid x:Name="Contents" Grid.Row="1" Margin="8,0" AutoGenerateColumns="False" ItemsSource="{Binding Informations}" HorizontalAlignment="Center" VerticalAlignment="Center" IsReadOnly="True">
@@ -77,6 +85,7 @@
     			<sdk:DataGridTextColumn Binding="{Binding Winner}" Header="Winner"/>
     		</sdk:DataGrid.Columns>
     	</sdk:DataGrid>
+    	<ComboBox x:Name="Games" Margin="16,7,0,0" ItemTemplate="{StaticResource StringTemplate1}" ItemsSource="{Binding Games}" HorizontalAlignment="Left" Grid.Row="2" Width="217" d:LayoutOverrides="Height, GridBox"/>
 
     </Grid>
 </UserControl>

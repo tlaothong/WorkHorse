@@ -97,9 +97,6 @@
     <Compile Include="TwoWins\Models\BetdataInfo.cs" />
     <Compile Include="TwoWins\Models\GameTable.cs" />
     <Compile Include="TwoWins\Models\WinnerInfo.cs" />
-    <Compile Include="TwoWins\Popups\BetData.xaml.cs">
-      <DependentUpon>BetData.xaml</DependentUpon>
-    </Compile>
     <Compile Include="TwoWins\Silverlight\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -110,23 +107,14 @@
     <Compile Include="TwoWins\ViewModels\StatisticsChartViewModel.cs" />
     <Compile Include="TwoWins\ViewModels\GamePlayViewModel.cs" />
     <Compile Include="TwoWins\ViewModels\GameStatisticsViewModel.cs" />
-    <Compile Include="TwoWins\Views\BetDataPage.xaml.cs">
-      <DependentUpon>BetDataPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="TwoWins\Views\GamePlayPage.xaml.cs">
       <DependentUpon>GamePlayPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="TwoWins\Views\StatisticsChartWindow.xaml.cs">
       <DependentUpon>StatisticsChartWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TwoWins\Views\GraphPage.xaml.cs">
-      <DependentUpon>GraphPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="TwoWins\Views\HowToPlayWindow.xaml.cs">
       <DependentUpon>HowToPlayWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="TwoWins\Views\StatisticPage.xaml.cs">
-      <DependentUpon>StatisticPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -146,17 +134,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TwoWins\Popups\BetData.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="TwoWins\Silverlight\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="TwoWins\Views\BetDataPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="TwoWins\Views\GamePlayPage.xaml">
       <SubType>Designer</SubType>
@@ -166,15 +146,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TwoWins\Views\GraphPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="TwoWins\Views\HowToPlayWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="TwoWins\Views\StatisticPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

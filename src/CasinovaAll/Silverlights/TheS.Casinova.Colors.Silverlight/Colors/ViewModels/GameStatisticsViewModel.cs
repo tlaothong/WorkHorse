@@ -22,15 +22,79 @@ namespace TheS.Casinova.Colors.ViewModels
         #region Fields
 
         private PerfEx.Infrastructure.PropertyChangedNotifier _notify;
-        private DateTime _firstDateTime;
-        private DateTime _secondDateTime;
-        private int _firstRoundID;
-        private int _secondRoundID;
         private GameResult _result;
+        private DateTime _singleDateTime;
+        private DateTime _rangeDateTime;
+        private int _singleRoundID;
+        private int _rangeRoundID;
 
         #endregion Fields
 
         #region Properties
+
+        /// <summary>
+        /// ช่วงเวลาของ Single
+        /// </summary>
+        public DateTime SingleDateTime
+        {
+            get { return _singleDateTime; }
+            set
+            {
+                if (_singleDateTime != value)
+                {
+                    _singleDateTime = value;
+                    _notify.Raise(() => SingleDateTime);
+                }
+            }
+        }
+
+        /// <summary>
+        /// ช่วงเวลาของ Range
+        /// </summary>
+        public DateTime RangeDateTime
+        {
+            get { return _rangeDateTime; }
+            set
+            {
+                if (_rangeDateTime != value)
+                {
+                    _rangeDateTime = value;
+                    _notify.Raise(() => RangeDateTime);
+                }
+            }
+        }
+
+        /// <summary>
+        /// รอบของ Single
+        /// </summary>
+        public int SingleRoundID
+        {
+            get { return _singleRoundID; }
+            set
+            {
+                if (_singleRoundID != value)
+                {
+                    _singleRoundID = value;
+                    _notify.Raise(() => SingleRoundID);
+                }
+            }
+        }
+
+        /// <summary>
+        /// รอบของ Range
+        /// </summary>
+        public int RangeRoundID
+        {
+            get { return _rangeRoundID; }
+            set
+            {
+                if (_rangeRoundID != value)
+                {
+                    _rangeRoundID = value;
+                    _notify.Raise(() => RangeRoundID);
+                }
+            }
+        }
 
         /// <summary>
         /// ผมสรุปการเล่นเกม

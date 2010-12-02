@@ -96,9 +96,6 @@
     <Compile Include="DevilSix\Models\BetdataInfo.cs" />
     <Compile Include="DevilSix\Models\GameTable.cs" />
     <Compile Include="DevilSix\Models\WinnerInfo.cs" />
-    <Compile Include="DevilSix\Popups\BetData.xaml.cs">
-      <DependentUpon>BetData.xaml</DependentUpon>
-    </Compile>
     <Compile Include="DevilSix\Silverlight\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -114,14 +111,8 @@
     <Compile Include="DevilSix\Views\StatisticsChartWindow.xaml.cs">
       <DependentUpon>StatisticsChartWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DevilSix\Views\GraphPage.xaml.cs">
-      <DependentUpon>GraphPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="DevilSix\Views\HowToPlayWindow.xaml.cs">
       <DependentUpon>HowToPlayWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DevilSix\Views\SatatisticPage.xaml.cs">
-      <DependentUpon>SatatisticPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -142,10 +133,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DevilSix\Popups\BetData.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="DevilSix\Silverlight\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -158,10 +145,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DevilSix\Views\GraphPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="DevilSix\Views\HowToPlayWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -169,10 +152,6 @@
     <Page Include="DevilSix\Views\ResourceDictionary01.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DevilSix\Views\SatatisticPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Properties\DesignTimeResources.xaml" Condition="'$(DesignTime)'=='true' OR ('$(SolutionPath)'!='' AND Exists('$(SolutionPath)') AND '$(BuildingInsideVisualStudio)'!='true' AND '$(BuildingInsideExpressionBlend)'!='true')">
       <Generator>MSBuild:Compile</Generator>
