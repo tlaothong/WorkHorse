@@ -70,8 +70,8 @@ namespace TheS.Casinova.Colors.Specs.Steps
 
             Assert.AreEqual(roundID, actual.RoundID, "RoundID");
             Assert.AreEqual(winner, actual.Winner, "Winner");
-            Assert.AreEqual(blackPot, actual.BlackPot, "BlackPot");
-            Assert.AreEqual(whitePot, actual.WhitePot, "WhitePot");
+            Assert.AreEqual(blackPot.ToString(), actual.BlackPot, "BlackPot");
+            Assert.AreEqual(whitePot.ToString(), actual.WhitePot, "WhitePot");
             Assert.AreEqual(handsCount, actual.Hands, "Hands");
         }
 
