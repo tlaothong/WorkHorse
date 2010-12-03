@@ -12,8 +12,6 @@ namespace TheS.Casinova.PlayerProfile.Commands
    public class GetUserProfileCommand
     {
        //input
-       //public string UserName { get; set; }
-
        /// <summary>
        /// ข้อมูลการดึงข้อมูลโปรไฟล์
        /// 1. UserName ชื่อผู้เล่น

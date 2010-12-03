@@ -66,8 +66,8 @@ this.ScenarioSetup(scenarioInfo);
 #line 8
 testRunner.Given("The CreateGameRoundConfigExecutor has been created and initialized");
 #line 9
-testRunner.And("System can sent game round configuration informations are : Name\'ColorsGame\',Tabl" +
-                    "eAmount\'5\', GameDuration\'30\', Interval\'10\', BufferRoundCount\'3\'");
+testRunner.And("System can sent game round configuration informations are : ConfigName\'ColorsGame" +
+                    "\',TableAmount\'5\', GameDuration\'30\', Interval\'10\', BufferRoundCount\'3\'");
 #line 10
 testRunner.When("System can call CreateGameRoundConfigExecutor()");
 #line 11
@@ -90,8 +90,8 @@ this.ScenarioSetup(scenarioInfo);
 #line 15
 testRunner.Given("The CreateGameRoundConfigExecutor has been created and initialized");
 #line 16
-testRunner.And("Game round configuration informations are : Name\'no\',TableAmount\'5\', GameDuration" +
-                    "\'30\', Interval\'10\', BufferRoundCount\'3\'");
+testRunner.And("Game round configuration informations are : ConfigName\'no\',TableAmount\'5\', GameDu" +
+                    "ration\'30\', Interval\'10\', BufferRoundCount\'3\'");
 #line 17
 testRunner.When("Call CreateGameRoundConfigExecutor()");
 #line 18
@@ -114,8 +114,8 @@ this.ScenarioSetup(scenarioInfo);
 #line 22
 testRunner.Given("The CreateGameRoundConfigExecutor has been created and initialized");
 #line 23
-testRunner.And("Game round configuration informations are : Name\'\',TableAmount\'5\', GameDuration\'3" +
-                    "0\', Interval\'10\', BufferRoundCount\'3\'");
+testRunner.And("Game round configuration informations are : ConfigName\'\',TableAmount\'5\', GameDura" +
+                    "tion\'30\', Interval\'10\', BufferRoundCount\'3\'");
 #line 24
 testRunner.When("Call CreateGameRoundConfigExecutor()");
 #line 25
@@ -138,8 +138,8 @@ this.ScenarioSetup(scenarioInfo);
 #line 29
 testRunner.Given("The CreateGameRoundConfigExecutor has been created and initialized");
 #line 30
-testRunner.And("Game round configuration informations are : Name\'ColorsGame1\',TableAmount\'-2\', Ga" +
-                    "meDuration\'30\', Interval\'10\', BufferRoundCount\'3\'");
+testRunner.And("Game round configuration informations are : ConfigName\'ColorsGame1\',TableAmount\'-" +
+                    "2\', GameDuration\'30\', Interval\'10\', BufferRoundCount\'3\'");
 #line 31
 testRunner.When("Call CreateGameRoundConfigExecutor()");
 #line 32
@@ -162,8 +162,8 @@ this.ScenarioSetup(scenarioInfo);
 #line 36
 testRunner.Given("The CreateGameRoundConfigExecutor has been created and initialized");
 #line 37
-testRunner.And("Game round configuration informations are : Name\'ColorsGame1\',TableAmount\'5\', Gam" +
-                    "eDuration\'1550\', Interval\'10\', BufferRoundCount\'3\'");
+testRunner.And("Game round configuration informations are : ConfigName\'ColorsGame1\',TableAmount\'5" +
+                    "\', GameDuration\'1550\', Interval\'10\', BufferRoundCount\'3\'");
 #line 38
 testRunner.When("Call CreateGameRoundConfigExecutor()");
 #line 39
@@ -186,8 +186,8 @@ this.ScenarioSetup(scenarioInfo);
 #line 43
 testRunner.Given("The CreateGameRoundConfigExecutor has been created and initialized");
 #line 44
-testRunner.And("Game round configuration informations are : Name\'ColorsGame1\',TableAmount\'5\', Gam" +
-                    "eDuration\'30\', Interval\'-30\', BufferRoundCount\'3\'");
+testRunner.And("Game round configuration informations are : ConfigName\'ColorsGame1\',TableAmount\'5" +
+                    "\', GameDuration\'30\', Interval\'-30\', BufferRoundCount\'3\'");
 #line 45
 testRunner.When("Call CreateGameRoundConfigExecutor()");
 #line 46
@@ -212,8 +212,8 @@ this.ScenarioSetup(scenarioInfo);
 #line 50
 testRunner.Given("The CreateGameRoundConfigExecutor has been created and initialized");
 #line 51
-testRunner.And("Game round configuration informations are : Name\'ColorsGame1\',TableAmount\'5\', Gam" +
-                    "eDuration\'30\', Interval\'10\', BufferRoundCount\'-3\'");
+testRunner.And("Game round configuration informations are : ConfigName\'ColorsGame1\',TableAmount\'5" +
+                    "\', GameDuration\'30\', Interval\'10\', BufferRoundCount\'-3\'");
 #line 52
 testRunner.When("Call CreateGameRoundConfigExecutor()");
 #line 53

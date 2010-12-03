@@ -22,11 +22,6 @@ namespace TheS.Casinova.MagicNine.Commands
         /// <summary>
         /// ข้อมูลผู้เล่นที่จะได้รับ
         /// </summary>
-        public PlayerInformation PlayerInfo { get; set; }
-
-        /// <summary>
-        /// ข้อมูลผู้เล่นที่จะได้รับ
-        /// </summary>
         public UserProfile UserProfile { get; set; }
     }
 }

@@ -14,23 +14,18 @@ namespace TheS.Casinova.PlayerProfile.Models
             [Required]
             public string UserName { get; set; }
 
-            [Required]
             [StringLength(16, MinimumLength = 5)]
             public string Password { get; set; }
 
-            [Required]
             [StringLength(16, MinimumLength = 5)]
             public string NewPassword { get; set; }
 
-            [Required]
             [RegularExpression(@"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*")]
             public string Email { get; set; }
 
-            [Required]
             [RegularExpression(@"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*")]
             public string NewEmail { get; set; }
 
-            [Required]
             public string CellPhone { get; set; }
 
             public string Upline { get; set; }

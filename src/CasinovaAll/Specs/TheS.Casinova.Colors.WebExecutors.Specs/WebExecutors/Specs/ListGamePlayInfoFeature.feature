@@ -28,6 +28,7 @@ Scenario:[ListGamePlayInfo]ระบบได้รับข้อมูล user
 	When  Call ListGamePlayInfoExecutor()
 	Then   The game play information should be :
 		  |UserName|RoundID	|TotalBetBlack	|TotalBetWhite	|Winner	|WinnerLastUpdate	|			TrackingID				   |		OnGoingTrackingID			  |
+
 @record_mockInfo
 Scenario:[ListGamePlayInfo]ระบบไม่ได้รับข้อมูล username ระบบลิสต์ข้อมูลโต๊ะเกมไม่ได้
 	Given The ListGamePlayInfoExecutor has been created and initialized

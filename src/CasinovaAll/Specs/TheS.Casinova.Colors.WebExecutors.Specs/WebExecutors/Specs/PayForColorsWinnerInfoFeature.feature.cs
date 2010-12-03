@@ -107,20 +107,21 @@ testRunner.Then("PayForColorWinnerInfo get null and skip checking trackingID");
         public virtual void PayForColorsWinnerระบบไดรบขอมลPayForColorsWinnerInformationระบบทำการตรวจสอบขอมลขอมลถกตองระบบทำการGenerateTrackingID()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[PayForColorsWinner]ระบบได้รับข้อมูล PayForColorsWinnerInformation ระบบทำการตรวจส" +
-                    "อบข้อมูล ข้อมูลถูกต้อง ระบบทำการ generate trackingID", ((string[])(null)));
-#line 19
-this.ScenarioSetup(scenarioInfo);
-#line 20
-testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initialized");
+                    "อบข้อมูล ข้อมูลถูกต้อง ระบบทำการ generate trackingID", new string[] {
+                        "record_mock"});
 #line 21
+this.ScenarioSetup(scenarioInfo);
+#line 22
+testRunner.Given("The PayForColorsWinnerInfoExecutor has been created and initialized");
+#line 23
 testRunner.And("PayForColorWinner Informations as : UserName \'Nataya\' RoundID \'3\' ActionType \'Pay" +
                     "ForWinner\'");
-#line 22
+#line 24
 testRunner.And("The system generated TrackingID:\'955D6ACDE4E04D1C90ACF3715BB2685A\' for PayForColo" +
                     "rWinnerInfo");
-#line 23
+#line 25
 testRunner.When("Call PayForColorsWinnerInfoExecutor()");
-#line 24
+#line 26
 testRunner.Then("TrackingID for PayForColorWinnerInfo should be :\'955D6ACDE4E04D1C90ACF3715BB2685A" +
                     "\'");
 #line hidden

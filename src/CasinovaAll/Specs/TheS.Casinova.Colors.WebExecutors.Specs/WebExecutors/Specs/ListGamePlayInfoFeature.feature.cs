@@ -189,15 +189,15 @@ testRunner.Then("The game play information should be :", ((string)(null)), table
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ListGamePlayInfo]ระบบไม่ได้รับข้อมูล username ระบบลิสต์ข้อมูลโต๊ะเกมไม่ได้", new string[] {
                         "record_mockInfo"});
-#line 32
-this.ScenarioSetup(scenarioInfo);
 #line 33
-testRunner.Given("The ListGamePlayInfoExecutor has been created and initialized");
+this.ScenarioSetup(scenarioInfo);
 #line 34
-testRunner.And("Sent userName\'\' for list game play information");
+testRunner.Given("The ListGamePlayInfoExecutor has been created and initialized");
 #line 35
-testRunner.When("Call ListGamePlayInfoExecutor() for validate username");
+testRunner.And("Sent userName\'\' for list game play information");
 #line 36
+testRunner.When("Call ListGamePlayInfoExecutor() for validate username");
+#line 37
 testRunner.Then("The game play information should be throw exception");
 #line hidden
             testRunner.CollectScenarioErrors();

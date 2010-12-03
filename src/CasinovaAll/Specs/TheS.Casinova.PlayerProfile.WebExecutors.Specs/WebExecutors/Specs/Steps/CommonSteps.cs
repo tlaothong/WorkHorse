@@ -14,6 +14,8 @@ using PerfEx.Infrastructure.Validation;
 using PerfEx.Infrastructure.Containers.StructureMapAdapter;
 using SpecFlowAssist;
 using TheS.Casinova.PlayerProfile.Command;
+using TheS.Casinova.PlayerProfile.Validators;
+using TheS.Casinova.PlayerProfile.Validator;
 
 namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
 {
@@ -28,14 +30,10 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
         public void GivenTheRegisterUserExecutorHasBeenCreatedAndInitialized()
         {
             var dac = Mocks.DynamicMock<IPlayerProfileBackService>();
-            var dqr = Mocks.DynamicMock<IPlayerProfileDataQuery>();
 
             IDependencyContainer container;
             setupValidators(out container);
             ScenarioContext.Current.Set<IRegisterUser>(dac);
-            ScenarioContext.Current.Set<ICheckUserName>(dqr);
-            ScenarioContext.Current.Set<ICheckEmail>(dqr);
-            ScenarioContext.Current.Set<ICheckUpline>(dqr);
             ScenarioContext.Current.Set<RegisterUserExecutor>(
                 new RegisterUserExecutor(dac, container));
         }
@@ -71,11 +69,9 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
         public void GivenTheChangePasswordExecutorHasBeenCreatedAndInitialized()
         {
             var dac = Mocks.DynamicMock<IPlayerProfileBackService>();
-            var dqr = Mocks.DynamicMock<IPlayerProfileDataQuery>();
 
             IDependencyContainer container;
             setupValidators(out container);
-            ScenarioContext.Current.Set<IGetPlayerPassword>(dqr);
             ScenarioContext.Current.Set<IChangePassword>(dac);
             ScenarioContext.Current.Set<ChangePasswordExecutor>(
                 new ChangePasswordExecutor(dac, container));
@@ -86,14 +82,11 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
         public void GivenTheChangeEmailExecutorHasBeenCreatedAndInitializedr()
         {
             var dac = Mocks.DynamicMock<IPlayerProfileBackService>();
-            var dqr = Mocks.DynamicMock<IPlayerProfileDataQuery>();
 
             IDependencyContainer container;
             setupValidators(out container);
 
             ScenarioContext.Current.Set<IChangeEmail>(dac);
-            ScenarioContext.Current.Set<ICheckEmail>(dqr);
-            ScenarioContext.Current.Set<IGetPlayerEmail>(dqr);
             ScenarioContext.Current.Set<ChangeEmailExecutor>(
                 new ChangeEmailExecutor(dac, container));
         }
@@ -104,31 +97,31 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
             var reg = fac.CreateRegistry();
 
             reg.Register<IValidator<ActionLog, ListActionLogCommand>
-                , DataAnnotationValidator<ActionLog, ListActionLogCommand>>();
+               , DataAnnotationValidator<ActionLog, ListActionLogCommand>>();
 
             reg.Register<IValidator<UserProfile, GetUserProfileCommand>
-               , DataAnnotationValidator<UserProfile, GetUserProfileCommand>>();
+              , DataAnnotationValidator<UserProfile, GetUserProfileCommand>>();
 
             reg.Register<IValidator<UserProfile, RegisterUserCommand>
               , DataAnnotationValidator<UserProfile, RegisterUserCommand>>();
 
-            reg.Register<IValidator<UserProfile, CheckUserNameCommand>
-             , DataAnnotationValidator<UserProfile, CheckUserNameCommand>>();
-
-            reg.Register<IValidator<UserProfile, CheckEmailCommand>
-             , DataAnnotationValidator<UserProfile, CheckEmailCommand>>();
-
-            reg.Register<IValidator<UserProfile, CheckUplineCommand>
-             , DataAnnotationValidator<UserProfile, CheckUplineCommand>>();
+            reg.Register<IValidator<UserProfile, RegisterUserCommand>
+              , UserProfile_RegisterUserValidators>();
 
             reg.Register<IValidator<UserProfile, ChangeEmailCommand>
-             , DataAnnotationValidator<UserProfile, ChangeEmailCommand>>();
+              , DataAnnotationValidator<UserProfile, ChangeEmailCommand>>();
+
+            reg.Register<IValidator<UserProfile, ChangeEmailCommand>
+              , UserProfile_ChangeEmailValidators>();
 
             reg.Register<IValidator<UserProfile, GetPlayerEmailCommand>
-            , DataAnnotationValidator<UserProfile, GetPlayerEmailCommand>>();
+              , DataAnnotationValidator<UserProfile, GetPlayerEmailCommand>>();
 
             reg.Register<IValidator<UserProfile, ChangePasswordCommand>
-            , DataAnnotationValidator<UserProfile, ChangePasswordCommand>>();
+              , DataAnnotationValidator<UserProfile, ChangePasswordCommand>>();
+  
+            reg.Register<IValidator<UserProfile, ChangePasswordCommand>
+              , UserProfile_ChangePasswordValidators>();
 
             container = fac.CreateContainer(reg);
         }

@@ -13,8 +13,7 @@ namespace TheS.Casinova.PlayerProfile.Commands
         /// ข้อมูลผู้เล่นที่ต้องการเปลี่ยนอีเมลล์
         /// 1.UserName ชื่อผู้เล่น
         /// 2.Email อีเมลล์เดิมสำหรับยืนยัน
-        /// 3.Password รหัสผ่าน
-        /// 4.อีเมลล์ใหม่ของผู้เล่น
+        /// 3.NewEmail อีเมลล์ใหม่ของผู้เล่น
         /// </summary>
         public UserProfile UserProfile { get; set; }
     }

@@ -15,9 +15,7 @@ Examples:
 	|		 |nayit_nit@hotmail.com	|nittaya@perfenterprise.com|
 	|Nit	 |						|nittaya@perfenterprise.com|
 	|Nit	 |nayit_nit@hotmail.com	|						   |
-	|Nit	 |nayit_nit@hotmail.com	|nittaya@perfenterprise.com|
-	|Nit	 |nayit_nit@hotmail.com	|nittaya@perfenterprise.com|
-	|Nit	 |nayit_nit@hotmail.com	|perfenterprise.com		   |
+	|Nit	 |nayit_nit@hotmail.com	|perfenterprise			   |
 	
 @record_mock
 Scenario:[ChangeNewEmail]ระบบได้รับข้อมูลอีเมลใหม่จากผู้เล่น ระบบทำการตรวจสอบข้อมูล มีการกรอกข้อมูลถูกต้อง ระบบทำการ generate trackingID

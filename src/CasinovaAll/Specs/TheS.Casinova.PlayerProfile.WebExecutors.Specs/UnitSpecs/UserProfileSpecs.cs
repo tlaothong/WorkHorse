@@ -11,6 +11,7 @@ using TheS.Casinova.PlayerProfile.Commands;
 using TheS.Casinova.PlayerProfile.BackServices;
 using PerfEx.Infrastructure.CommandPattern;
 using TheS.Casinova.PlayerProfile.Validator;
+using TheS.Casinova.PlayerProfile.Validators;
 
 namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
 {
@@ -19,7 +20,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
     {
         [TestMethod]
         [ExpectedException(typeof(ValidationErrorException))]
-        public void ValidateRegisterUserExecutor_UserNameCanNotBeNull()
+        public void ValidateUserProfile_UserNameCanNotBeNull()
         {
             IDependencyContainer container;
             IPlayerProfileBackService svc;
@@ -44,7 +45,32 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
 
         [TestMethod]
         [ExpectedException(typeof(ValidationErrorException))]
-        public void ValidateRegisterUserExecutor_PasswordMustBeGreaterThan5()
+        public void ValidateUserProfile_PasswordCanNotBeNull()
+        {
+            IDependencyContainer container;
+            IPlayerProfileBackService svc;
+
+            setupValidators(out container, out svc);
+
+            var model = new UserProfile {
+                UserName = "Sakanit",
+                Password = null,
+                Email = "nayit@hotmail.com",
+                CellPhone = "0892131356",
+                Upline = "Nit"
+            };
+            var cmd = new RegisterUserCommand {
+                RegisterUserInfo = model,
+            };
+
+            RegisterUserExecutor xcutor = new RegisterUserExecutor(
+                svc, container);
+            xcutor.Execute(cmd, (xcmd) => { });
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ValidationErrorException))]
+        public void ValidateUserProfile_PasswordMustBeGreaterThan5()
         {
             IDependencyContainer container;
             IPlayerProfileBackService svc;
@@ -69,7 +95,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
 
         [TestMethod]
         [ExpectedException(typeof(ValidationErrorException))]
-        public void ValidateRegisterUserExecutor_PasswordMustBeLowerThan17()
+        public void ValidateUserProfile_PasswordMustBeLowerThan17()
         {
             IDependencyContainer container;
             IPlayerProfileBackService svc;
@@ -94,7 +120,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
 
         [TestMethod]
         [ExpectedException(typeof(ValidationErrorException))]
-        public void ValidateRegisterUserExecutor_EmailCanNotBeNull()
+        public void ValidateUserProfile_EmailCanNotBeNull()
         {
             IDependencyContainer container;
             IPlayerProfileBackService svc;
@@ -117,10 +143,35 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(ValidationErrorException))]
+        public void ValidateUserProfile_EmailMustBeCorrectFormat()
+        {
+            IDependencyContainer container;
+            IPlayerProfileBackService svc;
+
+            setupValidators(out container, out svc);
+
+            var model = new UserProfile {
+                UserName = "AimImAim",
+                Password = "natayit5678",
+                Email = "nittaya.com",
+                CellPhone = "0892131356",
+                Upline = "Nit"
+            };
+            var cmd = new RegisterUserCommand {
+                RegisterUserInfo = model,
+            };
+
+            RegisterUserExecutor xcutor = new RegisterUserExecutor(
+                svc, container);
+            xcutor.Execute(cmd, (xcmd) => { });
+        }
+
 
         [TestMethod]
         [ExpectedException(typeof(ValidationErrorException))]
-        public void ValidateRegisterUserExecutor_CellPhoneCanNotBeNull()
+        public void ValidateUserProfile_CellPhoneCanNotBeNull()
         {
             IDependencyContainer container;
             IPlayerProfileBackService svc;
@@ -144,37 +195,121 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
 
         [TestMethod]
         [ExpectedException(typeof(ValidationErrorException))]
-        public void ValidateRegisterUserExecutor()
+        public void ValidateUserProfile_NewEmailCanNotBeNull()
         {
             IDependencyContainer container;
             IPlayerProfileBackService svc;
             setupValidators(out container, out svc);
 
             var model = new UserProfile {
-                UserName = "AimImAim",
-                Password = "natayit5678",
-                Email = " ",
-                CellPhone = "0892131356",
-                Upline = "Nit"
+               NewEmail = null
             };
-            var cmd = new RegisterUserCommand {
-                RegisterUserInfo = model,
+            var cmd = new ChangeEmailCommand {
+                UserProfile = model,
             };
 
-            RegisterUserExecutor xcutor = new RegisterUserExecutor(
+            ChangeEmailExecutor xcutor = new ChangeEmailExecutor(
                 svc, container);
             xcutor.Execute(cmd, (xcmd) => { });
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ValidationErrorException))]
+        public void ValidateUserProfile_NewEmailMustBeCorrectFormat()
+        {
+            IDependencyContainer container;
+            IPlayerProfileBackService svc;
+            setupValidators(out container, out svc);
+
+            var model = new UserProfile {
+                NewEmail = "hotmail@nit"
+            };
+            var cmd = new ChangeEmailCommand {
+                UserProfile = model,
+            };
+
+            ChangeEmailExecutor xcutor = new ChangeEmailExecutor(
+                svc, container);
+            xcutor.Execute(cmd, (xcmd) => { });
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ValidationErrorException))]
+        public void ValidateUserProfile_NewPasswordCanNotBeNull()
+        {
+            IDependencyContainer container;
+            IPlayerProfileBackService svc;
+            setupValidators(out container, out svc);
+
+            var model = new UserProfile {
+                NewPassword = null
+            };
+            var cmd = new ChangePasswordCommand {
+                UserProfile = model,
+            };
+
+            ChangePasswordExecutor xcutor = new ChangePasswordExecutor(
+                svc, container);
+            xcutor.Execute(cmd, (xcmd) => { });
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ValidationErrorException))]
+        public void ValidateUserProfile_NewPasswordMustBeLowerThan17()
+        {
+            IDependencyContainer container;
+            IPlayerProfileBackService svc;
+            setupValidators(out container, out svc);
+
+            var model = new UserProfile {
+                NewPassword = "123456bgfdsertwers"
+            };
+            var cmd = new ChangePasswordCommand {
+                UserProfile = model,
+            };
+
+            ChangePasswordExecutor xcutor = new ChangePasswordExecutor(
+                svc, container);
+            xcutor.Execute(cmd, (xcmd) => { });
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ValidationErrorException))]
+        public void ValidateUserProfile_NewPasswordMustBeGreaterThan5()
+        {
+            IDependencyContainer container;
+            IPlayerProfileBackService svc;
+            setupValidators(out container, out svc);
+
+            var model = new UserProfile {
+                NewPassword = "123"
+            };
+            var cmd = new ChangePasswordCommand {
+                UserProfile = model,
+            };
+
+            ChangePasswordExecutor xcutor = new ChangePasswordExecutor(
+                svc, container);
+            xcutor.Execute(cmd, (xcmd) => { });
+        }
+
+
         private static void setupValidators(out IDependencyContainer container, out  IPlayerProfileBackService svc)
         {
             var fac = new PerfEx.Infrastructure.Containers.StructureMapAdapter.StructureMapAbstractFactory();
             var reg = fac.CreateRegistry();
 
-            reg.Register<IValidator<UserProfile, RegisterUserCommand>
-                , DataAnnotationValidator<UserProfile, RegisterUserCommand>>();
+            reg.Register<IValidator<UserProfile, NullCommand>
+                , DataAnnotationValidator<UserProfile, NullCommand>>();
 
-            //reg.Register<IValidator<UserProfile, RegisterUserCommand>
-            //   , UserProfile_RegisterUserValidators>();
+            reg.Register<IValidator<UserProfile, RegisterUserCommand>
+               , UserProfile_RegisterUserValidators>();
+
+            reg.Register<IValidator<UserProfile, ChangeEmailCommand>
+               , UserProfile_ChangeEmailValidators>();
+
+            reg.Register<IValidator<UserProfile, ChangePasswordCommand>
+              , UserProfile_ChangePasswordValidators>();
 
             container = fac.CreateContainer(reg);
             svc = null;

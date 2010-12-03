@@ -16,11 +16,11 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
     using TheS.Casinova.Colors.DAL;
 
     [TestClass]
-    public class GetGameResultExecutorSpecs
+    public class GameRoundInformationSpecs
     {
         [TestMethod]
         [ExpectedException(typeof(ValidationErrorException))]
-        public void ValidateGetGameResultExecutor_RoundIDMustDoNotLessThan0()
+        public void ValidateGameRoundInformation_RoundIDMustDoNotLessThan0()
         {
             IDependencyContainer container;
             IColorsGameDataQuery svc;
@@ -42,8 +42,8 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
             var fac = new PerfEx.Infrastructure.Containers.StructureMapAdapter.StructureMapAbstractFactory();
             var reg = fac.CreateRegistry();
 
-            reg.Register<IValidator<GameRoundInformation, NullCommand>
-                , DataAnnotationValidator<GameRoundInformation, NullCommand>>();
+            reg.Register<IValidator<GameRoundInformation, GetGameResultCommand>
+                , DataAnnotationValidator<GameRoundInformation, GetGameResultCommand>>();
             //reg.Register<IValidator<GameRoundInformation, GetGameResultCommand>
             //    , GameRoundInformation_GetGameResultValidator>();
 

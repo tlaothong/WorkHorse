@@ -22,30 +22,6 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
             }
         }
 
-        protected ICheckUserName Dqr_CheckUserName
-        {
-            get
-            {
-                return ScenarioContext.Current.Get<ICheckUserName>();
-            }
-        }
-
-        protected ICheckEmail Dqr_CheckEmail
-        {
-            get
-            {
-                return ScenarioContext.Current.Get<ICheckEmail>();
-            }
-        }
-
-        protected ICheckUpline Dqr_CheckUpline
-        {
-            get
-            {
-                return ScenarioContext.Current.Get<ICheckUpline>();
-            }
-        }
-
         protected IListActionLog Dqr_ListActionLog
         {
             get
@@ -71,14 +47,6 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
             }
         }
 
-        protected IGetPlayerPassword Dqr_GetPlayerPassword
-        {
-            get
-            {
-                return ScenarioContext.Current.Get<IGetPlayerPassword>();
-            }
-        }
-
         protected IChangeEmail Dac_ChangeEmail
         {
             get
@@ -86,15 +54,6 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
                 return ScenarioContext.Current.Get<IChangeEmail>();
             }
         }
-
-        protected IGetPlayerEmail Dqr_GetPlayerEmail
-        {
-            get
-            {
-                return ScenarioContext.Current.Get<IGetPlayerEmail>();
-            }
-        }
-
 
         protected RegisterUserExecutor RegisterUser
         {

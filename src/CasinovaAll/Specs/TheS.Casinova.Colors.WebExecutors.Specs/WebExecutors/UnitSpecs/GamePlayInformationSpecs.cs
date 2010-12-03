@@ -16,11 +16,11 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
     using TheS.Casinova.Colors.DAL;
 
     [TestClass]
-    public class ListGamePlayInfoExecutorSpecs
+    public class GamePlayInformationSpecs
     {
         [TestMethod]
         [ExpectedException(typeof(ValidationErrorException))]
-        public void ValidatListGamePlayInfoExecutor_UserNameCanNotBeNull()
+        public void ValidateGamePlayInformation_UserNameCanNotBeNull()
         {
             IDependencyContainer container;
             IColorsGameDataQuery svc;

@@ -35,7 +35,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
             _trackingID = trackingID;
         }
 
-        //Validate input
+        //Validation
         [When(@"Call PayForColorsWinnerInfoExecutor\(\) for validate PayForColorWinner informations")]
         public void WhenCallPayForColorsWinnerInfoExecutorForValidatePayForColorWinnerInformations()
         {

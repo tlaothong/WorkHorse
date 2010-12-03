@@ -19,9 +19,9 @@ namespace TheS.Casinova.PlayerProfile.Commands
         /// 3.Email อีเมลล์
         /// 4.CellPhone เบอร์โทรศัพท์
         /// 5.Upline ผู้เล่นที่แนะนำ(ถ้ามี)
-        /// 6.Active สถานะการใช้งาน
-        /// 7.VeriflyCode รหัสยืนยันการสมัคร
-        /// 8.TrackingID รหัสตรวจสอบการทำงาน
+        /// 6.Active สถานะการใช้งาน (BS ใส่)
+        /// 7.VeriflyCode รหัสยืนยันการสมัคร (BS ใส่)
+        /// 8.TrackingID รหัสตรวจสอบการทำงาน (WS ใส่)
         /// </summary>
         public UserProfile RegisterUserInfo { get; set; }
     }

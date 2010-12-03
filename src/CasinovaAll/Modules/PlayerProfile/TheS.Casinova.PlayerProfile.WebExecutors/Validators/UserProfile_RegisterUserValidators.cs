@@ -15,60 +15,31 @@ namespace TheS.Casinova.PlayerProfile.Validator
     public class UserProfile_RegisterUserValidators
            : ValidatorBase<UserProfile, RegisterUserCommand>
     {
-        private ICheckUserName _iCheckUserName;
-        private ICheckEmail _iCheckEmail;
-        private ICheckUpline _iCheckUpline;
-
-        public UserProfile_RegisterUserValidators(IPlayerProfileDataQuery dqr)
-        {
-            _iCheckUserName = dqr;
-            _iCheckEmail = dqr;
-            _iCheckUpline = dqr;
-
-        }
-
         public override void Validate(UserProfile entity, RegisterUserCommand command, ValidationErrorCollection errors)
         {
-
-            CheckUserNameCommand checkUserName = new CheckUserNameCommand {
-                UserName = entity.UserName
-            };
-            CheckEmailCommand checkEmail = new CheckEmailCommand {
-                Email = entity.Email
-            };
-            CheckUplineCommand checkUpline = new CheckUplineCommand {
-                Upline = entity.Upline
-            };
-
-            checkUserName.PlayerProfile = _iCheckUserName.Get(checkUserName);
-            checkEmail.PlayerProfile = _iCheckEmail.Get(checkEmail);
-            checkUpline.PlayerProfile = _iCheckUpline.Get(checkUpline);
-
-            //ตรวจสอบ username ว่าซ้ำหรือไม่
-            if (checkUserName.PlayerProfile.UserName == entity.UserName) {
+            //ตรวจสอบการกรอกข้อมูล password ว่ามีหรือไม่ 
+            if (string.IsNullOrEmpty(entity.Password)) {
                 errors.Add(new ValidationError {
                     Instance = entity,
-                    ErrorMessage = "UserName นี้มีผู้ใช้งานแล้ว",
+                    ErrorMessage = "ค่า Password ไม่ถูกต้อง",
                 });
             }
 
-            //ตรวจสอบ email ว่าซ้ำหรือไม่
-            if (checkEmail.PlayerProfile.Email == entity.Email) {
+            //ตรวจสอบการกรอกข้อมูล email ว่ามีหรือไม่ 
+            if (string.IsNullOrEmpty(entity.Email)) {
                 errors.Add(new ValidationError {
                     Instance = entity,
-                    ErrorMessage = "Email นี้มีผู้ใช้งานแล้ว",
+                    ErrorMessage = "ค่า Email ไม่ถูกต้อง",
                 });
             }
 
-            //ตรวจสอบ upline ว่ามีข้อมูลหรือไม่
-            if (command.RegisterUserInfo.Upline != null) {
-                if (checkUpline.PlayerProfile.Upline != entity.UserName) {
-                    errors.Add(new ValidationError {
-                        Instance = entity,
-                        ErrorMessage = "กรอกข้อมูล Upline ไม่ถูกต้อง",
-                    });
-                }
-            }
+            //ตรวจสอบการกรอกข้อมูล cellPhone ว่ามีหรือไม่ 
+            if (string.IsNullOrEmpty(entity.CellPhone)) {
+                errors.Add(new ValidationError {
+                    Instance = entity,
+                    ErrorMessage = "ค่า CellPhone ไม่ถูกต้อง",
+                });
+            }  
         }
     }
 }

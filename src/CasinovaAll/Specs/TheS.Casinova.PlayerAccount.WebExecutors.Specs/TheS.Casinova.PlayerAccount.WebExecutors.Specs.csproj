@@ -102,10 +102,9 @@
     <Compile Include="WebExecutors\Specs\Steps\GetPlayerAccountSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\ListPlayerAccountSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\PlayerAccountModuleStepsBase.cs" />
+    <Compile Include="WebExecutors\UnitSpecs\PlayerAccountInformationSpecs.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="WebExecutors\UnitSpecs\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\Modules\PlayerAccount\TheS.Casinova.PlayerAccount.BackServices.Contracts\TheS.Casinova.PlayerAccount.BackServices.Contracts.csproj">
       <Project>{71089D2E-913D-43E9-A714-F358E2DA68B2}</Project>

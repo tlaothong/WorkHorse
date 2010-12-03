@@ -49,6 +49,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
             };
         }
 
+        //Test function
         [When(@"Call GetGameResultExecutor\(\)")]
         public void WhenCallGetGameResultExecutor()
         {
@@ -57,6 +58,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
 
         }
 
+        //Validation
         [When(@"Call GetGameResultExecutor\(\) for validate roundID")]
         public void WhenCallGetGameResultExecutorForValidateRoundID()
         {

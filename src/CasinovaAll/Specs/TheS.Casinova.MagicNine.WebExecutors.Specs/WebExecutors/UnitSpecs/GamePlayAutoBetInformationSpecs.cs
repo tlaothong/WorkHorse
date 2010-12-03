@@ -9,15 +9,16 @@ using TheS.Casinova.MagicNine.BackServices;
 using TheS.Casinova.MagicNine.Models;
 using TheS.Casinova.MagicNine.Commands;
 using PerfEx.Infrastructure.CommandPattern;
+using TheS.Casinova.MagicNine.Validators;
 
 namespace TheS.Casinova.MagicNine.WebExecutors.UnitSpecs
 {
     [TestClass]
-    public class StartAutoBetExecutorSpecs
+    public class GamePlayAutoBetInformationSpecs
     {
         [TestMethod]
         [ExpectedException(typeof(ValidationErrorException))]
-        public void ValidateStartAutoBetExecutor_NameCanNotBeNull()
+        public void ValidateGamePlayAutoBetInformation_NameCanNotBeNull()
         {
             IDependencyContainer container;
             IMagicNineGameBackService svc;
@@ -40,7 +41,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.UnitSpecs
 
         [TestMethod]
         [ExpectedException(typeof(ValidationErrorException))]
-        public void ValidateStartAutoBetExecutor_RoundIDMustNotLowerThan0()
+        public void ValidateGamePlayAutoBetInformation_RoundIDMustNotLowerThan0()
         {
             IDependencyContainer container;
             IMagicNineGameBackService svc;
@@ -63,7 +64,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.UnitSpecs
 
         [TestMethod]
         [ExpectedException(typeof(ValidationErrorException))]
-        public void ValidateStartAutoBetExecutor_AmountMustNotLowerThan0()
+        public void ValidateGamePlayAutoBetInformation_AmountMustNotLowerThan0()
         {
             IDependencyContainer container;
             IMagicNineGameBackService svc;
@@ -86,7 +87,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.UnitSpecs
 
         [TestMethod]
         [ExpectedException(typeof(ValidationErrorException))]
-        public void ValidateStartAutoBetExecutor_IntervalMustNotLowerThan0()
+        public void ValidateGamePlayAutoBetInformation_IntervalMustNotLowerThan0()
         {
             IDependencyContainer container;
             IMagicNineGameBackService svc;
@@ -114,6 +115,15 @@ namespace TheS.Casinova.MagicNine.WebExecutors.UnitSpecs
 
             reg.Register<IValidator<GamePlayAutoBetInformation, StartAutoBetCommand>
                 , DataAnnotationValidator<GamePlayAutoBetInformation, StartAutoBetCommand>>();
+
+            reg.Register<IValidator<GamePlayAutoBetInformation, StartAutoBetCommand>
+                , GamePlayAutoBetInformation_StartAutoBetValidators>();
+
+            reg.Register<IValidator<GamePlayAutoBetInformation, StopAutoBetCommand>
+               , DataAnnotationValidator<GamePlayAutoBetInformation, StopAutoBetCommand>>();
+
+            reg.Register<IValidator<GamePlayAutoBetInformation, StopAutoBetCommand>
+                , GamePlayAutoBetInformation_StopAutoBetValidators>();
 
             container = fac.CreateContainer(reg);
             svc = null;

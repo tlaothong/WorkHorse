@@ -103,7 +103,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 20
 testRunner.Given("The StopAutoBetExecutor has been created and initialized");
 #line 21
-testRunner.And("Sent StopAutoBetInformation userName\'Nit\', roundId \'3\'");
+testRunner.And("Sent StopAutoBetInformation userName\'Nit\', roundId \'4\'");
 #line 22
 testRunner.And("The system generated TrackingID for stop auto bet:\'955D6ACDE4E04D1C90ACF3715BB268" +
                     "5A\'");

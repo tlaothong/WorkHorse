@@ -49,7 +49,6 @@
     <Compile Include="Models\GamePlayInformation.cs" />
     <Compile Include="Models\GameRoundInformation.cs" />
     <Compile Include="Models\PlayerActionInformation.md.cs" />
-    <Compile Include="Models\PlayerInformation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

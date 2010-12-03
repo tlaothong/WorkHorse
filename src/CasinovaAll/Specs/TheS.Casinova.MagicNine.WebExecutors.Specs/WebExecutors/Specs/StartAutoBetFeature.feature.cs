@@ -87,7 +87,7 @@ testRunner.Then("Get null and skip checking trackingID for start auto bet");
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StartAutoBet")]
         public virtual void StartAutoBetระบบไดรบขอมลการลงเดมพนแบบอตโนมตระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant1()
         {
-            this.StartAutoBetระบบไดรบขอมลการลงเดมพนแบบอตโนมตระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID("Nit", "-2", "100", "10");
+            this.StartAutoBetระบบไดรบขอมลการลงเดมพนแบบอตโนมตระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID("Nit", "0", "100", "10");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
@@ -105,7 +105,7 @@ testRunner.Then("Get null and skip checking trackingID for start auto bet");
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StartAutoBet")]
         public virtual void StartAutoBetระบบไดรบขอมลการลงเดมพนแบบอตโนมตระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant3()
         {
-            this.StartAutoBetระบบไดรบขอมลการลงเดมพนแบบอตโนมตระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID("Nit", "1", "100", "-1");
+            this.StartAutoBetระบบไดรบขอมลการลงเดมพนแบบอตโนมตระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID("Nit", "1", "100", "0");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]

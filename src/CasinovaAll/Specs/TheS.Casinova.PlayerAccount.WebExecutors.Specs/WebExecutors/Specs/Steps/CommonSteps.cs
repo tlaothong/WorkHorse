@@ -125,7 +125,7 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs.Steps
              , DataAnnotationValidator<PlayerAccountInformation, EditPlayerAccountCommand>>();
 
             reg.Register<IValidator<PlayerAccountInformation, CancelPlayerAccountCommand>
-           , PlayerAccountInformation_CancelPlayerAccountValidators>();
+             , PlayerAccountInformation_CancelPlayerAccountValidators>();
 
             reg.Register<IValidator<PlayerAccountInformation, CancelPlayerAccountCommand>
              , DataAnnotationValidator<PlayerAccountInformation, CancelPlayerAccountCommand>>();

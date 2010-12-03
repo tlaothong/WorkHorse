@@ -13,11 +13,11 @@ using TheS.Casinova.MagicNine.Commands;
 namespace TheS.Casinova.MagicNine.WebExecutors.UnitSpecs
 {
     [TestClass]
-    public class SingleBetExecutorSpecs
+    public class BetInformationSpecs
     {
         [TestMethod]
         [ExpectedException(typeof(ValidationErrorException))]
-        public void ValidateSingleBetExecutor_NameCanNotBeNull()
+        public void ValidateBetInformation_NameCanNotBeNull()
         {
             IDependencyContainer container;
             IMagicNineGameBackService svc;
@@ -38,7 +38,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.UnitSpecs
 
         [TestMethod]
         [ExpectedException(typeof(ValidationErrorException))]
-        public void ValidateSingleBetExecutor_RoundIDMustNotLessThan0()
+        public void ValidateBetInformation_RoundIDMustNotLessThan0()
         {
             IDependencyContainer container;
             IMagicNineGameBackService svc;

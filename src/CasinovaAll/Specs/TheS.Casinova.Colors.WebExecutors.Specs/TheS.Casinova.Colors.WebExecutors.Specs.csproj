@@ -112,11 +112,10 @@
     <Compile Include="WebExecutors\Specs\Steps\ColorsGameStepsBase.cs" />
     <Compile Include="WebExecutors\Specs\Steps\ListGamePlayInfoSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\PayForColorsWinnerInfoSteps.cs" />
-    <Compile Include="WebExecutors\UnitSpecs\BetExecutorSpecs.cs" />
-    <Compile Include="WebExecutors\UnitSpecs\CreateGameRoundConfigurationExecutorSpecs.cs" />
-    <Compile Include="WebExecutors\UnitSpecs\GetGameResultExecutorSpecs.cs" />
-    <Compile Include="WebExecutors\UnitSpecs\ListGamePlayInfoExecutorSpecs.cs" />
-    <Compile Include="WebExecutors\UnitSpecs\PayForColorWinnerInfoExecutorSpecs.cs" />
+    <Compile Include="WebExecutors\UnitSpecs\GameRoundConfigurationSpecs.cs" />
+    <Compile Include="WebExecutors\UnitSpecs\GameRoundInformationSpecs.cs" />
+    <Compile Include="WebExecutors\UnitSpecs\GamePlayInformationSpecs.cs" />
+    <Compile Include="WebExecutors\UnitSpecs\PlayerActionInformationSpecs.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Modules\Colors\TheS.Casinova.Colors.BackServices.Contracts\TheS.Casinova.Colors.BackServices.Contracts.csproj">

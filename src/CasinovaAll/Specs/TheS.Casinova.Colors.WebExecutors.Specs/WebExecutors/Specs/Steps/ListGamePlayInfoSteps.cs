@@ -52,12 +52,14 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
             };
         }
 
+        //Test function
         [When(@"Call ListGamePlayInfoExecutor\(\)")]
         public void WhenCallListGamePlayInfoExecutorX()
         {
                 ListGamePlayInfo.Execute(_cmd, (x) => { });
         }
 
+        //Validation
         [When(@"Call ListGamePlayInfoExecutor\(\) for validate username")]
         public void WhenCallListGamePlayInfoExecutorBoyForValidateUsername()
         {

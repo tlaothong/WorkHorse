@@ -16,6 +16,8 @@ Examples:
 	|Nit	 	|-2			|	Black	|
 	|Nit	 	|2			|			|
 
+
+@record_mock
 Scenario:[PayForColorsWinner]ระบบได้รับข้อมูล PayForColorsWinnerInformation ระบบทำการตรวจสอบข้อมูล ข้อมูลถูกต้อง ระบบทำการ generate trackingID
 	Given The PayForColorsWinnerInfoExecutor has been created and initialized
 	And   PayForColorWinner Informations as : UserName 'Nataya' RoundID '3' ActionType 'PayForWinner'

@@ -14,6 +14,7 @@ using PerfEx.Infrastructure.CommandPattern;
 using PerfEx.Infrastructure.Containers.StructureMapAdapter;
 using TheS.Casinova.MagicNine.Commands;
 using SpecFlowAssist;
+using TheS.Casinova.MagicNine.Validators;
 
 
 namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
@@ -114,8 +115,14 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
             reg.Register<IValidator<GamePlayAutoBetInformation, StartAutoBetCommand>
                , DataAnnotationValidator<GamePlayAutoBetInformation, StartAutoBetCommand>>();
 
+            reg.Register<IValidator<GamePlayAutoBetInformation, StartAutoBetCommand>
+               , GamePlayAutoBetInformation_StartAutoBetValidators>();
+
             reg.Register<IValidator<GamePlayAutoBetInformation, StopAutoBetCommand>
                , DataAnnotationValidator<GamePlayAutoBetInformation, StopAutoBetCommand>>();
+
+            reg.Register<IValidator<GamePlayAutoBetInformation, StopAutoBetCommand>
+               , GamePlayAutoBetInformation_StopAutoBetValidators>();
 
             reg.Register<IValidator<GamePlayAutoBetInformation, ListGamePlayAutoBetInfoCommand>
               , DataAnnotationValidator<GamePlayAutoBetInformation, ListGamePlayAutoBetInfoCommand>>();

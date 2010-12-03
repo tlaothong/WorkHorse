@@ -49,7 +49,7 @@ namespace TheS.Casinova.PlayerAccount.Validator
             }
 
             //ตรวจสอบข้อมูลจำนวนหมายเลขบัตรเครดิต
-             if(!string.IsNullOrEmpty(entity.AccountNo)){
+             if(!string.IsNullOrEmpty(entity.CVV)){
                  int countCVV = entity.CVV.Count();
                  if (countCVV != 4 ) {
                      errors.Add(new ValidationError {

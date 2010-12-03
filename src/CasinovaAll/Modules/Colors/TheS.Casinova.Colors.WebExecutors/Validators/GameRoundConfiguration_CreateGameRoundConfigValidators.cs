@@ -11,13 +11,13 @@ namespace TheS.Casinova.Colors.Validators
 {
     using PerfEx.Infrastructure.LotUpdate;
 
-    public class GameRoundConfiguration_CreateGameRoundConfigurationValidator
+    public class GameRoundConfiguration_CreateGameRoundConfigurationValidators
         : ValidatorBase<GameRoundConfiguration, CreateGameRoundConfigurationCommand>
     {
         public override void Validate(GameRoundConfiguration entity, CreateGameRoundConfigurationCommand command, ValidationErrorCollection errors)
         {
             //ตรวจสอบจำนวนโต๊ะเกม
-            if (entity.TableAmount < 0 || entity.TableAmount > 99) {
+            if (entity.TableAmount < 1 || entity.TableAmount > 99) {
                 errors.Add(new ValidationError {
                     Instance = entity,
                     ErrorMessage = "ค่า TableAmount ต้องมากกว่า 0 และน้อยกว่า 99 ",
@@ -25,7 +25,7 @@ namespace TheS.Casinova.Colors.Validators
             }
 
             //ตรวจสอบระยะเวลาที่ใช้ในการเล่นเกม
-            if (entity.GameDuration < 0 || entity.GameDuration > 1440) {
+            if (entity.GameDuration < 1 || entity.GameDuration > 1440) {
                 errors.Add(new ValidationError {
                     Instance = entity,
                     ErrorMessage = "ค่า GameDuration ต้องมากกว่า 0 และไม่เกิน 1440 นาที (24 ชั่วโมง) ",
@@ -33,7 +33,7 @@ namespace TheS.Casinova.Colors.Validators
             }
 
             // ตรวจสอบค่าระยะห่างในการเริ่มเกม
-            if (entity.Interval < 0 || entity.Interval > 1440) {
+            if (entity.Interval < 1 || entity.Interval > 1440) {
                 errors.Add(new ValidationError {
                     Instance = entity,
                     ErrorMessage = "ค่า Interval ต้องมากกว่า 0 และไม่เกิน 1440 นาที (24 ชั่วโมง) ",
@@ -41,7 +41,7 @@ namespace TheS.Casinova.Colors.Validators
             }
 
             // ตรวจสอบจำนวนโต๊ะสำรอง
-            if (entity.BufferRoundsCount < 0 || entity.BufferRoundsCount > 99) {
+            if (entity.BufferRoundsCount < 1 || entity.BufferRoundsCount > 99) {
                 errors.Add(new ValidationError {
                     Instance = entity,
                     ErrorMessage = "ค่า BufferRoundsCount ต้องมากกว่า 0 และไม่เกิน 99 ",
