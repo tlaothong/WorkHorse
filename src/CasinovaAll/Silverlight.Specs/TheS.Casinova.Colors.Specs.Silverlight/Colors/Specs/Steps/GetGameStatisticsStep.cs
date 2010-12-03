@@ -17,11 +17,10 @@ namespace TheS.Casinova.Colors.Specs.Steps
     public class GetGameStatisticsStep
     {
         #region Background
-        
+
         [Given(@"Web server have game results are")]
         public void GivenWebServerHaveGameResultsAre(Table table)
         {
-            var mocks = ScenarioContext.Current.Get<MockRepository>();
             var svc = ScenarioContext.Current.Get<IColorsServiceAdapter>();
 
             Func<GetGameResultCommand, IObservable<GetGameResultCommand>> _mockGetGameResult = cmd =>
@@ -32,10 +31,8 @@ namespace TheS.Casinova.Colors.Specs.Steps
                 });
             };
 
-            using (mocks.Record())
-            {
-                SetupResult.For(svc.GetGameResult(null)).IgnoreArguments().Do(_mockGetGameResult);
-            }
+            SetupResult.For(svc.GetGameResult(null)).IgnoreArguments().Do(_mockGetGameResult);
+
 
             var result = from it in table.Rows
                          select new GameRoundInformation
@@ -54,23 +51,27 @@ namespace TheS.Casinova.Colors.Specs.Steps
         [When(@"Request GetGameResult\( roundID = '(.*)' \)")]
         public void WhenRequestGetGameResultRoundID1(int roundID)
         {
-            var gameResult = ScenarioContext.Current.Get<IEnumerable<GameRoundInformation>>();
-            var queryResult = gameResult.FirstOrDefault(c => c.RoundID.Equals(roundID));
+            var queryResult = ScenarioContext.Current.Get<IEnumerable<GameRoundInformation>>()
+                .FirstOrDefault(c => c.RoundID.Equals(roundID));
+
             ScenarioContext.Current.Set<GameRoundInformation>(queryResult);
 
             var viewModel = ScenarioContext.Current.Get<GamePlayViewModel>();
-            viewModel.GetGameResult();
+            viewModel.GetStatistics();
             ScenarioContext.Current.Get<TestScheduler>().Run();
         }
 
-        [Then(@"Game has display game result Winner='(.*)', BlackPot='(.*)', WhitePot='(.*)', Hands='(.*)'")]
-        public void ThenGameHasDisplayGameResultRoundID1WinnerBlackBlackPot1523WhitePot4526Hands452(string winner,double blackPot,double whitePot,int handsCount)
+        [Then(@"Game has display game result Winner='(.*)', BlackPot='(.*)', WhitePot='(.*)', Hands='(.*)', roundID = (.*)")]
+        public void ThenGameHasDisplayGameResultRoundID1WinnerBlackBlackPot1523WhitePot4526Hands452(string winner,double blackPot,double whitePot,int handsCount,int roundID)
         {
-            var actual = ScenarioContext.Current.Get<GamePlayViewModel>().GameResult;
+            var actual = ScenarioContext.Current.Get<GamePlayViewModel>().GameResult.Result;
 
+            Assert.IsNotNull(actual,"Actual not null");
+
+            Assert.AreEqual(roundID, actual.RoundID, "RoundID");
             Assert.AreEqual(winner, actual.Winner, "Winner");
-            Assert.AreEqual(blackPot, actual.BlackPot, "BlackPot");
-            Assert.AreEqual(whitePot, actual.WhitePot, "WhitePot");
+            Assert.AreEqual(blackPot.ToString(), actual.BlackPot, "BlackPot");
+            Assert.AreEqual(whitePot.ToString(), actual.WhitePot, "WhitePot");
             Assert.AreEqual(handsCount, actual.Hands, "Hands");
         }
 

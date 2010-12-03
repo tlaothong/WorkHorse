@@ -25,16 +25,16 @@
 				</Rectangle>
 				<StackPanel d:LayoutOverrides="Height" Margin="3">
 					<Grid x:Name="Top">
-						<TextBlock x:Name="Name" Text="{Binding Name}" d:LayoutOverrides="Height" FontSize="13.333" FontWeight="Bold" HorizontalAlignment="Left"/>
+						<TextBlock x:Name="Name" Text="{Binding Title}" d:LayoutOverrides="Height" FontSize="13.333" FontWeight="Bold" HorizontalAlignment="Left"/>
 						<TextBlock TextWrapping="Wrap" Text="#" FontSize="13.333" FontWeight="Bold" HorizontalAlignment="Left" Margin="48,0,0,0" d:LayoutOverrides="Height"/>
-						<TextBlock x:Name="Round" Text="{Binding Round}" d:LayoutOverrides="Height" FontSize="13.333" FontWeight="Bold" HorizontalAlignment="Left" Margin="60,0,0,0"/>
+						<TextBlock x:Name="Round" Text="{Binding RoundID}" d:LayoutOverrides="Height" FontSize="13.333" FontWeight="Bold" HorizontalAlignment="Left" Margin="60,0,0,0"/>
 						<StackPanel Orientation="Horizontal" Margin="78,0,49,0" d:LayoutOverrides="Width, Height">
 							<TextBlock TextWrapping="Wrap" Text="(" FontSize="13.333"/>
-							<TextBlock Text="{Binding GameTime.Hours, Mode=OneWay}" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="13.333"/>
+							<TextBlock x:Name="Hours" Text="{Binding RemainingGameTime.Hours, Mode=OneWay}" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="13.333"/>
 							<TextBlock TextWrapping="Wrap" Text=":" FontSize="13.333"/>
-							<TextBlock x:Name="Minute" Text="{Binding GameTime.Minutes, Mode=OneWay}" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="13.333"/>
+							<TextBlock x:Name="Minute" Text="{Binding RemainingGameTime.Minutes, Mode=OneWay}" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="13.333"/>
 							<TextBlock TextWrapping="Wrap" Text=":" FontSize="13.333"/>
-							<TextBlock x:Name="Second" Text="{Binding GameTime.Seconds, Mode=OneWay}" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="13.333"/>
+							<TextBlock x:Name="Second" Text="{Binding RemainingGameTime.Seconds, Mode=OneWay}" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="13.333"/>
 							<TextBlock TextWrapping="Wrap" Text=")" FontSize="13.333"/>
 						</StackPanel>
 					</Grid>
@@ -54,8 +54,8 @@
     	<Grid.ColumnDefinitions>
     		<ColumnDefinition/>
     	</Grid.ColumnDefinitions>
-    	<TheS_Casinova:GamePlayUI Width="Auto" Height="Auto" Margin="0,0,204,0" d:IsLocked="True"/>
-    	<ListBox x:Name="listBox" HorizontalAlignment="Right" ItemTemplate="{StaticResource GameTableTemplate}" ItemsSource="{Binding Tables}" Width="200" ItemContainerStyle="{StaticResource GameTableStyle}">
+    	<TheS_Casinova:GamePlayUI Margin="0,0,204,0" d:LayoutOverrides="Width, HorizontalMargin" DataContext="{Binding SelectedItem, ElementName=listBox}"/>
+    	<ListBox x:Name="listBox" HorizontalAlignment="Right" ItemTemplate="{StaticResource GameTableTemplate}" ItemsSource="{Binding ActiveGameRoundTables}" Width="200" ItemContainerStyle="{StaticResource GameTableStyle}">
     		<ListBox.ItemsPanel>
     			<ItemsPanelTemplate>
     				<StackPanel>

@@ -11,11 +11,11 @@ namespace TheS.Casinova.Colors.Specs.Silverlight.Colors
     [Binding]
     public class SpecEventDefinitions
     {
-
         [BeforeScenarioBlock("record_mock")]
         public void BeforeScenarioBlock()
         {
-            switch (ScenarioContext.Current.CurrentScenarioBlock) {
+            switch (ScenarioContext.Current.CurrentScenarioBlock) 
+            {
                 case ScenarioBlock.Given:
                     var mocks = new MockRepository();
                     ScenarioContext.Current.Set(mocks);
@@ -29,7 +29,8 @@ namespace TheS.Casinova.Colors.Specs.Silverlight.Colors
         [AfterScenarioBlock("record_mock")]
         public void AfterScenarioBlock()
         {
-            switch (ScenarioContext.Current.CurrentScenarioBlock) {
+            switch (ScenarioContext.Current.CurrentScenarioBlock) 
+            {
                 case ScenarioBlock.Given:
                     ScenarioContext.Current.Get<IDisposable>("MocksRecord").Dispose();
                     break;

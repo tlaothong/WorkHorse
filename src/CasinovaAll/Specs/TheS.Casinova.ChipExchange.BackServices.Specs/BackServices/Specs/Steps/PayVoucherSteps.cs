@@ -8,6 +8,7 @@ using Rhino.Mocks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TheS.Casinova.ChipExchange.Commands;
 using TheS.Casinova.ChipExchange.Models;
+using PerfEx.Infrastructure.Validation;
 
 namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
 {
@@ -40,18 +41,6 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
                 .IgnoreArguments().Return(_userProfile);
         }
 
-        [Given(@"player balance\(chips, bonus chips\) should more than or equal request voucher\(Amount: '(.*)'\)")]
-        public void GivenPlayerBalanceChipsBonusChipsShouldMoreThanOrEqualRequestVoucherAmountX(double amount)
-        {
-            Assert.IsTrue((_userProfile.NonRefundable + _userProfile.Refundable) >= amount, "Amount");
-        }
-
-        [Given(@"player balance\(bonus chips\) more than or equal request voucher\(Amount: '(.*)'\)")]
-        public void GivenPlayerBalanceBonusChipsMoreThanOrEqualRequestVoucher(double amount)
-        {
-            Assert.IsTrue((_userProfile.NonRefundable) >= amount, "Amount");
-        }
-
         [Given(@"player balance information should be update\(UserName: '(.*)', chips: '(.*)', bonus chips: '(.*)'\)")]
         public void GivenPlayerBalanceInformationShouldBeUpdateUserNameXChipsXBonusChipsX(string userName, double chips, double bonusChips)
         {
@@ -61,7 +50,7 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
                 Assert.AreEqual(bonusChips, userProfile.NonRefundable, "Bonus Chips");
             };
 
-            Dac_UpdateUserProfile.ApplyAction(new UserProfile(), new PayVoucherCommand());
+            Dac_UpdateUserProfile.ApplyAction(new UserProfile(), new UpdateUserProfileCommand());
             LastCall.IgnoreArguments().Do(checkData);
         }
 
@@ -72,14 +61,13 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
                 .IgnoreArguments().Return(voucherCode);
         }
 
-        [Given(@"voucher information should be create\(VoucherCode: '(.*)', Amount: '(.*)', UserName: '(.*)', CanUse: '(.*)'\)")]
-        public void GivenVoucherInformationShouldBeCreateVoucherCodeXAmountXUserNameXCanUseX(string voucherCode, double amount, string userName, bool canUse)
+        [Given(@"voucher information should be create\(VoucherCode: '(.*)', Amount: '(.*)', UserName: '(.*)'\)")]
+        public void GivenVoucherInformationShouldBeCreateVoucherCodeXAmountXUserNameX(string voucherCode, double amount, string userName)
         {
             Func<VoucherInformation, PayVoucherCommand, VoucherInformation> checkData = (voucherInfo, cmd) => {
                 Assert.AreEqual(voucherCode, voucherInfo.VoucherCode, "VoucherCode");
                 Assert.AreEqual(userName, voucherInfo.UserName, "UserName");
                 Assert.AreEqual(amount, voucherInfo.Amount, "Amount");
-                Assert.AreEqual(canUse, voucherInfo.CanUse, "CanUse");
                 return voucherInfo;
             };
 
@@ -87,11 +75,34 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
             LastCall.IgnoreArguments().Do(checkData);
         }
 
-        [When(@"call PayVoucherExecutor\(UserName: '(.*)', Amount: '(.*)'\)")]
-        public void WhenCallPayVoucherExecutorUserNameXAmountX(string userName, double amount)
+        [When(@"call PayVoucherExecutor\(UsserName: '(.*)', Amount: '(.*)'\)")]
+        public void WhenCallPayVoucherExecutorUsserNameXAmountX(string userName, double amount)
         {
-            PayVoucherCommand cmd =new PayVoucherCommand{ UserName = userName, Amount = amount};
+            PayVoucherCommand cmd = new PayVoucherCommand {
+                VoucherInformation = new VoucherInformation {
+                    UserName = userName,
+                    Amount = amount
+                }
+            };
             PayVoucherExecutor.Execute(cmd, (x) => { });
+        }
+
+        [When(@"Expected exception and call PayVoucherExecutor\(UsserName: '(.*)', Amount: '(.*)'\)")]
+        public void WhenExpectedExceptionAndCallPayVoucherExecutorUsserNameXAmountX(string userName, double amount)
+        {
+            try {
+                PayVoucherCommand cmd = new PayVoucherCommand {
+                    VoucherInformation = new VoucherInformation {
+                        UserName = userName,
+                        Amount = amount
+                    }
+                };
+                PayVoucherExecutor.Execute(cmd, (x) => { });
+                Assert.Fail("Shouldn't be here!");
+            }
+            catch (Exception ex) {
+                Assert.IsInstanceOfType(ex, typeof(ValidationErrorException));
+            }
         }
 
         [Then(@"the player profile should be update and voucher information should be create")]

@@ -5,6 +5,7 @@ using System.Text;
 using TheS.Casinova.ChipExchange.DAL;
 using TechTalk.SpecFlow;
 using TheS.Casinova.ChipExchange.BackServices.BackExecutors;
+using SpecFlowAssist;
 
 namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
 {
@@ -61,6 +62,14 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
             {
                 return ScenarioContext.Current[
                     CommonSteps.Key_Dac_CreateVoucherInfo] as ICreateVoucherInformation;
+            }
+        }
+
+        protected ICreateChequeInformation Dac_CreateChequeInformation
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<ICreateChequeInformation>();
             }
         }
 

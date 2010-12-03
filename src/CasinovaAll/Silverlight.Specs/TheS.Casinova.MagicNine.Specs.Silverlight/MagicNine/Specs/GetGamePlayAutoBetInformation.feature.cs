@@ -63,177 +63,206 @@ namespace TheS.Casinova.MagicNine.Specs
 testRunner.Given("Create and initialize GamePlayViewModel and MagicNine game service");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "UserName",
-                        "RoundID",
-                        "Amount"});
-            table1.AddRow(new string[] {
-                        "Sakul",
-                        "1",
-                        "30"});
-            table1.AddRow(new string[] {
-                        "Sakul",
-                        "2",
-                        "560"});
-            table1.AddRow(new string[] {
-                        "Sakul",
-                        "4",
-                        "10245"});
-#line 10
-testRunner.And("Web server have game play auto bet information are", ((string)(null)), table1);
-#line hidden
-            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "RoundID",
                         "WinnerPoint"});
-            table2.AddRow(new string[] {
+            table1.AddRow(new string[] {
                         "1",
                         "9"});
-            table2.AddRow(new string[] {
+            table1.AddRow(new string[] {
                         "2",
                         "99"});
-            table2.AddRow(new string[] {
+            table1.AddRow(new string[] {
                         "3",
                         "999"});
-            table2.AddRow(new string[] {
+            table1.AddRow(new string[] {
                         "4",
                         "9999"});
-#line 15
-testRunner.And("Client have active game rounds are:", ((string)(null)), table2);
+#line 10
+testRunner.And("Back service have active game rounds are:", ((string)(null)), table1);
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "UserName",
+                        "RoundID",
+                        "Amount",
+                        "Interval",
+                        "StratTrackingID"});
+            table2.AddRow(new string[] {
+                        "Sakul",
+                        "1",
+                        "30",
+                        "60",
+                        "{200BEB34-FD59-4F8E-A258-C654BD5105D9}"});
+            table2.AddRow(new string[] {
+                        "Sakul",
+                        "2",
+                        "560",
+                        "1",
+                        "{15BEFAE8-C361-4A5F-8048-3E6381BEA71E}"});
+            table2.AddRow(new string[] {
+                        "Sakul",
+                        "4",
+                        "10245",
+                        "3600",
+                        "{337466C7-652B-4F8B-92B0-571BE53D460E}"});
+#line 16
+testRunner.And("Web server have game play auto bet information are", ((string)(null)), table2);
+#line 21
+testRunner.When("Send request GetListActiveGameRounds() to web server");
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Send request get list auto bet game play information to web server")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Request auto bet informations, get auto bet informations")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Get list game play auto bet information")]
         [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
-        public virtual void SendRequestGetListAutoBetGamePlayInformationToWebServer()
+        public virtual void RequestAutoBetInformationsGetAutoBetInformations()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Send request get list auto bet game play information to web server", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Request auto bet informations, get auto bet informations", new string[] {
                         "record_mock"});
-#line 23
-this.ScenarioSetup(scenarioInfo);
 #line 24
+this.ScenarioSetup(scenarioInfo);
+#line 25
 testRunner.When("Send request GetListGamePlayAutoBet( \'Sakul\' )");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Round",
-                        "Name",
+                        "RoundID",
+                        "WinnerPoint",
                         "Amount",
-                        "IsPlaying"});
+                        "Interval",
+                        "StratTrackingID"});
             table3.AddRow(new string[] {
                         "1",
                         "9",
                         "30",
-                        "true"});
+                        "60",
+                        "{200BEB34-FD59-4F8E-A258-C654BD5105D9}"});
             table3.AddRow(new string[] {
                         "2",
                         "99",
                         "560",
-                        "true"});
+                        "1",
+                        "{15BEFAE8-C361-4A5F-8048-3E6381BEA71E}"});
             table3.AddRow(new string[] {
                         "3",
                         "999",
                         "0",
-                        "false"});
+                        "0",
+                        "{00000000-0000-0000-0000-000000000000}"});
             table3.AddRow(new string[] {
                         "4",
                         "9999",
                         "10245",
-                        "true"});
-#line 25
+                        "3600",
+                        "{337466C7-652B-4F8B-92B0-571BE53D460E}"});
+#line 26
 testRunner.Then("Tables in GamePlayViewModel display game play information are", ((string)(null)), table3);
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Send request get list auto bet game play information to web server, don\'t have ga" +
-            "me play auto bet information")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Request auo bet but web server not fount username")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Get list game play auto bet information")]
         [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
-        public virtual void SendRequestGetListAutoBetGamePlayInformationToWebServerDonTHaveGamePlayAutoBetInformation()
+        public virtual void RequestAuoBetButWebServerNotFountUsername()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Send request get list auto bet game play information to web server, don\'t have ga" +
-                    "me play auto bet information", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Request auo bet but web server not fount username", new string[] {
                         "record_mock"});
-#line 33
-this.ScenarioSetup(scenarioInfo);
 #line 34
+this.ScenarioSetup(scenarioInfo);
+#line 35
 testRunner.When("Send request GetListGamePlayAutoBet( \'Mary\' )");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Round",
-                        "Name",
+                        "RoundID",
+                        "WinnerPoint",
                         "Amount",
-                        "IsPlaying"});
+                        "Interval",
+                        "StratTrackingID"});
             table4.AddRow(new string[] {
                         "1",
                         "9",
                         "0",
-                        "false"});
+                        "0",
+                        "{00000000-0000-0000-0000-000000000000}"});
             table4.AddRow(new string[] {
                         "2",
                         "99",
                         "0",
-                        "false"});
+                        "0",
+                        "{00000000-0000-0000-0000-000000000000}"});
             table4.AddRow(new string[] {
                         "3",
                         "999",
                         "0",
-                        "false"});
+                        "0",
+                        "{00000000-0000-0000-0000-000000000000}"});
             table4.AddRow(new string[] {
                         "4",
                         "9999",
                         "0",
-                        "false"});
-#line 35
+                        "0",
+                        "{00000000-0000-0000-0000-000000000000}"});
+#line 36
 testRunner.Then("Tables in GamePlayViewModel display game play information are", ((string)(null)), table4);
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Send request get list auto bet game play information to web server more than one " +
-            "request")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Request auto bet informations, get auto bet informations more than 1 request")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "N2N Get list game play auto bet information")]
         [Microsoft.Silverlight.Testing.TagAttribute("record_mock")]
-        public virtual void SendRequestGetListAutoBetGamePlayInformationToWebServerMoreThanOneRequest()
+        public virtual void RequestAutoBetInformationsGetAutoBetInformationsMoreThan1Request()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Send request get list auto bet game play information to web server more than one " +
-                    "request", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Request auto bet informations, get auto bet informations more than 1 request", new string[] {
                         "record_mock"});
-#line 43
-this.ScenarioSetup(scenarioInfo);
 #line 44
-testRunner.When("Send request GetListGamePlayAutoBet( \'Sakul\' )");
+this.ScenarioSetup(scenarioInfo);
 #line 45
+testRunner.When("Send request GetListGamePlayAutoBet( \'Sakul\' )");
+#line 46
+testRunner.And("Send request GetListGamePlayAutoBet( \'Sakul\' )");
+#line 47
+testRunner.And("Send request GetListGamePlayAutoBet( \'Sakul\' )");
+#line 48
+testRunner.And("Send request GetListGamePlayAutoBet( \'Sakul\' )");
+#line 49
+testRunner.And("Send request GetListGamePlayAutoBet( \'Sakul\' )");
+#line 50
 testRunner.And("Send request GetListGamePlayAutoBet( \'Sakul\' )");
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Round",
-                        "Name",
+                        "RoundID",
+                        "WinnerPoint",
                         "Amount",
-                        "IsPlaying"});
+                        "Interval",
+                        "StratTrackingID"});
             table5.AddRow(new string[] {
                         "1",
                         "9",
                         "30",
-                        "true"});
+                        "60",
+                        "{200BEB34-FD59-4F8E-A258-C654BD5105D9}"});
             table5.AddRow(new string[] {
                         "2",
                         "99",
                         "560",
-                        "true"});
+                        "1",
+                        "{15BEFAE8-C361-4A5F-8048-3E6381BEA71E}"});
             table5.AddRow(new string[] {
                         "3",
                         "999",
                         "0",
-                        "false"});
+                        "0",
+                        "{00000000-0000-0000-0000-000000000000}"});
             table5.AddRow(new string[] {
                         "4",
                         "9999",
                         "10245",
-                        "true"});
-#line 46
+                        "3600",
+                        "{337466C7-652B-4F8B-92B0-571BE53D460E}"});
+#line 51
 testRunner.Then("Tables in GamePlayViewModel display game play information are", ((string)(null)), table5);
 #line hidden
             testRunner.CollectScenarioErrors();

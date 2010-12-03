@@ -24,6 +24,18 @@ namespace TheS.Casinova.Colors.Controls
             InitializeComponent();
         }
 
+        private void OptionButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!_isRange) changeState(Range);
+            else changeState(Single);
+            _isRange = !_isRange;
+        }
+
+        private void changeState(VisualState state)
+        {
+            VisualStateManager.GoToState(this, state.Name, false);
+        }
+
         private void BetDataButton_Click(object sender, RoutedEventArgs e)
         {
             showGameStatisticsWindow();
@@ -40,18 +52,6 @@ namespace TheS.Casinova.Colors.Controls
             var cw = new StatisticsChartWindow();
             cw.ContentTabControl.SelectedIndex = tabSelected;
             cw.Show();
-        }
-
-        private void OptionButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (!_isRange) changeState(Range);
-            else changeState(Single);
-            _isRange = !_isRange;
-        }
-
-        private void changeState(VisualState state)
-        {
-            VisualStateManager.GoToState(this, state.Name, false);
         }
     }
 }

@@ -82,6 +82,8 @@ namespace sPerf_Web.Areas.Profile.Controllers {
             public readonly string photocomment = "~/Areas/Profile/Views/Profile/photocomment.ascx";
             public readonly string Popup_Comment_Archeivement = "~/Areas/Profile/Views/Profile/Popup_Comment_Archeivement.ascx";
             public readonly string Profile = "~/Areas/Profile/Views/Profile/Profile.aspx";
+            public readonly string Report_Archeivement = "~/Areas/Profile/Views/Profile/Report_Archeivement.ascx";
+            public readonly string SeeAll_Archeivement = "~/Areas/Profile/Views/Profile/SeeAll_Archeivement.ascx";
             public readonly string SubMenu = "~/Areas/Profile/Views/Profile/SubMenu.ascx";
             public readonly string Web = "~/Areas/Profile/Views/Profile/Web.config";
         }

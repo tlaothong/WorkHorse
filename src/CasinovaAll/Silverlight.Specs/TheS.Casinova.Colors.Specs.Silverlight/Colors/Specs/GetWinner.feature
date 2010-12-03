@@ -15,6 +15,11 @@
 
 Background:
 	Given Create and initialize GamePlayViewModel and Colors game service
+	And Back service have active game rounds are:
+		|RoundID|StartTime				|EndTime				|
+		|1		|2010-11-17 09:00:00	|2010-11-17 09:15:00	|
+		|2		|2010-11-17 09:15:00	|2010-11-17 09:30:00	|
+		|3		|2010-11-17 09:30:00	|2010-11-17 09:45:00	|
 	And Setup web service trackingID are
 		|TrackingID									|
 		|{60AD85F6-3978-48AA-9286-E5A7344B77EC}		|
@@ -25,15 +30,15 @@ Background:
 		|{50EA817A-512E-469E-982F-8377F0EF84A6}		|
 	And Web server have game play information are
 		|UserName	|TableID|RoundID	|TrackingID								|OnGoingTrackingID						|TotalBetAmountOfBlack	|TotalBetAmountOfWhite	|Winner	|
-		|Sakul		|1		|20			|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}	|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}	|100					|20						|Black	|
-		|Sakul		|2		|21			|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}	|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}	|100					|20						|White	|
-		|Sakul		|3		|22			|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}	|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}	|100					|20						|White	|
-		|Sakul		|4		|23			|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}	|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}	|100					|20						|Black	|
+		|Sakul		|1		|1			|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}	|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}	|100					|20						|Black	|
+		|Sakul		|2		|2			|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}	|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}	|100					|20						|White	|
+		|Sakul		|3		|3			|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}	|{CF24E43D-49FA-482B-9AD2-DCF0159F0C41}	|100					|20						|White	|
+	When Send request GetListActiveGameRounds() to web server
 
 @record_mock
-Scenario: Get winner button has click save player action in PayLog
-	When Click get winner in game round 20
-	Then PayLog has save RoundID='20', Count='1'
+Scenario: Get winner button has click, save player action in PayLog
+	When Click get winner in game round 1
+	Then PayLog has save RoundID='1', Count='1'
 	And Lot of TrackingIDs has Retrieved are
 		|TrackingID									|
 		|{60AD85F6-3978-48AA-9286-E5A7344B77EC}		|
@@ -41,10 +46,10 @@ Scenario: Get winner button has click save player action in PayLog
 
 @record_mock
 Scenario: Get winner button has click save player action in PayLog 3 times
-	When Click get winner in game round 20
-	And Click get winner in game round 20 
-	And Click get winner in game round 20 
-	Then PayLog has save RoundID='20', Count='3'
+	When Click get winner in game round 1
+	And Click get winner in game round 1 
+	And Click get winner in game round 1 
+	Then PayLog has save RoundID='1', Count='3'
 	And Lot of TrackingIDs has Retrieved are
 		|TrackingID									|
 		|{60AD85F6-3978-48AA-9286-E5A7344B77EC}		|
@@ -53,13 +58,13 @@ Scenario: Get winner button has click save player action in PayLog 3 times
 	And PayLog has empty
 
 @record_mock
-Scenario: Get winner 3 times using another game roundID
-	When Click get winner in game round 20 
-	And Click get winner in game round 21 
-	And Click get winner in game round 22 
-	Then PayLog has save RoundID='20', Count='1'
-	And PayLog has save RoundID='21', Count='1'
-	And PayLog has save RoundID='22', Count='1'
+Scenario: Get winner 3 times by different game roundID
+	When Click get winner in game round 1 
+	And Click get winner in game round 2 
+	And Click get winner in game round 3 
+	Then PayLog has save RoundID='1', Count='1'
+	And PayLog has save RoundID='2', Count='1'
+	And PayLog has save RoundID='3', Count='1'
 	And Lot of TrackingIDs has Retrieved are
 		|TrackingID									|
 		|{60AD85F6-3978-48AA-9286-E5A7344B77EC}		|
@@ -69,16 +74,15 @@ Scenario: Get winner 3 times using another game roundID
 
 @record_mock
 Scenario: Get winner 6 times using another game roundID
-	When Click get winner in game round 20 
-	And Click get winner in game round 21 
-	And Click get winner in game round 22 
-	And Click get winner in game round 22 
-	And Click get winner in game round 23 
-	And Click get winner in game round 22 
-	Then PayLog has save RoundID='20', Count='1'
-	And PayLog has save RoundID='21', Count='1'
-	And PayLog has save RoundID='22', Count='3'
-	And PayLog has save RoundID='23', Count='1'
+	When Click get winner in game round 1 
+	And Click get winner in game round 1 
+	And Click get winner in game round 1 
+	And Click get winner in game round 2 
+	And Click get winner in game round 2 
+	And Click get winner in game round 3 
+	Then PayLog has save RoundID='1', Count='3'
+	And PayLog has save RoundID='2', Count='2'
+	And PayLog has save RoundID='3', Count='1'
 	And Lot of TrackingIDs has Retrieved are
 		|TrackingID									|
 		|{60AD85F6-3978-48AA-9286-E5A7344B77EC}		|
@@ -91,10 +95,10 @@ Scenario: Get winner 6 times using another game roundID
 
 @record_mock
 Scenario: Get winner more than one, lot not retriev (1 case)
-	When Click get winner in game round 20
-	And Click get winner in game round 20 
-	And Click get winner in game round 20 
-	Then PayLog has save RoundID='20', Count='3'
+	When Click get winner in game round 1
+	And Click get winner in game round 1 
+	And Click get winner in game round 1 
+	Then PayLog has save RoundID='1', Count='3'
 	And Lot of TrackingIDs has Retrieved are
 		|TrackingID									|
 		|{60AD85F6-3978-48AA-9286-E5A7344B77EC}		|
@@ -103,16 +107,15 @@ Scenario: Get winner more than one, lot not retriev (1 case)
 
 @record_mock
 Scenario: Get winner more than one, lot not retriev (more than 1 wait lot trackingID)
-	When Click get winner in game round 20 
-	And Click get winner in game round 21 
-	And Click get winner in game round 22 
-	And Click get winner in game round 22 
-	And Click get winner in game round 23 
-	And Click get winner in game round 22 
-	Then PayLog has save RoundID='20', Count='1'
-	And PayLog has save RoundID='21', Count='1'
-	And PayLog has save RoundID='22', Count='3'
-	And PayLog has save RoundID='23', Count='1'
+	When Click get winner in game round 1 
+	And Click get winner in game round 1 
+	And Click get winner in game round 2 
+	And Click get winner in game round 2 
+	And Click get winner in game round 1 
+	And Click get winner in game round 3 
+	Then PayLog has save RoundID='1', Count='3'
+	And PayLog has save RoundID='2', Count='2'
+	And PayLog has save RoundID='3', Count='1'
 	And Lot of TrackingIDs has Retrieved are
 		|TrackingID									|
 		|{60AD85F6-3978-48AA-9286-E5A7344B77EC}		|

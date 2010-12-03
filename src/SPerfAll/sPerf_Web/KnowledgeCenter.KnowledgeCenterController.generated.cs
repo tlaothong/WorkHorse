@@ -65,7 +65,7 @@ namespace sPerf_Web.Areas.KnowledgeCenter.Controllers {
             public readonly string Banners = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/Banners.ascx";
             public readonly string Index = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/Index.aspx";
             public readonly string MyVideo = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/MyVideo.aspx";
-            public readonly string Option = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/Option.aspx";
+            public readonly string Option = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/Option.ascx";
             public readonly string PostNewVideos = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/PostNewVideos.ascx";
             public readonly string SubmenuVideo = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/SubmenuVideo.ascx";
         }

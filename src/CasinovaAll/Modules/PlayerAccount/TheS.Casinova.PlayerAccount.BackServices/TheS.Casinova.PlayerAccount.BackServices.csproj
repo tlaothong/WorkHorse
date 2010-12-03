@@ -50,12 +50,16 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackServices\BackExecutors\ActivatePlayerAccountExecutor.cs" />
     <Compile Include="BackServices\BackExecutors\CancelPlayerAccountExecutor.cs" />
     <Compile Include="BackServices\BackExecutors\CreatePlayerAccountExecutor.cs" />
     <Compile Include="BackServices\BackExecutors\EditPlayerAccountExecutor.cs" />
+    <Compile Include="BackServices\Validators\PlayerAccountInfo_ActivatePlayerAccountValidators.cs" />
     <Compile Include="BackServices\Validators\PlayerAccountInfo_CreatePlayerAccountValidators.cs" />
     <Compile Include="BackServices\Validators\PlayerAccountInfo_CancelPlayerAccountInfoValidators.cs" />
     <Compile Include="BackServices\Validators\PlayerAccountInfo_EditPlayerAccountInfoValidators.cs" />
+    <Compile Include="BackServices\Validators\UserProfile_ActivatePlayerAccountValidators.cs" />
+    <Compile Include="BackServices\Validators\UserProfile_CancelPlayerAccountValidators.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

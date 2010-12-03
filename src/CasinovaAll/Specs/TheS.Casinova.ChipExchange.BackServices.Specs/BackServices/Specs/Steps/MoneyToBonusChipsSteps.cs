@@ -9,6 +9,7 @@ using Rhino.Mocks;
 using TheS.Casinova.ChipExchange.Commands;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TheS.Casinova.ChipExchange.BackServices.Commands;
+using PerfEx.Infrastructure.Validation;
 
 namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
 {
@@ -59,7 +60,7 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
                                        AccountType = item["AccountType"],
                                        CardType = item["CardType"],
                                        AccountNo = item["AccountNo"],
-                                       CVV = Convert.ToString(item["CVV"]),
+                                       CVV = item["CVV"],
                                        ExpireDate = Convert.ToDateTime(item["ExpireDate"]),
                                        Active = Convert.ToBoolean(item["Active"]),
                                    });
@@ -76,12 +77,6 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
                 .IgnoreArguments().Return(_multiLevelNetworkInfo);
         }
 
-        [Given(@"\(MoneyToBonusChips\)exchange amount: '(.*)' should be more than player bonus")]
-        public void GivenMoneyToBonusChipsExchangeAmountXShouldBeMoreThanPlayerBonus(double amount)
-        {
-            Assert.IsTrue(_multiLevelNetworkInfo.Bonus >= amount, "Bonus");
-        }
-
         [Given(@"\(MoneyToBonusChips\)sent ExchangeSettingName: '(.*)' the exchange setting should recieved")]
         public void GivenMoneyToBonusChipsSentExchangeSettingNameXTheExchangeSettingShouldRecieved(string exchangeSettingName)
         {
@@ -91,18 +86,6 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
 
             SetupResult.For(Dqr_GetExchangeSetting.Get(new GetExchangeSettingCommand()))
                 .IgnoreArguments().Return(_exchangeSettingInfo);
-        }
-
-        [Given(@"\(MoneyToBonusChips\)exchange amount: '(.*)' should be more than minimum exchange rate")]
-        public void GivenMoneyToBonusChipsExchangeAmountXShouldBeMoreThanMinimumExchangeRate(double amount)
-        {
-            Assert.IsTrue(amount >= _exchangeSettingInfo.ChipToBonusChipRate);
-        }
-
-        [Given(@"\(MoneyToBonusChips\)exchange amount: '(.*)' should be less than minimum exchange rate")]
-        public void GivenMoneyToBonusChipsExchangeAmountXShouldBeLessThanMinimumExchangeRate(double amount)
-        {
-            Assert.IsTrue(amount < _exchangeSettingInfo.MinMoneyToChipExchange);
         }
 
         [Given(@"\(MoneyToBonusChips\)sent UserName: '(.*)', AccountType: '(.*)' the player account information should recieved")]
@@ -117,7 +100,7 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
         }
 
         [Given(@"\(MoneyToBonusChips\)the PayExchangeEngine should be call and complete transaction sent UserName: '(.*)', Amount: '(.*)', CardType: '(.*)', FistName: '(.*)', LastName: '(.*)', AccountNo: '(.*)', CVV: '(.*)', ExpireDate: '(.*)'")]
-        public void GivenMoneyToBonusChipsThePayExchangeEngineShouldBeCallAndCompleteTransactionSentUserNameXAmountXCardTypeXFistNameXLastNameXAccountNoXCVVXExpireDateX(string userName, double amount, string cardType, string firstName, string lastName, double accountNo, int cvv, DateTime expireDate)
+        public void GivenMoneyToBonusChipsThePayExchangeEngineShouldBeCallAndCompleteTransactionSentUserNameXAmountXCardTypeXFistNameXLastNameXAccountNoXCVVXExpireDateX(string userName, double amount, string cardType, string firstName, string lastName, string accountNo, string cvv, DateTime expireDate)
         {
             Func<PayExchangeCommand, bool> checkData = (cmd) => {
                 Assert.AreEqual(cmd.ExchangeInfo.UserName, userName, "UserName");
@@ -152,11 +135,32 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
         public void WhenCallMoneyToBonusChipsExecutorUserNameXAmountXAccountTypeSecondary(string userName, double amount, string accountType)
         {
             MoneyToBonusChipsCommand cmd = new MoneyToBonusChipsCommand {
-                UserName = userName,
-                Amount = amount,
-                AccountType = accountType,
+                ExchangeInformation = new ExchangeInformation {
+                    UserName = userName,
+                    Amount = amount,
+                    AccountType = accountType,
+                }
             };
             MoneyToBonusChipsExecutor.Execute(cmd, (x) => { });
+        }
+
+        [When(@"Expected exception and call MoneyToBonusChipsExecutor\(UserName: '(.*)', Amount: '(.*)', AccountType: '(.*)'\)")]
+        public void WhenExpectedExceptionAndCallMoneyToBonusChipsExecutorUserNameXAmountXAccountTypeSecondary(string userName, double amount, string accountType)
+        {
+            try {
+                MoneyToBonusChipsCommand cmd = new MoneyToBonusChipsCommand {
+                    ExchangeInformation = new ExchangeInformation {
+                        UserName = userName,
+                        Amount = amount,
+                        AccountType = accountType,
+                    }
+                };
+                MoneyToBonusChipsExecutor.Execute(cmd, (x) => { });
+                Assert.Fail("Shouldn't be here!");
+            }
+            catch (Exception ex) {
+                Assert.IsInstanceOfType(ex, typeof(ValidationErrorException));
+            }
         }
 
         [Then(@"\(MoneyToBonusChips\)the result should be update")]
@@ -165,8 +169,8 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
             Assert.IsTrue(true, "Expectation has been verified in the end of block When.");
         }
 
-        [Then(@"abort operation")]
-        public void ThenAbortOperation()
+        [Then(@"the result should be throw exception")]    
+        public void ThenTheResultShouldBeThrowException()
         {
             Assert.IsTrue(true, "Expectation has been verified in the end of block When.");
         }

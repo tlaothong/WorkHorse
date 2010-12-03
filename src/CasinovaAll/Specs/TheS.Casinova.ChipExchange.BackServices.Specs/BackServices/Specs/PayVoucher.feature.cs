@@ -67,7 +67,7 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs
                         "1800"});
             table1.AddRow(new string[] {
                         "Boy",
-                        "121.21",
+                        "700",
                         "726.29"});
             table1.AddRow(new string[] {
                         "Nit",
@@ -75,7 +75,7 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs
                         "383.21"});
             table1.AddRow(new string[] {
                         "Au",
-                        "00.00",
+                        "150.00",
                         "3761.99"});
 #line 8
 testRunner.Given("(PayVoucher)server has player information as:", ((string)(null)), table1);
@@ -83,13 +83,13 @@ testRunner.Given("(PayVoucher)server has player information as:", ((string)(null
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้เล่นแลกคูปองด้วยชิฟ มีชิฟตายพอดีสำหรับแลกคูปอง, ระบบอัพเดทข้อมูลผู้เล่นและสร้า" +
-            "งข้อมูลคูปองใหม่")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(PayVoucher)ผู้เล่นแลกคูปองด้วยชิฟ มีชิฟพอสำหรับแลกโดยมีชิฟตายพอดีกับคูปองที่แลก," +
+            " ระบบอัพเดทข้อมูลผู้เล่นและสร้างข้อมูลคูปองใหม่")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PayVoucher")]
-        public virtual void ผเลนแลกคปองดวยชฟมชฟตายพอดสำหรบแลกคปองระบบอพเดทขอมลผเลนและสรางขอมลคปองใหม()
+        public virtual void PayVoucherผเลนแลกคปองดวยชฟมชฟพอสำหรบแลกโดยมชฟตายพอดกบคปองทแลกระบบอพเดทขอมลผเลนและสรางขอมลคปองใหม()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้เล่นแลกคูปองด้วยชิฟ มีชิฟตายพอดีสำหรับแลกคูปอง, ระบบอัพเดทข้อมูลผู้เล่นและสร้า" +
-                    "งข้อมูลคูปองใหม่", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(PayVoucher)ผู้เล่นแลกคูปองด้วยชิฟ มีชิฟพอสำหรับแลกโดยมีชิฟตายพอดีกับคูปองที่แลก," +
+                    " ระบบอัพเดทข้อมูลผู้เล่นและสร้างข้อมูลคูปองใหม่", new string[] {
                         "record_mock",
                         "record_mock"});
 #line 16
@@ -99,21 +99,101 @@ testRunner.Given("The PayVoucherExecutor has been created and initialized");
 #line 18
 testRunner.And("(PayVoucher)sent UserName: \'OhAe\' the player profile information should recieved");
 #line 19
-testRunner.And("player balance(chips, bonus chips) should more than or equal request voucher(Amou" +
-                    "nt: \'500\')");
-#line 20
-testRunner.And("player balance(bonus chips) more than or equal request voucher(Amount: \'500\')");
-#line 21
 testRunner.And("player balance information should be update(UserName: \'OhAe\', chips: \'1800\', bonu" +
                     "s chips: \'0\')");
-#line 22
+#line 20
 testRunner.And("voucher code should be generate new code(VoucherCode: \'Ys7S\')");
-#line 23
+#line 21
 testRunner.And("voucher information should be create(VoucherCode: \'Ys7S\', Amount: \'500\', UserName" +
-                    ": \'OhAe\', CanUse: \'true\')");
-#line 24
-testRunner.When("call PayVoucherExecutor(UserName: \'OhAe\', Amount: \'500\')");
-#line 25
+                    ": \'OhAe\')");
+#line 22
+testRunner.When("call PayVoucherExecutor(UsserName: \'OhAe\', Amount: \'500\')");
+#line 23
+testRunner.Then("the player profile should be update and voucher information should be create");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(PayVoucher)ผู้เล่นแลกคูปองด้วยชิฟ มีชิฟพอสำหรับแลกโดยมีชิฟตายมากกว่าคูปองที่แลก," +
+            " ระบบอัพเดทข้อมูลผู้เล่นและสร้างข้อมูลคูปองใหม่")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PayVoucher")]
+        public virtual void PayVoucherผเลนแลกคปองดวยชฟมชฟพอสำหรบแลกโดยมชฟตายมากกวาคปองทแลกระบบอพเดทขอมลผเลนและสรางขอมลคปองใหม()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(PayVoucher)ผู้เล่นแลกคูปองด้วยชิฟ มีชิฟพอสำหรับแลกโดยมีชิฟตายมากกว่าคูปองที่แลก," +
+                    " ระบบอัพเดทข้อมูลผู้เล่นและสร้างข้อมูลคูปองใหม่", new string[] {
+                        "record_mock"});
+#line 26
+this.ScenarioSetup(scenarioInfo);
+#line 27
+testRunner.Given("The PayVoucherExecutor has been created and initialized");
+#line 28
+testRunner.And("(PayVoucher)sent UserName: \'Boy\' the player profile information should recieved");
+#line 29
+testRunner.And("player balance information should be update(UserName: \'Boy\', chips: \'726.29\', bon" +
+                    "us chips: \'200\')");
+#line 30
+testRunner.And("voucher code should be generate new code(VoucherCode: \'HAsd\')");
+#line 31
+testRunner.And("voucher information should be create(VoucherCode: \'HAsd\', Amount: \'500\', UserName" +
+                    ": \'Boy\')");
+#line 32
+testRunner.When("call PayVoucherExecutor(UsserName: \'Boy\', Amount: \'500\')");
+#line 33
+testRunner.Then("the player profile should be update and voucher information should be create");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(PayVoucher)ผู้เล่นแลกคูปองด้วยชิฟ มีชิฟพอสำหรับแลกโดยมีชิฟตายไม่พอกับคูปองที่แลก" +
+            " หักชิฟเป็นเพิ่ม, ระบบอัพเดทข้อมูลผู้เล่นและสร้างข้อมูลคูปองใหม่")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PayVoucher")]
+        public virtual void PayVoucherผเลนแลกคปองดวยชฟมชฟพอสำหรบแลกโดยมชฟตายไมพอกบคปองทแลกหกชฟเปนเพมระบบอพเดทขอมลผเลนและสรางขอมลคปองใหม()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(PayVoucher)ผู้เล่นแลกคูปองด้วยชิฟ มีชิฟพอสำหรับแลกโดยมีชิฟตายไม่พอกับคูปองที่แลก" +
+                    " หักชิฟเป็นเพิ่ม, ระบบอัพเดทข้อมูลผู้เล่นและสร้างข้อมูลคูปองใหม่", new string[] {
+                        "record_mock"});
+#line 36
+this.ScenarioSetup(scenarioInfo);
+#line 37
+testRunner.Given("The PayVoucherExecutor has been created and initialized");
+#line 38
+testRunner.And("(PayVoucher)sent UserName: \'Au\' the player profile information should recieved");
+#line 39
+testRunner.And("player balance information should be update(UserName: \'Au\', chips: \'3411.99\', bon" +
+                    "us chips: \'0\')");
+#line 40
+testRunner.And("voucher code should be generate new code(VoucherCode: \'HSUa\')");
+#line 41
+testRunner.And("voucher information should be create(VoucherCode: \'HSUa\', Amount: \'500\', UserName" +
+                    ": \'Au\')");
+#line 42
+testRunner.When("call PayVoucherExecutor(UsserName: \'Au\', Amount: \'500\')");
+#line 43
+testRunner.Then("the player profile should be update and voucher information should be create");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(PayVoucher)ผู้เล่นแลกคูปองด้วยชิฟ มีชิฟไม่พอสำหรับแลกคูปอง, ระบบแจ้งเตือนผู้เล่น" +
+            "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PayVoucher")]
+        public virtual void PayVoucherผเลนแลกคปองดวยชฟมชฟไมพอสำหรบแลกคปองระบบแจงเตอนผเลน()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(PayVoucher)ผู้เล่นแลกคูปองด้วยชิฟ มีชิฟไม่พอสำหรับแลกคูปอง, ระบบแจ้งเตือนผู้เล่น" +
+                    "", new string[] {
+                        "record_mock"});
+#line 46
+this.ScenarioSetup(scenarioInfo);
+#line 47
+testRunner.Given("The PayVoucherExecutor has been created and initialized");
+#line 48
+testRunner.And("(PayVoucher)sent UserName: \'Nit\' the player profile information should recieved");
+#line 49
+testRunner.When("Expected exception and call PayVoucherExecutor(UsserName: \'Nit\', Amount: \'500\')");
+#line 50
 testRunner.Then("the player profile should be update and voucher information should be create");
 #line hidden
             testRunner.CollectScenarioErrors();
