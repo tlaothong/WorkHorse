@@ -7,8 +7,26 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
 <link href="../../../../Content/jquery-ui-1.8.6.custom.css" rel="stylesheet" type="text/css" />
+<link href="../../../../Content/jquery.cleditor.css" rel="stylesheet" type="text/css" />
 <script src="../../../../Scripts/jquery-1.4.2.min.js" type="text/javascript"></script>
 <script src="../../../../Scripts/jquery-ui-1.8.6.custom.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../../../../Scripts/jquery.cleditor.min.js"></script>
+     <script type="text/javascript">
+         $(document).ready(function () {
+             $(".input").cleditor({ width: 500, height: 180, useCSS: true })[0].focus();
+         });
+    </script>
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-18352523-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
 
 <script type="text/javascript">
     $(function () {
@@ -56,7 +74,7 @@
         $("#newblog_dialog").dialog({
             autoOpen: false,
             modal: true,
-            width: 450,
+            width: 550,
             title: 'New Blog',
             buttons: {
                 "Cancel": function () {
@@ -84,7 +102,7 @@
         $("#editblog_dialog").dialog({
             autoOpen: false,
             modal: true,
-            width: 450,
+            width: 550,
             title: 'Edit Blog',
             buttons: {
                 "Cancel": function () {
@@ -134,32 +152,16 @@
 
 <%--div for report new blog--%>
 <div id="newblog_dialog">
-    <table>
-        <tr>
-            <td align="right"><input class="datepicker" type="text"/><br /></td>
-        </tr>
-        <tr>
-            <td><label>Topic : </label><input type="text"  style="width:361px;"/><br /></td>
-        </tr>
-        <tr>
-            <td><textarea style="overflow:hidden;" rows="10" cols="81">This is my first blog story.</textarea></td>
-        </tr>
-    </table>
-</div>
+<p>
+          <textarea class="input" name="input">Go ahead, take it for a test drive. Highlight some text and click some buttons.</textarea>
+        </p>
 
+</div>
 <%--div for report edit blog--%>
 <div id="editblog_dialog">
-<table>
-        <tr>
-            <td align="right"><input class="datepicker" type="text"/><br /></td>
-        </tr>
-        <tr>
-            <td><label>Topic : </label><input type="text"  style="width:361px;"/><br /></td>
-        </tr>
-        <tr>
-            <td><textarea style="overflow:hidden;" rows="10" cols="81">This is my first blog story.</textarea></td>
-        </tr>
-    </table>
+<p>
+          <textarea class="input" name="input">Go ahead, take it for a test drive. Highlight some text and click some buttons.</textarea>
+        </p>
 </div>
 
 <%--div สำหรับพื้นที่แสดงเนื้อหาที่เขียนลงใน blog--%>
