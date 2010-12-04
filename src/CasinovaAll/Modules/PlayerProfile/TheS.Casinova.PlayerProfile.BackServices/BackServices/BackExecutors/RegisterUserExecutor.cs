@@ -27,30 +27,30 @@ namespace TheS.Casinova.PlayerProfile.BackServices.BackExecutors
 
         protected override void ExecuteCommand(RegisterUserCommand command)
         {
-            command.UserProfile.Active = false;
+            command.RegisterUserInfo.Active = false;
 
             ValidationErrorCollection errorsValidation = new ValidationErrorCollection();
 
-            if (!string.IsNullOrEmpty(command.UserProfile.Upline)) { //สมัครสมาชิกโดยมีผู้แนะนำ
+            if (!string.IsNullOrEmpty(command.RegisterUserInfo.Upline)) { //สมัครสมาชิกโดยมีผู้แนะนำ
                 //ตรวจสอบ upline ที่ระบุมาว่ามีอยู่จริง
-                ValidationHelper.Validate(_container, command.UserProfile, command, errorsValidation);
+                ValidationHelper.Validate(_container, command.RegisterUserInfo, command, errorsValidation);
                 if (errorsValidation.Any()) {
                     throw new ValidationErrorException(errorsValidation);
                 }
 
                 //บันทึกข้อมูลการสมัคร
-                _iRegisterUser.Create(command.UserProfile, command);
+                _iRegisterUser.Create(command.RegisterUserInfo, command);
 
                 //TODO: ขาดการบันทึกชื่อผู้เล่นเป็น donwline ให้กับคนที่แนะนำ(MLN module)
             }
             else { //สมัครสมาชิกโดนไม่มีผู้แนะนำ
                 //บันทึกข้อมูลการสมัคร
-                command.UserProfile.Upline = null;
-                _iRegisterUser.Create(command.UserProfile, command);
+                command.RegisterUserInfo.Upline = null;
+                _iRegisterUser.Create(command.RegisterUserInfo, command);
             }
 
             //ส่งอีเมลล์สำหรับยืนยันการสมัครให้ผู้เล่น
-            _iEmailSender.SendingValidationEmail(command.UserProfile, command);
+            _iEmailSender.SendingValidationEmail(command.RegisterUserInfo, command);
         }
     }
 }

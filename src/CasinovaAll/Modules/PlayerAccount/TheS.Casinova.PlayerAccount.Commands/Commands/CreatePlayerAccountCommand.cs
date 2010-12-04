@@ -13,44 +13,14 @@ namespace TheS.Casinova.PlayerAccount.Commands
     {
         //input
         /// <summary>
-        /// ชื่อผู้เล่น
-        /// </summary>
-        public string UserName { get; set; }
-
-        /// <summary>
-        /// ประเภทบัญชี
-        /// </summary>
-        public string AccountType { get; set; }
-
-        /// <summary>
-        /// หมายเลขบัญชี
-        /// </summary>
-        public string AccountNo { get; set; }
-
-        /// <summary>
-        /// รหัสตรวจสอบหมายเลขบัญชี
-        /// </summary>
-        public int CVV { get; set; }
-
-        /// <summary>
-        /// วันหมดอายุของบัญชี
-        /// </summary>
-        public DateTime ExpireDate { get; set; }
-
-        /// สถานะการทำงาน
-        /// </summary>
-        public bool Active { get; set; }
-
-        /// <summary>
         /// ข้อมูลบัญชีที่ผู้เล่นสมัคร
         /// 1.UserName ชื่อผู้เล่น
-        /// 2.AccountType ประเภทบัญชี
+        /// 2.CardType ประเภทบัญชี
         /// 3.AccountNo หมายเลขบัญชี
         /// 4.CVV รหัสตรวจสอบหมายเลขบัญชี
         /// 5.ExpireDate วันหมดอายุของบัญชี
-        /// 6.FirstName ชื่อ
-        /// 7.LastName สกุล
+        /// 6.Active สถานะการทำงาน (Bs ใส่เอง)
         /// </summary>
-        public PlayerAccountInformation PlayerAccountInfo { get; set; }
+        public PlayerAccountInformation PlayerAccountInfo{ get; set; }
     }
 }

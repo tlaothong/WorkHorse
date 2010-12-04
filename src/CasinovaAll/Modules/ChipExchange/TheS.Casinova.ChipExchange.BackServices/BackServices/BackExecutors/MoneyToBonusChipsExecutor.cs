@@ -7,73 +7,78 @@ using PerfEx.Infrastructure.CommandPattern;
 using TheS.Casinova.ChipExchange.DAL;
 using TheS.Casinova.ChipExchange.Models;
 using TheS.Casinova.ChipExchange.BackServices.Commands;
+using PerfEx.Infrastructure.Validation;
+using PerfEx.Infrastructure;
 
 namespace TheS.Casinova.ChipExchange.BackServices.BackExecutors
 {
     public class MoneyToBonusChipsExecutor
         : SynchronousCommandExecutorBase<MoneyToBonusChipsCommand>
     {
-        private IGetMLNInfo _iGetMLNInfo;
         private IGetExchangeSetting _iGetExchangeSetting;
         private IGetPlayerAccountInfo _iGetPlayerAccountInfo;
         private IIncreasePlayerBonusChipsByMoney _iIncreasePlayerBonusChipsByMoney;
         private IPayExchangeEngine _iPayExchangeEngine;
 
-        public MoneyToBonusChipsExecutor(IPayExchangeEngine svc, IChipExchangeDataAccess dac, IChipExchangeDataBackQuery dqr)
+        private IDependencyContainer _container;
+
+        public MoneyToBonusChipsExecutor(IDependencyContainer container, IPayExchangeEngine svc, IChipExchangeDataAccess dac, IChipExchangeDataBackQuery dqr)
         {
-            _iGetMLNInfo = dqr;
             _iGetExchangeSetting = dqr;
             _iGetPlayerAccountInfo = dqr;
             _iIncreasePlayerBonusChipsByMoney = dac;
             _iPayExchangeEngine = svc;
+
+            _container = container;
         }
 
         protected override void ExecuteCommand(MoneyToBonusChipsCommand command)
         {
-            GetMLNInfoCommand getMLNInfoCmd = new GetMLNInfoCommand { UserName = command.UserName };
-            getMLNInfoCmd.MLNInfo = _iGetMLNInfo.Get(getMLNInfoCmd);
+            ValidationErrorCollection errorValidations = new ValidationErrorCollection();
 
-            if (getMLNInfoCmd.MLNInfo.Bonus >= command.Amount) { //Request amount should more than bonus
-                //Get exchange setting
-                GetExchangeSettingCommand getExchangeSettingCmd = new GetExchangeSettingCommand { Name = "Exchange1" };
-                getExchangeSettingCmd.ExchangeSetting = _iGetExchangeSetting.Get(getExchangeSettingCmd);
+            //Request amount should more than bonus
+            MultiLevelNetworkInformation mlnInfo = new MultiLevelNetworkInformation { Username = command.UserName };
+            ValidationHelper.Validate(_container, mlnInfo, command, errorValidations);
 
-                //Request amount should more than minimum exchange rate
-                if (command.Amount >= getExchangeSettingCmd.ExchangeSetting.MinMoneyToChipExchange) {
-                    //Get player account information
-                    GetPlayerAccountInfoCommand getPlayerAccountInfoCmd = new GetPlayerAccountInfoCommand {
-                        UserName = command.UserName,
-                        AccountType = command.AccountType
-                    };
-                    getPlayerAccountInfoCmd.PlayerAccountInfo = _iGetPlayerAccountInfo.Get(getPlayerAccountInfoCmd);
+            //Request amount should more than minimum exchange rate
+            ExchangeSettingInformation exchangeSettingInfo = new ExchangeSettingInformation { Name = "Exchange1" };
+            ValidationHelper.Validate(_container, exchangeSettingInfo, command, errorValidations);
 
-                    ExchangeInformation exchangeInfo = new ExchangeInformation {
-                        UserName = command.UserName,
-                        FirstName = getPlayerAccountInfoCmd.PlayerAccountInfo.FirstName,
-                        LastName = getPlayerAccountInfoCmd.PlayerAccountInfo.LastName,
-                        Amount = command.Amount,
-                        CardType = getPlayerAccountInfoCmd.PlayerAccountInfo.CardType,
-                        AccountNo = getPlayerAccountInfoCmd.PlayerAccountInfo.AccountNo,
-                        CVV = getPlayerAccountInfoCmd.PlayerAccountInfo.CVV,
-                        ExpireDate = getPlayerAccountInfoCmd.PlayerAccountInfo.ExpireDate,
-                    };
-                    PayExchangeCommand payExchangeCmd = new PayExchangeCommand {
-                        ExchangeInfo = exchangeInfo
-                    };
+            if (errorValidations.Any()) {
+                throw new ValidationErrorException(errorValidations);
+            }
 
-                    if (_iPayExchangeEngine.PayExchange(payExchangeCmd)) { //Pay exchange to bank
-                        //Update player bonus chips by exchange rate
-                        exchangeInfo.Amount = getExchangeSettingCmd.ExchangeSetting.MoneyToBonusChipRate * exchangeInfo.Amount;
-                        _iIncreasePlayerBonusChipsByMoney.ApplyAction(exchangeInfo, command);
-                    }
-                    else {
-                        Console.WriteLine("################ ทำรายการไม่สำเร็จ ###############");
-                    }
-                }
+            //Get exchange setting
+            GetExchangeSettingCommand getExchangeSettingCmd = new GetExchangeSettingCommand { Name = "Exchange1" };
+            getExchangeSettingCmd.ExchangeSetting = _iGetExchangeSetting.Get(getExchangeSettingCmd);
+
+           //Get player account information
+            GetPlayerAccountInfoCommand getPlayerAccountInfoCmd = new GetPlayerAccountInfoCommand {
+                UserName = command.ExchangeInformation.UserName,
+                AccountType = command.ExchangeInformation.AccountType
+            };
+            getPlayerAccountInfoCmd.PlayerAccountInfo = _iGetPlayerAccountInfo.Get(getPlayerAccountInfoCmd);
+
+            command.ExchangeInformation.FirstName = getPlayerAccountInfoCmd.PlayerAccountInfo.FirstName;
+            command.ExchangeInformation.LastName = getPlayerAccountInfoCmd.PlayerAccountInfo.LastName;
+            command.ExchangeInformation.CardType = getPlayerAccountInfoCmd.PlayerAccountInfo.CardType;
+            command.ExchangeInformation.AccountNo = getPlayerAccountInfoCmd.PlayerAccountInfo.AccountNo;
+            command.ExchangeInformation.CVV = getPlayerAccountInfoCmd.PlayerAccountInfo.CVV;
+            command.ExchangeInformation.ExpireDate = getPlayerAccountInfoCmd.PlayerAccountInfo.ExpireDate;
+
+            PayExchangeCommand payExchangeCmd = new PayExchangeCommand {
+                ExchangeInfo = command.ExchangeInformation
+            };
+
+            if (_iPayExchangeEngine.PayExchange(payExchangeCmd)) { //Pay exchange to bank
+                //Update player bonus chips by exchange rate
+                command.ExchangeInformation.Amount = getExchangeSettingCmd.ExchangeSetting.MoneyToBonusChipRate * command.ExchangeInformation.Amount;
+                _iIncreasePlayerBonusChipsByMoney.ApplyAction(command.ExchangeInformation, command);
             }
             else {
-                Console.WriteLine("################################### โบนัสไม่พอแลก!!! ##################################");
+                throw new InvalidOperationException("ทำรายการไม่สำเร็จ ข้อมูลบัตรเครดิตอาจผิดพลาด");
             }
+
         }
     }
 }

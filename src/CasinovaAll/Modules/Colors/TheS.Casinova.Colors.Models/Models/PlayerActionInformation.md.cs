@@ -20,7 +20,6 @@ namespace TheS.Casinova.Colors.Models
             [Required]
             public string ActionType { get; set; }
 
-            [Range(0, int.MaxValue)]
             public double Amount { get; set; }
 
             public Guid TrackingID { get; set; }

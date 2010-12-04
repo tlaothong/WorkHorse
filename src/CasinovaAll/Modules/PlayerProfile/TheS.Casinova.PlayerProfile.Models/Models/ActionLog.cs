@@ -8,7 +8,7 @@ namespace TheS.Casinova.PlayerProfile.Models
     /// <summary>
     /// ข้อมูล action log ของผู้เล่น
     /// </summary>
-    public class ActionLog
+    public partial class ActionLog
     {
         /// <summary>
         /// ชื่อของผู้เลน

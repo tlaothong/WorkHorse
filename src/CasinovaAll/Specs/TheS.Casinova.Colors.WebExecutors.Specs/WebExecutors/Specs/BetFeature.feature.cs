@@ -117,18 +117,18 @@ testRunner.Then("Get null and skip checking trackingID");
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[Bet]ระบบได้รับข้อมูลการลงเดิมพันในเกม colors ของผู้เล่น ระบบทำการตรวจสอบข้อมูล ข" +
                     "้อมูลถูกต้อง ระบบทำการ generate trackingID", new string[] {
                         "record_mock"});
-#line 22
+#line 21
 this.ScenarioSetup(scenarioInfo);
-#line 23
+#line 22
 testRunner.Given("The BetColorsExecutor has been created and initialized");
-#line 24
+#line 23
 testRunner.And("Bet Informations as : UserName \'Nit\' RoundID \'3\', ActionType \'White\', Amount \'300" +
                     "\'");
-#line 25
+#line 24
 testRunner.And("The system generated TrackingID:\'955D6ACDE4E04D1C90ACF3715BB2685A\'");
-#line 26
+#line 25
 testRunner.When("Call BetColorsExecutor()");
-#line 27
+#line 26
 testRunner.Then("TrackingID should be :\'955D6ACDE4E04D1C90ACF3715BB2685A\'");
 #line hidden
             testRunner.CollectScenarioErrors();

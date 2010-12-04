@@ -5,11 +5,11 @@ using System.Text;
 
 namespace TheS.Casinova.ChipExchange.Models
 {
-   public class ExchangeInformation
+    public class ExchangeInformation
     {
-       /// <summary>
-       /// จำนวนเงิน
-       /// </summary>
+        /// <summary>
+        /// จำนวนเงิน
+        /// </summary>
         public double Amount { get; set; }
 
         /// <summary>
@@ -23,6 +23,11 @@ namespace TheS.Casinova.ChipExchange.Models
         public string CardType { get; set; }
 
         /// <summary>
+        /// ประเภทของบัญชี
+        /// </summary>
+        public string AccountType { get; set; }
+
+        /// <summary>
         /// หมายเลขบัญชี
         /// </summary>
         public string AccountNo { get; set; }
@@ -30,7 +35,7 @@ namespace TheS.Casinova.ChipExchange.Models
         /// <summary>
         /// รหัสตรวจสอบหมายเลขบัญชี
         /// </summary>
-        public int CVV { get; set; }
+        public string CVV { get; set; }
 
         /// <summary>
         /// วันหมดอายุของบัญชี

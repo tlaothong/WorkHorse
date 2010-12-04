@@ -52,64 +52,74 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล playerAccountID ถูกต้อง แล้วส่งไปยัง backserver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[CancelPlayerAccount]ระบบได้รับข้อมูลการยกเลิกบัญชีถูกต้อง ระบบสามารถ generate tr" +
+            "ackingID ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CancelPlayerAccount")]
-        public virtual void ระบบไดรบขอมลPlayerAccountIDถกตองแลวสงไปยงBackserver()
+        public virtual void CancelPlayerAccountระบบไดรบขอมลการยกเลกบญชถกตองระบบสามารถGenerateTrackingIDได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล playerAccountID ถูกต้อง แล้วส่งไปยัง backserver", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[CancelPlayerAccount]ระบบได้รับข้อมูลการยกเลิกบัญชีถูกต้อง ระบบสามารถ generate tr" +
+                    "ackingID ได้", new string[] {
                         "record_mock"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
 testRunner.Given("The CancelPlayerAccountExecutor has been created and initialized");
 #line 9
-testRunner.And("Sent PlayerAccountID \'123\'");
+testRunner.And("Sent UserName \'Nit\' AccountType \'Primary\' for cancel player account");
 #line 10
-testRunner.When("Call CancelPlayerAccountExecutor");
+testRunner.And("The system generated TrackingID for CancelPlayerAccount :\'DEDE6BFD17484312848E13F" +
+                    "26345C597\'");
 #line 11
-testRunner.Then("System can sent PlayerAccountID to backserver");
+testRunner.When("Call CancelPlayerAccountExecutor()");
+#line 12
+testRunner.Then("TrackingID for CancelPlayerAccount should be : \'DEDE6BFD17484312848E13F26345C597\'" +
+                    "");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับ playerAccountID ไม่ถูกต้อง ระบบไม่สามารถส่งข้อมูลไป backserver ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[CancelPlayerAccount]ระบบได้รับ playerAccountID ไม่ถูกต้อง ระบบไม่สามารถส่งข้อมูล" +
+            "ไป backserver ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CancelPlayerAccount")]
-        public virtual void ระบบไดรบPlayerAccountIDไมถกตองระบบไมสามารถสงขอมลไปBackserverได()
+        public virtual void CancelPlayerAccountระบบไดรบPlayerAccountIDไมถกตองระบบไมสามารถสงขอมลไปBackserverได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับ playerAccountID ไม่ถูกต้อง ระบบไม่สามารถส่งข้อมูลไป backserver ได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[CancelPlayerAccount]ระบบได้รับ playerAccountID ไม่ถูกต้อง ระบบไม่สามารถส่งข้อมูล" +
+                    "ไป backserver ได้", new string[] {
                         "record_mock"});
-#line 14
-this.ScenarioSetup(scenarioInfo);
 #line 15
-testRunner.Given("The CancelPlayerAccountExecutor has been created and initialized");
+this.ScenarioSetup(scenarioInfo);
 #line 16
-testRunner.And("Sent PlayerAccountID \'-13\'");
+testRunner.Given("The CancelPlayerAccountExecutor has been created and initialized");
 #line 17
-testRunner.When("Call CancelPlayerAccountExecutor");
+testRunner.And("Sent UserName \'\' AccountType \'Primary\' for cancel player account");
 #line 18
-testRunner.Then("System can\'t sent PlayerAccountID to backserver");
+testRunner.When("Call CancelPlayerAccountExecutor() for validate input");
+#line 19
+testRunner.Then("Get null and skip checking trackingID for cancel player account");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบไม่ได้รับ playerAccountID ระบบไม่สามารถส่งข้อมูลไป backserver ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[CancelPlayerAccount]ระบบไม่ได้รับ playerAccountID ระบบไม่สามารถส่งข้อมูลไป backs" +
+            "erver ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CancelPlayerAccount")]
-        public virtual void ระบบไมไดรบPlayerAccountIDระบบไมสามารถสงขอมลไปBackserverได()
+        public virtual void CancelPlayerAccountระบบไมไดรบPlayerAccountIDระบบไมสามารถสงขอมลไปBackserverได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบไม่ได้รับ playerAccountID ระบบไม่สามารถส่งข้อมูลไป backserver ได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[CancelPlayerAccount]ระบบไม่ได้รับ playerAccountID ระบบไม่สามารถส่งข้อมูลไป backs" +
+                    "erver ได้", new string[] {
                         "record_mock"});
-#line 21
-this.ScenarioSetup(scenarioInfo);
 #line 22
-testRunner.Given("The CancelPlayerAccountExecutor has been created and initialized");
+this.ScenarioSetup(scenarioInfo);
 #line 23
-testRunner.And("Sent PlayerAccountID \'\'");
+testRunner.Given("The CancelPlayerAccountExecutor has been created and initialized");
 #line 24
-testRunner.When("Call CancelPlayerAccountExecutor");
+testRunner.And("Sent UserName \'Nit\' AccountType \'\' for cancel player account");
 #line 25
-testRunner.Then("System can\'t sent PlayerAccountID to backserver");
+testRunner.When("Call CancelPlayerAccountExecutor() for validate input");
+#line 26
+testRunner.Then("Get null and skip checking trackingID for cancel player account");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

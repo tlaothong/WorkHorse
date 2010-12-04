@@ -53,11 +53,13 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ลิสต์ข้อมูลโต๊ะเกมที่กำลัง active ณ เวลาปัจจุบันที่ผู้เล่นเข้าห้องเกม")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ListActiveGameRound]ลิสต์ข้อมูลโต๊ะเกมที่กำลัง active ณ เวลาปัจจุบันที่ผู้เล่นเข" +
+            "้าห้องเกม")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListActiveGameRounds")]
-        public virtual void ลสตขอมลโตะเกมทกำลงActiveณเวลาปจจบนทผเลนเขาหองเกม()
+        public virtual void ListActiveGameRoundลสตขอมลโตะเกมทกำลงActiveณเวลาปจจบนทผเลนเขาหองเกม()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ลิสต์ข้อมูลโต๊ะเกมที่กำลัง active ณ เวลาปัจจุบันที่ผู้เล่นเข้าห้องเกม", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ListActiveGameRound]ลิสต์ข้อมูลโต๊ะเกมที่กำลัง active ณ เวลาปัจจุบันที่ผู้เล่นเข" +
+                    "้าห้องเกม", new string[] {
                         "record_mock"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
@@ -116,11 +118,13 @@ testRunner.Then("The result should be:", ((string)(null)), table2);
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ลิสต์ข้อมูลโต๊ะเกมที่กำลัง active แต่ใน database ยังไม่มีข้อมูล")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ListActiveGameRound]ลิสต์ข้อมูลโต๊ะเกมที่กำลัง active แต่ใน database ยังไม่มีข้อ" +
+            "มูล")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListActiveGameRounds")]
-        public virtual void ลสตขอมลโตะเกมทกำลงActiveแตในDatabaseยงไมมขอมล()
+        public virtual void ListActiveGameRoundลสตขอมลโตะเกมทกำลงActiveแตในDatabaseยงไมมขอมล()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ลิสต์ข้อมูลโต๊ะเกมที่กำลัง active แต่ใน database ยังไม่มีข้อมูล", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ListActiveGameRound]ลิสต์ข้อมูลโต๊ะเกมที่กำลัง active แต่ใน database ยังไม่มีข้อ" +
+                    "มูล", new string[] {
                         "record_mock"});
 #line 24
 this.ScenarioSetup(scenarioInfo);

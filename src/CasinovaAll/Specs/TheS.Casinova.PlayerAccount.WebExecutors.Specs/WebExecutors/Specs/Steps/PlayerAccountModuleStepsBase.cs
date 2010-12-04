@@ -6,6 +6,7 @@ using TechTalk.SpecFlow;
 using TheS.Casinova.PlayerAccount.BackServices;
 using TheS.Casinova.PlayerAccount.WebExecutors;
 using TheS.Casinova.PlayerAccount.DAL;
+using SpecFlowAssist;
 
 namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs.Steps
 {
@@ -16,8 +17,7 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dac_CreatePlayerAccount] as ICreatePlayerAccount;
+                return ScenarioContext.Current.Get<ICreatePlayerAccount>();
             }
         }
 
@@ -25,8 +25,7 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr_GetPlayerAccount] as IGetPlayerAccount;
+                return ScenarioContext.Current.Get<IGetPlayerAccount>();
             }
         }
 
@@ -35,8 +34,7 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dac_CancelPlayerAccount] as ICancelPlayerAccount;
+                return ScenarioContext.Current.Get<ICancelPlayerAccount>();
             }
         }
 
@@ -44,8 +42,7 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr_ListPlayerAccount] as IListPlayerAccount;
+                return ScenarioContext.Current.Get<IListPlayerAccount>();
             }
         }
 
@@ -53,8 +50,7 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_CreatePlayerAccount] as CreatePlayerAccountExecutor;
+                return ScenarioContext.Current.Get<CreatePlayerAccountExecutor>();
             }
         }
 
@@ -62,8 +58,7 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_GetPlayerAccount] as GetPlayerAccountExecutor;
+                return ScenarioContext.Current.Get<GetPlayerAccountExecutor>();
             }
         }
 
@@ -71,8 +66,7 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_CancelPlayerAccount] as CancelPlayerAccountExecutor;
+                return ScenarioContext.Current.Get<CancelPlayerAccountExecutor>();
             }
         }
 
@@ -80,8 +74,15 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_ListPlayerAccount] as ListPlayerAccountExecutor;
+                return ScenarioContext.Current.Get<ListPlayerAccountExecutor>();
+            }
+        }
+
+        protected EditPlayerAccountExecutor EditPlayerAccount
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<EditPlayerAccountExecutor>();
             }
         }
     }

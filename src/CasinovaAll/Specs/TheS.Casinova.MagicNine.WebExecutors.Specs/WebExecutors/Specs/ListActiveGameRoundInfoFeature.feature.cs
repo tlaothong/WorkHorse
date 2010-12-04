@@ -53,13 +53,13 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบมีข้อมูลโต๊ะเกมที่เปิดใช้งานอยู่ 4 โต๊ะ, ระบบดึงข้อมูลโต๊ะเกมทั้งหมดที่เปิดใช" +
-            "้งาน")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ListActiveGameRound]ระบบมีข้อมูลโต๊ะเกมที่เปิดใช้งานอยู่ 4 โต๊ะ, ระบบดึงข้อมูลโต" +
+            "๊ะเกมทั้งหมดที่เปิดใช้งาน")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListActiveGameRoundInfo")]
-        public virtual void ระบบมขอมลโตะเกมทเปดใชงานอย4โตะระบบดงขอมลโตะเกมทงหมดทเปดใชงาน()
+        public virtual void ListActiveGameRoundระบบมขอมลโตะเกมทเปดใชงานอย4โตะระบบดงขอมลโตะเกมทงหมดทเปดใชงาน()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบมีข้อมูลโต๊ะเกมที่เปิดใช้งานอยู่ 4 โต๊ะ, ระบบดึงข้อมูลโต๊ะเกมทั้งหมดที่เปิดใช" +
-                    "้งาน", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ListActiveGameRound]ระบบมีข้อมูลโต๊ะเกมที่เปิดใช้งานอยู่ 4 โต๊ะ, ระบบดึงข้อมูลโต" +
+                    "๊ะเกมทั้งหมดที่เปิดใช้งาน", new string[] {
                         "record_mock"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
@@ -118,13 +118,13 @@ testRunner.Then("the result should be as:", ((string)(null)), table2);
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบมีข้อมูลโต๊ะเกมที่เปิดใช้งานอยู่ 2 โต๊ะ, ระบบดึงข้อมูลโต๊ะเกมทั้งหมดที่เปิดใช" +
-            "้งาน")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ListActiveGameRound]ระบบมีข้อมูลโต๊ะเกมที่เปิดใช้งานอยู่ 2 โต๊ะ, ระบบดึงข้อมูลโต" +
+            "๊ะเกมทั้งหมดที่เปิดใช้งาน")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListActiveGameRoundInfo")]
-        public virtual void ระบบมขอมลโตะเกมทเปดใชงานอย2โตะระบบดงขอมลโตะเกมทงหมดทเปดใชงาน()
+        public virtual void ListActiveGameRoundระบบมขอมลโตะเกมทเปดใชงานอย2โตะระบบดงขอมลโตะเกมทงหมดทเปดใชงาน()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบมีข้อมูลโต๊ะเกมที่เปิดใช้งานอยู่ 2 โต๊ะ, ระบบดึงข้อมูลโต๊ะเกมทั้งหมดที่เปิดใช" +
-                    "้งาน", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ListActiveGameRound]ระบบมีข้อมูลโต๊ะเกมที่เปิดใช้งานอยู่ 2 โต๊ะ, ระบบดึงข้อมูลโต" +
+                    "๊ะเกมทั้งหมดที่เปิดใช้งาน", new string[] {
                         "record_mock"});
 #line 26
 this.ScenarioSetup(scenarioInfo);
@@ -175,11 +175,11 @@ testRunner.Then("the result should be as:", ((string)(null)), table4);
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบไม่มีข้อมูลโต๊ะเกมที่เปิดใช้งานอยู่")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ListActiveGameRound]ระบบไม่มีข้อมูลโต๊ะเกมที่เปิดใช้งานอยู่")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListActiveGameRoundInfo")]
-        public virtual void ระบบไมมขอมลโตะเกมทเปดใชงานอย()
+        public virtual void ListActiveGameRoundระบบไมมขอมลโตะเกมทเปดใชงานอย()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบไม่มีข้อมูลโต๊ะเกมที่เปิดใช้งานอยู่", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ListActiveGameRound]ระบบไม่มีข้อมูลโต๊ะเกมที่เปิดใช้งานอยู่", new string[] {
                         "record_mock"});
 #line 42
 this.ScenarioSetup(scenarioInfo);

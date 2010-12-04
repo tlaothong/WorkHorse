@@ -12,25 +12,24 @@ namespace TheS.Casinova.PlayerAccount.BackServices.Validators
     public class PlayerAccountInfo_CreatePlayerAccountValidators
         : ValidatorBase<PlayerAccountInformation, CreatePlayerAccountCommand>
     {
-        IGetPlayerAccountInfoByAccountType _iGetPlayerAccountInfoByAccountType;
+        IGetPlayerAccountInfo _iGetPlayerAccountInfo;
 
         public PlayerAccountInfo_CreatePlayerAccountValidators(IPlayerAccountDataBackQuery dqr)
         {
-            _iGetPlayerAccountInfoByAccountType = dqr;
+            _iGetPlayerAccountInfo = dqr;
         }
 
         public override void Validate(PlayerAccountInformation entity, CreatePlayerAccountCommand command, ValidationErrorCollection errors)
         {
-            GetPlayerAccountInfoByAccountTypeCommand getPlayerAccountInfoCmd = new GetPlayerAccountInfoByAccountTypeCommand {
-                PlayerAccountInfoInput = new PlayerAccountInformation {
+            GetPlayerAccountCommand getPlayerAccountInfoCmd = new GetPlayerAccountCommand {
+                PlayerAccountInfo = new PlayerAccountInformation {
                     UserName = entity.UserName,
-                    AccountType = "Primary",
                 }
             };
 
-            getPlayerAccountInfoCmd.PlayerAccountInfo = _iGetPlayerAccountInfoByAccountType.Get(getPlayerAccountInfoCmd);
+            getPlayerAccountInfoCmd.PlayerAccountInfo = _iGetPlayerAccountInfo.Get(getPlayerAccountInfoCmd);
 
-            if (getPlayerAccountInfoCmd.PlayerAccountInfo != null) {
+            if (getPlayerAccountInfoCmd.PlayerAccountInformation != null) {
                 errors.Add(new ValidationError {
                     Instance = entity,
                     ErrorMessage = "บัญชีของผู้เล่นนี้เคยถูกสร้างแล้ว",

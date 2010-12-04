@@ -8,28 +8,20 @@ using TheS.Casinova.ColorsGame;
 using TheS.Casinova.PlayerProfile.BackServices;
 using TheS.Casinova.PlayerProfile.DAL;
 using TheS.Casinova.PlayerProfile.Commands;
+using PerfEx.Infrastructure;
+using TheS.Casinova.PlayerProfile.Models;
+using PerfEx.Infrastructure.Validation;
+using PerfEx.Infrastructure.Containers.StructureMapAdapter;
+using SpecFlowAssist;
+using TheS.Casinova.PlayerProfile.Command;
+using TheS.Casinova.PlayerProfile.Validators;
+using TheS.Casinova.PlayerProfile.Validator;
 
 namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
 {
     [Binding]
     public class CommonSteps
     {
-        public const string Key_RegisterUser = "RegisterUser";
-        public const string Key_Dac_RegisterUser = "mockDac_RegisterUser";
-        public const string Key_Dqr_CheckUserName = "mockDqr_CheckUserName";
-        public const string Key_Dqr_CheckEmail = "mockDqr_CheckEmail";
-        public const string Key_Dqr_CheckUpline = "mockDqr_CheckUpline";
-        public const string Key_ListActionLog = "ListActionLog";
-        public const string Key_Dqr_ListActionLog = "mockDqr_ListActionLog";
-        public const string Key_GetUserProfile = "GetUserProfile";
-        public const string Key_Dqr_GetUserProfile = "mockDqr_GetUserProfile";
-        public const string Key_ChangePassword = "ChangePassword";
-        public const string Key_Dac_ChangePassword = "mockDac_ChangePassword";
-        public const string Key_Dqr_GetPlayerPassword = "mockDqr_GetPlayerPassword";
-        public const string Key_ChangeEmail = "ChangeEmail";
-        public const string Key_Dac_ChangeEmail = "mockDac_ChangeEmail";
-        public const string Key_Dqr_GetPlayerEmail = "mockDqr_GetPlayerEmail";
-
 
         MockRepository Mocks { get { return SpecEventDefinitions.Mocks; } }
 
@@ -38,13 +30,12 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
         public void GivenTheRegisterUserExecutorHasBeenCreatedAndInitialized()
         {
             var dac = Mocks.DynamicMock<IPlayerProfileBackService>();
-            var dqr = Mocks.DynamicMock<IPlayerProfileDataQuery>();
 
-            ScenarioContext.Current[Key_Dac_RegisterUser] = dac;
-            ScenarioContext.Current[Key_Dqr_CheckUserName] = dqr;
-            ScenarioContext.Current[Key_Dqr_CheckEmail] = dqr;
-            ScenarioContext.Current[Key_Dqr_CheckUpline] = dqr;
-            ScenarioContext.Current[Key_RegisterUser] = new RegisterUserCommand();
+            IDependencyContainer container;
+            setupValidators(out container);
+            ScenarioContext.Current.Set<IRegisterUser>(dac);
+            ScenarioContext.Current.Set<RegisterUserExecutor>(
+                new RegisterUserExecutor(dac, container));
         }
 
         //List action log  specs initialized
@@ -53,8 +44,11 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
         {
             var dqr = Mocks.DynamicMock<IPlayerProfileDataQuery>();
 
-            ScenarioContext.Current[Key_Dqr_ListActionLog] = dqr;
-            ScenarioContext.Current[Key_ListActionLog] = new ListActionLogCommand();
+            IDependencyContainer container;
+            setupValidators(out container);
+            ScenarioContext.Current.Set<IListActionLog>(dqr);
+            ScenarioContext.Current.Set<ListActionLogExecutor>(
+                new ListActionLogExecutor(dqr, container));
         }
 
         //Get user profile specs initialized
@@ -63,34 +57,75 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
         {
             var dqr = Mocks.DynamicMock<IPlayerProfileDataQuery>();
 
-            ScenarioContext.Current[Key_Dqr_GetUserProfile] = dqr;
-            ScenarioContext.Current[Key_GetUserProfile] = new GetUserProfileCommand();
+            IDependencyContainer container;
+            setupValidators(out container);
+            ScenarioContext.Current.Set<IGetUserProfile>(dqr);
+            ScenarioContext.Current.Set<GetUserProfileExecutor>(
+                new GetUserProfileExecutor(dqr, container));
         }
 
         //Change password specs initialized
-        [Given(@"The ChangePasswordExecutor has been created and initializedr")]
-        public void GivenTheChangePasswordExecutorHasBeenCreatedAndInitializedr()
+        [Given(@"The ChangePasswordExecutor has been created and initialized")]
+        public void GivenTheChangePasswordExecutorHasBeenCreatedAndInitialized()
         {
             var dac = Mocks.DynamicMock<IPlayerProfileBackService>();
-            var dqr = Mocks.DynamicMock<IPlayerProfileDataQuery>();
 
-            ScenarioContext.Current[Key_Dac_ChangePassword] = dac;
-            ScenarioContext.Current[Key_Dqr_GetPlayerPassword] = dqr;
-            ScenarioContext.Current[Key_ChangePassword] = new ChangePasswordCommand();
+            IDependencyContainer container;
+            setupValidators(out container);
+            ScenarioContext.Current.Set<IChangePassword>(dac);
+            ScenarioContext.Current.Set<ChangePasswordExecutor>(
+                new ChangePasswordExecutor(dac, container));
         }
 
         //Change email specs initialized
-        [Given(@"The ChangeEmailExecutor has been created and initializedr")]
+        [Given(@"The ChangeEmailExecutor has been created and initialized")]
         public void GivenTheChangeEmailExecutorHasBeenCreatedAndInitializedr()
         {
             var dac = Mocks.DynamicMock<IPlayerProfileBackService>();
-            var dqr = Mocks.DynamicMock<IPlayerProfileDataQuery>();
 
-            ScenarioContext.Current[Key_Dac_ChangeEmail] = dac;
-            ScenarioContext.Current[Key_Dqr_CheckEmail] = dqr;
-            ScenarioContext.Current[Key_Dqr_GetPlayerEmail] = dqr;
-            ScenarioContext.Current[Key_ChangePassword] = new ChangeEmailCommand();
+            IDependencyContainer container;
+            setupValidators(out container);
+
+            ScenarioContext.Current.Set<IChangeEmail>(dac);
+            ScenarioContext.Current.Set<ChangeEmailExecutor>(
+                new ChangeEmailExecutor(dac, container));
         }
-    
+
+        private static void setupValidators(out IDependencyContainer container)
+        {
+            var fac = new StructureMapAbstractFactory();
+            var reg = fac.CreateRegistry();
+
+            reg.Register<IValidator<ActionLog, ListActionLogCommand>
+               , DataAnnotationValidator<ActionLog, ListActionLogCommand>>();
+
+            reg.Register<IValidator<UserProfile, GetUserProfileCommand>
+              , DataAnnotationValidator<UserProfile, GetUserProfileCommand>>();
+
+            reg.Register<IValidator<UserProfile, RegisterUserCommand>
+              , DataAnnotationValidator<UserProfile, RegisterUserCommand>>();
+
+            reg.Register<IValidator<UserProfile, RegisterUserCommand>
+              , UserProfile_RegisterUserValidators>();
+
+            reg.Register<IValidator<UserProfile, ChangeEmailCommand>
+              , DataAnnotationValidator<UserProfile, ChangeEmailCommand>>();
+
+            reg.Register<IValidator<UserProfile, ChangeEmailCommand>
+              , UserProfile_ChangeEmailValidators>();
+
+            reg.Register<IValidator<UserProfile, GetPlayerEmailCommand>
+              , DataAnnotationValidator<UserProfile, GetPlayerEmailCommand>>();
+
+            reg.Register<IValidator<UserProfile, ChangePasswordCommand>
+              , DataAnnotationValidator<UserProfile, ChangePasswordCommand>>();
+  
+            reg.Register<IValidator<UserProfile, ChangePasswordCommand>
+              , UserProfile_ChangePasswordValidators>();
+
+            container = fac.CreateContainer(reg);
+        }
+
+
     }
 }

@@ -12,16 +12,15 @@ Given Server has user profile information as:
 |Nit		|1311		|nayit_nit@hotmail.com	|0892131356  |	      |1000		 |589		   |True  |
 
 @record_mock
-Scenario: ระบบได้รับข้อมูล username ถูกต้อง ระบบสามารถดึงข้อมูล user profile ของผู้เล่นได้
+Scenario: [GetUserProfile]ระบบได้รับข้อมูล username ถูกต้อง ระบบสามารถดึงข้อมูล user profile ของผู้เล่นได้
 	Given The GetUserProfileExecutor has been created and initialized
-	And   Sent UserName: 'OhAe'
-	When  Call GetUserProfileExecutor
-	Then User Profile information should be UserName 'OhAe' Password '1234' Email 'sirinarin@hotmail.com' CellPhone '0892165437' Upline 'Nit'Refundable '500' NonRefundable '200' Active 'True'
-	
+	And   Sent UserName: 'OhAe' for get user profile
+	When  Call GetUserProfileExecutor()
+	Then  User Profile information should be UserName 'OhAe' Password '1234' Email 'sirinarin@hotmail.com' CellPhone '0892165437' Upline 'Nit' Refundable '500' NonRefundable '200' Active 'True'
 
 @record_mock
-Scenario: ระบบได้รับข้อมูล username ไม่ถูกต้อง ระบบไม่สามารถดึงข้อมูล user profile ของผู้เล่นได้
+Scenario: [GetUserProfile]ระบบได้รับข้อมูล username ไม่ถูกต้อง ระบบไม่สามารถดึงข้อมูล user profile ของผู้เล่นได้
 	Given The GetUserProfileExecutor has been created and initialized
-	And   Sent UserName: ''
-	When  Call GetUserProfileExecutor
-	Then User Profile information should be null
+	And   Sent UserName: '' for get user profile validation
+	When  Call GetUserProfileExecutor() for validate input
+	Then  User Profile information should be throw exception

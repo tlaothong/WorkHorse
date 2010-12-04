@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace TheS.Casinova.MagicNine.Models
-{
-    /// <summary>
+{ /// <summary>
     /// ข้อมูลการลงเดิมพันแบบอัตโนมัติ
     /// </summary>
     public partial class GamePlayAutoBetInformation
@@ -26,17 +25,17 @@ namespace TheS.Casinova.MagicNine.Models
         public double Amount { get; set; }
 
         /// <summary>
-        /// ชิฟตายที่ใช้ลงพนัน
+        /// จำนวนชิพตาย
         /// </summary>
         public double BonusChips { get; set; }
 
         /// <summary>
-        /// ชิฟเป็นที่ใช้ลงพนัน
+        /// จำนวนชิพเป็น
         /// </summary>
         public double Chips { get; set; }
 
         /// <summary>
-        /// ระยะห่างของเวลาในการลงเดิมพันแต่ละครั้ง
+        /// ระยะห่างของเวลาในการลงเดิมพันแต่ละครั้ง เป็นวินาที
         /// </summary>
         public int Interval { get; set; }
 
@@ -51,14 +50,14 @@ namespace TheS.Casinova.MagicNine.Models
         public Guid AutoBetTrackingID { get; set; }
 
         /// <summary>
+        /// รหัสตรวจสอบการหยุดการลงเดิมพัน
+        /// </summary>
+        public Guid StopTrackingID { get; set; }
+
+        /// <summary>
         /// รหัสที่ใช้ตรวจสอบการการลงเดิมพัน
         /// </summary>
         public Guid BetTrackingID { get; set; }
-
-        /// <summary>
-        /// tracking id เมื่อหยุด autobet
-        /// </summary>
-        public Guid StopTrackingID { get; set; }
 
         /// <summary>
         /// เวลาเริ่มการลงเดิมพันแบบอัตโนมัติ

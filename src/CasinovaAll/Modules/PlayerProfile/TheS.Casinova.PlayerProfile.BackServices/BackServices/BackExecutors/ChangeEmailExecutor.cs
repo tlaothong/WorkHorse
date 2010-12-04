@@ -36,7 +36,7 @@ namespace TheS.Casinova.PlayerProfile.BackServices.BackExecutors
 
             UserProfile userProfile = new UserProfile {
                 UserName = command.UserProfile.UserName,
-                Email = command.NewEmail,
+                Email = command.UserProfile.NewEmail,
             };
 
             //บันทึกอีเมลล์ใหม่ให้ผู้เล่น

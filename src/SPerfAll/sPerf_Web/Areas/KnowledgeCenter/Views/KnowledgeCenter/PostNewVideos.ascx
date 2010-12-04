@@ -15,9 +15,6 @@
                 }
             }
         });
-        $(function () {
-            $("#tabs").tabs();
-        });
         $("#Popup").click(function () {
             $("#New_Video").dialog("open");
         });

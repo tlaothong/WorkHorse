@@ -64,13 +64,8 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         [When(@"Call ListBetLogExecutor\(\)")]
         public void WhenCallListBetLogExecutor()
         {
-            try {
-                ListBetLog.Execute(_cmd, (x) => { });
-            }
-            catch (Exception ex) {
-                Assert.IsInstanceOfType(ex,
-                    typeof(ValidationErrorException));
-            }
+             ListBetLog.Execute(_cmd, (x) => { });
+
         }
 
         //Validation

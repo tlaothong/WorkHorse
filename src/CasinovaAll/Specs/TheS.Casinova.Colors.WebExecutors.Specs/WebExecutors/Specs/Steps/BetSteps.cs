@@ -53,13 +53,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         [When(@"Call BetColorsExecutor\(\)")]
         public void WhenCallBetColorsExecutor()
         {
-            try {
-                BetColorsGame.Execute(_cmd, (x) => { });
-            }
-            catch (Exception ex) {
-                Assert.IsInstanceOfType(ex,
-                    typeof(ValidationErrorException));
-            }
+              BetColorsGame.Execute(_cmd, (x) => { });
         }
 
         [Then(@"Get null and skip checking trackingID")]

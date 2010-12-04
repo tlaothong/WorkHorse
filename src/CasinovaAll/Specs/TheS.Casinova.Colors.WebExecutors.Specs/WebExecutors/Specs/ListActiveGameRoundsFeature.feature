@@ -4,7 +4,7 @@
 	I want to list active game rounds at now
 
 @record_mock
-Scenario: ลิสต์ข้อมูลโต๊ะเกมที่กำลัง active ณ เวลาปัจจุบันที่ผู้เล่นเข้าห้องเกม
+Scenario:[ListActiveGameRound]ลิสต์ข้อมูลโต๊ะเกมที่กำลัง active ณ เวลาปัจจุบันที่ผู้เล่นเข้าห้องเกม
 	Given The ListActiveGameRoundsExecutor has been created and initialized
 	And The active game rounds are :
 		|RoundID|StartTime|EndTime|
@@ -21,7 +21,7 @@ Scenario: ลิสต์ข้อมูลโต๊ะเกมที่กำ�
 		|6		|14:00	  |19:00  |
 	
 @record_mock
-Scenario: ลิสต์ข้อมูลโต๊ะเกมที่กำลัง active แต่ใน database ยังไม่มีข้อมูล
+Scenario:[ListActiveGameRound]ลิสต์ข้อมูลโต๊ะเกมที่กำลัง active แต่ใน database ยังไม่มีข้อมูล
 	Given The ListActiveGameRoundsExecutor has been created and initialized
 	And  The active game rounds are :
 		 |RoundId|StartTime|EndTime|

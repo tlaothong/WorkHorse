@@ -17,6 +17,14 @@ namespace TheS.Casinova.ChipExchange.Commands
         /// </summary>
         public string Name{ get; set; }
 
+        //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+        /// <summary>
+        /// การตั้งค่าที่ต้องการดึงข้อมูล
+        /// 1.Name ชื่อการตั้งค่า
+        /// </summary>
+        public ExchangeSettingInformation ExchangeSettingInput { get; set; }
+        //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
         //output
         /// <summary>
         /// ข้อมูลการตั้งค่า

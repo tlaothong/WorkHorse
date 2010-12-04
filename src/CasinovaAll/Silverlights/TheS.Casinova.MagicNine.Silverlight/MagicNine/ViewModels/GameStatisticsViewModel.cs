@@ -19,7 +19,7 @@ namespace TheS.Casinova.MagicNine.ViewModels
         #region Fields
         
         private PerfEx.Infrastructure.PropertyChangedNotifier _notify;
-        //private ObservableCollection<WinnerInfo> _informations;
+        private ObservableCollection<WinnerInfo> _informations;
         private ObservableCollection<string> _games;
         private DateTime _singleDateTime;
         private DateTime _rangeDateTime;
@@ -30,15 +30,18 @@ namespace TheS.Casinova.MagicNine.ViewModels
 
         #region Properties
 
-        //public ObservableCollection<WinnerInfo> Informations
-        //{
-        //    get { return _informations; }
-        //    set
-        //    {
-        //        _informations = value;
-        //        _notify.Raise(() => Informations);
-        //    }
-        //}
+        /// <summary>
+        /// ข้อมูลผู้ชนะ
+        /// </summary>
+        public ObservableCollection<WinnerInfo> Informations
+        {
+            get { return _informations; }
+            set
+            {
+                _informations = value;
+                _notify.Raise(() => Informations);
+            }
+        }
 
         /// <summary>
         /// ช่วงเวลาของ Single
@@ -121,19 +124,28 @@ namespace TheS.Casinova.MagicNine.ViewModels
         #endregion Properties
 
         #region Constructors
-        
+
         public GameStatisticsViewModel()
         {
             _notify = new PerfEx.Infrastructure.PropertyChangedNotifier(this, () => PropertyChanged);
-            //_informations = new ObservableCollection<WinnerInfo>();
+            _informations = new ObservableCollection<WinnerInfo>();
             _games = new ObservableCollection<string>();
 
-            if (DesignerProperties.IsInDesignTool) {
-                //Informations.Add(new WinnerInfo {
-                //    Round = 1,
-                //    Time = new DateTime(2010, 11, 3, 11, 23, 52),
-                //    Winner = "Sakul"
-                //});
+            if (DesignerProperties.IsInDesignTool)
+            {
+
+                Informations.Add(new WinnerInfo
+                {
+                    Round = 1,
+                    Time = new DateTime(2010, 11, 3, 11, 23, 52),
+                    Winner = "Sakul"
+                });
+                Informations.Add(new WinnerInfo
+                {
+                    Round = 2,
+                    Time = new DateTime(2010, 11, 3, 11, 23, 52),
+                    Winner = "Tester"
+                });
 
                 Games.Add("9");
                 Games.Add("99");

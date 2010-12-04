@@ -123,11 +123,11 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
             var fac = new StructureMapAbstractFactory();
             var reg = fac.CreateRegistry();
 
-            reg.Register<IValidator<GameRoundConfiguration, NullCommand>
-                , DataAnnotationValidator<GameRoundConfiguration, NullCommand>>();
+            reg.Register<IValidator<GameRoundConfiguration, CreateGameRoundConfigurationCommand>
+                , DataAnnotationValidator<GameRoundConfiguration, CreateGameRoundConfigurationCommand>>();
 
             reg.Register<IValidator<GameRoundConfiguration, CreateGameRoundConfigurationCommand>
-                , GameRoundConfiguration_CreateGameRoundConfigurationValidator>();
+                , GameRoundConfiguration_CreateGameRoundConfigurationValidators>();
 
             reg.Register<IValidator<GameRoundInformation, NullCommand>
                , DataAnnotationValidator<GameRoundInformation, NullCommand>>();
@@ -135,8 +135,14 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
             reg.Register<IValidator<GamePlayInformation, NullCommand>
               , DataAnnotationValidator<GamePlayInformation, NullCommand>>();
 
-            reg.Register<IValidator<PlayerActionInformation, NullCommand>
-             , DataAnnotationValidator<PlayerActionInformation, NullCommand>>();
+            reg.Register<IValidator<PlayerActionInformation, BetCommand>
+             , DataAnnotationValidator<PlayerActionInformation, BetCommand>>();
+
+            reg.Register<IValidator<PlayerActionInformation, PayForColorsWinnerInfoCommand>
+             , DataAnnotationValidator<PlayerActionInformation, PayForColorsWinnerInfoCommand>>();
+
+            reg.Register<IValidator<PlayerActionInformation, BetCommand>
+                , PlayerActionInformation_BetValidators>();
 
             container = fac.CreateContainer(reg);
         }

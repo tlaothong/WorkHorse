@@ -32,7 +32,7 @@ namespace TheS.Casinova.PlayerProfile.BackServices.BackExecutors
             }
 
             //บันทึกรหัสผ่านใหม่
-            command.UserProfile.Password = command.NewPassword;
+            command.UserProfile.Password = command.UserProfile.NewPassword;
             _iChangePassword.ApplyAction(command.UserProfile, command);
         }
     }

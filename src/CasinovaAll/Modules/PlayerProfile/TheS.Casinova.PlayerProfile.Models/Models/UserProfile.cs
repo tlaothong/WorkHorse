@@ -8,7 +8,7 @@ namespace TheS.Casinova.PlayerProfile.Models
     /// <summary>
     /// ข้อมูล profile ของผู้เล่น
     /// </summary>
-    public class UserProfile
+    public partial class UserProfile
     {
         /// <summary>
         /// ชื่อของผู้เล่น
@@ -21,14 +21,24 @@ namespace TheS.Casinova.PlayerProfile.Models
         public string Password { get; set; }
 
         /// <summary>
+        /// รหัสผ่านใหม่
+        /// </summary>
+        public string NewPassword { get; set; }
+
+        /// <summary>
         /// อีเมลล์
         /// </summary>
         public string Email { get; set; }
 
         /// <summary>
+        /// อีเมลล์ใหม่
+        /// </summary>
+        public string NewEmail { get; set; }
+
+        /// <summary>
         /// เบอร์โทรศัพท์
         /// </summary>
-        public int CellPhone { get; set; }
+        public string CellPhone { get; set; }
 
         /// <summary>
         /// username ของคนแนะนำเกม
@@ -53,7 +63,7 @@ namespace TheS.Casinova.PlayerProfile.Models
         /// <summary>
         /// รหัสยืนยันการสมัคร
         /// </summary>
-        public string VeriflyCode { get; set; }
+        public string VerifyCode { get; set; }
 
         /// <summary>
         /// รหัสตรวจสอบการทำงาน

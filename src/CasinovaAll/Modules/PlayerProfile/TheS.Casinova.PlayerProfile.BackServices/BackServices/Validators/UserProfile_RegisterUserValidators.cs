@@ -21,8 +21,11 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Validators
 
         public override void Validate(UserProfile entity, RegisterUserCommand command, ValidationErrorCollection errors)
         {
-            GetUserProfileCommand getUserProfileCmd = new GetUserProfileCommand { 
-                UserName = entity.Upline 
+            GetUserProfileCommand getUserProfileCmd = new GetUserProfileCommand {
+                GetUserProfileInfo = new UserProfile {
+                    UserName = entity.Upline
+                }
+
             };
             var upline = _iGetUserProfile.Get(getUserProfileCmd);
 

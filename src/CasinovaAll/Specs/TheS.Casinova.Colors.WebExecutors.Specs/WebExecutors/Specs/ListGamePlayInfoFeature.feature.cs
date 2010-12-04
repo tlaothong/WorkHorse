@@ -99,13 +99,13 @@ testRunner.Given("Server has game play information as:", ((string)(null)), table
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล username ถูกต้อง และมีข้อมูลการเล่นเกมของผู้เล่น ระบบลิสต์ข้อมูล" +
-            "โต๊ะเกมที่ผู้เล่นเคยเล่นไว้ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ListGamePlayInfo]ระบบได้รับข้อมูล username ถูกต้อง และมีข้อมูลการเล่นเกมของผู้เล" +
+            "่น ระบบลิสต์ข้อมูลโต๊ะเกมที่ผู้เล่นเคยเล่นไว้ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListGamePlayInfo")]
-        public virtual void ระบบไดรบขอมลUsernameถกตองและมขอมลการเลนเกมของผเลนระบบลสตขอมลโตะเกมทผเลนเคยเลนไวได()
+        public virtual void ListGamePlayInfoระบบไดรบขอมลUsernameถกตองและมขอมลการเลนเกมของผเลนระบบลสตขอมลโตะเกมทผเลนเคยเลนไวได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล username ถูกต้อง และมีข้อมูลการเล่นเกมของผู้เล่น ระบบลิสต์ข้อมูล" +
-                    "โต๊ะเกมที่ผู้เล่นเคยเล่นไว้ได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ListGamePlayInfo]ระบบได้รับข้อมูล username ถูกต้อง และมีข้อมูลการเล่นเกมของผู้เล" +
+                    "่น ระบบลิสต์ข้อมูลโต๊ะเกมที่ผู้เล่นเคยเล่นไว้ได้", new string[] {
                         "record_mock"});
 #line 15
 this.ScenarioSetup(scenarioInfo);
@@ -150,13 +150,13 @@ testRunner.Then("The game play information should be :", ((string)(null)), table
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล username ถูกต้อง ระบบลิสต์ข้อมูลโต๊ะเกมแต่ไม่มีข้อมูล เนื่องจากผ" +
-            "ู้เล่นยังไม่เคยเล่นเกมที่โต๊ะใด ๆ")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ListGamePlayInfo]ระบบได้รับข้อมูล username ถูกต้อง ระบบลิสต์ข้อมูลโต๊ะเกมแต่ไม่ม" +
+            "ีข้อมูล เนื่องจากผู้เล่นยังไม่เคยเล่นเกมที่โต๊ะใด ๆ")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListGamePlayInfo")]
-        public virtual void ระบบไดรบขอมลUsernameถกตองระบบลสตขอมลโตะเกมแตไมมขอมลเนองจากผเลนยงไมเคยเลนเกมทโตะใดๆ()
+        public virtual void ListGamePlayInfoระบบไดรบขอมลUsernameถกตองระบบลสตขอมลโตะเกมแตไมมขอมลเนองจากผเลนยงไมเคยเลนเกมทโตะใดๆ()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล username ถูกต้อง ระบบลิสต์ข้อมูลโต๊ะเกมแต่ไม่มีข้อมูล เนื่องจากผ" +
-                    "ู้เล่นยังไม่เคยเล่นเกมที่โต๊ะใด ๆ", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ListGamePlayInfo]ระบบได้รับข้อมูล username ถูกต้อง ระบบลิสต์ข้อมูลโต๊ะเกมแต่ไม่ม" +
+                    "ีข้อมูล เนื่องจากผู้เล่นยังไม่เคยเล่นเกมที่โต๊ะใด ๆ", new string[] {
                         "record_mock"});
 #line 25
 this.ScenarioSetup(scenarioInfo);
@@ -183,21 +183,21 @@ testRunner.Then("The game play information should be :", ((string)(null)), table
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบไม่ได้รับข้อมูล username ระบบลิสต์ข้อมูลโต๊ะเกมไม่ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ListGamePlayInfo]ระบบไม่ได้รับข้อมูล username ระบบลิสต์ข้อมูลโต๊ะเกมไม่ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListGamePlayInfo")]
-        public virtual void ระบบไมไดรบขอมลUsernameระบบลสตขอมลโตะเกมไมได()
+        public virtual void ListGamePlayInfoระบบไมไดรบขอมลUsernameระบบลสตขอมลโตะเกมไมได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบไม่ได้รับข้อมูล username ระบบลิสต์ข้อมูลโต๊ะเกมไม่ได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ListGamePlayInfo]ระบบไม่ได้รับข้อมูล username ระบบลิสต์ข้อมูลโต๊ะเกมไม่ได้", new string[] {
                         "record_mockInfo"});
-#line 32
-this.ScenarioSetup(scenarioInfo);
 #line 33
-testRunner.Given("The ListGamePlayInfoExecutor has been created and initialized");
+this.ScenarioSetup(scenarioInfo);
 #line 34
-testRunner.And("Sent userName\'\' for list game play information");
+testRunner.Given("The ListGamePlayInfoExecutor has been created and initialized");
 #line 35
-testRunner.When("Call ListGamePlayInfoExecutor() for validate username");
+testRunner.And("Sent userName\'\' for list game play information");
 #line 36
+testRunner.When("Call ListGamePlayInfoExecutor() for validate username");
+#line 37
 testRunner.Then("The game play information should be throw exception");
 #line hidden
             testRunner.CollectScenarioErrors();

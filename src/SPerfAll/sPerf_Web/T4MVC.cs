@@ -825,11 +825,15 @@ namespace Links {
             public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
             public static readonly string _1_png = Url("1.png");
             public static readonly string _2_png = Url("2.png");
+            public static readonly string _4_png = Url("4.png");
+            public static readonly string _5_png = Url("5.png");
             public static readonly string avartar_png = Url("avartar.png");
+            public static readonly string avartar_index_png = Url("avartar_index.png");
             public static readonly string banner1_jpg = Url("banner1.jpg");
             public static readonly string banner2_jpg = Url("banner2.jpg");
             public static readonly string banner3_jpg = Url("banner3.jpg");
             public static readonly string c1_gif = Url("c1.gif");
+            public static readonly string calendar_gif = Url("calendar.gif");
             public static readonly string Checked_gif = Url("Checked.gif");
             public static readonly string club1_jpg = Url("club1.jpg");
             public static readonly string club10_jpg = Url("club10.jpg");
@@ -903,15 +907,20 @@ namespace Links {
             public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
             public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
             public static readonly string _1_jpg = Url("1.jpg");
+            public static readonly string _1_png = Url("1.png");
             public static readonly string _10_jpg = Url("10.jpg");
             public static readonly string _11_jpg = Url("11.jpg");
             public static readonly string _12_jpg = Url("12.jpg");
             public static readonly string _13_jpg = Url("13.jpg");
             public static readonly string _14_jpg = Url("14.jpg");
             public static readonly string _2_jpg = Url("2.jpg");
+            public static readonly string _2_png = Url("2.png");
             public static readonly string _3_jpg = Url("3.jpg");
+            public static readonly string _3_png = Url("3.png");
             public static readonly string _4_jpg = Url("4.jpg");
+            public static readonly string _4_png = Url("4.png");
             public static readonly string _5_jpg = Url("5.jpg");
+            public static readonly string _5_png = Url("5.png");
             public static readonly string _6_jpg = Url("6.jpg");
             public static readonly string _7_jpg = Url("7.jpg");
             public static readonly string _8_jpg = Url("8.jpg");

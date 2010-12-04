@@ -39,13 +39,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         [When(@"Call StartAutoBetExecutor\(\)")]
         public void WhenCallStartAutoBetExecutor()
         {
-            try {
-                StartAutoBet.Execute(_cmd, (x) => { });
-            }
-            catch (Exception ex) {
-                Assert.IsInstanceOfType(ex,
-                    typeof(ValidationErrorException));
-            }
+            StartAutoBet.Execute(_cmd, (x) => { });     
         }
 
         //Validation
@@ -65,7 +59,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         [Then(@"TrackingID for start auto bet should be :'(.*)'")]
         public void ThenTrackingIDForStartAutoBetShouldBeX(string trackingID)
         {
-            Assert.AreEqual(trackingID, _trackingID, "Get trackingID accept");
+            Assert.AreEqual(trackingID,_trackingID, "Get trackingID accept");
         }
 
         [Then(@"Get null and skip checking trackingID for start auto bet")]

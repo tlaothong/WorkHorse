@@ -16,7 +16,7 @@ namespace TheS.Casinova.MagicNine.Commands
         /// ข้อมูลการลง้เดิมพัน
         /// 1. RoundID รหัสโต๊ะเกมที่ลงพนัน,
         /// 2. UserName ชื่อผู้เล่นที่ลงพนัน
-        /// 3. BetTrackingID รหัสตรวจสอบการลงพนัน
+        /// 3. BetTrackingID รหัสตรวจสอบการลงพนัน(Ws ใส่)
         /// </summary>
         public BetInformation BetInfo { get; set; }
 

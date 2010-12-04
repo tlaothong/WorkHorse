@@ -46,6 +46,8 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
             ScenarioContext.Current[Key_Dac_RegisterUser] = dac;
             ScenarioContext.Current[Key_Dqr_GetUserProfile] = dqr;
 
+            ScenarioContext.Current.Set<IPlayerProfileDataBackQuery>(dqr);
+            
             setupValidators(out container);
             ScenarioContext.Current[Key_RegisterUser] = new RegisterUserExecutor(container, svc, dac);
         }
@@ -60,6 +62,8 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
             ScenarioContext.Current[Key_Dac_VeriflyUser] = dac;
             ScenarioContext.Current[Key_Dqr_GetUserProfile] = dqr;
 
+            ScenarioContext.Current.Set<IPlayerProfileDataBackQuery>(dqr);
+            
             setupValidators(out container);
             ScenarioContext.Current[Key_VeriflyUser] = new VerifyUserExecutor(container, dac);
         }
@@ -73,6 +77,8 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
 
             ScenarioContext.Current[Key_Dac_ChangePassword] = dac;
             ScenarioContext.Current[Key_Dqr_GetUserProfile] = dqr;
+
+            ScenarioContext.Current.Set<IPlayerProfileDataBackQuery>(dqr);
 
             setupValidators(out container);
             ScenarioContext.Current[Key_ChangePassword] = new ChangePasswordExecutor(container, dac);
@@ -88,6 +94,8 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
             ScenarioContext.Current[Key_Dac_ChangeEmail] = dac;
             ScenarioContext.Current[Key_Dqr_GetUserProfile] = dqr;
             ScenarioContext.Current[Key_Dqr_GetUserProfileByEmail] = dqr;
+
+            ScenarioContext.Current.Set<IPlayerProfileDataBackQuery>(dqr);
 
             setupValidators(out container);
             ScenarioContext.Current[Key_ChangeEmail] = new ChangeEmailExecutor(container, dac, dqr);
@@ -108,7 +116,7 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
                 , UserProfile_ChangePasswordValidators>();
 
             reg.RegisterInstance<IPlayerProfileDataBackQuery>
-                (ScenarioContext.Current.Get<IPlayerProfileDataBackQuery>(Key_Dqr_GetUserProfile));
+                (ScenarioContext.Current.Get<IPlayerProfileDataBackQuery>());
             reg.Register<IServiceObjectProvider<IPlayerProfileDataBackQuery>,
                 DependencyInjectionServiceObjectProviderAdapter<IPlayerProfileDataBackQuery, IPlayerProfileDataBackQuery>>();
 

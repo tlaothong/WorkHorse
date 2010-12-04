@@ -15,14 +15,15 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
     public class ListGamePlayAutoBetInfoSteps : MagicNineGameStepsBase
     {
         private ListGamePlayAutoBetInfoCommand _cmd;
-        private IEnumerable<GamePlayAutoBetInformation> _gamePlayAutoBet;
+        private IEnumerable<GamePlayAutoBetInformation>  _gamePlayAutoBet;
         private IEnumerable<GamePlayAutoBetInformation> _listGamePlayAutoBet;
+
 
         [Given(@"Server has game play auto bet information as:")]
         public void GivenServerHasGamePlayAutoBetInformationAs(Table table)
         {
             _gamePlayAutoBet = from item in table.Rows
-                               select new GamePlayAutoBetInformation { 
+                               select new GamePlayAutoBetInformation {
                                    RoundID = Convert.ToInt32(item["RoundID"]),
                                    UserName = Convert.ToString(item["UserName"]),
                                    Amount = Convert.ToDouble(item["Amount"]),
@@ -36,15 +37,15 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         public void GivenSentUserNameGogo(string userName)
         {
             _listGamePlayAutoBet = (from item in _gamePlayAutoBet
-                           where item.UserName == userName 
-                           select item);
+                                    where item.UserName == userName
+                                    select item);
 
             SetupResult.For(Dqr_ListGamePlayAutoBetInfo.List(new ListGamePlayAutoBetInfoCommand()))
                .IgnoreArguments().Return(_listGamePlayAutoBet);
 
             _cmd = new ListGamePlayAutoBetInfoCommand {
                 GamePlayAutoBetInfo = new GamePlayAutoBetInformation {
-                    UserName = userName,
+                    UserName = userName
                 }
             };
         }
@@ -54,7 +55,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         {
             _cmd = new ListGamePlayAutoBetInfoCommand {
                 GamePlayAutoBetInfo = new GamePlayAutoBetInformation {
-                    UserName = userName,
+                    UserName = userName
                 }
             };
         }
@@ -63,13 +64,8 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         [When(@"Call ListGamePlayAutoBetInfoExecutor\(\)")]
         public void WhenCallListGamePlayAutoBetInfoExecutor()
         {
-            try {
-                ListGamePlayAutoBetInfo.Execute(_cmd, (x) => { });
-            }
-            catch (Exception ex) {
-                Assert.IsInstanceOfType(ex,
-                    typeof(ValidationErrorException));
-            }
+            ListGamePlayAutoBetInfo.Execute(_cmd, (x) => { });
+
         }
 
         //Validation
@@ -96,7 +92,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
                                Amount = Convert.ToDouble(item["Amount"]),
                                Interval = Convert.ToInt32(item["Interval"]),
                                BetTrackingID = Guid.Parse(item["BetTrackingID"]),
-                               ThruDateTime = DateTime.Parse(item["ThruDateTime"])
+                               ThruDateTime = (DateTime?)DateTime.Parse(item["ThruDateTime"])
                            };
 
             var actual = from item in _listGamePlayAutoBet

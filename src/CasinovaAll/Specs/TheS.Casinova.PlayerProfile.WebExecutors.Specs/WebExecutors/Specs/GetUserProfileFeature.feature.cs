@@ -99,11 +99,13 @@ testRunner.Given("Server has user profile information as:", ((string)(null)), ta
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล username ถูกต้อง ระบบสามารถดึงข้อมูล user profile ของผู้เล่นได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[GetUserProfile]ระบบได้รับข้อมูล username ถูกต้อง ระบบสามารถดึงข้อมูล user profil" +
+            "e ของผู้เล่นได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GetUserProfile")]
-        public virtual void ระบบไดรบขอมลUsernameถกตองระบบสามารถดงขอมลUserProfileของผเลนได()
+        public virtual void GetUserProfileระบบไดรบขอมลUsernameถกตองระบบสามารถดงขอมลUserProfileของผเลนได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล username ถูกต้อง ระบบสามารถดึงข้อมูล user profile ของผู้เล่นได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[GetUserProfile]ระบบได้รับข้อมูล username ถูกต้อง ระบบสามารถดึงข้อมูล user profil" +
+                    "e ของผู้เล่นได้", new string[] {
                         "record_mock",
                         "record_mock"});
 #line 15
@@ -111,36 +113,36 @@ this.ScenarioSetup(scenarioInfo);
 #line 16
 testRunner.Given("The GetUserProfileExecutor has been created and initialized");
 #line 17
-testRunner.And("Sent UserName: \'OhAe\'");
+testRunner.And("Sent UserName: \'OhAe\' for get user profile");
 #line 18
-testRunner.When("Call GetUserProfileExecutor");
+testRunner.When("Call GetUserProfileExecutor()");
 #line 19
 testRunner.Then("User Profile information should be UserName \'OhAe\' Password \'1234\' Email \'sirinar" +
-                    "in@hotmail.com\' CellPhone \'0892165437\' Upline \'Nit\'Refundable \'500\' NonRefundabl" +
-                    "e \'200\' Active \'True\'");
+                    "in@hotmail.com\' CellPhone \'0892165437\' Upline \'Nit\' Refundable \'500\' NonRefundab" +
+                    "le \'200\' Active \'True\'");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล username ไม่ถูกต้อง ระบบไม่สามารถดึงข้อมูล user profile ของผู้เล" +
-            "่นได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[GetUserProfile]ระบบได้รับข้อมูล username ไม่ถูกต้อง ระบบไม่สามารถดึงข้อมูล user " +
+            "profile ของผู้เล่นได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GetUserProfile")]
-        public virtual void ระบบไดรบขอมลUsernameไมถกตองระบบไมสามารถดงขอมลUserProfileของผเลนได()
+        public virtual void GetUserProfileระบบไดรบขอมลUsernameไมถกตองระบบไมสามารถดงขอมลUserProfileของผเลนได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล username ไม่ถูกต้อง ระบบไม่สามารถดึงข้อมูล user profile ของผู้เล" +
-                    "่นได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[GetUserProfile]ระบบได้รับข้อมูล username ไม่ถูกต้อง ระบบไม่สามารถดึงข้อมูล user " +
+                    "profile ของผู้เล่นได้", new string[] {
                         "record_mock"});
-#line 23
+#line 22
 this.ScenarioSetup(scenarioInfo);
-#line 24
+#line 23
 testRunner.Given("The GetUserProfileExecutor has been created and initialized");
+#line 24
+testRunner.And("Sent UserName: \'\' for get user profile validation");
 #line 25
-testRunner.And("Sent UserName: \'\'");
+testRunner.When("Call GetUserProfileExecutor() for validate input");
 #line 26
-testRunner.When("Call GetUserProfileExecutor");
-#line 27
-testRunner.Then("User Profile information should be null");
+testRunner.Then("User Profile information should be throw exception");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

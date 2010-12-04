@@ -52,79 +52,97 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs
             testRunner.OnScenarioEnd();
         }
         
-        public virtual void ระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลแลวสงขอมลไปยงBackserver(string userName, string accountType, string accountNo, string cVV, string expireDate)
+        public virtual void CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมทำการGenerateTrackingID(string userName, string cardType, string accountNo, string cVV, string expireDate)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล PlayerAccount ระบบทำการตรวจสอบข้อมูล แล้วส่งข้อมูลไปยัง backserv" +
-                    "er", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[CreatePlayerAccount]ระบบได้รับข้อมูล PlayerAccount ระบบทำการตรวจสอบข้อมูล มีการก" +
+                    "รอกข้อมูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID", new string[] {
                         "record_mock"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
 testRunner.Given("The CreatePlayerAccountExecutor has been created and initialized");
 #line 9
-testRunner.And(string.Format("Sent UserName \'{0}\' AccountType\'{1}\' AccountNo\'{2}\' CVV\'{3}\' ExpireDate{4}", userName, accountType, accountNo, cVV, expireDate));
+testRunner.And(string.Format("Sent player account information: UserName \'{0}\' CardType\'{1}\' AccountNo\'{2}\' CVV\'" +
+                        "{3}\' ExpireDate\'{4}\'", userName, cardType, accountNo, cVV, expireDate));
 #line 10
-testRunner.When("Call CreatePlayerAccountExecutor");
+testRunner.When("Call CreatePlayerAccountExecutor() for validate input");
 #line 11
-testRunner.Then("System can sent PlayerAccount to backserver");
-#line 12
-testRunner.Then("System can\'t sent PlayerAccount to backserver");
+testRunner.Then("Get null and skip checking trackingID");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล PlayerAccount ระบบทำการตรวจสอบข้อมูล แล้วส่งข้อมูลไปยัง backserv" +
-            "er")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[CreatePlayerAccount]ระบบได้รับข้อมูล PlayerAccount ระบบทำการตรวจสอบข้อมูล มีการก" +
+            "รอกข้อมูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CreatePlayerAccount")]
-        public virtual void ระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลแลวสงขอมลไปยงBackserver_Variant0()
+        public virtual void CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant0()
         {
-            this.ระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลแลวสงขอมลไปยงBackserver("Nit", "Visa", "0012214544543212", "3223", "12/31/2010");
+            this.CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมทำการGenerateTrackingID("", "Visa", "0012214544543212", "3223", "12/31/2011");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล PlayerAccount ระบบทำการตรวจสอบข้อมูล แล้วส่งข้อมูลไปยัง backserv" +
-            "er")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[CreatePlayerAccount]ระบบได้รับข้อมูล PlayerAccount ระบบทำการตรวจสอบข้อมูล มีการก" +
+            "รอกข้อมูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CreatePlayerAccount")]
-        public virtual void ระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลแลวสงขอมลไปยงBackserver_Variant1()
+        public virtual void CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant1()
         {
-            this.ระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลแลวสงขอมลไปยงBackserver("", "Visa", "0012214544543212", "3223", "12/31/2010");
+            this.CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมทำการGenerateTrackingID("Nit", "", "0012214544543212", "3223", "12/31/2011");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล PlayerAccount ระบบทำการตรวจสอบข้อมูล แล้วส่งข้อมูลไปยัง backserv" +
-            "er")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[CreatePlayerAccount]ระบบได้รับข้อมูล PlayerAccount ระบบทำการตรวจสอบข้อมูล มีการก" +
+            "รอกข้อมูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CreatePlayerAccount")]
-        public virtual void ระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลแลวสงขอมลไปยงBackserver_Variant2()
+        public virtual void CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant2()
         {
-            this.ระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลแลวสงขอมลไปยงBackserver("Nit", "", "0012214544543212", "3223", "12/31/2010");
+            this.CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมทำการGenerateTrackingID("Nit", "Visa", "001221454454", "3223", "12/31/2011");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล PlayerAccount ระบบทำการตรวจสอบข้อมูล แล้วส่งข้อมูลไปยัง backserv" +
-            "er")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[CreatePlayerAccount]ระบบได้รับข้อมูล PlayerAccount ระบบทำการตรวจสอบข้อมูล มีการก" +
+            "รอกข้อมูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CreatePlayerAccount")]
-        public virtual void ระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลแลวสงขอมลไปยงBackserver_Variant3()
+        public virtual void CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant3()
         {
-            this.ระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลแลวสงขอมลไปยงBackserver("Nit", "Visa", "001221454454", "3223", "12/31/2010");
+            this.CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมทำการGenerateTrackingID("Nit", "Visa", "00122145445455234", "3223", "12/31/2011");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล PlayerAccount ระบบทำการตรวจสอบข้อมูล แล้วส่งข้อมูลไปยัง backserv" +
-            "er")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[CreatePlayerAccount]ระบบได้รับข้อมูล PlayerAccount ระบบทำการตรวจสอบข้อมูล มีการก" +
+            "รอกข้อมูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CreatePlayerAccount")]
-        public virtual void ระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลแลวสงขอมลไปยงBackserver_Variant4()
+        public virtual void CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant4()
         {
-            this.ระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลแลวสงขอมลไปยงBackserver("Nit", "Visa", "0012214544543212", "3", "12/31/2010");
+            this.CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมทำการGenerateTrackingID("Nit", "Visa", "0012214544543212", "3", "12/31/2011");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล PlayerAccount ระบบทำการตรวจสอบข้อมูล แล้วส่งข้อมูลไปยัง backserv" +
-            "er")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[CreatePlayerAccount]ระบบได้รับข้อมูล PlayerAccount ระบบทำการตรวจสอบข้อมูล มีการก" +
+            "รอกข้อมูลถูกต้อง ระบบทำการ generate trackingID")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CreatePlayerAccount")]
-        public virtual void ระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลแลวสงขอมลไปยงBackserver_Variant5()
+        public virtual void CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลถกตองระบบทำการGenerateTrackingID()
         {
-            this.ระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลแลวสงขอมลไปยงBackserver("Nit", "Visa", "0012214544543212", "3223", "12/31/2005");
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[CreatePlayerAccount]ระบบได้รับข้อมูล PlayerAccount ระบบทำการตรวจสอบข้อมูล มีการก" +
+                    "รอกข้อมูลถูกต้อง ระบบทำการ generate trackingID", new string[] {
+                        "record_mock"});
+#line 22
+this.ScenarioSetup(scenarioInfo);
+#line 23
+testRunner.Given("The CreatePlayerAccountExecutor has been created and initialized");
+#line 24
+testRunner.And("Sent player account information: UserName \'Nit\' CardType\'Visa\' AccountNo\'00122145" +
+                    "44543212\' CVV\'3223\' ExpireDate\'12/31/2011\'");
+#line 25
+testRunner.And("The system generated TrackingID for CreatePlayerAccount :\'DEDE6BFD17484312848E13F" +
+                    "26345C597\'");
+#line 26
+testRunner.When("Call CreatePlayerAccountExecutor()");
+#line 27
+testRunner.Then("TrackingID for CreatePlayerAccount should be : \'DEDE6BFD17484312848E13F26345C597\'" +
+                    "");
+#line hidden
+            testRunner.CollectScenarioErrors();
         }
     }
 }

@@ -11,7 +11,8 @@ namespace TheS.Casinova.PlayerAccount.DAL
     public interface IPlayerAccountDataAccess:
         ICreatePlayerAccount,
         IEditPlayerAccount,
-        ICancelPlayerAccount
+        ICancelPlayerAccount,
+        IActivatePlayerAccount
     { }
 
     /// <summary>
@@ -33,5 +34,12 @@ namespace TheS.Casinova.PlayerAccount.DAL
     /// </summary>
     public interface ICancelPlayerAccount
         : IDataAction<PlayerAccountInformation, CancelPlayerAccountCommand>
+    { }
+
+    /// <summary>
+    /// เปิดใช้งานบัญชีที่ถูกยกเลิก
+    /// </summary>
+    public interface IActivatePlayerAccount
+        : IDataAction<PlayerAccountInformation, ActivatePlayerAccountCommand>
     { }
 }

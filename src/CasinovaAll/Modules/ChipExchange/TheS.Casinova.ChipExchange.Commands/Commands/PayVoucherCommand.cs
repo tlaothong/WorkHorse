@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TheS.Casinova.ChipExchange.Models;
 
 namespace TheS.Casinova.ChipExchange.Commands
 {
@@ -20,5 +21,14 @@ namespace TheS.Casinova.ChipExchange.Commands
         /// จำนวนเงิน
         /// </summary>
         public double Amount { get; set; }
+
+        //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+        /// <summary>
+        /// ข้อมูลการซื้อคูปอง
+        /// 1.UserName ชื่อผู้เล่นที่ซื้อคูปอง
+        /// 2.Amount จำนวนเงินที่ซื้อ
+        /// </summary>
+        public VoucherInformation VoucherInformation { get; set; }
+        //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
     }
 }

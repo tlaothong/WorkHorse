@@ -5,9 +5,9 @@
     ศูนย์การเรียนรู้
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
     <div id="pageBody">
-        <div id="movieList"></div>
+        <div id="movieList">
+        </div>
     </div>
     <script id="movieTmpl" type="text/x-jquery-tmpl">
 	<div>
@@ -161,41 +161,40 @@
 			    buyTickets($(this).tmplItem().data);
 			});
 
-			$("#movieList").fadeIn("medium")
-			Sys.require(Sys.components.toggleButton, function () {
-			    $().toggleButton.defaults = {
-			        CheckedImageUrl: "/Content/images/Unchecked_gray.gif",
-			        UncheckedImageUrl: "/Content/images/checked.gif",
-			        ImageWidth: 20,
-			        ImageHeight: 20
-			    };
-			    $(".toggle1").toggleButton();
-			});
-			$(".bookmark").click(function () {
-			    $(this).slideUp();
-			});
-			$("#bookmark").hover(function () {
-			    $(this).addClass("hilite");
-			}, function () {
-			    $(this).removeClass("hilite");
-			});
+            $("#movieList").fadeIn("medium")
+            Sys.require(Sys.components.toggleButton, function () {
+                $().toggleButton.defaults = {
+                    CheckedImageUrl: "/Content/images/Unchecked_gray.gif",
+                    UncheckedImageUrl: "/Content/images/checked.gif",
+                    ImageWidth: 20,
+                    ImageHeight: 20
+                };
+                $(".toggle1").toggleButton();
+            });
+            $(".bookmark").click(function () {
+                $(this).slideUp();
+            });
+            $("#bookmark").hover(function () {
+                $(this).addClass("hilite");
+            }, function () {
+                $(this).removeClass("hilite");
+            });
         }   
     </script>
     <%--<script type="text/javascript">
         $(document).ready(function () {
             $('#movieList').hoverscroll({ vertical: true, height: 550, width: 595 });
         });        
-    </script> --%>  
-    
-    <div id="pager"></div>
-    
+    </script> --%>
+    <div id="pager">
+    </div>
     <% Html.RenderPartial("PostNewVideos"); %>
-    
+    <% Html.RenderPartial("Option"); %>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="SubMenu" runat="server">
     <% Html.RenderPartial("SubmenuVideo"); %>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="SideBar" runat="server">
-<% Html.RenderPartial("AdvanceSearch"); %>
-<% Html.RenderPartial("Banners"); %>
+    <% Html.RenderPartial("AdvanceSearch"); %>
+    <% Html.RenderPartial("Banners"); %>
 </asp:Content>

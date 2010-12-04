@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\ActivatePlayerAccountCommand.cs" />
     <Compile Include="Commands\CancelPlayerAccountCommand.cs" />
     <Compile Include="Commands\CreatePlayerAccountCommand.cs" />
     <Compile Include="Commands\EditPlayerAccountCommand.cs" />

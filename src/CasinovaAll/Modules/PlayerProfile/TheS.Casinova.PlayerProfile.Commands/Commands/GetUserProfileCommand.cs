@@ -13,9 +13,10 @@ namespace TheS.Casinova.PlayerProfile.Commands
     {
        //input
        /// <summary>
-       /// ชื่อผู้เล่น
+       /// ข้อมูลการดึงข้อมูลโปรไฟล์
+       /// 1. UserName ชื่อผู้เล่น
        /// </summary>
-       public string UserName { get; set; }
+       public UserProfile GetUserProfileInfo { get; set; }
 
        //output
        /// <summary>

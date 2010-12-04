@@ -70,8 +70,8 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
                     UserName = userName,
                     Email = oldEmail,
                     Password = password,
-                },
-                NewEmail = newEmail,
+                    NewEmail = newEmail
+                }
             };
 
             ChangeEmailExecutor.Execute(cmd, (x) => { });
@@ -86,8 +86,8 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
                         UserName = userName,
                         Email = oldEmail,
                         Password = password,
-                    },
-                    NewEmail = newEmail,
+                        NewEmail = newEmail
+                    }
                 };
 
                 ChangeEmailExecutor.Execute(cmd, (x) => { });

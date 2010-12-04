@@ -52,6 +52,7 @@
     <Compile Include="Commands\GetUserProfileCommand.cs" />
     <Compile Include="Commands\GetVoucherInfoCommand.cs" />
     <Compile Include="Commands\UpdateUsedVoucherCommand.cs" />
+    <Compile Include="Commands\UpdateUserProfileCommand.cs" />
     <Compile Include="DAL\IChipExchangeDataAccess.cs" />
     <Compile Include="DAL\IChipExchangeDataBackQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -110,13 +110,13 @@ testRunner.Given("(VoucherToBonusChips)server has exchange setting information a
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้เล่นแลกคูปองเป็นชิฟตาย มีคูปองตามรหัสที่ระบุและคูปองยังไม่ถูกใช้งาน, ระบบตรวจส" +
-            "อบคูปองและเพิ่มชิฟตายให้กับผู้เล่น")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(VoucherToBonusChips)ผู้เล่นแลกคูปองเป็นชิฟตาย มีคูปองตามรหัสที่ระบุและคูปองยังไม" +
+            "่ถูกใช้งาน, ระบบตรวจสอบคูปองและเพิ่มชิฟตายให้กับผู้เล่น")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "VoucherToBonusChips")]
-        public virtual void ผเลนแลกคปองเปนชฟตายมคปองตามรหสทระบและคปองยงไมถกใชงานระบบตรวจสอบคปองและเพมชฟตายใหกบผเลน()
+        public virtual void VoucherToBonusChipsผเลนแลกคปองเปนชฟตายมคปองตามรหสทระบและคปองยงไมถกใชงานระบบตรวจสอบคปองและเพมชฟตายใหกบผเลน()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้เล่นแลกคูปองเป็นชิฟตาย มีคูปองตามรหัสที่ระบุและคูปองยังไม่ถูกใช้งาน, ระบบตรวจส" +
-                    "อบคูปองและเพิ่มชิฟตายให้กับผู้เล่น", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(VoucherToBonusChips)ผู้เล่นแลกคูปองเป็นชิฟตาย มีคูปองตามรหัสที่ระบุและคูปองยังไม" +
+                    "่ถูกใช้งาน, ระบบตรวจสอบคูปองและเพิ่มชิฟตายให้กับผู้เล่น", new string[] {
                         "record_mock",
                         "record_mock"});
 #line 19
@@ -126,63 +126,71 @@ testRunner.Given("The VoucherToBounusChipsExecutor has been created and initiali
 #line 21
 testRunner.And("(VoucherToBonusChips)sent Code: \'jK2A\' the voucher information should recieved");
 #line 22
-testRunner.And("(VoucherToBonusChips)request voucher avaliable for exchange");
-#line 23
 testRunner.And("(VoucherToBonusChips)sent ExchangeSettingName: \'exchange1\' the exchange setting s" +
                     "hould recieved");
-#line 24
+#line 23
 testRunner.And("(VoucherToBonusChips)voucher should be update(Code: \'jK2A\')");
-#line 25
+#line 24
 testRunner.And("(VoucherToBonusChips)the user bonus chips should be adding(UserName: \'OhAe\', Amou" +
                     "nt:\'500\')");
-#line 26
+#line 25
 testRunner.When("call VoucherToBonusChipsExecutor(Code: \'jK2A\', UserName: \'OhAe\')");
-#line 27
+#line 26
 testRunner.Then("the player profile should be update");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้เล่นแลกคูปองเป็นชิฟตาย มีคูปองตามรหัสที่ระบุและคูปองถูกใช้งานแล้ว, ระบบตรวจสอบ" +
-            "คูปองและแจ้งเตือน")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(VoucherToBonusChips)ผู้เล่นแลกคูปองเป็นชิฟตาย มีคูปองตามรหัสที่ระบุและคูปองถูกใช" +
+            "้งานแล้ว, ระบบตรวจสอบคูปองและแจ้งเตือน")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "VoucherToBonusChips")]
-        public virtual void ผเลนแลกคปองเปนชฟตายมคปองตามรหสทระบและคปองถกใชงานแลวระบบตรวจสอบคปองและแจงเตอน()
+        public virtual void VoucherToBonusChipsผเลนแลกคปองเปนชฟตายมคปองตามรหสทระบและคปองถกใชงานแลวระบบตรวจสอบคปองและแจงเตอน()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้เล่นแลกคูปองเป็นชิฟตาย มีคูปองตามรหัสที่ระบุและคูปองถูกใช้งานแล้ว, ระบบตรวจสอบ" +
-                    "คูปองและแจ้งเตือน", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(VoucherToBonusChips)ผู้เล่นแลกคูปองเป็นชิฟตาย มีคูปองตามรหัสที่ระบุและคูปองถูกใช" +
+                    "้งานแล้ว, ระบบตรวจสอบคูปองและแจ้งเตือน", new string[] {
                         "record_mock"});
-#line 30
+#line 29
 this.ScenarioSetup(scenarioInfo);
-#line 31
+#line 30
 testRunner.Given("The VoucherToBounusChipsExecutor has been created and initialized");
-#line 32
+#line 31
 testRunner.And("(VoucherToBonusChips)sent Code: \'Gh5E\' the voucher information should recieved");
+#line 32
+testRunner.And("(VoucherToBonusChips)sent ExchangeSettingName: \'exchange1\' the exchange setting s" +
+                    "hould recieved");
 #line 33
-testRunner.And("(VoucherToBonusChips)request voucher not avaliable for exchange");
+testRunner.When("Expected exception and call VoucherToBonusChipsExecutor(Code: \'Gh5E\', UserName: \'" +
+                    "OhAe\')");
 #line 34
-testRunner.When("call VoucherToBonusChipsExecutor(Code: \'Gh5E\', UserName: \'OhAe\')");
-#line 35
-testRunner.Then("abort operation");
+testRunner.Then("(VoucherToBonusChips)the result should be throw exception");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ผู้เล่นแลกคูปองเป็นชิฟตาย ไม่มีคูปองตามรหัสที่ระบุ, ระบบตรวจสอบคูปองและแจ้งเตือน")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(VoucherToBonusChips)ผู้เล่นแลกคูปองเป็นชิฟตาย ไม่มีคูปองตามรหัสที่ระบุ, ระบบตรวจ" +
+            "สอบคูปองและแจ้งเตือน")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "VoucherToBonusChips")]
-        public virtual void ผเลนแลกคปองเปนชฟตายไมมคปองตามรหสทระบระบบตรวจสอบคปองและแจงเตอน()
+        public virtual void VoucherToBonusChipsผเลนแลกคปองเปนชฟตายไมมคปองตามรหสทระบระบบตรวจสอบคปองและแจงเตอน()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ผู้เล่นแลกคูปองเป็นชิฟตาย ไม่มีคูปองตามรหัสที่ระบุ, ระบบตรวจสอบคูปองและแจ้งเตือน", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(VoucherToBonusChips)ผู้เล่นแลกคูปองเป็นชิฟตาย ไม่มีคูปองตามรหัสที่ระบุ, ระบบตรวจ" +
+                    "สอบคูปองและแจ้งเตือน", new string[] {
                         "record_mock"});
-#line 38
+#line 37
 this.ScenarioSetup(scenarioInfo);
-#line 39
+#line 38
 testRunner.Given("The VoucherToBounusChipsExecutor has been created and initialized");
+#line 39
+testRunner.And("(VoucherToBonusChips)sent Code: \'XXXX\' the voucher information should recieved");
 #line 40
-testRunner.When("Pending for next task");
+testRunner.And("(VoucherToBonusChips)sent ExchangeSettingName: \'exchange1\' the exchange setting s" +
+                    "hould recieved");
 #line 41
-testRunner.Then("Pending for next task");
+testRunner.When("Expected exception and call VoucherToBonusChipsExecutor(Code: \'XXXX\', UserName: \'" +
+                    "OhAe\')");
+#line 42
+testRunner.Then("(VoucherToBonusChips)the result should be throw exception");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

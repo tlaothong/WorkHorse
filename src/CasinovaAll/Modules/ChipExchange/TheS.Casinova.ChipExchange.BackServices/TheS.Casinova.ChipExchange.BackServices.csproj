@@ -50,6 +50,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackServices\BackExecutors\ChipsToMoneyExecutor.cs" />
     <Compile Include="BackServices\BackExecutors\MoneyToBonusChipsExecutor.cs" />
     <Compile Include="BackServices\BackExecutors\MoneyToChipsExecutor.cs" />
     <Compile Include="BackServices\BackExecutors\PayVoucherExecutor.cs" />
@@ -57,6 +58,14 @@
     <Compile Include="BackServices\Commands\PayExchangeCommand.cs" />
     <Compile Include="BackServices\IGenerateVoucherCode.cs" />
     <Compile Include="BackServices\IPayExchangeEngine.cs" />
+    <Compile Include="BackServices\Validators\ChequeInfo_ChipsToMoneyValidators.cs" />
+    <Compile Include="BackServices\Validators\ExchangeSettingInfo_ChipsToMoneyValidators.cs" />
+    <Compile Include="BackServices\Validators\ExchangeSettingInfo_MoneyToBonusChipsValidators.cs" />
+    <Compile Include="BackServices\Validators\ExchangeSettingInfo_MoneyToChipsValidators.cs" />
+    <Compile Include="BackServices\Validators\MLNInfo_MoneyToBonusChipsValidators.cs" />
+    <Compile Include="BackServices\Validators\UserProfile_ChipsToMoneyValidators.cs" />
+    <Compile Include="BackServices\Validators\UserProfile_PayVoucherValidators.cs" />
+    <Compile Include="BackServices\Validators\VoucherInfo_VoucherToBonusChipsValidators.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

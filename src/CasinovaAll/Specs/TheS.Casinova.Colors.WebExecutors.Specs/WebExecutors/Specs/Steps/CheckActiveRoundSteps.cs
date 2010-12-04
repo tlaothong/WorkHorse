@@ -27,14 +27,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         [When(@"Call CheckActiveRoundExecutor\(\)")]
         public void WhenCallCheckActiveRoundExecutor()
         {
-            try {
-                CheckActiveRound.Execute(_cmd, (x) => { });
-                Assert.Fail("Shouldn't be here");
-            }
-            catch (Exception ex) {
-                Assert.IsInstanceOfType(ex,
-                    typeof(ValidationErrorException));
-            }
+             CheckActiveRound.Execute(_cmd, (x) => { });
 
         }
 
