@@ -523,6 +523,7 @@
     <Content Include="Scripts\ajaxScripts\MicrosoftAjaxWebServices.js" />
     <Content Include="Scripts\ajaxScripts\Start.debug.js" />
     <Content Include="Scripts\ajaxScripts\Start.js" />
+    <Content Include="Scripts\JCore.js" />
     <Content Include="Scripts\jquery-1.3.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.3.2.js" />
     <Content Include="Scripts\jquery-1.4.2-vsdoc.js" />
