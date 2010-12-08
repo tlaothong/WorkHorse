@@ -88,15 +88,8 @@
         $("#sellAll").dialog({
             autoOpen: false,
             modal: true,
-            width: 600,
-            buttons: {
-                "Ok": function () {
-                    $(this).dialog("close");
-                },
-                "Cancel": function () {
-                    $(this).dialog("close");
-                }
-            }
+            width: 400,
+            title: "ความคิดเห็น",
         });
 
         // Dialog Link
@@ -162,7 +155,71 @@
 
 <%--div for seeall dialog--%>
 <div id="sellAll">
-testddddd
+    <table>
+            <tr>
+            <td valign="top">
+                <img src="/Content/profile/pic_friend/1.png" />
+            </td>
+            <td valign="top">Wanida<br />ได้แสดงข้อความของคุณเมื่อ (17/11/2510) เวลา 12.00 น.
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <img src="/Content/profile/pic_friend/1.png" />
+            </td>
+            <td valign="top">Wanida<br />ได้แสดงข้อความของคุณเมื่อ (17/11/2510) เวลา 12.00 น.
+            </td>
+        </tr>
+         <tr>
+            <td valign="top">
+                <img src="/Content/profile/pic_friend/2.png" />
+            </td>
+            <td valign="top">Jitti<br />ได้แสดงข้อความของคุณเมื่อ (17/11/2510) เวลา 12.00 น.
+            </td>
+        </tr>
+         <tr>
+            <td valign="top">
+                <img src="/Content/profile/pic_friend/3.png" />
+            </td>
+            <td valign="top">Siriluk<br />ได้แสดงข้อความของคุณเมื่อ (17/11/2510) เวลา 12.00 น.
+            </td>
+        </tr>
+         <tr>
+            <td valign="top">
+                <img src="/Content/profile/pic_friend/4.png" />
+            </td>
+            <td valign="top">Jibjawg<br />ได้แสดงข้อความของคุณเมื่อ (17/11/2510) เวลา 12.00 น.
+            </td>
+        </tr>
+         <tr>
+            <td valign="top">
+                <img src="/Content/profile/pic_friend/5.png" />
+            </td>
+            <td valign="top">Kapita<br />ได้แสดงข้อความของคุณเมื่อ (17/11/2510) เวลา 12.00 น.
+            </td>
+        </tr>
+         <tr>
+            <td valign="top">
+                <img src="/Content/profile/pic_friend/6.png" />
+            </td>
+            <td valign="top">Harnnongbour<br />ได้แสดงข้อความของคุณเมื่อ (17/11/2510) เวลา 12.00 น.
+            </td>
+        </tr>
+                 <tr>
+            <td valign="top">
+                <img src="/Content/profile/pic_friend/6.png" />
+            </td>
+            <td valign="top">Harnnongbour<br />ได้แสดงข้อความของคุณเมื่อ (17/11/2510) เวลา 12.00 น.
+            </td>
+        </tr>
+                 <tr>
+            <td valign="top">
+                <img src="/Content/profile/pic_friend/6.png" />
+            </td>
+            <td valign="top">Harnnongbour<br />ได้แสดงข้อความของคุณเมื่อ (17/11/2510) เวลา 12.00 น.
+            </td>
+        </tr>
+    </table>
 </div>
 
 <%--div for report dialog--%>
@@ -199,7 +256,7 @@ testddddd
             </tr>
         </table>
         <div style="width:150px;">ทดสอบข้อความเพื่อใช้ทำงานของการเขียนคอมเม้น</div>
-        <a href="#"><label class="reports" style="text-decoration: underline; color:Gray; margin-left:115px;">report</label></a>
+            <label class="reports" style="color:Gray; margin-left:115px;">report</label>
         <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;  width:150px;"></div>
 
     </div>
@@ -215,7 +272,7 @@ testddddd
             </tr>
         </table>
         <div style="width:150px;">ทดสอบข้อความเพื่อใช้ทำงานของการเขียนคอมเม้น</div>
-        <a href="#"><label class="reports" style="text-decoration: underline; color:Gray; margin-left:115px;">report</label></a>
+            <label class="reports" style="color:Gray; margin-left:115px;">report</label>
         <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;  width:150px;"></div>
 
     </div>
@@ -231,7 +288,7 @@ testddddd
             </tr>
         </table>
         <div style="width:150px;">ทดสอบข้อความเพื่อใช้ทำงานของการเขียนคอมเม้น</div>
-        <a href="#"><label class="reports" style="text-decoration: underline; color:Gray; margin-left:115px;">report</label></a>
+            <label class="reports" style="color:Gray; margin-left:115px;">report</label>
         <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;width:150px;"></div>
     </div>
     <div>
@@ -246,7 +303,7 @@ testddddd
             </tr>
         </table>
         <div style="width:150px;">ทดสอบข้อความเพื่อใช้ทำงานของการเขียนคอมเม้น</div>
-        <a href="#"><label class="reports" style="text-decoration: underline; color:Gray; margin-left:115px;">report</label></a>
+            <label class="reports" style="color:Gray; margin-left:115px;">report</label>
         <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;width:150px;"></div>
 
     </div>
@@ -268,7 +325,7 @@ testddddd
                 </tr>
             </table>
             <div style="width:150px;">ทดสอบข้อความเพื่อใช้ทำงานของการเขียนคอมเม้น</div>
-        <a href="#"><label class="reports" style="text-decoration: underline; color:Gray; margin-left:115px;">report</label></a>
+            <label class="reports" style="color:Gray; margin-left:115px;">report</label>
             <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;width:150px;"></div>
 
         </div>
@@ -284,7 +341,7 @@ testddddd
                 </tr>
             </table>
             <div style="width:150px;">ทดสอบข้อความเพื่อใช้ทำงานของการเขียนคอมเม้น</div>
-            <a href="#"><label class="reports" style="text-decoration: underline; color:Gray; margin-left:115px;">report</label></a>
+            <label class="reports" style="color:Gray; margin-left:115px;">report</label>
             <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;width:150px;"></div>
 
         </div>
@@ -300,7 +357,7 @@ testddddd
                 </tr>
             </table>
             <div style="width:150px;">ทดสอบข้อความเพื่อใช้ทำงานของการเขียนคอมเม้น</div>
-            <a href="#"><label class="reports" style="text-decoration: underline; color:Gray; margin-left:115px;">report</label></a>
+            <label class="reports" style="color:Gray; margin-left:115px;">report</label>
             <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;width:150px;"></div>
 
         </div>
@@ -316,7 +373,7 @@ testddddd
                 </tr>
             </table>
             <div style="width:150px;">ทดสอบข้อความเพื่อใช้ทำงานของการเขียนคอมเม้น</div>
-            <a href="#"><label class="reports" style="text-decoration: underline; color:Gray; margin-left:115px;">report</label></a>
+            <label class="reports" style="color:Gray; margin-left:115px;">report</label>
             <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;width:150px;"></div>
 
         </div>
@@ -332,7 +389,7 @@ testddddd
                 </tr>
             </table>
             <div style="width:150px;">ทดสอบข้อความเพื่อใช้ทำงานของการเขียนคอมเม้น</div>
-            <a href="#"><label class="reports" style="text-decoration: underline; color:Gray; margin-left:115px;">report</label></a>
+            <label class="reports" style="color:Gray; margin-left:115px;">report</label>
             <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;width:150px;"></div>
 
         </div>
