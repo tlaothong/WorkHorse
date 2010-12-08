@@ -10,7 +10,7 @@ namespace TheS.Casinova.TwoWins.Commands
     {
         //input
         /// <summary>
-        /// ข้อมูลการลงเดิมพันแบบทีละมือ
+        /// ข้อมูลการลงเดิมพันแบบทีละหลายมือ
         /// 1.UserName ชื่อผู้เล่น
         /// 2.FromAmount จำนวนเงินเริ่มต้นที่ลงเดิมพัน
         /// 3.ThruAmount จำนวนเงินสิ้นสุดที่ลงเดิมพัน

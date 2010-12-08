@@ -6,7 +6,7 @@ using TheS.Casinova.TwoWins.Models;
 
 namespace TheS.Casinova.TwoWins.Commands
 {
-    public class ListRangeActionLog
+    public class ListRangeActionLogCommand
     {
         //input
         /// <summary>

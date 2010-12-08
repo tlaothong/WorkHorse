@@ -23,7 +23,7 @@ namespace TheS.Casinova.TwoWins.Models
         public double FromAmount { get; set; }
 
         /// <summary>
-        /// จำนวนเงินสิ้นสุดการลงเดิมพัน
+        /// จำนวนเงินสิ้นสุดการลงพนัน
         /// </summary>
         public double ThruAmount { get; set; }
 

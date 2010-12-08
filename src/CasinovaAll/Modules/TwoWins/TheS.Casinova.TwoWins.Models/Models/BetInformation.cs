@@ -28,12 +28,12 @@ namespace TheS.Casinova.TwoWins.Models
         public int HandID { get; set; }
 
         /// <summary>
-        /// จำนวนเงินที่เคยลงเดิมพันไว้
+        /// จำนวนเงินที่เคยลงพนันไว้
         /// </summary>
         public double OldAmount { get; set; }
 
         /// <summary>
-        /// จำนวนเงินลงเดิมพันที่ต้องการเปลี่ยน
+        /// จำนวนเงินลงพนันที่ต้องการเปลี่ยน
         /// </summary>
         public double NewAmount { get; set; }
 
@@ -48,7 +48,7 @@ namespace TheS.Casinova.TwoWins.Models
         public DateTime HandTime { get; set; }
 
         /// <summary>
-        /// จำนวนเงินทั้งหมดที่ลงเดิมพัน
+        /// จำนวนเงินทั้งหมดที่ลงพนัน
         /// </summary>
         public double TotalBet { get; set; }
 

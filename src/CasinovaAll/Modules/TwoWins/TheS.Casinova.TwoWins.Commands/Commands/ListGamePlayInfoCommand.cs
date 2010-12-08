@@ -6,7 +6,7 @@ using TheS.Casinova.TwoWins.Models;
 
 namespace TheS.Casinova.TwoWins.Commands
 {
-    public class ListGamePlayInformation
+    public class ListGamePlayInfoCommand
     {
         //input
         /// <summary>
