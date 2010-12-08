@@ -5,6 +5,7 @@ using System.Text;
 using TechTalk.SpecFlow;
 using TheS.Casinova.ChipExchange.DAL;
 using TheS.Casinova.ChipExchange.BackServices;
+using SpecFlowAssist;
 
 namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
 {
@@ -69,8 +70,7 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr_GetPlayerBalance] as IGetPlayerBalance;
+                return ScenarioContext.Current.Get<IGetPlayerBalance>();
             }
         }
 
@@ -78,8 +78,7 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dac_PayVoucher] as IPayVoucher;
+                return ScenarioContext.Current.Get<IPayVoucher>();
             }
         }
 
@@ -87,8 +86,7 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr_GetVoucherCode] as IGetVoucherCode;
+                return ScenarioContext.Current.Get<IGetVoucherCode>();
             }
         }
 
@@ -125,8 +123,7 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_PayVoucher] as PayVoucherExecutor;
+                return ScenarioContext.Current.Get<PayVoucherExecutor>();
             }
         }
 
@@ -134,8 +131,7 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_GetVoucherCode] as GetVoucherCodeExecutor;
+                return ScenarioContext.Current.Get<GetVoucherCodeExecutor>();
             }
         }
     }

@@ -8,6 +8,13 @@ using TheS.Casinova.TwoWins.WebExecutors;
 using TheS.Casinova.ChipExchange.DAL;
 using TheS.Casinova.ChipExchange.BackServices;
 using TheS.Casinova.ChipExchange.Commands;
+using PerfEx.Infrastructure.Containers.StructureMapAdapter;
+using PerfEx.Infrastructure;
+using TheS.Casinova.ChipExchange.Models;
+using PerfEx.Infrastructure.CommandPattern;
+using PerfEx.Infrastructure.Validation;
+using SpecFlowAssist;
+using TheS.Casinova.ChipExchange.Validators;
 
 namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
 {
@@ -25,14 +32,6 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
         public const string Key_VoucherToBonusChips = "VoucherToBonusChips";
         public const string Key_Dac_VoucherToBonusChips = "mockDac_VoucherToBonusChips";
         public const string Key_Dqr_GetVoucherInfo = "mockDqr_GetVoucherInfo";
-
-        public const string Key_PayVoucher= "PayVoucher";
-        public const string Key_Dac_PayVoucher = "mockDac_PayVoucher";
-        public const string Key_Dqr_GetPlayerBalance = "mockDqr_GetPlayerBalance";
-
-        public const string Key_GetVoucherCode = "GetVoucherCode";
-        public const string Key_Dqr_GetVoucherCode = "mockDqr_GetVoucherCode";
-
 
         MockRepository Mocks { get { return SpecEventDefinitions.Mocks; } }
 
@@ -81,9 +80,13 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
             var dac = Mocks.DynamicMock<IChipsExchangeModuleBackService>();
             var dqr = Mocks.DynamicMock<IChipsExchangeModuleDataQuery>();
 
-            ScenarioContext.Current[Key_Dac_PayVoucher] = dac;
-            ScenarioContext.Current[Key_Dqr_GetPlayerBalance] = dqr;
-            ScenarioContext.Current[Key_PayVoucher] = new PayVoucherCommand();
+            IDependencyContainer container;
+            setupValidators(out container);
+
+            ScenarioContext.Current.Set<IGetPlayerBalance>(dqr);
+            ScenarioContext.Current.Set<IPayVoucher>(dac);
+            ScenarioContext.Current.Set<PayVoucherExecutor>(
+                new PayVoucherExecutor(dac, container));
         }
 
         //Get voucher code specs initialized
@@ -92,8 +95,25 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
         {
             var dqr = Mocks.DynamicMock<IChipsExchangeModuleDataQuery>();
 
-            ScenarioContext.Current[Key_Dqr_GetVoucherCode] = dqr;
-            ScenarioContext.Current[Key_GetVoucherCode] = new GetVoucherCodeCommand();
+            IDependencyContainer container;
+            setupValidators(out container);
+            ScenarioContext.Current.Set<IGetVoucherCode>(dqr);
+            ScenarioContext.Current.Set<GetVoucherCodeExecutor>(
+                new GetVoucherCodeExecutor(dqr, container));
+        }
+
+        private static void setupValidators(out IDependencyContainer container)
+        {
+            var fac = new StructureMapAbstractFactory();
+            var reg = fac.CreateRegistry();
+
+            reg.Register<IValidator<VoucherInformation, NullCommand>
+                , DataAnnotationValidator<VoucherInformation, NullCommand>>();
+
+            reg.Register<IValidator<VoucherInformation, PayVoucherCommand>
+               , VoucherInformation_PayVoucherValidators>();
+
+            container = fac.CreateContainer(reg);
         }
     }
 }

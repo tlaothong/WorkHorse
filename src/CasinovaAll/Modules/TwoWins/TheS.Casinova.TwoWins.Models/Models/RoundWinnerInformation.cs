@@ -16,28 +16,38 @@ namespace TheS.Casinova.TwoWins.Models
         public int RoundID { get; set; }
 
         /// <summary>
-        /// จำนวนการลงพนันในโต๊ะเกม
+        /// จำนวนมือทั้งหมดที่ลงพนันในโต๊ะเกม
         /// </summary>
         public int HandCount { get; set; }
 
         /// <summary>
         /// ผู้ชนะสูงสุดในช่วงเวลาปกติ
         /// </summary>
-        public string WinnerHiNormal { get; set; }
+        public string WinnerHightName { get; set; }
 
         /// <summary>
         /// ผู้ชนะต่ำสุดในช่วงเวลาปกติ
         /// </summary>
-        public string WinnerLoNormal { get; set; }
+        public string WinnerLowName { get; set; }
 
         /// <summary>
-        /// ผู้ชนะสูงสุดในช่วงเวลา Critical
+        /// ช่วงจำนวนเงินสูงสุดที่ชนะ "จาก"
         /// </summary>
-        public string WinnerHiCritical { get; set; }
+        public double FromWinnerHightRange { get; set; }
 
         /// <summary>
-        /// ผู้ชนะต่ำสุดในช่วงเวลา Critical
+        /// ช่วงจำนวนเงินสูงสุดที่ชนะ "ถึง"
         /// </summary>
-        public string WinnerLoCritical { get; set; }
+        public double ThruWinnerHightRange { get; set; }
+
+        /// <summary>
+        /// ช่วงจำนวนเงินต่ำสุดที่ชนะ "จาก"
+        /// </summary>
+        public double FromWinnerLowRange { get; set; }
+
+        /// <summary>
+        /// ช่วงจำนวนเงินต่ำสุดที่ชนะ "ถึง"
+        /// </summary>
+        public double ThruWinnerLowRange { get; set; }
     }
 }

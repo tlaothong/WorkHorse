@@ -59,53 +59,33 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "UserName",
-                        "Password",
-                        "Email",
-                        "CellPhone",
-                        "Upline",
                         "Refundable",
-                        "NonRefundable",
-                        "Active"});
+                        "NonRefundable"});
             table1.AddRow(new string[] {
                         "OhAe",
-                        "1234",
-                        "sirinarin@hotmail.com",
-                        "0892165437",
-                        "Nit",
                         "500",
-                        "200",
-                        "True"});
+                        "200"});
             table1.AddRow(new string[] {
                         "Boy",
-                        "5843",
-                        "pongsak@gmail.com",
-                        "0862202260",
-                        "Nit",
                         "4500",
-                        "500",
-                        "True"});
+                        "500"});
             table1.AddRow(new string[] {
                         "Nit",
-                        "1311",
-                        "nayit_nit@hotmail.com",
-                        "0892131356",
-                        "",
                         "300",
-                        "589",
-                        "True"});
+                        "589"});
 #line 8
 testRunner.Given("Server has user profile information for pay voucher:", ((string)(null)), table1);
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล userName และ amount ครบ ระบบตรวจสอบจำนวนชิพทั้งหมดมีเพียงพอ ระบบ" +
-            "สามารถส่งข้อมูลไป back server ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[PayVoucher]ระบบได้รับข้อมูล userName และ amount ถูกต้อง ระบบตรวจสอบจำนวนชิพทั้งห" +
+            "มดมีเพียงพอ ระบบสามารถ generate trackingID ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PayVoucher")]
-        public virtual void ระบบไดรบขอมลUserNameและAmountครบระบบตรวจสอบจำนวนชพทงหมดมเพยงพอระบบสามารถสงขอมลไปBackServerได()
+        public virtual void PayVoucherระบบไดรบขอมลUserNameและAmountถกตองระบบตรวจสอบจำนวนชพทงหมดมเพยงพอระบบสามารถGenerateTrackingIDได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล userName และ amount ครบ ระบบตรวจสอบจำนวนชิพทั้งหมดมีเพียงพอ ระบบ" +
-                    "สามารถส่งข้อมูลไป back server ได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[PayVoucher]ระบบได้รับข้อมูล userName และ amount ถูกต้อง ระบบตรวจสอบจำนวนชิพทั้งห" +
+                    "มดมีเพียงพอ ระบบสามารถ generate trackingID ได้", new string[] {
                         "record_mock",
                         "record_mock"});
 #line 15
@@ -113,97 +93,110 @@ this.ScenarioSetup(scenarioInfo);
 #line 16
 testRunner.Given("The PayVoucherExecutor has been created and initialized");
 #line 17
-testRunner.And("Sent UserName\'Nit\' the player\'s profile should recieved");
+testRunner.And("Sent UserName\'Nit\' Amount\'500\' for pay voucher");
 #line 18
-testRunner.And("Expected executed PayVoucherCommand");
-#line 19
-testRunner.When("Call PaVoucherExecutor(UserName\'Nit\', Amount\'500\')");
-#line 20
-testRunner.Then("The system can sent information to back server #PayVoucher");
-#line hidden
-            testRunner.CollectScenarioErrors();
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล userName และ amount ครบ ระบบตรวจสอบจำนวนชิพทั้งหมดมีไม่เพียงพอ ร" +
-            "ะบบไม่สามารถส่งข้อมูลไป back server ได้")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PayVoucher")]
-        public virtual void ระบบไดรบขอมลUserNameและAmountครบระบบตรวจสอบจำนวนชพทงหมดมไมเพยงพอระบบไมสามารถสงขอมลไปBackServerได()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล userName และ amount ครบ ระบบตรวจสอบจำนวนชิพทั้งหมดมีไม่เพียงพอ ร" +
-                    "ะบบไม่สามารถส่งข้อมูลไป back server ได้", new string[] {
-                        "record_mock"});
-#line 23
-this.ScenarioSetup(scenarioInfo);
-#line 24
-testRunner.Given("The PayVoucherExecutor has been created and initialized");
-#line 25
 testRunner.And("Sent UserName\'Nit\' the player\'s profile should recieved");
+#line 19
+testRunner.And("The system generated TrackingID for PayVoucher:\'942D2F350FAA4A32870CF9CF9A5C7A2E\'" +
+                    "");
+#line 20
+testRunner.When("Call PayVoucherExecutor()");
+#line 21
+testRunner.Then("TrackingID for PayVoucher should be :\'942D2F350FAA4A32870CF9CF9A5C7A2E\'");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[PayVoucher]ระบบได้รับข้อมูล userName และ amount ถูกต้อง ระบบตรวจสอบจำนวนชิพทั้งห" +
+            "มดมีไม่เพียงพอ ระบบไม่สามารถ generate trackingID ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PayVoucher")]
+        public virtual void PayVoucherระบบไดรบขอมลUserNameและAmountถกตองระบบตรวจสอบจำนวนชพทงหมดมไมเพยงพอระบบไมสามารถGenerateTrackingIDได()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[PayVoucher]ระบบได้รับข้อมูล userName และ amount ถูกต้อง ระบบตรวจสอบจำนวนชิพทั้งห" +
+                    "มดมีไม่เพียงพอ ระบบไม่สามารถ generate trackingID ได้", new string[] {
+                        "record_mock"});
+#line 24
+this.ScenarioSetup(scenarioInfo);
+#line 25
+testRunner.Given("The PayVoucherExecutor has been created and initialized");
 #line 26
-testRunner.When("Call PaVoucherExecutor(UserName\'Nit\', Amount\'1000\')");
+testRunner.And("Sent UserName\'Nit\' Amount\'1000\' for pay voucher");
 #line 27
-testRunner.Then("The system can\'t sent information to back server #PayVoucher");
+testRunner.And("Sent UserName\'Nit\' the player\'s profile should recieved");
+#line 28
+testRunner.When("Call PayVoucherExecutor()");
+#line 29
+testRunner.Then("Get null and skip checking trackingID for pay voucher");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล userName และ amount ครบ แต่ไม่มี userName ใน server ระบบไม่สามาร" +
-            "ถตรวจสอบจำนวนชิพทั้งหมดได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[PayVoucher]ระบบได้รับข้อมูล userName และ amount ครบ แต่ไม่มี userName ใน server " +
+            "ระบบไม่สามารถ generate trackingID ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PayVoucher")]
-        public virtual void ระบบไดรบขอมลUserNameและAmountครบแตไมมUserNameในServerระบบไมสามารถตรวจสอบจำนวนชพทงหมดได()
+        public virtual void PayVoucherระบบไดรบขอมลUserNameและAmountครบแตไมมUserNameในServerระบบไมสามารถGenerateTrackingIDได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล userName และ amount ครบ แต่ไม่มี userName ใน server ระบบไม่สามาร" +
-                    "ถตรวจสอบจำนวนชิพทั้งหมดได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[PayVoucher]ระบบได้รับข้อมูล userName และ amount ครบ แต่ไม่มี userName ใน server " +
+                    "ระบบไม่สามารถ generate trackingID ได้", new string[] {
                         "record_mock"});
-#line 31
-this.ScenarioSetup(scenarioInfo);
-#line 32
-testRunner.Given("The PayVoucherExecutor has been created and initialized");
 #line 33
-testRunner.And("Sent UserName\'Noy\' the player\'s profile should recieved null");
+this.ScenarioSetup(scenarioInfo);
 #line 34
-testRunner.When("Call PaVoucherExecutor(UserName\'Noy\', Amount\'1000\')");
+testRunner.Given("The PayVoucherExecutor has been created and initialized");
 #line 35
-testRunner.Then("The system can\'t sent information to back server #PayVoucher");
-#line hidden
-            testRunner.CollectScenarioErrors();
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบไม่ได้รับข้อมูล userName ระบบไม่สามารถตรวจสอบจำนวนชิพทั้งหมดได้")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PayVoucher")]
-        public virtual void ระบบไมไดรบขอมลUserNameระบบไมสามารถตรวจสอบจำนวนชพทงหมดได()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบไม่ได้รับข้อมูล userName ระบบไม่สามารถตรวจสอบจำนวนชิพทั้งหมดได้", new string[] {
-                        "record_mock"});
+testRunner.And("Sent UserName\'Noy\' Amount\'1000\' for pay voucher");
+#line 36
+testRunner.And("Sent UserName\'Noy\' the player\'s profile should recieved");
+#line 37
+testRunner.When("Call PayVoucherExecutor()");
 #line 38
-this.ScenarioSetup(scenarioInfo);
-#line 39
-testRunner.Given("The PayVoucherExecutor has been created and initialized");
-#line 40
-testRunner.When("Call PaVoucherExecutor(UserName\'\', Amount\'1000\')");
-#line 41
-testRunner.Then("The system can\'t sent information to back server #PayVoucher");
+testRunner.Then("Get null and skip checking trackingID for pay voucher");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล amount ไม่ถูกต้อง ระบบไม่สามารถตรวจสอบจำนวนชิพทั้งหมดได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[PayVoucher]ระบบไม่ได้รับข้อมูล userName ระบบไม่สามารถตรวจสอบจำนวนชิพทั้งหมดได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PayVoucher")]
-        public virtual void ระบบไดรบขอมลAmountไมถกตองระบบไมสามารถตรวจสอบจำนวนชพทงหมดได()
+        public virtual void PayVoucherระบบไมไดรบขอมลUserNameระบบไมสามารถตรวจสอบจำนวนชพทงหมดได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล amount ไม่ถูกต้อง ระบบไม่สามารถตรวจสอบจำนวนชิพทั้งหมดได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[PayVoucher]ระบบไม่ได้รับข้อมูล userName ระบบไม่สามารถตรวจสอบจำนวนชิพทั้งหมดได้", new string[] {
                         "record_mock"});
-#line 44
+#line 41
 this.ScenarioSetup(scenarioInfo);
-#line 45
+#line 42
 testRunner.Given("The PayVoucherExecutor has been created and initialized");
-#line 46
-testRunner.When("Call PaVoucherExecutor(UserName\'Nit\', Amount\'-1000\')");
-#line 47
-testRunner.Then("The system can\'t sent information to back server #PayVoucher");
+#line 43
+testRunner.And("Sent UserName\'\' Amount\'1000\' for pay voucher");
+#line 44
+testRunner.When("Call PayVoucherExecutor() for validate input");
+#line 45
+testRunner.Then("Get null and skip checking trackingID");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[PayVoucher]ระบบได้รับข้อมูล amount ไม่ถูกต้อง ระบบไม่สามารถตรวจสอบจำนวนชิพทั้งหม" +
+            "ดได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PayVoucher")]
+        public virtual void PayVoucherระบบไดรบขอมลAmountไมถกตองระบบไมสามารถตรวจสอบจำนวนชพทงหมดได()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[PayVoucher]ระบบได้รับข้อมูล amount ไม่ถูกต้อง ระบบไม่สามารถตรวจสอบจำนวนชิพทั้งหม" +
+                    "ดได้", new string[] {
+                        "record_mock"});
+#line 48
+this.ScenarioSetup(scenarioInfo);
+#line 49
+testRunner.Given("The PayVoucherExecutor has been created and initialized");
+#line 50
+testRunner.And("Sent UserName\'\' Amount\'1000\' for pay voucher");
+#line 51
+testRunner.When("Call PayVoucherExecutor() for validate input");
+#line 52
+testRunner.Then("Get null and skip checking trackingID");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

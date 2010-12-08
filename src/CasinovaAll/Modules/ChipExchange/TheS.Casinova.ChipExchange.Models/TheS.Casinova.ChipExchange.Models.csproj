@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -45,6 +46,7 @@
     <Compile Include="Models\ExchangeSetting.cs" />
     <Compile Include="Models\MultiLevelNetworkInformation.cs" />
     <Compile Include="Models\VoucherInformation.cs" />
+    <Compile Include="Models\VoucherInformation.md.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
