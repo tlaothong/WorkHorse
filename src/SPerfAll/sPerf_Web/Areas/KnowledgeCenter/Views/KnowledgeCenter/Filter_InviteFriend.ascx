@@ -18,7 +18,7 @@
 			"Au",
 			"Sak"
 		];
-        $("#tags").autocomplete({
+        $("#tags_InviteFriend").autocomplete({
             source: availableTags
         });
     });
@@ -26,6 +26,6 @@
 <div style="float: right; margin-top: -25px;">
     <div style="float: left;"><label>Filter:</label></div>
     <div class="ui-widget">
-        <input id="tags" value="Search friends ..." style="width: 150px; color: Gray; margin-left: 10px;" />
+        <input id="tags_InviteFriend" value="Search friends ..." style="width: 150px; color: Gray; margin-left: 10px;" />
     </div>
 </div>
