@@ -150,10 +150,16 @@
     <Content Include="Areas\Game\Views\Game\Upload.aspx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\AdvanceSearch.ascx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\Banners.ascx" />
+    <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\CommentVideo.ascx" />
+    <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\Filter_InviteFriend.ascx" />
+    <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\Invite_Friend.ascx" />
+    <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\NewCommentVideo.ascx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\Index.aspx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\MyVideo.aspx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\Option.ascx" />
+    <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\PlayVideo.aspx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\PostNewVideos.ascx" />
+    <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\ReportProblemVideo.ascx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\SubmenuVideo.ascx" />
     <Content Include="Areas\Map\Views\Map\Index.aspx" />
     <Content Include="Areas\Profile\Views\Profile\Archievement.aspx" />
@@ -580,6 +586,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
+    <Folder Include="uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\MasterPage.Master" />

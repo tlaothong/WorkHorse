@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.IO;
 
 namespace sPerf_Web.Areas.KnowledgeCenter.Controllers
 {
@@ -39,5 +40,23 @@ namespace sPerf_Web.Areas.KnowledgeCenter.Controllers
         {
             return View();
         }
+        public virtual ActionResult PlayVideo()
+        {
+            return View();
+        }
+        [HttpPost]
+        public virtual ActionResult UploadVideo(HttpPostedFileBase file)
+        {
+
+            if (file.ContentLength > 0)
+            {
+                var fileName = Path.GetFileName(file.FileName);
+                var path = Path.Combine(Server.MapPath("~/uploads"), fileName);
+                file.SaveAs(fileName);
+            }
+
+            return RedirectToAction("Index");
+        }
+
     }
 }

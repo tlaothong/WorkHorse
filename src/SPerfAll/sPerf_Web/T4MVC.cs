@@ -780,6 +780,7 @@ namespace Links {
             public static readonly string Start_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/Start.min.js") ? Url("Start.min.js") : Url("Start.js");
         }
     
+        public static readonly string JCore_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/JCore.min.js") ? Url("JCore.min.js") : Url("JCore.js");
         public static readonly string jquery_1_3_2_vsdoc_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery-1.3.2-vsdoc.min.js") ? Url("jquery-1.3.2-vsdoc.min.js") : Url("jquery-1.3.2-vsdoc.js");
         public static readonly string jquery_1_3_2_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery-1.3.2.min.js") ? Url("jquery-1.3.2.min.js") : Url("jquery-1.3.2.js");
         public static readonly string jquery_1_4_1_vsdoc_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery-1.4.1-vsdoc.min.js") ? Url("jquery-1.4.1-vsdoc.min.js") : Url("jquery-1.4.1-vsdoc.js");
