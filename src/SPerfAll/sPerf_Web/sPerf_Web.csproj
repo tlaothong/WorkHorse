@@ -159,6 +159,7 @@
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\Option.ascx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\PlayVideo.aspx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\PostNewVideos.ascx" />
+    <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\ReportCommentVideo.ascx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\ReportProblemVideo.ascx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\SubmenuVideo.ascx" />
     <Content Include="Areas\Map\Views\Map\Index.aspx" />
