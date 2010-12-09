@@ -31,8 +31,13 @@ namespace TheS.Casinova.TwoWins.Models
         public DateTime CriticalDateTime { get; set; }
 
         /// <summary>
-        /// สถานะโต๊ะเกม
+        /// จำนวนชิฟทั้งหมดในโต๊ะเกม
         /// </summary>
-        public bool Active { get; set; }
+        public double Pot { get; set; }
+
+        /// <summary>
+        /// ช่วงของจำนวนการลงพนัน
+        /// </summary>
+        public string HandRange { get; set; }
     }
 }

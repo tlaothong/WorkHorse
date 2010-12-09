@@ -18,7 +18,17 @@ namespace TheS.Casinova.TwoWins.Models
         public string UserName { get; set; }
 
         /// <summary>
-        /// จำนวนเงินที่ลงพนัน
+        /// จำนวนชิฟตายที่ลงพนัน
+        /// </summary>
+        public double BonusChips { get; set; }
+
+        /// <summary>
+        /// จำนวนชิฟเป็นที่ลงพนัน
+        /// </summary>
+        public double Chips { get; set; }
+
+        /// <summary>
+        /// จำนวนชิฟทั้งหมดที่ลงพนัน
         /// </summary>
         public double Amount { get; set; }
 
@@ -28,16 +38,6 @@ namespace TheS.Casinova.TwoWins.Models
         public int HandID { get; set; }
 
         /// <summary>
-        /// จำนวนเงินที่เคยลงพนันไว้
-        /// </summary>
-        public double OldAmount { get; set; }
-
-        /// <summary>
-        /// จำนวนเงินลงพนันที่ต้องการเปลี่ยน
-        /// </summary>
-        public double NewAmount { get; set; }
-
-        /// <summary>
         /// สถานะเวลาของมือที่ลงพนัน
         /// </summary>
         public string HandStatus { get; set; }
@@ -45,16 +45,16 @@ namespace TheS.Casinova.TwoWins.Models
         /// <summary>
         /// เวลาที่ลงพนัน
         /// </summary>
-        public DateTime HandTime { get; set; }
+        public DateTime BetDateTime { get; set; }
 
         /// <summary>
-        /// จำนวนเงินทั้งหมดที่ลงพนัน
+        /// รหัสตรวจสอบการลงพนัน
         /// </summary>
-        public double TotalBet { get; set; }
+        public Guid BetTrackingID { get; set; }
 
         /// <summary>
-        /// รหัสตรวจสอบ
+        /// สถานะการอนุญาตให้เปลี่ยนค่าที่ลงพนัน
         /// </summary>
-        public Guid TrackingID { get; set; }
+        public bool CanChange { get; set; }
     }
 }

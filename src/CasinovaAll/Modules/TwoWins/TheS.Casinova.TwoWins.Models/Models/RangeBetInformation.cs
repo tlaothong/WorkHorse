@@ -31,5 +31,10 @@ namespace TheS.Casinova.TwoWins.Models
         /// เวลาที่ทำการลงเดิมพัน
         /// </summary>
         public DateTime RangeBetDateTime { get; set; }
+
+        /// <summary>
+        /// รหัสตรวจสอบการลงพนัน
+        /// </summary>
+        public Guid BetTrackingID { get; set; }
     }
 }

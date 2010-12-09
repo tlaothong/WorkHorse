@@ -14,7 +14,7 @@ namespace TheS.Casinova.TwoWins.Commands
         /// 1.UserName ชื่อผู้เล่น
         /// 2.Amount จำนวนเงินที่ลงเดิมพัน
         /// 3.RoundID รหัสโต๊ะเกม
-        /// 4.DateTime เวลาที่ทำการลงเดิมพัน
+        /// 4.BetTrackingID รหัสตรวจสอบการลงพนัน
         /// </summary>
         public BetInformation BetInfo { get; set; }
 
@@ -22,6 +22,6 @@ namespace TheS.Casinova.TwoWins.Commands
         /// <summary>
         /// รหัสตรวจสอบ
         /// </summary>
-        public Guid TrackingID { get; set; }
+        public Guid BetTrackingID { get; set; }
     }
 }
