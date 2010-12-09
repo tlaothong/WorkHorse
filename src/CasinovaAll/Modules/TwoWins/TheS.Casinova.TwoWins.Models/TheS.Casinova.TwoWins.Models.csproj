@@ -40,8 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\ActionLogInformation.cs" />
+    <Compile Include="Models\BetInformation.cs" />
+    <Compile Include="Models\RangeBetInformation.cs" />
     <Compile Include="Models\RoundInformation.cs" />
     <Compile Include="Models\RoundWinnerInformation.cs" />
+    <Compile Include="Models\SettingInformation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -10,7 +10,7 @@ namespace TheS.Casinova.TwoWins.Commands
     {
         //input
         /// <summary>
-        /// ข้อมูลเพื่อลิสต์ข้อมูลการลงเดิมพัน
+        /// ข้อมูลเพื่อลิสต์ข้อมูลการลงพนัน
         /// 1.UserName ชื่อผู้เล่น
         /// 2.RoundID รหัสโต๊ะเกม
         /// </summary>
@@ -18,9 +18,9 @@ namespace TheS.Casinova.TwoWins.Commands
 
         //ouput
         /// <summary>
-        /// ข้อมูลการลงเดิมพันของผู้เล่น
+        /// ข้อมูลการลงพนันของผู้เล่น
         /// </summary>
-        public BetInformation BetInformation { get; set; }
+        public IEnumerable<BetInformation> BetInformation { get; set; }
     }
 }
     
