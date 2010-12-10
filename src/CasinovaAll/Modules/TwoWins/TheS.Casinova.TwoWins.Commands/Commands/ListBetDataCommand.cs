@@ -7,22 +7,21 @@ using TheS.Casinova.TwoWins.Models;
 namespace TheS.Casinova.TwoWins.Commands
 {
     /// <summary>
-    /// command ดึงข้อมูลสถิติการลงเดิมพันแบบทีละโต๊ะ
+    /// ดึงข้อมูลสถิติการลงเดิมพันในเกม
     /// </summary>
-    public class ListSingleActionLogCommand
+    public class ListBetDataCommand
     {
         //input
         /// <summary>
-        /// ข้อมูลเพื่อลิสต์ประวัติการลงพนันของโตีะเกมแบบทีละโต๊ะ
-        /// 1. RoundID รหัสโต๊ะเกม
+        /// ข้อมูลโต๊ะเกมที่ต้องการดูสถิติ
+        /// 1.RoundID ทั้งหมดที่ต้องการ
         /// </summary>
-        public ActionLogInformation ActionLogInfo { get; set; }
+        public IEnumerable<ActionLogInformation> ActionLogInfo { get; set; }
 
         //output
         /// <summary>
         /// ข้อมูลประวัติการลงพนัน
         /// </summary>
         public IEnumerable<ActionLogInformation> ActionLogInformation { get; set; }
-
     }
 }

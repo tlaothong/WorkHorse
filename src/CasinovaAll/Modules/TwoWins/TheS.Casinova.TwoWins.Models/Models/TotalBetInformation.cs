@@ -13,6 +13,11 @@ namespace TheS.Casinova.TwoWins.Models
         public int RoundID { get; set; }
 
         /// <summary>
+        /// ชื่อผู้เล่น
+        /// </summary>
+        public string UserName { get; set; }
+
+        /// <summary>
         /// จำนวนเงินทั้งหมดแต่ละโต๊ะที่ผู้เล่นเคยลงไว้
         /// </summary>
         public double TotalBet { get; set; }

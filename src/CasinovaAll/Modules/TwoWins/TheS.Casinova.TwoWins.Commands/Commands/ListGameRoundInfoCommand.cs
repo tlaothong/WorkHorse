@@ -6,6 +6,9 @@ using TheS.Casinova.TwoWins.Models;
 
 namespace TheS.Casinova.TwoWins.Commands
 {
+    /// <summary>
+    /// command ดึงข้อมูลโต๊ะเกมที่ active อยู่
+    /// </summary>
     public class ListGameRoundInfoCommand
     {
         //input

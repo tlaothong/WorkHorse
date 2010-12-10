@@ -66,6 +66,11 @@ namespace TheS.Casinova.TwoWins.Models
         public double Pot { get; set; }
 
         /// <summary>
+        /// จำนวนการลงพนันทั้งหมด
+        /// </summary>
+        public int HandsCount { get; set; }
+
+        /// <summary>
         /// ช่วงของจำนวนการลงพนัน
         /// </summary>
         public string HandRange { get; set; }

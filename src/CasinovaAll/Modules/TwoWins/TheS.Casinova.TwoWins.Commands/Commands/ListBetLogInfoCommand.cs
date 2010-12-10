@@ -6,6 +6,9 @@ using TheS.Casinova.TwoWins.Models;
 
 namespace TheS.Casinova.TwoWins.Commands
 {
+    /// <summary>
+    /// command ดึงข้อมูลการลงเดิมพันของผู้เล่นที่เคยเล่นไว้ในโต๊ะเกม
+    /// </summary>
     public class ListBetLogInfoCommand
     {
         //input

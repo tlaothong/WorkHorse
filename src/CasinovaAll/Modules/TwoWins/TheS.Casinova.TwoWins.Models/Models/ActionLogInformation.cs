@@ -18,6 +18,11 @@ namespace TheS.Casinova.TwoWins.Models
         public string UserName { get; set; }
 
         /// <summary>
+        /// รหัสการลงเดิมพัน
+        /// </summary>
+        public int HandID { get; set; }
+
+        /// <summary>
         /// สิ่งที่ทำ
         /// </summary>
         public string Action { get; set; }
@@ -36,6 +41,11 @@ namespace TheS.Casinova.TwoWins.Models
         /// สถานะเวลาของมือที่ลงพนัน
         /// </summary>
         public string HandStatus { get; set; }
+
+        /// <summary>
+        /// สถานะการอนุญาตให้เปลี่ยนค่าที่ลงเดิมพัน
+        /// </summary>
+        public bool CanChange { get; set; }
 
         /// <summary>
         /// เงินรางวัล

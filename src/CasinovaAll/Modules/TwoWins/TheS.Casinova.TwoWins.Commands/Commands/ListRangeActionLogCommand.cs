@@ -6,6 +6,9 @@ using TheS.Casinova.TwoWins.Models;
 
 namespace TheS.Casinova.TwoWins.Commands
 {
+    /// <summary>
+    /// command ดึงข้อมูลสถิติของเกมแบบเป็นช่วง โดยจะแสดงข้อมูลผลผู้ชนะ
+    /// </summary>
     public class ListRangeActionLogCommand
     {
         //input
@@ -13,12 +16,13 @@ namespace TheS.Casinova.TwoWins.Commands
         /// ข้อมูลโต๊ะเกมที่ต้องการดูสถิติ
         /// 1.RoundID ทั้งหมดที่ต้องการ
         /// </summary>
-        public IEnumerable<ActionLogInformation> ActionLogInformation { get; set; }
+        public IEnumerable<RoundWinnerInformation> RoundWinnerInfo { get; set; }
 
         //output
         /// <summary>
-        /// ข้อมูลประวัติการลงพนัน
+        /// ข้อมูลผลผู้ชนะของเกมแต่ละโต๊ะ
         /// </summary>
+        public IEnumerable<ActionLogInformation> RangeActionLog { get; set; }
        
     }
 }
