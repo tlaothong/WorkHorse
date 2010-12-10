@@ -10,12 +10,14 @@ namespace TheS.Casinova.TwoWins.Commands
     {
         //input
         /// <summary>
-        /// ข้อมูลการลิสต์โต๊ะเกมที่ active
-        /// 1. Active สถานะโต๊ะเกม
+        /// เวลาปัจจุบันที่ผู้เล่นเข้าห้องเกม
         /// </summary>
-        public RoundInformation RoundInfo { get; set; }
+        public DateTime FromTime { get; set; } 
 
         //output
+        /// <summary>
+        /// ข้อมูลโต๊ะเกมที่ active
+        /// </summary>
         public IEnumerable<RoundInformation> RoundInformation { get; set; }
 
     }

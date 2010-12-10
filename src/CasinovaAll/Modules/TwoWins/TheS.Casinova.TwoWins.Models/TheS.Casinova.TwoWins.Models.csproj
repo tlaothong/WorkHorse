@@ -46,6 +46,7 @@
     <Compile Include="Models\RoundInformation.cs" />
     <Compile Include="Models\RoundWinnerInformation.cs" />
     <Compile Include="Models\SettingInformation.cs" />
+    <Compile Include="Models\TotalBetInformation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

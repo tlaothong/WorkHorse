@@ -28,6 +28,21 @@ namespace TheS.Casinova.TwoWins.Models
         public double Amount { get; set; }
 
         /// <summary>
+        /// จำนวนเงินเดิมที่ลงไว้แล้วต้องการเปลี่ยน
+        /// </summary>
+        public double OldAmount { get; set; }
+
+        /// <summary>
+        /// สถานะเวลาของมือที่ลงพนัน
+        /// </summary>
+        public string HandStatus { get; set; }
+
+        /// <summary>
+        /// เงินรางวัล
+        /// </summary>
+        public double Reward { get; set; }
+
+        /// <summary>
         /// เวลาที่ลงพนัน
         /// </summary>
         public DateTime DateTime { get; set; }

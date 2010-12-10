@@ -17,8 +17,13 @@ namespace TheS.Casinova.TwoWins.Commands
 
         //output
         /// <summary>
-        /// ข้อมูล Game Status
+        /// ข้อมูลผู้ชนะ
         /// </summary>
         public RoundWinnerInformation RoundWinner{ get; set; }
+
+        /// <summary>
+        /// ข้อมูลจำนวนเงินและช่วงของจำนวนการลงเดิมพัน
+        /// </summary>
+        public RoundInformation RoundInfo { get; set; }
     }
 }
