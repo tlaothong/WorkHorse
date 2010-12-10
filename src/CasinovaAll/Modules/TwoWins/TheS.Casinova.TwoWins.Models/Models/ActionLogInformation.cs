@@ -20,7 +20,7 @@ namespace TheS.Casinova.TwoWins.Models
         /// <summary>
         /// สิ่งที่ทำ
         /// </summary>
-        public string Action { get; set; }
+        public string ActionType { get; set; }
 
         /// <summary>
         /// จำนวนเงินที่ลงพนัน

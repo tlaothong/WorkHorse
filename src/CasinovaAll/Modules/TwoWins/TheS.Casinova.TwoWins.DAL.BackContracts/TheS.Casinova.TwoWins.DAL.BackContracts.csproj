@@ -31,6 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PerfEx.Infrastructure">
+      <HintPath>..\..\..\..\..\lib\PerfEx.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="PerfEx.Infrastructure.Advanced">
+      <HintPath>..\..\..\..\..\lib\PerfEx.Infrastructure.Advanced.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,12 +46,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\CreateActionLogInfoCommand.cs" />
+    <Compile Include="Commands\CreateBetInfoCommand.cs" />
+    <Compile Include="Commands\GetRoundInfoCommand.cs" />
+    <Compile Include="Commands\GetUserProfileCommand.cs" />
+    <Compile Include="Commands\UpdateRoundCommand.cs" />
+    <Compile Include="Commands\UpdateUserProfileCommand.cs" />
+    <Compile Include="DAL\ITwowinsDataAccess.cs" />
+    <Compile Include="DAL\ITwowinsDataBackQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="DAL\" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\..\PlayerProfile\TheS.Casinova.PlayerProfile.Models\TheS.Casinova.PlayerProfile.Models.csproj">
+      <Project>{96BBA83F-EAA6-4EEA-BEC5-98F6AC39B943}</Project>
+      <Name>TheS.Casinova.PlayerProfile.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Shared\TheS.Casinova.Common.Commands\TheS.Casinova.Common.Commands.csproj">
       <Project>{B0BA601A-7B65-4973-9E00-4F9035883877}</Project>
       <Name>TheS.Casinova.Common.Commands</Name>
