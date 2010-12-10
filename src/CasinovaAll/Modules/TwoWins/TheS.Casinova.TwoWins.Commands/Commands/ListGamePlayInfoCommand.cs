@@ -16,6 +16,9 @@ namespace TheS.Casinova.TwoWins.Commands
         public BetInformation GamePlayInfo { get; set; }
 
         //output
-        public IEnumerable<BetInformation> GamePlayInformation { get; set; }
+        /// <summary>
+        /// ข้อมูลจำนวนเงินรวมทั้งหมดในแต่ละโต๊ะที่ผู้เล่นเคยลงไว้
+        /// </summary>
+        public IEnumerable<TotalBetInformation> TotalBet { get; set; }
     }
 }

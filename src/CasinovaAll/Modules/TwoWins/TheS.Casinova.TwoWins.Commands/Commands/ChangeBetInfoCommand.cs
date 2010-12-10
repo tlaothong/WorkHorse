@@ -14,7 +14,7 @@ namespace TheS.Casinova.TwoWins.Commands
         /// 1.UserName ชื่อผู้เล่น
         /// 2.HandID รหัสมือที่ลงพนัน
         /// 3.Amount จำนวนเงินใหม่ที่ลง
-        /// 5.RoundID รหัสโต๊ะเกม
+        /// 4.RoundID รหัสโต๊ะเกม
         /// </summary>
         public BetInformation BetInfo { get; set; }
 
