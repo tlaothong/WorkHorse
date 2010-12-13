@@ -16,9 +16,9 @@
     <script type="text/javascript">
         function shToggle(content) {
             if (document.getElementById(content).style.display == "none")
-                document.getElementById(content).style.display = "block"
+                document.getElementById(content).style.display = "block";
             else
-                document.getElementById(content).style.display = "none"
+                document.getElementById(content).style.display = "none";
         }
     </script>
 
@@ -64,11 +64,13 @@
     <div style="float: right; padding-right: 25px">
         <a href="#">TheS</a></div>
     <div style="float: right; clear: right; padding-right: 25px;">
-        <a class="bookmark" href="javascript:void(0);"onclick="shToggle('111'); return false;">Read more..</a>
-        <div id="111" style="visibility:visible; display:none; background-color: Gray; width: 580px; color: White;">Text, text, text...</div> 
+        <a class="bookmark" href="javascript:void(0);"onclick="shToggle('Readmore'); return false;">Read more..</a>
+        <div id="Readmore" style="visibility:visible; display:none; background-color: Gray; width: 580px; color: White;">Text, text, text...</div> 
     </div>
     <% Html.RenderPartial("ReportProblemVideo"); %>
     <% Html.RenderPartial("Invite_Friend"); %>
+    <% Html.RenderPartial("PostNewVideos"); %>
+    <% Html.RenderPartial("Option"); %>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="SubMenu" runat="server">
     <% Html.RenderPartial("SubmenuVideo"); %>

@@ -26,9 +26,9 @@
 <div id="New_Video">
     <div>
         <fieldset style="border: 1px solid #A49F9F; padding: 10">
-            <legend align="left" style="font-size: small; height: 30px;"><font color=" #A49F9F">
-                Agreement</font> </legend>
-            <div style='padding-left: 80px'>
+            <legend align="left" style="font-size: small; height: 30px; color: #A49F9F">
+                Agreement</legend>
+            <div style="padding-left: 80px">
                 <br />
                 <p>
                     <br />
@@ -59,7 +59,6 @@
                 Next
             </td>
         </tr>
-        <br />
         <tr>
             <td align="left">
                 <button type="button">
