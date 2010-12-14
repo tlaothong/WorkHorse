@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TheS.Casinova.TwoWins.Models
 {
-    public class TotalBetInformation
+    public partial class TotalBetInformation
     {
         /// <summary>
         /// รหัสโต๊ะเกม

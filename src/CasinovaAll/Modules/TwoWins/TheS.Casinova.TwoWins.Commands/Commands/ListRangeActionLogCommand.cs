@@ -13,16 +13,22 @@ namespace TheS.Casinova.TwoWins.Commands
     {
         //input
         /// <summary>
-        /// ข้อมูลโต๊ะเกมที่ต้องการดูสถิติ
-        /// 1.RoundID ทั้งหมดที่ต้องการ
+        /// ข้อมูลรหัสโต๊ะเกมที่ต้องการดูสถิติ
+        /// 1. FromRoundID รหัสโต๊ะเกมเริ่มต้น
+        /// 2. ThruRoundID รหัสโต๊ะเกมสุดท้าย
         /// </summary>
-        public IEnumerable<RoundWinnerInformation> RoundWinnerInfo { get; set; }
+        public ActionLogInformation ActionLogInfo { get; set; }
 
         //output
         /// <summary>
         /// ข้อมูลผลผู้ชนะของเกมแต่ละโต๊ะ
         /// </summary>
         public IEnumerable<ActionLogInformation> RangeActionLog { get; set; }
+
+        /// <summary>
+        /// ข้อมูลจำนวนเงินรวมทั้งหมดและจำนวนมือทั้งหมด
+        /// </summary>
+        public RoundInformation RoundInformation { get; set; }
        
     }
 }

@@ -28,7 +28,7 @@ namespace TheS.Casinova.TwoWins.WebExecutors
         protected override void ExecuteCommand(ListBetDataCommand command)
         {
             //Validation
-            var errors = ValidationHelper.Validate(_container, command.ActionLogInfo, command);
+            var errors = ValidationHelper.Validate(_container, command.ActionLogInfo,command);
             if (errors.Any()) {
                 throw new ValidationErrorException(errors);
             }

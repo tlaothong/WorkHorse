@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TheS.Casinova.TwoWins.Models
 {
-    public class ActionLogInformation
+    public partial class ActionLogInformation
     {
         /// <summary>
         /// รหัสโต๊ะเกม
@@ -20,12 +20,7 @@ namespace TheS.Casinova.TwoWins.Models
         /// <summary>
         /// รหัสการลงเดิมพัน
         /// </summary>
-        public int HandID { get; set; }
-
-        /// <summary>
-        /// สิ่งที่ทำ
-        /// </summary>
-        public string Action { get; set; }
+        public string HandID { get; set; }
 
         /// <summary>
         /// จำนวนเงินที่ลงพนัน
@@ -45,7 +40,17 @@ namespace TheS.Casinova.TwoWins.Models
         /// <summary>
         /// สถานะการอนุญาตให้เปลี่ยนค่าที่ลงเดิมพัน
         /// </summary>
-        public bool CanChange { get; set; }
+        public bool Change { get; set; }
+
+        /// <summary>
+        /// สถานะการลงเดิมพันที่ชนะ
+        /// </summary>
+        public string WinState { get; set; }
+
+        /// <summary>
+        /// จำนวนเงินทั้งหมดในกองขณะที่ผู้เล่นลงเดิมพัน
+        /// </summary>
+        public double Pot { get; set; }
 
         /// <summary>
         /// เงินรางวัล
@@ -56,5 +61,15 @@ namespace TheS.Casinova.TwoWins.Models
         /// เวลาที่ลงพนัน
         /// </summary>
         public DateTime DateTime { get; set; }
+
+        /// <summary>
+        /// รหัสโต๊ะเกมเริ่มต้น
+        /// </summary>
+        public int FromRoundID { get; set; }
+
+        /// <summary>
+        /// รหัสโต๊ะเกมสุดท้าย
+        /// </summary>
+        public int ThruRoundID { get; set; }
     }
 }

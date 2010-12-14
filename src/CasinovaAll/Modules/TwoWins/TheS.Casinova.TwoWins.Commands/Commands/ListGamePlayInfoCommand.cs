@@ -16,7 +16,7 @@ namespace TheS.Casinova.TwoWins.Commands
         /// ข้อมูลเพื่อลิสต์จำนวนเงินรวมทั้งหมดที่ลงเดิมพัน
         /// 1. UserName ชื่อผู้เล่น
         /// </summary>
-        public TotalBetInformation TotalBetInfo { get; set; }
+        public TotalBetInformation TotalBetInfo{ get; set; }
 
         //output
         /// <summary>

@@ -31,16 +31,10 @@ namespace TheS.Casinova.TwoWins.WebExecutors
         protected override void ExecuteCommand(ListRangeActionLogCommand command)
         {
             //Validation
-            var errors = ValidationHelper.Validate(_container, command.RoundWinnerInfo, command);
+            var errors = ValidationHelper.Validate(_container, command.ActionLogInfo, command);
             if (errors.Any()) {
                 throw new ValidationErrorException(errors);
             }
-
-            //IEnumerable<RoundWinnerInformation> listAmount;
-
-            //foreach (var i in command.RoundWinnerInfo) {
-            //    listAmount = _iGetRoundWinnerAmount.Get(i);
-            //}
 
             command.RangeActionLog = _iListRangeActionLog.List(command);
         }

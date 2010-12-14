@@ -8,7 +8,7 @@ namespace TheS.Casinova.TwoWins.Models
     /// <summary>
     /// ข้อมูลเกมแต่ละโต๊ะ
     /// </summary>
-    public class RoundInformation
+    public partial class RoundInformation
     {
         /// <summary>
         /// รหัสโต๊ะเกม
@@ -33,12 +33,12 @@ namespace TheS.Casinova.TwoWins.Models
         /// <summary>
         /// ผู้ชนะสูงสุดในช่วงเวลาปกติ
         /// </summary>
-        public string WinnerHightName { get; set; }
+        public string WinnerHightNameNormal { get; set; }
 
         /// <summary>
         /// ผู้ชนะต่ำสุดในช่วงเวลาปกติ
         /// </summary>
-        public string WinnerLowName { get; set; }
+        public string WinnerLowNameNormal { get; set; }
 
         /// <summary>
         /// ช่วงจำนวนเงินของผู้ชนะสูงสุด
