@@ -92,11 +92,10 @@ this.ScenarioSetup(scenarioInfo);
 #line 15
 testRunner.Given("The VoucherToBonusChipsExecutor has been created and initialized");
 #line 16
-testRunner.And("Sent UserName\'Nit\' VoucherCode \'0A15D2C519764BF4B698E31B9F77FE90\' the player\'s vo" +
-                    "ucher information should recieved");
+testRunner.And("Sent UserName\'Nit\' VoucherCode \'0A15D\' the player\'s voucher information should re" +
+                    "cieved");
 #line 17
-testRunner.When("Call VoucherToBonusChipsExecutor (UserName\'Nit\' VoucherCode \'0A15D2C519764BF4B698" +
-                    "E31B9F77FE90\')");
+testRunner.When("Call VoucherToBonusChipsExecutor()");
 #line 18
 testRunner.Then("The system can sent information to back server #VoucherToBonusChips");
 #line hidden

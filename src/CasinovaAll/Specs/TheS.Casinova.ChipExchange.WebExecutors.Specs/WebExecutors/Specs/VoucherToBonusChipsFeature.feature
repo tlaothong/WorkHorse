@@ -13,8 +13,8 @@ Background:
 @record_mock
 Scenario:[VoucherToBonusChips]ระบบได้รับข้อมูล voucher code และ userName ระบบทำการตรวจสอบข้อมูล ข้อมูลถูกต้อง ระบบสามารถ generate trackingID ได้  
 	Given The VoucherToBonusChipsExecutor has been created and initialized
-	And   Sent UserName'Nit' VoucherCode '0A15D2C519764BF4B698E31B9F77FE90' the player's voucher information should recieved
-	When  Call VoucherToBonusChipsExecutor (UserName'Nit' VoucherCode '0A15D2C519764BF4B698E31B9F77FE90') 
+	And   Sent UserName'Nit' VoucherCode '0A15D' the player's voucher information should recieved
+	When  Call VoucherToBonusChipsExecutor() 
 	Then  The system can sent information to back server #VoucherToBonusChips
 
 @record_mock
