@@ -7,6 +7,7 @@ using TheS.Casinova.Colors.Models;
 using TheS.Casinova.Colors.Commands;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PerfEx.Infrastructure.Validation;
+using Rhino.Mocks;
 
 namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
 {
@@ -33,6 +34,9 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         public void GivenTheSystemGeneratedTrackingIDX(string trackingID)
         {
             _trackingID = trackingID;
+
+            SetupResult.For(svc_GenerateTrackingID.GenerateTrackingID())
+                .IgnoreArguments().Return(Guid.Parse(_trackingID));
         }
         
         //Validate input
@@ -65,7 +69,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         [Then(@"TrackingID should be :'(.*)'")]
         public void ThenTrackingIDShouldBeX(string trackingID)
         {
-            Assert.AreEqual(trackingID, _trackingID, "Get trackingID accept");
+            Assert.AreEqual(trackingID,_trackingID, "Get trackingID accept");
         }
     }
 }

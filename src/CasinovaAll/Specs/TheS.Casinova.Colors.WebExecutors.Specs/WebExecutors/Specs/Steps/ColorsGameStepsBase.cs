@@ -6,6 +6,7 @@ using TechTalk.SpecFlow;
 using TheS.Casinova.Colors.DAL;
 using TheS.Casinova.Colors.BackServices;
 using SpecFlowAssist;
+using TheS.Casinova.Common.Services;
 
 namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
 {
@@ -129,6 +130,14 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
             get
             {
                 return ScenarioContext.Current.Get<ICheckActiveRoundToCreate>();
+            }
+        }
+      
+        protected IGenerateTrackingID svc_GenerateTrackingID
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<IGenerateTrackingID>();
             }
         }
     }
