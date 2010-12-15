@@ -12,16 +12,15 @@
             $(this).slideUp();
         });
     </script>
-
     <script type="text/javascript">
-        function shToggle(content) {
-            if (document.getElementById(content).style.display == "none")
-                document.getElementById(content).style.display = "block";
-            else
-                document.getElementById(content).style.display = "none";
-        }
+        Sys.debug = true;
+        Sys.require(Sys.components.collapsiblePanel, function () {
+            $(".readmore").collapsiblePanel({
+                ExpandControlID: "expand",
+                CollapseControlID: "expand"
+            });
+        });
     </script>
-
     <div style="padding-top: 10px;">
         <div style="float: left; margin-left: 20px;">
             <label>
@@ -46,8 +45,17 @@
             </div>
         </div>
     </div>
-    <div style="background-color: Gray; width: 580px; height: 300px; position: relative;
+    <div style="background-color: Gray; width: 580px; height: 450px; position: relative;
         margin-top: 25px; margin-left: 20px;">
+        <%--Silverlight--%>
+                <div class="media">
+            <object codebase="http://www.apple.com/qtactivex/qtplugin.cab" classid="clsid:6BF52A52-394A-11d3-B153-00C04F79FAA6"
+                type="application/x-oleobject" width="580" height="450">
+                <param name="url" value="/ClientBin/tuk.wmv" />
+                <embed src="tuk.wmv" type="application/x-mplayer2" pluginspage="http://www.microsoft.com/Windows/MediaPlayer/"></embed>
+            </object>
+        </div>
+        <%--end--%>
     </div>
     <div style="margin-left: 20px; margin-top: 10px;">
         <div style="float: left;">
@@ -63,9 +71,32 @@
     </div>
     <div style="float: right; padding-right: 25px">
         <a href="#">TheS</a></div>
-    <div style="float: right; clear: right; padding-right: 25px;">
-        <a class="bookmark" href="javascript:void(0);"onclick="shToggle('Readmore'); return false;">Read more..</a>
-        <div id="Readmore" style="visibility:visible; display:none; background-color: Gray; width: 580px; color: White;">Text, text, text...</div> 
+    <div style="float: right; clear: both; padding-right: 25px;">
+        <div id="expand">
+            <a href="#">Read more..</a></div>
+        <div class="readmore" style="display: none; background-color: Gray; width: 580px;
+            color: White;">
+            Text, text, text...</div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Hide the "view" div.
+            $('div.view').hide();
+            // Watch for clicks on the "slide" link.
+            $('div.slide').click(function () {
+                // When clicked, toggle the "view" div.
+                $('div.view').slideToggle(100);
+                return false;
+            });
+        });
+    </script>
+    <div style="float: right; padding-right: 25px">
+        <div class="slide bookmark" style="cursor: pointer;">
+            <a href="#">Show/Hide</a>
+        </div>
+        <div class="view">
+            This will get shown/hidden depending on the toggle above.
+        </div>
     </div>
     <% Html.RenderPartial("ReportProblemVideo"); %>
     <% Html.RenderPartial("Invite_Friend"); %>

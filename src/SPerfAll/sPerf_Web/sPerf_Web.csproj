@@ -550,7 +550,9 @@
     <Content Include="Scripts\jquery.pager.js" />
     <Content Include="Scripts\jquery.popupWindow.js" />
     <Content Include="Scripts\jquery.tmpl.js" />
+    <Content Include="Scripts\Silverlight.js" />
     <Content Include="test.txt" />
+    <Content Include="ClientBin\tuk.wmv" />
     <Content Include="Views\Home\AboutUs.aspx" />
     <Content Include="Views\Home\AdvanceSearch.ascx" />
     <Content Include="Views\Home\Banners.ascx" />
