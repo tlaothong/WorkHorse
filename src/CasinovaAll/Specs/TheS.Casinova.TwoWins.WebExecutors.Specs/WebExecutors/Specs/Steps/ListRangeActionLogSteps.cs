@@ -7,6 +7,7 @@ using TheS.Casinova.TwoWins.Commands;
 using TheS.Casinova.TwoWins.Models;
 using Rhino.Mocks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PerfEx.Infrastructure.Validation;
 
 namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
 {
@@ -27,7 +28,7 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
                        select new ActionLogInformation {
                            RoundID = Convert.ToInt32(item["RoundID"]),
                            UserName = Convert.ToString(item["UserName"]),
-                           HandID = Convert.ToString(item["HandID"]),
+                           HandID = Convert.ToInt32(item["HandID"]),
                            Amount = Convert.ToDouble(item["Amount"]),
                            OldAmount = Convert.ToDouble(item["OldAmount"]),
                            Pot = Convert.ToDouble(item["Pot"]),
@@ -69,12 +70,14 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
             SetupResult.For(Dqr_ListRangeActionLog.List(new ListRangeActionLogCommand()))
                 .IgnoreArguments().Return(_listRangeActionLog);
 
+            //รวมค่า pot ของทุกโต๊ะเกม
             for (int i = fromRoundID; i <= thruRoundID; i++) {
                 _pot += (from item in _roundInfo
                         where item.RoundID == i
                         select item.Pot).FirstOrDefault();
             }
 
+            //รวมค่า handsCount ของทุกโต๊ะเกม
             for (int i = fromRoundID; i <= thruRoundID; i++) {
                 _handsCount += (from item in _roundInfo
                         where item.RoundID == i
@@ -87,6 +90,31 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
                     ThruRoundID = thruRoundID
                 }
             };
+        }
+
+        [Given(@"Sent FromRoundID'(.*)' ThruRoundID'(.*)' for list range action log validation")]
+        public void GivenSentFromRoundID_4ThruRoundID5ForListRangeActionLogValidation(int fromRoundID, int thruRoundID)
+        {
+            _cmd = new ListRangeActionLogCommand {
+                ActionLogInfo = new ActionLogInformation {
+                    FromRoundID = fromRoundID,
+                    ThruRoundID = thruRoundID
+                }
+            };
+        }
+
+        //Validation
+        [When(@"Call ListRangeActionLogExecutor\(\) for validate input")]
+        public void WhenCallListRangeActionLogExecutorForValidateInput()
+        {
+            try {
+                ListRangeActionLog.Execute(_cmd, (x) => { });
+                Assert.Fail("Shouldn't be here");
+            }
+            catch (Exception ex) {
+                Assert.IsInstanceOfType(ex,
+                    typeof(ValidationErrorException));
+            }
         }
 
         //Test function
@@ -103,7 +131,7 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
                            select new {
                                RoundID = Convert.ToInt32(item["RoundID"]),
                                UserName = Convert.ToString(item["UserName"]),
-                               HandID = Convert.ToString(item["HandID"]),
+                               HandID = Convert.ToInt32(item["HandID"]),
                                Amount = Convert.ToDouble(item["Amount"]),
                                OldAmount = Convert.ToDouble(item["OldAmount"]),
                                Pot = Convert.ToDouble(item["Pot"]),
@@ -135,6 +163,12 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
         {
             Assert.AreEqual(pot, _pot, "จำนวนเงินทั้งหมด");
             Assert.AreEqual(handCount, _handsCount, "จำนวนมือทั้งหมด");
+        }
+
+        [Then(@"RangeActionLog information should be throw exception")]
+        public void ThenRangeActionLogInformationShouldBeThrowException()
+        {
+            Assert.IsTrue(true, "Exception has been verified in the end of block When.");
         }
     }
 }

@@ -72,7 +72,7 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs
             table1.AddRow(new string[] {
                         "1",
                         "Nayit",
-                        "B324",
+                        "1",
                         "700",
                         "0",
                         "700",
@@ -84,7 +84,7 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs
             table1.AddRow(new string[] {
                         "2",
                         "Nayit",
-                        "DF23",
+                        "1",
                         "28",
                         "0",
                         "28",
@@ -96,7 +96,7 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs
             table1.AddRow(new string[] {
                         "1",
                         "Nayit",
-                        "B324",
+                        "2",
                         "1500",
                         "700",
                         "1500",
@@ -108,7 +108,7 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs
             table1.AddRow(new string[] {
                         "1",
                         "Kob",
-                        "54DE",
+                        "3",
                         "44",
                         "0",
                         "1544",
@@ -120,7 +120,7 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs
             table1.AddRow(new string[] {
                         "2",
                         "Eye",
-                        "123W",
+                        "2",
                         "550",
                         "0",
                         "578",
@@ -132,7 +132,7 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs
             table1.AddRow(new string[] {
                         "1",
                         "Krai",
-                        "43EE",
+                        "4",
                         "133",
                         "0",
                         "1677",
@@ -144,7 +144,7 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs
             table1.AddRow(new string[] {
                         "2",
                         "Jae",
-                        "1267",
+                        "3",
                         "1000",
                         "0",
                         "1578",
@@ -156,7 +156,7 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs
             table1.AddRow(new string[] {
                         "1",
                         "Sak",
-                        "VD66",
+                        "5",
                         "323",
                         "0",
                         "2000",
@@ -219,7 +219,7 @@ testRunner.When("Call ListRangeActionLogExecutor()");
             table3.AddRow(new string[] {
                         "1",
                         "Nayit",
-                        "B324",
+                        "2",
                         "1500",
                         "700",
                         "1500",
@@ -231,7 +231,7 @@ testRunner.When("Call ListRangeActionLogExecutor()");
             table3.AddRow(new string[] {
                         "1",
                         "Kob",
-                        "54DE",
+                        "3",
                         "44",
                         "0",
                         "1544",
@@ -243,7 +243,7 @@ testRunner.When("Call ListRangeActionLogExecutor()");
             table3.AddRow(new string[] {
                         "2",
                         "Nayit",
-                        "DF23",
+                        "1",
                         "28",
                         "0",
                         "28",
@@ -255,7 +255,7 @@ testRunner.When("Call ListRangeActionLogExecutor()");
             table3.AddRow(new string[] {
                         "2",
                         "Jae",
-                        "1267",
+                        "3",
                         "1000",
                         "0",
                         "1578",
@@ -268,6 +268,176 @@ testRunner.When("Call ListRangeActionLogExecutor()");
 testRunner.Then("RangeActionLog information should be as :", ((string)(null)), table3);
 #line 36
 testRunner.And("Game result Pot\'3578\' HandCount\'8\'");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ListRangeActionLog]ระบบได้รับข้อมูล ThruRoundID ที่ยังไม่จบเกม ระบบดึงข้อมูล Ran" +
+            "geActionLog ถึงโต๊ะเกมสุดท้ายที่จบเกม")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListRangeActionLog")]
+        public virtual void ListRangeActionLogระบบไดรบขอมลThruRoundIDทยงไมจบเกมระบบดงขอมลRangeActionLogถงโตะเกมสดทายทจบเกม()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ListRangeActionLog]ระบบได้รับข้อมูล ThruRoundID ที่ยังไม่จบเกม ระบบดึงข้อมูล Ran" +
+                    "geActionLog ถึงโต๊ะเกมสุดท้ายที่จบเกม", new string[] {
+                        "record_mock"});
+#line 39
+this.ScenarioSetup(scenarioInfo);
+#line 40
+testRunner.Given("The ListRangeActionLogExecutor has been created and initialized");
+#line 41
+testRunner.And("Sent FromRoundID\'1\' ThruRoundID\'5\' to list range action log");
+#line 42
+testRunner.When("Call ListRangeActionLogExecutor()");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "RoundID",
+                        "UserName",
+                        "HandID",
+                        "Amount",
+                        "OldAmount",
+                        "Pot",
+                        "WinState",
+                        "Reward",
+                        "HandStatus",
+                        "Change",
+                        "DateTime"});
+            table4.AddRow(new string[] {
+                        "1",
+                        "Nayit",
+                        "2",
+                        "1500",
+                        "700",
+                        "1500",
+                        "Hight",
+                        "1901",
+                        "Normal",
+                        "True",
+                        "11:02 12/13/2010"});
+            table4.AddRow(new string[] {
+                        "1",
+                        "Kob",
+                        "3",
+                        "44",
+                        "0",
+                        "1544",
+                        "Low",
+                        "99",
+                        "Normal",
+                        "False",
+                        "11:14 12/13/2010"});
+            table4.AddRow(new string[] {
+                        "2",
+                        "Nayit",
+                        "1",
+                        "28",
+                        "0",
+                        "28",
+                        "Low",
+                        "78",
+                        "Normal",
+                        "False",
+                        "10:58 12/13/2010"});
+            table4.AddRow(new string[] {
+                        "2",
+                        "Jae",
+                        "3",
+                        "1000",
+                        "0",
+                        "1578",
+                        "Hight",
+                        "1500",
+                        "Critical",
+                        "False",
+                        "11:29 12/13/2010"});
+#line 43
+testRunner.Then("RangeActionLog information should be as :", ((string)(null)), table4);
+#line 50
+testRunner.And("Game result Pot\'3578\' HandCount\'8\'");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ListRangeActionLog]ระบบได้รับข้อมูล FromRoundID, ThruRoundID ที่ยังไม่จบเกม ระบบ" +
+            "ได้ข้อมูล RangeActionLog เป็น null")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListRangeActionLog")]
+        public virtual void ListRangeActionLogระบบไดรบขอมลFromRoundIDThruRoundIDทยงไมจบเกมระบบไดขอมลRangeActionLogเปนNull()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ListRangeActionLog]ระบบได้รับข้อมูล FromRoundID, ThruRoundID ที่ยังไม่จบเกม ระบบ" +
+                    "ได้ข้อมูล RangeActionLog เป็น null", new string[] {
+                        "record_mock"});
+#line 53
+this.ScenarioSetup(scenarioInfo);
+#line 54
+testRunner.Given("The ListRangeActionLogExecutor has been created and initialized");
+#line 55
+testRunner.And("Sent FromRoundID\'4\' ThruRoundID\'5\' to list range action log");
+#line 56
+testRunner.When("Call ListRangeActionLogExecutor()");
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "RoundID",
+                        "UserName",
+                        "HandID",
+                        "Amount",
+                        "OldAmount",
+                        "Pot",
+                        "WinState",
+                        "Reward",
+                        "HandStatus",
+                        "Change",
+                        "DateTime"});
+#line 57
+testRunner.Then("RangeActionLog information should be as :", ((string)(null)), table5);
+#line 60
+testRunner.And("Game result Pot\'0\' HandCount\'0\'");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ListRangeActionLog]ระบบได้รับข้อมูล FromRoundID ไม่ถูกต้อง ระบบไม่สามารถดึงข้อมู" +
+            "ล RangeActionLog ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListRangeActionLog")]
+        public virtual void ListRangeActionLogระบบไดรบขอมลFromRoundIDไมถกตองระบบไมสามารถดงขอมลRangeActionLogได()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ListRangeActionLog]ระบบได้รับข้อมูล FromRoundID ไม่ถูกต้อง ระบบไม่สามารถดึงข้อมู" +
+                    "ล RangeActionLog ได้", new string[] {
+                        "record_mock"});
+#line 63
+this.ScenarioSetup(scenarioInfo);
+#line 64
+testRunner.Given("The ListRangeActionLogExecutor has been created and initialized");
+#line 65
+testRunner.And("Sent FromRoundID\'-4\' ThruRoundID\'5\' for list range action log validation");
+#line 66
+testRunner.When("Call ListRangeActionLogExecutor() for validate input");
+#line 67
+testRunner.Then("RangeActionLog information should be throw exception");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ListRangeActionLog]ระบบได้รับข้อมูล ThruRoundID ไม่ถูกต้อง ระบบไม่สามารถดึงข้อมู" +
+            "ล RangeActionLog ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListRangeActionLog")]
+        public virtual void ListRangeActionLogระบบไดรบขอมลThruRoundIDไมถกตองระบบไมสามารถดงขอมลRangeActionLogได()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ListRangeActionLog]ระบบได้รับข้อมูล ThruRoundID ไม่ถูกต้อง ระบบไม่สามารถดึงข้อมู" +
+                    "ล RangeActionLog ได้", new string[] {
+                        "record_mock"});
+#line 70
+this.ScenarioSetup(scenarioInfo);
+#line 71
+testRunner.Given("The ListRangeActionLogExecutor has been created and initialized");
+#line 72
+testRunner.And("Sent FromRoundID\'1\' ThruRoundID\'-2\' for list range action log validation");
+#line 73
+testRunner.When("Call ListRangeActionLogExecutor() for validate input");
+#line 74
+testRunner.Then("RangeActionLog information should be throw exception");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

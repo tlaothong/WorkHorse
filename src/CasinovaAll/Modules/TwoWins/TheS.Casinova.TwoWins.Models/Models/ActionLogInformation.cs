@@ -20,7 +20,7 @@ namespace TheS.Casinova.TwoWins.Models
         /// <summary>
         /// รหัสการลงเดิมพัน
         /// </summary>
-        public string HandID { get; set; }
+        public int HandID { get; set; }
 
         /// <summary>
         /// จำนวนเงินที่ลงพนัน

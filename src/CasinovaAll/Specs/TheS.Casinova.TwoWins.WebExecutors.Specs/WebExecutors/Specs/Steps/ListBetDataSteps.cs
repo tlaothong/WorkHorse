@@ -25,7 +25,7 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
                          select new ActionLogInformation {
                              RoundID = Convert.ToInt32(item["RoundID"]),
                              UserName = Convert.ToString(item["UserName"]),
-                             HandID = Convert.ToString(item["HandID"]),
+                             HandID = Convert.ToInt32(item["HandID"]),
                              Amount = Convert.ToDouble(item["Amount"]),
                              OldAmount = Convert.ToDouble(item["OldAmount"]),
                              Pot = Convert.ToDouble(item["Pot"]),
@@ -104,7 +104,7 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
                            select new {
                                RoundID = Convert.ToInt32(item["RoundID"]),
                              UserName = Convert.ToString(item["UserName"]),
-                             HandID = Convert.ToString(item["HandID"]),
+                             HandID = Convert.ToInt32(item["HandID"]),
                              Amount = Convert.ToDouble(item["Amount"]),
                              OldAmount = Convert.ToDouble(item["OldAmount"]),
                              Pot = Convert.ToDouble(item["Pot"]),

@@ -12,6 +12,7 @@ namespace TheS.Casinova.TwoWins.Models
         public class MD
         {
           
+            [Range(0,int.MaxValue)]
             public int RoundID { get; set; }
 
             [Required]
@@ -23,6 +24,7 @@ namespace TheS.Casinova.TwoWins.Models
 
             public double Amount { get; set; }
 
+            [Range(0, int.MaxValue)]
             public int HandID { get; set; }
 
             public string HandStatus { get; set; }

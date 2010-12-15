@@ -71,7 +71,7 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs
             table1.AddRow(new string[] {
                         "1",
                         "Nayit",
-                        "B324",
+                        "1",
                         "700",
                         "0",
                         "700",
@@ -83,7 +83,7 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs
             table1.AddRow(new string[] {
                         "2",
                         "Nayit",
-                        "DF23",
+                        "1",
                         "28",
                         "0",
                         "28",
@@ -95,7 +95,7 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs
             table1.AddRow(new string[] {
                         "1",
                         "Nayit",
-                        "B324",
+                        "2",
                         "1500",
                         "700",
                         "1500",
@@ -107,7 +107,7 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs
             table1.AddRow(new string[] {
                         "1",
                         "Kob",
-                        "54DE",
+                        "3",
                         "44",
                         "0",
                         "1544",
@@ -119,7 +119,7 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs
             table1.AddRow(new string[] {
                         "2",
                         "Eye",
-                        "123W",
+                        "2",
                         "550",
                         "0",
                         "578",
@@ -131,7 +131,7 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs
             table1.AddRow(new string[] {
                         "1",
                         "Krai",
-                        "43EE",
+                        "4",
                         "133",
                         "0",
                         "1677",
@@ -143,7 +143,7 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs
             table1.AddRow(new string[] {
                         "2",
                         "Jae",
-                        "1267",
+                        "3",
                         "1000",
                         "0",
                         "1578",
@@ -155,7 +155,7 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs
             table1.AddRow(new string[] {
                         "1",
                         "Sak",
-                        "VD66",
+                        "5",
                         "323",
                         "0",
                         "2000",
@@ -203,7 +203,7 @@ testRunner.When("Call ListBetDataExecutor()");
             table2.AddRow(new string[] {
                         "1",
                         "Nayit",
-                        "B324",
+                        "1",
                         "700",
                         "0",
                         "700",
@@ -215,7 +215,7 @@ testRunner.When("Call ListBetDataExecutor()");
             table2.AddRow(new string[] {
                         "1",
                         "Nayit",
-                        "B324",
+                        "2",
                         "1500",
                         "700",
                         "1500",
@@ -227,7 +227,7 @@ testRunner.When("Call ListBetDataExecutor()");
             table2.AddRow(new string[] {
                         "1",
                         "Kob",
-                        "54DE",
+                        "3",
                         "44",
                         "0",
                         "1544",
@@ -239,7 +239,7 @@ testRunner.When("Call ListBetDataExecutor()");
             table2.AddRow(new string[] {
                         "1",
                         "Krai",
-                        "43EE",
+                        "4",
                         "133",
                         "0",
                         "1677",
@@ -251,7 +251,7 @@ testRunner.When("Call ListBetDataExecutor()");
             table2.AddRow(new string[] {
                         "1",
                         "Sak",
-                        "VD66",
+                        "5",
                         "323",
                         "0",
                         "2000",
@@ -263,7 +263,7 @@ testRunner.When("Call ListBetDataExecutor()");
             table2.AddRow(new string[] {
                         "2",
                         "Nayit",
-                        "DF23",
+                        "1",
                         "28",
                         "0",
                         "28",
@@ -275,7 +275,7 @@ testRunner.When("Call ListBetDataExecutor()");
             table2.AddRow(new string[] {
                         "2",
                         "Eye",
-                        "123W",
+                        "2",
                         "550",
                         "0",
                         "578",
@@ -287,7 +287,7 @@ testRunner.When("Call ListBetDataExecutor()");
             table2.AddRow(new string[] {
                         "2",
                         "Jae",
-                        "1267",
+                        "3",
                         "1000",
                         "0",
                         "1578",
@@ -335,7 +335,7 @@ testRunner.When("Call ListBetDataExecutor()");
             table3.AddRow(new string[] {
                         "1",
                         "Nayit",
-                        "B324",
+                        "1",
                         "700",
                         "0",
                         "700",
@@ -347,7 +347,7 @@ testRunner.When("Call ListBetDataExecutor()");
             table3.AddRow(new string[] {
                         "1",
                         "Nayit",
-                        "B324",
+                        "2",
                         "1500",
                         "700",
                         "1500",
@@ -359,7 +359,7 @@ testRunner.When("Call ListBetDataExecutor()");
             table3.AddRow(new string[] {
                         "1",
                         "Kob",
-                        "54DE",
+                        "3",
                         "44",
                         "0",
                         "1544",
@@ -371,7 +371,7 @@ testRunner.When("Call ListBetDataExecutor()");
             table3.AddRow(new string[] {
                         "1",
                         "Krai",
-                        "43EE",
+                        "4",
                         "133",
                         "0",
                         "1677",
@@ -383,7 +383,7 @@ testRunner.When("Call ListBetDataExecutor()");
             table3.AddRow(new string[] {
                         "1",
                         "Sak",
-                        "VD66",
+                        "5",
                         "323",
                         "0",
                         "2000",
@@ -395,7 +395,7 @@ testRunner.When("Call ListBetDataExecutor()");
             table3.AddRow(new string[] {
                         "2",
                         "Nayit",
-                        "DF23",
+                        "1",
                         "28",
                         "0",
                         "28",
@@ -407,7 +407,7 @@ testRunner.When("Call ListBetDataExecutor()");
             table3.AddRow(new string[] {
                         "2",
                         "Eye",
-                        "123W",
+                        "2",
                         "550",
                         "0",
                         "578",
@@ -419,7 +419,7 @@ testRunner.When("Call ListBetDataExecutor()");
             table3.AddRow(new string[] {
                         "2",
                         "Jae",
-                        "1267",
+                        "3",
                         "1000",
                         "0",
                         "1578",

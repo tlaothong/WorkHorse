@@ -13,6 +13,8 @@ using PerfEx.Infrastructure.Validation;
 using TheS.Casinova.TwoWins.DAL;
 using SpecFlowAssist;
 using PerfEx.Infrastructure.CommandPattern;
+using TheS.Casinova.TwoWins.BackServices;
+using TheS.Casinova.TwoWins.Validators;
 
 namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
 {
@@ -105,6 +107,63 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
                new ListRangeActionLogExecutor(dqr, container));
         }
 
+        //List bet log specs initialized
+        [Given(@"The ListBetLogInfoExecutor has been created and initialized")]
+        public void GivenTheListBetLogInfoExecutorHasBeenCreatedAndInitialized()
+        {
+            var dqr = Mocks.DynamicMock<ITwoWinsGameDataQuery>();
+            IDependencyContainer container;
+
+            setupValidators(out container);
+
+            ScenarioContext.Current.Set<IListBetLogInfo>(dqr);
+            ScenarioContext.Current.Set<ListBetLogInfoExecutor>(
+               new ListBetLogInfoExecutor(dqr, container));
+        }
+
+        //Single bet specs initialized
+        [Given(@"The SingleBetExecutor has been created and initialized")]
+        public void GivenTheSingleBetExecutorHasBeenCreatedAndInitialized()
+        {
+            var dac = Mocks.DynamicMock<ITwoWinsGameBackService>();
+            IDependencyContainer container;
+
+            setupValidators(out container);
+
+            ScenarioContext.Current.Set<ISingleBet>(dac);
+            ScenarioContext.Current.Set<SingleBetExecutor>(
+               new SingleBetExecutor(dac, container));
+        }
+
+        //Range bet specs initialized
+        [Given(@"The RangeBetExecutor has been created and initialized")]
+        public void GivenTheRangeBetExecutorHasBeenCreatedAndInitialized()
+        {
+            var dac = Mocks.DynamicMock<ITwoWinsGameBackService>();
+            IDependencyContainer container;
+
+            setupValidators(out container);
+
+            ScenarioContext.Current.Set<IRangeBet>(dac);
+            ScenarioContext.Current.Set<RangeBetExecutor>(
+               new RangeBetExecutor(dac, container));
+        }
+
+        //Change bet specs initialized
+        [Given(@"The ChangeBetExecutor has been created and initialized")]
+        public void GivenTheChangeBetExecutorHasBeenCreatedAndInitialized()
+        {
+            var dac = Mocks.DynamicMock<ITwoWinsGameBackService>();
+            IDependencyContainer container;
+
+            setupValidators(out container);
+
+            ScenarioContext.Current.Set<IChangeBetInfo>(dac);
+            ScenarioContext.Current.Set<ChangeBetExecutor>(
+               new ChangeBetExecutor(dac, container));
+        }
+
+
         private static void setupValidators(out IDependencyContainer container)
         {
             var fac = new StructureMapAbstractFactory();
@@ -118,6 +177,21 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
 
             reg.Register<IValidator<TotalBetInformation, NullCommand>
            , DataAnnotationValidator<TotalBetInformation, NullCommand>>();
+
+            reg.Register<IValidator<BetInformation, NullCommand>
+          , DataAnnotationValidator<BetInformation, NullCommand>>();
+
+            reg.Register<IValidator<BetInformation, SingleBetCommand>
+               , BetInformation_SingleBetValidators>();
+
+            reg.Register<IValidator<BetInformation, ChangeBetInfoCommand>
+               , BetInformation_ChangeBetInfoValidators>();
+
+            reg.Register<IValidator<RangeBetInformation, NullCommand>
+         , DataAnnotationValidator<RangeBetInformation, NullCommand>>();
+
+            reg.Register<IValidator<RangeBetInformation, RangeBetCommand>
+               , RangeBetInformation_RangeBetValidators>();
 
             container = fac.CreateContainer(reg);
         }

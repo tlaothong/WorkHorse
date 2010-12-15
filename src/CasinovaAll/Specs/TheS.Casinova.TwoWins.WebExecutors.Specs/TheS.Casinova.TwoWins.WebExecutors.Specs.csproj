@@ -68,6 +68,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebExecutors\Specs\ChangeBetFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChangeBetFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\ListBetLogInfoFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListBetLogInfoFeature.feature</DependentUpon>
+    </Compile>
     <Compile Include="WebExecutors\Specs\ListRangeActionLogFeature.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -99,15 +109,31 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ListSingleActionLogFeature.feature</DependentUpon>
     </Compile>
+    <Compile Include="WebExecutors\Specs\RangeBetFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RangeBetFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\SingleBetFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SingleBetFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\Steps\ChangeBetSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\CommonSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\GetGameStatusSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\ListBetDataSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\ListBetLogInfoSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\ListGamePlayInfoSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\ListGameRoundInfoSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\ListRangeActionLogSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\ListSingleActionLogSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\RangeBetSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\SingleBetSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\TwoWinGameStepsBase.cs" />
     <Compile Include="WebExecutors\UnitSpecs\ActionLogInformationSpecs.cs" />
+    <Compile Include="WebExecutors\UnitSpecs\BetInformationSpecs.cs" />
+    <Compile Include="WebExecutors\UnitSpecs\RangeBetInformationSpecs.cs" />
     <Compile Include="WebExecutors\UnitSpecs\TotalBetInformationSpecs.cs" />
     <Compile Include="WebExecutors\UnitSpecs\RoundInformationSpecs.cs" />
   </ItemGroup>
@@ -143,6 +169,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="WebExecutors\App.config" />
+    <None Include="WebExecutors\Specs\ChangeBetFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ChangeBetFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\ListBetLogInfoFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ListBetLogInfoFeature.feature.cs</LastGenOutput>
+    </None>
     <None Include="WebExecutors\Specs\ListRangeActionLogFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ListRangeActionLogFeature.feature.cs</LastGenOutput>
@@ -166,6 +200,14 @@
     <None Include="WebExecutors\Specs\ListSingleActionLogFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ListSingleActionLogFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\RangeBetFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>RangeBetFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\SingleBetFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SingleBetFeature.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup />

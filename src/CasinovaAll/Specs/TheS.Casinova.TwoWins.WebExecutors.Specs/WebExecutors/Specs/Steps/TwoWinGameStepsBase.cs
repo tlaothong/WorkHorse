@@ -5,6 +5,7 @@ using System.Text;
 using TechTalk.SpecFlow;
 using SpecFlowAssist;
 using TheS.Casinova.TwoWins.DAL;
+using TheS.Casinova.TwoWins.BackServices;
 
 namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
 {
@@ -59,6 +60,39 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
             }
         }
 
+        protected ListBetLogInfoExecutor ListBetLogInfo
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<ListBetLogInfoExecutor>();
+            }
+        }
+
+        protected SingleBetExecutor SingleBet
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<SingleBetExecutor>();
+            }
+        }
+
+        protected RangeBetExecutor RangeBet
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<RangeBetExecutor>();
+            }
+        }
+
+        protected ChangeBetExecutor ChangeBet
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<ChangeBetExecutor>();
+            }
+        }
+
+
         protected IListGameRoundInfo Dqr_ListGameRoundInfo
         {
             get
@@ -107,5 +141,36 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
             }
         }
 
+        protected IListBetLogInfo Dqr_ListBetLogInfo 
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<IListBetLogInfo>();
+            }
+        }
+
+        protected ISingleBet Dac_SingleBet
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<ISingleBet>();
+            }
+        }
+
+        protected IRangeBet Dac_RangeBet
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<IRangeBet>();
+            }
+        }
+
+        protected IChangeBetInfo Dac_ChangeBet
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<IChangeBetInfo>();
+            }
+        }
     }
 }
