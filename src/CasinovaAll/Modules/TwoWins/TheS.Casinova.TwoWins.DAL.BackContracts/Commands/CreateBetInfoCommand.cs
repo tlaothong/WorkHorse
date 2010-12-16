@@ -22,6 +22,7 @@ namespace TheS.Casinova.TwoWins.Commands
         /// 6.Status ช่วงเวลาที่ลงพนันหรือแก้ไข(Normal, Critical)
         /// 7.BonusChips จำนวนชิฟตายที่ใช้ลงพนัน
         /// 8.Chips จำนวนชิฟเป็นที่ใช้ลงพนัน
+        /// 9.CanChange การอนุญาตให้แก้ไข
         /// </summary>
         public BetInformation BetInfo { get; set; }
     }

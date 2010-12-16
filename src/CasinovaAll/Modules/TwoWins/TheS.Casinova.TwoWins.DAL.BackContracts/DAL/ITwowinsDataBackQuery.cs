@@ -11,7 +11,8 @@ namespace TheS.Casinova.TwoWins.DAL
 {
     public interface ITwowinsDataBackQuery :
         IGetRoundInfo,
-        IGetUserProfile
+        IGetUserProfile,
+        IGetBetInfo
     { }
 
     /// <summary>
@@ -26,5 +27,12 @@ namespace TheS.Casinova.TwoWins.DAL
     /// </summary>
     public interface IGetUserProfile
         : IFetchSingleData<UserProfile, GetUserProfileCommand>
+    { }
+
+    /// <summary>
+    /// ดึงข้อมูลการลงพนัน
+    /// </summary>
+    public interface IGetBetInfo
+        : IFetchSingleData<BetInformation, GetBetInfoCommand>
     { }
 }

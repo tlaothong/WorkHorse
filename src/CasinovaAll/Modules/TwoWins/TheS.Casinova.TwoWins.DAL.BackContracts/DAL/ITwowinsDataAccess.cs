@@ -13,8 +13,9 @@ namespace TheS.Casinova.TwoWins.DAL
         ICreateBetInfo,
         ICreateActionLogInfo,
         IUpdateRoundInfo,
-        IUpdateUserProfile
-
+        IUpdateUserProfile,
+        ICreateRangeBetInfo,
+        IChangeBetInfo
     { }
 
     /// <summary>
@@ -35,7 +36,7 @@ namespace TheS.Casinova.TwoWins.DAL
     /// อัพเดทข้อมุลดโต๊ะเกม
     /// </summary>
     public interface IUpdateRoundInfo
-        : IDataAction<RoundInformation, UpdateRoundCommand>
+        : IDataAction<RoundInformation, UpdateRoundInfoCommand>
     { }
 
     /// <summary>
@@ -43,5 +44,19 @@ namespace TheS.Casinova.TwoWins.DAL
     /// </summary>
     public interface IUpdateUserProfile
         : IDataAction<UserProfile, UpdateUserProfileCommand>
+    { }
+
+    /// <summary>
+    /// บันทึกข้อมูลการลงพนันแบบหลายมือ
+    /// </summary>
+    public interface ICreateRangeBetInfo
+        : ICreateData<RangeBetInformation, CreateRangeBetInfoCommand>
+    { }
+
+    /// <summary>
+    /// อัพเดทข้อมูลการลงพนัน
+    /// </summary>
+    public interface IChangeBetInfo
+        : IDataAction<BetInformation, ChangeBetInfoCommand>
     { }
 }

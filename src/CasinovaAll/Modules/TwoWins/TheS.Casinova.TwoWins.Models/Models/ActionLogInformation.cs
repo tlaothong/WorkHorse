@@ -45,6 +45,10 @@ namespace TheS.Casinova.TwoWins.Models
         /// <summary>
         /// เวลาที่ลงพนัน
         /// </summary>
-        public DateTime DateTime { get; set; }
+        public DateTime ActionDateTime { get; set; }
+
+        public int HandID { get; set; }
+
+        public bool CanChange { get; set; }
     }
 }

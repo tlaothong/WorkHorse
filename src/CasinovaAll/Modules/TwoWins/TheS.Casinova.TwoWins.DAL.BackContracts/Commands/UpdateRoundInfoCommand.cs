@@ -9,7 +9,7 @@ namespace TheS.Casinova.TwoWins.Commands
     /// <summary>
     /// อัพเดทข้อมูลโต๊ะเกม
     /// </summary>
-    public class UpdateRoundCommand
+    public class UpdateRoundInfoCommand
     {
         //input
         /// <summary>

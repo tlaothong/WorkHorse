@@ -7,6 +7,8 @@ using PerfEx.Infrastructure.CommandPattern;
 using TheS.Casinova.TwoWins.DAL;
 using TheS.Casinova.PlayerProfile.Models;
 using TheS.Casinova.TwoWins.Models;
+using PerfEx.Infrastructure;
+using PerfEx.Infrastructure.Validation;
 
 namespace TheS.Casinova.TwoWins.BackServices.BackExecutors
 {
@@ -19,8 +21,11 @@ namespace TheS.Casinova.TwoWins.BackServices.BackExecutors
         private IUpdateRoundInfo _iUpdateRoundInfo;
         private IGetUserProfile _iGetUserProfile;
         private IUpdateUserProfile _iUpdateUserProfile;
+        private IDependencyContainer _container;
 
-        public SingleBetExecutor(ITwowinsDataAccess dac, ITwowinsDataBackQuery dqr)
+        private string _handStatus;
+
+        public SingleBetExecutor(IDependencyContainer container, ITwowinsDataAccess dac, ITwowinsDataBackQuery dqr)
         {
             _iCreateActionLogInfo = dac;
             _iCreateBetInfo = dac;
@@ -28,10 +33,13 @@ namespace TheS.Casinova.TwoWins.BackServices.BackExecutors
             _iUpdateRoundInfo = dac;
             _iGetUserProfile = dqr;
             _iUpdateUserProfile = dac;
+            _container = container;
         }
 
         protected override void ExecuteCommand(SingleBetCommand command)
         {
+            command.BetInfo.BetDateTime = DateTime.Now; //กำหนดเวลาที่ลงพนัน
+            
             //ดึงข้อมูลโต๊ะเกม
             GetRoundInfoCommand getRoundInfoCmd = new GetRoundInfoCommand { RoundID = command.BetInfo.RoundID };
             getRoundInfoCmd.RoundInfo = _iGetRoundInfo.Get(getRoundInfoCmd);
@@ -39,23 +47,38 @@ namespace TheS.Casinova.TwoWins.BackServices.BackExecutors
             getRoundInfoCmd.RoundInfo.Pot += command.BetInfo.Amount;
 
             //อัพเดทข้อมูลโต๊ะเกม
-            UpdateRoundCommand updateRoundCmd = new UpdateRoundCommand { RoundInfo = getRoundInfoCmd.RoundInfo };
+            UpdateRoundInfoCommand updateRoundCmd = new UpdateRoundInfoCommand { RoundInfo = getRoundInfoCmd.RoundInfo };
             _iUpdateRoundInfo.ApplyAction(updateRoundCmd.RoundInfo, updateRoundCmd);
 
             //ดึงข้อมูลชิฟของผู้เล่น
             GetUserProfileCommand getUserProfileCmd = new GetUserProfileCommand { UserName = command.BetInfo.UserName };
-
             getUserProfileCmd.UserProfile = _iGetUserProfile.Get(getUserProfileCmd);
 
-            //TODO : คำนวณชิฟของผู้เล่นว่าพอมั้ย
+            ValidationErrorCollection errorValidations = new ValidationErrorCollection();
+
+            //คำนวณชิฟของผู้เล่นว่าพอมั้ย
+            ValidationHelper.Validate(_container, getUserProfileCmd.UserProfile, command, errorValidations);
+
+            //เช็คเวลาว่ายังลงพนันได้หรือไม่
+            ValidationHelper.Validate(_container, command.BetInfo, command, errorValidations);
+
+            if (errorValidations.Any()) {
+                throw new ValidationErrorException(errorValidations);
+            }
 
             //คำนวณชิฟที่ต้องหักจากผู้เล่น
             if (getUserProfileCmd.UserProfile.NonRefundable < command.BetInfo.Amount) {
                 getUserProfileCmd.UserProfile.Refundable -= command.BetInfo.Amount - getUserProfileCmd.UserProfile.NonRefundable;
                 getUserProfileCmd.UserProfile.NonRefundable = 0;
+
+                command.BetInfo.BonusChips = getUserProfileCmd.UserProfile.NonRefundable;
+                command.BetInfo.Chips = command.BetInfo.Amount - getUserProfileCmd.UserProfile.NonRefundable;
             }
             else if (getUserProfileCmd.UserProfile.NonRefundable >= command.BetInfo.Amount) {
                 getUserProfileCmd.UserProfile.NonRefundable -= command.BetInfo.Amount;
+
+                command.BetInfo.BonusChips = command.BetInfo.Amount;
+                command.BetInfo.Chips = 0;
             }
 
             //หักชิฟผู้เล่นตามเงินที่ต้องการลงพนัน
@@ -68,24 +91,38 @@ namespace TheS.Casinova.TwoWins.BackServices.BackExecutors
             };
             _iUpdateUserProfile.ApplyAction(updateUserProfileCmd.UserProfile, updateUserProfileCmd);
 
+            //คำนวณสถานะที่พนัน
+            if (command.BetInfo.BetDateTime < getRoundInfoCmd.RoundInfo.CriticalDateTime) {
+                _handStatus = "Normal";
+            }
+            else {
+                _handStatus = "Critical";
+            }
+
             //บันทึกประวัติการดำเนินการ
             CreateActionLogInfoCommand createActionLogInfoCmd = new CreateActionLogInfoCommand {
                 ActionLogInfo = new ActionLogInformation {
                     UserName = command.BetInfo.UserName,
                     ActionType = "SingleBet",
                     Amount = command.BetInfo.Amount,
-                    DateTime = DateTime.Now,
+                    OldAmount = -1,
+                    ActionDateTime = command.BetInfo.BetDateTime,
                     RoundID = command.BetInfo.RoundID,
+                    CanChange = true,
+                    
+                    //TODO : waiting for create HandID logic
+                    HandStatus = _handStatus,
                 },
             };
             _iCreateActionLogInfo.Create(createActionLogInfoCmd.ActionLogInfo, createActionLogInfoCmd);
 
             //บันทึกข้อมูลการลงพนัน
             CreateBetInfoCommand createBetInfoCmd = new CreateBetInfoCommand { BetInfo = command.BetInfo };
-            createBetInfoCmd.BetInfo.BonusChips = updateUserProfileCmd.UserProfile.NonRefundable;
-            createBetInfoCmd.BetInfo.Chips = updateUserProfileCmd.UserProfile.Refundable;
-            createBetInfoCmd.BetInfo.BetDateTime = DateTime.Now;
+            createBetInfoCmd.BetInfo.BonusChips = command.BetInfo.BonusChips;
+            createBetInfoCmd.BetInfo.Chips = command.BetInfo.Chips;
+            createBetInfoCmd.BetInfo.BetDateTime = createBetInfoCmd.BetInfo.BetDateTime;
             createBetInfoCmd.BetInfo.CanChange = true;
+            createBetInfoCmd.BetInfo.HandStatus = _handStatus;
 
             _iCreateBetInfo.Create(createBetInfoCmd.BetInfo, createBetInfoCmd);
         }

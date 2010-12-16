@@ -18,7 +18,7 @@ namespace TheS.Casinova.TwoWins.Commands
         /// 2.UserName ชื่อผู้เล่นที่ดำเนินการ
         /// 3.ActionType ประเภทการดำเนินการ
         /// 4.Amount จำนวนเงิน
-        /// 5.DateTime วันเวลาที่ดำเนินการ
+        /// 5.ActionDateTime วันเวลาที่ดำเนินการ
         /// </summary>
         public ActionLogInformation ActionLogInfo { get; set; }
     }

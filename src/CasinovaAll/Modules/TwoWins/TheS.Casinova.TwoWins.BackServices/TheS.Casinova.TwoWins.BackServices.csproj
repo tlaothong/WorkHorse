@@ -50,7 +50,14 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackServices\BackExecutors\ChangeBetExecutor.cs" />
+    <Compile Include="BackServices\BackExecutors\RangeBetExecutor.cs" />
     <Compile Include="BackServices\BackExecutors\SingleBetExecutor.cs" />
+    <Compile Include="BackServices\Validators\BetInfo_SingleBetValidator.cs" />
+    <Compile Include="BackServices\Validators\RangeBetInfo_RangeBetValidator.cs" />
+    <Compile Include="BackServices\Validators\UserProfile_ChangeBetValidator.cs" />
+    <Compile Include="BackServices\Validators\UserProfile_RangeBetValidator.cs" />
+    <Compile Include="BackServices\Validators\UserProfile_SingleBetValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -69,10 +76,6 @@
     <ProjectReference Include="..\..\Shared\TheS.Casinova.Common.Models\TheS.Casinova.Common.Models.csproj">
       <Project>{6079CFCD-811A-4962-B021-8D3D14C0C45B}</Project>
       <Name>TheS.Casinova.Common.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TheS.Casinova.TwoWins.BackServices.Contracts\TheS.Casinova.TwoWins.BackServices.Contracts.csproj">
-      <Project>{4DB3DF7B-A1AA-43D6-8633-4E45683C6C38}</Project>
-      <Name>TheS.Casinova.TwoWins.BackServices.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\TheS.Casinova.TwoWins.Commands\TheS.Casinova.TwoWins.Commands.csproj">
       <Project>{A9857C91-9E6F-4D55-ACFF-AAC834A2A4A8}</Project>
