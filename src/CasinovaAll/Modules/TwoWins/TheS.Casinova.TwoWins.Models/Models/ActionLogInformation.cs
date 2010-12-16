@@ -62,6 +62,7 @@ namespace TheS.Casinova.TwoWins.Models
         /// </summary>
         public DateTime DateTime { get; set; }
 
+
         /// <summary>
         /// รหัสโต๊ะเกมเริ่มต้น
         /// </summary>
