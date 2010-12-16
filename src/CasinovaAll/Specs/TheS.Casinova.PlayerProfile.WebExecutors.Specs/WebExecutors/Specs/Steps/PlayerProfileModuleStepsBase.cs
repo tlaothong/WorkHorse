@@ -8,6 +8,7 @@ using TheS.Casinova.ColorsGame;
 using TheS.Casinova.PlayerProfile.BackServices;
 using TheS.Casinova.PlayerProfile.DAL;
 using SpecFlowAssist;
+using TheS.Casinova.Common.Services;
 
 namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
 {
@@ -92,6 +93,14 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
             get
             {
                 return ScenarioContext.Current.Get<ChangeEmailExecutor>();
+            }
+        }
+
+        protected IGenerateTrackingID svc_GenerateTrackingID
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<IGenerateTrackingID>();
             }
         }
     }

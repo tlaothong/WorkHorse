@@ -6,6 +6,7 @@ using TechTalk.SpecFlow;
 using TheS.Casinova.MagicNine.DAL;
 using TheS.Casinova.MagicNine.BackServices;
 using SpecFlowAssist;
+using TheS.Casinova.Common.Services;
 
 namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
 {
@@ -107,6 +108,14 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
             get
             {
                 return ScenarioContext.Current.Get<SingleBetExecutor>();
+            }
+        }
+
+        protected IGenerateTrackingID svc_GenerateTrackingID
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<IGenerateTrackingID>();
             }
         }
     }

@@ -7,6 +7,7 @@ using TheS.Casinova.MagicNine.Commands;
 using TheS.Casinova.MagicNine.BackServices;
 using PerfEx.Infrastructure;
 using PerfEx.Infrastructure.Validation;
+using TheS.Casinova.Common.Services;
 
 
 namespace TheS.Casinova.MagicNine.WebExecutors
@@ -19,11 +20,13 @@ namespace TheS.Casinova.MagicNine.WebExecutors
     {
         private IStopAutoBet _iStopAutoBet;
         private IDependencyContainer _container;
+        private IGenerateTrackingID _svc;
 
-        public StopAutoBetExecutor(IMagicNineGameBackService dac, IDependencyContainer container)
+        public StopAutoBetExecutor(IMagicNineGameBackService dac, IDependencyContainer container, IGenerateTrackingID svc)
         {
             _iStopAutoBet = dac;
             _container = container;
+            _svc = svc;
         }
 
         protected override void ExecuteCommand(StopAutoBetCommand command)
@@ -33,7 +36,8 @@ namespace TheS.Casinova.MagicNine.WebExecutors
             if (errors.Any()) {
                 throw new ValidationErrorException(errors);
             }
-            //TODO : Generate BetTrackingID
+
+            command.StopTrackingID = command.GamePlayAutoBetInfo.StopTrackingID = _svc.GenerateTrackingID();
             _iStopAutoBet.StopAutoBet(command);
         }
     }

@@ -15,6 +15,7 @@ using SpecFlowAssist;
 using PerfEx.Infrastructure.CommandPattern;
 using TheS.Casinova.TwoWins.BackServices;
 using TheS.Casinova.TwoWins.Validators;
+using TheS.Casinova.Common.Services;
 
 namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
 {
@@ -126,13 +127,15 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
         public void GivenTheSingleBetExecutorHasBeenCreatedAndInitialized()
         {
             var dac = Mocks.DynamicMock<ITwoWinsGameBackService>();
+            var svc = Mocks.DynamicMock<IGenerateTrackingID>();
             IDependencyContainer container;
 
             setupValidators(out container);
 
             ScenarioContext.Current.Set<ISingleBet>(dac);
+            ScenarioContext.Current.Set<IGenerateTrackingID>(svc);
             ScenarioContext.Current.Set<SingleBetExecutor>(
-               new SingleBetExecutor(dac, container));
+               new SingleBetExecutor(dac, container, svc));
         }
 
         //Range bet specs initialized
@@ -140,13 +143,15 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
         public void GivenTheRangeBetExecutorHasBeenCreatedAndInitialized()
         {
             var dac = Mocks.DynamicMock<ITwoWinsGameBackService>();
+            var svc = Mocks.DynamicMock<IGenerateTrackingID>();
             IDependencyContainer container;
 
             setupValidators(out container);
 
             ScenarioContext.Current.Set<IRangeBet>(dac);
+            ScenarioContext.Current.Set<IGenerateTrackingID>(svc);
             ScenarioContext.Current.Set<RangeBetExecutor>(
-               new RangeBetExecutor(dac, container));
+               new RangeBetExecutor(dac, container, svc));
         }
 
         //Change bet specs initialized
@@ -154,13 +159,15 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
         public void GivenTheChangeBetExecutorHasBeenCreatedAndInitialized()
         {
             var dac = Mocks.DynamicMock<ITwoWinsGameBackService>();
+            var svc = Mocks.DynamicMock<IGenerateTrackingID>();
             IDependencyContainer container;
 
             setupValidators(out container);
 
             ScenarioContext.Current.Set<IChangeBetInfo>(dac);
+            ScenarioContext.Current.Set<IGenerateTrackingID>(svc);
             ScenarioContext.Current.Set<ChangeBetExecutor>(
-               new ChangeBetExecutor(dac, container));
+               new ChangeBetExecutor(dac, container, svc));
         }
 
 

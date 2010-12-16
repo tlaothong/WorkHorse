@@ -6,6 +6,7 @@ using TechTalk.SpecFlow;
 using SpecFlowAssist;
 using TheS.Casinova.TwoWins.DAL;
 using TheS.Casinova.TwoWins.BackServices;
+using TheS.Casinova.Common.Services;
 
 namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
 {
@@ -170,6 +171,14 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
             get
             {
                 return ScenarioContext.Current.Get<IChangeBetInfo>();
+            }
+        }
+
+        protected IGenerateTrackingID svc_GenerateTrackingID
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<IGenerateTrackingID>();
             }
         }
     }

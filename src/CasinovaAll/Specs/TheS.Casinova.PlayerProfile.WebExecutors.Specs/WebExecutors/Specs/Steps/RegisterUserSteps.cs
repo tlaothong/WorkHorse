@@ -37,6 +37,9 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
         public void GivenTheSystemGeneratedTrackingIDForRegisterUserX(string trackingID)
         {
             _trackingID = trackingID;
+
+            SetupResult.For(svc_GenerateTrackingID.GenerateTrackingID())
+                .IgnoreArguments().Return(Guid.Parse(_trackingID));
         }
       
         //Test function

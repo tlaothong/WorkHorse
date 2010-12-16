@@ -12,6 +12,7 @@ using TheS.Casinova.PlayerProfile.BackServices;
 using PerfEx.Infrastructure.CommandPattern;
 using TheS.Casinova.PlayerProfile.Validator;
 using TheS.Casinova.PlayerProfile.Validators;
+using TheS.Casinova.Common.Services;
 
 namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
 {
@@ -24,8 +25,9 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
         {
             IDependencyContainer container;
             IPlayerProfileBackService svc;
+            IGenerateTrackingID commonSvc;
 
-            setupValidators(out container, out svc);
+            setupValidators(out container, out svc, out commonSvc);
 
             var model = new UserProfile {
                 UserName = null,
@@ -39,7 +41,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
             };
 
             RegisterUserExecutor xcutor = new RegisterUserExecutor(
-                svc, container);
+                svc, container, commonSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
@@ -49,8 +51,9 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
         {
             IDependencyContainer container;
             IPlayerProfileBackService svc;
+            IGenerateTrackingID commonSvc;
 
-            setupValidators(out container, out svc);
+            setupValidators(out container, out svc, out commonSvc);
 
             var model = new UserProfile {
                 UserName = "Sakanit",
@@ -64,7 +67,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
             };
 
             RegisterUserExecutor xcutor = new RegisterUserExecutor(
-                svc, container);
+                svc, container, commonSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
@@ -74,8 +77,9 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
         {
             IDependencyContainer container;
             IPlayerProfileBackService svc;
+            IGenerateTrackingID commonSvc;
 
-            setupValidators(out container, out svc);
+            setupValidators(out container, out svc,out commonSvc);
 
             var model = new UserProfile {
                 UserName = "AimImaim",
@@ -89,7 +93,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
             };
 
             RegisterUserExecutor xcutor = new RegisterUserExecutor(
-                svc, container);
+                svc, container, commonSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
@@ -99,8 +103,9 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
         {
             IDependencyContainer container;
             IPlayerProfileBackService svc;
+            IGenerateTrackingID commonSvc;
 
-            setupValidators(out container, out svc);
+            setupValidators(out container, out svc, out commonSvc);
 
             var model = new UserProfile {
                 UserName = "AimImaim",
@@ -114,7 +119,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
             };
 
             RegisterUserExecutor xcutor = new RegisterUserExecutor(
-                svc,container);
+                svc,container,commonSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
@@ -124,8 +129,9 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
         {
             IDependencyContainer container;
             IPlayerProfileBackService svc;
+            IGenerateTrackingID commonSvc;
  
-            setupValidators(out container, out svc);
+            setupValidators(out container, out svc, out commonSvc);
 
             var model = new UserProfile {
                 UserName = "AimImAim",
@@ -139,7 +145,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
             };
 
             RegisterUserExecutor xcutor = new RegisterUserExecutor(
-                svc, container);
+                svc, container,commonSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
@@ -149,8 +155,9 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
         {
             IDependencyContainer container;
             IPlayerProfileBackService svc;
+            IGenerateTrackingID commonSvc;
 
-            setupValidators(out container, out svc);
+            setupValidators(out container, out svc, out commonSvc);
 
             var model = new UserProfile {
                 UserName = "AimImAim",
@@ -164,7 +171,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
             };
 
             RegisterUserExecutor xcutor = new RegisterUserExecutor(
-                svc, container);
+                svc, container,commonSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
@@ -175,7 +182,8 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
         {
             IDependencyContainer container;
             IPlayerProfileBackService svc;
-            setupValidators(out container, out svc);
+            IGenerateTrackingID commonSvc;
+            setupValidators(out container, out svc, out commonSvc);
 
             var model = new UserProfile {
                 UserName = "AimImAim",
@@ -189,7 +197,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
             };
 
             RegisterUserExecutor xcutor = new RegisterUserExecutor(
-                svc, container);
+                svc, container, commonSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
@@ -312,6 +320,22 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
               , UserProfile_ChangePasswordValidators>();
 
             container = fac.CreateContainer(reg);
+            svc = null;
+        }
+
+        private static void setupValidators(out IDependencyContainer container, out  IPlayerProfileBackService svc, out IGenerateTrackingID commonSvc)
+        {
+            var fac = new PerfEx.Infrastructure.Containers.StructureMapAdapter.StructureMapAbstractFactory();
+            var reg = fac.CreateRegistry();
+
+            reg.Register<IValidator<UserProfile, NullCommand>
+                , DataAnnotationValidator<UserProfile, NullCommand>>();
+
+            reg.Register<IValidator<UserProfile, RegisterUserCommand>
+               , UserProfile_RegisterUserValidators>();
+
+            container = fac.CreateContainer(reg);
+            commonSvc = null;
             svc = null;
         }
     }

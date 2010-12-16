@@ -18,13 +18,11 @@ namespace TheS.Casinova.TwoWins.WebExecutors
     : SynchronousCommandExecutorBase<ListRangeActionLogCommand>
     {
         private IListRangeActionLog _iListRangeActionLog;
-        private IGetRoundWinnerAmount _iGetRoundWinnerAmount;
         private IDependencyContainer _container;
 
         public ListRangeActionLogExecutor(ITwoWinsGameDataQuery dqr, IDependencyContainer container)
         {
             _iListRangeActionLog = dqr;
-            _iGetRoundWinnerAmount = dqr;
             _container = container;
         }
 

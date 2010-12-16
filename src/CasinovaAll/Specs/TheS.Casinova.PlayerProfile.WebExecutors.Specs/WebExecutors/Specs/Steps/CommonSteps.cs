@@ -16,6 +16,7 @@ using SpecFlowAssist;
 using TheS.Casinova.PlayerProfile.Command;
 using TheS.Casinova.PlayerProfile.Validators;
 using TheS.Casinova.PlayerProfile.Validator;
+using TheS.Casinova.Common.Services;
 
 namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
 {
@@ -30,12 +31,14 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
         public void GivenTheRegisterUserExecutorHasBeenCreatedAndInitialized()
         {
             var dac = Mocks.DynamicMock<IPlayerProfileBackService>();
+            var svc = Mocks.DynamicMock<IGenerateTrackingID>();
 
             IDependencyContainer container;
             setupValidators(out container);
             ScenarioContext.Current.Set<IRegisterUser>(dac);
+            ScenarioContext.Current.Set<IGenerateTrackingID>(svc);
             ScenarioContext.Current.Set<RegisterUserExecutor>(
-                new RegisterUserExecutor(dac, container));
+                new RegisterUserExecutor(dac, container, svc));
         }
 
         //List action log  specs initialized

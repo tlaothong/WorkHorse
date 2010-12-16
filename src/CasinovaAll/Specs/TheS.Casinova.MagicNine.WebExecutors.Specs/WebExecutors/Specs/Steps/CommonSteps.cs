@@ -15,6 +15,7 @@ using PerfEx.Infrastructure.Containers.StructureMapAdapter;
 using TheS.Casinova.MagicNine.Commands;
 using SpecFlowAssist;
 using TheS.Casinova.MagicNine.Validators;
+using TheS.Casinova.Common.Services;
 
 
 namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
@@ -45,12 +46,14 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         public void GivenTheSingleBetExecutorHasBeenCreatedAndInitialized()
         {
             var dac = Mocks.DynamicMock<IMagicNineGameBackService>();
+            var svc = Mocks.DynamicMock<IGenerateTrackingID>();
 
             IDependencyContainer container;
             setupValidators(out container);
             ScenarioContext.Current.Set<ISingleBet>(dac);
+            ScenarioContext.Current.Set<IGenerateTrackingID>(svc);
             ScenarioContext.Current.Set<SingleBetExecutor>(
-                new SingleBetExecutor(dac, container));
+                new SingleBetExecutor(dac, container, svc));
 
         }
 
@@ -83,12 +86,14 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         public void GivenTheStartAutoBetExecutorHasBeenCreatedAndInitialized()
         {
             var dac = Mocks.DynamicMock<IMagicNineGameBackService>();
+            var svc = Mocks.DynamicMock<IGenerateTrackingID>();
 
             IDependencyContainer container;
             setupValidators(out container);
             ScenarioContext.Current.Set<IStartAutoBet>(dac);
+            ScenarioContext.Current.Set<IGenerateTrackingID>(svc);
             ScenarioContext.Current.Set<StartAutoBetExecutor>(
-                new StartAutoBetExecutor(dac, container));
+                new StartAutoBetExecutor(dac, container, svc));
         }
 
         //Stop auto bet information specs initialized
@@ -96,12 +101,14 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         public void GivenTheStopAutoBetExecutorHasBeenCreatedAndInitialized()
         {
             var dac = Mocks.DynamicMock<IMagicNineGameBackService>();
+            var svc = Mocks.DynamicMock<IGenerateTrackingID>();
 
             IDependencyContainer container;
             setupValidators(out container);
             ScenarioContext.Current.Set<IStopAutoBet>(dac);
+            ScenarioContext.Current.Set<IGenerateTrackingID>(svc);
             ScenarioContext.Current.Set<StopAutoBetExecutor>(
-                new StopAutoBetExecutor(dac, container));
+                new StopAutoBetExecutor(dac, container, svc));
         }
 
         private static void setupValidators(out IDependencyContainer container)

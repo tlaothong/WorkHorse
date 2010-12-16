@@ -7,6 +7,7 @@ using TheS.Casinova.TwoWins.Commands;
 using TheS.Casinova.TwoWins.BackServices;
 using PerfEx.Infrastructure;
 using PerfEx.Infrastructure.Validation;
+using TheS.Casinova.Common.Services;
 
 namespace TheS.Casinova.TwoWins.WebExecutors
 {
@@ -18,11 +19,13 @@ namespace TheS.Casinova.TwoWins.WebExecutors
     {
         private IChangeBetInfo _iChangeBet;
         private IDependencyContainer _container;
+        private IGenerateTrackingID _svc;
 
-        public ChangeBetExecutor(ITwoWinsGameBackService dac, IDependencyContainer container)
+        public ChangeBetExecutor(ITwoWinsGameBackService dac, IDependencyContainer container, IGenerateTrackingID svc)
         {
             _iChangeBet = dac;
             _container = container;
+            _svc = svc;
         }
 
         protected override void ExecuteCommand(ChangeBetInfoCommand command)
@@ -33,7 +36,7 @@ namespace TheS.Casinova.TwoWins.WebExecutors
                 throw new ValidationErrorException(errors);
             }
 
-            //TODO: Generate BetTrackingID
+            command.BetTrackingID = command.BetInfo.BetTrackingID = _svc.GenerateTrackingID();
             _iChangeBet.ChengeBetInfo(command);
         }
     }

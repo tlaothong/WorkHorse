@@ -19,6 +19,9 @@ namespace TheS.Casinova.TwoWins.Commands
         /// </summary>
         public ActionLogInformation ActionLogInfo { get; set; }
 
+        //public RoundInformation FromRoundInfo { get; set; }
+        //public RoundInformation ThruRoundInfo { get; set; }
+
         //output
         /// <summary>
         /// ข้อมูลผลผู้ชนะของเกมแต่ละโต๊ะ

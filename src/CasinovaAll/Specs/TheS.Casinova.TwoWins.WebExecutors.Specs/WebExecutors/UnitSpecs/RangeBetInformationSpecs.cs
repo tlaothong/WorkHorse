@@ -10,6 +10,7 @@ using TheS.Casinova.TwoWins.Models;
 using TheS.Casinova.TwoWins.Commands;
 using PerfEx.Infrastructure.CommandPattern;
 using TheS.Casinova.TwoWins.Validators;
+using TheS.Casinova.Common.Services;
 
 namespace TheS.Casinova.TwoWins.WebExecutors.UnitSpecs
 {
@@ -22,7 +23,8 @@ namespace TheS.Casinova.TwoWins.WebExecutors.UnitSpecs
         {
             IDependencyContainer container;
             ITwoWinsGameBackService svc;
-            setupValidators(out container, out svc);
+            IGenerateTrackingID commonSvc;
+            setupValidators(out container, out svc, out commonSvc);
 
             var model = new RangeBetInformation {
                 UserName = null,
@@ -35,7 +37,7 @@ namespace TheS.Casinova.TwoWins.WebExecutors.UnitSpecs
             };
 
            RangeBetExecutor xcutor = new RangeBetExecutor(
-                svc, container);
+                svc, container, commonSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
@@ -45,7 +47,8 @@ namespace TheS.Casinova.TwoWins.WebExecutors.UnitSpecs
         {
             IDependencyContainer container;
             ITwoWinsGameBackService svc;
-            setupValidators(out container, out svc);
+            IGenerateTrackingID commonSvc;
+            setupValidators(out container, out svc, out commonSvc);
 
             var model = new RangeBetInformation {
                 UserName = "Nayit",
@@ -58,7 +61,7 @@ namespace TheS.Casinova.TwoWins.WebExecutors.UnitSpecs
             };
 
             RangeBetExecutor xcutor = new RangeBetExecutor(
-                 svc, container);
+                 svc, container, commonSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
@@ -68,7 +71,8 @@ namespace TheS.Casinova.TwoWins.WebExecutors.UnitSpecs
         {
             IDependencyContainer container;
             ITwoWinsGameBackService svc;
-            setupValidators(out container, out svc);
+            IGenerateTrackingID commonSvc;
+            setupValidators(out container, out svc, out commonSvc);
 
             var model = new RangeBetInformation {
                 UserName = "Nayit",
@@ -81,7 +85,7 @@ namespace TheS.Casinova.TwoWins.WebExecutors.UnitSpecs
             };
 
             RangeBetExecutor xcutor = new RangeBetExecutor(
-                 svc, container);
+                 svc, container, commonSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
@@ -91,7 +95,8 @@ namespace TheS.Casinova.TwoWins.WebExecutors.UnitSpecs
         {
             IDependencyContainer container;
             ITwoWinsGameBackService svc;
-            setupValidators(out container, out svc);
+            IGenerateTrackingID commonSvc;
+            setupValidators(out container, out svc, out commonSvc);
 
             var model = new RangeBetInformation {
                 UserName = "Nayit",
@@ -104,7 +109,7 @@ namespace TheS.Casinova.TwoWins.WebExecutors.UnitSpecs
             };
 
             RangeBetExecutor xcutor = new RangeBetExecutor(
-                 svc, container);
+                 svc, container, commonSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
@@ -114,7 +119,8 @@ namespace TheS.Casinova.TwoWins.WebExecutors.UnitSpecs
         {
             IDependencyContainer container;
             ITwoWinsGameBackService svc;
-            setupValidators(out container, out svc);
+            IGenerateTrackingID commonSvc;
+            setupValidators(out container, out svc, out commonSvc);
 
             var model = new RangeBetInformation {
                 UserName = "Nayit",
@@ -127,11 +133,11 @@ namespace TheS.Casinova.TwoWins.WebExecutors.UnitSpecs
             };
 
             RangeBetExecutor xcutor = new RangeBetExecutor(
-                 svc, container);
+                 svc, container, commonSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
-        private static void setupValidators(out IDependencyContainer container, out ITwoWinsGameBackService svc)
+        private static void setupValidators(out IDependencyContainer container, out ITwoWinsGameBackService svc,out IGenerateTrackingID commonSvc)
         {
             var fac = new PerfEx.Infrastructure.Containers.StructureMapAdapter.StructureMapAbstractFactory();
             var reg = fac.CreateRegistry();
@@ -143,6 +149,7 @@ namespace TheS.Casinova.TwoWins.WebExecutors.UnitSpecs
                , RangeBetInformation_RangeBetValidators>();
 
             container = fac.CreateContainer(reg);
+            commonSvc = null;
             svc = null;
         }
     }

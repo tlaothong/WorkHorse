@@ -7,6 +7,7 @@ using TheS.Casinova.TwoWins.Commands;
 using TheS.Casinova.TwoWins.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PerfEx.Infrastructure.Validation;
+using Rhino.Mocks;
 
 namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
 {
@@ -33,6 +34,9 @@ namespace TheS.Casinova.TwoWins.WebExecutors.Specs.Steps
         public void GivenTrackingIDForChangeBetIsX(string trackingID)
         {
             _trackingID = trackingID;
+
+            SetupResult.For(svc_GenerateTrackingID.GenerateTrackingID())
+                .IgnoreArguments().Return(Guid.Parse(_trackingID));
         }
 
         [Given(@"Sent ChangeBet information UserName'(.*)' RoundID '(.*)' Amount'(.*)' HandID'(.*)' for change bet validation")]

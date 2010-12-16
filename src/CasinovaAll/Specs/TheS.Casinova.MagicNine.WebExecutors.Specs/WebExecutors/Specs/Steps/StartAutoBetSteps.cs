@@ -7,6 +7,7 @@ using TheS.Casinova.MagicNine.Commands;
 using TheS.Casinova.MagicNine.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PerfEx.Infrastructure.Validation;
+using Rhino.Mocks;
 
 namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
 {
@@ -33,6 +34,9 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         public void GivenTheSystemGeneratedTrackingIDForStartAutoBetX(string trackingID)
         {
             _trackingID = trackingID;
+
+            SetupResult.For(svc_GenerateTrackingID.GenerateTrackingID())
+                .IgnoreArguments().Return(Guid.Parse(_trackingID));
         }
 
         //Test function

@@ -10,6 +10,7 @@ using TheS.Casinova.MagicNine.Models;
 using TheS.Casinova.MagicNine.Commands;
 using PerfEx.Infrastructure.CommandPattern;
 using TheS.Casinova.MagicNine.Validators;
+using TheS.Casinova.Common.Services;
 
 namespace TheS.Casinova.MagicNine.WebExecutors.UnitSpecs
 {
@@ -22,7 +23,8 @@ namespace TheS.Casinova.MagicNine.WebExecutors.UnitSpecs
         {
             IDependencyContainer container;
             IMagicNineGameBackService svc;
-            setupValidators(out container, out svc);
+            IGenerateTrackingID commonSvc;
+            setupValidators(out container, out svc, out commonSvc);
 
             var model = new GamePlayAutoBetInformation {
                 UserName = null,
@@ -35,7 +37,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.UnitSpecs
             };
 
             StartAutoBetExecutor xcutor = new StartAutoBetExecutor(
-                svc, container);
+                svc, container, commonSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
@@ -45,7 +47,8 @@ namespace TheS.Casinova.MagicNine.WebExecutors.UnitSpecs
         {
             IDependencyContainer container;
             IMagicNineGameBackService svc;
-            setupValidators(out container, out svc);
+            IGenerateTrackingID commonSvc;
+            setupValidators(out container, out svc, out commonSvc);
 
             var model = new GamePlayAutoBetInformation {
                 UserName = "Natayit",
@@ -58,7 +61,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.UnitSpecs
             };
 
             StartAutoBetExecutor xcutor = new StartAutoBetExecutor(
-                svc, container);
+                svc, container,commonSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
@@ -68,7 +71,8 @@ namespace TheS.Casinova.MagicNine.WebExecutors.UnitSpecs
         {
             IDependencyContainer container;
             IMagicNineGameBackService svc;
-            setupValidators(out container, out svc);
+            IGenerateTrackingID commonSvc;
+            setupValidators(out container, out svc, out commonSvc);
 
             var model = new GamePlayAutoBetInformation {
                 UserName = "Natayit",
@@ -81,7 +85,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.UnitSpecs
             };
 
             StartAutoBetExecutor xcutor = new StartAutoBetExecutor(
-                svc, container);
+                svc, container,commonSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
@@ -91,7 +95,8 @@ namespace TheS.Casinova.MagicNine.WebExecutors.UnitSpecs
         {
             IDependencyContainer container;
             IMagicNineGameBackService svc;
-            setupValidators(out container, out svc);
+            IGenerateTrackingID commonSvc;
+            setupValidators(out container, out svc, out commonSvc);
 
             var model = new GamePlayAutoBetInformation {
                 UserName = "Natayit",
@@ -104,11 +109,11 @@ namespace TheS.Casinova.MagicNine.WebExecutors.UnitSpecs
             };
 
             StartAutoBetExecutor xcutor = new StartAutoBetExecutor(
-                svc, container);
+                svc, container, commonSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
-        private static void setupValidators(out IDependencyContainer container, out IMagicNineGameBackService svc)
+        private static void setupValidators(out IDependencyContainer container, out IMagicNineGameBackService svc, out IGenerateTrackingID commonSvc)
         {
             var fac = new PerfEx.Infrastructure.Containers.StructureMapAdapter.StructureMapAbstractFactory();
             var reg = fac.CreateRegistry();
@@ -127,6 +132,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.UnitSpecs
 
             container = fac.CreateContainer(reg);
             svc = null;
+            commonSvc = null;
         }
     }
 }

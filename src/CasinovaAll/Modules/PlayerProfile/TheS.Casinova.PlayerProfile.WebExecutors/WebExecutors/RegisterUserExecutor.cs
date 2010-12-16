@@ -9,6 +9,7 @@ using TheS.Casinova.PlayerProfile.DAL;
 using TheS.Casinova.PlayerProfile.Command;
 using PerfEx.Infrastructure;
 using PerfEx.Infrastructure.Validation;
+using TheS.Casinova.Common.Services;
 
 namespace TheS.Casinova.PlayerProfile.WebExecutors
 {
@@ -20,11 +21,13 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors
     {
         private IRegisterUser _iRegisterUser;
         private IDependencyContainer _container;
+        private IGenerateTrackingID _svc; 
 
-        public RegisterUserExecutor(IPlayerProfileBackService dac, IDependencyContainer container)
+        public RegisterUserExecutor(IPlayerProfileBackService dac, IDependencyContainer container, IGenerateTrackingID svc)
         {
             _iRegisterUser = dac;
             _container = container;
+            _svc = svc;
         }
 
         protected override void ExecuteCommand(RegisterUserCommand command)
@@ -35,7 +38,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors
                 throw new ValidationErrorException(errors);
             }
 
-            //TODO: Generate TrackingID
+            command.RegisterUserInfo.TrackingID = _svc.GenerateTrackingID();
             _iRegisterUser.RegisterUser(command);
 
         }
