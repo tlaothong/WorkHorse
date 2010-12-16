@@ -60,7 +60,7 @@ namespace TheS.Casinova.TwoWins.Models
         /// <summary>
         /// เวลาที่ลงพนัน
         /// </summary>
-        public DateTime ActionDateTime { get; set; }
+        public DateTime DateTime { get; set; }
 
 
         /// <summary>

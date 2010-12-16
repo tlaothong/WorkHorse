@@ -109,7 +109,7 @@ namespace TheS.Casinova.TwoWins.BackServices.Specs.Steps
                 Assert.AreEqual(oldAmount, actionLogInfo.OldAmount, "OldAmount");
                 Assert.AreEqual(handStatus, actionLogInfo.HandStatus, "HandStatus");
 
-                Assert.AreEqual(DateTime.Now.ToString(), actionLogInfo.ActionDateTime.ToString(), "ActionDateTime");
+                Assert.AreEqual(DateTime.Now.ToString(), actionLogInfo.DateTime.ToString(), "ActionDateTime");
                 Assert.AreEqual(canChange, actionLogInfo.Change, "Change");
                 return actionLogInfo;
             };

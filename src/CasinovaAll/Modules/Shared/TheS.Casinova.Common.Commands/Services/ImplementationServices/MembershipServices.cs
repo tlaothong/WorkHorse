@@ -10,17 +10,17 @@ namespace TheS.Casinova.Common.Services.ImplementationServices
     {
         public void RegisterUser(PlayerProfile.Models.UserProfile userProfile)
         {
-            throw new NotImplementedException();
+            //TODO : Implement method
         }
 
         public void ChangeEmail(PlayerProfile.Models.UserProfile userProfile)
         {
-            throw new NotImplementedException();
+            //TODO : Implement method
         }
 
         public void ChangePassword(PlayerProfile.Models.UserProfile userProfile)
         {
-            throw new NotImplementedException();
+            //TODO : Implement method
         }
     }
 }

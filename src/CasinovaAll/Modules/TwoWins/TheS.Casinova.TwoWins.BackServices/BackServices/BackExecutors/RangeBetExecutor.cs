@@ -127,7 +127,7 @@ namespace TheS.Casinova.TwoWins.BackServices.BackExecutors
                     UserName = command.RangeBetInfo.UserName,
                     Amount = paidBetInfos.Select(x => x.Amount).Sum(),
                     OldAmount = -1,
-                    ActionDateTime = command.RangeBetInfo.RangeBetDateTime,
+                    DateTime = command.RangeBetInfo.RangeBetDateTime,
                     RoundID = command.RangeBetInfo.RoundID,
                     Change = false,
                     HandStatus = handStatus,
