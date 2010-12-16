@@ -7,6 +7,7 @@ using PerfEx.Infrastructure.CommandPattern;
 using TheS.Casinova.Colors.BackServices;
 using PerfEx.Infrastructure;
 using PerfEx.Infrastructure.Validation;
+using TheS.Casinova.Common.Services;
 
 namespace TheS.Casinova.Colors.WebExecutors
 { 
@@ -18,11 +19,13 @@ namespace TheS.Casinova.Colors.WebExecutors
     {
         private IPayForWinner _iPayForWinner;
         private IDependencyContainer _container;
+        private IGenerateTrackingID _svc;
        
-        public PayForColorsWinnerInfoExecutor(IColorsGameBackService dac, IDependencyContainer container)
+        public PayForColorsWinnerInfoExecutor(IColorsGameBackService dac, IDependencyContainer container, IGenerateTrackingID svc)
         {
             _iPayForWinner = dac;
             _container = container;
+            _svc = svc;
         }
 
         protected override void ExecuteCommand(PayForColorsWinnerInfoCommand command)
@@ -33,7 +36,7 @@ namespace TheS.Casinova.Colors.WebExecutors
                 throw new ValidationErrorException(errors);
             }
 
-            //TODO: Generate trackingID
+            command.OnGoingTrackingID = command.PlayerActionInfo.TrackingID = _svc.GenerateTrackingID();
             _iPayForWinner.PayForWinnerInfo(command);
             
         } 

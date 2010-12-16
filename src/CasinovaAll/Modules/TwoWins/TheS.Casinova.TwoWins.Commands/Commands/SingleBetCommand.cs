@@ -6,6 +6,9 @@ using TheS.Casinova.TwoWins.Models;
 
 namespace TheS.Casinova.TwoWins.Commands
 {
+    /// <summary>
+    /// command การลงเดิมพันแบบทีละมือ
+    /// </summary>
     public class SingleBetCommand
     {
         //input

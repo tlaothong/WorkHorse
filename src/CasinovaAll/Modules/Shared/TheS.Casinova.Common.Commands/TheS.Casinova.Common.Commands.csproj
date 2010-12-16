@@ -49,6 +49,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IMembershipServices.cs" />
     <Compile Include="Services\ImplementationServices\MembershipServices.cs" />
+    <Compile Include="Services\IGenerateTrackingID.cs" />
+    <Compile Include="Services\ImplementationServices\GenerateTrackingID.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commands\" />

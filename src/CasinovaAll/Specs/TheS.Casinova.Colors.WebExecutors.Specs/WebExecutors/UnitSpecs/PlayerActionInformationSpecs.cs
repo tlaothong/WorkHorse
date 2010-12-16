@@ -9,6 +9,7 @@ using TheS.Casinova.Colors.BackServices;
 using TheS.Casinova.Colors.Models;
 using TheS.Casinova.Colors.Commands;
 using TheS.Casinova.Colors.Validators;
+using TheS.Casinova.Common.Services;
 
 namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
 {
@@ -21,7 +22,8 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
         {
             IDependencyContainer container;
             IColorsGameBackService svc;
-            setupValidators(out container, out svc);
+            IGenerateTrackingID commonSvc;
+            setupValidators(out container, out svc, out commonSvc);
 
             var model = new PlayerActionInformation {
                 UserName = null,
@@ -34,7 +36,7 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
             };
 
             BetColorsExecutor xcutor = new BetColorsExecutor(
-                svc, container);
+                svc, container, commonSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
@@ -44,7 +46,8 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
         {
             IDependencyContainer container;
             IColorsGameBackService svc;
-            setupValidators(out container, out svc);
+            IGenerateTrackingID commonSvc;
+            setupValidators(out container, out svc, out commonSvc);
 
             var model = new PlayerActionInformation {
                 UserName = "Nittaya",
@@ -57,7 +60,7 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
             };
 
             BetColorsExecutor xcutor = new BetColorsExecutor(
-                svc, container);
+                svc, container, commonSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
@@ -68,7 +71,8 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
         {
             IDependencyContainer container;
             IColorsGameBackService svc;
-            setupValidators(out container, out svc);
+            IGenerateTrackingID commonSvc;
+            setupValidators(out container, out svc, out commonSvc);
 
             var model = new PlayerActionInformation {
                 UserName = "Natayit",
@@ -81,7 +85,7 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
             };
 
             BetColorsExecutor xcutor = new BetColorsExecutor(
-                svc, container);
+                svc, container,commonSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
@@ -91,7 +95,9 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
         {
             IDependencyContainer container;
             IColorsGameBackService svc;
-            setupValidators(out container, out svc);
+            IGenerateTrackingID commonSvc;
+
+            setupValidators(out container, out svc, out commonSvc);
 
             var model = new PlayerActionInformation {
                 UserName = "Natayit",
@@ -104,11 +110,11 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
             };
 
             BetColorsExecutor xcutor = new BetColorsExecutor(
-                svc, container);
+                svc, container, commonSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
-        private static void setupValidators(out IDependencyContainer container, out IColorsGameBackService svc)
+        private static void setupValidators(out IDependencyContainer container, out IColorsGameBackService svc, out IGenerateTrackingID commonSvc)
         {
             var fac = new PerfEx.Infrastructure.Containers.StructureMapAdapter.StructureMapAbstractFactory();
             var reg = fac.CreateRegistry();
@@ -124,6 +130,7 @@ namespace TheS.Casinova.Colors.WebExecutors.UnitSpecs
 
             container = fac.CreateContainer(reg);
             svc = null;
+            commonSvc = null;
         }
     }
 }

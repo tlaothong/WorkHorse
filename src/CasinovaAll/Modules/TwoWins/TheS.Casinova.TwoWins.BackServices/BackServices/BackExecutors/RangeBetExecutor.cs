@@ -125,12 +125,11 @@ namespace TheS.Casinova.TwoWins.BackServices.BackExecutors
             CreateActionLogInfoCommand createActionLogInfoCmd = new CreateActionLogInfoCommand {
                 ActionLogInfo = new ActionLogInformation {
                     UserName = command.RangeBetInfo.UserName,
-                    ActionType = "RangeBet",
                     Amount = paidBetInfos.Select(x => x.Amount).Sum(),
                     OldAmount = -1,
                     ActionDateTime = command.RangeBetInfo.RangeBetDateTime,
                     RoundID = command.RangeBetInfo.RoundID,
-                    CanChange = true,
+                    Change = false,
                     HandStatus = handStatus,
                 },
             };

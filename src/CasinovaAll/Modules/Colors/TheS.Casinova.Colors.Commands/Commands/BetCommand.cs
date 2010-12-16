@@ -22,5 +22,10 @@ namespace TheS.Casinova.Colors.Commands
         /// </summary>
         public PlayerActionInformation BetPlayerActionInfo { get; set; }
 
+        //output
+        /// <summary>
+        /// รหัสตรวจสอบ
+        /// </summary>
+        public Guid BetTrackingID { get; set; }
     }
 }

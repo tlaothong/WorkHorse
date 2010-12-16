@@ -101,11 +101,10 @@ namespace TheS.Casinova.TwoWins.BackServices.Specs.Steps
             Func<ActionLogInformation, CreateActionLogInfoCommand, ActionLogInformation> checkData = (actionLogInfo, cmd) => {
                 Assert.AreEqual(roundID, actionLogInfo.RoundID, "RoundID");
                 Assert.AreEqual(userName, actionLogInfo.UserName, "UserName");
-                Assert.AreEqual(actionType, actionLogInfo.ActionType, "ActionType");
                 Assert.AreEqual(amount, actionLogInfo.Amount, "Amount");
                 Assert.AreEqual(oldAmount, actionLogInfo.OldAmount, "OldAmount");
                 Assert.AreEqual(handStatus, actionLogInfo.HandStatus, "HandStatus");
-                Assert.AreEqual(canChange, actionLogInfo.CanChange, "CanChange");
+                Assert.AreEqual(canChange, actionLogInfo.Change, "Change");
                 return actionLogInfo;
             };
             Dac_CreateActionLogInfo.Create(new ActionLogInformation(), new CreateActionLogInfoCommand());

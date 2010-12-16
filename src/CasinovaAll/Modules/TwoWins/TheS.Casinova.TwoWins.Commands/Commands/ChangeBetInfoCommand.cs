@@ -6,6 +6,9 @@ using TheS.Casinova.TwoWins.Models;
 
 namespace TheS.Casinova.TwoWins.Commands
 {
+    /// <summary>
+    /// command เปลี่ยนแปลงเงินที่เคยลงเดิมพันในช่วง normal
+    /// </summary>
     public class ChangeBetInfoCommand
     {
         //input

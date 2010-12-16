@@ -6,6 +6,9 @@ using TheS.Casinova.TwoWins.Models;
 
 namespace TheS.Casinova.TwoWins.Commands
 {
+    /// <summary>
+    /// command เพื่อดึงข้อมูลสถานะของโตีะเกม
+    /// </summary>
     public class GetGameStatusCommand
     {
         //input
@@ -13,17 +16,12 @@ namespace TheS.Casinova.TwoWins.Commands
         /// ข้อมูลเพื่อดึงข้อมูล Game Status
         /// 1. RoundID รหัสโต๊ะเกม
         /// </summary>
-        public RoundWinnerInformation RoundWinnerInfo { get; set; }
+        public RoundInformation RoundInfo { get; set; }
 
         //output
         /// <summary>
-        /// ข้อมูลผู้ชนะ
+        /// ข้อมูลผู้ชนะระหว่างเกม
         /// </summary>
-        public RoundWinnerInformation RoundWinner{ get; set; }
-
-        /// <summary>
-        /// ข้อมูลจำนวนเงินและช่วงของจำนวนการลงเดิมพัน
-        /// </summary>
-        public RoundInformation RoundInfo { get; set; }
+        public RoundInformation RoundInformation { get; set; }
     }
 }

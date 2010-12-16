@@ -8,7 +8,7 @@ namespace TheS.Casinova.TwoWins.Models
     /// <summary>
     /// ข้อมูลผู้ชนะของโต๊ะเกม
     /// </summary>
-    public class RoundWinnerInformation
+    public  partial class RoundWinnerInformation
     {
         /// <summary>
         /// รหัสโต๊ะเกม

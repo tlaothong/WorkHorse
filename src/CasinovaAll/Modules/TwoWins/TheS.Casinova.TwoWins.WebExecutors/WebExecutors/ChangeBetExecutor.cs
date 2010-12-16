@@ -32,6 +32,7 @@ namespace TheS.Casinova.TwoWins.WebExecutors
             if (errors.Any()) {
                 throw new ValidationErrorException(errors);
             }
+
             //TODO: Generate BetTrackingID
             _iChangeBet.ChengeBetInfo(command);
         }

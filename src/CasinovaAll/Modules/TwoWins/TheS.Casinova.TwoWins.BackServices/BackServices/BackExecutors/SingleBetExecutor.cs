@@ -103,14 +103,11 @@ namespace TheS.Casinova.TwoWins.BackServices.BackExecutors
             CreateActionLogInfoCommand createActionLogInfoCmd = new CreateActionLogInfoCommand {
                 ActionLogInfo = new ActionLogInformation {
                     UserName = command.BetInfo.UserName,
-                    ActionType = "SingleBet",
                     Amount = command.BetInfo.Amount,
                     OldAmount = -1,
                     ActionDateTime = command.BetInfo.BetDateTime,
                     RoundID = command.BetInfo.RoundID,
-                    CanChange = true,
-                    
-                    //TODO : waiting for create HandID logic
+                    Change = false,
                     HandStatus = _handStatus,
                 },
             };
