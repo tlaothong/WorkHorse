@@ -15,9 +15,9 @@
     <script type="text/javascript">
         Sys.debug = true;
         Sys.require(Sys.components.collapsiblePanel, function () {
-            $(".readmore").collapsiblePanel({
-                ExpandControlID: "expand",
-                CollapseControlID: "expand"
+            $(".readmore").collapsiblePanel({                
+                CollapseControlID: "expand",
+                ExpandControlID: "expand"
             });
         });
     </script>
