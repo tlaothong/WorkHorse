@@ -69,9 +69,9 @@
 }
 #content-container
 {
-    width: 625px;
-    overflow: auto;
-    margin-left: 20px;
+    width: 630px;
+    overflow:hidden;
+    margin-left: 18px;
     margin-top: 5px;
     position: absolute;
     top: 0;
@@ -105,5 +105,5 @@
 {
     position: absolute;
     width: 187px;
-    margin-left: 655px;
+    margin-left: 670px;
 }

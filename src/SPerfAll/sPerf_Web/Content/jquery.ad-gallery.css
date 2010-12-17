@@ -38,14 +38,6 @@
       display: block;
       z-index: 100;
     }
-        
-      .ad-gallery .ad-image-wrapper .ad-next .ad-next-image {
-        background: url(/Content/profile/ad_next.png);
-        width: 10px;
-        height: 10px;
-        right: 0;
-        left: auto;
-      }
     .ad-gallery .ad-image-wrapper .ad-image {
       position: absolute;
       overflow: hidden;
@@ -59,7 +51,7 @@
       .ad-gallery .ad-image-wrapper .ad-image .ad-image-description {
         position:fixed;
         margin-bottom: 150px;
-        left: 185px;
+        left: 60px;
         padding: 7px;
         text-align: left;
         width: 100%;
@@ -131,11 +123,11 @@
         float:none;
         width: 9000px;
         list-style: none;
-        margin-top:55;
+        margin-top:70;
       }
         .ad-gallery .ad-thumbs li {
           float: left;
-          padding-right: 5px;
+          padding-right: 1px;
         }
           .ad-gallery .ad-thumbs li a {
             display: block;
