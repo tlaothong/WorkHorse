@@ -33,7 +33,7 @@ namespace TheS.Casinova.ChipExchange.BackServices.BackExecutors
         {
             ValidationErrorCollection errorValidations = new ValidationErrorCollection();
 
-            VoucherInformation voucherInfo = new VoucherInformation { VoucherCode = command.VoucherCode };
+            VoucherInformation voucherInfo = new VoucherInformation { VoucherCode = command.VoucherInformation.VoucherCode };
 
             //ตรวจสอบคูปองมีจริงหรือไม่, คูปองถูกใช้ไปแล้วหรือยัง
             ValidationHelper.Validate(_container, voucherInfo, command, errorValidations);
@@ -43,7 +43,7 @@ namespace TheS.Casinova.ChipExchange.BackServices.BackExecutors
             }
 
             //ดึงข้อมูลคูปองจากรหัสที่ได้
-            GetVoucherInfoCommand getVoucherInfoCmd = new GetVoucherInfoCommand { VoucherCode = command.VoucherCode, };
+            GetVoucherInfoCommand getVoucherInfoCmd = new GetVoucherInfoCommand { VoucherCode = command.VoucherInformation.VoucherCode, };
             getVoucherInfoCmd.VoucherInfo = _iGetVoucherInfo.Get(getVoucherInfoCmd);
 
             //Get exchange setting
@@ -60,7 +60,7 @@ namespace TheS.Casinova.ChipExchange.BackServices.BackExecutors
 
             //Update player bonus chips by exchange rate
             ExchangeInformation exchangeInfo = new ExchangeInformation {
-                UserName = command.UserName,
+                UserName = command.VoucherInformation.UserName,
                 Amount = getExchangeSettingCmd.ExchangeSetting.VoucherToBonusChipRate * getVoucherInfoCmd.VoucherInfo.Amount,
             };
             _iIncreasePlayerBonusChipByVoucher.ApplyAction(exchangeInfo, command);

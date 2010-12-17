@@ -33,6 +33,9 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         public void GivenTheSystemGeneratedTrackingIDXForPayForColorWinnerInfo(string trackingID)
         {
             _trackingID = trackingID;
+
+            SetupResult.For(svc_GenerateTrackingID.GenerateTrackingID())
+                .IgnoreArguments().Return(Guid.Parse(_trackingID));
         }
 
         //Validation

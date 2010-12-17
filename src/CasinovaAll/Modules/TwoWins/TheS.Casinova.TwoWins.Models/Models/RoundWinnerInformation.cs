@@ -8,7 +8,7 @@ namespace TheS.Casinova.TwoWins.Models
     /// <summary>
     /// ข้อมูลผู้ชนะของโต๊ะเกม
     /// </summary>
-    public class RoundWinnerInformation
+    public  partial class RoundWinnerInformation
     {
         /// <summary>
         /// รหัสโต๊ะเกม
@@ -16,28 +16,23 @@ namespace TheS.Casinova.TwoWins.Models
         public int RoundID { get; set; }
 
         /// <summary>
-        /// จำนวนการลงพนันในโต๊ะเกม
+        /// จำนวนเงินสูงสุดที่ผู้เล่นลงเดิมพันชนะในช่วง normal
         /// </summary>
-        public int HandCount { get; set; }
+        public double WinnerHightNormalAmount { get; set; }
 
         /// <summary>
-        /// ผู้ชนะสูงสุดในช่วงเวลาปกติ
+        /// จำนวนเงินต่ำสุดที่ผู้เล่นลงเดิมพันชนะในช่วง normal
         /// </summary>
-        public string WinnerHiNormal { get; set; }
+        public double WinnerLowNormalAmount { get; set; }
 
         /// <summary>
-        /// ผู้ชนะต่ำสุดในช่วงเวลาปกติ
+        /// จำนวนเงินสูงสุดที่ผู้เล่นลงเดิมพันชนะในช่วง critical
         /// </summary>
-        public string WinnerLoNormal { get; set; }
+        public double WinnerHightCriticalAmount { get; set; }
 
         /// <summary>
-        /// ผู้ชนะสูงสุดในช่วงเวลา Critical
+        /// จำนวนเงินต่ำสุดที่ผู้เล่นลงเดิมพันชนะในช่วง critical
         /// </summary>
-        public string WinnerHiCritical { get; set; }
-
-        /// <summary>
-        /// ผู้ชนะต่ำสุดในช่วงเวลา Critical
-        /// </summary>
-        public string WinnerLoCritical { get; set; }
+        public double WinnerLowCriticalAmount { get; set; }
     }
 }

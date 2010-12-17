@@ -34,9 +34,28 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="PerfEx.Infrastructure, Version=1.7910.1116.799, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="PerfEx.Infrastructure.Advanced">
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Advanced.dll</HintPath>
+    </Reference>
+    <Reference Include="PerfEx.Infrastructure.Containers.StructureMapAdapter">
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Containers.StructureMapAdapter.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\..\..\..\lib\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="SpecFlowAssist">
+      <HintPath>..\..\..\..\lib\SpecFlowAssist.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="TechTalk.SpecFlow">
+      <HintPath>..\..\..\..\lib\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -45,10 +64,34 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BackServices\Specs\UnitTest1.cs" />
+    <Compile Include="BackServices\Specs\ChangeBet.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChangeBet.feature</DependentUpon>
+    </Compile>
+    <Compile Include="BackServices\Specs\RangeBet.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RangeBet.feature</DependentUpon>
+    </Compile>
+    <Compile Include="BackServices\Specs\SingleBet.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SingleBet.feature</DependentUpon>
+    </Compile>
+    <Compile Include="BackServices\Specs\Steps\ChangeBetSteps.cs" />
+    <Compile Include="BackServices\Specs\Steps\CommonSteps.cs" />
+    <Compile Include="BackServices\Specs\Steps\RangeBetSteps.cs" />
+    <Compile Include="BackServices\Specs\Steps\SingleBetSteps.cs" />
+    <Compile Include="BackServices\Specs\Steps\TwowinsStepsBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpecEventDefinitions.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Modules\PlayerProfile\TheS.Casinova.PlayerProfile.Models\TheS.Casinova.PlayerProfile.Models.csproj">
+      <Project>{96BBA83F-EAA6-4EEA-BEC5-98F6AC39B943}</Project>
+      <Name>TheS.Casinova.PlayerProfile.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Modules\Shared\TheS.Casinova.Common.Commands\TheS.Casinova.Common.Commands.csproj">
       <Project>{B0BA601A-7B65-4973-9E00-4F9035883877}</Project>
       <Name>TheS.Casinova.Common.Commands</Name>
@@ -56,10 +99,6 @@
     <ProjectReference Include="..\..\Modules\Shared\TheS.Casinova.Common.Models\TheS.Casinova.Common.Models.csproj">
       <Project>{6079CFCD-811A-4962-B021-8D3D14C0C45B}</Project>
       <Name>TheS.Casinova.Common.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Modules\TwoWins\TheS.Casinova.TwoWins.BackServices.Contracts\TheS.Casinova.TwoWins.BackServices.Contracts.csproj">
-      <Project>{4DB3DF7B-A1AA-43D6-8633-4E45683C6C38}</Project>
-      <Name>TheS.Casinova.TwoWins.BackServices.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Modules\TwoWins\TheS.Casinova.TwoWins.BackServices\TheS.Casinova.TwoWins.BackServices.csproj">
       <Project>{BDCDC8D0-797A-4EBF-AA11-C4529B310261}</Project>
@@ -77,6 +116,21 @@
       <Project>{97C8CB3B-4CAD-487E-8C08-57F7B449DD50}</Project>
       <Name>TheS.Casinova.TwoWins.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="BackServices\Specs\ChangeBet.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ChangeBet.feature.cs</LastGenOutput>
+    </None>
+    <None Include="BackServices\Specs\RangeBet.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>RangeBet.feature.cs</LastGenOutput>
+    </None>
+    <None Include="BackServices\Specs\SingleBet.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SingleBet.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

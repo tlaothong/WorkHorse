@@ -13,13 +13,11 @@ namespace TheS.Casinova.ChipExchange.Commands
     {
         //input
         /// <summary>
-        /// ชื่อผู้เล่น
+        /// ข้อมูลคูปองเพื่อเพิ่มชิพตาย
+        /// 1. UserName ชื่อผู้เล่น
+        /// 2. VoucherCode หมายเลขคูปอง
         /// </summary>
-        public string UserName { get; set; }
-
-        /// <summary>
-        /// หมายเลขคูปอง
-        /// </summary>
-        public string VoucherCode { get; set; }
+        /// 
+        public VoucherInformation VoucherInformation { get; set; }
     }
 }

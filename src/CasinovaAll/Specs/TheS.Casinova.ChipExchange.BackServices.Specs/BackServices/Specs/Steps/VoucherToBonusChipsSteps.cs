@@ -97,8 +97,10 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
         public void WhenCallVoucherToBonusChipsExecutorCodeXUserNameX(string code, string userName)
         {
             VoucherToBonusChipsCommand cmd = new VoucherToBonusChipsCommand {
-                UserName = userName,
-                VoucherCode = code,
+                VoucherInformation = new VoucherInformation {
+                    UserName = userName,
+                    VoucherCode = code,
+                }
             };
 
             VoucherToBonusChipsExecutor.Execute(cmd, (x) => { });
@@ -109,8 +111,10 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
         {
             try {
                 VoucherToBonusChipsCommand cmd = new VoucherToBonusChipsCommand {
-                    UserName = userName,
-                    VoucherCode = code,
+                    VoucherInformation = new VoucherInformation {
+                        UserName = userName,
+                        VoucherCode = code,
+                    }
                 };
 
                 VoucherToBonusChipsExecutor.Execute(cmd, (x) => { });

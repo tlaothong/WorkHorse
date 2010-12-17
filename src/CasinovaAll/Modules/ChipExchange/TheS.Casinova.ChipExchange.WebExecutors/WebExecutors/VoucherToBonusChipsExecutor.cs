@@ -33,7 +33,7 @@ namespace TheS.Casinova.ChipExchange.WebExecutors
 
             //ดึงข้อมูลคูปอง
             GetVoucherInfoCommand cmd_VoucherInfo = new GetVoucherInfoCommand {
-                VoucherCode = command.VoucherCode
+                VoucherCode = command.VoucherInformation.VoucherCode
             };
 
             cmd_VoucherInfo.VoucherInfo = _iGetVoucherInfo.Get(cmd_VoucherInfo);

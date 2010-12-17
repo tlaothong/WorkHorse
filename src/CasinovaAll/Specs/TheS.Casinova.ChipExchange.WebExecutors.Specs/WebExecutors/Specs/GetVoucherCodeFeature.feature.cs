@@ -60,7 +60,7 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs
                         "UserName",
                         "VoucherCode",
                         "Amount",
-                        "Active"});
+                        "CanUse"});
             table1.AddRow(new string[] {
                         "OhAe",
                         "B67C3",
@@ -82,11 +82,11 @@ testRunner.Given("Server has voucher information for get voucher code :", ((stri
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล userName ถูกต้อง ระบบสามารถดึงข้อมูลคูปองได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[GetVoucherCode]ระบบได้รับข้อมูล userName ถูกต้อง ระบบสามารถดึงข้อมูลคูปองได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GetVoucherCode")]
-        public virtual void ระบบไดรบขอมลUserNameถกตองระบบสามารถดงขอมลคปองได()
+        public virtual void GetVoucherCodeระบบไดรบขอมลUserNameถกตองระบบสามารถดงขอมลคปองได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล userName ถูกต้อง ระบบสามารถดึงข้อมูลคูปองได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[GetVoucherCode]ระบบได้รับข้อมูล userName ถูกต้อง ระบบสามารถดึงข้อมูลคูปองได้", new string[] {
                         "record_mock",
                         "record_mock"});
 #line 15
@@ -94,48 +94,55 @@ this.ScenarioSetup(scenarioInfo);
 #line 16
 testRunner.Given("The GetVoucherCodeExecutor has been created and initialized");
 #line 17
-testRunner.When("Call GetVoucherCodeExecutor (UserName \'Boy\')");
+testRunner.And("Sent UserName \'Boy\' for get voucher code");
 #line 18
-testRunner.Then("The result should be Username\'Boy\' VoucherCode \'6690A\' Amount \'500\' Active \'True\'" +
-                    "");
+testRunner.When("Call GetVoucherCodeExecutor()");
+#line 19
+testRunner.Then("The result should be Username\'Boy\' VoucherCode \'6690A\' Amount \'500\'");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล userName ที่ไม่มีใน server ระบบได้ข้อมูลคูปองเป็น null")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[GetVoucherCode]ระบบได้รับข้อมูล userName ที่ไม่มีใน server ระบบได้ข้อมูลคูปองเป็" +
+            "น null")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GetVoucherCode")]
-        public virtual void ระบบไดรบขอมลUserNameทไมมในServerระบบไดขอมลคปองเปนNull()
+        public virtual void GetVoucherCodeระบบไดรบขอมลUserNameทไมมในServerระบบไดขอมลคปองเปนNull()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล userName ที่ไม่มีใน server ระบบได้ข้อมูลคูปองเป็น null", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[GetVoucherCode]ระบบได้รับข้อมูล userName ที่ไม่มีใน server ระบบได้ข้อมูลคูปองเป็" +
+                    "น null", new string[] {
                         "record_mock"});
-#line 21
-this.ScenarioSetup(scenarioInfo);
 #line 22
-testRunner.Given("The GetVoucherCodeExecutor has been created and initialized");
+this.ScenarioSetup(scenarioInfo);
 #line 23
-testRunner.When("Call GetVoucherCodeExecutor (UserName \'Noy\')");
+testRunner.Given("The GetVoucherCodeExecutor has been created and initialized");
 #line 24
-testRunner.Then("The result should be null #GetVoucherCode");
+testRunner.And("Sent UserName \'Noy\' for get voucher code");
+#line 25
+testRunner.When("Call GetVoucherCodeExecutor()");
+#line 26
+testRunner.Then("VoucherCode should be null");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบไม่ได้รับข้อมูล userName ระบบไม่สามารถดึงข้อมูลรหัสคูปอง")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[GetVoucherCode]ระบบไม่ได้รับข้อมูล userName ระบบไม่สามารถดึงข้อมูลรหัสคูปองได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GetVoucherCode")]
-        public virtual void ระบบไมไดรบขอมลUserNameระบบไมสามารถดงขอมลรหสคปอง()
+        public virtual void GetVoucherCodeระบบไมไดรบขอมลUserNameระบบไมสามารถดงขอมลรหสคปองได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบไม่ได้รับข้อมูล userName ระบบไม่สามารถดึงข้อมูลรหัสคูปอง", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[GetVoucherCode]ระบบไม่ได้รับข้อมูล userName ระบบไม่สามารถดึงข้อมูลรหัสคูปองได้", new string[] {
                         "record_mock"});
-#line 27
-this.ScenarioSetup(scenarioInfo);
-#line 28
-testRunner.Given("The GetVoucherCodeExecutor has been created and initialized");
 #line 29
-testRunner.When("Call GetVoucherCodeExecutor (UserName \'\')");
+this.ScenarioSetup(scenarioInfo);
 #line 30
-testRunner.Then("The result should be null #GetVoucherCode");
+testRunner.Given("The GetVoucherCodeExecutor has been created and initialized");
+#line 31
+testRunner.And("Sent UserName \'\' for validation");
+#line 32
+testRunner.When("Call GetVoucherCodeExecutor() for validate input");
+#line 33
+testRunner.Then("VoucherCode should be throw exception");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

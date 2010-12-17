@@ -22,7 +22,7 @@ namespace TheS.Casinova.ChipExchange.BackServices.Validators
         public override void Validate(VoucherInformation entity, VoucherToBonusChipsCommand command, ValidationErrorCollection errors)
         {
             //ดึงข้อมูลคูปองจากรหัสที่ได้
-            GetVoucherInfoCommand getVoucherInfoCmd = new GetVoucherInfoCommand { VoucherCode = command.VoucherCode, };
+            GetVoucherInfoCommand getVoucherInfoCmd = new GetVoucherInfoCommand { VoucherCode = command.VoucherInformation.VoucherCode, };
             getVoucherInfoCmd.VoucherInfo = _iGetVoucherInfo.Get(getVoucherInfoCmd);
 
             if (getVoucherInfoCmd.VoucherInfo == null) {
