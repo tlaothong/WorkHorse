@@ -50,7 +50,7 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
         }
 
         [Given(@"the user profile should be create\(UserName: '(.*)', Password: '(.*)', E-mail: '(.*)', CellPhone: '(.*)', Upline: '(.*)', VeriflyCode: '(.*)'\)")]
-        public void GivenTheUserProfileShouldBeCreateUserNameXPasswordXE_MailXCellPhoneXUplineXVeriflyCodeX(string userName, string password, string email, int cellPhone, string upline, string veriflyCode)
+        public void GivenTheUserProfileShouldBeCreateUserNameXPasswordXE_MailXCellPhoneXUplineXVeriflyCodeX(string userName, string password, string email, int cellPhone, string upline, string verifyCode)
         {
             Func<UserProfile, RegisterUserCommand, UserProfile> checkData = (userProfile, cmd) => 
             {
@@ -59,7 +59,7 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
                 Assert.AreEqual(email, userProfile.Email, "Email");
                 Assert.AreEqual(cellPhone, userProfile.CellPhone, "CellPhone");
                 Assert.AreEqual(upline, userProfile.Upline, "Upline");
-                Assert.AreEqual(veriflyCode, userProfile.VeriflyCode, "VeriflyCode");
+                Assert.AreEqual(verifyCode, userProfile.VerifyCode, "VerifyCode");
                 return userProfile;
             };
 
@@ -68,16 +68,16 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
         }
 
         [When(@"call RegisterUserExecutor\(UserName: '(.*)', Password: '(.*)', E-mail: '(.*)', CellPhone: '(.*)', Upline: '(.*)', VeriflyCode: '(.*)'\)")]
-        public void WhenCallRegisterUserExecutorUserNameXPasswordXE_MailXCellPhoneXUplineXVeriflyCodeX(string userName, string password, string email, int cellPhone, string upline, string veriflyCode)
+        public void WhenCallRegisterUserExecutorUserNameXPasswordXE_MailXCellPhoneXUplineXVeriflyCodeX(string userName, string password, string email, string cellPhone, string upline, string verifyCode)
         {
             RegisterUserCommand cmd = new RegisterUserCommand {
-                UserProfile  = new UserProfile {
+                RegisterUserInfo  = new UserProfile {
                     UserName = userName,
                     Password = password,
                     Email = email,
                     CellPhone = cellPhone,
                     Upline = upline,
-                    VeriflyCode = veriflyCode,
+                    VerifyCode = verifyCode,
                 }
             };
 
@@ -85,17 +85,17 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
         }
 
         [When(@"Expected exception and call RegisterUserExecutor\(UserName: '(.*)', Password: '(.*)', E-mail: '(.*)', CellPhone: '(.*)', Upline: '(.*)', VeriflyCode: '(.*)'\)")]
-        public void WhenExpectedExceptionAndCallRegisterUserExecutorUserNameXPasswordXE_MailXCellPhoneXUplineXVeriflyCodeX(string userName, string password, string email, int cellPhone, string upline, string veriflyCode)
+        public void WhenExpectedExceptionAndCallRegisterUserExecutorUserNameXPasswordXE_MailXCellPhoneXUplineXVeriflyCodeX(string userName, string password, string email, string cellPhone, string upline, string veriflyCode)
         {
             try {
                 RegisterUserCommand cmd = new RegisterUserCommand {
-                    UserProfile = new UserProfile {
+                    RegisterUserInfo = new UserProfile {
                         UserName = userName,
                         Password = password,
                         Email = email,
                         CellPhone = cellPhone,
                         Upline = upline,
-                        VeriflyCode = veriflyCode,
+                        VerifyCode = veriflyCode,
                     }
                 };
 

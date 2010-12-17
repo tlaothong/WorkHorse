@@ -52,18 +52,14 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
             };
         }
 
+        //Test function
         [When(@"Call ListGamePlayInfoExecutor\(\)")]
         public void WhenCallListGamePlayInfoExecutorX()
         {
-            try {
                 ListGamePlayInfo.Execute(_cmd, (x) => { });
-            }
-            catch (Exception ex) {
-                Assert.IsInstanceOfType(ex,
-                    typeof(ValidationErrorException));
-            }
         }
 
+        //Validation
         [When(@"Call ListGamePlayInfoExecutor\(\) for validate username")]
         public void WhenCallListGamePlayInfoExecutorBoyForValidateUsername()
         {
@@ -96,7 +92,7 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
                             UserName = item.UserName,
                             RoundID = item.RoundID,
                             TotalBetBlack = item.TotalBetBlack,
-                            TotalBetfWhite = item.TotalBetWhite,
+                            TotalBetWhite = item.TotalBetWhite,
                             Winner = item.Winner,
                             TrackingID = item.TrackingID,
                             OnGoingTrackingID = item.OnGoingTrackingID,

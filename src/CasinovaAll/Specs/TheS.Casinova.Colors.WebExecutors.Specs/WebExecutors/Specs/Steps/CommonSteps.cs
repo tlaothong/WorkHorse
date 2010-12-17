@@ -14,6 +14,7 @@ using TheS.Casinova.Colors.Commands;
 using TheS.Casinova.Colors.Validators;
 using PerfEx.Infrastructure.Validation;
 using PerfEx.Infrastructure.CommandPattern;
+using TheS.Casinova.Common.Services;
 
 namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
 {
@@ -51,12 +52,14 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         public void GivenThePayForColorsWinnerInfoExecutorHasBeenCreatedAndInitialized()
         {
             var dac = Mocks.DynamicMock<IColorsGameBackService>();
+            var svc = Mocks.DynamicMock<IGenerateTrackingID>();
 
             IDependencyContainer container;
             setupValidators(out container);
             ScenarioContext.Current.Set<IPayForWinner>(dac);
+            ScenarioContext.Current.Set<IGenerateTrackingID>(svc);
             ScenarioContext.Current.Set<PayForColorsWinnerInfoExecutor>(
-                new PayForColorsWinnerInfoExecutor(dac, container));
+                new PayForColorsWinnerInfoExecutor(dac, container, svc));
         }
 
         //Game round information specs initialized
@@ -78,13 +81,15 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
         public void GivenTheBetColorsExecutorHasBeenCreatedAndInitialized()
         {
             var dac = Mocks.DynamicMock<IColorsGameBackService>();
+            var svc = Mocks.DynamicMock<IGenerateTrackingID>();
 
             IDependencyContainer container;
             setupValidators(out container);
 
             ScenarioContext.Current.Set<IBet>(dac);
+            ScenarioContext.Current.Set<IGenerateTrackingID>(svc);
             ScenarioContext.Current.Set<BetColorsExecutor>(
-               new BetColorsExecutor(dac, container));
+               new BetColorsExecutor(dac, container, svc));
         }
 
         //CreateGameRoundConfigurations information space initialized
@@ -123,11 +128,11 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
             var fac = new StructureMapAbstractFactory();
             var reg = fac.CreateRegistry();
 
-            reg.Register<IValidator<GameRoundConfiguration, NullCommand>
-                , DataAnnotationValidator<GameRoundConfiguration, NullCommand>>();
+            reg.Register<IValidator<GameRoundConfiguration, CreateGameRoundConfigurationCommand>
+                , DataAnnotationValidator<GameRoundConfiguration, CreateGameRoundConfigurationCommand>>();
 
             reg.Register<IValidator<GameRoundConfiguration, CreateGameRoundConfigurationCommand>
-                , GameRoundConfiguration_CreateGameRoundConfigurationValidator>();
+                , GameRoundConfiguration_CreateGameRoundConfigurationValidators>();
 
             reg.Register<IValidator<GameRoundInformation, NullCommand>
                , DataAnnotationValidator<GameRoundInformation, NullCommand>>();
@@ -135,8 +140,14 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs.Steps
             reg.Register<IValidator<GamePlayInformation, NullCommand>
               , DataAnnotationValidator<GamePlayInformation, NullCommand>>();
 
-            reg.Register<IValidator<PlayerActionInformation, NullCommand>
-             , DataAnnotationValidator<PlayerActionInformation, NullCommand>>();
+            reg.Register<IValidator<PlayerActionInformation, BetCommand>
+             , DataAnnotationValidator<PlayerActionInformation, BetCommand>>();
+
+            reg.Register<IValidator<PlayerActionInformation, PayForColorsWinnerInfoCommand>
+             , DataAnnotationValidator<PlayerActionInformation, PayForColorsWinnerInfoCommand>>();
+
+            reg.Register<IValidator<PlayerActionInformation, BetCommand>
+                , PlayerActionInformation_BetValidators>();
 
             container = fac.CreateContainer(reg);
         }

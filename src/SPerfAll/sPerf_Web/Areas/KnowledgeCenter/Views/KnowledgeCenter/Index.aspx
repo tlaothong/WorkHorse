@@ -5,9 +5,9 @@
     ศูนย์การเรียนรู้
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
     <div id="pageBody">
-        <div id="movieList">
-        </div>
+        <div id="movieList"></div>
     </div>
     <script id="movieTmpl" type="text/x-jquery-tmpl">
 	<div>
@@ -161,40 +161,185 @@
 			    buyTickets($(this).tmplItem().data);
 			});
 
-            $("#movieList").fadeIn("medium")
-            Sys.require(Sys.components.toggleButton, function () {
-                $().toggleButton.defaults = {
-                    CheckedImageUrl: "/Content/images/Unchecked_gray.gif",
-                    UncheckedImageUrl: "/Content/images/checked.gif",
-                    ImageWidth: 20,
-                    ImageHeight: 20
-                };
-                $(".toggle1").toggleButton();
-            });
-            $(".bookmark").click(function () {
-                $(this).slideUp();
-            });
-            $("#bookmark").hover(function () {
-                $(this).addClass("hilite");
-            }, function () {
-                $(this).removeClass("hilite");
-            });
+			$("#movieList").fadeIn("medium")
+			Sys.require(Sys.components.toggleButton, function () {
+			    $().toggleButton.defaults = {
+			        CheckedImageUrl: "/Content/images/Unchecked_gray.gif",
+			        UncheckedImageUrl: "/Content/images/checked.gif",
+			        ImageWidth: 20,
+			        ImageHeight: 20
+			    };
+			    $(".toggle1").toggleButton();
+			});
+			$(".bookmark").click(function () {
+			    $(this).slideUp();
+			});
+			$("#bookmark").hover(function () {
+			    $(this).addClass("hilite");
+			}, function () {
+			    $(this).removeClass("hilite");
+			});
         }   
+        function buyTickets(movie) {
+            // Add item to cart
+            var booking = cart.bookings[movie.Id];
+            if (booking) {
+                booking.quantity++;
+            } else {
+                cart.count++;
+                cartTmplItem.update();
+                booking = { movie: movie, date: new Date(), quantity: 1, movieTheater: "" };
+            }
+            selectBooking(booking);
+        }
+
+        function selectBooking(booking) {
+            if (selectedBooking) {
+                if (selectedBooking === booking) {
+                    updateBooking(bookingTmplItems[selectedBooking.movie.Id]);
+                    return;
+                }
+                // Collapse previously selected booking, and switch to non-edit view
+                var oldSelected = selectedBooking;
+                $("div", bookingTmplItems[oldSelected.movie.Id].nodes).animate({ height: 0 }, 500, function () {
+                    switchView(oldSelected);
+                });
+            }
+            selectedBooking = booking;
+            if (!booking) {
+                return;
+            }
+            if (cart.bookings[booking.movie.Id]) {
+                switchView(booking, true);
+            } else {
+                cart.bookings[booking.movie.Id] = booking;
+
+                var bookingNode = $("#bookingEditTmpl")
+
+                // Render the booking for the chosen movie using the bookingEditTemplate
+				.tmpl(booking, { animate: true })
+
+                // Append the rendered booking to the bookings list
+				.appendTo("#bookingsList")
+
+                // Get the 2nd <tr> of the appended booking
+				.last()[0];
+
+                // Get the template item for the 2nd <tr>, which is the template item for the "bookingEditTmpl" template
+                var newItem = $.tmplItem(bookingNode);
+                bookingTmplItems[booking.movie.Id] = newItem;
+
+                // Attach handlers etc. on the rendered template.
+                bookingEditRendered(newItem);
+            }
+        }
+
+        function bookingEditRendered(item) {
+            var data = item.data, nodes = item.nodes;
+
+            $(nodes[0]).click(function () {
+                selectBooking();
+            });
+
+            $(".close", nodes).click(removeBooking);
+
+            $(".date", nodes).change(function () {
+                data.date = $(this).datepicker("getDate");
+                updateBooking(item);
+            })
+		.datepicker({ dateFormat: "DD, d MM, yy" });
+
+            $(".quantity", nodes).change(function () {
+                data.quantity = $(this).val();
+                updateBooking(item);
+            });
+
+            $(".theater", nodes).change(function () {
+                data.movieTheater = $(this).val();
+                updateBooking(item);
+            });
+
+            if (item.animate) {
+                $("div", nodes).css("height", 0).animate({ height: 116 }, 500);
+            }
+        }
+
+        function bookingRendered(item) {
+            $(item.nodes).click(function () {
+                selectBooking(item.data);
+            });
+            $(".close", item.nodes).click(removeBooking);
+        }
+
+        function switchView(booking, edit) {
+            if (!booking) {
+                return;
+            }
+            var item = bookingTmplItems[booking.movie.Id],
+			tmpl = $(edit ? "#bookingEditTmpl" : "#bookingTitleTmpl").template();
+            if (item.tmpl !== tmpl) {
+                item.tmpl = tmpl;
+                item.update();
+                (edit ? bookingEditRendered : bookingRendered)(item);
+            }
+        }
+
+        function updateBooking(item) {
+            item.animate = false;
+            item.update();
+            (item.data === selectedBooking ? bookingEditRendered : bookingRendered)(item);
+            item.animate = true;
+        }
+
+        function removeBooking() {
+            var booking = $.tmplItem(this).data;
+            if (booking === selectedBooking) {
+                selectedBooking = null;
+            }
+            delete cart.bookings[booking.movie.Id];
+            cart.count--;
+            cartTmplItem.update();
+            $(bookingTmplItems[booking.movie.Id].nodes).remove();
+            delete bookingTmplItems[booking.movie.Id];
+            return false;
+        }
+
+        function removeBookings() {
+            for (var item in bookingTmplItems) {
+                $(bookingTmplItems[item].nodes).remove();
+                delete bookingTmplItems[item];
+            }
+            bookingTmplItems = {};
+            cart.count = 0;
+            cart.bookings = {};
+            selectedBooking = null;
+            cartTmplItem.update();
+        }
+
+        function formatDate(date) {
+            return date.toLocaleDateString();
+        }
+
+        function removeContext(item) {
+            $(item.nodes).remove();
+        }
+        
     </script>
     <%--<script type="text/javascript">
         $(document).ready(function () {
             $('#movieList').hoverscroll({ vertical: true, height: 550, width: 595 });
         });        
-    </script> --%>
-    <div id="pager">
-    </div>
+    </script> --%>  
+    
+    <div id="pager"></div>
+    
     <% Html.RenderPartial("PostNewVideos"); %>
-    <% Html.RenderPartial("Option"); %>
+    
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="SubMenu" runat="server">
     <% Html.RenderPartial("SubmenuVideo"); %>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="SideBar" runat="server">
-    <% Html.RenderPartial("AdvanceSearch"); %>
-    <% Html.RenderPartial("Banners"); %>
+<% Html.RenderPartial("AdvanceSearch"); %>
+<% Html.RenderPartial("Banners"); %>
 </asp:Content>

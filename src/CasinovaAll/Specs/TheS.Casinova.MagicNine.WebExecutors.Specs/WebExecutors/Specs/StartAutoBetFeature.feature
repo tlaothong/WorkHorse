@@ -13,7 +13,7 @@ Scenario Outline:[StartAutoBet]ระบบได้รับข้อมูล�
   Examples:
 	|UserName	|RoundID	|Amount	|Interval	|
 	|			|1			|100	|10			|
-	|Nit		|-2			|100	|10			|
+	|Nit		|0			|100	|10			|
 	|Nit		|1			|-100	|1			|
 	|Nit		|1			|100	|0			|
 	

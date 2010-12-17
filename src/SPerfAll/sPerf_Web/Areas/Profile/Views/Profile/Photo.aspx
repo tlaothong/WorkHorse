@@ -6,15 +6,19 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">    
   <link  href="../../../../Content/jquery.ad-gallery.css" rel="stylesheet" type="text/css" />
-  <link  href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
   <link href="../../../../Content/jquery-ui-1.8.6.custom.css" rel="stylesheet" type="text/css" />
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-  <script  type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-  <script  type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+  <link href="../../../../Content/jquery.treeview.css" rel="stylesheet" type="text/css" />
+  <link href="../../../../Content/context-menu.css" rel="stylesheet" type="text/css" />
+  <link href="../../../../Content/drag-drop-folder-tree.css" rel="stylesheet" type="text/css" />
+  <script src="../../../../Scripts/jquery.min.js" type="text/javascript"></script>
+  <script src="../../../../Scripts/jquery-ui.min.js" type="text/javascript"></script>
   <script  src="../../../../Scripts/jquery.ad-gallery.js" type="text/javascript"></script>
   <script src="../../../../Scripts/jquery-ui-1.8.6.custom.min.js" type="text/javascript"></script>
-
-
+  <script src="../../../../Scripts/jquery.treeview.js" type="text/javascript"></script>
+  <script src="../../../../Scripts/jquery.treeview.js" type="text/javascript"></script>
+  <script src="../../../../Scripts/ajax.js" type="text/javascript"></script>
+  <script src="../../../../Scripts/context-menu.js" type="text/javascript"></script>
+  <script src="../../../../Scripts/drag-drop-folder-tree.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(function () {
         $('img.image1').data('ad-desc', 'Whoa! This description is set through elm.data("ad-desc") instead of using the longdesc attribute.<br>And it contains <strong>H</strong>ow <strong>T</strong>o <strong>M</strong>eet <strong>L</strong>adies... <em>What?</em> That aint what HTML stands for? Man...');
@@ -106,7 +110,7 @@
         display: block;
       }
   </style>
-  <%--script for report--%>
+<%--script for report--%>
 <script type="text/javascript">
     $(function () {
         // Dialog
@@ -124,16 +128,13 @@
                 }
             }
         });
-
         // Dialog Link
         $('.reportsphotopage').click(function () {
             $('#showReportphotopage').dialog('open');
             return false;
         });
     });
-
 </script>
-
 <%--script for organize--%>
 <script type="text/javascript">
     $(function () {
@@ -141,28 +142,53 @@
         $("#showorganize").dialog({
             autoOpen: false,
             modal: true,
-            width: 450,
-            title: 'Photo Organize',
-            buttons: {
-                "Cancel": function () {
-                    $(this).dialog("close");
-                },
-                "Send": function () {
-                    $(this).dialog("close");
-                }
-            }
+            width: 620,
+            zIndex:1000,
+            title: 'Photo Organize'
         });
-
         // Dialog Link
         $('.organizes').click(function () {
             $('#showorganize').dialog('open');
             return false;
         });
     });
-
+</script>
+<%--script for addphoto--%>
+<script type="text/javascript">
+    $(function () {
+        // Dialog
+        $("#showaddphoto").dialog({
+            autoOpen: false,
+            modal: true,
+            width: 620,
+            title: 'Add Photo'
+        });
+        // Dialog Link
+        $("#addphoto").click(function () {
+            $('#showaddphoto').dialog('open');
+            return false;
+        });
+    });
+</script>
+<%--script for edit photo--%>
+<script type="text/javascript">
+    $(function () {
+        // Dialog
+        $("#showeditphoto").dialog({
+            autoOpen: false,
+            modal: true,
+            width: 620,
+            title: 'Edit Photo'
+        });
+        // Dialog Link
+        $("#editphoto").click(function () {
+            $('#showeditphoto').dialog('open');
+            return false;
+        });
+    });
 </script>
 <div id="container">
-<div style="margin-left:30px;">ToomMy's Album  <select id="switch-effect" style="margin-top:5px;">
+<div style="margin-left:10px;">ToomMy's Album  <select id="switch-effect" style="margin-top:5px;">
                   <option>วันปีใหม่ 2553</option>
                   <option>วันเกิดน้องลิง</option>
                   <option>เที่ยวเมืองไทย</option>
@@ -170,9 +196,9 @@
                   <option>แล้วแต่จะเพิ่มนะคะ</option>
                     </select><label class="organizes" style="margin-left:40px; color:#808285; background-color:#E7E8E9;padding:2px 4px 2px 4px;border: 1px solid gray;">Organize</label>
     </div>
-    <div style="margin-left:30px; color:#69BA55;"><input type="checkbox" />Use as display<label class="reportsphotopage" style="text-decoration:underline; color:#69BA55; margin-left:10px">Report</label></div>
-    <%--div for report dialog--%>
-    <div id="showReportphotopage">
+<div style="margin-left:10px; color:#69BA55;"><input type="checkbox" />Use as display<label class="reportsphotopage" style="text-decoration:underline; color:#69BA55; margin-left:10px">Report</label></div>
+<%--div for report dialog--%>
+<div id="showReportphotopage">
     <table>
             <tr>
                 <td valign="top">
@@ -189,35 +215,165 @@
                 </td>
             </tr>
         </table>
-    </div>
-
+</div>
     <%--div for organize dialog--%>
     <div id="showorganize">
-    <%--<table>
+    <table style="margin-left:400px;"><tr><td>Page : 1 2 3 4 5 6 7 .. next last</td></tr></table>      
+    <table>
             <tr>
                 <td valign="top">
-                    <img src="/Content/images/ProfileAvatar.png" />
+                    <div style="background-color:#ffffff; width:181px; height:380px;">
+                    <table>
+                        <tr><td style="color:White; width:500px; margin-left:0px; background-color:#2D2C2C;">Album'name</td></tr>
+                        <tr valign="top"><td>
+                        <div style="background-color:White; width:176px; height:330px">
+                        <%--treeview part--%>
+                        <%Html.RenderPartial("DGTreeview"); %>
+                        <%--end treeview--%>                      
+                        </div>
+                        </td></tr>
+                        <tr><td style="color:White; width:500px; background-color:#2D2C2C;"><label style="color:Green;">New Album</label>|<label style="color:Green;">Edit Album</label>|<label style="color:Red;">Delete</label></td></tr>
+                    </table>
+                    </div>
                 </td>
-                <td valign="top">username: Wanida<br />DateTime(1/8/2552 12:50:45)<br />
-                    <select>
-                          <option>Inappriate content</option>
-                          <option>Bug</option>
-                          <option>Error</option>
-                    </select><br /><br />
-                    Topic : <input type="text" title="Some Text"/>
-                    <textarea rows="10"; cols="27">Details.....</textarea>
+                <td valign="top">
+                    <div style="background-color:#ffffff; border:1px solid #ffffff; width:380px; height:380px;">
+                     <table>
+                        <tr style="border:0px solid;">
+                          <td  style="background-color:#2D2C2C;" valign="top" align="right"><img src="/Content/profile/thumbs/t1.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t1.jpg" /></td>
+                          </tr>
+                        <tr>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox6" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox5" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox4" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox13" type="checkbox"></td>
+
+                        </tr>
+                        <tr>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t1.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t1.jpg" /></td>
+                        </tr>
+                        <tr>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox3" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox2" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox14" type="checkbox"></td>
+                          </tr>
+                        <tr>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t1.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t1.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
+                          </tr>
+                        <tr>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox11" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox9" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox7" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox15" type="checkbox"></td>
+                        </tr>
+                        <tr>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t1.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t1.jpg" /></td>
+                        </tr>
+                        <tr>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox12" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox10" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox8" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox16" type="checkbox"></td>
+                          </tr>
+                        <tr><td></td><td align="center" style="border:1px solid Gray;"><label id="addphoto" style="color:Green;">Add Photo</label></td><td align="center" style="border:1px solid Gray;"><label id="editphoto" style="color:Green;">Edit Photo</label></td><td align="center" style="border:1px solid Gray;"><label style="color:Red;">Delete</label></td></tr>  
+                      </table>
+
+                    </div>
+                    </td>
+            </tr>
+        </table>
+    </div>
+    <%--div for addphoto dialog--%>
+    <div id="showaddphoto">
+      <table>
+            <tr>
+                <td valign="top">
+                    <div style="background-color:#ffffff; width:181px; height:400px;">
+                    <table>
+                        <tr><td style="color:White; width:500px; margin-left:0px; background-color:#2D2C2C;">Album'name</td></tr>
+                        <tr valign="top"><td>
+                        <div style="background-color:White; width:174px; height:352px"><textarea cols="31" rows="19"></textarea></div>
+                        </td></tr>
+                        <tr><td style="color:White; width:500px; background-color:#2D2C2C;"><label style="color:Green;">New Album</label>|<label style="color:Green;">Edit Album</label>|<label style="color:Red;">Delete</label></td></tr>
+                    </table>
+                    </div>
+                </td>
+                <td valign="top">
+                    <div style="background-color:#ffffff; border:1px solid #ffffff; width:390px; height:400px;">
+                    <div style="margin-top:5px;"><label style="border:1px solid Gray; padding:2px 2px 2px 2px;">Add Photo</label></div><br />
+                    <div>Album'name : <select style="width:250px; height:20px;"><option>สุดหล่อ</option><option>สุดสวย</option></select></div><br />
+                    <div>File'name     :  <input type="text" style="width:250px; height:14px;" /><label style="border:1px solid Gray;">Browse</label><br /></div>
+                    <div><br /><img src="/Content/images/a.JPG" /></div><br />  
+                    <div style="margin-left:300px;"><label style="color:Green;">Upload</label>| <label style="color:Red;">Cancel</label></div>                  
+                </div>
                 </td>
             </tr>
-        </table>--%>
-        รอการทำข้อมูลข้างในจากพี่พายด้วย
+        </table>
+    </div>
+    <%--div for editphoto dialog--%>
+    <div id="showeditphoto">
+      <table>
+            <tr>
+                <td valign="top">
+                    <div style="background-color:#ffffff; width:181px; height:400px;">
+                    <table>
+                        <tr><td style="color:White; width:500px; margin-left:0px; background-color:#2D2C2C;">Album'name</td></tr>
+                        <tr valign="top"><td>
+                        <div style="background-color:White; width:174px; height:352px"><textarea cols="31" rows="19"></textarea></div>
+                        </td></tr>
+                        <tr><td style="color:White; width:500px; background-color:#2D2C2C;"><label style="color:Green;">New Album</label>|<label style="color:Green;">Edit Album</label>|<label style="color:Red;">Delete</label></td></tr>
+                    </table>
+                    </div>
+                </td>
+                <td valign="top">
+                    <div style="background-color:#ffffff; border:1px solid #ffffff; width:390px; height:400px;">
+                    <div style="margin-top:5px;"><label style="border:1px solid Gray; padding:2px 2px 2px 2px;">Edit Photo</label></div><br />
+                    <div><table><tr><td valign="top"><img src="/Content/images/picuser.png" /></td><td valign="top"><select style="width:230px; height:20px;"><option>สุดหล่อ</option><option>สุดสวย</option></select><br />Description :<br /><input type="text" style="width:225px; height:295px;" /></td></tr>
+                    </table></div>
+                    <div style="margin-left:250px;"><label style="color:Green;">Save</label>| <label style="color:Green;">Skip</label>|<label style="color:Red;">Cancel</label></div>                  
+                </div>
+                </td>
+            </tr>
+        </table>
+    </div>
     </div>
     <br />
  <div id="gallery" class="ad-gallery">
     <div class="ad-image-wrapper"></div>
     <div>
-        <table><tr><td style="margin-top:3px;"><div><img  style="margin-left:500px;" src="/Content/profile/LD.png"</div></td></tr></table>     
+        <table><tr>
+            <td style="margin-top:3px;">
+                <div>
+                    <img  style="margin-left:500px;" src="/Content/images/LD1.png" title="DisLike(210)" />
+                </div>
+            </td>
+            <td>
+                <div>
+                    <img  src="/Content/images/LD2.png" title="You are normal(100)" />
+                </div>
+            </td>
+            <td>
+                <div>
+                    <img  src="/Content/images/LD3.png" title="Like(253)" />
+                </div>        
+            </td>
+        </tr>
+    </table>     
     </div>
-    <div style="border-bottom-color:#69BA55; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin; width:550px; margin-top:27px">
+    <div style="border-bottom-color:#69BA55; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin; width:550px; margin-top:29px">
     </div>
     <br />
       <div class="ad-nav">

@@ -64,31 +64,31 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs
                         "Amount"});
             table1.AddRow(new string[] {
                         "OhAe",
-                        "2553/3/12 10:00",
+                        "11/25/2010 10:00",
                         "Bet",
                         "White-Colors",
                         "70"});
             table1.AddRow(new string[] {
                         "Boy",
-                        "2553/3/12 11:20",
+                        "11/25/2010 11:20",
                         "AutoBet",
                         "MagicNine",
                         "100"});
             table1.AddRow(new string[] {
                         "OhAe",
-                        "2553/3/12 11:22",
+                        "11/25/2010 11:22",
                         "Bet",
                         "MagicNine",
                         "1"});
             table1.AddRow(new string[] {
                         "Nit",
-                        "2553/3/12 11:28",
+                        "11/25/2010 11:28",
                         "AutoBet",
                         "Magicnine",
                         "50"});
             table1.AddRow(new string[] {
                         "Nit",
-                        "2553/3/12 10:00",
+                        "11/25/2010 10:00",
                         "Bet",
                         "White-Colors",
                         "20"});
@@ -98,11 +98,13 @@ testRunner.Given("Server has action log information as:", ((string)(null)), tabl
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล username ถูกต้อง ระบบสามารถดึงข้อมูล action log ของผู้เล่นได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ListActionLog]ระบบได้รับข้อมูล username ถูกต้อง ระบบสามารถดึงข้อมูล action log ข" +
+            "องผู้เล่นได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListActionLog")]
-        public virtual void ระบบไดรบขอมลUsernameถกตองระบบสามารถดงขอมลActionLogของผเลนได()
+        public virtual void ListActionLogระบบไดรบขอมลUsernameถกตองระบบสามารถดงขอมลActionLogของผเลนได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล username ถูกต้อง ระบบสามารถดึงข้อมูล action log ของผู้เล่นได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ListActionLog]ระบบได้รับข้อมูล username ถูกต้อง ระบบสามารถดึงข้อมูล action log ข" +
+                    "องผู้เล่นได้", new string[] {
                         "record_mock",
                         "record_mock"});
 #line 17
@@ -110,9 +112,9 @@ this.ScenarioSetup(scenarioInfo);
 #line 18
 testRunner.Given("The ListActionLogExecutor has been created and initialized");
 #line 19
-testRunner.And("Sent UserName: \'OhAe\'");
+testRunner.And("Sent UserName: \'OhAe\' for list action log");
 #line 20
-testRunner.When("Call ListActionLogExecutor");
+testRunner.When("Call ListActionLogExecutor()");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "UserName",
@@ -122,13 +124,13 @@ testRunner.When("Call ListActionLogExecutor");
                         "Amount"});
             table2.AddRow(new string[] {
                         "OhAe",
-                        "2553/3/12 10:00",
+                        "11/25/2010 10:00",
                         "Bet",
                         "White-Colors",
                         "70"});
             table2.AddRow(new string[] {
                         "OhAe",
-                        "2553/3/12 11:22",
+                        "11/25/2010 11:22",
                         "Bet",
                         "MagicNine",
                         "1"});
@@ -139,43 +141,54 @@ testRunner.Then("Action log information should be :", ((string)(null)), table2);
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล username ถูกต้อง แต่ใน server ยังไม่มีข้อมูล action log")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ListActionLog]ระบบได้รับข้อมูล username ถูกต้อง แต่ใน server ยังไม่มีข้อมูล acti" +
+            "on log")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListActionLog")]
-        public virtual void ระบบไดรบขอมลUsernameถกตองแตในServerยงไมมขอมลActionLog()
+        public virtual void ListActionLogระบบไดรบขอมลUsernameถกตองแตในServerยงไมมขอมลActionLog()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล username ถูกต้อง แต่ใน server ยังไม่มีข้อมูล action log", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ListActionLog]ระบบได้รับข้อมูล username ถูกต้อง แต่ใน server ยังไม่มีข้อมูล acti" +
+                    "on log", new string[] {
                         "record_mock"});
 #line 27
 this.ScenarioSetup(scenarioInfo);
 #line 28
 testRunner.Given("The ListActionLogExecutor has been created and initialized");
 #line 29
-testRunner.And("Sent UserName: \'Ku\'");
+testRunner.And("Sent UserName: \'Ku\' for list action log");
 #line 30
-testRunner.When("Call ListActionLogExecutor");
+testRunner.When("Call ListActionLogExecutor()");
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "UserName",
+                        "DateTime",
+                        "Action",
+                        "GameName",
+                        "Amount"});
 #line 31
-testRunner.Then("Action log information should be null");
+testRunner.Then("Action log information should be :", ((string)(null)), table3);
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล username ไม่ถูกต้อง # ListActionLog")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ListActionLog]ระบบไม่ได้รับข้อมูล username ระบบไม่สามารถดึงข้อมูล action log ได้" +
+            "")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListActionLog")]
-        public virtual void ระบบไดรบขอมลUsernameไมถกตองListActionLog()
+        public virtual void ListActionLogระบบไมไดรบขอมลUsernameระบบไมสามารถดงขอมลActionLogได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล username ไม่ถูกต้อง # ListActionLog", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ListActionLog]ระบบไม่ได้รับข้อมูล username ระบบไม่สามารถดึงข้อมูล action log ได้" +
+                    "", new string[] {
                         "record_mock"});
-#line 34
-this.ScenarioSetup(scenarioInfo);
 #line 35
-testRunner.Given("The ListActionLogExecutor has been created and initialized");
+this.ScenarioSetup(scenarioInfo);
 #line 36
-testRunner.And("Sent UserName: \'\'");
+testRunner.Given("The ListActionLogExecutor has been created and initialized");
 #line 37
-testRunner.When("Call ListActionLogExecutor");
+testRunner.And("Sent UserName: \'\' for validation");
 #line 38
-testRunner.Then("Action log information should be null");
+testRunner.When("Call ListActionLogExecutor() for validate input");
+#line 39
+testRunner.Then("Action log information should be throw exception");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

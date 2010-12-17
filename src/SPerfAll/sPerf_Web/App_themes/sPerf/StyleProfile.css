@@ -13,7 +13,7 @@
 .friend
 {
     background-color: #D1D3D4;
-    margin-left: -100px; 
+    margin-left: 10px; 
     margin-top: 40px; 
     float: left;
     width: 150px;
@@ -56,15 +56,6 @@
     float: left;
     width: 420px;
     height: 20px;
-}
-.logeventall
-{
-    padding-left: 350px;
-    margin-top: 5px;
-}
-.logeventall a
-{
-    color: #5FB546;
 }
 .logpostevent
 {

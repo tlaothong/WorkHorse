@@ -40,11 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\ChangeBetInfoCommand.cs" />
+    <Compile Include="Commands\GetGameStatusCommand.cs" />
+    <Compile Include="Commands\ListBetDataCommand.cs" />
+    <Compile Include="Commands\ListBetLogInfoCommand.cs" />
+    <Compile Include="Commands\ListGamePlayInfoCommand.cs" />
+    <Compile Include="Commands\ListGameRoundInfoCommand.cs" />
+    <Compile Include="Commands\ListRangeActionLogCommand.cs" />
+    <Compile Include="Commands\ListSingleActionLogCommand.cs" />
+    <Compile Include="Commands\RangeBetCommand.cs" />
+    <Compile Include="Commands\SingleBetCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Commands\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\Shared\TheS.Casinova.Common.Commands\TheS.Casinova.Common.Commands.csproj">
       <Project>{B0BA601A-7B65-4973-9E00-4F9035883877}</Project>

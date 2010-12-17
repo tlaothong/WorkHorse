@@ -5,14 +5,14 @@
 
 
 @record_mock
-Scenario: ระบบไม่ได้รับข้อมูล Name ระบบไม่สามารถตรวจสอบจำนวน active round ได้ 
+Scenario:[CheckActiveRound]ระบบไม่ได้รับข้อมูล Name ระบบไม่สามารถตรวจสอบจำนวน active round ได้ 
 	Given The CheckActiveRoundExecutor has been created and initialized
 	And   Sent name '' to server 
 	When  Call CheckActiveRoundExecutor()
 	Then  The system don't add ActiveRound
 
 @record_mock
-Scenario: ระบบได้รับข้อมูล Name ไม่ถูกต้อง ข้อมูล name มีจำนวนอักษรน้อยกว่า 5 ระบบไม่สามารถตรวจสอบจำนวน active round ได้ 
+Scenario:[CheckActiveRound]ระบบได้รับข้อมูล Name ไม่ถูกต้อง ข้อมูล name มีจำนวนอักษรน้อยกว่า 5 ระบบไม่สามารถตรวจสอบจำนวน active round ได้ 
 	Given The CheckActiveRoundExecutor has been created and initialized
 	And   Sent name 'Game' to server 
 	When  Call CheckActiveRoundExecutor()

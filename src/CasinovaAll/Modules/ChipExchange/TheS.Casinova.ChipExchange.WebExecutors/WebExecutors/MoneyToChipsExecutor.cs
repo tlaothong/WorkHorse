@@ -116,11 +116,11 @@ namespace TheS.Casinova.ChipExchange.WebExecutors
                     cleanNumber.Append(cardNumber.Substring(i, 1));
             }
 
-            //ตรวจสอบจำนวนหมายเลขบัตรเครดิต
+            //ตรวจสอบจำนวนหมายเลขบัตรเครดิต มี 13 หลัก หรือ 16 หลักก็ได้
             if (cleanNumber.Length < 13 || cleanNumber.Length > 16)
                 return false;
 
-            //เพิ่มจำนวนหมายเลขบัตรเครดิต visa แบบ 13 หลัก
+            //เพิ่มจำนวนหมายเลขบัตรเครดิต visa แบบ 13 หลัก ให้เป็น 16 หลัก
             for (i = cleanNumber.Length + 1; i <= 16; i++)
                 cleanNumber.Insert(0, "0");
 

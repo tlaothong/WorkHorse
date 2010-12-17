@@ -7,6 +7,7 @@ using TheS.Casinova.ChipExchange.Models;
 using Rhino.Mocks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TheS.Casinova.ChipExchange.Commands;
+using PerfEx.Infrastructure.Validation;
 
 namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
 {
@@ -57,18 +58,6 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
                 .IgnoreArguments().Return(_voucherInfo);
         }
 
-        [Given(@"\(VoucherToBonusChips\)request voucher avaliable for exchange")]
-        public void GivenVoucherToBonusChipsRequestVoucherAvaliableForExchange()
-        {
-            Assert.IsTrue(_voucherInfo.CanUse, "CanUse");
-        }
-        
-        [Given(@"\(VoucherToBonusChips\)request voucher not avaliable for exchange")]
-        public void GivenVoucherToBonusChipsRequestVoucherNotAvaliableForExchange()
-        {
-            Assert.IsTrue(!(_voucherInfo.CanUse), "CanUse");
-        }
-
         [Given(@"\(VoucherToBonusChips\)sent ExchangeSettingName: '(.*)' the exchange setting should recieved")]
         public void GivenVoucherToBonusChipsSentExchangeSettingNameXTheExchangeSettingShouldRecieved(string exchangeSettingName)
         {
@@ -108,15 +97,42 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
         public void WhenCallVoucherToBonusChipsExecutorCodeXUserNameX(string code, string userName)
         {
             VoucherToBonusChipsCommand cmd = new VoucherToBonusChipsCommand {
-                UserName = userName,
-                VoucherCode = code,
+                VoucherInformation = new VoucherInformation {
+                    UserName = userName,
+                    VoucherCode = code,
+                }
             };
 
             VoucherToBonusChipsExecutor.Execute(cmd, (x) => { });
         }
 
+        [When(@"Expected exception and call VoucherToBonusChipsExecutor\(Code: '(.*)', UserName: '(.*)'\)")]
+        public void WhenExpectedExceptionAndCallVoucherToBonusChipsExecutorCodeXUserNameX(string code, string userName)
+        {
+            try {
+                VoucherToBonusChipsCommand cmd = new VoucherToBonusChipsCommand {
+                    VoucherInformation = new VoucherInformation {
+                        UserName = userName,
+                        VoucherCode = code,
+                    }
+                };
+
+                VoucherToBonusChipsExecutor.Execute(cmd, (x) => { });
+                Assert.Fail("Shouldn't be here!");
+            }
+            catch (Exception ex) {
+                Assert.IsInstanceOfType(ex, typeof(ValidationErrorException));
+            }
+        }
+
         [Then(@"the player profile should be update")]
         public void ThenThePlayerProfileShouldBeUpdate()
+        {
+            Assert.IsTrue(true, "Expectation has been verified in the end of block When.");
+        }
+
+        [Then(@"\(VoucherToBonusChips\)the result should be throw exception")]
+        public void ThenVoucherToBonusChipsTheResultShouldBeThrowException()
         {
             Assert.IsTrue(true, "Expectation has been verified in the end of block When.");
         }

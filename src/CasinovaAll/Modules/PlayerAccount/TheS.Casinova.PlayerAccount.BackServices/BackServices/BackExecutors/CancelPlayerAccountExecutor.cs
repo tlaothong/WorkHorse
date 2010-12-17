@@ -8,6 +8,7 @@ using TheS.Casinova.PlayerAccount.DAL;
 using TheS.Casinova.PlayerAccount.Models;
 using PerfEx.Infrastructure;
 using PerfEx.Infrastructure.Validation;
+using TheS.Casinova.PlayerProfile.Models;
 
 namespace TheS.Casinova.PlayerAccount.BackServices.BackExecutors
 {
@@ -27,6 +28,10 @@ namespace TheS.Casinova.PlayerAccount.BackServices.BackExecutors
         {
             ValidationErrorCollection errorValidations = new ValidationErrorCollection();
             ValidationHelper.Validate(_container, command.PlayerAccountInfo, command, errorValidations);
+
+            UserProfile userProfile = new UserProfile { UserName = command.PlayerAccountInfo.UserName, Password = command.Password };
+            ValidationHelper.Validate(_container, userProfile, command, errorValidations);
+
             if (errorValidations.Any()) {
                 throw new ValidationErrorException(errorValidations);
             }

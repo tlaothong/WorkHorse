@@ -30,7 +30,7 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "VoucherToBonusChips", "In order to voucher to BonusChips exchange\r\nAs a system\r\nI want to sent voucher c" +
-                    "ode to back server", ((string[])(null)));
+                    "ode to BonusChips exchange", ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -78,13 +78,13 @@ testRunner.Given("Server has voucher information for voucher to bonus chips :", 
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล voucher code และ userName ครบ  ระบบตรวจสอบการใช้งาน คูปองสามารถใ" +
-            "ช้งานได้ ระบบส่งข้อมูลไป back server ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[VoucherToBonusChips]ระบบได้รับข้อมูล voucher code และ userName ระบบทำการตรวจสอบข" +
+            "้อมูล ข้อมูลถูกต้อง ระบบสามารถ generate trackingID ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "VoucherToBonusChips")]
-        public virtual void ระบบไดรบขอมลVoucherCodeและUserNameครบระบบตรวจสอบการใชงานคปองสามารถใชงานไดระบบสงขอมลไปBackServerได()
+        public virtual void VoucherToBonusChipsระบบไดรบขอมลVoucherCodeและUserNameระบบทำการตรวจสอบขอมลขอมลถกตองระบบสามารถGenerateTrackingIDได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล voucher code และ userName ครบ  ระบบตรวจสอบการใช้งาน คูปองสามารถใ" +
-                    "ช้งานได้ ระบบส่งข้อมูลไป back server ได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[VoucherToBonusChips]ระบบได้รับข้อมูล voucher code และ userName ระบบทำการตรวจสอบข" +
+                    "้อมูล ข้อมูลถูกต้อง ระบบสามารถ generate trackingID ได้", new string[] {
                         "record_mock",
                         "record_mock"});
 #line 14
@@ -92,11 +92,10 @@ this.ScenarioSetup(scenarioInfo);
 #line 15
 testRunner.Given("The VoucherToBonusChipsExecutor has been created and initialized");
 #line 16
-testRunner.And("Sent UserName\'Nit\' VoucherCode \'0A15D2C519764BF4B698E31B9F77FE90\' the player\'s vo" +
-                    "ucher information should recieved");
+testRunner.And("Sent UserName\'Nit\' VoucherCode \'0A15D\' the player\'s voucher information should re" +
+                    "cieved");
 #line 17
-testRunner.When("Call VoucherToBonusChipsExecutor (UserName\'Nit\' VoucherCode \'0A15D2C519764BF4B698" +
-                    "E31B9F77FE90\')");
+testRunner.When("Call VoucherToBonusChipsExecutor()");
 #line 18
 testRunner.Then("The system can sent information to back server #VoucherToBonusChips");
 #line hidden
@@ -104,13 +103,13 @@ testRunner.Then("The system can sent information to back server #VoucherToBonusC
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล voucher code และ userName ครบ  ระบบตรวจสอบการใช้งาน คูปองไม่สามา" +
-            "รถใช้งานได้ ระบบส่งข้อมูลไป back server ไม่ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[VoucherToBonusChips]ระบบได้รับข้อมูล voucher code และ userName ครบ  ระบบตรวจสอบก" +
+            "ารใช้งาน คูปองไม่สามารถใช้งานได้ ระบบส่งข้อมูลไป back server ไม่ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "VoucherToBonusChips")]
-        public virtual void ระบบไดรบขอมลVoucherCodeและUserNameครบระบบตรวจสอบการใชงานคปองไมสามารถใชงานไดระบบสงขอมลไปBackServerไมได()
+        public virtual void VoucherToBonusChipsระบบไดรบขอมลVoucherCodeและUserNameครบระบบตรวจสอบการใชงานคปองไมสามารถใชงานไดระบบสงขอมลไปBackServerไมได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล voucher code และ userName ครบ  ระบบตรวจสอบการใช้งาน คูปองไม่สามา" +
-                    "รถใช้งานได้ ระบบส่งข้อมูลไป back server ไม่ได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[VoucherToBonusChips]ระบบได้รับข้อมูล voucher code และ userName ครบ  ระบบตรวจสอบก" +
+                    "ารใช้งาน คูปองไม่สามารถใช้งานได้ ระบบส่งข้อมูลไป back server ไม่ได้", new string[] {
                         "record_mock"});
 #line 21
 this.ScenarioSetup(scenarioInfo);
@@ -129,13 +128,13 @@ testRunner.Then("The system can\'t sent information to back server #VoucherToBon
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล voucher code และ userName ครบ  ระบบตรวจสอบรหัสคูปอง ไม่มีข้อมูลค" +
-            "ูปอง ระบบส่งข้อมูลไป back server ไม่ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[VoucherToBonusChips]ระบบได้รับข้อมูล voucher code และ userName ครบ  ระบบตรวจสอบร" +
+            "หัสคูปอง ไม่มีข้อมูลคูปอง ระบบส่งข้อมูลไป back server ไม่ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "VoucherToBonusChips")]
-        public virtual void ระบบไดรบขอมลVoucherCodeและUserNameครบระบบตรวจสอบรหสคปองไมมขอมลคปองระบบสงขอมลไปBackServerไมได()
+        public virtual void VoucherToBonusChipsระบบไดรบขอมลVoucherCodeและUserNameครบระบบตรวจสอบรหสคปองไมมขอมลคปองระบบสงขอมลไปBackServerไมได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล voucher code และ userName ครบ  ระบบตรวจสอบรหัสคูปอง ไม่มีข้อมูลค" +
-                    "ูปอง ระบบส่งข้อมูลไป back server ไม่ได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[VoucherToBonusChips]ระบบได้รับข้อมูล voucher code และ userName ครบ  ระบบตรวจสอบร" +
+                    "หัสคูปอง ไม่มีข้อมูลคูปอง ระบบส่งข้อมูลไป back server ไม่ได้", new string[] {
                         "record_mock"});
 #line 28
 this.ScenarioSetup(scenarioInfo);
@@ -154,13 +153,13 @@ testRunner.Then("The system can\'t sent information to back server #VoucherToBon
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบไม่ได้รับข้อมูล voucher code ระบบส่งข้อมูลไป back server ไม่ได้_VoucherToBonu" +
-            "sChips")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[VoucherToBonusChips]ระบบไม่ได้รับข้อมูล voucher code ระบบส่งข้อมูลไป back server" +
+            " ไม่ได้_VoucherToBonusChips")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "VoucherToBonusChips")]
-        public virtual void ระบบไมไดรบขอมลVoucherCodeระบบสงขอมลไปBackServerไมได_VoucherToBonusChips()
+        public virtual void VoucherToBonusChipsระบบไมไดรบขอมลVoucherCodeระบบสงขอมลไปBackServerไมได_VoucherToBonusChips()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบไม่ได้รับข้อมูล voucher code ระบบส่งข้อมูลไป back server ไม่ได้_VoucherToBonu" +
-                    "sChips", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[VoucherToBonusChips]ระบบไม่ได้รับข้อมูล voucher code ระบบส่งข้อมูลไป back server" +
+                    " ไม่ได้_VoucherToBonusChips", new string[] {
                         "record_mock"});
 #line 35
 this.ScenarioSetup(scenarioInfo);
@@ -175,13 +174,13 @@ testRunner.Then("The system can\'t sent information to back server #VoucherToBon
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบไม่ได้รับข้อมูล UserName ระบบส่งข้อมูลไป back server ไม่ได้_VoucherToBonusChi" +
-            "ps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[VoucherToBonusChips]ระบบไม่ได้รับข้อมูล UserName ระบบส่งข้อมูลไป back server ไม่" +
+            "ได้_VoucherToBonusChips")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "VoucherToBonusChips")]
-        public virtual void ระบบไมไดรบขอมลUserNameระบบสงขอมลไปBackServerไมได_VoucherToBonusChips()
+        public virtual void VoucherToBonusChipsระบบไมไดรบขอมลUserNameระบบสงขอมลไปBackServerไมได_VoucherToBonusChips()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบไม่ได้รับข้อมูล UserName ระบบส่งข้อมูลไป back server ไม่ได้_VoucherToBonusChi" +
-                    "ps", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[VoucherToBonusChips]ระบบไม่ได้รับข้อมูล UserName ระบบส่งข้อมูลไป back server ไม่" +
+                    "ได้_VoucherToBonusChips", new string[] {
                         "record_mock"});
 #line 41
 this.ScenarioSetup(scenarioInfo);

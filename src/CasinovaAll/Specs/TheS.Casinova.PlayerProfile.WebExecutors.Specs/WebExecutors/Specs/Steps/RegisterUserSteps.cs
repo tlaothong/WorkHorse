@@ -3,40 +3,74 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
+using TheS.Casinova.PlayerProfile.Commands;
+using TheS.Casinova.PlayerProfile.Models;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PerfEx.Infrastructure.Validation;
+using Rhino.Mocks;
+using TheS.Casinova.PlayerProfile.Command;
 
 namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
 {
     [Binding]
-    public class RegisterUserSteps
+    public class RegisterUserSteps : PlayerProfileModuleStepsBase
     {
-        [Given(@"Server has UserName information as:")]
-        public void GivenServerHasUserNameInformationAs(Table table)
+        private RegisterUserCommand _cmd;
+        private string _trackingID;
+
+        [Given(@"Sent register user information : UserName '(.*)' Password'(.*)' Email'(.*)' CellPhone'(.*)' Upline'(.*)'")]
+        public void GivenSentRegisterUserInformationUserNameXPasswordXEmailXCellPhoneXUplineX(string userName, string password, string email, string cellPhone, string upline)
         {
-            ScenarioContext.Current.Pending();
+            _cmd = new RegisterUserCommand {
+                RegisterUserInfo = new UserProfile {
+                    UserName = userName,
+                    Password = password,
+                    Email = email,
+                    CellPhone = cellPhone,
+                    Upline = upline
+                }
+            };
+
         }
 
-        [Given(@"Sent UserName 'OhAe' Password'1234' Email'sirinarin@hotmail\.com' CellPhone'0892165437' Upline'Tummy'")]
-        public void GivenSentUserNameOhAePassword1234EmailSirinarinHotmail_ComCellPhone0892165437UplineTummy()
+        [Given(@"The system generated TrackingID for register user:'(.*)'")]
+        public void GivenTheSystemGeneratedTrackingIDForRegisterUserX(string trackingID)
         {
-            ScenarioContext.Current.Pending();
+            _trackingID = trackingID;
         }
-
-        [When(@"Call RegisterUserExecutor")]
+      
+        //Test function
+        [When(@"Call RegisterUserExecutor\(\)")]
         public void WhenCallRegisterUserExecutor()
         {
-            ScenarioContext.Current.Pending();
+           
+             RegisterUser.Execute(_cmd, (x) => { });          
         }
 
-        [Then(@"The server can sent RegisterUser information")]
-        public void ThenTheServerCanSentRegisterUserInformation()
+        //validation input
+        [When(@"Call RegisterUserExecutor\(\) for validate register user input")]
+        public void WhenCallRegisterUserExecutorForValidateRegisterUserInput()
         {
-            ScenarioContext.Current.Pending();
+            try {
+                RegisterUser.Execute(_cmd, (x) => { });
+                Assert.Fail("Shouldn't be here");
+            }
+            catch (Exception ex) {
+                Assert.IsInstanceOfType(ex,
+                    typeof(ValidationErrorException));
+            }
         }
 
-        [Then(@"The server can't sent RegisterUser information")]
-        public void ThenTheServerCanTSentRegisterUserInformation()
+        [Then(@"Get null and skip checking trackingID for register user")]
+        public void ThenGetNullAndSkipCheckingTrackingIDForRegisterUser()
         {
-            ScenarioContext.Current.Pending();
+            Assert.IsTrue(true, "Exception has been verified in the end of block When.");
+        }
+
+        [Then(@"TrackingID for register user should be :'(.*)'")]
+        public void ThenTrackingIDForRegisterUserShouldBeX(string expectTrackingID)
+        {
+            Assert.AreEqual(expectTrackingID, _trackingID, "Get trackingID accept");
         }
     }
 }

@@ -52,11 +52,13 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล UserName และ RoundID ถูกต้อง ระบบสามารถลีสต์ข้อมูล Bet log ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ListBetLog]ระบบได้รับข้อมูล UserName และ RoundID ถูกต้อง ระบบสามารถลีสต์ข้อมูล B" +
+            "et log ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListBetLog")]
-        public virtual void ระบบไดรบขอมลUserNameและRoundIDถกตองระบบสามารถลสตขอมลBetLogได()
+        public virtual void ListBetLogระบบไดรบขอมลUserNameและRoundIDถกตองระบบสามารถลสตขอมลBetLogได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล UserName และ RoundID ถูกต้อง ระบบสามารถลีสต์ข้อมูล Bet log ได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ListBetLog]ระบบได้รับข้อมูล UserName และ RoundID ถูกต้อง ระบบสามารถลีสต์ข้อมูล B" +
+                    "et log ได้", new string[] {
                         "record_mock"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
@@ -125,13 +127,13 @@ testRunner.Then("The result of BetLog should be :", ((string)(null)), table2);
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับ UserName และ RoundID แต่ใน database ยังไม่มีบันทึกการลงเดิมพันของผู้เล" +
-            "่น ได้ข้อมูล Bet log เป็น null")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ListBetLog]ระบบได้รับ UserName และ RoundID แต่ใน database ยังไม่มีบันทึกการลงเดิ" +
+            "มพันของผู้เล่น ได้ข้อมูล Bet log เป็น null")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListBetLog")]
-        public virtual void ระบบไดรบUserNameและRoundIDแตในDatabaseยงไมมบนทกการลงเดมพนของผเลนไดขอมลBetLogเปนNull()
+        public virtual void ListBetLogระบบไดรบUserNameและRoundIDแตในDatabaseยงไมมบนทกการลงเดมพนของผเลนไดขอมลBetLogเปนNull()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับ UserName และ RoundID แต่ใน database ยังไม่มีบันทึกการลงเดิมพันของผู้เล" +
-                    "่น ได้ข้อมูล Bet log เป็น null", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ListBetLog]ระบบได้รับ UserName และ RoundID แต่ใน database ยังไม่มีบันทึกการลงเดิ" +
+                    "มพันของผู้เล่น ได้ข้อมูล Bet log เป็น null", new string[] {
                         "record_mock"});
 #line 23
 this.ScenarioSetup(scenarioInfo);
@@ -188,11 +190,11 @@ testRunner.Then("The result of BetLog should be :", ((string)(null)), table4);
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับ UserName ไม่ถูกต้อง ระบบไม่สามารถลีสต์ข้อมูล Bet log ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ListBetLog]ระบบได้รับ UserName ไม่ถูกต้อง ระบบไม่สามารถลีสต์ข้อมูล Bet log ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListBetLog")]
-        public virtual void ระบบไดรบUserNameไมถกตองระบบไมสามารถลสตขอมลBetLogได()
+        public virtual void ListBetLogระบบไดรบUserNameไมถกตองระบบไมสามารถลสตขอมลBetLogได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับ UserName ไม่ถูกต้อง ระบบไม่สามารถลีสต์ข้อมูล Bet log ได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ListBetLog]ระบบได้รับ UserName ไม่ถูกต้อง ระบบไม่สามารถลีสต์ข้อมูล Bet log ได้", new string[] {
                         "record_mock"});
 #line 37
 this.ScenarioSetup(scenarioInfo);
@@ -209,11 +211,11 @@ testRunner.Then("The result of BetLog should be throw exception");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับ RoundID ไม่ถูกต้อง ระบบไม่สามารถลีสต์ข้อมูล Bet log ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ListBetLog]ระบบได้รับ RoundID ไม่ถูกต้อง ระบบไม่สามารถลีสต์ข้อมูล Bet log ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListBetLog")]
-        public virtual void ระบบไดรบRoundIDไมถกตองระบบไมสามารถลสตขอมลBetLogได()
+        public virtual void ListBetLogระบบไดรบRoundIDไมถกตองระบบไมสามารถลสตขอมลBetLogได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับ RoundID ไม่ถูกต้อง ระบบไม่สามารถลีสต์ข้อมูล Bet log ได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ListBetLog]ระบบได้รับ RoundID ไม่ถูกต้อง ระบบไม่สามารถลีสต์ข้อมูล Bet log ได้", new string[] {
                         "record_mock"});
 #line 44
 this.ScenarioSetup(scenarioInfo);
@@ -230,11 +232,13 @@ testRunner.Then("The result of BetLog should be throw exception");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับ UserName และ RoundID  ไม่ถูกต้อง ระบบไม่สามารถลีสต์ข้อมูล Bet log ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ListBetLog]ระบบได้รับ UserName และ RoundID  ไม่ถูกต้อง ระบบไม่สามารถลีสต์ข้อมูล " +
+            "Bet log ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListBetLog")]
-        public virtual void ระบบไดรบUserNameและRoundIDไมถกตองระบบไมสามารถลสตขอมลBetLogได()
+        public virtual void ListBetLogระบบไดรบUserNameและRoundIDไมถกตองระบบไมสามารถลสตขอมลBetLogได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับ UserName และ RoundID  ไม่ถูกต้อง ระบบไม่สามารถลีสต์ข้อมูล Bet log ได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ListBetLog]ระบบได้รับ UserName และ RoundID  ไม่ถูกต้อง ระบบไม่สามารถลีสต์ข้อมูล " +
+                    "Bet log ได้", new string[] {
                         "record_mock"});
 #line 51
 this.ScenarioSetup(scenarioInfo);

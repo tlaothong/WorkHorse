@@ -5,6 +5,8 @@ using System.Text;
 using PerfEx.Infrastructure.CommandPattern;
 using TheS.Casinova.PlayerAccount.Commands;
 using TheS.Casinova.PlayerAccount.BackServices;
+using PerfEx.Infrastructure.Validation;
+using PerfEx.Infrastructure;
 
 namespace TheS.Casinova.PlayerAccount.WebExecutors
 {
@@ -15,14 +17,22 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors
          : SynchronousCommandExecutorBase<EditPlayerAccountCommand>
     {
         private IEditPlayerAccount _iEditPlayerAccount;
+        private IDependencyContainer _container;
 
-        public EditPlayerAccountExecutor(IPlayerAccountModuleBackService dac)
+        public EditPlayerAccountExecutor(IPlayerAccountModuleBackService dac, IDependencyContainer container)
         {
             _iEditPlayerAccount = dac;
+            _container = container;
         }
 
         protected override void ExecuteCommand(EditPlayerAccountCommand command)
         {
+            //Validation
+            var errors = ValidationHelper.Validate(_container, command.PlayerAccountInfo, command);
+            if (errors.Any()) {
+                throw new ValidationErrorException(errors);
+            }
+
             _iEditPlayerAccount.EditPlayerAccount(command);
         }
     }

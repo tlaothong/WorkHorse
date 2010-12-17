@@ -17,8 +17,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dac_StopAutoBet] as IStopAutoBet;
+                return ScenarioContext.Current.Get<IStopAutoBet>();
             }
         }
 
@@ -75,8 +74,7 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_StopAutoBet] as StopAutoBetExecutor;
+                return ScenarioContext.Current.Get<StopAutoBetExecutor>();
             }
         }
 

@@ -7,6 +7,8 @@ using TheS.Casinova.PlayerProfile.Commands;
 using TheS.Casinova.PlayerProfile.BackServices;
 using TheS.Casinova.PlayerProfile.DAL;
 using TheS.Casinova.PlayerProfile.Command;
+using PerfEx.Infrastructure;
+using PerfEx.Infrastructure.Validation;
 
 namespace TheS.Casinova.PlayerProfile.WebExecutors
 {
@@ -17,29 +19,24 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors
          : SynchronousCommandExecutorBase<ChangePasswordCommand>     
     {
          private IChangePassword _iChangePassword;
-         private IGetPlayerPassword _iGetPlayerPassword;
+         private IDependencyContainer _container;
+         //private IGetPlayerPassword _iGetPlayerPassword;
 
-         public ChangePasswordExecutor(IPlayerProfileBackService dac, IPlayerProfileDataQuery dqr) 
+         public ChangePasswordExecutor(IPlayerProfileBackService dac, IDependencyContainer container ) 
        {
              _iChangePassword = dac;
-             _iGetPlayerPassword = dqr;
+             _container = container;
        }
 
          protected override void ExecuteCommand(ChangePasswordCommand command)
        {
-           GetPlayerPasswordCommand getPassword = new GetPlayerPasswordCommand { 
-               UserName = command.UserName
-           };
-
-           getPassword.PlayerProfile = _iGetPlayerPassword.Get(getPassword);
-
-           //ตรวจสอบรหัสผ่านเก่า ว่าตรงกับที่ server มีอยู่หรือไม่
-           if (getPassword.PlayerProfile.Password != command.OldPassword) {
-               Console.WriteLine("กรอก Password ไม่ตรงกับ Password เดิม");
+           //Validation
+           var errors = ValidationHelper.Validate(_container, command.UserProfile, command);
+           if (errors.Any()) {
+               throw new ValidationErrorException(errors);
            }
-           else {
-               _iChangePassword.ChangePassWord(command);
-           }          
+
+           _iChangePassword.ChangePassWord(command);         
        }
     }
 }

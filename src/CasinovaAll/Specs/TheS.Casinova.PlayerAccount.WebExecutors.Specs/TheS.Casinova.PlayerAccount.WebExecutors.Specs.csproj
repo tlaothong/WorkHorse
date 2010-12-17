@@ -41,10 +41,20 @@
     <Reference Include="PerfEx.Infrastructure.Advanced">
       <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Advanced.dll</HintPath>
     </Reference>
+    <Reference Include="PerfEx.Infrastructure.Containers.StructureMapAdapter">
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Containers.StructureMapAdapter.dll</HintPath>
+    </Reference>
     <Reference Include="Rhino.Mocks">
       <HintPath>..\..\..\..\lib\Rhino.Mocks.dll</HintPath>
     </Reference>
+    <Reference Include="SpecFlowAssist">
+      <HintPath>..\..\..\..\lib\SpecFlowAssist.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\..\..\..\lib\StructureMap.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -92,6 +102,7 @@
     <Compile Include="WebExecutors\Specs\Steps\GetPlayerAccountSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\ListPlayerAccountSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\PlayerAccountModuleStepsBase.cs" />
+    <Compile Include="WebExecutors\UnitSpecs\PlayerAccountInformationSpecs.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -106,6 +117,10 @@
     <ProjectReference Include="..\..\Modules\PlayerAccount\TheS.Casinova.PlayerAccount.DAL.Contracts\TheS.Casinova.PlayerAccount.DAL.Contracts.csproj">
       <Project>{EB1862A8-F099-4BC4-80D6-7597FF268B92}</Project>
       <Name>TheS.Casinova.PlayerAccount.DAL.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\PlayerAccount\TheS.Casinova.PlayerAccount.Models\TheS.Casinova.PlayerAccount.Models.csproj">
+      <Project>{28B48276-2905-4A6C-9BBA-09007F7E7084}</Project>
+      <Name>TheS.Casinova.PlayerAccount.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Modules\PlayerAccount\TheS.Casinova.PlayerAccount.WebExecutors\TheS.Casinova.PlayerAccount.WebExecutors.csproj">
       <Project>{BD9FE8E7-09DC-42D6-93BD-EAE32FD27540}</Project>

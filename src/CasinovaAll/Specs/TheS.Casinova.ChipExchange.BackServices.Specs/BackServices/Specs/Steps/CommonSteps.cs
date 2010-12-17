@@ -6,6 +6,14 @@ using TechTalk.SpecFlow;
 using Rhino.Mocks;
 using TheS.Casinova.ChipExchange.DAL;
 using TheS.Casinova.ChipExchange.BackServices.BackExecutors;
+using PerfEx.Infrastructure;
+using PerfEx.Infrastructure.Containers.StructureMapAdapter;
+using TheS.Casinova.ChipExchange.Models;
+using TheS.Casinova.ChipExchange.Commands;
+using PerfEx.Infrastructure.Validation;
+using TheS.Casinova.ChipExchange.BackServices.Validators;
+using SpecFlowAssist;
+using TheS.Casinova.PlayerProfile.Models;
 
 namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
 {
@@ -40,6 +48,7 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
             var dac = Mocks.DynamicMock<IChipExchangeDataAccess>();
             var dqr = Mocks.DynamicMock<IChipExchangeDataBackQuery>();
             var svc = Mocks.DynamicMock<IPayExchangeEngine>();
+            var container = Mocks.DynamicMock<IDependencyContainer>();
 
             ScenarioContext.Current[Key_Dac_IncreasePlayerChipsByMoney] = dac;
 
@@ -47,7 +56,11 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
             ScenarioContext.Current[Key_Dqr_GetPlayerAccountInfo] = dqr;
 
             ScenarioContext.Current[Key_PayExchangeEngine] = svc;
-            ScenarioContext.Current[Key_MoneyToChips] = new MoneyToChipsExecutor(svc, dac, dqr);
+
+            ScenarioContext.Current.Set<IChipExchangeDataBackQuery>(dqr);
+
+            setupValidators(out container);
+            ScenarioContext.Current[Key_MoneyToChips] = new MoneyToChipsExecutor(container, svc, dac, dqr);
         }
 
         [Given(@"The MoneyToBonusChipsExecutor has been created and initialized")]
@@ -56,6 +69,7 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
             var dac = Mocks.DynamicMock<IChipExchangeDataAccess>();
             var dqr = Mocks.DynamicMock<IChipExchangeDataBackQuery>();
             var svc = Mocks.DynamicMock<IPayExchangeEngine>();
+            var container = Mocks.DynamicMock<IDependencyContainer>();
 
             ScenarioContext.Current[Key_Dac_IncreasePlayerBonusChipsByMoney] = dac;
 
@@ -64,7 +78,11 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
             ScenarioContext.Current[Key_Dqr_GetMLNInfo] = dqr;
 
             ScenarioContext.Current[Key_PayExchangeEngine] = svc;
-            ScenarioContext.Current[Key_MoneyToBonusChips] = new MoneyToBonusChipsExecutor(svc, dac, dqr);
+
+            ScenarioContext.Current.Set<IChipExchangeDataBackQuery>(dqr);
+
+            setupValidators(out container);
+            ScenarioContext.Current[Key_MoneyToBonusChips] = new MoneyToBonusChipsExecutor(container, svc, dac, dqr);
         }
 
         [Given(@"The VoucherToBounusChipsExecutor has been created and initialized")]
@@ -72,13 +90,18 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
         {
             var dac = Mocks.DynamicMock<IChipExchangeDataAccess>();
             var dqr = Mocks.DynamicMock<IChipExchangeDataBackQuery>();
+            var container = Mocks.DynamicMock<IDependencyContainer>();
 
             ScenarioContext.Current[Key_Dqr_GetVoucherInfo] = dqr;
             ScenarioContext.Current[Key_Dqr_GetExchangeSetting] = dqr;
 
             ScenarioContext.Current[Key_Dac_UpdateUsedVoucher] = dac;
             ScenarioContext.Current[Key_Dac_IncreasePlayerBonusChipsByVoucher] = dac;
-            ScenarioContext.Current[Key_VoucherToBonusChips] = new VoucherToBonusChipsExecutor(dac, dqr);
+
+            ScenarioContext.Current.Set<IChipExchangeDataBackQuery>(dqr);
+            
+            setupValidators(out container);
+            ScenarioContext.Current[Key_VoucherToBonusChips] = new VoucherToBonusChipsExecutor(container, dac, dqr);
         }
 
         [Given(@"The PayVoucherExecutor has been created and initialized")]
@@ -87,6 +110,7 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
             var dac = Mocks.DynamicMock<IChipExchangeDataAccess>();
             var dqr = Mocks.DynamicMock<IChipExchangeDataBackQuery>();
             var svc = Mocks.DynamicMock<IGenerateVoucherCode>();
+            var container = Mocks.DynamicMock<IDependencyContainer>();
 
             ScenarioContext.Current[Key_Dqr_GetUserProfile] = dqr;
 
@@ -94,8 +118,53 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
             ScenarioContext.Current[Key_Dac_CreateVoucherInfo] = dac;
 
             ScenarioContext.Current[Key_GenerateVoucherCode] = svc;
+            
+            ScenarioContext.Current.Set<IChipExchangeDataBackQuery>(dqr);
 
-            ScenarioContext.Current[Key_PayVoucher] = new PayVoucherExecutor(svc, dac, dqr);
+            setupValidators(out container);
+            ScenarioContext.Current[Key_PayVoucher] = new PayVoucherExecutor(container, svc, dac, dqr);
+        }
+
+        [Given(@"The ChipsToMoneyExecutor has been created and initialized")]
+        public void GivenTheChipsToMoneyExecutorHasBeenCreatedAndInitialized()
+        {
+            var dac = Mocks.DynamicMock<IChipExchangeDataAccess>();
+            var dqr = Mocks.DynamicMock<IChipExchangeDataBackQuery>();
+            var container = Mocks.DynamicMock<IDependencyContainer>();
+
+            ScenarioContext.Current.Set<IGetUserProfile>(dqr);
+            ScenarioContext.Current.Set<IUpdateUserProfile>(dac);
+            ScenarioContext.Current.Set<ICreateChequeInformation>(dac);
+
+            ScenarioContext.Current.Set<IChipExchangeDataBackQuery>(dqr);
+
+            setupValidators(out container);
+            ScenarioContext.Current.Set<ChipsToMoneyExecutor>(
+                new ChipsToMoneyExecutor(container, dac, dqr));
+        }
+
+        private static void setupValidators(out IDependencyContainer container)
+        {
+            var fac = new StructureMapAbstractFactory();
+            var reg = fac.CreateRegistry();
+
+            reg.Register<IValidator<MultiLevelNetworkInformation, MoneyToBonusChipsCommand>
+                , MLNInfo_MoneyToBonusChipsValidators>();
+            reg.Register<IValidator<ExchangeSettingInformation, MoneyToBonusChipsCommand>
+                , ExchangeSettingInfo_MoneyToBonusChipsValidators>();
+            reg.Register<IValidator<ExchangeSettingInformation, MoneyToChipsCommand>
+                , ExchangeSettingInfo_MoneyToChipsValidators>();
+            reg.Register<IValidator<UserProfile, PayVoucherCommand>
+                , UserProfile_PayVoucherValidators>();
+            reg.Register<IValidator<VoucherInformation, VoucherToBonusChipsCommand>
+                , VoucherInfo_VoucherToBonusChipsValidators>();
+
+            reg.RegisterInstance<IChipExchangeDataBackQuery>
+                (ScenarioContext.Current.Get<IChipExchangeDataBackQuery>());
+            reg.Register<IServiceObjectProvider<IChipExchangeDataBackQuery>,
+                DependencyInjectionServiceObjectProviderAdapter<IChipExchangeDataBackQuery, IChipExchangeDataBackQuery>>();
+
+            container = fac.CreateContainer(reg);
         }
     }
 }

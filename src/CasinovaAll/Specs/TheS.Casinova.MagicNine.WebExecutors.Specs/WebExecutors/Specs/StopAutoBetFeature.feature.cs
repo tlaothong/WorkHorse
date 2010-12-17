@@ -29,8 +29,8 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "StopAutoBet", "In order to stop auto bet\r\nAs a sysytem\r\nI want to sent StopAutoBet information t" +
-                    "o back server", ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "StopAutoBet", "In order to stop auto bet\r\nAs a system\r\nI want to sent StopAutoBet information to" +
+                    " back server", ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -52,47 +52,67 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs
             testRunner.OnScenarioEnd();
         }
         
-        public virtual void ระบบไดรบขอมลใหหยดการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer(string userName)
+        public virtual void StopAutoBetระบบไดรบขอมลเพอหยดการลงเดมพนแบบอตโนมตระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID(string userName, string roundID)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูลให้หยุดการลงเดิมพันแบบอัตโนมัติจาก client และทำการส่งข้อมูลไปยัง " +
-                    "back server", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[StopAutoBet]ระบบได้รับข้อมูลเพื่อหยุดการลงเดิมพันแบบอัตโนมัติ ระบบทำการตรวจสอบข้" +
+                    "อมูล ข้อมูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID", new string[] {
                         "record_mock"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
 testRunner.Given("The StopAutoBetExecutor has been created and initialized");
 #line 9
-testRunner.And(string.Format("Sent StopAutoBetInformation userName\'{0}\'", userName));
+testRunner.And(string.Format("Sent StopAutoBetInformation userName\'{0}\', roundId \'{1}\'", userName, roundID));
 #line 10
-testRunner.And("Web service has BetTrackingID for stop auto bet: \'DA1FE75E-9042-4FC5-B3CF-1E973D2152" +
-                    "F7\'");
+testRunner.When("Call StopAutoBetExecutor() for validation");
 #line 11
-testRunner.When(string.Format("Call StopAutoBetExecutor(userName\'{0}\')", userName));
-#line 12
-testRunner.Then("BetTrackingID of  stop auto bet for client and back server should be : \'DA1FE75E-904" +
-                    "2-4FC5-B3CF-1E973D2152F7\'");
-#line 13
-testRunner.Then("The system can\'t sent StopAutoBetInformation to back server");
+testRunner.Then("Get null and skip checking trackingID for stop auto bet");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลให้หยุดการลงเดิมพันแบบอัตโนมัติจาก client และทำการส่งข้อมูลไปยัง " +
-            "back server")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[StopAutoBet]ระบบได้รับข้อมูลเพื่อหยุดการลงเดิมพันแบบอัตโนมัติ ระบบทำการตรวจสอบข้" +
+            "อมูล ข้อมูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StopAutoBet")]
-        public virtual void ระบบไดรบขอมลใหหยดการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer_Nit()
+        public virtual void StopAutoBetระบบไดรบขอมลเพอหยดการลงเดมพนแบบอตโนมตระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID_()
         {
-            this.ระบบไดรบขอมลใหหยดการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer("Nit");
+            this.StopAutoBetระบบไดรบขอมลเพอหยดการลงเดมพนแบบอตโนมตระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID("", "1");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลให้หยุดการลงเดิมพันแบบอัตโนมัติจาก client และทำการส่งข้อมูลไปยัง " +
-            "back server")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[StopAutoBet]ระบบได้รับข้อมูลเพื่อหยุดการลงเดิมพันแบบอัตโนมัติ ระบบทำการตรวจสอบข้" +
+            "อมูล ข้อมูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StopAutoBet")]
-        public virtual void ระบบไดรบขอมลใหหยดการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer_()
+        public virtual void StopAutoBetระบบไดรบขอมลเพอหยดการลงเดมพนแบบอตโนมตระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID_Nit()
         {
-            this.ระบบไดรบขอมลใหหยดการลงเดมพนแบบอตโนมตจากClientและทำการสงขอมลไปยงBackServer("");
+            this.StopAutoBetระบบไดรบขอมลเพอหยดการลงเดมพนแบบอตโนมตระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID("Nit", "-2");
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[StopAutoBet]ระบบได้รับข้อมูลเพื่อหยุดการลงเดิมพันแบบอัตโนมัติ ระบบทำการตรวจสอบข้" +
+            "อมูล ข้อมูลถูกต้อง ระบบทำการ generate trackingID")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StopAutoBet")]
+        public virtual void StopAutoBetระบบไดรบขอมลเพอหยดการลงเดมพนแบบอตโนมตระบบทำการตรวจสอบขอมลขอมลถกตองระบบทำการGenerateTrackingID()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[StopAutoBet]ระบบได้รับข้อมูลเพื่อหยุดการลงเดิมพันแบบอัตโนมัติ ระบบทำการตรวจสอบข้" +
+                    "อมูล ข้อมูลถูกต้อง ระบบทำการ generate trackingID", new string[] {
+                        "record_mock"});
+#line 19
+this.ScenarioSetup(scenarioInfo);
+#line 20
+testRunner.Given("The StopAutoBetExecutor has been created and initialized");
+#line 21
+testRunner.And("Sent StopAutoBetInformation userName\'Nit\', roundId \'4\'");
+#line 22
+testRunner.And("The system generated TrackingID for stop auto bet:\'955D6ACDE4E04D1C90ACF3715BB268" +
+                    "5A\'");
+#line 23
+testRunner.When("Call StopAutoBetExecutor()");
+#line 24
+testRunner.Then("TrackingID for stop auto bet should be :\'955D6ACDE4E04D1C90ACF3715BB2685A\'");
+#line hidden
+            testRunner.CollectScenarioErrors();
         }
     }
 }

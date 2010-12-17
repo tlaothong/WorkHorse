@@ -57,9 +57,9 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs
 #line 7
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "PlayerAccountID",
-                        "UserName",
                         "AccountType",
+                        "UserName",
+                        "CardType",
                         "AccountNo",
                         "CVV",
                         "ExpireDate",
@@ -70,7 +70,7 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs
                         "Visa",
                         "1802345673888921",
                         "0253",
-                        "10/31/2010",
+                        "10/31/2011",
                         "True"});
             table1.AddRow(new string[] {
                         "Primary",
@@ -78,7 +78,7 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs
                         "Master\tCard",
                         "0019342567188211",
                         "4830",
-                        "11/30/2010",
+                        "11/30/2011",
                         "True"});
             table1.AddRow(new string[] {
                         "Primary",
@@ -86,7 +86,7 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs
                         "Visa",
                         "0012214544543212",
                         "3223",
-                        "12/31/2010",
+                        "12/31/2011",
                         "True"});
 #line 8
 testRunner.Given("Server has player account information as:", ((string)(null)), table1);
@@ -94,11 +94,13 @@ testRunner.Given("Server has player account information as:", ((string)(null)), 
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล username ถูกต้อง ระบบสามารถดึงข้อมูลบัญชีของผู้เล่นได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ListPlayerAccount]ระบบได้รับข้อมูล username ถูกต้อง ระบบสามารถดึงข้อมูลบัญชีทั้ง" +
+            "หมดของผู้เล่นได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListPlayerAccount")]
-        public virtual void ระบบไดรบขอมลUsernameถกตองระบบสามารถดงขอมลบญชของผเลนได()
+        public virtual void ListPlayerAccountระบบไดรบขอมลUsernameถกตองระบบสามารถดงขอมลบญชทงหมดของผเลนได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล username ถูกต้อง ระบบสามารถดึงข้อมูลบัญชีของผู้เล่นได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ListPlayerAccount]ระบบได้รับข้อมูล username ถูกต้อง ระบบสามารถดึงข้อมูลบัญชีทั้ง" +
+                    "หมดของผู้เล่นได้", new string[] {
                         "record_mock",
                         "record_mock"});
 #line 15
@@ -106,25 +108,25 @@ this.ScenarioSetup(scenarioInfo);
 #line 16
 testRunner.Given("The ListPlayerAccountExecutor has been created and initialized");
 #line 17
-testRunner.And("Sent UserName \'Nit\'");
+testRunner.And("Sent UserName \'Nit\' for list player account");
 #line 18
-testRunner.When("Call ListPlayerAccountExecutor");
+testRunner.When("Call ListPlayerAccountExecutor()");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                        "PlayerAccountID",
-                        "UserName",
                         "AccountType",
+                        "UserName",
+                        "CardType",
                         "AccountNo",
                         "CVV",
                         "ExpireDate",
                         "Active"});
             table2.AddRow(new string[] {
-                        "003",
+                        "Primary",
                         "Nit",
                         "Visa",
                         "0012214544543212",
                         "3223",
-                        "12/31/2010",
+                        "12/31/2011",
                         "True"});
 #line 19
 testRunner.Then("The result of player account should be as:", ((string)(null)), table2);
@@ -133,45 +135,56 @@ testRunner.Then("The result of player account should be as:", ((string)(null)), 
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล username ที่ไม่มีใน server ระบบไม่สามารถดึงข้อมูลบัญชีของผู้เล่น" +
-            "ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ListPlayerAccount]ระบบได้รับข้อมูล username ที่ไม่มีใน server ระบบไม่สามารถดึงข้" +
+            "อมูลบัญชีทั้งหมดของผู้เล่นได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListPlayerAccount")]
-        public virtual void ระบบไดรบขอมลUsernameทไมมในServerระบบไมสามารถดงขอมลบญชของผเลนได()
+        public virtual void ListPlayerAccountระบบไดรบขอมลUsernameทไมมในServerระบบไมสามารถดงขอมลบญชทงหมดของผเลนได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล username ที่ไม่มีใน server ระบบไม่สามารถดึงข้อมูลบัญชีของผู้เล่น" +
-                    "ได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ListPlayerAccount]ระบบได้รับข้อมูล username ที่ไม่มีใน server ระบบไม่สามารถดึงข้" +
+                    "อมูลบัญชีทั้งหมดของผู้เล่นได้", new string[] {
                         "record_mock"});
 #line 24
 this.ScenarioSetup(scenarioInfo);
 #line 25
 testRunner.Given("The ListPlayerAccountExecutor has been created and initialized");
 #line 26
-testRunner.And("Sent UserName \'Meaw\'");
+testRunner.And("Sent UserName \'Meaw\' for list player account");
 #line 27
-testRunner.When("Call ListPlayerAccountExecutor");
+testRunner.When("Call ListPlayerAccountExecutor()");
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "AccountType",
+                        "UserName",
+                        "CardType",
+                        "AccountNo",
+                        "CVV",
+                        "ExpireDate",
+                        "Active"});
 #line 28
-testRunner.Then("The result of player account should be null");
+testRunner.Then("The result of player account should be as:", ((string)(null)), table3);
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบไม่ได้รับข้อมูล username ระบบไม่สามารถดึงข้อมูลบัญชีของผู้เล่นได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ListPlayerAccount]ระบบไม่ได้รับข้อมูล username ระบบไม่สามารถดึงข้อมูลบัญชีทั้งหม" +
+            "ดของผู้เล่นได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListPlayerAccount")]
-        public virtual void ระบบไมไดรบขอมลUsernameระบบไมสามารถดงขอมลบญชของผเลนได()
+        public virtual void ListPlayerAccountระบบไมไดรบขอมลUsernameระบบไมสามารถดงขอมลบญชทงหมดของผเลนได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบไม่ได้รับข้อมูล username ระบบไม่สามารถดึงข้อมูลบัญชีของผู้เล่นได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ListPlayerAccount]ระบบไม่ได้รับข้อมูล username ระบบไม่สามารถดึงข้อมูลบัญชีทั้งหม" +
+                    "ดของผู้เล่นได้", new string[] {
                         "record_mock"});
-#line 31
-this.ScenarioSetup(scenarioInfo);
 #line 32
-testRunner.Given("The ListPlayerAccountExecutor has been created and initialized");
+this.ScenarioSetup(scenarioInfo);
 #line 33
-testRunner.And("Sent UserName \'\'");
+testRunner.Given("The ListPlayerAccountExecutor has been created and initialized");
 #line 34
-testRunner.When("Call ListPlayerAccountExecutor");
+testRunner.And("Sent UserName \'\' for validate list player account information");
 #line 35
-testRunner.Then("The result of player account should be null");
+testRunner.When("Call ListPlayerAccountExecutor() for validate input");
+#line 36
+testRunner.Then("The result of player account should be throw exception");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

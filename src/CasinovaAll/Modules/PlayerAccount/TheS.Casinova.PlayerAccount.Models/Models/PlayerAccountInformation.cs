@@ -8,7 +8,7 @@ namespace TheS.Casinova.PlayerAccount.Models
     /// <summary>
     /// ข้อมูลบัญชีของผู้เล่น
     /// </summary>
-    public class PlayerAccountInformation
+    public partial class PlayerAccountInformation
     {
         /// <summary>
         /// รหัสบัญชีของผู้เล่น
@@ -21,12 +21,12 @@ namespace TheS.Casinova.PlayerAccount.Models
         public string UserName { get; set; }
 
         /// <summary>
-        /// ชื่อเจ้าของบัตร
+        /// ชื่อจริง
         /// </summary>
         public string FirstName { get; set; }
 
         /// <summary>
-        /// นามสกุลเจ้าของบัตร
+        /// นามสกุล
         /// </summary>
         public string LastName { get; set; }
 
@@ -48,7 +48,7 @@ namespace TheS.Casinova.PlayerAccount.Models
         /// <summary>
         /// รหัสตรวจสอบหมายเลขบัญชี
         /// </summary>
-        public int CVV { get; set; }
+        public string CVV { get; set; }
 
         /// <summary>
         /// วันหมดอายุของบัญชี

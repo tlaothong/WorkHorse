@@ -53,11 +53,13 @@ namespace TheS.Casinova.Colors.WebExecutors.Specs
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบไม่ได้รับข้อมูล ConfigName ระบบไม่สามารถตรวจสอบจำนวน active round ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[CheckActiveRound]ระบบไม่ได้รับข้อมูล Name ระบบไม่สามารถตรวจสอบจำนวน active round" +
+            " ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CheckActiveRoundToCreate")]
-        public virtual void ระบบไมไดรบขอมลNameระบบไมสามารถตรวจสอบจำนวนActiveRoundได()
+        public virtual void CheckActiveRoundระบบไมไดรบขอมลNameระบบไมสามารถตรวจสอบจำนวนActiveRoundได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบไม่ได้รับข้อมูล ConfigName ระบบไม่สามารถตรวจสอบจำนวน active round ได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[CheckActiveRound]ระบบไม่ได้รับข้อมูล Name ระบบไม่สามารถตรวจสอบจำนวน active round" +
+                    " ได้", new string[] {
                         "record_mock"});
 #line 8
 this.ScenarioSetup(scenarioInfo);
@@ -74,13 +76,13 @@ testRunner.Then("The system don\'t add ActiveRound");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูล ConfigName ไม่ถูกต้อง ข้อมูล name มีจำนวนอักษรน้อยกว่า 5 ระบบไม่สามารถ" +
-            "ตรวจสอบจำนวน active round ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[CheckActiveRound]ระบบได้รับข้อมูล Name ไม่ถูกต้อง ข้อมูล name มีจำนวนอักษรน้อยกว" +
+            "่า 5 ระบบไม่สามารถตรวจสอบจำนวน active round ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CheckActiveRoundToCreate")]
-        public virtual void ระบบไดรบขอมลNameไมถกตองขอมลNameมจำนวนอกษรนอยกวา5ระบบไมสามารถตรวจสอบจำนวนActiveRoundได()
+        public virtual void CheckActiveRoundระบบไดรบขอมลNameไมถกตองขอมลNameมจำนวนอกษรนอยกวา5ระบบไมสามารถตรวจสอบจำนวนActiveRoundได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูล ConfigName ไม่ถูกต้อง ข้อมูล name มีจำนวนอักษรน้อยกว่า 5 ระบบไม่สามารถ" +
-                    "ตรวจสอบจำนวน active round ได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[CheckActiveRound]ระบบได้รับข้อมูล Name ไม่ถูกต้อง ข้อมูล name มีจำนวนอักษรน้อยกว" +
+                    "่า 5 ระบบไม่สามารถตรวจสอบจำนวน active round ได้", new string[] {
                         "record_mock"});
 #line 15
 this.ScenarioSetup(scenarioInfo);

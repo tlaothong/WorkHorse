@@ -11,11 +11,11 @@ namespace TheS.Casinova.MagicNine.Models
     {
         public class MD
         {
-            [Range(0, int.MaxValue)]
-            public int RoundID { get; set; }
-
             [Required]
             public string UserName { get; set; }
+
+            [Range(0, int.MaxValue)]
+            public int RoundID { get; set; }
 
             public DateTime BetDateTime { get; set; }
             

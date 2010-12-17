@@ -3,40 +3,68 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
+using TheS.Casinova.MagicNine.Commands;
+using TheS.Casinova.MagicNine.Models;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PerfEx.Infrastructure.Validation;
 
 namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
 {
     [Binding]
-    public class StopAutoBetSteps
+    public class StopAutoBetSteps : MagicNineGameStepsBase
     {
-        [Given(@"Sent StopAutoBetInformation userName'(.*)'")]
-        public void GivenSentStopAutoBetInformationUserNameNit(string userName)
+        private StopAutoBetCommand _cmd;
+        private string _trackingID;
+
+        [Given(@"Sent StopAutoBetInformation userName'(.*)', roundId '(.*)'")]
+        public void GivenSentStopAutoBetInformationUserNameXRoundIDX(string userName, int roundId)
         {
-            ScenarioContext.Current.Pending();
+            _cmd = new StopAutoBetCommand {
+                GamePlayAutoBetInfo = new GamePlayAutoBetInformation {
+                    UserName = userName,
+                    RoundID = roundId
+                }
+            };
         }
 
-        [Given(@"Web service has BetTrackingID for stop auto bet: 'DA1FE75E-9042-4FC5-B3CF-1E973D2152F7'")]
-        public void GivenWebServiceHasTrackingIDForStopAutoBetDA1FE75E_9042_4FC5_B3CF_1E973D2152F7()
+        [Given(@"The system generated TrackingID for stop auto bet:'(.*)'")]
+        public void GivenTheSystemGeneratedTrackingIDForStopAutoBetX(string trackingID)
         {
-            ScenarioContext.Current.Pending();
+            _trackingID = trackingID;
         }
 
-        [When(@"Call StopAutoBetExecutor\(userName'(.*)'\)")]
-        public void WhenCallStopAutoBetExecutorUserNameNit(string userName)
+        //Test function
+        [When(@"Call StopAutoBetExecutor\(\)")]
+        public void WhenCallStopAutoBetExecutor()
         {
-            ScenarioContext.Current.Pending();
+             StopAutoBet.Execute(_cmd, (x) => { });
+           
         }
 
-        [Then(@"The system can't sent StopAutoBetInformation to back server")]
-        public void ThenTheSystemCanTSentStopAutoBetInformationToBackServer()
+        [Then(@"TrackingID for stop auto bet should be :'(.*)'")]
+        public void ThenTrackingIDForStopAutoBetShouldBeX(string trackingID)
         {
-            ScenarioContext.Current.Pending();
+            Assert.AreEqual(trackingID, _trackingID, "Get trackingID accept");
         }
 
-        [Then(@"BetTrackingID of  stop auto bet for client and back server should be : 'DA1FE75E-9042-4FC5-B3CF-1E973D2152F7'")]
-        public void ThenTrackingIDOfStopAutoBetForClientAndBackServerShouldBeDA1FE75E_9042_4FC5_B3CF_1E973D2152F7()
+        //Validation
+        [When(@"Call StopAutoBetExecutor\(\) for validation")]
+        public void WhenCallStopAutoBetExecutorForValidation()
         {
-            ScenarioContext.Current.Pending();
+            try {
+                StopAutoBet.Execute(_cmd, (x) => { });
+                Assert.Fail("Shouldn't be here");
+            }
+            catch (Exception ex) {
+                Assert.IsInstanceOfType(ex,
+                    typeof(ValidationErrorException));
+            }
+        }
+
+        [Then(@"Get null and skip checking trackingID for stop auto bet")]
+        public void ThenGetNullAndSkipCheckingTrackingIDForStopAutoBet()
+        {
+            Assert.IsTrue(true, "Get null and skip checking trackingID.");
         }
     }
 }

@@ -1,12 +1,12 @@
 ﻿Feature: ListGamePlayAutoBetInfo
 	In order to list game play auto bet information 
-	As a System
+	As a system
 	I want to list game play auto bet information by userName
 
 
 
 @record_mock
-Scenario: ระบบได้รับข้อมูล userName ถูกต้อง และใน server มีข้อมูลการลงเดิมพันแบบอัตโนมัติไว้ ระบบสามารถดึงข้อมูลการลงเดิมพันแบบอัตโนมัติได้
+Scenario: [ListGamePlayAutoBet]ระบบได้รับข้อมูล userName ถูกต้อง และใน server มีข้อมูลการลงเดิมพันแบบอัตโนมัติไว้ ระบบสามารถดึงข้อมูลการลงเดิมพันแบบอัตโนมัติได้
 	Given The ListGamePlayAutoBetInfoExecutor has been created and initialized
 	And   Server has game play auto bet information as:
 		 |UserName|RoundID	 |Amount|Interval|MoneyRefund|BetTrackingID							|ThruDateTime	|
@@ -21,7 +21,7 @@ Scenario: ระบบได้รับข้อมูล userName ถูกต
 		 |Nit	  |2		 |300	|10		 |	100		 |A92343C8-2484-4928-A95E-9BD3BAE17FD9	|12:00			|
 
 @record_mock
-Scenario: ระบบได้รับข้อมูล userName ถูกต้อง แต่ใน server ไม่มีข้อมูลการลงเดิมพันแบบอัตโนมัติไว้ ได้ข้อมูลการลงเดิมพันแบบอัตโนมัติเป็น null
+Scenario: [ListGamePlayAutoBet]ระบบได้รับข้อมูล userName ถูกต้อง แต่ใน server ไม่มีข้อมูลการลงเดิมพันแบบอัตโนมัติไว้ ได้ข้อมูลการลงเดิมพันแบบอัตโนมัติเป็น null
 	Given The ListGamePlayAutoBetInfoExecutor has been created and initialized
 	And   Server has game play auto bet information as:
 		 |UserName|RoundID	 |Amount|Interval|MoneyRefund|BetTrackingID							|ThruDateTime	|
@@ -31,10 +31,10 @@ Scenario: ระบบได้รับข้อมูล userName ถูกต
 	And  Sent UserName 'Gogo'						 
 	When Call ListGamePlayAutoBetInfoExecutor()	
 	Then The game play auto bet information should be as :
-		 |UserName	|RoundID	 |Amount	|Interval	|MoneyRefund	|BetTrackingID		|ThruDateTime	|
+		 |UserName|RoundID	 |Amount|Interval|MoneyRefund|BetTrackingID							|ThruDateTime	|
 	   
 @record_mock
-Scenario: ระบบไม่ได้รับข้อมูล userName ระบบไม่สามารถลิสต์ข้อมูลการลงเดิมพันแบบอัตโนมัติได้
+Scenario: [ListGamePlayAutoBet]ระบบไม่ได้รับข้อมูล userName ระบบไม่สามารถลิสต์ข้อมูลการลงเดิมพันแบบอัตโนมัติได้
 	Given The ListGamePlayAutoBetInfoExecutor has been created and initialized
 	And   Sent UserName '' for validation					 
 	When  Call ListGamePlayAutoBetInfoExecutor() for validate input	

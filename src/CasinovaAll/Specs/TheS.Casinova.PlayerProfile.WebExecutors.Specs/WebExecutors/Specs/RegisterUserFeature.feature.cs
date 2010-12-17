@@ -29,7 +29,8 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "RegisterUser", "In order to register user\r\nAs a system\r\nI want to register user profile", ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "RegisterUser", "In order to register user\r\nAs a system\r\nI want to register user information to pr" +
+                    "ofile", ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -51,127 +52,105 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs
             testRunner.OnScenarioEnd();
         }
         
-        public virtual void ระบบไดรบขอมลการRegisterของผเลนระบบตรวจสอบขอมลและทำการสงขอมลไปยงBackServerตอไป(string userName, string password, string email, string cellPhone, string upline)
+        public virtual void RegisterUserระบบไดรบขอมลการRegisterของผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID(string userName, string password, string email, string cellPhone, string upline)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูลการ register ของผู้เล่น ระบบตรวจสอบข้อมูล และทำการส่งข้อมูลไปยัง " +
-                    "back server ต่อไป", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[RegisterUser]ระบบได้รับข้อมูลการ register ของผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อม" +
+                    "ูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID", new string[] {
                         "record_mock"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
 testRunner.Given("The RegisterUserExecutor has been created and initialized");
-#line hidden
-            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "UserName",
-                        "Password",
-                        "Email",
-                        "CellPhone",
-                        "Upline",
-                        "Refundable",
-                        "NonRefundable",
-                        "Active"});
-            table1.AddRow(new string[] {
-                        "Boy",
-                        "5843",
-                        "pongsak@gmail.com",
-                        "0862202260",
-                        "Nit",
-                        "4500",
-                        "500",
-                        "True"});
-            table1.AddRow(new string[] {
-                        "Nit",
-                        "1311",
-                        "nayit_nit@hotmail.com",
-                        "0892131356",
-                        "",
-                        "1000",
-                        "589",
-                        "True"});
 #line 9
-testRunner.And("Server has UserName information as:", ((string)(null)), table1);
-#line 14
-testRunner.And(string.Format("Sent UserName \'{0}\' Password\'{1}\' Email\'{2}\' CellPhone\'{3}\' Upline\'{4}\'", userName, password, email, cellPhone, upline));
-#line 15
-testRunner.When("Call RegisterUserExecutor");
-#line 16
-testRunner.Then("The server can sent RegisterUser information");
-#line 17
-testRunner.Then("The server can\'t sent RegisterUser information");
+testRunner.And(string.Format("Sent register user information : UserName \'{0}\' Password\'{1}\' Email\'{2}\' CellPhon" +
+                        "e\'{3}\' Upline\'{4}\'", userName, password, email, cellPhone, upline));
+#line 10
+testRunner.When("Call RegisterUserExecutor() for validate register user input");
+#line 11
+testRunner.Then("Get null and skip checking trackingID for register user");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลการ register ของผู้เล่น ระบบตรวจสอบข้อมูล และทำการส่งข้อมูลไปยัง " +
-            "back server ต่อไป")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[RegisterUser]ระบบได้รับข้อมูลการ register ของผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อม" +
+            "ูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "RegisterUser")]
-        public virtual void ระบบไดรบขอมลการRegisterของผเลนระบบตรวจสอบขอมลและทำการสงขอมลไปยงBackServerตอไป_Variant0()
+        public virtual void RegisterUserระบบไดรบขอมลการRegisterของผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant0()
         {
-            this.ระบบไดรบขอมลการRegisterของผเลนระบบตรวจสอบขอมลและทำการสงขอมลไปยงBackServerตอไป("OhAe", "1234", "sirinarin@hotmail.com", "0892165437", "Nit");
+            this.RegisterUserระบบไดรบขอมลการRegisterของผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID("", "123456", "sirinarin@hotmail.com", "0892165437", "Nit");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลการ register ของผู้เล่น ระบบตรวจสอบข้อมูล และทำการส่งข้อมูลไปยัง " +
-            "back server ต่อไป")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[RegisterUser]ระบบได้รับข้อมูลการ register ของผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อม" +
+            "ูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "RegisterUser")]
-        public virtual void ระบบไดรบขอมลการRegisterของผเลนระบบตรวจสอบขอมลและทำการสงขอมลไปยงBackServerตอไป_Variant1()
+        public virtual void RegisterUserระบบไดรบขอมลการRegisterของผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant1()
         {
-            this.ระบบไดรบขอมลการRegisterของผเลนระบบตรวจสอบขอมลและทำการสงขอมลไปยงBackServerตอไป("#$@!", "1234", "sirinarin@hotmail.com", "0892165437", "Nit");
+            this.RegisterUserระบบไดรบขอมลการRegisterของผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID("OhAe", "1234", "sirinarin@hotmail.com", "0892165437", "");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลการ register ของผู้เล่น ระบบตรวจสอบข้อมูล และทำการส่งข้อมูลไปยัง " +
-            "back server ต่อไป")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[RegisterUser]ระบบได้รับข้อมูลการ register ของผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อม" +
+            "ูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "RegisterUser")]
-        public virtual void ระบบไดรบขอมลการRegisterของผเลนระบบตรวจสอบขอมลและทำการสงขอมลไปยงBackServerตอไป_Variant2()
+        public virtual void RegisterUserระบบไดรบขอมลการRegisterของผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant2()
         {
-            this.ระบบไดรบขอมลการRegisterของผเลนระบบตรวจสอบขอมลและทำการสงขอมลไปยงBackServerตอไป("OhAe", "#@$%^", "sirinarin@hotmail.com", "0892165437", "Nit");
+            this.RegisterUserระบบไดรบขอมลการRegisterของผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID("OhAe", "12345678901234567", "sirinarin@hotmail.com", "0892165437", "");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลการ register ของผู้เล่น ระบบตรวจสอบข้อมูล และทำการส่งข้อมูลไปยัง " +
-            "back server ต่อไป")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[RegisterUser]ระบบได้รับข้อมูลการ register ของผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อม" +
+            "ูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "RegisterUser")]
-        public virtual void ระบบไดรบขอมลการRegisterของผเลนระบบตรวจสอบขอมลและทำการสงขอมลไปยงBackServerตอไป_Variant3()
+        public virtual void RegisterUserระบบไดรบขอมลการRegisterของผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant3()
         {
-            this.ระบบไดรบขอมลการRegisterของผเลนระบบตรวจสอบขอมลและทำการสงขอมลไปยงBackServerตอไป("OhAe", "1234", "sirinarin", "0892165437", "Nit");
+            this.RegisterUserระบบไดรบขอมลการRegisterของผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID("OhAe", "123456", "", "0892165437", "Nit");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลการ register ของผู้เล่น ระบบตรวจสอบข้อมูล และทำการส่งข้อมูลไปยัง " +
-            "back server ต่อไป")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[RegisterUser]ระบบได้รับข้อมูลการ register ของผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อม" +
+            "ูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "RegisterUser")]
-        public virtual void ระบบไดรบขอมลการRegisterของผเลนระบบตรวจสอบขอมลและทำการสงขอมลไปยงBackServerตอไป_Variant4()
+        public virtual void RegisterUserระบบไดรบขอมลการRegisterของผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant4()
         {
-            this.ระบบไดรบขอมลการRegisterของผเลนระบบตรวจสอบขอมลและทำการสงขอมลไปยงBackServerตอไป("OhAe", "1234", "sirinarin@hotmail.com", "##########", "Nit");
+            this.RegisterUserระบบไดรบขอมลการRegisterของผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID("OhAe", "123456", "sirinarin@hotmail.com", "", "Nit");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลการ register ของผู้เล่น ระบบตรวจสอบข้อมูล และทำการส่งข้อมูลไปยัง " +
-            "back server ต่อไป")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[RegisterUser]ระบบได้รับข้อมูลการ register ของผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อม" +
+            "ูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "RegisterUser")]
-        public virtual void ระบบไดรบขอมลการRegisterของผเลนระบบตรวจสอบขอมลและทำการสงขอมลไปยงBackServerตอไป_Variant5()
+        public virtual void RegisterUserระบบไดรบขอมลการRegisterของผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant5()
         {
-            this.ระบบไดรบขอมลการRegisterของผเลนระบบตรวจสอบขอมลและทำการสงขอมลไปยงBackServerตอไป("OhAe", "1234", "sirinarin@hotmail.com", "0892165437", "Tummy");
+            this.RegisterUserระบบไดรบขอมลการRegisterของผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID("ohAe", "123456", "sirinarin.com", "0892165437", "Nit");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลการ register ของผู้เล่น ระบบตรวจสอบข้อมูล และทำการส่งข้อมูลไปยัง " +
-            "back server ต่อไป")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[RegisterUser]ระบบได้รับข้อมูลการ register ของผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อม" +
+            "ูลถูกต้อง ระบบทำการ generate trackingID")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "RegisterUser")]
-        public virtual void ระบบไดรบขอมลการRegisterของผเลนระบบตรวจสอบขอมลและทำการสงขอมลไปยงBackServerตอไป_Variant6()
+        public virtual void RegisterUserระบบไดรบขอมลการRegisterของผเลนระบบทำการตรวจสอบขอมลขอมลถกตองระบบทำการGenerateTrackingID()
         {
-            this.ระบบไดรบขอมลการRegisterของผเลนระบบตรวจสอบขอมลและทำการสงขอมลไปยงBackServerตอไป("Nit", "1234", "sirinarin@hotmail.com", "0892165437", "Nit");
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลการ register ของผู้เล่น ระบบตรวจสอบข้อมูล และทำการส่งข้อมูลไปยัง " +
-            "back server ต่อไป")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "RegisterUser")]
-        public virtual void ระบบไดรบขอมลการRegisterของผเลนระบบตรวจสอบขอมลและทำการสงขอมลไปยงBackServerตอไป_Variant7()
-        {
-            this.ระบบไดรบขอมลการRegisterของผเลนระบบตรวจสอบขอมลและทำการสงขอมลไปยงBackServerตอไป("OhAe", "1234", "nayit_nit@hotmail.com", "0892165437", "Nit");
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[RegisterUser]ระบบได้รับข้อมูลการ register ของผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อม" +
+                    "ูลถูกต้อง ระบบทำการ generate trackingID", new string[] {
+                        "record_mock"});
+#line 23
+this.ScenarioSetup(scenarioInfo);
+#line 24
+testRunner.Given("The RegisterUserExecutor has been created and initialized");
+#line 25
+testRunner.And("Sent register user information : UserName \'Nit\' Password\'123456\' Email\'nayit_n@ho" +
+                    "tmail.com\' CellPhone\'0892131356\' Upline\'boy\'");
+#line 26
+testRunner.And("The system generated TrackingID for register user:\'942D2F350FAA4A32870CF9CF9A5C7A" +
+                    "2E\'");
+#line 27
+testRunner.When("Call RegisterUserExecutor()");
+#line 28
+testRunner.Then("TrackingID for register user should be :\'942D2F350FAA4A32870CF9CF9A5C7A2E\'");
+#line hidden
+            testRunner.CollectScenarioErrors();
         }
     }
 }

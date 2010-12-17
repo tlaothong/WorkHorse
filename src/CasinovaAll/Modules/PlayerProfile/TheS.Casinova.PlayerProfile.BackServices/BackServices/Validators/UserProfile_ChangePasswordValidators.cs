@@ -22,7 +22,9 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Validators
         public override void Validate(UserProfile entity, ChangePasswordCommand command, ValidationErrorCollection errors)
         {
             GetUserProfileCommand getUserProfileCmd = new GetUserProfileCommand {
-                UserName = command.UserName
+                GetUserProfileInfo = new UserProfile {
+                    UserName = command.UserProfile.UserName
+                }
             };
 
             getUserProfileCmd.PlayerProfile = _iGetUserProfile.Get(getUserProfileCmd);

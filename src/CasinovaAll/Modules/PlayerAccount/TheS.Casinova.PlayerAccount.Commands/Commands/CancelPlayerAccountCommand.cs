@@ -13,25 +13,12 @@ namespace TheS.Casinova.PlayerAccount.Commands
     {
         //input
         /// <summary>
-        /// ชื่อผู้เล่นที่จะยกเลิกบัญชี
-        /// </summary>
-        public string UserName { get; set; }
-
-        /// <summary>
-        /// รหัสบัญชีที่จะยกเลิก
-        /// </summary>
-        public string CardType { get; set; }
-
-        /// <summary>
         /// ข้อมูลบัญชีผู้เล่นที่จะยกเลิก
         /// 1.UserName ชื่อผู้เล่น
         /// 2.AccountType บัญชีที่ต้องการจะยกเลิก
         /// </summary>
         public PlayerAccountInformation PlayerAccountInfo { get; set; }
 
-        /// <summary>
-        /// รหัสผ่านยืนยันการยกเลิกบัญชี
-        /// </summary>
         public string Password { get; set; }
     }
 }

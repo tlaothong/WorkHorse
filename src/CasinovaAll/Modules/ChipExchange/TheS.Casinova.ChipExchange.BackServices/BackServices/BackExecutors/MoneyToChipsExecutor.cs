@@ -7,6 +7,8 @@ using PerfEx.Infrastructure.CommandPattern;
 using TheS.Casinova.ChipExchange.DAL;
 using TheS.Casinova.ChipExchange.BackServices.Commands;
 using TheS.Casinova.ChipExchange.Models;
+using PerfEx.Infrastructure.Validation;
+using PerfEx.Infrastructure;
 
 namespace TheS.Casinova.ChipExchange.BackServices.BackExecutors
 {
@@ -17,52 +19,57 @@ namespace TheS.Casinova.ChipExchange.BackServices.BackExecutors
         private IGetPlayerAccountInfo _iGetPlayerAccountInfo;
         private IIncreasePlayerChipsByMoney _iIncreasePlayerChipsByMoney;
         private IPayExchangeEngine _iPayExchangeEngine;
+        private IDependencyContainer _container;
 
-        public MoneyToChipsExecutor(IPayExchangeEngine svc, IChipExchangeDataAccess dac, IChipExchangeDataBackQuery dqr)
+        public MoneyToChipsExecutor(IDependencyContainer container, IPayExchangeEngine svc, IChipExchangeDataAccess dac, IChipExchangeDataBackQuery dqr)
         {
             _iPayExchangeEngine = svc;
             _iGetExchangeSetting = dqr;
             _iGetPlayerAccountInfo = dqr;
             _iIncreasePlayerChipsByMoney = dac;
+            _container = container;
         }
 
         protected override void ExecuteCommand(MoneyToChipsCommand command)
         {
+            ValidationErrorCollection errorValidations = new ValidationErrorCollection();
+
+            //Request amount should more than minimum exchange rate
+            ExchangeSettingInformation exchangeSettingInfo = new ExchangeSettingInformation { Name = "Exchange1" };
+            ValidationHelper.Validate(_container, exchangeSettingInfo, command, errorValidations);
+            
+            if (errorValidations.Any()) {
+                throw new ValidationErrorException(errorValidations);
+            }
+
             //Get exchange setting
-            GetExchangeSettingCommand getExchangeSettingCmd = new GetExchangeSettingCommand { Name = "exchange1" };
+            GetExchangeSettingCommand getExchangeSettingCmd = new GetExchangeSettingCommand { ExchangeSettingInput = exchangeSettingInfo };
             getExchangeSettingCmd.ExchangeSetting = _iGetExchangeSetting.Get(getExchangeSettingCmd);
 
-            //Request amount sholde more than minimum exchange rate
-            if (command.Amount >= getExchangeSettingCmd.ExchangeSetting.MinChipToMoneyExchange) {
-                //Get player account information
-                GetPlayerAccountInfoCommand getPlayerAccountInfoCmd = new GetPlayerAccountInfoCommand { UserName = command.UserName, AccountType = command.AccountType };
-                getPlayerAccountInfoCmd.PlayerAccountInfo = _iGetPlayerAccountInfo.Get(getPlayerAccountInfoCmd);
+            GetPlayerAccountInfoCommand getPlayerAccountInfoCmd = new GetPlayerAccountInfoCommand { 
+                UserName = command.ExchangeInformation.UserName, 
+                AccountType = command.ExchangeInformation.AccountType 
+            };
+            getPlayerAccountInfoCmd.PlayerAccountInfo = _iGetPlayerAccountInfo.Get(getPlayerAccountInfoCmd);
 
-                ExchangeInformation exchangeInfo = new ExchangeInformation {
-                    UserName = command.UserName,
-                    FirstName = getPlayerAccountInfoCmd.PlayerAccountInfo.FirstName,
-                    LastName = getPlayerAccountInfoCmd.PlayerAccountInfo.LastName,
-                    Amount = command.Amount,
-                    CardType = getPlayerAccountInfoCmd.PlayerAccountInfo.CardType,
-                    AccountNo = getPlayerAccountInfoCmd.PlayerAccountInfo.AccountNo,
-                    CVV = getPlayerAccountInfoCmd.PlayerAccountInfo.CVV,
-                    ExpireDate = getPlayerAccountInfoCmd.PlayerAccountInfo.ExpireDate,
-                };
-                PayExchangeCommand payExchangeCmd = new PayExchangeCommand {
-                    ExchangeInfo = exchangeInfo
-                };
+            command.ExchangeInformation.FirstName = getPlayerAccountInfoCmd.PlayerAccountInfo.FirstName;
+            command.ExchangeInformation.LastName = getPlayerAccountInfoCmd.PlayerAccountInfo.LastName;
+            command.ExchangeInformation.CardType = getPlayerAccountInfoCmd.PlayerAccountInfo.CardType;
+            command.ExchangeInformation.AccountNo = getPlayerAccountInfoCmd.PlayerAccountInfo.AccountNo;
+            command.ExchangeInformation.CVV = getPlayerAccountInfoCmd.PlayerAccountInfo.CVV;
+            command.ExchangeInformation.ExpireDate = getPlayerAccountInfoCmd.PlayerAccountInfo.ExpireDate;
 
-                if (_iPayExchangeEngine.PayExchange(payExchangeCmd)) { //Pay exchange to bank
-                    //Update player chips by exchange rate
-                    exchangeInfo.Amount = getExchangeSettingCmd.ExchangeSetting.MoneyToChipRate * exchangeInfo.Amount;
-                    _iIncreasePlayerChipsByMoney.ApplyAction(exchangeInfo, command);
-                }
-                else {
-                    Console.WriteLine("############# ทำรายการไม่สำเร็จ ##################");
-                }
+            PayExchangeCommand payExchangeCmd = new PayExchangeCommand {
+                ExchangeInfo = command.ExchangeInformation
+            };
+
+            if (_iPayExchangeEngine.PayExchange(payExchangeCmd)) { //Pay exchange to bank
+                //Update player chips by exchange rate
+                command.ExchangeInformation.Amount = getExchangeSettingCmd.ExchangeSetting.MoneyToChipRate * command.ExchangeInformation.Amount;
+                _iIncreasePlayerChipsByMoney.ApplyAction(command.ExchangeInformation, command);
             }
             else {
-                Console.WriteLine("################# จำนวนเงินที่ต้องการแลกน้อยกว่าขั้นต่ำ #######################");
+                throw new InvalidOperationException("ทำรายการไม่สำเร็จ ข้อมูลบัตรเครดิตอาจผิดพลาด");
             }
         }
     }

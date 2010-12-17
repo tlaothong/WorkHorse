@@ -47,6 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validator\PlayerAccountInformation_CancelPlayerAccountValidators.cs" />
+    <Compile Include="Validator\PlayerAccountInformation_CreatePlayerAccountValidators.cs" />
+    <Compile Include="Validator\PlayerAccountInformation_EditPlayerAccountValidators.cs" />
+    <Compile Include="Validator\PlayerAccountInformation_GetPlayerAccountValidators.cs" />
     <Compile Include="WebExecutors\CancelPlayerAccountExecutor.cs" />
     <Compile Include="WebExecutors\CreatePlayerAccountExecutor.cs" />
     <Compile Include="WebExecutors\EditPlayerAccountExecutor.cs" />

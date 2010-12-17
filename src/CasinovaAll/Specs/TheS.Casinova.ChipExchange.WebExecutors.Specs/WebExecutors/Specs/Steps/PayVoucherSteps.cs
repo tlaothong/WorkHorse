@@ -3,52 +3,110 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
+using TheS.Casinova.PlayerProfile.Models;
+using TheS.Casinova.ChipExchange.Commands;
+using TheS.Casinova.ChipExchange.Models;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PerfEx.Infrastructure.Validation;
 
-namespace TheS.Casinova.ChipExchange.WebExecutors.Specs
+namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
 {
     [Binding]
-    public class PayVoucherSteps
+    public class PayVoucherSteps : ChipsExchangeModuleStepsBase
     {
+        private PayVoucherCommand _cmd;
+        private IEnumerable<UserProfile> _userProfile;
+        private UserProfile _getBalance;
+        private double _checkAmount;
+        private double _amount;
+        private bool _validate;
+        private string _trackingID;
+
         [Given(@"Server has user profile information for pay voucher:")]
         public void GivenServerHasUserProfileInformationForPayVoucher(Table table)
         {
-            ScenarioContext.Current.Pending();
+            _userProfile = from item in table.Rows
+                           select new UserProfile {
+                               UserName = Convert.ToString(item["UserName"]),
+                               Refundable = Convert.ToDouble(item["Refundable"]),
+                               NonRefundable = Convert.ToDouble(item["NonRefundable"])
+                           };
+        }
+
+        [Given(@"Sent UserName'(.*)' Amount'(.*)' for pay voucher")]
+        public void GivenSentUserNameXAmountXForPayVoucher(string userName, double amount)
+        {
+            _cmd = new PayVoucherCommand {
+                VoucherInformation = new VoucherInformation { 
+                    UserName = userName,
+                    Amount = amount
+                }
+            };
         }
 
         [Given(@"Sent UserName'(.*)' the player's profile should recieved")]
         public void GivenSentUserNameNitThePlayerSProfileShouldRecieve(string userName)
         {
-            ScenarioContext.Current.Pending();
+            _getBalance = (from item in _userProfile
+                           where item.UserName == userName
+                           select item).FirstOrDefault();
+
+            if (_getBalance == null) {
+                _validate = false;
+            }
+            else {
+
+                _checkAmount = _getBalance.Refundable + _getBalance.NonRefundable;
+
+                if (_checkAmount < _amount) {
+                    _validate = false;
+                }
+            }
         }
 
-        [Given(@"Sent UserName'Noy' the player's profile should recieved null")]
-        public void GivenSentUserNameNoyThePlayerSProfileShouldRecievedNull()
+        [Given(@"The system generated TrackingID for PayVoucher:'(.*)'")]
+        public void GivenTheSystemGeneratedTrackingIDForPayVoucherX(string trackingID)
         {
-            ScenarioContext.Current.Pending();
+            _trackingID = trackingID;
         }
 
-        [Given(@"Expected executed PayVoucherCommand")]
-        public void GivenExpectedExecutedPayVoucherCommand()
+        //Test function
+        [When(@"Call PayVoucherExecutor\(\)")]
+        public void WhenCallPayVoucherExecutor()
         {
-            ScenarioContext.Current.Pending();
+            PayVoucher.Execute(_cmd, (x) => { });
         }
 
-        [When(@"Call PaVoucherExecutor\(UserName'(.*)', Amount'(.*)'\)")]
-        public void WhenCallPaVoucherExecutorUserNameNitAmount500(string userName, double amount)
+        //Validation
+        [When(@"Call PayVoucherExecutor\(\) for validate input")]
+        public void WhenCallPayVoucherExecutorForValidateInput()
         {
-            ScenarioContext.Current.Pending();
+            try {
+                PayVoucher.Execute(_cmd, (x) => { });
+                Assert.Fail("Shouldn't be here");
+            }
+            catch (Exception ex) {
+                Assert.IsInstanceOfType(ex,
+                    typeof(ValidationErrorException));
+            }
         }
 
-        [Then(@"The system can sent information to back server \#PayVoucher")]
-        public void ThenTheSystemCanSentInformationToBackServerPayVoucher()
+        [Then(@"TrackingID for PayVoucher should be :'(.*)'")]
+        public void ThenTrackingIDForPayVoucherShouldBeX(string trackingID)
         {
-            ScenarioContext.Current.Pending();
+            Assert.AreEqual(trackingID, _trackingID, "รหัสตรวจสอบ");
         }
 
-        [Then(@"The system can't sent information to back server \#PayVoucher")]
-        public void ThenTheSystemCanTSentInformationToBackServerPayVoucher()
+        [Then(@"Get null and skip checking trackingID for pay voucher")]
+        public void ThenGetNullAndSkipCheckingTrackingIDForPayVoucher()
         {
-            ScenarioContext.Current.Pending();
+            Assert.AreEqual(false,_validate,"Get null and skip checking trackingID");
+        }
+
+        [Then(@"Get null and skip checking trackingID")]
+        public void ThenGetNullAndSkipCheckingTrackingID()
+        {
+            Assert.IsTrue(true, "Get null and skip checking trackingID.");
         }
     }
 }

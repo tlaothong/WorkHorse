@@ -3,40 +3,69 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
+using TheS.Casinova.PlayerProfile.Commands;
+using TheS.Casinova.PlayerProfile.Models;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PerfEx.Infrastructure.Validation;
 
 namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
 {
     [Binding]
-    public class ChangeEmailSteps
+    public class ChangeEmailSteps : PlayerProfileModuleStepsBase
     {
-        [Given(@"Server has email information of Nit :")]
-        public void GivenServerHasEmailInformationOfNit(Table table)
+        private ChangeEmailCommand _cmd;
+        private string _trackingID;
+
+        [Given(@"Sent UserName '(.*)' OldEmail '(.*)' NewEmail '(.*)'")]
+        public void GivenSentUserNameXOldEmailXNewEmailXPasswordX(string userName, string oldEmail, string newEmail)
         {
-            ScenarioContext.Current.Pending();
+            _cmd = new ChangeEmailCommand {
+                UserProfile = new UserProfile { 
+                    UserName = userName,
+                    Email = oldEmail,
+                    NewEmail = newEmail
+                }
+            };
         }
 
-        [Given(@"Sent UserName 'Nit' OldEmail 'nayit_nit@hotmail\.com' NewEmail ''")]
-        public void GivenSentUserNameNitOldEmailNayit_NitHotmail_ComNewEmail()
+        [Given(@"The system generated TrackingID for change email:'(.*)'")]
+        public void GivenTheSystemGeneratedTrackingIDForChangeEmailX(string trackingID)
         {
-            ScenarioContext.Current.Pending();
+            _trackingID = trackingID;
         }
 
-        [When(@"Call ChangeEmailExecutor")]
+        //Validation
+        [When(@"Call ChangeEmailExecutor\(\) for validate input")]
+        public void WhenCallChangeEmailExecutorForValidateInput()
+        {
+            try {
+                ChangeEmail.Execute(_cmd, (x) => { });
+                Assert.Fail("Shouldn't be here");
+            }
+            catch (Exception ex) {
+                Assert.IsInstanceOfType(ex,
+                    typeof(ValidationErrorException));
+            }
+        }
+
+        //Test function
+        [When(@"Call ChangeEmailExecutor\(\)")]
         public void WhenCallChangeEmailExecutor()
         {
-            ScenarioContext.Current.Pending();
+           
+            ChangeEmail.Execute(_cmd, (x) => { });        
         }
 
-        [Then(@"The system can update new email")]
-        public void ThenTheSystemCanUpdateNewEmail()
+        [Then(@"Get null and skip checking trackingID for change email")]
+        public void ThenGetNullAndSkipCheckingTrackingIDForChangeEmail()
         {
-            ScenarioContext.Current.Pending();
+            Assert.IsTrue(true, "Exception has been verified in the end of block When.");
         }
 
-        [Then(@"The system can't update new email")]
-        public void ThenTheSystemCanTUpdateNewEmail()
+        [Then(@"TrackingID for change email should be :'(.*)'")]
+        public void ThenTrackingIDForChangeEmailShouldBeX(string expectTrackingID)
         {
-            ScenarioContext.Current.Pending();
+            Assert.AreEqual(expectTrackingID, _trackingID, "Get trackingID accept");
         }
     }
 }

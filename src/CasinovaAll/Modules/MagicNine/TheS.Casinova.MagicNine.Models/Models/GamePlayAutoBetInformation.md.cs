@@ -14,14 +14,15 @@ namespace TheS.Casinova.MagicNine.Models
             [Required]
             public string UserName { get; set; }
 
-            [Range(0,int.MaxValue)]
             public int RoundID { get; set; }
 
-            [Range(0,double.MaxValue)]
             public double Amount { get; set; }
 
-            [Range(1,int.MaxValue)]
             public int Interval { get; set; }
+
+            public double BonusChips { get; set; }
+
+            public double Chips { get; set; }
 
             public double MoneyRefund { get; set; }
 
@@ -31,7 +32,7 @@ namespace TheS.Casinova.MagicNine.Models
 
             public DateTime FromDateTime { get; set; }
 
-            public DateTime ThruDateTime { get; set; }
+            public DateTime ?ThruDateTime { get; set; }
 
             public int LotNo { get; set; }
         }

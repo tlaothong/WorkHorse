@@ -52,10 +52,10 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs
             testRunner.OnScenarioEnd();
         }
         
-        public virtual void ระบบไดรบขอมลการลงเดมพนในเกมMagicNineของผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID(string userName, string roundID)
+        public virtual void SingleBetระบบไดรบขอมลการลงเดมพนในเกมMagicNineของผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID(string userName, string roundID)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูลการลงเดิมพันในเกม MagicNine ของผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อ" +
-                    "มูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[SingleBet]ระบบได้รับข้อมูลการลงเดิมพันในเกม MagicNine ของผู้เล่น ระบบทำการตรวจสอ" +
+                    "บข้อมูล ข้อมูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID", new string[] {
                         "record_mock"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
@@ -72,43 +72,43 @@ testRunner.Then("Get null and skip checking trackingID");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลการลงเดิมพันในเกม MagicNine ของผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อ" +
-            "มูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[SingleBet]ระบบได้รับข้อมูลการลงเดิมพันในเกม MagicNine ของผู้เล่น ระบบทำการตรวจสอ" +
+            "บข้อมูล ข้อมูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SingleBet")]
-        public virtual void ระบบไดรบขอมลการลงเดมพนในเกมMagicNineของผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID_Nit()
+        public virtual void SingleBetระบบไดรบขอมลการลงเดมพนในเกมMagicNineของผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID_Nit()
         {
-            this.ระบบไดรบขอมลการลงเดมพนในเกมMagicNineของผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID("Nit", "-2");
+            this.SingleBetระบบไดรบขอมลการลงเดมพนในเกมMagicNineของผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID("Nit", "-2");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลการลงเดิมพันในเกม MagicNine ของผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อ" +
-            "มูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[SingleBet]ระบบได้รับข้อมูลการลงเดิมพันในเกม MagicNine ของผู้เล่น ระบบทำการตรวจสอ" +
+            "บข้อมูล ข้อมูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SingleBet")]
-        public virtual void ระบบไดรบขอมลการลงเดมพนในเกมMagicNineของผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID_()
+        public virtual void SingleBetระบบไดรบขอมลการลงเดมพนในเกมMagicNineของผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID_()
         {
-            this.ระบบไดรบขอมลการลงเดมพนในเกมMagicNineของผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID("", "4");
+            this.SingleBetระบบไดรบขอมลการลงเดมพนในเกมMagicNineของผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID("", "4");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลการลงเดิมพันในเกม MagicNine ของผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อ" +
-            "มูลถูกต้อง ระบบทำการ generate trackingID")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[SingleBet]ระบบได้รับข้อมูลการลงเดิมพันในเกม MagicNine ของผู้เล่น ระบบทำการตรวจสอ" +
+            "บข้อมูล ข้อมูลถูกต้อง ระบบทำการ generate trackingID")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SingleBet")]
-        public virtual void ระบบไดรบขอมลการลงเดมพนในเกมMagicNineของผเลนระบบทำการตรวจสอบขอมลขอมลถกตองระบบทำการGenerateTrackingID()
+        public virtual void SingleBetระบบไดรบขอมลการลงเดมพนในเกมMagicNineของผเลนระบบทำการตรวจสอบขอมลขอมลถกตองระบบทำการGenerateTrackingID()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูลการลงเดิมพันในเกม MagicNine ของผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อ" +
-                    "มูลถูกต้อง ระบบทำการ generate trackingID", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[SingleBet]ระบบได้รับข้อมูลการลงเดิมพันในเกม MagicNine ของผู้เล่น ระบบทำการตรวจสอ" +
+                    "บข้อมูล ข้อมูลถูกต้อง ระบบทำการ generate trackingID", new string[] {
                         "record_mock"});
-#line 20
+#line 19
 this.ScenarioSetup(scenarioInfo);
-#line 21
+#line 20
 testRunner.Given("The SingleBetExecutor has been created and initialized");
-#line 22
+#line 21
 testRunner.And("SingleBet Informations as : UserName \'Sakanit\' RoundID \'4\'");
-#line 23
+#line 22
 testRunner.And("The system generated TrackingID for SingleBet:\'942D2F350FAA4A32870CF9CF9A5C7A2E\'");
-#line 24
+#line 23
 testRunner.When("Call SingleBetExecutor()");
-#line 25
+#line 24
 testRunner.Then("TrackingID for SingleBet should be :\'942D2F350FAA4A32870CF9CF9A5C7A2E\'");
 #line hidden
             testRunner.CollectScenarioErrors();

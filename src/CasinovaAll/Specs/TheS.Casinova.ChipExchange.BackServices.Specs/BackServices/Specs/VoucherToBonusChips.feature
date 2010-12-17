@@ -16,10 +16,9 @@ Background:
 	|Boy		|2000					|2000					|1				 |2					   |1.5					|1						|				
 
 @record_mock
-Scenario: ผู้เล่นแลกคูปองเป็นชิฟตาย มีคูปองตามรหัสที่ระบุและคูปองยังไม่ถูกใช้งาน, ระบบตรวจสอบคูปองและเพิ่มชิฟตายให้กับผู้เล่น
+Scenario: (VoucherToBonusChips)ผู้เล่นแลกคูปองเป็นชิฟตาย มีคูปองตามรหัสที่ระบุและคูปองยังไม่ถูกใช้งาน, ระบบตรวจสอบคูปองและเพิ่มชิฟตายให้กับผู้เล่น
 	Given The VoucherToBounusChipsExecutor has been created and initialized
 	And (VoucherToBonusChips)sent Code: 'jK2A' the voucher information should recieved
-	And (VoucherToBonusChips)request voucher avaliable for exchange
 	And (VoucherToBonusChips)sent ExchangeSettingName: 'exchange1' the exchange setting should recieved 
 	And (VoucherToBonusChips)voucher should be update(Code: 'jK2A')
 	And (VoucherToBonusChips)the user bonus chips should be adding(UserName: 'OhAe', Amount:'500')
@@ -27,15 +26,17 @@ Scenario: ผู้เล่นแลกคูปองเป็นชิฟต�
 	Then the player profile should be update
 
 @record_mock
-Scenario: ผู้เล่นแลกคูปองเป็นชิฟตาย มีคูปองตามรหัสที่ระบุและคูปองถูกใช้งานแล้ว, ระบบตรวจสอบคูปองและแจ้งเตือน
+Scenario: (VoucherToBonusChips)ผู้เล่นแลกคูปองเป็นชิฟตาย มีคูปองตามรหัสที่ระบุและคูปองถูกใช้งานแล้ว, ระบบตรวจสอบคูปองและแจ้งเตือน
 	Given The VoucherToBounusChipsExecutor has been created and initialized
 	And (VoucherToBonusChips)sent Code: 'Gh5E' the voucher information should recieved
-	And (VoucherToBonusChips)request voucher not avaliable for exchange
-	When call VoucherToBonusChipsExecutor(Code: 'Gh5E', UserName: 'OhAe')
-	Then abort operation
+	And (VoucherToBonusChips)sent ExchangeSettingName: 'exchange1' the exchange setting should recieved 
+	When Expected exception and call VoucherToBonusChipsExecutor(Code: 'Gh5E', UserName: 'OhAe')
+	Then (VoucherToBonusChips)the result should be throw exception
 
 @record_mock
-Scenario: ผู้เล่นแลกคูปองเป็นชิฟตาย ไม่มีคูปองตามรหัสที่ระบุ, ระบบตรวจสอบคูปองและแจ้งเตือน
+Scenario: (VoucherToBonusChips)ผู้เล่นแลกคูปองเป็นชิฟตาย ไม่มีคูปองตามรหัสที่ระบุ, ระบบตรวจสอบคูปองและแจ้งเตือน
 	Given The VoucherToBounusChipsExecutor has been created and initialized
-	When Pending for next task
-	Then Pending for next task
+	And (VoucherToBonusChips)sent Code: 'XXXX' the voucher information should recieved
+	And (VoucherToBonusChips)sent ExchangeSettingName: 'exchange1' the exchange setting should recieved 
+	When Expected exception and call VoucherToBonusChipsExecutor(Code: 'XXXX', UserName: 'OhAe')
+	Then (VoucherToBonusChips)the result should be throw exception
