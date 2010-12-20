@@ -334,7 +334,7 @@
     <div id="pager"></div>
     
     <% Html.RenderPartial("PostNewVideos"); %>
-    
+    <% Html.RenderPartial("Option"); %>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="SubMenu" runat="server">
     <% Html.RenderPartial("SubmenuVideo"); %>

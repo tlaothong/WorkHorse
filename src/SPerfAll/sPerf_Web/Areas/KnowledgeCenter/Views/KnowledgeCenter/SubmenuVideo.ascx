@@ -11,7 +11,7 @@
     <table>
            <tr>
                <td>
-                    <div style="padding-left: 510px; float: left;">
+                    <div style="padding-left: 490px; float: left;">
                         <div>
                             <span id="dropCategory_dropWrapper" style="cursor: default;"><span id="dropSearch"
                                 style="display: block; width: 150px; height: 18px; background-color: transparent;">All</span>
@@ -34,8 +34,8 @@
                     </div>
                 </td>
                 <td>
-                    <div id="OptionClick">
-                        | <%=Html.ActionLink("Option",MVC.KnowledgeCenter.KnowledgeCenter.Option()) %>
+                    <div id="Option_Click">
+                        | <a href="#">Option</a>
                     </div>
                 </td>
             </tr>

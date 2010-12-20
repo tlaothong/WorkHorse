@@ -8,17 +8,8 @@
     <link href="../../../../Content/jquery-ui-1.8.6.custom.css" rel="stylesheet" type="text/css" />
     <script src="../../../../Scripts/jquery-ui-1.8.6.custom.min.js" type="text/javascript"></script>
     <script type="text/javascript">
-        $(".bookmark").click(function () {
+        $(".readmore").click(function () {
             $(this).slideUp();
-        });
-    </script>
-    <script type="text/javascript">
-        Sys.debug = true;
-        Sys.require(Sys.components.collapsiblePanel, function () {
-            $(".readmore").collapsiblePanel({                
-                CollapseControlID: "expand",
-                ExpandControlID: "expand"
-            });
         });
     </script>
     <div style="padding-top: 10px;">
@@ -72,9 +63,9 @@
     <div style="float: right; padding-right: 25px">
         <a href="#">TheS</a></div>
     <div style="float: right; clear: both; padding-right: 25px;">
-        <div id="expand">
+        <div class="slide readmore">
             <a href="#">Read more..</a></div>
-        <div class="readmore" style="display: none; background-color: Gray; width: 580px;
+        <div class="view" style="display: none; background-color: Gray; width: 580px;
             color: White;">
             Text, text, text...</div>
     </div>
@@ -90,14 +81,6 @@
             });
         });
     </script>
-    <div style="float: right; padding-right: 25px">
-        <div class="slide bookmark" style="cursor: pointer;">
-            <a href="#">Show/Hide</a>
-        </div>
-        <div class="view">
-            This will get shown/hidden depending on the toggle above.
-        </div>
-    </div>
     <% Html.RenderPartial("ReportProblemVideo"); %>
     <% Html.RenderPartial("Invite_Friend"); %>
     <% Html.RenderPartial("PostNewVideos"); %>
