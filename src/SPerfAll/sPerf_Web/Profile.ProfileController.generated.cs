@@ -75,23 +75,20 @@ namespace sPerf_Web.Areas.Profile.Controllers {
         public class ViewNames {
             public readonly string Archievement = "~/Areas/Profile/Views/Profile/Archievement.aspx";
             public readonly string Blog = "~/Areas/Profile/Views/Profile/Blog.aspx";
-            public readonly string BlogComment = "~/Areas/Profile/Views/Profile/BlogComment.ascx";
             public readonly string Comment_Archeivement = "~/Areas/Profile/Views/Profile/Comment_Archeivement.ascx";
             public readonly string Compare_Archeivement = "~/Areas/Profile/Views/Profile/Compare_Archeivement.ascx";
-            public readonly string DGTreeview = "~/Areas/Profile/Views/Profile/DGTreeview.ascx";
-            public readonly string DragandDropTreeview = "~/Areas/Profile/Views/Profile/DragandDropTreeview.ascx";
-            public readonly string editors = "~/Areas/Profile/Views/Profile/editors.aspx";
             public readonly string Filter = "~/Areas/Profile/Views/Profile/Filter.ascx";
             public readonly string FriendList = "~/Areas/Profile/Views/Profile/FriendList.ascx";
-            public readonly string Inbox = "~/Areas/Profile/Views/Profile/Inbox.ascx";
+            public readonly string Inbox = "~/Areas/Profile/Views/Profile/Inbox.aspx";
             public readonly string Index = "~/Areas/Profile/Views/Profile/Index.aspx";
             public readonly string index_comment = "~/Areas/Profile/Views/Profile/index_comment.ascx";
             public readonly string Photo = "~/Areas/Profile/Views/Profile/Photo.aspx";
             public readonly string photocomment = "~/Areas/Profile/Views/Profile/photocomment.ascx";
             public readonly string Popup_Comment_Archeivement = "~/Areas/Profile/Views/Profile/Popup_Comment_Archeivement.ascx";
             public readonly string Profile = "~/Areas/Profile/Views/Profile/Profile.aspx";
+            public readonly string Report_Archeivement = "~/Areas/Profile/Views/Profile/Report_Archeivement.ascx";
+            public readonly string SeeAll_Archeivement = "~/Areas/Profile/Views/Profile/SeeAll_Archeivement.ascx";
             public readonly string SubMenu = "~/Areas/Profile/Views/Profile/SubMenu.ascx";
-            public readonly string test = "~/Areas/Profile/Views/Profile/test.aspx";
             public readonly string Web = "~/Areas/Profile/Views/Profile/Web.config";
         }
     }

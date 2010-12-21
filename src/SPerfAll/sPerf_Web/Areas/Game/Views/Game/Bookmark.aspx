@@ -2,26 +2,21 @@
     Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-    ศูนย์การเรียนรู้
+    Bookmark
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
     <div id="pageBody">
-        <div id="movieList"></div>
+        <div id="movieList">
+        </div>
     </div>
     <script id="movieTmpl" type="text/x-jquery-tmpl">
 	<div>
-		<div><a href="/KnowledgeCenter/KnowledgeCenter/PlayVideo"><img src="${BoxArt.LargeUrl}" /> </a></div>
+		<div><a href="/Game/Game/PlayGame"><img src="${BoxArt.LargeUrl}" /> </a></div>
 		<strong>${Name}</strong>
 		<p>{{html Synopsis}}</p>
-        <div>
-            <input type="checkbox" class="toggle1"/>
-        </div>
-        <div>
-            <label>UnLike</label>
-        </div>
+  
         <div>         
-            <button class="bookmark" type="button">Bookmark</button>
+            <button class="bookmark" type="button">Un Bookmark</button>
         </div>
 	</div>        
     </script>
@@ -161,25 +156,16 @@
 			    buyTickets($(this).tmplItem().data);
 			});
 
-			$("#movieList").fadeIn("medium")
-			Sys.require(Sys.components.toggleButton, function () {
-			    $().toggleButton.defaults = {
-			        CheckedImageUrl: "/Content/images/Unchecked_gray.gif",
-			        UncheckedImageUrl: "/Content/images/checked.gif",
-			        ImageWidth: 20,
-			        ImageHeight: 20
-			    };
-			    $(".toggle1").toggleButton();
-			});
-			$(".bookmark").click(function () {
-			    $(this).slideUp();
-			});
-			$("#bookmark").hover(function () {
-			    $(this).addClass("hilite");
-			}, function () {
-			    $(this).removeClass("hilite");
-			});
-        }   
+            $("#movieList").fadeIn("medium")
+            $(".bookmark").click(function () {
+                $(this).slideUp();
+            });
+            $("#bookmark").hover(function () {
+                $(this).addClass("hilite");
+            }, function () {
+                $(this).removeClass("hilite");
+            });
+        }
         function buyTickets(movie) {
             // Add item to cart
             var booking = cart.bookings[movie.Id];
@@ -329,17 +315,14 @@
         $(document).ready(function () {
             $('#movieList').hoverscroll({ vertical: true, height: 550, width: 595 });
         });        
-    </script> --%>  
-    
-    <div id="pager"></div>
-    
-    <% Html.RenderPartial("PostNewVideos"); %>
-    <% Html.RenderPartial("Option"); %>
+    </script> --%>
+    <div id="pager">
+    </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="SubMenu" runat="server">
-    <% Html.RenderPartial("SubmenuVideo"); %>
+    <% Html.RenderPartial("SubMenu"); %>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="SideBar" runat="server">
-<% Html.RenderPartial("AdvanceSearch"); %>
-<% Html.RenderPartial("Banners"); %>
+    <% Html.RenderPartial("AdvanceSearch"); %>
+    <% Html.RenderPartial("Banners"); %>
 </asp:Content>
