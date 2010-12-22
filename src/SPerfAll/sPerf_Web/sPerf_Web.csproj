@@ -195,6 +195,7 @@
     <Content Include="Areas\Scholarship\Views\Scholarship\Recieved.aspx" />
     <Content Include="Areas\Scholarship\Views\Scholarship\SubMenu.ascx" />
     <Content Include="Areas\Scholarship\Views\Scholarship\Tournament.aspx" />
+    <Content Include="ClientBin\TheS.mov" />
     <Content Include="club.html" />
     <Content Include="Content\galleria.css" />
     <Content Include="Content\images\1.png" />
@@ -560,7 +561,6 @@
     <Content Include="Scripts\jquery.tmpl.js" />
     <Content Include="Scripts\Silverlight.js" />
     <Content Include="test.txt" />
-    <Content Include="ClientBin\tuk.wmv" />
     <Content Include="Views\Home\AboutUs.aspx" />
     <Content Include="Views\Home\AdvanceSearch.ascx" />
     <Content Include="Views\Home\Banners.ascx" />
@@ -595,7 +595,6 @@
     <Content Include="xap\Avatar_Silver.xap" />
     <Content Include="xap\doyouknow.xap" />
     <Content Include="xap\MayaTukkyProject.xap" />
-    <Content Include="xap\MayaTukkyProjectTestPage.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
