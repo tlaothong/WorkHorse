@@ -594,6 +594,8 @@
     <Content Include="xap\avatar.xap" />
     <Content Include="xap\Avatar_Silver.xap" />
     <Content Include="xap\doyouknow.xap" />
+    <Content Include="xap\MayaTukkyProject.xap" />
+    <Content Include="xap\MayaTukkyProjectTestPage.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
