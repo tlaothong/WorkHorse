@@ -32,9 +32,9 @@
                     | <a href="#" id="Message">Inbox</a>
                 </div>
             </td>
-             <td>
-                <div id="test">
-                    | <%=Html.ActionLink("Archievement", MVC.Profile.Profile.test())%>
+            <td>
+                <div class="linkSub">
+                    | <a href="#" id="optionProfiles">Option</a>
                 </div>
             </td>
         </tr>

@@ -215,6 +215,9 @@
                 buttons: {
                     "Cancel": function () {
                         $(this).dialog("close");
+                    },
+                    "Ok": function () {
+                        $(this).dialog("close");
                     }
                 }
             });
@@ -534,6 +537,8 @@
         </table>
     </div>
      <% Html.RenderPartial("FriendList"); %>
+     <% Html.RenderPartial("Inbox"); %>
+     <% Html.RenderPartial("OptionProfile"); %>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="SubMenu" runat="server">
     <% Html.RenderPartial("SubMenu"); %>

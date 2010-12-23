@@ -178,7 +178,6 @@
     <Content Include="Areas\Profile\Views\Profile\FriendList.ascx" />
     <Content Include="Areas\Profile\Views\Profile\index_comment.ascx" />
     <Content Include="Areas\Profile\Views\Profile\Blog.aspx" />
-    <Content Include="Areas\Profile\Views\Profile\Inbox.aspx" />
     <Content Include="Areas\Profile\Views\Profile\Index.aspx" />
     <Content Include="Areas\Profile\Views\Profile\Photo.aspx" />
     <Content Include="Areas\Profile\Views\Profile\photocomment.ascx" />

@@ -143,8 +143,17 @@
             autoOpen: false,
             modal: true,
             width: 620,
+            height:550,
             zIndex:1000,
-            title: 'Photo Organize'
+            title: 'Photo Organize',
+            buttons: {
+                "Cancel": function () {
+                    $(this).dialog("close");
+                },
+                "Ok": function () {
+                    $(this).dialog("close");
+                }
+            }
         });
         // Dialog Link
         $('.organizes').click(function () {
@@ -288,7 +297,7 @@
                           <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox8" type="checkbox"></td>
                           <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox16" type="checkbox"></td>
                           </tr>
-                        <tr><td></td><td align="center" style="border:1px solid Gray;"><label id="addphoto" style="color:Green;">Add Photo</label></td><td align="center" style="border:1px solid Gray;"><label id="editphoto" style="color:Green;">Edit Photo</label></td><td align="center" style="border:1px solid Gray;"><label style="color:Red;">Delete</label></td></tr>  
+                        <tr><td></td><td align="center" style="border:1px solid Gray;"><label id="addphoto" style="color:Green;">Add Photo</label></td><td align="center" style="border:1px solid Gray;"><label id="editphoto" style="color:Green;">Edit Photo</label></td><%--<td align="center" style="border:1px solid Gray;"><label style="color:Red;">Delete</label></td>--%></tr>  
                       </table>
 
                     </div>
@@ -454,6 +463,10 @@
       </div>
     </div>
 <% Html.RenderPartial("FriendList"); %>
+     <% Html.RenderPartial("Inbox"); %>
+     <% Html.RenderPartial("OptionProfile"); %>
+
+
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="SubMenu" runat="server">
     <% Html.RenderPartial("SubMenu"); %>

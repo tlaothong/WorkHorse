@@ -127,16 +127,6 @@ namespace sPerf_Web.Areas.Profile.Controllers {
             return callInfo;
         }
 
-        public override System.Web.Mvc.ActionResult Friends() {
-            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Friends);
-            return callInfo;
-        }
-
-        public override System.Web.Mvc.ActionResult Inbox() {
-            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Inbox);
-            return callInfo;
-        }
-
         public override System.Web.Mvc.ActionResult Banners() {
             var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Banners);
             return callInfo;
@@ -184,11 +174,6 @@ namespace sPerf_Web.Areas.Profile.Controllers {
 
         public override System.Web.Mvc.ActionResult DGTreeview() {
             var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.DGTreeview);
-            return callInfo;
-        }
-
-        public override System.Web.Mvc.ActionResult test() {
-            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.test);
             return callInfo;
         }
 

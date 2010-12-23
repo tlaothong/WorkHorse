@@ -241,6 +241,7 @@ namespace Links {
         private const string URLPATH = "~/Scripts";
         public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
         public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+        public static readonly string ajax_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/ajax.min.js") ? Url("ajax.min.js") : Url("ajax.js");
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public static class ajaxScripts {
             private const string URLPATH = "~/Scripts/ajaxScripts";
@@ -780,7 +781,8 @@ namespace Links {
             public static readonly string Start_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/Start.min.js") ? Url("Start.min.js") : Url("Start.js");
         }
     
-        public static readonly string JCore_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/JCore.min.js") ? Url("JCore.min.js") : Url("JCore.js");
+        public static readonly string context_menu_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/context-menu.min.js") ? Url("context-menu.min.js") : Url("context-menu.js");
+        public static readonly string drag_drop_folder_tree_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/drag-drop-folder-tree.min.js") ? Url("drag-drop-folder-tree.min.js") : Url("drag-drop-folder-tree.js");
         public static readonly string jquery_1_3_2_vsdoc_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery-1.3.2-vsdoc.min.js") ? Url("jquery-1.3.2-vsdoc.min.js") : Url("jquery-1.3.2-vsdoc.js");
         public static readonly string jquery_1_3_2_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery-1.3.2.min.js") ? Url("jquery-1.3.2.min.js") : Url("jquery-1.3.2.js");
         public static readonly string jquery_1_4_1_vsdoc_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery-1.4.1-vsdoc.min.js") ? Url("jquery-1.4.1-vsdoc.min.js") : Url("jquery-1.4.1-vsdoc.js");
@@ -789,12 +791,15 @@ namespace Links {
         public static readonly string jquery_1_4_2_vsdoc_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery-1.4.2-vsdoc.min.js") ? Url("jquery-1.4.2-vsdoc.min.js") : Url("jquery-1.4.2-vsdoc.js");
         public static readonly string jquery_1_4_2_min_js = Url("jquery-1.4.2.min.js");
         public static readonly string jquery_1_4_4_min_js = Url("jquery-1.4.4.min.js");
+        public static readonly string jquery_ui_1_7_1_custom_min_js = Url("jquery-ui-1.7.1.custom.min.js");
         public static readonly string jquery_ui_1_8_1_custom_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery-ui-1.8.1.custom.min.js") ? Url("jquery-ui-1.8.1.custom.min.js") : Url("jquery-ui-1.8.1.custom.js");
         public static readonly string jquery_ui_1_8_6_custom_min_js = Url("jquery-ui-1.8.6.custom.min.js");
         public static readonly string jquery_ui_min_js = Url("jquery-ui.min.js");
         public static readonly string jquery_ad_gallery_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.ad-gallery.min.js") ? Url("jquery.ad-gallery.min.js") : Url("jquery.ad-gallery.js");
         public static readonly string jquery_ad_gallery_pack_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.ad-gallery.pack.min.js") ? Url("jquery.ad-gallery.pack.min.js") : Url("jquery.ad-gallery.pack.js");
         public static readonly string jquery_autocomplete_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.autocomplete.min.js") ? Url("jquery.autocomplete.min.js") : Url("jquery.autocomplete.js");
+        public static readonly string jquery_cleditor_min_js = Url("jquery.cleditor.min.js");
+        public static readonly string jquery_contextMenu_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.contextMenu.min.js") ? Url("jquery.contextMenu.min.js") : Url("jquery.contextMenu.js");
         public static readonly string jquery_galleria_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.galleria.min.js") ? Url("jquery.galleria.min.js") : Url("jquery.galleria.js");
         public static readonly string jquery_hoverscroll_0_2_2_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.hoverscroll-0.2.2.min.js") ? Url("jquery.hoverscroll-0.2.2.min.js") : Url("jquery.hoverscroll-0.2.2.js");
         public static readonly string jquery_jcarousel_min_js = Url("jquery.jcarousel.min.js");
@@ -802,6 +807,7 @@ namespace Links {
         public static readonly string jquery_pager_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.pager.min.js") ? Url("jquery.pager.min.js") : Url("jquery.pager.js");
         public static readonly string jquery_popupWindow_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.popupWindow.min.js") ? Url("jquery.popupWindow.min.js") : Url("jquery.popupWindow.js");
         public static readonly string jquery_tmpl_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.tmpl.min.js") ? Url("jquery.tmpl.min.js") : Url("jquery.tmpl.js");
+        public static readonly string jquery_treeview_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.treeview.min.js") ? Url("jquery.treeview.min.js") : Url("jquery.treeview.js");
         public static readonly string jquery_validate_vsdoc_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.validate-vsdoc.min.js") ? Url("jquery.validate-vsdoc.min.js") : Url("jquery.validate-vsdoc.js");
         public static readonly string jquery_validate_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.validate.min.js") ? Url("jquery.validate.min.js") : Url("jquery.validate.js");
         public static readonly string jquery_validate_min_js = Url("jquery.validate.min.js");
@@ -811,7 +817,8 @@ namespace Links {
         public static readonly string MicrosoftMvcAjax_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/MicrosoftMvcAjax.min.js") ? Url("MicrosoftMvcAjax.min.js") : Url("MicrosoftMvcAjax.js");
         public static readonly string MicrosoftMvcValidation_debug_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/MicrosoftMvcValidation.debug.min.js") ? Url("MicrosoftMvcValidation.debug.min.js") : Url("MicrosoftMvcValidation.debug.js");
         public static readonly string MicrosoftMvcValidation_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/MicrosoftMvcValidation.min.js") ? Url("MicrosoftMvcValidation.min.js") : Url("MicrosoftMvcValidation.js");
-        public static readonly string Silverlight_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/Silverlight.min.js") ? Url("Silverlight.min.js") : Url("Silverlight.js");
+        public static readonly string MooEditable_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/MooEditable.min.js") ? Url("MooEditable.min.js") : Url("MooEditable.js");
+        public static readonly string mootools_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/mootools.min.js") ? Url("mootools.min.js") : Url("mootools.js");
     }
 
     [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -819,6 +826,9 @@ namespace Links {
         private const string URLPATH = "~/Content";
         public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
         public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+        public static readonly string Calendar_css = Url("Calendar.css");
+        public static readonly string context_menu_css = Url("context-menu.css");
+        public static readonly string drag_drop_folder_tree_css = Url("drag-drop-folder-tree.css");
         public static readonly string galleria_css = Url("galleria.css");
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public static class images {
@@ -829,11 +839,15 @@ namespace Links {
             public static readonly string _2_png = Url("2.png");
             public static readonly string _4_png = Url("4.png");
             public static readonly string _5_png = Url("5.png");
+            public static readonly string a_JPG = Url("a.JPG");
+            public static readonly string addphoto_JPG = Url("addphoto.JPG");
             public static readonly string avartar_png = Url("avartar.png");
             public static readonly string avartar_index_png = Url("avartar_index.png");
             public static readonly string banner1_jpg = Url("banner1.jpg");
             public static readonly string banner2_jpg = Url("banner2.jpg");
             public static readonly string banner3_jpg = Url("banner3.jpg");
+            public static readonly string bin_png = Url("bin.png");
+            public static readonly string buttons_gif = Url("buttons.gif");
             public static readonly string c1_gif = Url("c1.gif");
             public static readonly string calendar_gif = Url("calendar.gif");
             public static readonly string Checked_gif = Url("Checked.gif");
@@ -848,6 +862,14 @@ namespace Links {
             public static readonly string club8_jpg = Url("club8.jpg");
             public static readonly string club9_jpg = Url("club9.jpg");
             public static readonly string comment_png = Url("comment.png");
+            public static readonly string context_menu_gradient_gif = Url("context-menu-gradient.gif");
+            public static readonly string dhtmlgoodies_folder_gif = Url("dhtmlgoodies_folder.gif");
+            public static readonly string dhtmlgoodies_minus_gif = Url("dhtmlgoodies_minus.gif");
+            public static readonly string dhtmlgoodies_plus_gif = Url("dhtmlgoodies_plus.gif");
+            public static readonly string dhtmlgoodies_sheet_gif = Url("dhtmlgoodies_sheet.gif");
+            public static readonly string down_png = Url("down.png");
+            public static readonly string dragDrop_ind1_gif = Url("dragDrop_ind1.gif");
+            public static readonly string dragDrop_ind2_gif = Url("dragDrop_ind2.gif");
             public static readonly string e1_png = Url("e1.png");
             public static readonly string e2_png = Url("e2.png");
             public static readonly string f1_png = Url("f1.png");
@@ -855,13 +877,26 @@ namespace Links {
             public static readonly string f3_png = Url("f3.png");
             public static readonly string f4_png = Url("f4.png");
             public static readonly string f5_png = Url("f5.png");
+            public static readonly string folder_close_gif = Url("folder_close.gif");
+            public static readonly string folder_dots_gif = Url("folder_dots.gif");
+            public static readonly string folder_folder_gif = Url("folder_folder.gif");
+            public static readonly string folder_lastsub_gif = Url("folder_lastsub.gif");
+            public static readonly string folder_open_gif = Url("folder_open.gif");
+            public static readonly string folder_sub_gif = Url("folder_sub.gif");
             public static readonly string go_jpg = Url("go.jpg");
             public static readonly string go_png = Url("go.png");
+            public static readonly string LD1_png = Url("LD1.png");
+            public static readonly string LD2_png = Url("LD2.png");
+            public static readonly string LD3_png = Url("LD3.png");
+            public static readonly string left_png = Url("left.png");
             public static readonly string logo1_png = Url("logo1.png");
             public static readonly string logo2_png = Url("logo2.png");
             public static readonly string logo3_png = Url("logo3.png");
             public static readonly string logo4_png = Url("logo4.png");
             public static readonly string Logomonk_jpg = Url("Logomonk.jpg");
+            public static readonly string mooeditable_extras_toolbarbuttons_tango_png = Url("mooeditable-extras-toolbarbuttons-tango.png");
+            public static readonly string mooeditable_toolbarbuttons_silk_png = Url("mooeditable-toolbarbuttons-silk.png");
+            public static readonly string mooeditable_toolbarbuttons_tango_png = Url("mooeditable-toolbarbuttons-tango.png");
             public static readonly string next_horizontal_png = Url("next-horizontal.png");
             public static readonly string next_vertical_png = Url("next-vertical.png");
             public static readonly string nextPageArrow_gif = Url("nextPageArrow.gif");
@@ -872,8 +907,10 @@ namespace Links {
             public static readonly string prevPageArrow_gif = Url("prevPageArrow.gif");
             public static readonly string ProfileAvatar_png = Url("ProfileAvatar.png");
             public static readonly string searchbutton_png = Url("searchbutton.png");
+            public static readonly string sss_JPG = Url("sss.JPG");
             public static readonly string star_PNG = Url("star.PNG");
             public static readonly string start_png = Url("start.png");
+            public static readonly string toolbar_gif = Url("toolbar.gif");
             public static readonly string topfriend_JPG = Url("topfriend.JPG");
             public static readonly string Unchecked_gray_gif = Url("Unchecked_gray.gif");
             public static readonly string wanida_jpg = Url("wanida.jpg");
@@ -900,8 +937,12 @@ namespace Links {
         public static readonly string jquery_ui_1_8_6_custom_css = Url("jquery-ui-1.8.6.custom.css");
         public static readonly string jquery_ad_gallery_css = Url("jquery.ad-gallery.css");
         public static readonly string jquery_autocomplete_css = Url("jquery.autocomplete.css");
+        public static readonly string jquery_cleditor_css = Url("jquery.cleditor.css");
+        public static readonly string jquery_contextMenu_css = Url("jquery.contextMenu.css");
         public static readonly string jquery_hoverscroll_0_2_2_css = Url("jquery.hoverscroll-0.2.2.css");
+        public static readonly string jquery_treeview_css = Url("jquery.treeview.css");
         public static readonly string jquery_ui_dialog_css = Url("jquery.ui.dialog.css");
+        public static readonly string MooEditable_css = Url("MooEditable.css");
         public static readonly string movies_css = Url("movies.css");
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public static class profile {
@@ -909,20 +950,15 @@ namespace Links {
             public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
             public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
             public static readonly string _1_jpg = Url("1.jpg");
-            public static readonly string _1_png = Url("1.png");
             public static readonly string _10_jpg = Url("10.jpg");
             public static readonly string _11_jpg = Url("11.jpg");
             public static readonly string _12_jpg = Url("12.jpg");
             public static readonly string _13_jpg = Url("13.jpg");
             public static readonly string _14_jpg = Url("14.jpg");
             public static readonly string _2_jpg = Url("2.jpg");
-            public static readonly string _2_png = Url("2.png");
             public static readonly string _3_jpg = Url("3.jpg");
-            public static readonly string _3_png = Url("3.png");
             public static readonly string _4_jpg = Url("4.jpg");
-            public static readonly string _4_png = Url("4.png");
             public static readonly string _5_jpg = Url("5.jpg");
-            public static readonly string _5_png = Url("5.png");
             public static readonly string _6_jpg = Url("6.jpg");
             public static readonly string _7_jpg = Url("7.jpg");
             public static readonly string _8_jpg = Url("8.jpg");
