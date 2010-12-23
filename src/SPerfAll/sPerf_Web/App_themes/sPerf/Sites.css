@@ -109,7 +109,7 @@
     background-color: #fff;
     font-size: 12px;
     font-family: Tahoma;
-    overflow: auto;
+    overflow:auto;
 }
 #main-style
 {
@@ -139,7 +139,6 @@
 .start-menu
 {
     float: left;
-    background: url(images/epstart.png) no-repeat;
     height: 21px;
     width: 64px;
 }

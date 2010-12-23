@@ -132,6 +132,7 @@
         <div id="footer">
             <div id="footer-bar">
                 <div class="start-menu">
+                        <asp:ContentPlaceHolder ID="startMenu" runat="server"></asp:ContentPlaceHolder>
                 </div>
                 <div class="news-marquee">
                 </div>

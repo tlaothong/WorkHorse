@@ -1,12 +1,12 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<dynamic>" %>
-<script type="text/javascript">
+<%--<script type="text/javascript">
     Sys.require(Sys.components.dropDown, function () {
         $("#dropSearch").dropDown({
             dropDownControl: Sys.get("#dropMenu")
         });
     });
-</script>
-<div>
+</script>--%>
+<%--<div>
      <div>
      <a href="#"><label>Advance Search</label></a>
         <span id="dropCategory_dropWrapper" style="cursor: default;"><span id="dropSearch"
@@ -38,4 +38,4 @@
             </form>
     </div>
              
-</div>
+</div>--%>

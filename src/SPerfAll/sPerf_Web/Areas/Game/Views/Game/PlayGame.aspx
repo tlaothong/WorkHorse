@@ -51,25 +51,37 @@
             </div>
         </div>
     </div>
-    <div style="background-color: Gray; width: 580px; height: 450px; position: relative;
-        margin-top: 25px; margin-left: 20px;">
+    <div style="background-color: Gray; width: 100%; height: 500px; margin-top: 25px; position: relative;">
         <%--Silverlight--%>
+        <object data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="100%" height="100%"">
+            <param name="source" value="/xap/MayaTukkyProject.xap" />
+            <param name="onerror" value="onSilverlightError" />
+            <param name="minRuntimeVersion" value="2.0.31005.0" />
+            <param name="autoUpgrade" value="true" />
+            <a href="http://go.microsoft.com/fwlink/?LinkID=124807" style="text-decoration: none;">
+                <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight"
+                    style="border-style: none" />
+            </a>
+        </object>
         <%--end--%>
     </div>
-    <div style="margin-left: 20px; margin-top: 10px;">
-        <div style="float: left;">
-            <label>
-                Views 25,000</label>
+    <div style="padding-bottom: 20px">
+        <div style="margin-left: 20px; margin-top: 10px;">
+            <div style="float: left;">
+                <label>
+                    Views 25,000</label>
+            </div>
+            <div style="float: left; margin-left: 480px">
+                <a href="#">TheS</a></div>
         </div>
-        <div style="float: left; margin-left: 480px">
-            <a href="#">TheS</a></div>
+        <div style="float: left; margin-left: 530px;">
+            <div class="slide readmore">
+                <a href="#">Read more..</a></div>
+        </div>
+        <div class="view" style="display: none; background-color: Gray; width: 575px; color: White;
+            clear: both; margin-left: 20px;">
+            Text, text, text...</div>
     </div>
-    <div style="float: left; margin-left: 530px;">
-        <div class="slide readmore">
-            <a href="#">Read more..</a></div>
-    </div>
-    <div class="view" style="display: none; background-color: Gray; width: 575px; color: White; clear: both; margin-left: 20px;">
-        Text, text, text...</div>
     <% Html.RenderPartial("ReportProblemGame"); %>
     <% Html.RenderPartial("Invite_Friend"); %>
 </asp:Content>

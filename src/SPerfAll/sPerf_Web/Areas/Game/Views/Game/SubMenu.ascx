@@ -11,7 +11,7 @@
     <table>
            <tr>
                <td>
-                    <div style="padding-left: 510px; float: left;">
+                    <div style="padding-left: 515px; float: left;">
                         <div>
                             <span id="dropCategory_dropWrapper" style="cursor: default;"><span id="dropGameSearch"
                                 style="display: block; width: 150px; height: 18px; background-color: transparent;">All</span>

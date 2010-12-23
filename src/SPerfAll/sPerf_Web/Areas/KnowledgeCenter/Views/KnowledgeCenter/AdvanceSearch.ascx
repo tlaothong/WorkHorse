@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<dynamic>" %>
-<script type="text/javascript">
+<%--<script type="text/javascript">
     Sys.require(Sys.components.dropDown, function () {
         $("#dropSearchVideo").dropDown({
             dropDownControl: Sys.get("#dropMenuVideo")
@@ -38,4 +38,4 @@
             </form>
     </div>
              
-</div>
+</div>--%>

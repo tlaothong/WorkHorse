@@ -215,9 +215,6 @@
                 buttons: {
                     "Cancel": function () {
                         $(this).dialog("close");
-                    },
-                    "Ok": function () {
-                        $(this).dialog("close");
                     }
                 }
             });
