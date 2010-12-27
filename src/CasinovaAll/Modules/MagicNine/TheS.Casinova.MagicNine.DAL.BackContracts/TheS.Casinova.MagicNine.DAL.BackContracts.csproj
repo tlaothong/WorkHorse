@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\GetGameRoundInfoCommand.cs" />
     <Compile Include="Commands\GetGameRoundPotCommand.cs" />
     <Compile Include="Commands\GetPlayerInfoCommand.cs" />
     <Compile Include="Commands\UpdateGameRoundPotCommand.cs" />

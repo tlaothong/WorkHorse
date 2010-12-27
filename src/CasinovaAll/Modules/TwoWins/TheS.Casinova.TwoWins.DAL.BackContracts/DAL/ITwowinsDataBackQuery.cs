@@ -12,7 +12,10 @@ namespace TheS.Casinova.TwoWins.DAL
     public interface ITwowinsDataBackQuery :
         IGetRoundInfo,
         IGetUserProfile,
-        IGetBetInfo
+        IGetBetInfo,
+        IListBetInfoByRoundID,
+        IGetRoundWinnerInfo,
+        IListBetInfoByBetAmount
     { }
 
     /// <summary>
@@ -34,5 +37,26 @@ namespace TheS.Casinova.TwoWins.DAL
     /// </summary>
     public interface IGetBetInfo
         : IFetchSingleData<BetInformation, GetBetInfoCommand>
+    { }
+
+    /// <summary>
+    /// ดึงข้อมูลการลงพนันทั้งหมดของโต๊ะเกม
+    /// </summary>
+    public interface IListBetInfoByRoundID
+        : IFetchData<BetInformation, ListBetInfoByRoundIDCommand>
+    { }
+
+    /// <summary>
+    /// ดึงข้อมูลผู้ชนะในโต๊ะเกม
+    /// </summary>
+    public interface IGetRoundWinnerInfo
+        : IFetchSingleData<RoundWinnerInformation, GetRoundWinnerCommand>
+    { }
+
+    /// <summary>
+    /// ดึงข้อมูลการลงพนันด้วยจำนวนที่ลงพนัน
+    /// </summary>
+    public interface IListBetInfoByBetAmount
+        : IFetchData<BetInformation, ListBetInfoByBetAmountCommand>
     { }
 }

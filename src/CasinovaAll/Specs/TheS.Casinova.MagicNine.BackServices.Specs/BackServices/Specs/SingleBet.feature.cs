@@ -83,7 +83,7 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs
                         "5"});
             table1.AddRow(new string[] {
                         "Khag",
-                        "0.52",
+                        "0.50",
                         "45"});
             table1.AddRow(new string[] {
                         "Ple",
@@ -92,90 +92,228 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs
 #line 8
 testRunner.Given("(SingleBet)server has player information as:", ((string)(null)), table1);
 #line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "RoundID",
+                        "UserName",
+                        "BetDateTime"});
+            table2.AddRow(new string[] {
+                        "1",
+                        "OhAe",
+                        "2553/3/12 10:23"});
+            table2.AddRow(new string[] {
+                        "1",
+                        "OhAe",
+                        "2553/3/12 10:25"});
+            table2.AddRow(new string[] {
+                        "1",
+                        "Boy",
+                        "2553/3/12 10:26"});
+            table2.AddRow(new string[] {
+                        "1",
+                        "OhAe",
+                        "2553/3/12 10:28"});
+            table2.AddRow(new string[] {
+                        "1",
+                        "Au",
+                        "2553/3/12 10:29"});
+            table2.AddRow(new string[] {
+                        "1",
+                        "OhAe",
+                        "2553/3/12 10:23"});
+            table2.AddRow(new string[] {
+                        "1",
+                        "OhAe",
+                        "2553/3/12 10:25"});
+            table2.AddRow(new string[] {
+                        "1",
+                        "Boy",
+                        "2553/3/12 10:26"});
+            table2.AddRow(new string[] {
+                        "2",
+                        "OhAe",
+                        "2553/3/12 10:28"});
+            table2.AddRow(new string[] {
+                        "2",
+                        "Au",
+                        "2553/3/12 10:29"});
+            table2.AddRow(new string[] {
+                        "2",
+                        "OhAe",
+                        "2553/3/12 10:23"});
+            table2.AddRow(new string[] {
+                        "2",
+                        "OhAe",
+                        "2553/3/12 10:25"});
+            table2.AddRow(new string[] {
+                        "2",
+                        "Boy",
+                        "2553/3/12 10:26"});
+            table2.AddRow(new string[] {
+                        "2",
+                        "OhAe",
+                        "2553/3/12 10:28"});
+            table2.AddRow(new string[] {
+                        "2",
+                        "Au",
+                        "2553/3/12 10:29"});
+#line 18
+testRunner.Given("(SingleBet)server has bet information as:", ((string)(null)), table2);
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "RoundID",
+                        "WinnerPoint"});
+            table3.AddRow(new string[] {
+                        "1",
+                        "9"});
+            table3.AddRow(new string[] {
+                        "2",
+                        "99"});
+            table3.AddRow(new string[] {
+                        "3",
+                        "999"});
+            table3.AddRow(new string[] {
+                        "4",
+                        "9999"});
+#line 36
+testRunner.Given("(SingleBet)server has game round information as:", ((string)(null)), table3);
+#line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(SingleBet)ผู้เล่นลงพนันเอง โดยผู้เล่นมีชิฟพอและชิฟตายมากกว่าจำนวนเงินที่ลงพนัน ร" +
-            "ะบบบันทึกประวัติการลงพนันของผู้เล่นและหักเฉพาะชิฟตาย")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(MagicNine_SingleBet)ผู้เล่นลงพนันเอง โดยผู้เล่นมีชิฟพอและชิฟตายมากกว่าจำนวนเงินท" +
+            "ี่ลงพนัน ระบบบันทึกข้อมูลการลงพนันของผู้เล่นและหักเฉพาะชิฟตาย")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SingleBet")]
-        public virtual void SingleBetผเลนลงพนนเองโดยผเลนมชฟพอและชฟตายมากกวาจำนวนเงนทลงพนนระบบบนทกประวตการลงพนนของผเลนและหกเฉพาะชฟตาย()
+        public virtual void MagicNine_SingleBetผเลนลงพนนเองโดยผเลนมชฟพอและชฟตายมากกวาจำนวนเงนทลงพนนระบบบนทกขอมลการลงพนนของผเลนและหกเฉพาะชฟตาย()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(SingleBet)ผู้เล่นลงพนันเอง โดยผู้เล่นมีชิฟพอและชิฟตายมากกว่าจำนวนเงินที่ลงพนัน ร" +
-                    "ะบบบันทึกประวัติการลงพนันของผู้เล่นและหักเฉพาะชิฟตาย", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(MagicNine_SingleBet)ผู้เล่นลงพนันเอง โดยผู้เล่นมีชิฟพอและชิฟตายมากกว่าจำนวนเงินท" +
+                    "ี่ลงพนัน ระบบบันทึกข้อมูลการลงพนันของผู้เล่นและหักเฉพาะชิฟตาย", new string[] {
                         "record_mock",
                         "record_mock"});
-#line 19
+#line 44
 this.ScenarioSetup(scenarioInfo);
-#line 20
+#line 45
 testRunner.Given("The SingleBetExecutor has been created and initialized");
-#line 21
-testRunner.And("(SingleBet)sent name: \'OhAe\' the player\'s balance should recieved");
-#line 22
-testRunner.And("the player\'s balance should be update only bonuschips, Amount: \'1\'");
-#line 23
+#line 46
+testRunner.And("(MagicNine_SingleBet)sent name: \'OhAe\' the player\'s balance should recieved");
+#line 47
+testRunner.And("(MagicNine_SingleBet)sent roundID: \'2\' the game pot should be calculate");
+#line 48
+testRunner.And("(MagicNine_SingleBet)sent roundID: \'2\' the game round information should recieved" +
+                    "");
+#line 49
+testRunner.And("(MagicNine_SingleBet)the player\'s balance should be update(UserName: \'OhAe\', Bonu" +
+                    "sChips: \'462.61\', Chips: \'200\')");
+#line 50
+testRunner.And("the bet information assume dateTime as: \'2553/3/12 10:23\'(RoundID: \'2\', UserName:" +
+                    " \'OhAe\', TrackingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\', DateTime: \'2553/3/1" +
+                    "2 10:23\') should be create");
+#line 51
+testRunner.When("call SingleBetExecutor(RoundID: \'2\', UserName: \'OhAe\', TrackingID: \'B21F8971-DBAB" +
+                    "-400F-9D95-151BA24875C1\')");
+#line 52
+testRunner.Then("the result should be create");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(MagicNine_SingleBet)ผู้เล่นลงพนันเอง โดยผู้เล่นมีชิฟพอและชิฟตายน้อยกว่าค่าดูสีที" +
+            "่ชนะระบบหักชิฟเป็นเพิ่ม ระบบบันทึกข้อมูลการลงพนันของผู้เล่นและหักชิฟเป็นและชิฟตา" +
+            "ย")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SingleBet")]
+        public virtual void MagicNine_SingleBetผเลนลงพนนเองโดยผเลนมชฟพอและชฟตายนอยกวาคาดสทชนะระบบหกชฟเปนเพมระบบบนทกขอมลการลงพนนของผเลนและหกชฟเปนและชฟตาย()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(MagicNine_SingleBet)ผู้เล่นลงพนันเอง โดยผู้เล่นมีชิฟพอและชิฟตายน้อยกว่าค่าดูสีที" +
+                    "่ชนะระบบหักชิฟเป็นเพิ่ม ระบบบันทึกข้อมูลการลงพนันของผู้เล่นและหักชิฟเป็นและชิฟตา" +
+                    "ย", new string[] {
+                        "record_mock"});
+#line 55
+this.ScenarioSetup(scenarioInfo);
+#line 56
+testRunner.Given("The SingleBetExecutor has been created and initialized");
+#line 57
+testRunner.And("(MagicNine_SingleBet)sent name: \'Khag\' the player\'s balance should recieved");
+#line 58
+testRunner.And("(MagicNine_SingleBet)sent roundID: \'2\' the game pot should be calculate");
+#line 59
+testRunner.And("(MagicNine_SingleBet)sent roundID: \'2\' the game round information should recieved" +
+                    "");
+#line 60
+testRunner.And("(MagicNine_SingleBet)the player\'s balance should be update(UserName: \'Khag\', Bonu" +
+                    "sChips: \'0\', Chips: \'44.5\')");
+#line 61
+testRunner.And("the bet information assume dateTime as: \'2553/3/12 10:23\'(RoundID: \'2\', UserName:" +
+                    " \'Khag\', TrackingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\', DateTime: \'2553/3/1" +
+                    "2 10:23\') should be create");
+#line 62
+testRunner.When("call SingleBetExecutor(RoundID: \'2\', UserName: \'Khag\', TrackingID: \'B21F8971-DBAB" +
+                    "-400F-9D95-151BA24875C1\')");
+#line 63
+testRunner.Then("the result should be create");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(MagicNine_SingleBet)ผู้เล่นลงพนันเอง โดยผู้เล่นมีชิฟพอและชิฟตายมากกว่าจำนวนเงินท" +
+            "ี่ลงพนัน แล้วชนะเกม ระบบบันทึกข้อมูลการลงพนันของผู้เล่นและหักเฉพาะชิฟตาย และคืนเ" +
+            "งินรางวัลให้ผู้เล่น")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SingleBet")]
+        public virtual void MagicNine_SingleBetผเลนลงพนนเองโดยผเลนมชฟพอและชฟตายมากกวาจำนวนเงนทลงพนนแลวชนะเกมระบบบนทกขอมลการลงพนนของผเลนและหกเฉพาะชฟตายและคนเงนรางวลใหผเลน()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(MagicNine_SingleBet)ผู้เล่นลงพนันเอง โดยผู้เล่นมีชิฟพอและชิฟตายมากกว่าจำนวนเงินท" +
+                    "ี่ลงพนัน แล้วชนะเกม ระบบบันทึกข้อมูลการลงพนันของผู้เล่นและหักเฉพาะชิฟตาย และคืนเ" +
+                    "งินรางวัลให้ผู้เล่น", new string[] {
+                        "record_mock"});
+#line 66
+this.ScenarioSetup(scenarioInfo);
+#line 67
+testRunner.Given("The SingleBetExecutor has been created and initialized");
+#line 68
+testRunner.And("(MagicNine_SingleBet)sent name: \'OhAe\' the player\'s balance should recieved");
+#line 69
+testRunner.And("(MagicNine_SingleBet)sent roundID: \'1\' the game pot should be calculate");
+#line 70
+testRunner.And("(MagicNine_SingleBet)sent roundID: \'1\' the game round information should recieved" +
+                    "");
+#line 71
+testRunner.And("(MagicNine_SingleBet)the player\'s balance should be update(UserName: \'OhAe\', Bonu" +
+                    "sChips: \'462.61\', Chips: \'200\')");
+#line 72
 testRunner.And("the bet information assume dateTime as: \'2553/3/12 10:23\'(RoundID: \'1\', UserName:" +
                     " \'OhAe\', TrackingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\', DateTime: \'2553/3/1" +
                     "2 10:23\') should be create");
-#line 24
+#line 73
+testRunner.And("Expected ReturnRewardExecutor should be call(UserName: \'OhAe\', NonRefundable: \'46" +
+                    "3.61\', Refundable: \'208\')");
+#line 74
 testRunner.When("call SingleBetExecutor(RoundID: \'1\', UserName: \'OhAe\', TrackingID: \'B21F8971-DBAB" +
                     "-400F-9D95-151BA24875C1\')");
-#line 25
+#line 75
 testRunner.Then("the result should be create");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(SingleBet)ผู้เล่นลงพนันเอง โดยผู้เล่นมีชิฟพอและชิฟตายน้อยกว่าค่าดูสีที่ชนะระบบหั" +
-            "กชิฟเป็นเพิ่ม ระบบบันทึกประวัติการดำเนินการ(ดูสีที่ชนะ)ของผู้เล่นและหักชิฟเป็นแล" +
-            "ะชิฟตาย")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(MagicNine_SingleBet)ผู้เล่นลงพนันเอง โดยผู้เล่นมีชิฟไม่พอ ระบบแจ้งเตือนว่าผู้เล่" +
+            "นมีชิฟไม่พอลงพนัน")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SingleBet")]
-        public virtual void SingleBetผเลนลงพนนเองโดยผเลนมชฟพอและชฟตายนอยกวาคาดสทชนะระบบหกชฟเปนเพมระบบบนทกประวตการดำเนนการดสทชนะของผเลนและหกชฟเปนและชฟตาย()
+        public virtual void MagicNine_SingleBetผเลนลงพนนเองโดยผเลนมชฟไมพอระบบแจงเตอนวาผเลนมชฟไมพอลงพนน()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(SingleBet)ผู้เล่นลงพนันเอง โดยผู้เล่นมีชิฟพอและชิฟตายน้อยกว่าค่าดูสีที่ชนะระบบหั" +
-                    "กชิฟเป็นเพิ่ม ระบบบันทึกประวัติการดำเนินการ(ดูสีที่ชนะ)ของผู้เล่นและหักชิฟเป็นแล" +
-                    "ะชิฟตาย", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(MagicNine_SingleBet)ผู้เล่นลงพนันเอง โดยผู้เล่นมีชิฟไม่พอ ระบบแจ้งเตือนว่าผู้เล่" +
+                    "นมีชิฟไม่พอลงพนัน", new string[] {
                         "record_mock"});
-#line 28
+#line 78
 this.ScenarioSetup(scenarioInfo);
-#line 29
+#line 79
 testRunner.Given("The SingleBetExecutor has been created and initialized");
-#line 30
-testRunner.And("(SingleBet)sent name: \'Khag\' the player\'s balance should recieved");
-#line 31
-testRunner.And("(SingleBet)the player\'s balance should be update both chips, Amount: \'1\'");
-#line 32
-testRunner.And("the bet information assume dateTime as: \'2553/3/12 10:23\'(RoundID: \'1\', UserName:" +
-                    " \'Khag\', TrackingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\', DateTime: \'2553/3/1" +
-                    "2 10:23\') should be create");
-#line 33
-testRunner.When("call SingleBetExecutor(RoundID: \'1\', UserName: \'Khag\', TrackingID: \'B21F8971-DBAB" +
-                    "-400F-9D95-151BA24875C1\')");
-#line 34
-testRunner.Then("the result should be create");
-#line hidden
-            testRunner.CollectScenarioErrors();
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(SingleBet)ผู้เล่นลงพนันเอง โดยผู้เล่นมีชิฟไม่พอ ระบบแจ้งเตือนว่าผู้เล่นมีชิฟไม่พ" +
-            "อลงพนัน")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SingleBet")]
-        public virtual void SingleBetผเลนลงพนนเองโดยผเลนมชฟไมพอระบบแจงเตอนวาผเลนมชฟไมพอลงพนน()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(SingleBet)ผู้เล่นลงพนันเอง โดยผู้เล่นมีชิฟไม่พอ ระบบแจ้งเตือนว่าผู้เล่นมีชิฟไม่พ" +
-                    "อลงพนัน", new string[] {
-                        "record_mock"});
-#line 37
-this.ScenarioSetup(scenarioInfo);
-#line 38
-testRunner.Given("The SingleBetExecutor has been created and initialized");
-#line 39
-testRunner.And("(SingleBet)sent name: \'Boy\' the player\'s balance should recieved");
-#line 40
+#line 80
+testRunner.And("(MagicNine_SingleBet)sent name: \'Boy\' the player\'s balance should recieved");
+#line 81
 testRunner.When("Expected exception and call SingleBetExecutor(RoundID: \'2\', UserName: \'Boy\', Trac" +
                     "kingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\')");
-#line 41
+#line 82
 testRunner.Then("the result should be throw exception");
 #line hidden
             testRunner.CollectScenarioErrors();

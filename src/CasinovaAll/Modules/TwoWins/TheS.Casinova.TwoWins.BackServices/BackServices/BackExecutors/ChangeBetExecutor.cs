@@ -8,6 +8,7 @@ using TheS.Casinova.TwoWins.DAL;
 using PerfEx.Infrastructure;
 using TheS.Casinova.TwoWins.Models;
 using TheS.Casinova.PlayerProfile.Models;
+using PerfEx.Infrastructure.Validation;
 
 namespace TheS.Casinova.TwoWins.BackServices.BackExecutors
 {
@@ -21,8 +22,8 @@ namespace TheS.Casinova.TwoWins.BackServices.BackExecutors
         private IUpdateRoundInfo _iUpdateRoundInfo;
         private ICreateActionLogInfo _iCreateActionLogInfo;
         private IUpdateUserProfile _iUpdateUserProfile;
+        private IDependencyContainer _container;
         private string _handStatus;
-        private double _betAmount;
 
         public ChangeBetExecutor(IDependencyContainer container, ITwowinsDataAccess dac, ITwowinsDataBackQuery dqr)
         {
@@ -33,11 +34,13 @@ namespace TheS.Casinova.TwoWins.BackServices.BackExecutors
             _iCreateActionLogInfo = dac;
             _iUpdateUserProfile = dac;
             _iChangeBetInfo = dac;
+            _container = container;
         }
 
         protected override void ExecuteCommand(ChangeBetInfoCommand command)
         {
             command.BetInfo.BetDateTime = DateTime.Now; //กำหนดเวลาที่แก้ไข
+            ValidationErrorCollection errorValidations = new ValidationErrorCollection();
 
             //ดึงข้อมูลลงพนันเดิม
             GetBetInfoCommand getBetInfoCmd = new GetBetInfoCommand { 
@@ -45,17 +48,23 @@ namespace TheS.Casinova.TwoWins.BackServices.BackExecutors
             };
             getBetInfoCmd.BetInfo = _iGetBetInfo.Get(getBetInfoCmd);
 
-            _betAmount = command.BetInfo.Amount - getBetInfoCmd.BetInfo.Amount;
+            command.netAmount = command.BetInfo.Amount - getBetInfoCmd.BetInfo.Amount;
 
             //ดึงข้อมูลชิฟของผู้เล่น
             GetUserProfileCommand getUserProfileCmd = new GetUserProfileCommand { UserName = command.BetInfo.UserName };
             getUserProfileCmd.UserProfile = _iGetUserProfile.Get(getUserProfileCmd);
 
+            ValidationHelper.Validate(_container, getUserProfileCmd.UserProfile, command, errorValidations);
+            ValidationHelper.Validate(_container, getBetInfoCmd.BetInfo, command, errorValidations);
+            if (errorValidations.Any()) {
+                throw new ValidationErrorException(errorValidations);
+            }
+
             //ดึงข้อมูลโต๊ะเกม
             GetRoundInfoCommand getRoundInfoCmd = new GetRoundInfoCommand { RoundID = command.BetInfo.RoundID };
             getRoundInfoCmd.RoundInfo = _iGetRoundInfo.Get(getRoundInfoCmd);
 
-            getRoundInfoCmd.RoundInfo.Pot += _betAmount;
+            getRoundInfoCmd.RoundInfo.Pot += command.netAmount;
 
             //อัพเดทข้อมูลโต๊ะเกม
             UpdateRoundInfoCommand updateRoundCmd = new UpdateRoundInfoCommand { RoundInfo = getRoundInfoCmd.RoundInfo };
@@ -87,17 +96,17 @@ namespace TheS.Casinova.TwoWins.BackServices.BackExecutors
             _iCreateActionLogInfo.Create(createActionLogInfoCmd.ActionLogInfo, createActionLogInfoCmd);
 
             //คำนวณชิฟที่ต้องหักจากผู้เล่น
-            if (getUserProfileCmd.UserProfile.NonRefundable < _betAmount) {
-                getUserProfileCmd.UserProfile.Refundable -= _betAmount - getUserProfileCmd.UserProfile.NonRefundable;
+            if (getUserProfileCmd.UserProfile.NonRefundable < command.netAmount) {
+                getBetInfoCmd.BetInfo.BonusChips += getUserProfileCmd.UserProfile.NonRefundable;
+                getBetInfoCmd.BetInfo.Chips += command.netAmount - getUserProfileCmd.UserProfile.NonRefundable;
+
+                getUserProfileCmd.UserProfile.Refundable -= command.netAmount - getUserProfileCmd.UserProfile.NonRefundable;
                 getUserProfileCmd.UserProfile.NonRefundable = 0;
-
-                getBetInfoCmd.BetInfo.BonusChips = getUserProfileCmd.UserProfile.NonRefundable;
-                getBetInfoCmd.BetInfo.Chips = _betAmount - getUserProfileCmd.UserProfile.NonRefundable;
             }
-            else if (getUserProfileCmd.UserProfile.NonRefundable >= _betAmount) {
-                getUserProfileCmd.UserProfile.NonRefundable -= _betAmount;
+            else if (getUserProfileCmd.UserProfile.NonRefundable >= command.netAmount) {
+                getUserProfileCmd.UserProfile.NonRefundable -= command.netAmount;
 
-                getBetInfoCmd.BetInfo.BonusChips += _betAmount;
+                getBetInfoCmd.BetInfo.BonusChips += command.netAmount;
             }
 
             //หักชิฟผู้เล่นตามเงินที่ต้องการลงพนัน

@@ -29,7 +29,7 @@ Scenario: (Twowins_SingleBet)ผู้เล่นลงพนันมือเ
 	And (Twowins_SingleBet)sent roundID: '1' the round information should recieved
 	And (Twowins_SingleBet)the round pot information should be update(RoundID: '1', Pot: '769')
 	And (Twowins_SingleBet)the player's balance should be update(UserName: 'OhAe', BonusChips: '453.61', Chips: '200')
-	And (Twowins_SingleBet)the action log information should be create (RoundID: '1', UserName: 'OhAe', ActionType: 'SingleBet', Amount: '10', OldAmount: '-1', HandStatus: 'Normal', CanChange: 'true'
+	And (Twowins_SingleBet)the action log information should be create (RoundID: '1', UserName: 'OhAe', ActionType: 'SingleBet', Amount: '10', OldAmount: '-1', HandStatus: 'Normal', Change: 'false'
 	And (Twowins_SingleBet)the bet information (RoundID: '1', UserName: 'OhAe', BetTrackingID: 'B21F8971-DBAB-400F-9D95-151BA24875C1', BonusChips: '10', Chips: '0', HandStatus: 'Normal', CanChange: 'true') should be create
 	When (Twowins_SingleBet)call SingleBetExecutor(RoundID: '1', UserName: 'OhAe', Amount: '10', BetTrackingID: 'B21F8971-DBAB-400F-9D95-151BA24875C1')
 	Then the result should be create
@@ -44,6 +44,6 @@ Scenario: (Twowins_SingleBet)ผู้เล่นลงพนันมือเ
 
 @record_mock
 Scenario: (Twowins_SingleBet)ผู้เล่นลงพนันมือเดียวหลังจากเกมหมดเวลาแล้ว ระบบแจ้งเตือนผู้เล่น
-
+ 
 @record_mock
 Scenario: (Twowins_SingleBet)ผู้เล่นลงพนันมือเดียวก่อนเกมหมดเวลา ระบบแจ้งเตือนผู้เล่น

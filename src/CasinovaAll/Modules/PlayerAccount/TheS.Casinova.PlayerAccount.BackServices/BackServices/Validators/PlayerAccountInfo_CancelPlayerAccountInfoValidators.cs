@@ -26,7 +26,7 @@ namespace TheS.Casinova.PlayerAccount.BackServices.Validators
                 PlayerAccountInfo = entity,
             };
 
-            getPlayerAccountInfoCmd.PlayerAccountInformation = _iGetPlayerAccountInfoByAccountType.Get(getPlayerAccountInfoCmd);
+            getPlayerAccountInfoCmd.PlayerAccountInfo = _iGetPlayerAccountInfoByAccountType.Get(getPlayerAccountInfoCmd);
 
             if (getPlayerAccountInfoCmd.PlayerAccountInfo.Active == false) {
                 errors.Add(new ValidationError {

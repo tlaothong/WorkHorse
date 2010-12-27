@@ -21,7 +21,7 @@ namespace TheS.Casinova.MagicNine.Models
         /// <summary>
         /// แต้มที่จะชนะของเกม
         /// </summary>
-        public int WinnerPoint { get; set; }
+        public double WinnerPoint { get; set; }
 
         /// <summary>
         /// สถานะของห้อง (True = ใช้งาน / False = ไม่ใช่งาน)

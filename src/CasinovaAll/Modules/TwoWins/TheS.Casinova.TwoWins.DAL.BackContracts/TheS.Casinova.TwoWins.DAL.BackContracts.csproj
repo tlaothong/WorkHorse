@@ -51,8 +51,12 @@
     <Compile Include="Commands\CreateRangeBetInfoCommand.cs" />
     <Compile Include="Commands\GetBetInfoCommand.cs" />
     <Compile Include="Commands\GetRoundInfoCommand.cs" />
+    <Compile Include="Commands\GetRoundWinnerCommand.cs" />
     <Compile Include="Commands\GetUserProfileCommand.cs" />
+    <Compile Include="Commands\ListBetInfoByBetAmountCommand.cs" />
+    <Compile Include="Commands\ListBetInfoByRoundIDCommand.cs" />
     <Compile Include="Commands\UpdateRoundInfoCommand.cs" />
+    <Compile Include="Commands\UpdateRoundWinnerInfoCommand.cs" />
     <Compile Include="Commands\UpdateUserProfileCommand.cs" />
     <Compile Include="DAL\ITwowinsDataAccess.cs" />
     <Compile Include="DAL\ITwowinsDataBackQuery.cs" />

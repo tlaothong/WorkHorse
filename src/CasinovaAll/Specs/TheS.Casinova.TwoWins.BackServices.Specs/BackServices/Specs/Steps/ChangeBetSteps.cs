@@ -8,6 +8,7 @@ using TheS.Casinova.PlayerProfile.Models;
 using Rhino.Mocks;
 using TheS.Casinova.TwoWins.Commands;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PerfEx.Infrastructure.Validation;
 
 namespace TheS.Casinova.TwoWins.BackServices.Specs.Steps
 {
@@ -104,17 +105,17 @@ namespace TheS.Casinova.TwoWins.BackServices.Specs.Steps
             LastCall.IgnoreArguments().Do(checkData);
         }
 
-       [Given(@"\(Twowins_ChangeBet\)the action log information should be create \(RoundID: '(.*)', UserName: '(.*)', ActionType: '(.*)', Amount: '(.*)', OldAmount: '(.*)', HandStatus: '(.*)', CanChange: '(.*)'")]
-        public void GivenTwowins_ChangeBetTheActionLogInformationShouldBeCreateRoundIDXUserNameXActionTypeSingleBetAmountXOldAmountXHandStatusXCanChangeX(int roundID, string userName, string actionType, double amount, double oldAmount, string handStatus, bool canChange)
+       [Given(@"\(Twowins_ChangeBet\)the action log information should be create \(RoundID: '(.*)', UserName: '(.*)', ActionType: '(.*)', Amount: '(.*)', OldAmount: '(.*)', HandStatus: '(.*)', Change: '(.*)'")]
+        public void GivenTwowins_ChangeBetTheActionLogInformationShouldBeCreateRoundIDXUserNameXActionTypeSingleBetAmountXOldAmountXHandStatusXChangeX(int roundID, string userName, string actionType, double amount, double oldAmount, string handStatus, bool change)
         {
             Func<ActionLogInformation, CreateActionLogInfoCommand, ActionLogInformation> checkData = (actionLogInfo, cmd) => {
                 Assert.AreEqual(roundID, actionLogInfo.RoundID, "RoundID");
                 Assert.AreEqual(userName, actionLogInfo.UserName, "UserName");
                 Assert.AreEqual(amount, actionLogInfo.Amount, "Amount");
                 Assert.AreEqual(oldAmount, actionLogInfo.OldAmount, "OldAmount");
-                //Assert.AreEqual(DateTime.Now.ToString(), actionLogInfo.ActionDateTime.ToString(), "ActionDateTime");
+                Assert.AreEqual(DateTime.Now.ToString(), actionLogInfo.DateTime.ToString(), "ActionDateTime");
                 Assert.AreEqual(handStatus, actionLogInfo.HandStatus, "HandStatus");
-                Assert.AreEqual(canChange, actionLogInfo.Change, "CanChange");
+                Assert.AreEqual(change, actionLogInfo.Change, "Change");
                 return actionLogInfo;
             };
             Dac_CreateActionLogInfo.Create(new ActionLogInformation(), new CreateActionLogInfoCommand());
@@ -164,7 +165,28 @@ namespace TheS.Casinova.TwoWins.BackServices.Specs.Steps
             };
             ChangeBetExecutor.Execute(cmd, (x) => { });
         }
- 
+
+        [When(@"\(Twowins_ChangeBet\)Expected exception and call ChangeBetExecutor\(UserName: '(.*)', HandID: '(.*)', Amount: '(.*)', RoundID: '(.*)', BetTrackingID: '(.*)'\)")]
+        public void WhenTwowins_ChangeBetExpectedExceptionAndCallChangeBetExecutorUserNameXHandIDXAmountXRoundIDXBetTrackingIDX(string userName, int handID, double amount, int roundID, string betTrackingID)
+        {
+            try {
+                ChangeBetInfoCommand cmd = new ChangeBetInfoCommand {
+                    BetInfo = new BetInformation {
+                        RoundID = roundID,
+                        UserName = userName,
+                        HandID = handID,
+                        Amount = amount,
+                        BetTrackingID = Guid.Parse(betTrackingID)
+                    },
+                };
+                ChangeBetExecutor.Execute(cmd, (x) => { });
+                Assert.Fail("Shouldn't be here!");
+            }
+            catch (Exception ex) {
+                Assert.IsInstanceOfType(ex, typeof(ValidationErrorException));
+            }
+        }
+
         [Then(@"the result should be change")]
         public void ThenTheResultShouldBeChange()
         {

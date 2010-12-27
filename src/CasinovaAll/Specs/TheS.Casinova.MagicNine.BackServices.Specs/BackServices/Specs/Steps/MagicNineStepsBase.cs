@@ -5,6 +5,7 @@ using System.Text;
 using TheS.Casinova.MagicNine.DAL;
 using TechTalk.SpecFlow;
 using TheS.Casinova.MagicNine.BackServices.BackExecutors;
+using TheS.Casinova.PlayerProfile.BackServices.BackExecutors;
 
 
 namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
@@ -74,6 +75,15 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
             }
         }
 
+        protected IGetGameRoundInfo Dqr_GetGameRoundInfo
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_Dqr_GetGameRoundInfo] as IGetGameRoundInfo;
+            }
+        }
+
         protected IUpdateGameRoundPot Dac_UpdateGameRoundPot
         {
             get
@@ -116,6 +126,15 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
             {
                 return ScenarioContext.Current[
                     CommonSteps.Key_StopAutoBet] as StopAutoBetExecutor;
+            }
+        }
+
+        protected ReturnRewardExecutor ReturnRewardExecutor
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_ReturnReward] as ReturnRewardExecutor;
             }
         }
     }

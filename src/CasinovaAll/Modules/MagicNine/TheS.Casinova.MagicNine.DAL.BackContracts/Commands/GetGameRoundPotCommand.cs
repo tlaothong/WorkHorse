@@ -23,6 +23,6 @@ namespace TheS.Casinova.MagicNine.Commands
         /// <summary>
         /// เงินในกอง ที่ต้องการ
         /// </summary>
-        public int Pot { get; set; }
+        public double Pot { get; set; }
     }
 }

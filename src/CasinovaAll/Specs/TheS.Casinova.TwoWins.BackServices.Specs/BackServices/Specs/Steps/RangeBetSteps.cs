@@ -99,8 +99,8 @@ namespace TheS.Casinova.TwoWins.BackServices.Specs.Steps
             LastCall.IgnoreArguments().Do(checkData);
         }
 
-        [Given(@"\(Twowins_RangeBet\)the action log information should be create\(RoundID: '(.*)', UserName: '(.*)', ActionType: '(.*)', Amount: '(.*)', OldAmount: '(.*)', HandStatus: '(.*)', CanChange: '(.*)'\)")]
-        public void GivenTwowins_RangeBetTheActionLogInformationShouldBeCreateRoundIDXUserNameXActionTypeXAmountXOldAmountXHandStatusXCanChangeX(int roundID, string userName, string actionType, double amount, double oldAmount, string handStatus, bool canChange)
+        [Given(@"\(Twowins_RangeBet\)the action log information should be create\(RoundID: '(.*)', UserName: '(.*)', ActionType: '(.*)', Amount: '(.*)', OldAmount: '(.*)', HandStatus: '(.*)', Change: '(.*)'\)")]
+        public void GivenTwowins_RangeBetTheActionLogInformationShouldBeCreateRoundIDXUserNameXActionTypeXAmountXOldAmountXHandStatusXChangeX(int roundID, string userName, string actionType, double amount, double oldAmount, string handStatus, bool change)
         {
             Func<ActionLogInformation, CreateActionLogInfoCommand, ActionLogInformation> checkData = (actionLogInfo, cmd) => {
                 Assert.AreEqual(roundID, actionLogInfo.RoundID, "RoundID");
@@ -110,7 +110,7 @@ namespace TheS.Casinova.TwoWins.BackServices.Specs.Steps
                 Assert.AreEqual(handStatus, actionLogInfo.HandStatus, "HandStatus");
 
                 Assert.AreEqual(DateTime.Now.ToString(), actionLogInfo.DateTime.ToString(), "ActionDateTime");
-                Assert.AreEqual(canChange, actionLogInfo.Change, "Change");
+                Assert.AreEqual(change, actionLogInfo.Change, "Change");
                 return actionLogInfo;
             };
             Dac_CreateActionLogInfo.Create(new ActionLogInformation(), new CreateActionLogInfoCommand());

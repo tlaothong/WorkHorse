@@ -64,6 +64,15 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
             }
         }
 
+        protected IReturnReward Dac_ReturnReward
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_Dac_ReturnReward] as IReturnReward;
+            }
+        }
+
         protected RegisterUserExecutor RegisterUserExecutor
         {
             get
@@ -97,6 +106,15 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
             {
                 return ScenarioContext.Current[
                     CommonSteps.Key_ChangeEmail] as ChangeEmailExecutor;
+            }
+        }
+
+        protected ReturnRewardExecutor ReturnRewardExecutor
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_ReturnReward] as ReturnRewardExecutor;
             }
         }
     }
