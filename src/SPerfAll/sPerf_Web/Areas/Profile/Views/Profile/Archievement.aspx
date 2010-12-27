@@ -140,6 +140,8 @@
     </div>
     <% Html.RenderPartial("Compare_Archeivement"); %>
     <% Html.RenderPartial("FriendList"); %>
+    <% Html.RenderPartial("Inbox"); %>
+    <% Html.RenderPartial("OptionProfile"); %>
     <% Html.RenderPartial("Popup_Comment_Archeivement"); %>
 </asp:Content>
 

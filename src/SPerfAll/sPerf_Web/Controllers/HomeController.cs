@@ -52,5 +52,9 @@ namespace sPerf_Web.Controllers
         {
             return View();
         }
+        public virtual ActionResult StartMenu()
+        {
+            return View();
+        }
     }
 }

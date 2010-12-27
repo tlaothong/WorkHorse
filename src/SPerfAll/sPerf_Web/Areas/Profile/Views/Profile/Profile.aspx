@@ -534,6 +534,9 @@
         </table>
     </div>
      <% Html.RenderPartial("FriendList"); %>
+          <% Html.RenderPartial("Inbox"); %>
+     <% Html.RenderPartial("OptionProfile"); %>
+
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="SubMenu" runat="server">

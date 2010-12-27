@@ -19,6 +19,7 @@
   <script src="../../../../Scripts/ajax.js" type="text/javascript"></script>
   <script src="../../../../Scripts/context-menu.js" type="text/javascript"></script>
   <script src="../../../../Scripts/drag-drop-folder-tree.js" type="text/javascript"></script>
+    <script src="../../../../Scripts/JCore.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(function () {
         $('img.image1').data('ad-desc', 'Whoa! This description is set through elm.data("ad-desc") instead of using the longdesc attribute.<br>And it contains <strong>H</strong>ow <strong>T</strong>o <strong>M</strong>eet <strong>L</strong>adies... <em>What?</em> That aint what HTML stands for? Man...');
@@ -124,6 +125,9 @@
                     $(this).dialog("close");
                 },
                 "Send": function () {
+                    $(this).dialog("close");
+                },
+                "Delete": function () {
                     $(this).dialog("close");
                 }
             }
@@ -315,7 +319,7 @@
                     <div style="background-color:#ffffff; border:1px solid #ffffff; width:390px; height:400px;">
                     <div style="margin-top:5px;"><label style="border:1px solid Gray; padding:2px 2px 2px 2px;">Add Photo</label></div><br />
                     <div>Album'name : <select style="width:250px; height:20px;"><option>สุดหล่อ</option><option>สุดสวย</option></select></div><br />
-                    <div>File'name     :  <input type="text" style="width:250px; height:14px;" /><label style="border:1px solid Gray;">Browse</label><br /></div>
+                    <div><form action="" method="post" enctype="multipart/form-data"><label for="file">File'name :<input type="file" name="file" id="file" style="width:250px; height:25px;" /></label> <input type="submit" value="upload"  /></form> <br /></div>
                     <div><br /><img src="/Content/images/a.JPG" /></div><br />  
                     <div style="margin-left:300px;"><label style="color:Green;">Upload</label>| <label style="color:Red;">Cancel</label></div>                  
                 </div>
@@ -454,6 +458,10 @@
       </div>
     </div>
 <% Html.RenderPartial("FriendList"); %>
+     <% Html.RenderPartial("Inbox"); %>
+     <% Html.RenderPartial("OptionProfile"); %>
+
+
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="SubMenu" runat="server">
     <% Html.RenderPartial("SubMenu"); %>

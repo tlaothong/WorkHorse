@@ -52,7 +52,6 @@ namespace sPerf_Web.Areas.Profile.Controllers {
             public readonly string Photo = "Photo";
             public readonly string Blog = "Blog";
             public readonly string Archievement = "Archievement";
-            public readonly string Friends = "Friends";
             public readonly string Inbox = "Inbox";
             public readonly string Banners = "Banners";
             public readonly string photocomment = "photocomment";
@@ -64,7 +63,7 @@ namespace sPerf_Web.Areas.Profile.Controllers {
             public readonly string editors = "editors";
             public readonly string DragandDropTreeview = "DragandDropTreeview";
             public readonly string DGTreeview = "DGTreeview";
-            public readonly string test = "test";
+            public readonly string OptionProfile = "OptionProfile";
         }
 
 
@@ -79,7 +78,6 @@ namespace sPerf_Web.Areas.Profile.Controllers {
             public readonly string Compare_Archeivement = "~/Areas/Profile/Views/Profile/Compare_Archeivement.ascx";
             public readonly string Filter = "~/Areas/Profile/Views/Profile/Filter.ascx";
             public readonly string FriendList = "~/Areas/Profile/Views/Profile/FriendList.ascx";
-            public readonly string Inbox = "~/Areas/Profile/Views/Profile/Inbox.aspx";
             public readonly string Index = "~/Areas/Profile/Views/Profile/Index.aspx";
             public readonly string index_comment = "~/Areas/Profile/Views/Profile/index_comment.ascx";
             public readonly string Photo = "~/Areas/Profile/Views/Profile/Photo.aspx";
@@ -124,11 +122,6 @@ namespace sPerf_Web.Areas.Profile.Controllers {
 
         public override System.Web.Mvc.ActionResult Archievement() {
             var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Archievement);
-            return callInfo;
-        }
-
-        public override System.Web.Mvc.ActionResult Friends() {
-            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Friends);
             return callInfo;
         }
 
@@ -187,8 +180,8 @@ namespace sPerf_Web.Areas.Profile.Controllers {
             return callInfo;
         }
 
-        public override System.Web.Mvc.ActionResult test() {
-            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.test);
+        public override System.Web.Mvc.ActionResult OptionProfile() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.OptionProfile);
             return callInfo;
         }
 
