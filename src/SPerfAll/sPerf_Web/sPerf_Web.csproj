@@ -143,17 +143,32 @@
     <Content Include="Areas\Club\Views\Club\SubMenu.ascx" />
     <Content Include="Areas\Game\Views\Game\AdvanceSearch.ascx" />
     <Content Include="Areas\Game\Views\Game\Banners.ascx" />
+    <Content Include="Areas\Game\Views\Game\Bookmark.aspx" />
+    <Content Include="Areas\Game\Views\Game\CommentGame.ascx" />
+    <Content Include="Areas\Game\Views\Game\Filter_InviteFriend.ascx" />
     <Content Include="Areas\Game\Views\Game\GameOption.aspx" />
     <Content Include="Areas\Game\Views\Game\Index.aspx" />
+    <Content Include="Areas\Game\Views\Game\Invite_Friend.ascx" />
+    <Content Include="Areas\Game\Views\Game\NewCommentGame.ascx" />
+    <Content Include="Areas\Game\Views\Game\PlayGame.aspx" />
+    <Content Include="Areas\Game\Views\Game\ReportCommentGame.ascx" />
+    <Content Include="Areas\Game\Views\Game\ReportProblemGame.ascx" />
     <Content Include="Areas\Game\Views\Game\SubMenu.ascx" />
     <Content Include="Areas\Game\Views\Game\Tournament.aspx" />
-    <Content Include="Areas\Game\Views\Game\Upload.aspx" />
+    <Content Include="Areas\Game\Views\Game\Upload.ascx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\AdvanceSearch.ascx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\Banners.ascx" />
+    <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\CommentVideo.ascx" />
+    <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\Filter_InviteFriend.ascx" />
+    <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\Invite_Friend.ascx" />
+    <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\NewCommentVideo.ascx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\Index.aspx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\MyVideo.aspx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\Option.ascx" />
+    <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\PlayVideo.aspx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\PostNewVideos.ascx" />
+    <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\ReportCommentVideo.ascx" />
+    <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\ReportProblemVideo.ascx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\SubmenuVideo.ascx" />
     <Content Include="Areas\Map\Views\Map\Index.aspx" />
     <Content Include="Areas\Profile\Views\Profile\Archievement.aspx" />
@@ -163,7 +178,6 @@
     <Content Include="Areas\Profile\Views\Profile\FriendList.ascx" />
     <Content Include="Areas\Profile\Views\Profile\index_comment.ascx" />
     <Content Include="Areas\Profile\Views\Profile\Blog.aspx" />
-    <Content Include="Areas\Profile\Views\Profile\Inbox.aspx" />
     <Content Include="Areas\Profile\Views\Profile\Index.aspx" />
     <Content Include="Areas\Profile\Views\Profile\Photo.aspx" />
     <Content Include="Areas\Profile\Views\Profile\photocomment.ascx" />
@@ -180,6 +194,7 @@
     <Content Include="Areas\Scholarship\Views\Scholarship\Recieved.aspx" />
     <Content Include="Areas\Scholarship\Views\Scholarship\SubMenu.ascx" />
     <Content Include="Areas\Scholarship\Views\Scholarship\Tournament.aspx" />
+    <Content Include="ClientBin\TheS.mov" />
     <Content Include="club.html" />
     <Content Include="Content\galleria.css" />
     <Content Include="Content\images\1.png" />
@@ -523,6 +538,7 @@
     <Content Include="Scripts\ajaxScripts\MicrosoftAjaxWebServices.js" />
     <Content Include="Scripts\ajaxScripts\Start.debug.js" />
     <Content Include="Scripts\ajaxScripts\Start.js" />
+    <Content Include="Scripts\JCore.js" />
     <Content Include="Scripts\jquery-1.3.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.3.2.js" />
     <Content Include="Scripts\jquery-1.4.2-vsdoc.js" />
@@ -542,6 +558,7 @@
     <Content Include="Scripts\jquery.pager.js" />
     <Content Include="Scripts\jquery.popupWindow.js" />
     <Content Include="Scripts\jquery.tmpl.js" />
+    <Content Include="Scripts\Silverlight.js" />
     <Content Include="test.txt" />
     <Content Include="Views\Home\AboutUs.aspx" />
     <Content Include="Views\Home\AdvanceSearch.ascx" />
@@ -576,9 +593,11 @@
     <Content Include="xap\avatar.xap" />
     <Content Include="xap\Avatar_Silver.xap" />
     <Content Include="xap\doyouknow.xap" />
+    <Content Include="xap\MayaTukkyProject.xap" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
+    <Folder Include="uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\MasterPage.Master" />
@@ -614,7 +633,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>4565</DevelopmentServerPort>
+          <DevelopmentServerPort>3676</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

@@ -146,5 +146,14 @@ namespace TheS.Casinova.Colors.BackServices.Specs
                     CommonSteps.Key_CreateGameRound] as CreateGameRoundExecutor;
             }
         }
+
+        protected CalculateGameRoundWinnerExecutor CalculateGameRoundWinnerExecutor
+        {
+            get
+            {
+                return ScenarioContext.Current[
+                    CommonSteps.Key_CalculateGameRoundWinner] as CalculateGameRoundWinnerExecutor;
+            }
+        }
     }
 }

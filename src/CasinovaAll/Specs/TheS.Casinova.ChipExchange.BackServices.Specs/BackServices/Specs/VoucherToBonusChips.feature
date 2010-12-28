@@ -16,7 +16,7 @@ Background:
 	|Boy		|2000					|2000					|1				 |2					   |1.5					|1						|				
 
 @record_mock
-Scenario: (VoucherToBonusChips)ผู้เล่นแลกคูปองเป็นชิฟตาย มีคูปองตามรหัสที่ระบุและคูปองยังไม่ถูกใช้งาน, ระบบตรวจสอบคูปองและเพิ่มชิฟตายให้กับผู้เล่น
+Scenario: (ChipExchange_VoucherToBonusChips)ผู้เล่นแลกคูปองเป็นชิฟตาย มีคูปองตามรหัสที่ระบุและคูปองยังไม่ถูกใช้งาน, ระบบตรวจสอบคูปองและเพิ่มชิฟตายให้กับผู้เล่น
 	Given The VoucherToBounusChipsExecutor has been created and initialized
 	And (VoucherToBonusChips)sent Code: 'jK2A' the voucher information should recieved
 	And (VoucherToBonusChips)sent ExchangeSettingName: 'exchange1' the exchange setting should recieved 
@@ -26,7 +26,7 @@ Scenario: (VoucherToBonusChips)ผู้เล่นแลกคูปองเ�
 	Then the player profile should be update
 
 @record_mock
-Scenario: (VoucherToBonusChips)ผู้เล่นแลกคูปองเป็นชิฟตาย มีคูปองตามรหัสที่ระบุและคูปองถูกใช้งานแล้ว, ระบบตรวจสอบคูปองและแจ้งเตือน
+Scenario: (ChipExchange_VoucherToBonusChips)ผู้เล่นแลกคูปองเป็นชิฟตาย มีคูปองตามรหัสที่ระบุและคูปองถูกใช้งานแล้ว, ระบบตรวจสอบคูปองและแจ้งเตือน
 	Given The VoucherToBounusChipsExecutor has been created and initialized
 	And (VoucherToBonusChips)sent Code: 'Gh5E' the voucher information should recieved
 	And (VoucherToBonusChips)sent ExchangeSettingName: 'exchange1' the exchange setting should recieved 
@@ -34,7 +34,7 @@ Scenario: (VoucherToBonusChips)ผู้เล่นแลกคูปองเ�
 	Then (VoucherToBonusChips)the result should be throw exception
 
 @record_mock
-Scenario: (VoucherToBonusChips)ผู้เล่นแลกคูปองเป็นชิฟตาย ไม่มีคูปองตามรหัสที่ระบุ, ระบบตรวจสอบคูปองและแจ้งเตือน
+Scenario: (ChipExchange_VoucherToBonusChips)ผู้เล่นแลกคูปองเป็นชิฟตาย ไม่มีคูปองตามรหัสที่ระบุ, ระบบตรวจสอบคูปองและแจ้งเตือน
 	Given The VoucherToBounusChipsExecutor has been created and initialized
 	And (VoucherToBonusChips)sent Code: 'XXXX' the voucher information should recieved
 	And (VoucherToBonusChips)sent ExchangeSettingName: 'exchange1' the exchange setting should recieved 

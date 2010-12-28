@@ -39,5 +39,13 @@ namespace sPerf_Web.Areas.Game.Controllers
         {
             return View();
         }
+        public virtual ActionResult PlayGame()
+        {
+            return View();
+        }
+        public virtual ActionResult Bookmark()
+        {
+            return View();
+        }
     }
 }

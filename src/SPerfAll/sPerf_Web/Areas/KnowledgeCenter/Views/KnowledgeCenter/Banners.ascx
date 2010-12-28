@@ -1,53 +1,61 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<dynamic>" %>
-<table style="width: 160px;">
+<table>
     <tbody>
         <tr>
             <td>
-                <br />
-                <br />
-                <a href=''>SUPER เหมา </a>
+                <a href=''>MAYA TAKKY </a>
                 <br />
                 <br />
                 <a href=''>
-                    <img id="images1" src="/Content/images/banner2.jpg" />
+                    <img id="mayatakky" src="/Content/images/mayatakky.png" style="border-width: 0px;" />
                 </a>
                 <table>
                     <tr>
                         <td>
-                            SUPER เหมา โหลดเพลง RS ยกค่าย<br />
-                            ไม่อั้น แค่เดือนละ 20 บาท โหลด<br />
-                            ได้ทั้งเพลงรอสาย ริงโทน Fullsong<br />
-                            MV ใช้ได้ทุกระบบสมัครเลยกด
-                            <br />
-                            *339<br />
-                            <br />
+                เตรียมสนุกกับ MAYA TAKKY<br />
+                <br /><label>
+                    --------------------------------------
+                </label></td>
+                    </tr>
+                </table>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href=''>MY AVATAR </a>
+                <br />
+                <br />
+                <a href=''>
+                    <img id="avatar" src="/Content/images/avatar.png" style="border-width: 0px;" />
+                </a>
+                <table>
+                    <tr>
+                        <td>
+                            สนุกกับตัวแทนของคุณ<br />
+                            เพิ่มความฉลาดให้เขา<br />
                             <label>
-                                -------------------------------------
+                                --------------------------------------
                             </label>
                         </td>
                     </tr>
                 </table>
             </td>
         </tr>
-        <tr>
+                <tr>
             <td>
-                <a href=''>แจกหนังสือคู่มือการล่างาน </a>
-                <br />
+                <a href=''>VIDEO </a>
                 <br />
                 <a href=''>
-                    <img id="images2" src="/Content/images/banner1.jpg"  />
+                    <img id="video" src="/Content/images/video.png" style="border-width: 0px;" />
                 </a>
                 <table>
                     <tr>
                         <td>
-                            <br />
-                            JobStreet.com ให้คุณดาวน์โหลด<br />
-                            หนังสือที่ใช้หางานใน 8 ประเทศ<br />
-                            ทั่วโลกได้แล้ววันนี้ไม่อยากตกงาน<br />
-                            ดาวน์โหลดได้เลย
-                            <br />
+                            มากมายด้วยคลิปวิดีโอ<br />
+                            มาดูกันเลย<br />
                             <label>
-                                -------------------------------------
+                                --------------------------------------
                             </label>
                         </td>
                     </tr>

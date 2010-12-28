@@ -32,6 +32,16 @@ namespace TheS.Casinova.Colors.Models
         public double Amount { get; set; }
 
         /// <summary>
+        /// จำนวนชิฟตายที่ใช้
+        /// </summary>
+        public double BonusChips { get; set; }
+
+        /// <summary>
+        /// จำนวนชิฟเป็นที่ใช้
+        /// </summary>
+        public double Chips { get; set; }
+
+        /// <summary>
         /// trackingID use to verify
         /// </summary>
         public Guid TrackingID { get; set; }

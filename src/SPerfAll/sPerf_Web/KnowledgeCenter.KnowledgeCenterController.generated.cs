@@ -33,6 +33,11 @@ namespace sPerf_Web.Areas.KnowledgeCenter.Controllers {
             return RedirectToRoute(callInfo.RouteValueDictionary);
         }
 
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public System.Web.Mvc.ActionResult UploadVideo() {
+            return new T4MVC_ActionResult(Area, Name, ActionNames.UploadVideo);
+        }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public KnowledgeCenterController Actions { get { return MVC.KnowledgeCenter.KnowledgeCenter; } }
@@ -53,6 +58,8 @@ namespace sPerf_Web.Areas.KnowledgeCenter.Controllers {
             public readonly string AdvanceSearch = "AdvanceSearch";
             public readonly string Banners = "Banners";
             public readonly string PostNewVideos = "PostNewVideos";
+            public readonly string PlayVideo = "PlayVideo";
+            public readonly string UploadVideo = "UploadVideo";
         }
 
 
@@ -63,10 +70,17 @@ namespace sPerf_Web.Areas.KnowledgeCenter.Controllers {
         public class ViewNames {
             public readonly string AdvanceSearch = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/AdvanceSearch.ascx";
             public readonly string Banners = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/Banners.ascx";
+            public readonly string CommentVideo = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/CommentVideo.ascx";
+            public readonly string Filter_InviteFriend = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/Filter_InviteFriend.ascx";
             public readonly string Index = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/Index.aspx";
+            public readonly string Invite_Friend = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/Invite_Friend.ascx";
             public readonly string MyVideo = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/MyVideo.aspx";
+            public readonly string NewCommentVideo = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/NewCommentVideo.ascx";
             public readonly string Option = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/Option.ascx";
+            public readonly string PlayVideo = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/PlayVideo.aspx";
             public readonly string PostNewVideos = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/PostNewVideos.ascx";
+            public readonly string ReportCommentVideo = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/ReportCommentVideo.ascx";
+            public readonly string ReportProblemVideo = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/ReportProblemVideo.ascx";
             public readonly string SubmenuVideo = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/SubmenuVideo.ascx";
         }
     }
@@ -107,6 +121,17 @@ namespace sPerf_Web.Areas.KnowledgeCenter.Controllers {
 
         public override System.Web.Mvc.ActionResult PostNewVideos() {
             var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.PostNewVideos);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult PlayVideo() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.PlayVideo);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult UploadVideo(System.Web.HttpPostedFileBase file) {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.UploadVideo);
+            callInfo.RouteValueDictionary.Add("file", file);
             return callInfo;
         }
 

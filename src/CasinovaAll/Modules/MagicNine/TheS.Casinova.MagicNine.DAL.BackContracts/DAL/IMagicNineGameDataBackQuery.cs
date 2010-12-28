@@ -12,7 +12,8 @@ namespace TheS.Casinova.MagicNine.DAL
     public interface IMagicNineGameDataBackQuery :
         IGetPlayerInfo,
         IGetGameRoundPot,
-        IGetAutoBetInfo
+        IGetAutoBetInfo,
+        IGetGameRoundInfo
     { }
 
     /// <summary>
@@ -26,7 +27,7 @@ namespace TheS.Casinova.MagicNine.DAL
     /// ดึงข้อมูลเงินในกองของโต๊ะเกม
     /// </summary>
     public interface IGetGameRoundPot
-        : IFetchSingleData<int, GetGameRoundPotCommand>
+        : IFetchSingleData<double, GetGameRoundPotCommand>
     { }
 
     /// <summary>
@@ -34,5 +35,12 @@ namespace TheS.Casinova.MagicNine.DAL
     /// </summary>
     public interface IGetAutoBetInfo
         : IFetchSingleData<GamePlayAutoBetInformation, StopAutoBetCommand>
+    { }
+
+    /// <summary>
+    /// ดึงข้อมูลโต๊ะเกม
+    /// </summary>
+    public interface IGetGameRoundInfo
+        : IFetchSingleData<GameRoundInformation, GetGameRoundInfoCommand>
     { }
 }

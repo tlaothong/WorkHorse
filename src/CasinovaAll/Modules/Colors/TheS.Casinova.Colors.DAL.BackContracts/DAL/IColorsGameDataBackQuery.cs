@@ -35,7 +35,7 @@ namespace TheS.Casinova.Colors.DAL
     /// ดึงข้อมูลการลงพนันของผู้เล่นในโต๊ะเกมนั้นๆ
     /// </summary>
     public interface IListPlayerActionInfoQuery
-        : IFetchData<PlayerActionInformation, PayForColorsWinnerInfoCommand>
+        : IFetchData<PlayerActionInformation, ListPlayerActionInfoCommand>
     { }
 
     /// <summary>

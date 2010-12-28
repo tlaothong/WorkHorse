@@ -90,6 +90,25 @@ namespace TheS.Casinova.TwoWins.BackServices.Specs.Steps
                 new ChangeBetExecutor(container, dac, dqr));
         }
 
+        [Given(@"\(Twowins_CalculateGameRoundWinner\)The CalculateGameRoundWinnerExecutor has been created and initialized")]
+        public void GivenTwowins_CalculateGameRoundWinnerTheCalculateGameRoundWinnerExecutorHasBeenCreatedAndInitialized()
+        {
+            var dac = Mocks.DynamicMock<ITwowinsDataAccess>();
+            var dqr = Mocks.DynamicMock<ITwowinsDataBackQuery>();
+            var container = Mocks.DynamicMock<IDependencyContainer>();
+
+            ScenarioContext.Current.Set<IListBetInfoByRoundID>(dqr);
+            ScenarioContext.Current.Set<IGetRoundWinnerInfo>(dqr);
+            ScenarioContext.Current.Set<IGetRoundInfo>(dqr);
+            ScenarioContext.Current.Set<IUpdateRoundWinnerInfo>(dac);
+
+            ScenarioContext.Current.Set<ITwowinsDataBackQuery>(dqr);
+            
+            setupValidators(out container);
+            ScenarioContext.Current.Set<CalculateGameRoundWinnerExecutor>(
+                new CalculateGameRoundWinnerExecutor(container, dac, dqr));
+      }
+
         private static void setupValidators(out IDependencyContainer container)
         {
             var fac = new StructureMapAbstractFactory();
@@ -103,6 +122,12 @@ namespace TheS.Casinova.TwoWins.BackServices.Specs.Steps
                 , UserProfile_RangeBetValidator>();
             reg.Register<IValidator<RangeBetInformation, RangeBetCommand>
                 , RangeBetInfo_RangeBetValidator>();
+            reg.Register<IValidator<UserProfile, ChangeBetInfoCommand>
+                , UserProfile_ChangeBetValidator>();
+            reg.Register<IValidator<BetInformation, ChangeBetInfoCommand>
+                , BetInfo_ChangeBetValidator>();
+            reg.Register<IValidator<RoundInformation, CalculateGameRoundWinnerCommand>
+                , RoundInfo_CalculateGameRoundWinnerValidator>();
 
             reg.RegisterInstance<ITwowinsDataBackQuery>
                 (ScenarioContext.Current.Get<ITwowinsDataBackQuery>());

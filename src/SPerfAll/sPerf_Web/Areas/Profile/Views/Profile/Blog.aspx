@@ -5,18 +5,26 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<link href="../../../../Content/Calendar.css" rel="stylesheet" type="text/css" />
 <link href="../../../../Content/jquery-ui-1.8.6.custom.css" rel="stylesheet" type="text/css" />
 <link href="../../../../Content/jquery.cleditor.css" rel="stylesheet" type="text/css" />
 <script src="../../../../Scripts/jquery-1.4.2.min.js" type="text/javascript"></script>
 <script src="../../../../Scripts/jquery-ui-1.8.6.custom.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="../../../../Scripts/jquery.cleditor.min.js"></script>
-     <script type="text/javascript">
+<script type="text/javascript" src="../../../../Scripts/jquery.cleditor.min.js"></script>
+
+<script type="text/javascript">  
+        Sys.debug = true;   
+       Sys.require(Sys.components.calendar, function() {   
+            $("#bdate").calendar({});   
+        });   
+</script>  
+
+<script type="text/javascript">
          $(document).ready(function () {
              $(".input").cleditor({ width: 500, height: 180, useCSS: true })[0].focus();
          });
-    </script>
-    <script type="text/javascript">
+</script>
+<script type="text/javascript">
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-18352523-1']);
         _gaq.push(['_trackPageview']);
@@ -26,17 +34,6 @@
             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
-    </script>
-
-<script type="text/javascript">
-    $(function () {
-        $(".datepicker").datepicker({
-            showOn: "button",
-            buttonImage: "/Content/images/calendar.gif",
-            buttonImageOnly: true
-        });
-    });
-
 </script>
 
 <%--script for report--%>
@@ -124,9 +121,8 @@
 </script>
 
 <div style="background-color:#DEDFE1">
-    <table style="margin-left:29px;"><tr><td>Dick Kapooooook's Blog <br /><label class="reportBlogpage" style="text-decoration:underline; color:#69BA55;">Report</label></td><td ><div class="demo"style="margin-left:235px;">
-        <p>Date: <input class="datepicker" type="text"/></p></div>
-        <div style="display: none" class="demo-description"></div></td></tr>
+    <table style="margin-left:29px;"><tr><td>Dick Kapooooook's Blog <br /><label class="reportBlogpage" style="text-decoration:underline; color:#69BA55;">Report</label></td><td ><div class="demo"style="margin-left:247px;">
+        Date : <input type="text" id="bdate" />  </td></tr>
     </table>
 </div>
 
@@ -165,16 +161,19 @@
 </div>
 
 <%--div สำหรับพื้นที่แสดงเนื้อหาที่เขียนลงใน blog--%>
-<div style="background-color:#4C4A49; width:625px; height:400px;">
-    <div style="background-color:#737374; width:565px;margin-left:29px;">
+<div style="background-color:#4C4A49; width:630px; height:520px; ">
+    <div style="background-color:#737374; width:565px;margin-left:29px; ">
      <label style="color:#ffffff;" style="margin-top:20px;">Topic : </label><input type="text" style="width:510px; background-color:#333333; margin-top:20px;" />
      <br />
-     <p><textarea cols="70" rows="19" style="overflow:hidden;">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</textarea></p>
-    <label id="newblog" style="margin-top:200px;background-color:#ffffff;  margin-left:480px; color:Green; padding:1px 5px 1px 5px;border:1px solid gray inherit;">New</label><label id="editblog" style="background-color:#000000; padding:2px 6px 2px 6px;border:1px solid gray inherit; color:Red">Edit</label>
+     <p><textarea cols="70" rows="22" style="overflow:hidden;">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</textarea></p>
+    <label id="newblog" style="margin-top:200px;background-color:#ffffff;  margin-left:480px; margin-top:100px ;color:Green; padding:1px 5px 1px 5px;border:1px solid gray inherit;">New</label><label id="editblog" style="background-color:#000000; padding:2px 6px 2px 6px;border:1px solid gray inherit; color:Red">Edit</label>
     </div>
 </div>
 
 <% Html.RenderPartial("FriendList"); %>
+     <% Html.RenderPartial("Inbox"); %>
+     <% Html.RenderPartial("OptionProfile"); %>
+
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="SubMenu" runat="server">

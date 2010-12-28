@@ -69,6 +69,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BetColor.feature</DependentUpon>
     </Compile>
+    <Compile Include="BackServices\Specs\CalculateGameRoundWinner.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CalculateGameRoundWinner.feature</DependentUpon>
+    </Compile>
     <Compile Include="BackServices\Specs\CreateGameRoundConfigurations.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -79,6 +84,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CreateGamerRound.feature</DependentUpon>
     </Compile>
+    <Compile Include="BackServices\Specs\Steps\CalculateGameRoundWinnerSteps.cs" />
     <Compile Include="BackServices\Specs\Steps\CreateGameRoundsSteps.cs" />
     <Compile Include="BackServices\Specs\PayForColorsWinnerInfo.feature.cs">
       <AutoGen>True</AutoGen>
@@ -133,6 +139,10 @@
     <None Include="BackServices\Specs\BetColor.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>BetColor.feature.cs</LastGenOutput>
+    </None>
+    <None Include="BackServices\Specs\CalculateGameRoundWinner.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CalculateGameRoundWinner.feature.cs</LastGenOutput>
     </None>
     <None Include="BackServices\Specs\CreateGameRoundConfigurations.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

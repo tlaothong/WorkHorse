@@ -27,11 +27,27 @@ namespace TheS.Casinova.TwoWins.BackServices.Specs.Steps
             }
         }
 
+        protected IGetRoundWinnerInfo Dqr_GetRoundWinnerInfo
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<IGetRoundWinnerInfo>();
+            }
+        }
+
         protected IGetBetInfo Dqr_GetBetInfo
         {
             get
             {
                 return ScenarioContext.Current.Get<IGetBetInfo>();
+            }
+        }
+
+        protected IListBetInfoByRoundID Dqr_ListBetInfoByRoundID
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<IListBetInfoByRoundID>();
             }
         }
 
@@ -75,6 +91,14 @@ namespace TheS.Casinova.TwoWins.BackServices.Specs.Steps
             }
         }
 
+        protected IUpdateRoundWinnerInfo Dac_UpdateRoundWinnerInfo
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<IUpdateRoundWinnerInfo>();
+            }
+        }
+
         protected SingleBetExecutor SingleBetExecutor
         {
             get
@@ -96,6 +120,14 @@ namespace TheS.Casinova.TwoWins.BackServices.Specs.Steps
             get
             {
                 return ScenarioContext.Current.Get<ChangeBetExecutor>();
+            }
+        }
+
+        protected CalculateGameRoundWinnerExecutor CalculateGameRoundWinnerExecutor
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<CalculateGameRoundWinnerExecutor>();
             }
         }
     }

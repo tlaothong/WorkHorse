@@ -10,7 +10,7 @@
     </div>
     <script id="movieTmpl" type="text/x-jquery-tmpl">
 	<div>
-		<div><img src="${BoxArt.LargeUrl}" /> </div>
+		<div><a href="/Game/Game/PlayGame"><img src="${BoxArt.LargeUrl}" /> </a></div>
 		<strong>${Name}</strong>
 		<p>{{html Synopsis}}</p>
         <div>
@@ -336,6 +336,7 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="SubMenu" runat="server">
 <% Html.RenderPartial("SubMenu"); %>
+<% Html.RenderPartial("Upload"); %>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="SideBar" runat="server">
 <% Html.RenderPartial("AdvanceSearch"); %>

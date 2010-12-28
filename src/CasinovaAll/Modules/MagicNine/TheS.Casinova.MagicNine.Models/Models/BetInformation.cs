@@ -28,7 +28,7 @@ namespace TheS.Casinova.MagicNine.Models
         /// <summary>
         /// ลำดับที่ลงพนันได้
         /// </summary>
-        public int BetOrder { get; set; }
+        public double BetOrder { get; set; }
 
         /// <summary>
         /// รหัสสำหรับตรวจสอบ
@@ -39,5 +39,15 @@ namespace TheS.Casinova.MagicNine.Models
         /// จำนวนเงินที่ลงพนัน
         /// </summary>
         public double Amount { get; set; }
+
+        /// <summary>
+        /// จำนวนชิฟตายที่ลงพนัน
+        /// </summary>
+        public double BonusChips { get; set; }
+
+        /// <summary>
+        /// จำนวนชิฟเป็นที่ลงพนัน
+        /// </summary>
+        public double Chips { get; set; }
     }
 }
