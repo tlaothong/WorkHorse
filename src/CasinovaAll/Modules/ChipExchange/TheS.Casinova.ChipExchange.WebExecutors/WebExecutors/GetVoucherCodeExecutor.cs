@@ -35,7 +35,6 @@ namespace TheS.Casinova.ChipExchange.WebExecutors
                 throw new ValidationErrorException(errors);
             }
 
-            //TODO: Generate trackingID
             command = new GetVoucherCodeCommand {
                 VoucherInformation = new VoucherInformation { 
                     UserName = command.VoucherInformation.UserName,

@@ -30,7 +30,32 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
                     Upline = upline
                 }
             };
+        }
 
+        [Given(@"Call membership service to validate register user information : UserName '(.*)' Password'(.*)' Email'(.*)' CellPhone'(.*)' Upline'(.*)'")]
+        public void GivenCallMembershipServiceToValidateRegisterUserInformationUserNameXPasswordXEmailXCellPhoneXUplineX(string userName, string password, string email, string cellPhone, string upline)
+        {
+            Action<UserProfile> checkData = (userProfile) => {
+                Assert.AreEqual(userName, userProfile.UserName, "UserName");
+                Assert.AreEqual(password, userProfile.Password, "Password");
+                Assert.AreEqual(email, userProfile.Email, "Email");
+                Assert.AreEqual(cellPhone, userProfile.CellPhone, "CellPhone");
+                Assert.AreEqual(upline, userProfile.Upline, "Upline");
+            };
+
+            svc_Membership.RegisterUser(new UserProfile());
+            LastCall.IgnoreArguments().Do(checkData);
+        }
+
+        [Given(@"Expected call membership service")]
+        public void GivenExpectedCallMembershipService(string userName)
+        {
+            Action<UserProfile> checkData = (userProfile) => {
+                Assert.AreEqual(userName, userProfile.UserName, "UserName");
+            };
+
+            svc_Membership.RegisterUser(new UserProfile());
+            LastCall.IgnoreArguments().Do(checkData);
         }
 
         [Given(@"The system generated TrackingID for register user:'(.*)'")]

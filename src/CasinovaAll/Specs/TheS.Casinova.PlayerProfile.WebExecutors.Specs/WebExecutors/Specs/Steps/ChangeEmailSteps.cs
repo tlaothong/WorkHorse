@@ -7,6 +7,7 @@ using TheS.Casinova.PlayerProfile.Commands;
 using TheS.Casinova.PlayerProfile.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PerfEx.Infrastructure.Validation;
+using Rhino.Mocks;
 
 namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
 {
@@ -14,7 +15,6 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
     public class ChangeEmailSteps : PlayerProfileModuleStepsBase
     {
         private ChangeEmailCommand _cmd;
-        private string _trackingID;
 
         [Given(@"Sent UserName '(.*)' OldEmail '(.*)' NewEmail '(.*)'")]
         public void GivenSentUserNameXOldEmailXNewEmailXPasswordX(string userName, string oldEmail, string newEmail)
@@ -28,10 +28,17 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
             };
         }
 
-        [Given(@"The system generated TrackingID for change email:'(.*)'")]
-        public void GivenTheSystemGeneratedTrackingIDForChangeEmailX(string trackingID)
+        [Given(@"Call membership service to validate change email information : UserName '(.*)' OldEmail '(.*)' NewEmail '(.*)'")]
+        public void GivenCallMembershipServiceToValidateChangeEmailInformationUserNameXOldEmailXNewEmailX(string userName, string oldEmail, string newEmail)
         {
-            _trackingID = trackingID;
+            Action<UserProfile> checkData = (userProfile) => {
+                Assert.AreEqual(userName, userProfile.UserName, "UserName");
+                Assert.AreEqual(oldEmail, userProfile.Email, "OldEmail");
+                Assert.AreEqual(newEmail, userProfile.NewEmail, "NewEmail");
+            };
+
+            svc_Membership.ChangeEmail(new UserProfile());
+            LastCall.IgnoreArguments().Do(checkData);
         }
 
         //Validation
@@ -56,16 +63,16 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
             ChangeEmail.Execute(_cmd, (x) => { });        
         }
 
-        [Then(@"Get null and skip checking trackingID for change email")]
-        public void ThenGetNullAndSkipCheckingTrackingIDForChangeEmail()
+        [Then(@"Skip call membership service to change new email")]
+        public void ThenSkipCallMembershipServiceToChangeNewEmail()
         {
             Assert.IsTrue(true, "Exception has been verified in the end of block When.");
         }
 
-        [Then(@"TrackingID for change email should be :'(.*)'")]
-        public void ThenTrackingIDForChangeEmailShouldBeX(string expectTrackingID)
+        [Then(@"Membership service can change new email")]
+        public void ThenMembershipServiceCanChangeNewEmail()
         {
-            Assert.AreEqual(expectTrackingID, _trackingID, "Get trackingID accept");
+            Assert.IsTrue(true, "Membership has been verified in the end of block When.");
         }
     }
 }

@@ -21,13 +21,15 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors
     {
         private IRegisterUser _iRegisterUser;
         private IDependencyContainer _container;
-        private IGenerateTrackingID _svc; 
+        private IGenerateTrackingID _svc;
+        private IMembershipServices _membershipSvc;
 
-        public RegisterUserExecutor(IPlayerProfileBackService dac, IDependencyContainer container, IGenerateTrackingID svc)
+        public RegisterUserExecutor(IPlayerProfileBackService dac, IDependencyContainer container, IGenerateTrackingID svc, IMembershipServices membershipSvc)
         {
             _iRegisterUser = dac;
             _container = container;
             _svc = svc;
+            _membershipSvc = membershipSvc;
         }
 
         protected override void ExecuteCommand(RegisterUserCommand command)
@@ -38,6 +40,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors
                 throw new ValidationErrorException(errors);
             }
 
+            _membershipSvc.RegisterUser(command.RegisterUserInfo);
             command.RegisterUserInfo.TrackingID = _svc.GenerateTrackingID();
             _iRegisterUser.RegisterUser(command);
 

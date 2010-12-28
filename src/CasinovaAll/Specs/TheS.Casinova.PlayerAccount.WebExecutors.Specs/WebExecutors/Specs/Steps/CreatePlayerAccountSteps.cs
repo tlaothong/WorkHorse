@@ -14,7 +14,7 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs.Steps
     public class CreatePlayerAccountSteps : PlayerAccountModuleStepsBase
     {
         private CreatePlayerAccountCommand _cmd;
-        private string _trackingID;
+        //private string _trackingID;
 
         [Given(@"Sent player account information: UserName '(.*)' CardType'(.*)' AccountNo'(.*)' CVV'(.*)' ExpireDate'(.*)'")]
         public void GivenSentPlayerAccountInformationUserNameXCardTypeXAccountNoXCVVXExpireDateX(string userName, string cardType, string accountNo, string cvv, DateTime expireDate)
@@ -28,12 +28,6 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs.Steps
                     ExpireDate = expireDate
                 }
             };
-        }
-
-        [Given(@"The system generated TrackingID for CreatePlayerAccount :'(.*)'")]
-        public void GivenTheSystemGeneratedTrackingIDForCreatePlayerAccountX(string trackingID)
-        {
-            _trackingID = trackingID;
         }
 
         //Validate
@@ -57,16 +51,16 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs.Steps
                 CreatePlayerAccount.Execute(_cmd, (x) => { });
         }
 
-        [Then(@"Get null and skip checking trackingID")]
-        public void ThenGetNullAndSkipCheckingTrackingID()
+        [Then(@"Skip credit card validation to create player account")]
+        public void ThenSkipCreditCardValidationToCreatePlayerAccount()
         {
             Assert.IsTrue(true, "Exception has been verified in the end of block When.");
         }
 
-        [Then(@"TrackingID for CreatePlayerAccount should be : '(.*)'")]
-        public void ThenTrackingIDForCreatePlayerAccountShouldBeX(string trackingID)
+        [Then(@"System can sent credit card information to create player account to back server")]
+        public void ThenSystemCanSentCreditCardInformationToCreatePlayerAccountToBackServer()
         {
-            Assert.AreEqual(trackingID, _trackingID, "Get trackingID accept");
+            Assert.IsTrue(true, "Credit card has been verified in the end of block When.");
         }
     }
 }

@@ -2,69 +2,54 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using PerfEx.Infrastructure.CommandPattern;
-using TheS.Casinova.ChipExchange.Commands;
-using TheS.Casinova.ChipExchange.BackServices;
-using TheS.Casinova.ChipExchange.DAL;
+using PerfEx.Infrastructure.Validation;
 using TheS.Casinova.PlayerAccount.Models;
-using TheS.Casinova.ChipExchange.Command;
-using TheS.Casinova.ChipExchange.Models;
+using TheS.Casinova.PlayerAccount.Commands;
 
-namespace TheS.Casinova.ChipExchange.WebExecutors
+namespace TheS.Casinova.PlayerAccount.Validator
 {
-    /// <summary>
-    /// แลกชิพเป็นด้วยเงิน
-    /// </summary>
-    public class MoneyToChipsExecutor
-    : SynchronousCommandExecutorBase<MoneyToChipsCommand>
+    public class PlayerAccountInformation_CreditCardValidators
+     : ValidatorBase<PlayerAccountInformation, CreatePlayerAccountCommand>
     {
-        private IMoneyToChips _iMoneyToChips;
-        private IGetPlayerAccountInfo _iGetPlayerAccount; 
-
-        public MoneyToChipsExecutor(IChipsExchangeModuleBackService dac, IChipsExchangeModuleDataQuery dqr)
+        public override void Validate(PlayerAccountInformation entity, CreatePlayerAccountCommand command, ValidationErrorCollection errors)
         {
-            _iMoneyToChips = dac;
-            _iGetPlayerAccount = dqr;
-        }
-
-        protected override void ExecuteCommand(MoneyToChipsCommand command)
-        {
-            string CardType;            //ประเภทบัตรเครดิต
-            bool accountNoValidate ;    //ผลการตรวจสอบหมายเลขบัตรเครดิต
-
             #region Credit card validation
 
-            //ดึงข้อมูลบัญชีบัตรเครดิต
-            GetPlayerAccountInfoCommand cmd_PlayerAccount = new GetPlayerAccountInfoCommand {
-                PlayerAccount = new PlayerAccountInformation {
-                    UserName = command.ExchangeInformation.UserName,
-                    AccountType = command.ExchangeInformation.AccountType
-                }
-            };
+            string CardType;            //ประเภทบัตรเครดิต
+            bool accountNoValidate;    //ผลการตรวจสอบหมายเลขบัตรเครดิต
 
-            //ข้อมูลบัตรเครดิต
-            cmd_PlayerAccount.PlayerAccountInfo = _iGetPlayerAccount.Get(cmd_PlayerAccount);
-
-            //ประเภทบัตรเครดิต
-            CardType = Convert.ToString(GetCardType(cmd_PlayerAccount.PlayerAccountInfo.AccountNo));
-
-            //ตรวจสอบความถูกต้องของประเภทบัตรเครดิต
-            if (CardType != cmd_PlayerAccount.PlayerAccountInfo.CardType) {
-                Console.WriteLine("ประเภทบัตรเครดิตไม่ถูกต้อง");
+            //ตรวจสอบข้อมูลหมายเลขบัตรเครดิต
+            if (string.IsNullOrEmpty(entity.AccountNo)) {
+                errors.Add(new ValidationError {
+                    Instance = entity,
+                    ErrorMessage = "ต้องกรอกข้อมูลหมายเลขบัตรเครดิต",
+                });
             }
-            else {
+
+            if (!string.IsNullOrEmpty(entity.AccountNo)) {
+
+                //ประเภทบัตรเครดิต        
+                CardType = Convert.ToString(GetCardType(entity.AccountNo));
+                //ผลการตรวจสอบหมายเลขบัตรเครดิต
+                accountNoValidate = IsCreditCardValid(entity.AccountNo);
+
+                //ตรวจสอบความถูกต้องของประเภทบัตรเครดิต
+                if (CardType != entity.CardType) {
+                    errors.Add(new ValidationError {
+                        Instance = entity,
+                        ErrorMessage = "ประเภทบัตรเครดิตไม่ถูกต้อง",
+                    });
+                }
+
                 //ตรวจสอบความถูกต้องของหมายเลขบัตรเครดิต
-                accountNoValidate = IsCreditCardValid(cmd_PlayerAccount.PlayerAccountInfo.AccountNo);
-
                 if (accountNoValidate == false) {
-                    Console.WriteLine("หมายเลขบัตรเครดิตไม่ถูกต้อง");
-                }
-                else {
-
-                    //TODO: Generate trackingID
-                    _iMoneyToChips.MoneyToChips(command);
+                    errors.Add(new ValidationError {
+                        Instance = entity,
+                        ErrorMessage = "หมายเลขบัตรเครดิตไม่ถูกต้อง",
+                    });
                 }
             }
+
             #endregion Credit card validation
         }
 
@@ -78,7 +63,7 @@ namespace TheS.Casinova.ChipExchange.WebExecutors
         }
 
         //ตรวจสอบประเภทของบัตรเครดิต จากหมายเลขบัตร
-        public CardType GetCardType(string cardNumber) 
+        public CardType GetCardType(string cardNumber)
         {
             cardNumber = cardNumber.Replace(" ", "");
 
@@ -141,6 +126,5 @@ namespace TheS.Casinova.ChipExchange.WebExecutors
             return (total % 10 == 0);
         }
         #endregion Account number validation
-
     }
 }

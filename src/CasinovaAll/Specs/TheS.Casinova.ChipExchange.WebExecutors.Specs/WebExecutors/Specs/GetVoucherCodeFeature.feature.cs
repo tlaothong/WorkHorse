@@ -63,18 +63,18 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs
                         "CanUse"});
             table1.AddRow(new string[] {
                         "OhAe",
-                        "B67C3",
-                        "200",
+                        "630041228BAD10C2",
+                        "500",
                         "True"});
             table1.AddRow(new string[] {
                         "Boy",
-                        "6690A",
-                        "500",
+                        "128031228BF210E4",
+                        "300",
                         "True"});
             table1.AddRow(new string[] {
                         "Nit",
-                        "C3441",
-                        "500",
+                        "448021228C7A10D3",
+                        "200",
                         "True"});
 #line 8
 testRunner.Given("Server has voucher information for get voucher code :", ((string)(null)), table1);
@@ -98,7 +98,7 @@ testRunner.And("Sent UserName \'Boy\' for get voucher code");
 #line 18
 testRunner.When("Call GetVoucherCodeExecutor()");
 #line 19
-testRunner.Then("The result should be Username\'Boy\' VoucherCode \'6690A\' Amount \'500\'");
+testRunner.Then("The result should be Username\'Boy\' VoucherCode \'128031228BF210E4\' Amount \'300\'");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

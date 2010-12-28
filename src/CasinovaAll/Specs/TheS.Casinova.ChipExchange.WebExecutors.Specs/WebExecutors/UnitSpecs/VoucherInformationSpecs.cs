@@ -11,6 +11,7 @@ using TheS.Casinova.ChipExchange.Commands;
 using TheS.Casinova.ChipExchange.BackServices;
 using PerfEx.Infrastructure.CommandPattern;
 using TheS.Casinova.ChipExchange.Validators;
+using TheS.Casinova.Common.Services;
 
 namespace TheS.Casinova.ChipExchange.WebExecutors.UnitSpecs
 {
@@ -24,8 +25,9 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.UnitSpecs
         {
             IDependencyContainer container;
             IChipsExchangeModuleBackService svc;
+            IGenerateTrackingID commonSvc;
 
-            setupValidators(out container, out svc);
+            setupValidators(out container, out svc, out commonSvc);
 
             var model = new VoucherInformation {
                 UserName = null,
@@ -36,7 +38,7 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.UnitSpecs
             };
 
             PayVoucherExecutor xcutor = new PayVoucherExecutor(
-                svc, container);
+                svc, container, commonSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
@@ -46,8 +48,9 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.UnitSpecs
         {
             IDependencyContainer container;
             IChipsExchangeModuleBackService svc;
+            IGenerateTrackingID commonSvc;
 
-            setupValidators(out container, out svc);
+            setupValidators(out container, out svc, out commonSvc);
 
             var model = new VoucherInformation {
                 UserName = "Ayaya",
@@ -58,11 +61,11 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.UnitSpecs
             };
 
             PayVoucherExecutor xcutor = new PayVoucherExecutor(
-                svc, container);
+                svc, container, commonSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
-        private static void setupValidators(out IDependencyContainer container, out IChipsExchangeModuleBackService svc)
+        private static void setupValidators(out IDependencyContainer container, out IChipsExchangeModuleBackService svc, out IGenerateTrackingID commonSvc)
         {
             var fac = new PerfEx.Infrastructure.Containers.StructureMapAdapter.StructureMapAbstractFactory();
             var reg = fac.CreateRegistry();
@@ -74,6 +77,7 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.UnitSpecs
                , VoucherInformation_PayVoucherValidators>();
 
             container = fac.CreateContainer(reg);
+            commonSvc = null;
             svc = null;
         }
     }

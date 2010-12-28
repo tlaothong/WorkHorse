@@ -4,11 +4,11 @@
 	I want to change new password
 
 @record_mock
-Scenario Outline:[ChangePassword]ระบบได้รับข้อมูลรหัสผ่านใหม่จากผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อมูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID
+Scenario Outline:[ChangePassword]ระบบได้รับข้อมูลรหัสผ่านใหม่จากผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อมูลไม่ถูกต้อง ระบบไม่สามารถเปลี่ยน password ใหม่ได้
 	Given The ChangePasswordExecutor has been created and initialized
 	And   Sent UserName '<UserName>' OldPassword '<OldPassWord>' NewPassword '<NewPassword>'
 	When  Call ChangePasswordExecutor() for validation input
-	Then  Get null and skip checking trackingID for change password
+	Then  Skip call membership service to change new password
 
 Examples:
 	|UserName|OldPassWord		|NewPassword | 
@@ -20,10 +20,10 @@ Examples:
 	
 
 @record_mock
-Scenario:[ChangePassword]ระบบได้รับข้อมูลรหัสผ่านใหม่จากผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อมูลถูกต้อง ระบบทำการ generate trackingID
+Scenario:[ChangePassword]ระบบได้รับข้อมูลรหัสผ่านใหม่จากผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อมูลถูกต้อง ระบบสามารถเปลี่ยน password ใหม่ได้
 	Given The ChangePasswordExecutor has been created and initialized
 	And   Sent UserName 'Nayit' OldPassword '123br4' NewPassword 'nit4532'
-	And   The system generated TrackingID for change password:'942D2F350FAA4A32870CF9CF9A5C7A2E'
+	And   Call membership service to validate change password information : UserName 'Nayit' OldPassword '123br4' NewPassword 'nit4532'
 	When  Call ChangePasswordExecutor()
-	Then  TrackingID for change password should be :'942D2F350FAA4A32870CF9CF9A5C7A2E'
+	Then  Membership service can change new password 
 	

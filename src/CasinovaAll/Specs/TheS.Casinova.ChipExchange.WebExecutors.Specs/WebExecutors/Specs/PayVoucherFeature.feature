@@ -41,6 +41,7 @@ Scenario:[PayVoucher]ระบบได้รับข้อมูล userName �
 Scenario:[PayVoucher]ระบบไม่ได้รับข้อมูล userName ระบบไม่สามารถตรวจสอบจำนวนชิพทั้งหมดได้
 	Given The PayVoucherExecutor has been created and initialized
 	And   Sent UserName'' Amount'1000' for pay voucher
+	And   Sent UserName'' the player's profile should recieved 
 	When  Call PayVoucherExecutor() for validate input
 	Then  Get null and skip checking trackingID
 
@@ -48,5 +49,6 @@ Scenario:[PayVoucher]ระบบไม่ได้รับข้อมูล u
 Scenario:[PayVoucher]ระบบได้รับข้อมูล amount ไม่ถูกต้อง ระบบไม่สามารถตรวจสอบจำนวนชิพทั้งหมดได้
 	Given The PayVoucherExecutor has been created and initialized
 	And   Sent UserName'' Amount'1000' for pay voucher
+	And   Sent UserName'' the player's profile should recieved 
 	When  Call PayVoucherExecutor() for validate input
 	Then  Get null and skip checking trackingID

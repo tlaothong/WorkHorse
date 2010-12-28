@@ -26,8 +26,9 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
             IDependencyContainer container;
             IPlayerProfileBackService svc;
             IGenerateTrackingID commonSvc;
+            IMembershipServices membershipSvc;
 
-            setupValidators(out container, out svc, out commonSvc);
+            setupValidators(out container, out svc, out commonSvc, out membershipSvc);
 
             var model = new UserProfile {
                 UserName = null,
@@ -41,7 +42,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
             };
 
             RegisterUserExecutor xcutor = new RegisterUserExecutor(
-                svc, container, commonSvc);
+                svc, container, commonSvc, membershipSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
@@ -52,8 +53,9 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
             IDependencyContainer container;
             IPlayerProfileBackService svc;
             IGenerateTrackingID commonSvc;
+            IMembershipServices membershipSvc;
 
-            setupValidators(out container, out svc, out commonSvc);
+            setupValidators(out container, out svc, out commonSvc, out membershipSvc);
 
             var model = new UserProfile {
                 UserName = "Sakanit",
@@ -67,7 +69,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
             };
 
             RegisterUserExecutor xcutor = new RegisterUserExecutor(
-                svc, container, commonSvc);
+                svc, container, commonSvc, membershipSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
@@ -78,8 +80,9 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
             IDependencyContainer container;
             IPlayerProfileBackService svc;
             IGenerateTrackingID commonSvc;
+            IMembershipServices membershipSvc;
 
-            setupValidators(out container, out svc,out commonSvc);
+            setupValidators(out container, out svc,out commonSvc, out membershipSvc);
 
             var model = new UserProfile {
                 UserName = "AimImaim",
@@ -93,7 +96,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
             };
 
             RegisterUserExecutor xcutor = new RegisterUserExecutor(
-                svc, container, commonSvc);
+                svc, container, commonSvc, membershipSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
@@ -104,8 +107,9 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
             IDependencyContainer container;
             IPlayerProfileBackService svc;
             IGenerateTrackingID commonSvc;
+            IMembershipServices membershipSvc;
 
-            setupValidators(out container, out svc, out commonSvc);
+            setupValidators(out container, out svc, out commonSvc, out membershipSvc);
 
             var model = new UserProfile {
                 UserName = "AimImaim",
@@ -119,7 +123,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
             };
 
             RegisterUserExecutor xcutor = new RegisterUserExecutor(
-                svc,container,commonSvc);
+                svc,container,commonSvc, membershipSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
@@ -130,8 +134,9 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
             IDependencyContainer container;
             IPlayerProfileBackService svc;
             IGenerateTrackingID commonSvc;
+            IMembershipServices membershipSvc;
  
-            setupValidators(out container, out svc, out commonSvc);
+            setupValidators(out container, out svc, out commonSvc, out membershipSvc);
 
             var model = new UserProfile {
                 UserName = "AimImAim",
@@ -145,7 +150,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
             };
 
             RegisterUserExecutor xcutor = new RegisterUserExecutor(
-                svc, container,commonSvc);
+                svc, container,commonSvc, membershipSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
@@ -156,8 +161,9 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
             IDependencyContainer container;
             IPlayerProfileBackService svc;
             IGenerateTrackingID commonSvc;
+            IMembershipServices membershipSvc;
 
-            setupValidators(out container, out svc, out commonSvc);
+            setupValidators(out container, out svc, out commonSvc, out membershipSvc);
 
             var model = new UserProfile {
                 UserName = "AimImAim",
@@ -171,7 +177,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
             };
 
             RegisterUserExecutor xcutor = new RegisterUserExecutor(
-                svc, container,commonSvc);
+                svc, container,commonSvc, membershipSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
@@ -183,7 +189,8 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
             IDependencyContainer container;
             IPlayerProfileBackService svc;
             IGenerateTrackingID commonSvc;
-            setupValidators(out container, out svc, out commonSvc);
+            IMembershipServices membershipSvc;
+            setupValidators(out container, out svc, out commonSvc, out membershipSvc);
 
             var model = new UserProfile {
                 UserName = "AimImAim",
@@ -197,7 +204,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
             };
 
             RegisterUserExecutor xcutor = new RegisterUserExecutor(
-                svc, container, commonSvc);
+                svc, container, commonSvc, membershipSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
@@ -206,8 +213,9 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
         public void ValidateUserProfile_NewEmailCanNotBeNull()
         {
             IDependencyContainer container;
-            IPlayerProfileBackService svc;
-            setupValidators(out container, out svc);
+            //IPlayerProfileBackService svc;
+            IMembershipServices membershipSvc;
+            setupValidators(out container,out membershipSvc);
 
             var model = new UserProfile {
                NewEmail = null
@@ -217,7 +225,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
             };
 
             ChangeEmailExecutor xcutor = new ChangeEmailExecutor(
-                svc, container);
+                 container,membershipSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
@@ -226,8 +234,9 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
         public void ValidateUserProfile_NewEmailMustBeCorrectFormat()
         {
             IDependencyContainer container;
-            IPlayerProfileBackService svc;
-            setupValidators(out container, out svc);
+            //IPlayerProfileBackService svc;
+            IMembershipServices membershipSvc;
+            setupValidators(out container, out membershipSvc);
 
             var model = new UserProfile {
                 NewEmail = "hotmail@nit"
@@ -237,7 +246,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
             };
 
             ChangeEmailExecutor xcutor = new ChangeEmailExecutor(
-                svc, container);
+                 container,membershipSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
@@ -246,8 +255,9 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
         public void ValidateUserProfile_NewPasswordCanNotBeNull()
         {
             IDependencyContainer container;
-            IPlayerProfileBackService svc;
-            setupValidators(out container, out svc);
+            //IPlayerProfileBackService svc;
+            IMembershipServices membershipSvc;
+            setupValidators(out container, out membershipSvc);
 
             var model = new UserProfile {
                 NewPassword = null
@@ -257,7 +267,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
             };
 
             ChangePasswordExecutor xcutor = new ChangePasswordExecutor(
-                svc, container);
+                container, membershipSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
@@ -266,8 +276,9 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
         public void ValidateUserProfile_NewPasswordMustBeLowerThan17()
         {
             IDependencyContainer container;
-            IPlayerProfileBackService svc;
-            setupValidators(out container, out svc);
+            //IPlayerProfileBackService svc;
+            IMembershipServices membershipSvc;
+            setupValidators(out container, out membershipSvc);
 
             var model = new UserProfile {
                 NewPassword = "123456bgfdsertwers"
@@ -277,7 +288,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
             };
 
             ChangePasswordExecutor xcutor = new ChangePasswordExecutor(
-                svc, container);
+                container,membershipSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
@@ -286,8 +297,9 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
         public void ValidateUserProfile_NewPasswordMustBeGreaterThan5()
         {
             IDependencyContainer container;
-            IPlayerProfileBackService svc;
-            setupValidators(out container, out svc);
+            //IPlayerProfileBackService svc;
+            IMembershipServices membershipSvc;
+            setupValidators(out container, out membershipSvc);
 
             var model = new UserProfile {
                 NewPassword = "123"
@@ -297,12 +309,12 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
             };
 
             ChangePasswordExecutor xcutor = new ChangePasswordExecutor(
-                svc, container);
+                container, membershipSvc);
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
 
-        private static void setupValidators(out IDependencyContainer container, out  IPlayerProfileBackService svc)
+        private static void setupValidators(out IDependencyContainer container, out IMembershipServices membershipSvc)
         {
             var fac = new PerfEx.Infrastructure.Containers.StructureMapAdapter.StructureMapAbstractFactory();
             var reg = fac.CreateRegistry();
@@ -320,10 +332,11 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
               , UserProfile_ChangePasswordValidators>();
 
             container = fac.CreateContainer(reg);
-            svc = null;
+            membershipSvc = null;
+            //svc = null;
         }
 
-        private static void setupValidators(out IDependencyContainer container, out  IPlayerProfileBackService svc, out IGenerateTrackingID commonSvc)
+        private static void setupValidators(out IDependencyContainer container, out  IPlayerProfileBackService svc, out IGenerateTrackingID commonSvc, out  IMembershipServices membershipSvc)
         {
             var fac = new PerfEx.Infrastructure.Containers.StructureMapAdapter.StructureMapAbstractFactory();
             var reg = fac.CreateRegistry();
@@ -336,6 +349,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.UnitSpecs
 
             container = fac.CreateContainer(reg);
             commonSvc = null;
+            membershipSvc = null;
             svc = null;
         }
     }

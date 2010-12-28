@@ -27,7 +27,7 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.UnitSpecs
             var model = new PlayerAccountInformation{
                 UserName = null,
                 CardType = "Visa",
-                AccountNo = "1232212342122",
+                AccountNo = "5585067151394716",
                 CVV = "1234",
                 ExpireDate = DateTime.Parse("12/7/2011")
             };
@@ -51,7 +51,7 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.UnitSpecs
             var model = new PlayerAccountInformation {
                 UserName = "Nittaya",
                 CardType = null,
-                AccountNo = "1232212342122",
+                AccountNo = "5585067151394716",
                 CVV = "1234",
                 ExpireDate = DateTime.Parse("12/7/2011")
             };
@@ -114,7 +114,7 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.UnitSpecs
 
         [TestMethod]
         [ExpectedException(typeof(ValidationErrorException))]
-        public void ValidatePlayerAccountInformation_CVVCanNotBeNull()
+        public void ValidatePlayerAccountInformation_CardTypeMustBeMatchAccountNo()
         {
             IDependencyContainer container;
             IPlayerAccountModuleBackService svc;
@@ -123,7 +123,31 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.UnitSpecs
             var model = new PlayerAccountInformation {
                 UserName = "Nittaya",
                 CardType = "Visa",
-                AccountNo = "1234567890234",
+                AccountNo = "5585067151394716",
+                CVV = "1234",
+                ExpireDate = DateTime.Parse("12/7/2011")
+            };
+            var cmd = new CreatePlayerAccountCommand {
+                PlayerAccountInfo = model,
+            };
+
+            CreatePlayerAccountExecutor xcutor = new CreatePlayerAccountExecutor(
+                svc, container);
+            xcutor.Execute(cmd, (xcmd) => { });
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ValidationErrorException))]
+        public void ValidatePlayerAccountInformation_CVVCanNotBeNull()
+        {
+            IDependencyContainer container;
+            IPlayerAccountModuleBackService svc;
+            setupValidators(out container, out svc);
+
+            var model = new PlayerAccountInformation {
+                UserName = "Nittaya",
+                CardType = "MasterCard",
+                AccountNo = "5585067151394716",
                 CVV = null,
                 ExpireDate = DateTime.Parse("12/7/2011")
             };
@@ -146,8 +170,8 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.UnitSpecs
 
             var model = new PlayerAccountInformation {
                 UserName = "Nittaya",
-                CardType = "Visa",
-                AccountNo = "1234567890234",
+                CardType = "MasterCard",
+                AccountNo = "5585067151394716",
                 CVV = "123",
                 ExpireDate = DateTime.Parse("12/7/2011")
             };

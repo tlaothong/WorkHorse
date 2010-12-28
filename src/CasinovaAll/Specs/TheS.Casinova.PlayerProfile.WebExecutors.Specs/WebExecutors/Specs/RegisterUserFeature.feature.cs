@@ -143,11 +143,14 @@ testRunner.Given("The RegisterUserExecutor has been created and initialized");
 testRunner.And("Sent register user information : UserName \'Nit\' Password\'123456\' Email\'nayit_n@ho" +
                     "tmail.com\' CellPhone\'0892131356\' Upline\'boy\'");
 #line 26
+testRunner.And("Call membership service to validate register user information : UserName \'Nit\' Pa" +
+                    "ssword\'123456\' Email\'nayit_n@hotmail.com\' CellPhone\'0892131356\' Upline\'boy\'");
+#line 27
 testRunner.And("The system generated TrackingID for register user:\'942D2F350FAA4A32870CF9CF9A5C7A" +
                     "2E\'");
-#line 27
-testRunner.When("Call RegisterUserExecutor()");
 #line 28
+testRunner.When("Call RegisterUserExecutor()");
+#line 29
 testRunner.Then("TrackingID for register user should be :\'942D2F350FAA4A32870CF9CF9A5C7A2E\'");
 #line hidden
             testRunner.CollectScenarioErrors();

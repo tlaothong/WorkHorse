@@ -8,6 +8,7 @@ using TheS.Casinova.ChipExchange.BackServices;
 using TheS.Casinova.ChipExchange.DAL;
 using PerfEx.Infrastructure.Validation;
 using PerfEx.Infrastructure;
+using TheS.Casinova.Common.Services;
 
 namespace TheS.Casinova.ChipExchange.WebExecutors
 {
@@ -19,11 +20,14 @@ namespace TheS.Casinova.ChipExchange.WebExecutors
     {
         private IPayVoucher _iPayVoucher;
         private IDependencyContainer _container;
+        private IGenerateTrackingID _svc;
 
-        public PayVoucherExecutor(IChipsExchangeModuleBackService dac, IDependencyContainer container)
+        public PayVoucherExecutor(IChipsExchangeModuleBackService dac, IDependencyContainer container, IGenerateTrackingID svc)
         {
             _iPayVoucher = dac;
             _container = container;
+            _svc = svc;
+
         }
 
         protected override void ExecuteCommand(PayVoucherCommand command)
@@ -33,8 +37,8 @@ namespace TheS.Casinova.ChipExchange.WebExecutors
             if (errors.Any()) {
                 throw new ValidationErrorException(errors);
             }
-         
-                //TODO: Generate trackingID
+
+            command.VoucherInformation.TrackingID = _svc.GenerateTrackingID();
             _iPayVoucher.PayVoucher(command);
         }
     }

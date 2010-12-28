@@ -6,17 +6,17 @@
 @record_mock
 Background:
 Given Server has voucher information for get voucher code :
-	|UserName	|VoucherCode	|Amount	 |CanUse|
-	|OhAe		|B67C3			|200	 |True  |
-	|Boy		|6690A			|500     |True  |
-	|Nit		|C3441			|500	 |True  |
+	|UserName	|VoucherCode		|Amount	 |CanUse|
+	|OhAe		|630041228BAD10C2	|500	 |True  |
+	|Boy		|128031228BF210E4	|300     |True  |
+	|Nit		|448021228C7A10D3	|200	 |True  |
 
 @record_mock
 Scenario:[GetVoucherCode]ระบบได้รับข้อมูล userName ถูกต้อง ระบบสามารถดึงข้อมูลคูปองได้
 	Given The GetVoucherCodeExecutor has been created and initialized 
 	And   Sent UserName 'Boy' for get voucher code            
 	When  Call GetVoucherCodeExecutor() 
-	Then  The result should be Username'Boy' VoucherCode '6690A' Amount '500'
+	Then  The result should be Username'Boy' VoucherCode '128031228BF210E4' Amount '300'
 
 @record_mock
 Scenario:[GetVoucherCode]ระบบได้รับข้อมูล userName ที่ไม่มีใน server ระบบได้ข้อมูลคูปองเป็น null

@@ -7,6 +7,7 @@ using TheS.Casinova.ChipExchange.Commands;
 using TheS.Casinova.ChipExchange.BackServices;
 using TheS.Casinova.ChipExchange.DAL;
 using TheS.Casinova.ChipExchange.Command;
+using TheS.Casinova.PlayerAccount.Models;
 
 namespace TheS.Casinova.ChipExchange.WebExecutors
 {
@@ -56,8 +57,10 @@ namespace TheS.Casinova.ChipExchange.WebExecutors
             #region Credit card validation
             //ดึงข้อมูลบัญชีบัตรเครดิต
             GetPlayerAccountInfoCommand cmd_PlayerAccount = new GetPlayerAccountInfoCommand {
-                UserName = command.UserName,
-                AccountType = command.AccountType
+                PlayerAccount = new PlayerAccountInformation {
+                    UserName = command.UserName,
+                    AccountType = command.AccountType
+                }
             };
 
             cmd_PlayerAccount.PlayerAccountInfo = _iGetPlayerAccount.Get(cmd_PlayerAccount);

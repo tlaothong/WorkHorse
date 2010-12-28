@@ -14,23 +14,17 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs.Steps
     public class CancelPlayerAccountSteps : PlayerAccountModuleStepsBase
     {
         private CancelPlayerAccountCommand _cmd;
-        private string _trackingID;
+       // private string _trackingID;
 
         [Given(@"Sent UserName '(.*)' AccountType '(.*)' for cancel player account")]
         public void GivenSentUserNameAccountTypePrimaryForCancelPlayerAccount(string userName, string accountType)
         {
             _cmd = new CancelPlayerAccountCommand {
-                PlayerAccountInfo = new PlayerAccountInformation { 
+                PlayerAccountInfo = new PlayerAccountInformation {
                     UserName = userName,
                     AccountType = accountType
                 }
             };
-        }
-
-        [Given(@"The system generated TrackingID for CancelPlayerAccount :'(.*)'")]
-        public void GivenTheSystemGeneratedTrackingIDForCancelPlayerAccountX(string trackingID)
-        {
-            _trackingID = trackingID;
         }
 
         [When(@"Call CancelPlayerAccountExecutor\(\) for validate input")]
@@ -53,15 +47,15 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs.Steps
             CancelPlayerAccount.Execute(_cmd, (x) => { });
         }
 
-        [Then(@"TrackingID for CancelPlayerAccount should be : '(.*)'")]
-        public void ThenTrackingIDForCancelPlayerAccountShouldBeX(string trackingID)
+        [Then(@"System can sent cancel player account information to back server")]
+        public void ThenSystemCanSentCancelPlayerAccountInformationToBackServer()
         {
-            Assert.AreEqual(trackingID, _trackingID, "Get trackingID accept");
+            Assert.IsTrue(true, "Cancel information has been verified in the end of block When.");
             
         }
 
-        [Then(@"Get null and skip checking trackingID for cancel player account")]
-        public void ThenGetNullAndSkipCheckingTrackingIDForCancelPlayerAccount()
+        [Then(@"System can't sent cancel player account information to back server")]
+        public void ThenSystemCanTSentCancelPlayerAccountInformationToBackServer()
         {
             Assert.IsTrue(true, "Exception has been verified in the end of block When.");
         }

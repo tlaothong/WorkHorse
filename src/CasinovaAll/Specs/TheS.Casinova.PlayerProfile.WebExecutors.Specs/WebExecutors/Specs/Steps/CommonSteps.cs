@@ -32,13 +32,16 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
         {
             var dac = Mocks.DynamicMock<IPlayerProfileBackService>();
             var svc = Mocks.DynamicMock<IGenerateTrackingID>();
+            var membershipSvc = Mocks.DynamicMock<IMembershipServices>();
 
             IDependencyContainer container;
             setupValidators(out container);
+
             ScenarioContext.Current.Set<IRegisterUser>(dac);
             ScenarioContext.Current.Set<IGenerateTrackingID>(svc);
+            ScenarioContext.Current.Set<IMembershipServices>(membershipSvc);
             ScenarioContext.Current.Set<RegisterUserExecutor>(
-                new RegisterUserExecutor(dac, container, svc));
+                new RegisterUserExecutor(dac, container, svc, membershipSvc));
         }
 
         //List action log  specs initialized
@@ -71,27 +74,32 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
         [Given(@"The ChangePasswordExecutor has been created and initialized")]
         public void GivenTheChangePasswordExecutorHasBeenCreatedAndInitialized()
         {
-            var dac = Mocks.DynamicMock<IPlayerProfileBackService>();
+            //var dac = Mocks.DynamicMock<IPlayerProfileBackService>();
+            var membershipSvc = Mocks.DynamicMock<IMembershipServices>();
 
             IDependencyContainer container;
+           
             setupValidators(out container);
-            ScenarioContext.Current.Set<IChangePassword>(dac);
+            //ScenarioContext.Current.Set<IChangePassword>(dac);
+            ScenarioContext.Current.Set<IMembershipServices>(membershipSvc);
             ScenarioContext.Current.Set<ChangePasswordExecutor>(
-                new ChangePasswordExecutor(dac, container));
+                new ChangePasswordExecutor(container,membershipSvc));
         }
 
         //Change email specs initialized
         [Given(@"The ChangeEmailExecutor has been created and initialized")]
         public void GivenTheChangeEmailExecutorHasBeenCreatedAndInitializedr()
         {
-            var dac = Mocks.DynamicMock<IPlayerProfileBackService>();
+            //var dac = Mocks.DynamicMock<IPlayerProfileBackService>();
+            var membershipSvc = Mocks.DynamicMock<IMembershipServices>();
 
             IDependencyContainer container;
             setupValidators(out container);
 
-            ScenarioContext.Current.Set<IChangeEmail>(dac);
+            //ScenarioContext.Current.Set<IChangeEmail>(dac);
+            ScenarioContext.Current.Set<IMembershipServices>(membershipSvc);
             ScenarioContext.Current.Set<ChangeEmailExecutor>(
-                new ChangeEmailExecutor(dac, container));
+                new ChangeEmailExecutor(container, membershipSvc));
         }
 
         private static void setupValidators(out IDependencyContainer container)

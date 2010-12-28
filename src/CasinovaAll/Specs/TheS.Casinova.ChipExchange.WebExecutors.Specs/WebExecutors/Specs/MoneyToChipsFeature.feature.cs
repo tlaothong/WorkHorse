@@ -53,13 +53,13 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลครบ ระบบตรวจสอบข้อมูลบัตรเครดิต ข้อมูลบัตรเครดิตถูกต้อง ระบบส่งข้" +
-            "อมูลไป back server ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[MoneyToChips]ระบบได้รับข้อมูลครบ ระบบตรวจสอบข้อมูลบัตรเครดิต ข้อมูลบัตรเครดิตถูก" +
+            "ต้อง ระบบส่งข้อมูลไป back server ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "MoneyToChips")]
-        public virtual void ระบบไดรบขอมลครบระบบตรวจสอบขอมลบตรเครดตขอมลบตรเครดตถกตองระบบสงขอมลไปBackServerได()
+        public virtual void MoneyToChipsระบบไดรบขอมลครบระบบตรวจสอบขอมลบตรเครดตขอมลบตรเครดตถกตองระบบสงขอมลไปBackServerได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูลครบ ระบบตรวจสอบข้อมูลบัตรเครดิต ข้อมูลบัตรเครดิตถูกต้อง ระบบส่งข้" +
-                    "อมูลไป back server ได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[MoneyToChips]ระบบได้รับข้อมูลครบ ระบบตรวจสอบข้อมูลบัตรเครดิต ข้อมูลบัตรเครดิตถูก" +
+                    "ต้อง ระบบส่งข้อมูลไป back server ได้", new string[] {
                         "record_mock"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
@@ -135,13 +135,13 @@ testRunner.Then("The system can sent chips exchange information to back server #
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบได้รับข้อมูลครบ ระบบตรวจสอบข้อมูลบัตรเครดิต ข้อมูลบัตรเครดิตไม่ถูกต้อง ระบบไม" +
-            "่สามารถส่งข้อมูลไป back server ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[MoneyToChips]ระบบได้รับข้อมูลครบ ระบบตรวจสอบข้อมูลบัตรเครดิต ข้อมูลบัตรเครดิตไม่" +
+            "ถูกต้อง ระบบไม่สามารถส่งข้อมูลไป back server ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "MoneyToChips")]
-        public virtual void ระบบไดรบขอมลครบระบบตรวจสอบขอมลบตรเครดตขอมลบตรเครดตไมถกตองระบบไมสามารถสงขอมลไปBackServerได()
+        public virtual void MoneyToChipsระบบไดรบขอมลครบระบบตรวจสอบขอมลบตรเครดตขอมลบตรเครดตไมถกตองระบบไมสามารถสงขอมลไปBackServerได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบได้รับข้อมูลครบ ระบบตรวจสอบข้อมูลบัตรเครดิต ข้อมูลบัตรเครดิตไม่ถูกต้อง ระบบไม" +
-                    "่สามารถส่งข้อมูลไป back server ได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[MoneyToChips]ระบบได้รับข้อมูลครบ ระบบตรวจสอบข้อมูลบัตรเครดิต ข้อมูลบัตรเครดิตไม่" +
+                    "ถูกต้อง ระบบไม่สามารถส่งข้อมูลไป back server ได้", new string[] {
                         "record_mock"});
 #line 24
 this.ScenarioSetup(scenarioInfo);
@@ -192,13 +192,13 @@ testRunner.Then("The system can\'t sent chips exchange information to back serve
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบไม่ได้รับข้อมูล AccountType ระบบไม่สามารถตรวจสอบข้อมูลบัตรเครดิตได้_MoneyToCh" +
-            "ips")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[MoneyToChips]ระบบไม่ได้รับข้อมูล AccountType ระบบไม่สามารถตรวจสอบข้อมูลบัตรเครดิ" +
+            "ตได้_MoneyToChips")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "MoneyToChips")]
-        public virtual void ระบบไมไดรบขอมลAccountTypeระบบไมสามารถตรวจสอบขอมลบตรเครดตได_MoneyToChips()
+        public virtual void MoneyToChipsระบบไมไดรบขอมลAccountTypeระบบไมสามารถตรวจสอบขอมลบตรเครดตได_MoneyToChips()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบไม่ได้รับข้อมูล AccountType ระบบไม่สามารถตรวจสอบข้อมูลบัตรเครดิตได้_MoneyToCh" +
-                    "ips", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[MoneyToChips]ระบบไม่ได้รับข้อมูล AccountType ระบบไม่สามารถตรวจสอบข้อมูลบัตรเครดิ" +
+                    "ตได้_MoneyToChips", new string[] {
                         "record_mock"});
 #line 36
 this.ScenarioSetup(scenarioInfo);
@@ -214,13 +214,13 @@ testRunner.Then("The system can\'t sent chips exchange information to back serve
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบไม่ได้รับข้อมูล UserName ระบบไม่สามารถตรวจสอบข้อมูลบัตรเครดิตได้_MoneyToChips" +
-            "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[MoneyToChips]ระบบไม่ได้รับข้อมูล UserName ระบบไม่สามารถตรวจสอบข้อมูลบัตรเครดิตได" +
+            "้_MoneyToChips")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "MoneyToChips")]
-        public virtual void ระบบไมไดรบขอมลUserNameระบบไมสามารถตรวจสอบขอมลบตรเครดตได_MoneyToChips()
+        public virtual void MoneyToChipsระบบไมไดรบขอมลUserNameระบบไมสามารถตรวจสอบขอมลบตรเครดตได_MoneyToChips()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบไม่ได้รับข้อมูล UserName ระบบไม่สามารถตรวจสอบข้อมูลบัตรเครดิตได้_MoneyToChips" +
-                    "", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[MoneyToChips]ระบบไม่ได้รับข้อมูล UserName ระบบไม่สามารถตรวจสอบข้อมูลบัตรเครดิตได" +
+                    "้_MoneyToChips", new string[] {
                         "record_mock"});
 #line 42
 this.ScenarioSetup(scenarioInfo);
@@ -236,11 +236,13 @@ testRunner.Then("The system can\'t sent chips exchange information to back serve
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("ระบบไม่ได้รับข้อมูล Amount ระบบไม่สามารถตรวจสอบข้อมูลบัตรเครดิตได้_MoneyToChips")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[MoneyToChips]ระบบไม่ได้รับข้อมูล Amount ระบบไม่สามารถตรวจสอบข้อมูลบัตรเครดิตได้_" +
+            "MoneyToChips")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "MoneyToChips")]
-        public virtual void ระบบไมไดรบขอมลAmountระบบไมสามารถตรวจสอบขอมลบตรเครดตได_MoneyToChips()
+        public virtual void MoneyToChipsระบบไมไดรบขอมลAmountระบบไมสามารถตรวจสอบขอมลบตรเครดตได_MoneyToChips()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ระบบไม่ได้รับข้อมูล Amount ระบบไม่สามารถตรวจสอบข้อมูลบัตรเครดิตได้_MoneyToChips", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[MoneyToChips]ระบบไม่ได้รับข้อมูล Amount ระบบไม่สามารถตรวจสอบข้อมูลบัตรเครดิตได้_" +
+                    "MoneyToChips", new string[] {
                         "record_mock"});
 #line 48
 this.ScenarioSetup(scenarioInfo);

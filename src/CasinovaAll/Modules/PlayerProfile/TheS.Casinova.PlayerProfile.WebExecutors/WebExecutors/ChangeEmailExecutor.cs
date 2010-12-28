@@ -10,6 +10,7 @@ using TheS.Casinova.PlayerProfile.Command;
 using TheS.Casinova.PlayerProfile.Models;
 using PerfEx.Infrastructure;
 using PerfEx.Infrastructure.Validation;
+using TheS.Casinova.Common.Services;
 
 namespace TheS.Casinova.PlayerProfile.WebExecutors
 {
@@ -19,13 +20,15 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors
     public class ChangeEmailExecutor
         : SynchronousCommandExecutorBase<ChangeEmailCommand>
     {             
-        private IChangeEmail _iChangeEmail;
+        //private IChangeEmail _iChangeEmail;
         private IDependencyContainer _container;
+        private IMembershipServices _membershipSvc;
        
-        public ChangeEmailExecutor(IPlayerProfileBackService dac, IDependencyContainer container)
+        public ChangeEmailExecutor(IDependencyContainer container, IMembershipServices membershipSvc)
         {
-            _iChangeEmail = dac;
+            //_iChangeEmail = dac;
             _container = container;
+            _membershipSvc = membershipSvc;
         }
 
         protected override void ExecuteCommand(ChangeEmailCommand command)
@@ -36,7 +39,8 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors
                 throw new ValidationErrorException(errors);
             }
 
-            _iChangeEmail.ChangeEmail(command);
+            _membershipSvc.ChangeEmail(command.UserProfile);
+            //_iChangeEmail.ChangeEmail(command);
             
         }
      }

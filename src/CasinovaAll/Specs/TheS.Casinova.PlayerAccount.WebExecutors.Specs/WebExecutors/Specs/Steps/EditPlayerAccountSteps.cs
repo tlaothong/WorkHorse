@@ -31,12 +31,6 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs.Steps
             };
         }
 
-        [Given(@"The system generated TrackingID for EditPlayerAccount :'(.*)'")]
-        public void GivenTheSystemGeneratedTrackingIDForEditPlayerAccountX(string trackingID)
-        {
-            _trackingID = trackingID;
-        }
-
         //validation
         [When(@"Call EditPlayerAccountExecutor\(\) for validate input")]
         public void WhenCallEditPlayerAccountExecutorForValidateInput()
@@ -58,16 +52,16 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs.Steps
             EditPlayerAccount.Execute(_cmd, (x) => { });
         }
 
-        [Then(@"Get null and skip checking trackingID for edit player account")]
-        public void ThenGetNullAndSkipCheckingTrackingIDForEditPlayerAccount()
+        [Then(@"Skip credit card validation to edit player account")]
+        public void ThenSkipCreditCardValidationToEditPlayerAccount()
         {
             Assert.IsTrue(true, "Exception has been verified in the end of block When.");
         }
 
-        [Then(@"TrackingID for EditPlayerAccount should be : '(.*)'")]
-        public void ThenTrackingIDForEditPlayerAccountShouldBeX(string trackingID)
+        [Then(@"System can sent credit card information to sent player account to back server")]
+        public void ThenSystemCanSentCreditCardInformationToSentPlayerAccountToBackServer()
         {
-            Assert.AreEqual(trackingID, _trackingID, "Get trackingID accept");
+            Assert.IsTrue(true, "Credit card has been verified in the end of block When.");
         }
        
     }

@@ -4,7 +4,7 @@
 	I want to sent ExchangeInformation to back server
 
 @record_mock
-Scenario: ระบบได้รับข้อมูลครบ ระบบตรวจสอบข้อมูลบัตรเครดิต ข้อมูลบัตรเครดิตถูกต้อง ระบบส่งข้อมูลไป back server ได้  
+Scenario:[MoneyToChips]ระบบได้รับข้อมูลครบ ระบบตรวจสอบข้อมูลบัตรเครดิต ข้อมูลบัตรเครดิตถูกต้อง ระบบส่งข้อมูลไป back server ได้  
 	Given The MoneyToChipsExecutor has been created and initialized
 	And  Server has player account information as:
 		|AccountType|UserName	|CardType	 |AccountNo			|CVV	| ExpireDate |Active|FirstName|LastName|
@@ -21,7 +21,7 @@ Scenario: ระบบได้รับข้อมูลครบ ระบบ
 	Then The system can sent chips exchange information to back server #MoneyToChips
 
 @record_mock
-Scenario: ระบบได้รับข้อมูลครบ ระบบตรวจสอบข้อมูลบัตรเครดิต ข้อมูลบัตรเครดิตไม่ถูกต้อง ระบบไม่สามารถส่งข้อมูลไป back server ได้  
+Scenario:[MoneyToChips]ระบบได้รับข้อมูลครบ ระบบตรวจสอบข้อมูลบัตรเครดิต ข้อมูลบัตรเครดิตไม่ถูกต้อง ระบบไม่สามารถส่งข้อมูลไป back server ได้  
 	Given The MoneyToChipsExecutor has been created and initialized
 	And  Server has player account information as:
 		|AccountType|UserName	|CardType	 |AccountNo			|CVV	| ExpireDate |Active|FirstName|LastName|
@@ -33,19 +33,19 @@ Scenario: ระบบได้รับข้อมูลครบ ระบบ
 	Then The system can't sent chips exchange information to back server #MoneyToChips
 
 @record_mock
-Scenario: ระบบไม่ได้รับข้อมูล AccountType ระบบไม่สามารถตรวจสอบข้อมูลบัตรเครดิตได้_MoneyToChips 
+Scenario:[MoneyToChips]ระบบไม่ได้รับข้อมูล AccountType ระบบไม่สามารถตรวจสอบข้อมูลบัตรเครดิตได้_MoneyToChips 
 	Given The MoneyToChipsExecutor has been created and initialized
 	When  Call MoneyToChipsExecutor (AccountType '' Amonut '1000' UserName'Boy') for money to chips
 	Then  The system can't sent chips exchange information to back server #MoneyToChips
 
 @record_mock
-Scenario: ระบบไม่ได้รับข้อมูล UserName ระบบไม่สามารถตรวจสอบข้อมูลบัตรเครดิตได้_MoneyToChips 
+Scenario:[MoneyToChips]ระบบไม่ได้รับข้อมูล UserName ระบบไม่สามารถตรวจสอบข้อมูลบัตรเครดิตได้_MoneyToChips 
 	Given The MoneyToChipsExecutor has been created and initialized
 	When  Call MoneyToChipsExecutor (AccountType 'Primary' Amonut '1000' UserName'') for money to chips
 	Then  The system can't sent chips exchange information to back server #MoneyToChips
 
 @record_mock
-Scenario: ระบบไม่ได้รับข้อมูล Amount ระบบไม่สามารถตรวจสอบข้อมูลบัตรเครดิตได้_MoneyToChips 
+Scenario:[MoneyToChips]ระบบไม่ได้รับข้อมูล Amount ระบบไม่สามารถตรวจสอบข้อมูลบัตรเครดิตได้_MoneyToChips 
 	Given The MoneyToChipsExecutor has been created and initialized
 	When  Call MoneyToChipsExecutor (AccountType 'Primary' Amonut '' UserName'Boy') for money to chips
 	Then  The system can't sent chips exchange information to back server #MoneyToChips

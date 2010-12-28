@@ -23,6 +23,7 @@ Scenario Outline:[RegisterUser]ระบบได้รับข้อมูล�
 Scenario:[RegisterUser]ระบบได้รับข้อมูลการ register ของผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อมูลถูกต้อง ระบบทำการ generate trackingID
 	Given The RegisterUserExecutor has been created and initialized
 	And   Sent register user information : UserName 'Nit' Password'123456' Email'nayit_n@hotmail.com' CellPhone'0892131356' Upline'boy'
+	And   Call membership service to validate register user information : UserName 'Nit' Password'123456' Email'nayit_n@hotmail.com' CellPhone'0892131356' Upline'boy'
 	And   The system generated TrackingID for register user:'942D2F350FAA4A32870CF9CF9A5C7A2E'
 	When  Call RegisterUserExecutor() 
 	Then  TrackingID for register user should be :'942D2F350FAA4A32870CF9CF9A5C7A2E'

@@ -103,5 +103,13 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
                 return ScenarioContext.Current.Get<IGenerateTrackingID>();
             }
         }
+
+        protected IMembershipServices svc_Membership
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<IMembershipServices>();
+            }
+        }
     }
 }

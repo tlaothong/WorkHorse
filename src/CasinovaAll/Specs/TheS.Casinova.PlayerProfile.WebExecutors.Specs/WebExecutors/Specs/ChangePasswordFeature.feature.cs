@@ -51,10 +51,10 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs
             testRunner.OnScenarioEnd();
         }
         
-        public virtual void ChangePasswordระบบไดรบขอมลรหสผานใหมจากผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID(string userName, string oldPassWord, string newPassword)
+        public virtual void ChangePasswordระบบไดรบขอมลรหสผานใหมจากผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมสามารถเปลยนPasswordใหมได(string userName, string oldPassWord, string newPassword)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ChangePassword]ระบบได้รับข้อมูลรหัสผ่านใหม่จากผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อ" +
-                    "มูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID", new string[] {
+                    "มูลไม่ถูกต้อง ระบบไม่สามารถเปลี่ยน password ใหม่ได้", new string[] {
                         "record_mock"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
@@ -65,64 +65,64 @@ testRunner.And(string.Format("Sent UserName \'{0}\' OldPassword \'{1}\' NewPassw
 #line 10
 testRunner.When("Call ChangePasswordExecutor() for validation input");
 #line 11
-testRunner.Then("Get null and skip checking trackingID for change password");
+testRunner.Then("Skip call membership service to change new password");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ChangePassword]ระบบได้รับข้อมูลรหัสผ่านใหม่จากผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อ" +
-            "มูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
+            "มูลไม่ถูกต้อง ระบบไม่สามารถเปลี่ยน password ใหม่ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ChangePassWord")]
-        public virtual void ChangePasswordระบบไดรบขอมลรหสผานใหมจากผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant0()
+        public virtual void ChangePasswordระบบไดรบขอมลรหสผานใหมจากผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมสามารถเปลยนPasswordใหมได_Variant0()
         {
-            this.ChangePasswordระบบไดรบขอมลรหสผานใหมจากผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID("Nit", "1311", "538956");
+            this.ChangePasswordระบบไดรบขอมลรหสผานใหมจากผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมสามารถเปลยนPasswordใหมได("Nit", "1311", "538956");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ChangePassword]ระบบได้รับข้อมูลรหัสผ่านใหม่จากผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อ" +
-            "มูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
+            "มูลไม่ถูกต้อง ระบบไม่สามารถเปลี่ยน password ใหม่ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ChangePassWord")]
-        public virtual void ChangePasswordระบบไดรบขอมลรหสผานใหมจากผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant1()
+        public virtual void ChangePasswordระบบไดรบขอมลรหสผานใหมจากผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมสามารถเปลยนPasswordใหมได_Variant1()
         {
-            this.ChangePasswordระบบไดรบขอมลรหสผานใหมจากผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID("Nit", "131144", "1234");
+            this.ChangePasswordระบบไดรบขอมลรหสผานใหมจากผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมสามารถเปลยนPasswordใหมได("Nit", "131144", "1234");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ChangePassword]ระบบได้รับข้อมูลรหัสผ่านใหม่จากผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อ" +
-            "มูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
+            "มูลไม่ถูกต้อง ระบบไม่สามารถเปลี่ยน password ใหม่ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ChangePassWord")]
-        public virtual void ChangePasswordระบบไดรบขอมลรหสผานใหมจากผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant2()
+        public virtual void ChangePasswordระบบไดรบขอมลรหสผานใหมจากผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมสามารถเปลยนPasswordใหมได_Variant2()
         {
-            this.ChangePasswordระบบไดรบขอมลรหสผานใหมจากผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID("", "131154", "538956");
+            this.ChangePasswordระบบไดรบขอมลรหสผานใหมจากผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมสามารถเปลยนPasswordใหมได("", "131154", "538956");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ChangePassword]ระบบได้รับข้อมูลรหัสผ่านใหม่จากผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อ" +
-            "มูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
+            "มูลไม่ถูกต้อง ระบบไม่สามารถเปลี่ยน password ใหม่ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ChangePassWord")]
-        public virtual void ChangePasswordระบบไดรบขอมลรหสผานใหมจากผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant3()
+        public virtual void ChangePasswordระบบไดรบขอมลรหสผานใหมจากผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมสามารถเปลยนPasswordใหมได_Variant3()
         {
-            this.ChangePasswordระบบไดรบขอมลรหสผานใหมจากผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID("Nit", "130055", "");
+            this.ChangePasswordระบบไดรบขอมลรหสผานใหมจากผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมสามารถเปลยนPasswordใหมได("Nit", "130055", "");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ChangePassword]ระบบได้รับข้อมูลรหัสผ่านใหม่จากผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อ" +
-            "มูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
+            "มูลไม่ถูกต้อง ระบบไม่สามารถเปลี่ยน password ใหม่ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ChangePassWord")]
-        public virtual void ChangePasswordระบบไดรบขอมลรหสผานใหมจากผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant4()
+        public virtual void ChangePasswordระบบไดรบขอมลรหสผานใหมจากผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมสามารถเปลยนPasswordใหมได_Variant4()
         {
-            this.ChangePasswordระบบไดรบขอมลรหสผานใหมจากผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมทำการGenerateTrackingID("Nit", "12345678901234567", "53895");
+            this.ChangePasswordระบบไดรบขอมลรหสผานใหมจากผเลนระบบทำการตรวจสอบขอมลขอมลไมถกตองระบบไมสามารถเปลยนPasswordใหมได("Nit", "12345678901234567", "53895");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ChangePassword]ระบบได้รับข้อมูลรหัสผ่านใหม่จากผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อ" +
-            "มูลถูกต้อง ระบบทำการ generate trackingID")]
+            "มูลถูกต้อง ระบบสามารถเปลี่ยน password ใหม่ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ChangePassWord")]
-        public virtual void ChangePasswordระบบไดรบขอมลรหสผานใหมจากผเลนระบบทำการตรวจสอบขอมลขอมลถกตองระบบทำการGenerateTrackingID()
+        public virtual void ChangePasswordระบบไดรบขอมลรหสผานใหมจากผเลนระบบทำการตรวจสอบขอมลขอมลถกตองระบบสามารถเปลยนPasswordใหมได()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ChangePassword]ระบบได้รับข้อมูลรหัสผ่านใหม่จากผู้เล่น ระบบทำการตรวจสอบข้อมูล ข้อ" +
-                    "มูลถูกต้อง ระบบทำการ generate trackingID", new string[] {
+                    "มูลถูกต้อง ระบบสามารถเปลี่ยน password ใหม่ได้", new string[] {
                         "record_mock"});
 #line 23
 this.ScenarioSetup(scenarioInfo);
@@ -131,12 +131,12 @@ testRunner.Given("The ChangePasswordExecutor has been created and initialized");
 #line 25
 testRunner.And("Sent UserName \'Nayit\' OldPassword \'123br4\' NewPassword \'nit4532\'");
 #line 26
-testRunner.And("The system generated TrackingID for change password:\'942D2F350FAA4A32870CF9CF9A5C" +
-                    "7A2E\'");
+testRunner.And("Call membership service to validate change password information : UserName \'Nayit" +
+                    "\' OldPassword \'123br4\' NewPassword \'nit4532\'");
 #line 27
 testRunner.When("Call ChangePasswordExecutor()");
 #line 28
-testRunner.Then("TrackingID for change password should be :\'942D2F350FAA4A32870CF9CF9A5C7A2E\'");
+testRunner.Then("Membership service can change new password");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

@@ -6,6 +6,7 @@ using TechTalk.SpecFlow;
 using TheS.Casinova.ChipExchange.DAL;
 using TheS.Casinova.ChipExchange.BackServices;
 using SpecFlowAssist;
+using TheS.Casinova.Common.Services;
 
 namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
 {
@@ -132,6 +133,14 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
             get
             {
                 return ScenarioContext.Current.Get<GetVoucherCodeExecutor>();
+            }
+        }
+
+        protected IGenerateTrackingID svc_GenerateTrackingID
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<IGenerateTrackingID>();
             }
         }
     }

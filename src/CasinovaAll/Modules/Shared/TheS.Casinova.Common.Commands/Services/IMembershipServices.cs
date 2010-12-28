@@ -16,8 +16,7 @@ namespace TheS.Casinova.Common.Services
         /// 4.CellPhone เบอร์โทรศัพท์
         /// 5.Upline ผู้เล่นที่แนะนำ(ถ้ามี)
         /// 6.Active สถานะการใช้งาน (BS ใส่)
-        /// 7.VeriflyCode รหัสยืนยันการสมัคร (BS ใส่)
-        /// 8.TrackingID รหัสตรวจสอบการทำงาน (WS ใส่)
+        /// 7.TrackingID รหัสตรวจสอบการทำงาน (WS ใส่)
         /// </summary>
         void RegisterUser(UserProfile userProfile);
 

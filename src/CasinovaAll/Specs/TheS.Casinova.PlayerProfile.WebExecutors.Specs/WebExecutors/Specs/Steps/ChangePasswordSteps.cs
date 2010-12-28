@@ -7,6 +7,7 @@ using TheS.Casinova.PlayerProfile.Commands;
 using TheS.Casinova.PlayerProfile.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PerfEx.Infrastructure.Validation;
+using Rhino.Mocks;
 
 namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
 {
@@ -14,8 +15,7 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
     public class ChangePasswordSteps : PlayerProfileModuleStepsBase
     {
         private ChangePasswordCommand _cmd;
-        private string _trackingID;
-
+  
         [Given(@"Sent UserName '(.*)' OldPassword '(.*)' NewPassword '(.*)'")]
         public void GivenSentUserNameXOldPasswordXNewPasswordX(string userName, string oldPassword, string newPassword)
         {
@@ -28,10 +28,17 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
             };
         }
 
-        [Given(@"The system generated TrackingID for change password:'(.*)'")]
-        public void GivenTheSystemGeneratedTrackingIDForChangePasswordX(string trackingID)
+        [Given(@"Call membership service to validate change password information : UserName '(.*)' OldPassword '(.*)' NewPassword '(.*)'")]
+        public void GivenCallMembershipServiceToValidateChangePasswordInformationUserNameXOldPasswordXNewPasswordX(string userName, string oldPassword, string newPassword)
         {
-            _trackingID = trackingID;
+            Action<UserProfile> checkData = (userProfile) => {
+                Assert.AreEqual(userName, userProfile.UserName, "UserName");
+                Assert.AreEqual(oldPassword, userProfile.Password, "OldPassword");
+                Assert.AreEqual(newPassword, userProfile.NewPassword, "NewPassword");
+            };
+
+            svc_Membership.ChangePassword(new UserProfile());
+            LastCall.IgnoreArguments().Do(checkData);
         }
 
         //Validation
@@ -55,16 +62,17 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs.Steps
               ChangePassword.Execute(_cmd, (x) => { });
         }
 
-        [Then(@"Get null and skip checking trackingID for change password")]
-        public void ThenGetNullAndSkipCheckingTrackingIDForChangePassword()
-        {
-            Assert.IsTrue(true, "Exception has been verified in the end of block When.");
-        }
+         [Then(@"Skip call membership service to change new password")]
+         public void ThenSkipCallMembershipServiceToChangeNewPassword()
+         {
+             Assert.IsTrue(true, "Exception has been verified in the end of block When.");      
+         }
 
-        [Then(@"TrackingID for change password should be :'(.*)'")]
-        public void ThenTrackingIDForChangePasswordShouldBeX(string expectTrackingID)
+
+         [Then(@"Membership service can change new password")]
+         public void ThenMembershipServiceCanChangeNewPassword()
         {
-            Assert.AreEqual(expectTrackingID, _trackingID, "Get trackingID accept");
+            Assert.IsTrue(true, "Membership has been verified in the end of block When.");
         }
     }
 }

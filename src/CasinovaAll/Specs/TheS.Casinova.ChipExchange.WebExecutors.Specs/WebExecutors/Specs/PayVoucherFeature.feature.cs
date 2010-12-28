@@ -171,8 +171,10 @@ testRunner.Given("The PayVoucherExecutor has been created and initialized");
 #line 43
 testRunner.And("Sent UserName\'\' Amount\'1000\' for pay voucher");
 #line 44
-testRunner.When("Call PayVoucherExecutor() for validate input");
+testRunner.And("Sent UserName\'\' the player\'s profile should recieved");
 #line 45
+testRunner.When("Call PayVoucherExecutor() for validate input");
+#line 46
 testRunner.Then("Get null and skip checking trackingID");
 #line hidden
             testRunner.CollectScenarioErrors();
@@ -187,15 +189,17 @@ testRunner.Then("Get null and skip checking trackingID");
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[PayVoucher]ระบบได้รับข้อมูล amount ไม่ถูกต้อง ระบบไม่สามารถตรวจสอบจำนวนชิพทั้งหม" +
                     "ดได้", new string[] {
                         "record_mock"});
-#line 48
-this.ScenarioSetup(scenarioInfo);
 #line 49
-testRunner.Given("The PayVoucherExecutor has been created and initialized");
+this.ScenarioSetup(scenarioInfo);
 #line 50
-testRunner.And("Sent UserName\'\' Amount\'1000\' for pay voucher");
+testRunner.Given("The PayVoucherExecutor has been created and initialized");
 #line 51
-testRunner.When("Call PayVoucherExecutor() for validate input");
+testRunner.And("Sent UserName\'\' Amount\'1000\' for pay voucher");
 #line 52
+testRunner.And("Sent UserName\'\' the player\'s profile should recieved");
+#line 53
+testRunner.When("Call PayVoucherExecutor() for validate input");
+#line 54
 testRunner.Then("Get null and skip checking trackingID");
 #line hidden
             testRunner.CollectScenarioErrors();

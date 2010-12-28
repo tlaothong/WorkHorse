@@ -30,7 +30,7 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "CreatePlayerAccount", "In order to create player account\r\nAs a system\r\nI want to create player account i" +
-                    "nformation", ((string[])(null)));
+                    "nformation to back server", ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -52,10 +52,10 @@ namespace TheS.Casinova.PlayerAccount.WebExecutors.Specs
             testRunner.OnScenarioEnd();
         }
         
-        public virtual void CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมทำการGenerateTrackingID(string userName, string cardType, string accountNo, string cVV, string expireDate)
+        public virtual void CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมสามารถสงขอมลไปทำการสรางบญชผใชได(string userName, string cardType, string accountNo, string cVV, string expireDate)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[CreatePlayerAccount]ระบบได้รับข้อมูล PlayerAccount ระบบทำการตรวจสอบข้อมูล มีการก" +
-                    "รอกข้อมูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID", new string[] {
+                    "รอกข้อมูลไม่ถูกต้อง ระบบไม่สามารถส่งข้อมูลไปทำการสร้างบัญชีผู้ใช้ได้", new string[] {
                         "record_mock"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
@@ -67,80 +67,103 @@ testRunner.And(string.Format("Sent player account information: UserName \'{0}\' 
 #line 10
 testRunner.When("Call CreatePlayerAccountExecutor() for validate input");
 #line 11
-testRunner.Then("Get null and skip checking trackingID");
+testRunner.Then("Skip credit card validation to create player account");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[CreatePlayerAccount]ระบบได้รับข้อมูล PlayerAccount ระบบทำการตรวจสอบข้อมูล มีการก" +
-            "รอกข้อมูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
+            "รอกข้อมูลไม่ถูกต้อง ระบบไม่สามารถส่งข้อมูลไปทำการสร้างบัญชีผู้ใช้ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CreatePlayerAccount")]
-        public virtual void CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant0()
+        public virtual void CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมสามารถสงขอมลไปทำการสรางบญชผใชได_Variant0()
         {
-            this.CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมทำการGenerateTrackingID("", "Visa", "0012214544543212", "3223", "12/31/2011");
+            this.CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมสามารถสงขอมลไปทำการสรางบญชผใชได("", "Visa", "5585067151394716", "3223", "12/31/2011");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[CreatePlayerAccount]ระบบได้รับข้อมูล PlayerAccount ระบบทำการตรวจสอบข้อมูล มีการก" +
-            "รอกข้อมูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
+            "รอกข้อมูลไม่ถูกต้อง ระบบไม่สามารถส่งข้อมูลไปทำการสร้างบัญชีผู้ใช้ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CreatePlayerAccount")]
-        public virtual void CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant1()
+        public virtual void CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมสามารถสงขอมลไปทำการสรางบญชผใชได_Variant1()
         {
-            this.CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมทำการGenerateTrackingID("Nit", "", "0012214544543212", "3223", "12/31/2011");
+            this.CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมสามารถสงขอมลไปทำการสรางบญชผใชได("Nit", "", "5585067151394716", "3223", "12/31/2011");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[CreatePlayerAccount]ระบบได้รับข้อมูล PlayerAccount ระบบทำการตรวจสอบข้อมูล มีการก" +
-            "รอกข้อมูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
+            "รอกข้อมูลไม่ถูกต้อง ระบบไม่สามารถส่งข้อมูลไปทำการสร้างบัญชีผู้ใช้ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CreatePlayerAccount")]
-        public virtual void CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant2()
+        public virtual void CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมสามารถสงขอมลไปทำการสรางบญชผใชได_Variant2()
         {
-            this.CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมทำการGenerateTrackingID("Nit", "Visa", "001221454454", "3223", "12/31/2011");
+            this.CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมสามารถสงขอมลไปทำการสรางบญชผใชได("Nit", "Visa", "001221454454", "3223", "12/31/2011");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[CreatePlayerAccount]ระบบได้รับข้อมูล PlayerAccount ระบบทำการตรวจสอบข้อมูล มีการก" +
-            "รอกข้อมูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
+            "รอกข้อมูลไม่ถูกต้อง ระบบไม่สามารถส่งข้อมูลไปทำการสร้างบัญชีผู้ใช้ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CreatePlayerAccount")]
-        public virtual void CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant3()
+        public virtual void CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมสามารถสงขอมลไปทำการสรางบญชผใชได_Variant3()
         {
-            this.CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมทำการGenerateTrackingID("Nit", "Visa", "00122145445455234", "3223", "12/31/2011");
+            this.CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมสามารถสงขอมลไปทำการสรางบญชผใชได("Nit", "Visa", "", "3223", "12/31/2011");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[CreatePlayerAccount]ระบบได้รับข้อมูล PlayerAccount ระบบทำการตรวจสอบข้อมูล มีการก" +
-            "รอกข้อมูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
+            "รอกข้อมูลไม่ถูกต้อง ระบบไม่สามารถส่งข้อมูลไปทำการสร้างบัญชีผู้ใช้ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CreatePlayerAccount")]
-        public virtual void CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant4()
+        public virtual void CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมสามารถสงขอมลไปทำการสรางบญชผใชได_Variant4()
         {
-            this.CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมทำการGenerateTrackingID("Nit", "Visa", "0012214544543212", "3", "12/31/2011");
+            this.CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมสามารถสงขอมลไปทำการสรางบญชผใชได("Nit", "Visa", "55850671513947164", "3223", "12/31/2011");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[CreatePlayerAccount]ระบบได้รับข้อมูล PlayerAccount ระบบทำการตรวจสอบข้อมูล มีการก" +
-            "รอกข้อมูลถูกต้อง ระบบทำการ generate trackingID")]
+            "รอกข้อมูลไม่ถูกต้อง ระบบไม่สามารถส่งข้อมูลไปทำการสร้างบัญชีผู้ใช้ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CreatePlayerAccount")]
-        public virtual void CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลถกตองระบบทำการGenerateTrackingID()
+        public virtual void CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมสามารถสงขอมลไปทำการสรางบญชผใชได_Variant5()
+        {
+            this.CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมสามารถสงขอมลไปทำการสรางบญชผใชได("Nit", "Visa", "5585067151394716", "3", "12/31/2011");
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[CreatePlayerAccount]ระบบได้รับข้อมูล PlayerAccount ระบบทำการตรวจสอบข้อมูล มีการก" +
+            "รอกข้อมูลไม่ถูกต้อง ระบบไม่สามารถส่งข้อมูลไปทำการสร้างบัญชีผู้ใช้ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CreatePlayerAccount")]
+        public virtual void CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมสามารถสงขอมลไปทำการสรางบญชผใชได_Variant6()
+        {
+            this.CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมสามารถสงขอมลไปทำการสรางบญชผใชได("Nit", "Visa", "5585067151394716", "3456", "12/31/2011");
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[CreatePlayerAccount]ระบบได้รับข้อมูล PlayerAccount ระบบทำการตรวจสอบข้อมูล มีการก" +
+            "รอกข้อมูลไม่ถูกต้อง ระบบไม่สามารถส่งข้อมูลไปทำการสร้างบัญชีผู้ใช้ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CreatePlayerAccount")]
+        public virtual void CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมสามารถสงขอมลไปทำการสรางบญชผใชได_Variant7()
+        {
+            this.CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมสามารถสงขอมลไปทำการสรางบญชผใชได("Nit", "Visa", "0012214544542345", "3456", "12/31/2011");
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[CreatePlayerAccount]ระบบได้รับข้อมูล PlayerAccount ระบบทำการตรวจสอบข้อมูล มีการก" +
+            "รอกข้อมูลถูกต้อง ระบบสามารถส่งข้อมูลไปทำการสร้างบัญชีผู้ใช้ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CreatePlayerAccount")]
+        public virtual void CreatePlayerAccountระบบไดรบขอมลPlayerAccountระบบทำการตรวจสอบขอมลมการกรอกขอมลถกตองระบบสามารถสงขอมลไปทำการสรางบญชผใชได()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[CreatePlayerAccount]ระบบได้รับข้อมูล PlayerAccount ระบบทำการตรวจสอบข้อมูล มีการก" +
-                    "รอกข้อมูลถูกต้อง ระบบทำการ generate trackingID", new string[] {
+                    "รอกข้อมูลถูกต้อง ระบบสามารถส่งข้อมูลไปทำการสร้างบัญชีผู้ใช้ได้", new string[] {
                         "record_mock"});
-#line 22
-this.ScenarioSetup(scenarioInfo);
-#line 23
-testRunner.Given("The CreatePlayerAccountExecutor has been created and initialized");
-#line 24
-testRunner.And("Sent player account information: UserName \'Nit\' CardType\'Visa\' AccountNo\'00122145" +
-                    "44543212\' CVV\'3223\' ExpireDate\'12/31/2011\'");
 #line 25
-testRunner.And("The system generated TrackingID for CreatePlayerAccount :\'DEDE6BFD17484312848E13F" +
-                    "26345C597\'");
+this.ScenarioSetup(scenarioInfo);
 #line 26
-testRunner.When("Call CreatePlayerAccountExecutor()");
+testRunner.Given("The CreatePlayerAccountExecutor has been created and initialized");
 #line 27
-testRunner.Then("TrackingID for CreatePlayerAccount should be : \'DEDE6BFD17484312848E13F26345C597\'" +
-                    "");
+testRunner.And("Sent player account information: UserName \'Nit\' CardType\'MasterCard\' AccountNo\'55" +
+                    "85067151394716\' CVV\'3223\' ExpireDate\'12/31/2011\'");
+#line 28
+testRunner.When("Call CreatePlayerAccountExecutor()");
+#line 29
+testRunner.Then("System can sent credit card information to create player account to back server");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

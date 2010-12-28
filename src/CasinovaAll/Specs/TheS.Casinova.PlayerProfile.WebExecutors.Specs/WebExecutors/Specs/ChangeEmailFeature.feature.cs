@@ -51,10 +51,10 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors.Specs
             testRunner.OnScenarioEnd();
         }
         
-        public virtual void ChangeNewEmailระบบไดรบขอมลอเมลใหมจากผเลนระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมทำการGenerateTrackingID(string userName, string oldEmail, string newEmail)
+        public virtual void ChangeNewEmailระบบไดรบขอมลอเมลใหมจากผเลนระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมสามารถเปลยนEmailใหมได(string userName, string oldEmail, string newEmail)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ChangeNewEmail]ระบบได้รับข้อมูลอีเมลใหม่จากผู้เล่น ระบบทำการตรวจสอบข้อมูล มีการก" +
-                    "รอกข้อมูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID", new string[] {
+                    "รอกข้อมูลไม่ถูกต้อง ระบบไม่สามารถเปลี่ยน email ใหม่ได้", new string[] {
                         "record_mock"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
@@ -65,45 +65,45 @@ testRunner.And(string.Format("Sent UserName \'{0}\' OldEmail \'{1}\' NewEmail \'
 #line 10
 testRunner.When("Call ChangeEmailExecutor() for validate input");
 #line 11
-testRunner.Then("Get null and skip checking trackingID for change email");
+testRunner.Then("Skip call membership service to change new email");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ChangeNewEmail]ระบบได้รับข้อมูลอีเมลใหม่จากผู้เล่น ระบบทำการตรวจสอบข้อมูล มีการก" +
-            "รอกข้อมูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
+            "รอกข้อมูลไม่ถูกต้อง ระบบไม่สามารถเปลี่ยน email ใหม่ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ChangeEmail")]
-        public virtual void ChangeNewEmailระบบไดรบขอมลอเมลใหมจากผเลนระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant0()
+        public virtual void ChangeNewEmailระบบไดรบขอมลอเมลใหมจากผเลนระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมสามารถเปลยนEmailใหมได_Variant0()
         {
-            this.ChangeNewEmailระบบไดรบขอมลอเมลใหมจากผเลนระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมทำการGenerateTrackingID("", "nayit_nit@hotmail.com", "nittaya@perfenterprise.com");
+            this.ChangeNewEmailระบบไดรบขอมลอเมลใหมจากผเลนระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมสามารถเปลยนEmailใหมได("", "nayit_nit@hotmail.com", "nittaya@perfenterprise.com");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ChangeNewEmail]ระบบได้รับข้อมูลอีเมลใหม่จากผู้เล่น ระบบทำการตรวจสอบข้อมูล มีการก" +
-            "รอกข้อมูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
+            "รอกข้อมูลไม่ถูกต้อง ระบบไม่สามารถเปลี่ยน email ใหม่ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ChangeEmail")]
-        public virtual void ChangeNewEmailระบบไดรบขอมลอเมลใหมจากผเลนระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant1()
+        public virtual void ChangeNewEmailระบบไดรบขอมลอเมลใหมจากผเลนระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมสามารถเปลยนEmailใหมได_Variant1()
         {
-            this.ChangeNewEmailระบบไดรบขอมลอเมลใหมจากผเลนระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมทำการGenerateTrackingID("Nit", "", "nittaya@perfenterprise.com");
+            this.ChangeNewEmailระบบไดรบขอมลอเมลใหมจากผเลนระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมสามารถเปลยนEmailใหมได("Nit", "", "nittaya@perfenterprise.com");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ChangeNewEmail]ระบบได้รับข้อมูลอีเมลใหม่จากผู้เล่น ระบบทำการตรวจสอบข้อมูล มีการก" +
-            "รอกข้อมูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
+            "รอกข้อมูลไม่ถูกต้อง ระบบไม่สามารถเปลี่ยน email ใหม่ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ChangeEmail")]
-        public virtual void ChangeNewEmailระบบไดรบขอมลอเมลใหมจากผเลนระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant2()
+        public virtual void ChangeNewEmailระบบไดรบขอมลอเมลใหมจากผเลนระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมสามารถเปลยนEmailใหมได_Variant2()
         {
-            this.ChangeNewEmailระบบไดรบขอมลอเมลใหมจากผเลนระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมทำการGenerateTrackingID("Nit", "nayit_nit@hotmail.com", "");
+            this.ChangeNewEmailระบบไดรบขอมลอเมลใหมจากผเลนระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมสามารถเปลยนEmailใหมได("Nit", "nayit_nit@hotmail.com", "");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ChangeNewEmail]ระบบได้รับข้อมูลอีเมลใหม่จากผู้เล่น ระบบทำการตรวจสอบข้อมูล มีการก" +
-            "รอกข้อมูลไม่ถูกต้อง ระบบไม่ทำการ generate trackingID")]
+            "รอกข้อมูลไม่ถูกต้อง ระบบไม่สามารถเปลี่ยน email ใหม่ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ChangeEmail")]
-        public virtual void ChangeNewEmailระบบไดรบขอมลอเมลใหมจากผเลนระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมทำการGenerateTrackingID_Variant3()
+        public virtual void ChangeNewEmailระบบไดรบขอมลอเมลใหมจากผเลนระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมสามารถเปลยนEmailใหมได_Variant3()
         {
-            this.ChangeNewEmailระบบไดรบขอมลอเมลใหมจากผเลนระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมทำการGenerateTrackingID("Nit", "nayit_nit@hotmail.com", "perfenterprise");
+            this.ChangeNewEmailระบบไดรบขอมลอเมลใหมจากผเลนระบบทำการตรวจสอบขอมลมการกรอกขอมลไมถกตองระบบไมสามารถเปลยนEmailใหมได("Nit", "nayit_nit@hotmail.com", "perfenterprise");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
@@ -123,12 +123,12 @@ testRunner.Given("The ChangeEmailExecutor has been created and initialized");
 testRunner.And("Sent UserName \'Nit\' OldEmail \'nayit_nit@hotmail.com\' NewEmail \'nittaya@perfenterp" +
                     "rise.com\'");
 #line 24
-testRunner.And("The system generated TrackingID for change email:\'942D2F350FAA4A32870CF9CF9A5C7A2" +
-                    "E\'");
+testRunner.And("Call membership service to validate change email information : UserName \'Nit\' Old" +
+                    "Email \'nayit_nit@hotmail.com\' NewEmail \'nittaya@perfenterprise.com\'");
 #line 25
 testRunner.When("Call ChangeEmailExecutor()");
 #line 26
-testRunner.Then("TrackingID for change email should be :\'942D2F350FAA4A32870CF9CF9A5C7A2E\'");
+testRunner.Then("Membership service can change new email");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

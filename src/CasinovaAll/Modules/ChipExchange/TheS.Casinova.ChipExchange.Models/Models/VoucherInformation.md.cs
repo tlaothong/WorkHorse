@@ -18,6 +18,8 @@ namespace TheS.Casinova.ChipExchange.Models
 
             public double Amount { get; set; }
 
+            public Guid TrackingID { get; set; }
+
             public bool CanUse { get; set; }
         }
     }

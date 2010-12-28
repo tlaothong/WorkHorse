@@ -13,14 +13,11 @@ namespace TheS.Casinova.ChipExchange.Command
     {
         //input
         /// <summary>
-        /// ประเภทของบัญชี
+        /// ข้อมูลใช้ดึงข้อมูลบัญชีบัตรเครดิต
+        /// 1. AccountType ประเภทของบัญชี
+        /// 2. UserName ชื่อผู้เล่น
         /// </summary>
-        public string AccountType { get; set; }
-
-        /// <summary>
-        /// ชื่อผู้เล่น
-        /// </summary>
-        public string UserName { get; set; }
+        public PlayerAccountInformation PlayerAccount { get; set; }
 
         //output
         /// <summary>

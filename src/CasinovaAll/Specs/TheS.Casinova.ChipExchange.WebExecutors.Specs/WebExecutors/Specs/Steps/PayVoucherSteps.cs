@@ -8,6 +8,7 @@ using TheS.Casinova.ChipExchange.Commands;
 using TheS.Casinova.ChipExchange.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PerfEx.Infrastructure.Validation;
+using Rhino.Mocks;
 
 namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
 {
@@ -51,6 +52,9 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
                            where item.UserName == userName
                            select item).FirstOrDefault();
 
+            SetupResult.For(Dqr_GetPlayerBalance.Get(new GetPlayerBalanceCommand()))
+                .IgnoreArguments().Return(_getBalance);
+
             if (_getBalance == null) {
                 _validate = false;
             }
@@ -62,12 +66,16 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
                     _validate = false;
                 }
             }
+            
         }
 
         [Given(@"The system generated TrackingID for PayVoucher:'(.*)'")]
         public void GivenTheSystemGeneratedTrackingIDForPayVoucherX(string trackingID)
         {
             _trackingID = trackingID;
+
+            SetupResult.For(svc_GenerateTrackingID.GenerateTrackingID())
+                .IgnoreArguments().Return(Guid.Parse(_trackingID));
         }
 
         //Test function

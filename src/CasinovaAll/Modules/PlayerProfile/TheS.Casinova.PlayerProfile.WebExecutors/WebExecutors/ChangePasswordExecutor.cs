@@ -9,6 +9,7 @@ using TheS.Casinova.PlayerProfile.DAL;
 using TheS.Casinova.PlayerProfile.Command;
 using PerfEx.Infrastructure;
 using PerfEx.Infrastructure.Validation;
+using TheS.Casinova.Common.Services;
 
 namespace TheS.Casinova.PlayerProfile.WebExecutors
 {
@@ -18,14 +19,16 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors
     public class ChangePasswordExecutor
          : SynchronousCommandExecutorBase<ChangePasswordCommand>     
     {
-         private IChangePassword _iChangePassword;
+         //private IChangePassword _iChangePassword;
          private IDependencyContainer _container;
+         private IMembershipServices _membershipSvc;
          //private IGetPlayerPassword _iGetPlayerPassword;
 
-         public ChangePasswordExecutor(IPlayerProfileBackService dac, IDependencyContainer container ) 
+         public ChangePasswordExecutor(IDependencyContainer container, IMembershipServices membershipSvc ) 
        {
-             _iChangePassword = dac;
+             //_iChangePassword = dac;
              _container = container;
+             _membershipSvc = membershipSvc;
        }
 
          protected override void ExecuteCommand(ChangePasswordCommand command)
@@ -36,7 +39,8 @@ namespace TheS.Casinova.PlayerProfile.WebExecutors
                throw new ValidationErrorException(errors);
            }
 
-           _iChangePassword.ChangePassWord(command);         
+           _membershipSvc.ChangePassword(command.UserProfile);
+           //_iChangePassword.ChangePassWord(command);         
        }
     }
 }

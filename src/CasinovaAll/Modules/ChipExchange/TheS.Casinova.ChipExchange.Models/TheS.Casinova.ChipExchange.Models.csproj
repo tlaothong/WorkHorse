@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Models\ChequeInformation.cs" />
     <Compile Include="Models\ExchangeInformation.cs" />
+    <Compile Include="Models\ExchangeInformation.md.cs" />
     <Compile Include="Models\ExchangeSetting.cs" />
     <Compile Include="Models\MultiLevelNetworkInformation.cs" />
     <Compile Include="Models\VoucherInformation.cs" />
