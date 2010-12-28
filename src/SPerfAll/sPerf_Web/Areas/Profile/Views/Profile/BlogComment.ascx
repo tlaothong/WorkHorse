@@ -89,7 +89,7 @@
             autoOpen: false,
             modal: true,
             width: 400,
-            title: "ความคิดเห็น",
+            title: "ความคิดเห็น"
         });
 
         // Dialog Link

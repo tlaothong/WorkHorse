@@ -1,38 +1,23 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<dynamic>" %>
-<script type="text/javascript">
-    function showStuff(id) {
-        document.getElementById(id).style.display = 'block';
+<script language="javascript" type="text/javascript">
+    function showHide(shID) {
+        if (document.getElementById(shID)) {
+            if (document.getElementById(shID + '-show').style.display != 'none') {
+                document.getElementById(shID + '-show').style.display = 'none';
+                document.getElementById(shID).style.display = 'block';
+            }
+            else {
+                document.getElementById(shID + '-show').style.display = 'inline';
+                document.getElementById(shID).style.display = 'none';
+            }
+        }
     }
-    function showStuff1(id) {
-        document.getElementById(id).style.display = 'block';
-    }
-    function showStuff2(id) {
-        document.getElementById(id).style.display = 'block';
-    }
-    function showStuff3(id) {
-        document.getElementById(id).style.display = 'block';
-    }
-    function hideStuff(id) {
-        document.getElementById(id).style.display = 'block';
-    }
-    $(function () {
-        $(".bookmark").click(function () {
-            $(this).slideUp();
-        });
-        $("#bookmark").hover(function () {
-            $(this).addClass("hilite");
-        }, function () {
-            $(this).removeClass("hilite");
-        });
-    });
 </script>
 <style type="text/css">
     /* This CSS is just for presentational purposes. */
     #listContent
     {
-        margin-top: 10px;
-        overflow: auto;
-        height: 400px;
+        margin-top: 20px;
     }
     #wrap
     {
@@ -75,7 +60,7 @@
     </label>
     <label style="color: Gray; float: left; margin-left: 5px;">
         (152)</label><div>
-            <a href="#" class="SeeAll" style="color: Gray; margin-left: 40px;">SeeAll</a></div>
+            <a href="#" style="color: Gray; margin-left: 40px;">SeeAll</a></div>
 </div>
 <div id="listContent">
     <div style="width: 159; height: 400px;">
@@ -99,7 +84,7 @@
                 (1 day ago) danm fantasic nice
             </div>
             <div style="width: 30px; float: right;">
-                <a href="#" class="Report" style="color: gray; text-decoration: none;">report</a>
+                <a href="#" style="color: gray; text-decoration: none;">report</a>
             </div>
         </div>
         <div style="margin-bottom: 5px; padding-bottom: 5px; width: 159px; margin-left: 5px;
@@ -119,77 +104,73 @@
                 (1 day ago) Not funny, and they from Aqua Teen HuForce
             </div>
             <div style="width: 30px; float: right;">
-                <a href="#" class="Report" style="float: right; color: gray; text-decoration: none;">report</a>
+                <a href="#" style="float: right; color: gray; text-decoration: none;">report</a>
             </div>
         </div>
-        <br />
-        <div style="clear: both; margin-left: 5px;">
-            <a href="#" class="bookmark" onclick="showStuff('comment1'); return false;">See More...</a></div>
-        <div id="comment1" style="margin-bottom: 5px; padding-bottom: 5px; width: 159px;
-            margin-left: 5px; border-bottom: 1px solid #D2D5D2; float: left; clear: left;
-            display: none;">
-            <table>
-                <tr>
-                    <td>
-                        <img src="/Content/Profile/pic_friend/3.png" alt="" />
-                    </td>
-                    <td valign="top">
-                        <label>
-                            โอ่งเหลือง เห็ดม่อ</label>
-                    </td>
-                </tr>
-            </table>
-            <div style="width: 120px; float: left;">
-                (17 hours ago) which joke woz dat?
+        <a href="#" id="example-show" class="showLink" onclick="showHide('example');return false;">
+            SeeMore...</a>
+        <div id="example" class="more showLink">
+            <div style="margin-bottom: 5px; padding-bottom: 5px; width: 159px; margin-left: 5px;
+                border-bottom: 1px solid #D2D5D2; float: left; clear: left;">
+                <table>
+                    <tr>
+                        <td>
+                            <img src="/Content/Profile/pic_friend/3.png" alt="" />
+                        </td>
+                        <td valign="top">
+                            <label>
+                                โอ่งเหลือง เห็ดม่อ</label>
+                        </td>
+                    </tr>
+                </table>
+                <div style="width: 120px; float: left;">
+                    (17 hours ago) which joke woz dat?
+                </div>
+                <div style="width: 30px; float: right;">
+                    <a href="#" style="float: right; color: gray; text-decoration: none;">report</a>
+                </div>
             </div>
-            <div style="width: 30px; float: right;">
-                <a href="#" class="Report" style="float: right; color: gray; text-decoration: none;">report</a>
+            <div style="margin-bottom: 5px; padding-bottom: 5px; width: 159px; margin-left: 5px;
+                border-bottom: 1px solid #D2D5D2; float: left; clear: left;">
+                <table>
+                    <tr>
+                        <td>
+                            <img src="/Content/Profile/pic_friend/4.png" alt="" />
+                        </td>
+                        <td valign="top">
+                            <label>
+                                This Lovestory</label>
+                        </td>
+                    </tr>
+                </table>
+                <div style="width: 120px; float: left;">
+                    (1 day ago) this sucked
+                </div>
+                <div style="width: 30px; float: right;">
+                    <a href="#" style="float: right; color: gray; text-decoration: none;">report</a>
+                </div>
             </div>
-            <div style="clear: both; margin-left: 5px;">
-                <a href="#" class="bookmark" onclick="showStuff1('comment2'); return false;">See More...</a></div>
-        </div>
-        <div id="comment2" style="margin-bottom: 5px; padding-bottom: 5px; width: 159px;
-            margin-left: 5px; border-bottom: 1px solid #D2D5D2; float: left; clear: left;
-            display: none;">
-            <table>
-                <tr>
-                    <td>
-                        <img src="/Content/Profile/pic_friend/4.png" alt="" />
-                    </td>
-                    <td valign="top">
-                        <label>
-                            This Lovestory</label>
-                    </td>
-                </tr>
-            </table>
-            <div style="width: 120px; float: left;">
-                (1 day ago) this sucked
-            </div>
-            <div style="width: 30px; float: right;">
-                <a href="#" class="Report" style="float: right; color: gray; text-decoration: none;">report</a>
-            </div>
-            <div style="clear: both; margin-left: 5px;">
-                <a href="#" class="bookmark" onclick="showStuff2('comment3'); return false;">See More...</a></div>
-        </div>
-        <div id="comment3" style="margin-bottom: 5px; padding-bottom: 5px; width: 159px;
-            margin-left: 5px; border-bottom: 1px solid #D2D5D2; float: left; clear: left;
-            display: none;">
-            <table>
-                <tr>
-                    <td>
-                        <img src="/Content/Profile/pic_friend/5.png" alt="" /><br />
-                    </td>
-                    <td valign="top">
-                        <label>
-                            Peemai Shr</label>
-                    </td>
-                </tr>
-            </table>
-            <div style="width: 120px; float: left;">
-                (1 day ago) this sucked
-            </div>
-            <div style="width: 30px; float: right;">
-                <a href="#" class="Report" style="float: right; color: gray; text-decoration: none;">report</a>
+            <div style="margin-bottom: 5px; padding-bottom: 5px; width: 159px; margin-left: 5px;
+                border-bottom: 1px solid #D2D5D2; float: left; clear: left;">
+                <table>
+                    <tr>
+                        <td>
+                            <img src="/Content/Profile/pic_friend/5.png" alt="" /><br />
+                        </td>
+                        <td valign="top">
+                            <label>
+                                Peemai Shr</label>
+                        </td>
+                    </tr>
+                </table>
+                <div style="width: 120px; float: left;">
+                    (1 day ago) this sucked
+                </div>
+                <div style="width: 30px; float: right;">
+                    <a href="#" style="float: right; color: gray; text-decoration: none;">report</a>
+                </div>
+                <a href="#" id="example-hide" class="hideLink" onclick="showHide('example');return false;">
+                    Hide this content.</a>
             </div>
         </div>
     </div>

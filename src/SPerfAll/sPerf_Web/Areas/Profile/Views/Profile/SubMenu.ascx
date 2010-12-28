@@ -28,8 +28,13 @@
                 </div>
             </td>
             <td>
-                <div id="inbox">
-                    | <%=Html.ActionLink("Inbox",MVC.Profile.Profile.Inbox()) %>
+                <div class="linkSub">
+                    | <a href="#" id="Message">Inbox</a>
+                </div>
+            </td>
+            <td>
+                <div class="linkSub">
+                    | <a href="#" id="optionProfiles">Option</a>
                 </div>
             </td>
         </tr>

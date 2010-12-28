@@ -56,6 +56,7 @@ namespace sPerf_Web.Controllers {
             public readonly string FAQTutorial = "FAQTutorial";
             public readonly string AboutUs = "AboutUs";
             public readonly string Option = "Option";
+            public readonly string StartMenu = "StartMenu";
         }
 
 
@@ -128,6 +129,11 @@ namespace sPerf_Web.Controllers {
 
         public override System.Web.Mvc.ActionResult Option() {
             var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Option);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult StartMenu() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.StartMenu);
             return callInfo;
         }
 

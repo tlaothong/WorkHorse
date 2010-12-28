@@ -35,10 +35,7 @@ namespace sPerf_Web.Areas.Profile.Controllers
         {
             return View();
         }
-        public virtual ActionResult Friends()
-        {
-            return View();
-        }
+        
         public virtual ActionResult Inbox()
         {
             return View();
@@ -68,6 +65,22 @@ namespace sPerf_Web.Areas.Profile.Controllers
             return View();
         }
         public virtual ActionResult Filter()
+        {
+            return View();
+        }
+        public virtual ActionResult editors()
+        {
+            return View();
+        }
+        public virtual ActionResult DragandDropTreeview()
+        {
+            return View();
+        }
+        public virtual ActionResult DGTreeview()
+        {
+            return View();
+        }
+        public virtual ActionResult OptionProfile()
         {
             return View();
         }
