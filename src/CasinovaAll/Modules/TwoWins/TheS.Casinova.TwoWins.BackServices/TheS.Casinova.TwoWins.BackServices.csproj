@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="BackServices\BackExecutors\CalculateGameRoundWinnerExecutor.cs" />
     <Compile Include="BackServices\BackExecutors\ChangeBetExecutor.cs" />
+    <Compile Include="BackServices\BackExecutors\EndGameReturnRewardExecutor.cs" />
     <Compile Include="BackServices\BackExecutors\RangeBetExecutor.cs" />
     <Compile Include="BackServices\BackExecutors\SingleBetExecutor.cs" />
     <Compile Include="BackServices\Validators\BetInfo_ChangeBetValidator.cs" />

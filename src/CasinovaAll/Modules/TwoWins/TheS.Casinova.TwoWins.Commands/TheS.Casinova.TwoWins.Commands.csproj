@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Commands\CalculateGameRoundWinnerCommand.cs" />
     <Compile Include="Commands\ChangeBetInfoCommand.cs" />
+    <Compile Include="Commands\EndGameReturnRewardCommand.cs" />
     <Compile Include="Commands\GetGameStatusCommand.cs" />
     <Compile Include="Commands\ListBetDataCommand.cs" />
     <Compile Include="Commands\ListBetLogInfoCommand.cs" />

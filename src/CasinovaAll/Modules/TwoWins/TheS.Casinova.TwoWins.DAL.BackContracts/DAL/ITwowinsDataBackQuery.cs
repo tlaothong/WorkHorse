@@ -15,7 +15,8 @@ namespace TheS.Casinova.TwoWins.DAL
         IGetBetInfo,
         IListBetInfoByRoundID,
         IGetRoundWinnerInfo,
-        IListBetInfoByBetAmount
+        IListBetInfoByBetAmount,
+        IGetSettingInfo
     { }
 
     /// <summary>
@@ -58,5 +59,12 @@ namespace TheS.Casinova.TwoWins.DAL
     /// </summary>
     public interface IListBetInfoByBetAmount
         : IFetchData<BetInformation, ListBetInfoByBetAmountCommand>
+    { }
+
+    /// <summary>
+    /// ดึงข้อมูลการตั้งค่า
+    /// </summary>
+    public interface IGetSettingInfo
+        : IFetchSingleData<SettingInformation, GetSettingInfoCommand>
     { }
 }

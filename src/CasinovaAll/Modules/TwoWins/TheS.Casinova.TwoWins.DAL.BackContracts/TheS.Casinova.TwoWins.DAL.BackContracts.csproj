@@ -52,6 +52,7 @@
     <Compile Include="Commands\GetBetInfoCommand.cs" />
     <Compile Include="Commands\GetRoundInfoCommand.cs" />
     <Compile Include="Commands\GetRoundWinnerCommand.cs" />
+    <Compile Include="Commands\GetSettingInfoCommand.cs" />
     <Compile Include="Commands\GetUserProfileCommand.cs" />
     <Compile Include="Commands\ListBetInfoByBetAmountCommand.cs" />
     <Compile Include="Commands\ListBetInfoByRoundIDCommand.cs" />

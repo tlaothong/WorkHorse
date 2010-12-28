@@ -78,19 +78,24 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
                     getPlayerInfoCmd.UserProfile.Refundable += userProfile.Refundable;
                 }
                 else if ((winnerAmount < netAmount) && (winner.Amount != netAmount)) {
-                    if (userProfile.NonRefundable != 0) {
+                    if (userProfile.NonRefundable >= (netAmount) - winnerAmount) {
                         //หักชิฟที่ขาดทุนจากชิฟตายก่อน
                         userProfile.NonRefundable -= (netAmount) - winnerAmount;
                     }
                     else {
-                        userProfile.Refundable -= (netAmount) - winnerAmount;
+                        userProfile.Refundable -= ((netAmount) - winnerAmount) - userProfile.NonRefundable;
+                        userProfile.NonRefundable = 0;
                     }
 
                     getPlayerInfoCmd.UserProfile.NonRefundable += userProfile.NonRefundable;
                     getPlayerInfoCmd.UserProfile.Refundable += userProfile.Refundable;
                 }
+                else if (winnerAmount == netAmount) {
+                    getPlayerInfoCmd.UserProfile.NonRefundable += userProfile.NonRefundable;
+                    getPlayerInfoCmd.UserProfile.Refundable += userProfile.Refundable;
+                }
 
-                //TODO : ส่งข้อมูลเงินรางวัลให้ Reward ทำงานต่อ                
+                //TODO : ส่งข้อมูลเงิน(getPlayerInfoCmd.UserProfile)รางวัลให้ Reward ทำงานต่อ                
             }
         }
     }

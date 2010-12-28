@@ -54,5 +54,27 @@ namespace TheS.Casinova.TwoWins.Models
         /// จำนวนการลงพนันที่ซ้ำกัน
         /// </summary>
         public int WinnerLowCriticalCount { get; set; }
+
+        ///////////////////////////////////////////////////////////////////////
+
+        /// <summary>
+        /// ผู้ชนะ(HandID)จำนวนเงินสูงสุดในช่วง normal
+        /// </summary>
+        public int WinnerHightNormal { get; set; }
+
+        /// <summary>
+        /// ผู้ชนะ(HandID)จำนวนเงินต่ำสุดในช่วง normal
+        /// </summary>
+        public int WinnerLowNormal { get; set; }
+
+        /// <summary>
+        /// ผู้ชนะ(HandID)จำนวนเงินสูงสุดในช่วง critical
+        /// </summary>
+        public int WinnerHightCritical { get; set; }
+
+        /// <summary>
+        /// ผู้ชนะ(HandID)จำนวนเงินต่ำสุดในช่วง critical
+        /// </summary>
+        public int WinnerLowCritical { get; set; }
     }
 }
