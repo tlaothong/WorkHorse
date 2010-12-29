@@ -67,8 +67,8 @@ namespace TheS.Casinova.TwoWins.BackServices.Specs
                         "200"});
             table1.AddRow(new string[] {
                         "Boy",
-                        "0.99",
-                        "0"});
+                        "1",
+                        "5"});
             table1.AddRow(new string[] {
                         "Toommy",
                         "36.95",
@@ -126,57 +126,102 @@ testRunner.Given("(Twowins_ChangeBet)server has player information as:", ((strin
 testRunner.And("(Twowins_ChangeBet)server has round information as:", ((string)(null)), table2);
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "HandID",
                         "RoundID",
                         "UserName",
                         "BonusChips",
                         "Chips",
                         "Amount",
-                        "HandID",
                         "HandStatus",
                         "CanChange"});
             table3.AddRow(new string[] {
+                        "1562",
                         "1",
                         "OhAe",
                         "123",
                         "0",
                         "123",
-                        "1562",
                         "Normal",
-                        "true"});
+                        "false"});
             table3.AddRow(new string[] {
+                        "1542",
                         "1",
                         "OhAe",
                         "12",
                         "5",
-                        "15",
-                        "1542",
+                        "17",
                         "Normal",
                         "true"});
             table3.AddRow(new string[] {
-                        "1",
-                        "OhAe",
-                        "0",
-                        "7",
-                        "7",
                         "1549",
+                        "1",
+                        "OhAe",
+                        "0",
+                        "7",
+                        "7",
                         "Normal",
                         "true"});
             table3.AddRow(new string[] {
+                        "1604",
                         "1",
                         "OhAe",
                         "0",
                         "20",
                         "20",
-                        "1604",
                         "Critical",
                         "true"});
             table3.AddRow(new string[] {
+                        "1611",
                         "1",
                         "OhAe",
                         "0",
                         "25",
                         "25",
-                        "1611",
+                        "Critical",
+                        "false"});
+            table3.AddRow(new string[] {
+                        "1662",
+                        "2",
+                        "Boy",
+                        "123",
+                        "0",
+                        "123",
+                        "Normal",
+                        "false"});
+            table3.AddRow(new string[] {
+                        "1642",
+                        "2",
+                        "Boy",
+                        "12",
+                        "5",
+                        "17",
+                        "Normal",
+                        "true"});
+            table3.AddRow(new string[] {
+                        "1649",
+                        "2",
+                        "Boy",
+                        "0",
+                        "7",
+                        "7",
+                        "Normal",
+                        "true"});
+            table3.AddRow(new string[] {
+                        "1704",
+                        "2",
+                        "Boy",
+                        "0",
+                        "20",
+                        "20",
+                        "Critical",
+                        "true"});
+            table3.AddRow(new string[] {
+                        "1711",
+                        "2",
+                        "Boy",
+                        "0",
+                        "25",
+                        "25",
                         "Critical",
                         "false"});
 #line 25
@@ -192,34 +237,134 @@ testRunner.And("(Twowins_ChangeBet)server has bet information as:", ((string)(nu
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo(@"(Twowins_ChangeBet)ผู้เล่นเพิ่มเงินพนันในข้อมูลลงพนันเดิมในช่วงเวลาปกติของโต๊ะเกม โดยระบุชิฟที่เพิ่มมากกว่าเดิม ผู้เล่นมีชิฟตายพอ และข้อมูลลงพนันยังสามารถแก้ไขได้, ระบบบันทึกข้อมูลการแก้ไข บันทึกประวัติการดำเนินการ หักชิฟผู้เล่นเพิ่ม และอัพเดทเงินกองกลางของโต๊ะเกมและข้อมูลการลงพนันเดิม", new string[] {
                         "record_mock",
                         "record_mock"});
-#line 34
-this.ScenarioSetup(scenarioInfo);
-#line 35
-testRunner.Given("(Twowins_ChangeBet)The ChangeBetExecutor has been created and initialized");
-#line 36
-testRunner.And("(Twowins_ChangeBet)sent name: \'OhAe\' the player\'s balance should recieved");
-#line 37
-testRunner.And("(Twowins_ChangeBet)sent roundID: \'1\' the round information should recieved");
-#line 38
-testRunner.And("(Twowins_ChangeBet)sent handID: \'1542\' the round information should recieved");
-#line 39
-testRunner.And("(Twowins_ChangeBet)the round pot information should be update(RoundID: \'1\', Pot: " +
-                    "\'764\')");
 #line 40
-testRunner.And("(Twowins_ChangeBet)the action log information should be create (RoundID: \'1\', Use" +
-                    "rName: \'OhAe\', ActionType: \'ChangeBet\', Amount: \'20\', OldAmount: \'15\', HandStatu" +
-                    "s: \'Normal\', CanChange: \'true\'");
+this.ScenarioSetup(scenarioInfo);
 #line 41
-testRunner.And("(Twowins_ChangeBet)the player\'s balance should be update(UserName: \'OhAe\', BonusC" +
-                    "hips: \'15\', Chips: \'200\')");
+testRunner.Given("(Twowins_ChangeBet)The ChangeBetExecutor has been created and initialized");
 #line 42
-testRunner.And("(Twowins_ChangeBet)the bet information should be update(RoundID: \'1\', UserName: \'" +
-                    "OhAe\', BetTrackingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\', BonusChips: \'17\', " +
-                    "Chips: \'5\', HandStatus: \'Normal\', CanChange: \'true\')");
+testRunner.And("(Twowins_ChangeBet)sent name: \'OhAe\' the player\'s balance should recieved");
 #line 43
+testRunner.And("(Twowins_ChangeBet)sent roundID: \'1\' the round information should recieved");
+#line 44
+testRunner.And("(Twowins_ChangeBet)sent handID: \'1542\' the round information should recieved");
+#line 45
+testRunner.And("(Twowins_ChangeBet)the round pot information should be update(RoundID: \'1\', Pot: " +
+                    "\'762\')");
+#line 46
+testRunner.And("(Twowins_ChangeBet)the action log information should be create (RoundID: \'1\', Use" +
+                    "rName: \'OhAe\', ActionType: \'ChangeBet\', Amount: \'20\', OldAmount: \'17\', HandStatu" +
+                    "s: \'Normal\', Change: \'true\'");
+#line 47
+testRunner.And("(Twowins_ChangeBet)the player\'s balance should be update(UserName: \'OhAe\', BonusC" +
+                    "hips: \'17\', Chips: \'200\')");
+#line 48
+testRunner.And("(Twowins_ChangeBet)the bet information should be update(RoundID: \'1\', UserName: \'" +
+                    "OhAe\', BetTrackingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\', BonusChips: \'15\', " +
+                    "Chips: \'5\', HandStatus: \'Normal\', CanChange: \'true\')");
+#line 49
 testRunner.When("(Twowins_ChangeBet)call ChangeBetExecutor(UserName: \'OhAe\', HandID: \'1542\', Amoun" +
                     "t: \'20\', RoundID: \'1\', BetTrackingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\')");
-#line 44
+#line 50
+testRunner.Then("the result should be change");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(Twowins_ChangeBet)ผู้เล่นเพิ่มเงินพนันในข้อมูลลงพนันเดิมในช่วงเวลาปกติของโต๊ะเกม" +
+            " โดยระบุชิฟที่เพิ่มน้อยกว่าเดิม ระบบแจ้งเตือน")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ChangeBet")]
+        public virtual void Twowins_ChangeBetผเลนเพมเงนพนนในขอมลลงพนนเดมในชวงเวลาปกตของโตะเกมโดยระบชฟทเพมนอยกวาเดมระบบแจงเตอน()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(Twowins_ChangeBet)ผู้เล่นเพิ่มเงินพนันในข้อมูลลงพนันเดิมในช่วงเวลาปกติของโต๊ะเกม" +
+                    " โดยระบุชิฟที่เพิ่มน้อยกว่าเดิม ระบบแจ้งเตือน", new string[] {
+                        "record_mock"});
+#line 53
+this.ScenarioSetup(scenarioInfo);
+#line 54
+testRunner.Given("(Twowins_ChangeBet)The ChangeBetExecutor has been created and initialized");
+#line 55
+testRunner.And("(Twowins_ChangeBet)sent name: \'OhAe\' the player\'s balance should recieved");
+#line 56
+testRunner.And("(Twowins_ChangeBet)sent roundID: \'1\' the round information should recieved");
+#line 57
+testRunner.And("(Twowins_ChangeBet)sent handID: \'1542\' the round information should recieved");
+#line 58
+testRunner.When("(Twowins_ChangeBet)Expected exception and call ChangeBetExecutor(UserName: \'OhAe\'" +
+                    ", HandID: \'1542\', Amount: \'10\', RoundID: \'1\', BetTrackingID: \'B21F8971-DBAB-400F" +
+                    "-9D95-151BA24875C1\')");
+#line 59
+testRunner.Then("the result should be throw exception");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(Twowins_ChangeBet)ผู้เล่นเพิ่มเงินพนันในข้อมูลลงพนันเดิมในช่วงเวลาปกติของโต๊ะเกม" +
+            " โดยระบุชิฟที่เพิ่มมากกว่าเดิม ผู้เล่นมีชิฟตายพอ และข้อมูลลงพนันไม่อนุญาตให้แก้ไ" +
+            "ขแล้ว, ระบบแจ้งเตือน")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ChangeBet")]
+        public virtual void Twowins_ChangeBetผเลนเพมเงนพนนในขอมลลงพนนเดมในชวงเวลาปกตของโตะเกมโดยระบชฟทเพมมากกวาเดมผเลนมชฟตายพอและขอมลลงพนนไมอนญาตใหแกไขแลวระบบแจงเตอน()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(Twowins_ChangeBet)ผู้เล่นเพิ่มเงินพนันในข้อมูลลงพนันเดิมในช่วงเวลาปกติของโต๊ะเกม" +
+                    " โดยระบุชิฟที่เพิ่มมากกว่าเดิม ผู้เล่นมีชิฟตายพอ และข้อมูลลงพนันไม่อนุญาตให้แก้ไ" +
+                    "ขแล้ว, ระบบแจ้งเตือน", new string[] {
+                        "record_mock"});
+#line 62
+this.ScenarioSetup(scenarioInfo);
+#line 63
+testRunner.Given("(Twowins_ChangeBet)The ChangeBetExecutor has been created and initialized");
+#line 64
+testRunner.And("(Twowins_ChangeBet)sent name: \'OhAe\' the player\'s balance should recieved");
+#line 65
+testRunner.And("(Twowins_ChangeBet)sent roundID: \'1\' the round information should recieved");
+#line 66
+testRunner.And("(Twowins_ChangeBet)sent handID: \'1611\' the round information should recieved");
+#line 67
+testRunner.When("(Twowins_ChangeBet)Expected exception and call ChangeBetExecutor(UserName: \'OhAe\'" +
+                    ", HandID: \'1611\', Amount: \'26\', RoundID: \'1\', BetTrackingID: \'B21F8971-DBAB-400F" +
+                    "-9D95-151BA24875C1\')");
+#line 68
+testRunner.Then("the result should be throw exception");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute(@"(Twowins_ChangeBet)ผู้เล่นเพิ่มเงินพนันในข้อมูลลงพนันเดิมในช่วงเวลาวิกฤตของโต๊ะเกม โดยระบุชิฟที่เพิ่มมากกว่าเดิม ระบบแจ้งเตือน ผู้เล่นมีชิฟตายไม่พอหักชิฟเป็นเพิ่ม และข้อมูลลงพนันยังสามารถแก้ไขได้, ระบบบันทึกข้อมูลการแก้ไข บันทึกประวัติการดำเนินการ หักชิฟผู้เล่นเพิ่ม และอัพเดทเงินกองกลางของโต๊ะเกมและข้อมูลการลงพนันเดิม")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ChangeBet")]
+        public virtual void Twowins_ChangeBetผเลนเพมเงนพนนในขอมลลงพนนเดมในชวงเวลาวกฤตของโตะเกมโดยระบชฟทเพมมากกวาเดมระบบแจงเตอนผเลนมชฟตายไมพอหกชฟเปนเพมและขอมลลงพนนยงสามารถแกไขไดระบบบนทกขอมลการแกไขบนทกประวตการดำเนนการหกชฟผเลนเพมและอพเดทเงนกองกลางของโตะเกมและขอมลการลงพนนเดม()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo(@"(Twowins_ChangeBet)ผู้เล่นเพิ่มเงินพนันในข้อมูลลงพนันเดิมในช่วงเวลาวิกฤตของโต๊ะเกม โดยระบุชิฟที่เพิ่มมากกว่าเดิม ระบบแจ้งเตือน ผู้เล่นมีชิฟตายไม่พอหักชิฟเป็นเพิ่ม และข้อมูลลงพนันยังสามารถแก้ไขได้, ระบบบันทึกข้อมูลการแก้ไข บันทึกประวัติการดำเนินการ หักชิฟผู้เล่นเพิ่ม และอัพเดทเงินกองกลางของโต๊ะเกมและข้อมูลการลงพนันเดิม", new string[] {
+                        "record_mock"});
+#line 71
+this.ScenarioSetup(scenarioInfo);
+#line 72
+testRunner.Given("(Twowins_ChangeBet)The ChangeBetExecutor has been created and initialized");
+#line 73
+testRunner.And("(Twowins_ChangeBet)sent name: \'Boy\' the player\'s balance should recieved");
+#line 74
+testRunner.And("(Twowins_ChangeBet)sent roundID: \'2\' the round information should recieved");
+#line 75
+testRunner.And("(Twowins_ChangeBet)sent handID: \'1642\' the round information should recieved");
+#line 76
+testRunner.And("(Twowins_ChangeBet)the round pot information should be update(RoundID: \'2\', Pot: " +
+                    "\'5269\')");
+#line 77
+testRunner.And("(Twowins_ChangeBet)the action log information should be create (RoundID: \'2\', Use" +
+                    "rName: \'Boy\', ActionType: \'ChangeBet\', Amount: \'20\', OldAmount: \'17\', HandStatus" +
+                    ": \'Critical\', Change: \'true\'");
+#line 78
+testRunner.And("(Twowins_ChangeBet)the player\'s balance should be update(UserName: \'Boy\', BonusCh" +
+                    "ips: \'0\', Chips: \'3\')");
+#line 79
+testRunner.And("(Twowins_ChangeBet)the bet information should be update(RoundID: \'2\', UserName: \'" +
+                    "Boy\', BetTrackingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\', BonusChips: \'13\', C" +
+                    "hips: \'7\', HandStatus: \'Critical\', CanChange: \'false\')");
+#line 80
+testRunner.When("(Twowins_ChangeBet)call ChangeBetExecutor(UserName: \'Boy\', HandID: \'1642\', Amount" +
+                    ": \'20\', RoundID: \'2\', BetTrackingID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\')");
+#line 81
 testRunner.Then("the result should be change");
 #line hidden
             testRunner.CollectScenarioErrors();

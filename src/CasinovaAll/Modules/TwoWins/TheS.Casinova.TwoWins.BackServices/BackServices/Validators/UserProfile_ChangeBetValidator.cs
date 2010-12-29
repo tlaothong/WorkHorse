@@ -10,14 +10,13 @@ namespace TheS.Casinova.TwoWins.BackServices.Validators
 {
     public class UserProfile_ChangeBetValidator
         : ValidatorBase<UserProfile, ChangeBetInfoCommand>
-    {
-
+   {
         public override void Validate(UserProfile entity, ChangeBetInfoCommand command, ValidationErrorCollection errors)
         {
-            if (entity.Refundable + entity.NonRefundable < command.BetInfo.Amount) {
+            if (entity.Refundable + entity.NonRefundable < command.netAmount) {
                 errors.Add(new ValidationError {
                     Instance = entity,
-                    ErrorMessage = "จำนวนชิฟที่มีอยู่ไม่พอลงพนันอย่างน้อยหนึ่งมือ",
+                    ErrorMessage = "จำนวนชิฟที่มีอยู่ไม่พอลงเงินพนัน",
                 });
             }
         }

@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Models\ActionLogInformation.cs" />
     <Compile Include="Models\ActionLogInformation.md.cs" />
+    <Compile Include="Models\BetAmountInformation.cs" />
     <Compile Include="Models\BetInformation.cs" />
     <Compile Include="Models\BetInformation.md.cs" />
     <Compile Include="Models\RangeBetInformation.cs" />

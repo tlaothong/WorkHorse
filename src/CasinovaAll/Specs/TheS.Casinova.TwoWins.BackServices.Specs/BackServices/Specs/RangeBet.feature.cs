@@ -156,7 +156,7 @@ testRunner.And("(Twowins_RangeBet)the player\'s balance should be update only bo
 #line 32
 testRunner.And("(Twowins_RangeBet)the action log information should be create(RoundID: \'1\', UserN" +
                     "ame: \'OhAe\', ActionType: \'RangeBet\', Amount: \'15\', OldAmount: \'-1\', HandStatus: " +
-                    "\'Normal\', CanChange: \'true\')");
+                    "\'Normal\', Change: \'false\')");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "RoundID",
@@ -245,7 +245,7 @@ testRunner.And("(Twowins_RangeBet)the player\'s balance should be update only bo
 #line 51
 testRunner.And("(Twowins_RangeBet)the action log information should be create(RoundID: \'2\', UserN" +
                     "ame: \'Au\', ActionType: \'RangeBet\', Amount: \'200\', OldAmount: \'-1\', HandStatus: \'" +
-                    "Critical\', CanChange: \'true\')");
+                    "Critical\', Change: \'false\')");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "RoundID",

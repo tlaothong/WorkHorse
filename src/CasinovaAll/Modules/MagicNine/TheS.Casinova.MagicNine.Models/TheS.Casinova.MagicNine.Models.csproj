@@ -47,7 +47,6 @@
     <Compile Include="Models\GamePlayAutoBetInformation.md.cs" />
     <Compile Include="Models\GameRoundInformation.cs" />
     <Compile Include="Models\GameRoundInformation.md.cs" />
-    <Compile Include="Models\PlayerInformation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

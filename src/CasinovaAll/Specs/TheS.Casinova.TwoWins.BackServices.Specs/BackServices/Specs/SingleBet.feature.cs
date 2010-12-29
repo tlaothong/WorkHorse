@@ -156,7 +156,7 @@ testRunner.And("(Twowins_SingleBet)the player\'s balance should be update(UserNa
 #line 32
 testRunner.And("(Twowins_SingleBet)the action log information should be create (RoundID: \'1\', Use" +
                     "rName: \'OhAe\', ActionType: \'SingleBet\', Amount: \'10\', OldAmount: \'-1\', HandStatu" +
-                    "s: \'Normal\', CanChange: \'true\'");
+                    "s: \'Normal\', Change: \'false\'");
 #line 33
 testRunner.And("(Twowins_SingleBet)the bet information (RoundID: \'1\', UserName: \'OhAe\', BetTracki" +
                     "ngID: \'B21F8971-DBAB-400F-9D95-151BA24875C1\', BonusChips: \'10\', Chips: \'0\', Hand" +

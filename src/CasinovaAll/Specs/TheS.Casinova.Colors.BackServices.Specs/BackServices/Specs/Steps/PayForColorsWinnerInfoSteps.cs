@@ -80,7 +80,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
                           where item.RoundID == roundID && item.UserName == userName && item.ActionType == "GetWinner"
                           select item);
 
-            SetupResult.For(Dqr_ListPlayerActionInfo.List(new PayForColorsWinnerInfoCommand()))
+            SetupResult.For(Dqr_ListPlayerActionInfo.List(new ListPlayerActionInfoCommand()))
                 .IgnoreArguments().Return(result);
         }
 

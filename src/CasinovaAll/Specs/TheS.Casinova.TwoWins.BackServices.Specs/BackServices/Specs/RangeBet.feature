@@ -29,7 +29,7 @@ Scenario: (Twowins_RangeBet)ผู้เล่นลงพนันช่วง�
 	And (Twowins_RangeBet)sent roundID: '1' the round information should recieved
 	And (Twowins_RangeBet)the round pot information should be update(RoundID: '1', Pot: '774')
 	And (Twowins_RangeBet)the player's balance should be update only bonuschips(UserName: 'OhAe', BonusChips: '0', Chips: '0')
-	And (Twowins_RangeBet)the action log information should be create(RoundID: '1', UserName: 'OhAe', ActionType: 'RangeBet', Amount: '15', OldAmount: '-1', HandStatus: 'Normal', CanChange: 'true')
+	And (Twowins_RangeBet)the action log information should be create(RoundID: '1', UserName: 'OhAe', ActionType: 'RangeBet', Amount: '15', OldAmount: '-1', HandStatus: 'Normal', Change: 'false')
 	And (Twowins_RangeBet)expected the bet information should be create 
 	|RoundID	|UserName	|BetTrackingID							|Status	|BonusChips	|Chips	|CanChange	|
 	|1			|OhAe		|B21F8971-DBAB-400F-9D95-151BA24875C1	|Normal	|1			|0		|true		|
@@ -48,7 +48,7 @@ Scenario: (Twowins_RangeBet)ผู้เล่นลงพนันช่วง�
 	And (Twowins_RangeBet)sent roundID: '2' the round information should recieved
 	And (Twowins_RangeBet)the round pot information should be update(RoundID: '2', Pot: '5466')
 	And (Twowins_RangeBet)the player's balance should be update only bonuschips(UserName: 'Au', BonusChips: '0', Chips: '226')
-	And (Twowins_RangeBet)the action log information should be create(RoundID: '2', UserName: 'Au', ActionType: 'RangeBet', Amount: '200', OldAmount: '-1', HandStatus: 'Critical', CanChange: 'true')
+	And (Twowins_RangeBet)the action log information should be create(RoundID: '2', UserName: 'Au', ActionType: 'RangeBet', Amount: '200', OldAmount: '-1', HandStatus: 'Critical', Change: 'false')
 	And (Twowins_RangeBet)expected the bet information should be create 
 	|RoundID	|UserName	|BetTrackingID							|Status		|BonusChips	|Chips	|CanChange	|
 	|2			|Au			|B21F8971-DBAB-400F-9D95-151BA24875C1	|Critical	|5			|0		|true		|

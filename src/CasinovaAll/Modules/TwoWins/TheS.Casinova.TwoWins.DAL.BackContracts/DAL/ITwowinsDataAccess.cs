@@ -15,7 +15,8 @@ namespace TheS.Casinova.TwoWins.DAL
         IUpdateRoundInfo,
         IUpdateUserProfile,
         ICreateRangeBetInfo,
-        IChangeBetInfo
+        IChangeBetInfo,
+        IUpdateRoundWinnerInfo
     { }
 
     /// <summary>
@@ -58,5 +59,12 @@ namespace TheS.Casinova.TwoWins.DAL
     /// </summary>
     public interface IChangeBetInfo
         : IDataAction<BetInformation, ChangeBetInfoCommand>
+    { }
+
+    /// <summary>
+    /// อัพเดทข้อมูลผู้ชนะของโต๊ะเกม
+    /// </summary>
+    public interface IUpdateRoundWinnerInfo
+        : IDataAction<RoundWinnerInformation, UpdateRoundWinnerInfoCommand>
     { }
 }

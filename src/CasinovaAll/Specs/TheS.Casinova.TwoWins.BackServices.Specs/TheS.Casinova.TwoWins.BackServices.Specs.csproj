@@ -64,6 +64,11 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackServices\Specs\CalculateGameRoundWinner.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CalculateGameRoundWinner.feature</DependentUpon>
+    </Compile>
     <Compile Include="BackServices\Specs\ChangeBet.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -79,6 +84,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SingleBet.feature</DependentUpon>
     </Compile>
+    <Compile Include="BackServices\Specs\Steps\CalculateGameRoundWinnerSteps.cs" />
     <Compile Include="BackServices\Specs\Steps\ChangeBetSteps.cs" />
     <Compile Include="BackServices\Specs\Steps\CommonSteps.cs" />
     <Compile Include="BackServices\Specs\Steps\RangeBetSteps.cs" />
@@ -119,6 +125,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="BackServices\Specs\CalculateGameRoundWinner.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CalculateGameRoundWinner.feature.cs</LastGenOutput>
+    </None>
     <None Include="BackServices\Specs\ChangeBet.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ChangeBet.feature.cs</LastGenOutput>

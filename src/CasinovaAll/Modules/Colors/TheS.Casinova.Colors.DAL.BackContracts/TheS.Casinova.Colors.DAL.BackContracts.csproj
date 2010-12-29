@@ -49,6 +49,7 @@
     <Compile Include="Commands\CreatePlayerActionInfoCommand.cs" />
     <Compile Include="Commands\GetPlayerInfoCommand.cs" />
     <Compile Include="Commands\GetRoundInfoCommand.cs" />
+    <Compile Include="Commands\ListPlayerActionInfoCommand.cs" />
     <Compile Include="Commands\UpdateOnGoingTrackingIDCommand.cs" />
     <Compile Include="Commands\UpdatePlayerInfoBalanceCommand.cs" />
     <Compile Include="Commands\UpdateRoundWinnerCommand.cs" />

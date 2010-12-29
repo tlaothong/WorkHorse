@@ -24,6 +24,7 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
         public const string Key_Dac_VeriflyUser = "mockDac_VeriflyUser";
         public const string Key_Dac_ChangePassword = "mockDac_ChangePassword";
         public const string Key_Dac_ChangeEmail = "mockDac_ChangeEmail";
+        public const string Key_Dac_ReturnReward = "mockDac_ReturnReward";
 
         public const string Key_Dqr_GetUserProfile = "mockDqr_GetUserProfile";
         public const string Key_Dqr_GetUserProfileByEmail = "mockDqr_GetUserProfileByEmail";
@@ -32,6 +33,7 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
         public const string Key_VeriflyUser = "VeriflyUser";
         public const string Key_ChangePassword = "ChangePassword";
         public const string Key_ChangeEmail = "ChangeEmail";
+        public const string Key_ReturnReward = "ReturnReward";
 
         MockRepository Mocks { get { return SpecEventDefinitions.Mocks; } }
 
@@ -99,6 +101,19 @@ namespace TheS.Casinova.PlayerProfile.BackServices.Specs.Steps
 
             setupValidators(out container);
             ScenarioContext.Current[Key_ChangeEmail] = new ChangeEmailExecutor(container, dac, dqr);
+        }
+
+        [Given(@"The ReturnRewardExecutor has been created and initialized")]
+        public void GivenTheReturnRewardExecutorHasBeenCreatedAndInitialized()
+        {
+            var dac = Mocks.DynamicMock<IPlayerProfileDataAccess>();
+            var dqr = Mocks.DynamicMock<IPlayerProfileDataBackQuery>();
+            var container = Mocks.DynamicMock<IDependencyContainer>();
+
+            ScenarioContext.Current[Key_Dac_ReturnReward] = dac;
+            ScenarioContext.Current[Key_Dqr_GetUserProfile] = dqr;
+
+            ScenarioContext.Current[Key_ReturnReward] = new ReturnRewardExecutor(dac, dqr);
         }
 
         private static void setupValidators(out IDependencyContainer container)

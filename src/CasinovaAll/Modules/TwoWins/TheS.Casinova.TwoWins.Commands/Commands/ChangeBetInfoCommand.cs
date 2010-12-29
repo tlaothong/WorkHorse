@@ -21,6 +21,8 @@ namespace TheS.Casinova.TwoWins.Commands
         /// </summary>
         public BetInformation BetInfo { get; set; }
 
+        public double netAmount { get; set; }
+
         //output
         /// <summary>
         /// รหัสตรวจสอบ

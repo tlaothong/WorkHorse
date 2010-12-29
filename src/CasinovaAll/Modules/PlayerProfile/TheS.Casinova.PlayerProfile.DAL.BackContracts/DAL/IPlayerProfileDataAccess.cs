@@ -12,7 +12,9 @@ namespace TheS.Casinova.PlayerProfile.DAL
         IRegisterUser,
         IVeriflyUser,
         IChangePassword,
-        IChangeEmail
+        IChangeEmail,
+        IReturnReward
+
     { }
 
     /// <summary>
@@ -41,5 +43,12 @@ namespace TheS.Casinova.PlayerProfile.DAL
     /// </summary>
     public interface IChangeEmail
         : IDataAction<UserProfile, ChangeEmailCommand>
+    { }
+
+    /// <summary>
+    /// อัพเดทข้อมูลผู้เล่น
+    /// </summary>
+    public interface IReturnReward
+        : IDataAction<UserProfile, ReturnRewardCommand>
     { }
 }
