@@ -56,5 +56,9 @@ namespace sPerf_Web.Controllers
         {
             return View();
         }
+        public virtual ActionResult newsBar()
+        {
+            return View();
+        }
     }
 }

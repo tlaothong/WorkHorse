@@ -80,7 +80,7 @@
                 <label>
                     SeeMore...</label></div>
         </div>
-        <div style="width: 150px; margin-top: -600px; margin-right: 20px; margin-left: 430px;
+        <div style="width: 150px; margin-top: -480px; margin-right: 20px; margin-left: 430px;
             position: fixed;">
             <div>
                 <div style="border: 2px solid #333333; width: 80px; text-align: center; margin-bottom: -2px;">
@@ -150,6 +150,13 @@
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="SideBar" runat="server">
-    <div style="margin-top: -5px;">
+<div style="margin-top: -5px;">
         <% Html.RenderPartial("Comment_Archeivement"); %></div>
 </asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="startMenu" runat="server">
+<% Html.RenderPartial("StartMenu"); %>
+</asp:Content>
+<asp:Content ID="Content6" ContentPlaceHolderID="newsbar" runat="server">
+<% Html.RenderPartial("newsBar"); %>
+</asp:Content>
+

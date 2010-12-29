@@ -165,7 +165,7 @@
     <div style="background-color:#737374; width:565px;margin-left:29px; ">
      <label style="color:#ffffff;" style="margin-top:20px;">Topic : </label><input type="text" style="width:510px; background-color:#333333; margin-top:20px;" />
      <br />
-     <p><textarea cols="70" rows="22" style="overflow:hidden;">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</textarea></p>
+     <p><textarea cols="92" rows="22" style="overflow:hidden;">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</textarea></p>
     <label id="newblog" style="margin-top:200px;background-color:#ffffff;  margin-left:480px; margin-top:100px ;color:Green; padding:1px 5px 1px 5px;border:1px solid gray inherit;">New</label><label id="editblog" style="background-color:#000000; padding:2px 6px 2px 6px;border:1px solid gray inherit; color:Red">Edit</label>
     </div>
 </div>
@@ -183,3 +183,10 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="SideBar" runat="server">
 <% Html.RenderPartial("BlogComment"); %>
 </asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="startMenu" runat="server">
+<% Html.RenderPartial("StartMenu"); %>
+</asp:Content>
+<asp:Content ID="Content6" ContentPlaceHolderID="newsbar" runat="server">
+<% Html.RenderPartial("newsBar"); %>
+</asp:Content>
+
