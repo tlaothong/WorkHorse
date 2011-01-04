@@ -13,6 +13,8 @@ using PerfEx.Infrastructure.Validation;
 using TheS.Casinova.MagicNine.BackServices.Validators;
 using TheS.Casinova.MagicNine.Models;
 using TechTalk.SpecFlow;
+using TheS.Casinova.PlayerProfile.BackServices.BackExecutors;
+using TheS.Casinova.PlayerProfile.DAL;
 
 namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
 {
@@ -27,13 +29,15 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
 
         public const string Key_Dqr_GetPlayerInfo = "mockDqr_GetPlayerInfo";
         public const string Key_Dqr_GetGameRoundPot = "mockDqr_GetGameRoundPot";
-        public const string Key_Dqr_GetAutoBetInfo = "mocdkDqr_GetAutoBetInfo";
+        public const string Key_Dqr_GetAutoBetInfo = "mockDqr_GetAutoBetInfo";
+        public const string Key_Dqr_GetGameRoundInfo = "mockDqr_GetGameRoundInfo";
 
         public const string Key_SingleBet = "SingleBet";
 
         public const string Key_StartAutoBet = "StartAutoBet";
         public const string Key_StopAutoBet = "StopAutoBet";
         public const string Key_AutoBetEngine = "AutoBetEngine";
+        public const string Key_ReturnReward = "ReturnReward";
 
         MockRepository Mocks { get { return SpecEventDefinitions.Mocks; } }
 
@@ -42,6 +46,8 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
         {
             var dac = Mocks.DynamicMock<IMagicNineGameDataAccess>();
             var dqr = Mocks.DynamicMock<IMagicNineGameDataBackQuery>();
+            var ex_dac = Mocks.DynamicMock<IPlayerProfileDataAccess>();
+            var ex_dqr = Mocks.DynamicMock<IPlayerProfileDataBackQuery>();
             var container = Mocks.DynamicMock<IDependencyContainer>();
 
             ScenarioContext.Current[Key_Dac_UpdatePlayerInfoBalance] = dac;
@@ -50,9 +56,12 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
 
             ScenarioContext.Current[Key_Dqr_GetPlayerInfo] = dqr;
             ScenarioContext.Current[Key_Dqr_GetGameRoundPot] = dqr;
+            ScenarioContext.Current[Key_Dqr_GetGameRoundInfo] = dqr;
+
+            ScenarioContext.Current[Key_ReturnReward] = new ReturnRewardExecutor(ex_dac, ex_dqr);
 
             setupValidators(out container);
-            ScenarioContext.Current[Key_SingleBet] = new SingleBetExecutor(container, dac, dqr);
+            ScenarioContext.Current[Key_SingleBet] = new SingleBetExecutor(new ReturnRewardExecutor(ex_dac, ex_dqr), container, dac, dqr);
         }
 
         [Given(@"The StartAutoBetExecutor has been created and initialized")]

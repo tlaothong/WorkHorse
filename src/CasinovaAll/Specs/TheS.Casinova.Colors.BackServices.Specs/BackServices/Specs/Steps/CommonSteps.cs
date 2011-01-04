@@ -38,6 +38,7 @@ namespace TheS.Casinova.Colors.BackServices.Specs
         public const string Key_BetColorExecutor = "BetColorExecutor";
         public const string Key_CreateGameRoundConfigurations = "CreateGameRoundConfigurations";
         public const string Key_CreateGameRound = "CreateGameRound";
+        public const string Key_CalculateGameRoundWinner = "CalculateGameRoundWinner";
 
         public const string Key_UserProfile_BetColorValidator = "UserProfile_BetColorValidator";
 
@@ -101,6 +102,19 @@ namespace TheS.Casinova.Colors.BackServices.Specs
             ScenarioContext.Current[Key_Dqr_GetGameRoundConfiguration] = dqr;
 
             ScenarioContext.Current[Key_CreateGameRound] = new CreateGameRoundExecutor(dac, dqr);
+        }
+
+        [Given(@"The CalculateGameRoundWinnerExecutor has been created and initialized")]
+        public void GivenTheCalculateGameRoundWinnerExecutorHasBeenCreatedAndInitialized()
+        {
+            var dac = Mocks.DynamicMock<IColorsGameDataAccess>();
+            var dqr = Mocks.DynamicMock<IColorsGameDataBackQuery>();
+
+            ScenarioContext.Current[Key_Dqr_GetPlayerInfo] = dqr;
+            ScenarioContext.Current[Key_Dqr_GetRoundInfo] = dqr;
+            ScenarioContext.Current[Key_Dqr_ListPlayerActionInfo] = dqr;
+
+            ScenarioContext.Current[Key_CalculateGameRoundWinner] = new CalculateGameRoundWinnerExecutor(dqr);
         }
 
         private static void setupValidators(out IDependencyContainer container)

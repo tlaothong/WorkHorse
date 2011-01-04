@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TheS.Casinova.Colors.Models;
+using TheS.Casinova.PlayerProfile.Models;
 
 namespace TheS.Casinova.Colors.Commands
 {
@@ -13,18 +14,11 @@ namespace TheS.Casinova.Colors.Commands
     {
         //input
         /// <summary>
-        /// ชื่อผู้เล่นทีจะอัพเดทยอดเงิน
+        /// ข้อมูลผู้เล่นที่จะหักเงิน
+        /// 1.UserName ชื่อผู้เล่นทีจะอัพเดทยอดเงิน
+        /// 2.NonRefundable ยอดรวมชิฟตาย
+        /// 3.Refundable ยอดรวมชิฟเป็น
         /// </summary>
-        public string UserName { get; set; }
-
-        /// <summary>
-        /// ยอดรวมชิฟตาย
-        /// </summary>
-        public double NonRefundable { get; set; }
-
-        /// <summary>
-        /// ยอดรวมชิฟเป็น
-        /// </summary>
-        public double Refundable { get; set; }
+        public UserProfile UserProfile { get; set; }
     }
 }

@@ -58,7 +58,8 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
             getPlayerInfoCmd.UserProfile = _iGetPlayerInfo.Get(getPlayerInfoCmd);
 
             //ดึงข้อมูลขอดูสีที่ชนะของผู้เล่นในโต๊ะเกมนั้นๆ
-            var betCount = _iListPlayerActionInfo.List(command);
+            ListPlayerActionInfoCommand listPlayerActionInfoCmd = new ListPlayerActionInfoCommand { RoundID = command.PlayerActionInfo.RoundID };
+            var betCount = _iListPlayerActionInfo.List(listPlayerActionInfoCmd);
 
             //กำหนดเงินที่จะหัก
             if (betCount.Count() > 0) {
@@ -85,11 +86,11 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
                 getPlayerInfoCmd.UserProfile.NonRefundable -= command.PlayerActionInfo.Amount;
             }
 
-            updateBalanceCmd.UserName = command.PlayerActionInfo.UserName;
+            updateBalanceCmd.UserProfile.UserName = command.PlayerActionInfo.UserName;
 
             //หักเงินผู้เล่นตามเงินที่ต้องการลงพนัน
-            updateBalanceCmd.NonRefundable = getPlayerInfoCmd.UserProfile.NonRefundable;
-            updateBalanceCmd.Refundable = getPlayerInfoCmd.UserProfile.Refundable;
+            updateBalanceCmd.UserProfile.NonRefundable = getPlayerInfoCmd.UserProfile.NonRefundable;
+            updateBalanceCmd.UserProfile.Refundable = getPlayerInfoCmd.UserProfile.Refundable;
 
             _iUpdatePlayerInfoBalance.ApplyAction(getPlayerInfoCmd.UserProfile, updateBalanceCmd);
 

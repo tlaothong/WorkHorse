@@ -80,11 +80,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RegisterUser.feature</DependentUpon>
     </Compile>
+    <Compile Include="BackServices\Specs\ReturnReward.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReturnReward.feature</DependentUpon>
+    </Compile>
     <Compile Include="BackServices\Specs\Steps\ChangeEmailSteps.cs" />
     <Compile Include="BackServices\Specs\Steps\ChangePasswordSteps.cs" />
     <Compile Include="BackServices\Specs\Steps\CommonSteps.cs" />
     <Compile Include="BackServices\Specs\Steps\PlayerProfileStepsBase.cs" />
     <Compile Include="BackServices\Specs\Steps\RegisterUserSteps.cs" />
+    <Compile Include="BackServices\Specs\Steps\ReturnRewardSteps.cs" />
     <Compile Include="BackServices\Specs\Steps\VeriflyUserSteps.cs" />
     <Compile Include="BackServices\Specs\VeriflyUser.feature.cs">
       <AutoGen>True</AutoGen>
@@ -137,6 +143,10 @@
     <None Include="BackServices\Specs\RegisterUser.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>RegisterUser.feature.cs</LastGenOutput>
+    </None>
+    <None Include="BackServices\Specs\ReturnReward.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ReturnReward.feature.cs</LastGenOutput>
     </None>
     <None Include="BackServices\Specs\VeriflyUser.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

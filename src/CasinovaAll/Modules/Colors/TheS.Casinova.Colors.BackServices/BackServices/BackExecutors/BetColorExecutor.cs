@@ -53,8 +53,6 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
             }
 
             //บันทึกข้อมูลผู้เล่นที่ถูกหักเงิน
-            UpdatePlayerInfoBalanceCommand updateBalanceCmd = new UpdatePlayerInfoBalanceCommand();
-
             if (getPlayerInfoCmd.UserProfile.NonRefundable < command.BetPlayerActionInfo.Amount) {
                 getPlayerInfoCmd.UserProfile.Refundable -= command.BetPlayerActionInfo.Amount - getPlayerInfoCmd.UserProfile.NonRefundable;
                 getPlayerInfoCmd.UserProfile.NonRefundable = 0;
@@ -63,11 +61,15 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
                 getPlayerInfoCmd.UserProfile.NonRefundable -= command.BetPlayerActionInfo.Amount;
             }
 
-            updateBalanceCmd.UserName = command.BetPlayerActionInfo.UserName;
 
             //หักเงินผู้เล่นตามเงินที่ต้องการลงพนัน
-            updateBalanceCmd.NonRefundable = getPlayerInfoCmd.UserProfile.NonRefundable;
-            updateBalanceCmd.Refundable = getPlayerInfoCmd.UserProfile.Refundable;
+            UpdatePlayerInfoBalanceCommand updateBalanceCmd = new UpdatePlayerInfoBalanceCommand {
+                UserProfile = new UserProfile {
+                    UserName = command.BetPlayerActionInfo.UserName,
+                    NonRefundable = getPlayerInfoCmd.UserProfile.NonRefundable,
+                    Refundable = getPlayerInfoCmd.UserProfile.Refundable,
+                }
+            };
 
             _iUpdatePlayerInfoBalance.ApplyAction(getPlayerInfoCmd.UserProfile, updateBalanceCmd);
 
@@ -81,6 +83,8 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
                     UserName = command.BetPlayerActionInfo.UserName,
                     RoundID = command.BetPlayerActionInfo.RoundID,
                     Amount = command.BetPlayerActionInfo.Amount,
+                    BonusChips = getPlayerInfoCmd.UserProfile.NonRefundable,
+                    Chips = getPlayerInfoCmd.UserProfile.Refundable,
                     ActionType = command.BetPlayerActionInfo.ActionType,
                     ActionDateTime = DateTime.Now,
                 }
@@ -89,7 +93,6 @@ namespace TheS.Casinova.Colors.BackServices.BackExecutors
             _iCreatePlayerActionInfo.Create(command.BetPlayerActionInfo, createPlayerActionInfoCmd);
 
             #endregion Create player action information
-
         }
     }
 }

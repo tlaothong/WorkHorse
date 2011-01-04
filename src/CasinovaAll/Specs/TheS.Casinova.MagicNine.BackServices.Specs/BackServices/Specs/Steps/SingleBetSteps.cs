@@ -9,6 +9,7 @@ using TheS.Casinova.MagicNine.Commands;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TheS.Casinova.PlayerProfile.Models;
 using PerfEx.Infrastructure.Validation;
+using TheS.Casinova.PlayerProfile.Commands;
 
 namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
 {
@@ -17,7 +18,11 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
         : MagicNineStepsBase
     {
         private IEnumerable<UserProfile> _playerProfiles;
+        private IEnumerable<BetInformation> _betInfos;
+        private IEnumerable<GameRoundInformation> _gameRoundInfos;
         private UserProfile _playerProfile;
+        private double _gamePot;
+        private GameRoundInformation _gameRoundInfo;
 
         [Given(@"\(SingleBet\)server has player information as:")]
         public void GivenSingleBetServerHasPlayerInformationAs(Table table)
@@ -30,12 +35,33 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
                             });
         }
 
-        [Given(@"\(SingleBet\)sent name: '(.*)' the player's balance should recieved")]
-        public void GivenSingleBetSentNameOhAeThePlayerSBalanceShouldRecieved(string userName)
+        [Given(@"\(SingleBet\)server has bet information as:")]
+        public void GivenSingleBetServerHasBetInformationAs(Table table)
+        {
+            _betInfos = (from item in table.Rows
+                         select new BetInformation {
+                             RoundID = Convert.ToInt32(item["RoundID"]),
+                             UserName = item["UserName"],
+                             BetDateTime = DateTime.Parse(item["BetDateTime"]),
+                         });
+        }
+
+        [Given(@"\(SingleBet\)server has game round information as:")]
+        public void GivenSingleBetServerHasGameRoundInformationAs(Table table)
+        {
+            _gameRoundInfos = (from item in table.Rows
+                               select new GameRoundInformation {
+                                   RoundID = Convert.ToInt32(item["RoundID"]),
+                                   WinnerPoint = Convert.ToDouble(item["WinnerPoint"]),
+                               });
+        }
+
+        [Given(@"\(MagicNine_SingleBet\)sent name: '(.*)' the player's balance should recieved")]
+        public void GivenMagicNine_SingleBetSentNameXThePlayerSBalanceShouldRecieved(string userName)
         {
             var _expectPlayerProfile = (from item in _playerProfiles
-                       where item.UserName == userName
-                       select item).FirstOrDefault();
+                                        where item.UserName == userName
+                                        select item).FirstOrDefault();
 
             SetupResult.For(Dqr_GetPlayerInfo.Get(new GetPlayerInfoCommand()))
                 .IgnoreArguments().Return(_expectPlayerProfile);
@@ -46,36 +72,38 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
                 Refundable = _expectPlayerProfile.Refundable,
             };
         }
-
-        [Given(@"the player's balance should be update only bonuschips, Amount: '(.*)'")]
-        public void GivenThePlayerSBalanceShouldBeUpdateOnlyBonuschipsAmountX(double amount)
-        {
-            _playerProfile.NonRefundable -= amount;
-
-            Action<UserProfile, UpdatePlayerInfoBalanceCommand> CheckCallMethod = (playerProfile, cmd) => {
-                Assert.AreEqual(_playerProfile.UserName, playerProfile.UserName, "UserName");
-                Assert.AreEqual(_playerProfile.Refundable, playerProfile.Refundable, "Refundable");
-                Assert.AreEqual(_playerProfile.NonRefundable, playerProfile.NonRefundable, "NonRefundable");
-            };
-
-            Dac_UpdatePlayerInfoBalance.ApplyAction(new UserProfile(), new UpdatePlayerInfoBalanceCommand());
-            LastCall.IgnoreArguments().Do(CheckCallMethod);
+        
+        [Given(@"\(MagicNine_SingleBet\)sent roundID: '(.*)' the game pot should be calculate")]
+        public void GivenMagicNine_SingleBetSentRoundIDXTheGamePotShouldBeCalculate(int roundID)
+        {            
+            var qry = (from item in _betInfos
+                       where item.RoundID == roundID
+                       select item);
+            _gamePot = qry.Count();
+            SetupResult.For(Dqr_GetGameRoundPot.Get(new GetGameRoundPotCommand()))
+                .IgnoreArguments().Return(_gamePot);
         }
 
-        [Given(@"\(SingleBet\)the player's balance should be update both chips, Amount: '(.*)'")]
-        public void GivenSingleBetThePlayerSBalanceShouldBeUpdateBothChipsAmountX(double amount)
+        [Given(@"\(MagicNine_SingleBet\)sent roundID: '(.*)' the game round information should recieved")]
+        public void GivenMagicNine_SingleBetSentRoundIDXTheGameRoundInformationShouldRecieved(int roundID)
         {
-            _playerProfile.Refundable -= amount - _playerProfile.NonRefundable;
-            _playerProfile.NonRefundable = 0;
+            _gameRoundInfo = (from item in _gameRoundInfos
+                              where item.RoundID == roundID
+                              select item).FirstOrDefault();
+            SetupResult.For(Dqr_GetGameRoundInfo.Get(new GetGameRoundInfoCommand()))
+                .IgnoreArguments().Return(_gameRoundInfo);
+        }
 
-            Action<UserProfile, UpdatePlayerInfoBalanceCommand> CheckCallMethod = (playerProfile, cmd) => {
-                Assert.AreEqual(_playerProfile.UserName, playerProfile.UserName, "UserName");
-                Assert.AreEqual(_playerProfile.Refundable, playerProfile.Refundable, "Refundable");
-                Assert.AreEqual(_playerProfile.NonRefundable, playerProfile.NonRefundable, "NonRefundable");
+        [Given(@"\(MagicNine_SingleBet\)the player's balance should be update\(UserName: '(.*)', BonusChips: '(.*)', Chips: '(.*)'\)")]
+        public void GivenMagicNine_SingleBetThePlayerSBalanceShouldBeUpdateUserNameKhagBonusChipsXChipsX(string userName, double bonusChips, double chips)
+        {
+            Action<UserProfile, UpdatePlayerInfoBalanceCommand> checkData = (userProfile, cmd) => {
+                Assert.AreEqual(userName, userProfile.UserName, "UserName");
+                Assert.AreEqual(bonusChips, userProfile.NonRefundable, "BonusChips");
+                Assert.AreEqual(chips, userProfile.Refundable, "Chips");
             };
-
             Dac_UpdatePlayerInfoBalance.ApplyAction(new UserProfile(), new UpdatePlayerInfoBalanceCommand());
-            LastCall.IgnoreArguments().Do(CheckCallMethod);
+            LastCall.IgnoreArguments().Do(checkData);
         }
 
         [Given(@"the bet information assume dateTime as: '(.*)'\(RoundID: '(.*)', UserName: '(.*)', TrackingID: '(.*)', DateTime: '(.*)'\) should be create")]
@@ -91,6 +119,19 @@ namespace TheS.Casinova.MagicNine.BackServices.Specs.Steps
             };
 
             Dac_SingleBet.Create(new BetInformation(), new SingleBetCommand());
+            LastCall.IgnoreArguments().Do(checkData);
+        }
+       
+        [Given(@"Expected ReturnRewardExecutor should be call\(UserName: '(.*)', NonRefundable: '(.*)', Refundable: '(.*)'\)")]
+        public void GivenExpectedReturnRewardExecutorShouldBeCallUserNameXNonRefundableXRefundableX(string userName, double nonRefundable, double refundable)
+        {
+            Action<ReturnRewardCommand> checkData = (cmd) => {
+                Assert.AreEqual(userName, cmd.UserProfile.UserName, "UserName");
+                Assert.AreEqual(nonRefundable, cmd.UserProfile.NonRefundable, "NonRefundable");
+                Assert.AreEqual(refundable, cmd.UserProfile.Refundable, "Refundable");
+            };
+
+            ReturnRewardExecutor.Execute(new ReturnRewardCommand(), (x) => { });
             LastCall.IgnoreArguments().Do(checkData);
         }
 

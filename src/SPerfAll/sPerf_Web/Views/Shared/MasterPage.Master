@@ -23,10 +23,11 @@
 <body>
     <div id="page">
         <div id="header">
-            <div id="login">
+            <div id="login"> 
             </div>
             <div id="search-container">
                 <div id="global-search">
+                <input type="text" class="input_text"/>
                 </div>
                 <div id="avatar-face">
                 </div>
@@ -135,6 +136,7 @@
                         <asp:ContentPlaceHolder ID="startMenu" runat="server"></asp:ContentPlaceHolder>
                 </div>
                 <div class="news-marquee">
+                        <asp:ContentPlaceHolder ID="newsbar" runat="server"></asp:ContentPlaceHolder>
                 </div>
             </div>
         </div>

@@ -110,13 +110,13 @@ testRunner.Given("(VoucherToBonusChips)server has exchange setting information a
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(VoucherToBonusChips)ผู้เล่นแลกคูปองเป็นชิฟตาย มีคูปองตามรหัสที่ระบุและคูปองยังไม" +
-            "่ถูกใช้งาน, ระบบตรวจสอบคูปองและเพิ่มชิฟตายให้กับผู้เล่น")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(ChipExchange_VoucherToBonusChips)ผู้เล่นแลกคูปองเป็นชิฟตาย มีคูปองตามรหัสที่ระบุ" +
+            "และคูปองยังไม่ถูกใช้งาน, ระบบตรวจสอบคูปองและเพิ่มชิฟตายให้กับผู้เล่น")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "VoucherToBonusChips")]
-        public virtual void VoucherToBonusChipsผเลนแลกคปองเปนชฟตายมคปองตามรหสทระบและคปองยงไมถกใชงานระบบตรวจสอบคปองและเพมชฟตายใหกบผเลน()
+        public virtual void ChipExchange_VoucherToBonusChipsผเลนแลกคปองเปนชฟตายมคปองตามรหสทระบและคปองยงไมถกใชงานระบบตรวจสอบคปองและเพมชฟตายใหกบผเลน()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(VoucherToBonusChips)ผู้เล่นแลกคูปองเป็นชิฟตาย มีคูปองตามรหัสที่ระบุและคูปองยังไม" +
-                    "่ถูกใช้งาน, ระบบตรวจสอบคูปองและเพิ่มชิฟตายให้กับผู้เล่น", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(ChipExchange_VoucherToBonusChips)ผู้เล่นแลกคูปองเป็นชิฟตาย มีคูปองตามรหัสที่ระบุ" +
+                    "และคูปองยังไม่ถูกใช้งาน, ระบบตรวจสอบคูปองและเพิ่มชิฟตายให้กับผู้เล่น", new string[] {
                         "record_mock",
                         "record_mock"});
 #line 19
@@ -142,13 +142,13 @@ testRunner.Then("the player profile should be update");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(VoucherToBonusChips)ผู้เล่นแลกคูปองเป็นชิฟตาย มีคูปองตามรหัสที่ระบุและคูปองถูกใช" +
-            "้งานแล้ว, ระบบตรวจสอบคูปองและแจ้งเตือน")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(ChipExchange_VoucherToBonusChips)ผู้เล่นแลกคูปองเป็นชิฟตาย มีคูปองตามรหัสที่ระบุ" +
+            "และคูปองถูกใช้งานแล้ว, ระบบตรวจสอบคูปองและแจ้งเตือน")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "VoucherToBonusChips")]
-        public virtual void VoucherToBonusChipsผเลนแลกคปองเปนชฟตายมคปองตามรหสทระบและคปองถกใชงานแลวระบบตรวจสอบคปองและแจงเตอน()
+        public virtual void ChipExchange_VoucherToBonusChipsผเลนแลกคปองเปนชฟตายมคปองตามรหสทระบและคปองถกใชงานแลวระบบตรวจสอบคปองและแจงเตอน()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(VoucherToBonusChips)ผู้เล่นแลกคูปองเป็นชิฟตาย มีคูปองตามรหัสที่ระบุและคูปองถูกใช" +
-                    "้งานแล้ว, ระบบตรวจสอบคูปองและแจ้งเตือน", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(ChipExchange_VoucherToBonusChips)ผู้เล่นแลกคูปองเป็นชิฟตาย มีคูปองตามรหัสที่ระบุ" +
+                    "และคูปองถูกใช้งานแล้ว, ระบบตรวจสอบคูปองและแจ้งเตือน", new string[] {
                         "record_mock"});
 #line 29
 this.ScenarioSetup(scenarioInfo);
@@ -169,13 +169,13 @@ testRunner.Then("(VoucherToBonusChips)the result should be throw exception");
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(VoucherToBonusChips)ผู้เล่นแลกคูปองเป็นชิฟตาย ไม่มีคูปองตามรหัสที่ระบุ, ระบบตรวจ" +
-            "สอบคูปองและแจ้งเตือน")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("(ChipExchange_VoucherToBonusChips)ผู้เล่นแลกคูปองเป็นชิฟตาย ไม่มีคูปองตามรหัสที่ร" +
+            "ะบุ, ระบบตรวจสอบคูปองและแจ้งเตือน")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "VoucherToBonusChips")]
-        public virtual void VoucherToBonusChipsผเลนแลกคปองเปนชฟตายไมมคปองตามรหสทระบระบบตรวจสอบคปองและแจงเตอน()
+        public virtual void ChipExchange_VoucherToBonusChipsผเลนแลกคปองเปนชฟตายไมมคปองตามรหสทระบระบบตรวจสอบคปองและแจงเตอน()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(VoucherToBonusChips)ผู้เล่นแลกคูปองเป็นชิฟตาย ไม่มีคูปองตามรหัสที่ระบุ, ระบบตรวจ" +
-                    "สอบคูปองและแจ้งเตือน", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(ChipExchange_VoucherToBonusChips)ผู้เล่นแลกคูปองเป็นชิฟตาย ไม่มีคูปองตามรหัสที่ร" +
+                    "ะบุ, ระบบตรวจสอบคูปองและแจ้งเตือน", new string[] {
                         "record_mock"});
 #line 37
 this.ScenarioSetup(scenarioInfo);
