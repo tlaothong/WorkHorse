@@ -202,7 +202,7 @@
     <Content Include="Areas\Scholarship\Views\Scholarship\Recieved.aspx" />
     <Content Include="Areas\Scholarship\Views\Scholarship\SubMenu.ascx" />
     <Content Include="Areas\Scholarship\Views\Scholarship\Tournament.aspx" />
-    <Content Include="ClientBin\TheS.mov" />
+    <Content Include="ClientBin\TheS.wmv" />
     <Content Include="club.html" />
     <Content Include="Content\galleria.css" />
     <Content Include="Content\images\1.png" />
