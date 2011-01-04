@@ -202,7 +202,7 @@
     <Content Include="Areas\Scholarship\Views\Scholarship\Recieved.aspx" />
     <Content Include="Areas\Scholarship\Views\Scholarship\SubMenu.ascx" />
     <Content Include="Areas\Scholarship\Views\Scholarship\Tournament.aspx" />
-    <Content Include="ClientBin\TheS.wmv" />
+    <Content Include="uploads\TheS.wmv" />
     <Content Include="club.html" />
     <Content Include="Content\galleria.css" />
     <Content Include="Content\images\1.png" />
@@ -625,7 +625,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
-    <Folder Include="uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\MasterPage.Master" />

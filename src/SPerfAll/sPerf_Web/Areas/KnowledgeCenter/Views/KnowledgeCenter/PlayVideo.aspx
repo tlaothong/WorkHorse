@@ -42,8 +42,8 @@
                 <div class="media">
             <object codebase="http://www.apple.com/qtactivex/qtplugin.cab" classid="clsid:6BF52A52-394A-11d3-B153-00C04F79FAA6"
                 type="application/x-oleobject" width="580" height="450">
-                <param name="url" value="/ClientBin/TheS.wmv" />
-                <embed src="tuk.wmv" type="application/x-mplayer2" pluginspage="http://www.microsoft.com/Windows/MediaPlayer/"></embed>
+                <param name="url" value="/uploads/TheS.wmv" />
+                <embed src="TheS.wmv" type="application/x-mplayer2" pluginspage="http://www.microsoft.com/Windows/MediaPlayer/"></embed>
             </object>
         </div>
         <%--end--%>
