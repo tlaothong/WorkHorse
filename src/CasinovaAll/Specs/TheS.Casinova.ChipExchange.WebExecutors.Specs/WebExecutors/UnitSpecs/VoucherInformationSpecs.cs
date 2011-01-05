@@ -16,7 +16,7 @@ using TheS.Casinova.Common.Services;
 namespace TheS.Casinova.ChipExchange.WebExecutors.UnitSpecs
 {
     [TestClass]
-    public class VoucherInformationSpecs
+    public class VoucherInformationSpecs 
     {
   
         [TestMethod]
@@ -56,6 +56,7 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.UnitSpecs
                 UserName = "Ayaya",
                 Amount = -50,
             };
+
             var cmd = new PayVoucherCommand {
                 VoucherInformation = model,
             };

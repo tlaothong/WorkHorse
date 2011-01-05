@@ -28,7 +28,7 @@ namespace TheS.Casinova.MagicNine.Models
         /// <summary>
         /// ลำดับที่ลงพนันได้
         /// </summary>
-        public double BetOrder { get; set; }
+        public int BetOrder { get; set; }
 
         /// <summary>
         /// รหัสสำหรับตรวจสอบ

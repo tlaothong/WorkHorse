@@ -32,8 +32,6 @@ namespace TheS.Casinova.MagicNine.WebExecutors
            if (errors.Any()) {
                throw new ValidationErrorException(errors);
            }
-
-           //TODO: Generate trackingID
           command.BetInformation = _iListBetLog.List(command);
        }
     }
