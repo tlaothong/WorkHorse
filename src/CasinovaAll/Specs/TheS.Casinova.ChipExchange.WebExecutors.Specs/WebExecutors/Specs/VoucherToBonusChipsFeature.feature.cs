@@ -44,7 +44,6 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs
         public virtual void ScenarioSetup(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioStart(scenarioInfo);
-            this.FeatureBackground();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCleanupAttribute()]
@@ -53,144 +52,122 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs
             testRunner.OnScenarioEnd();
         }
         
-        public virtual void FeatureBackground()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[VoucherToBonusChips]ระบบได้รับข้อมูล voucher code และ userName ระบบทำการตรวจสอบข" +
+            "้อมูล ข้อมูล voucher code ถูกต้อง ระบบสามารถ generate trackingID ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "VoucherToBonusChips")]
+        public virtual void VoucherToBonusChipsระบบไดรบขอมลVoucherCodeและUserNameระบบทำการตรวจสอบขอมลขอมลVoucherCodeถกตองระบบสามารถGenerateTrackingIDได()
         {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[VoucherToBonusChips]ระบบได้รับข้อมูล voucher code และ userName ระบบทำการตรวจสอบข" +
+                    "้อมูล ข้อมูล voucher code ถูกต้อง ระบบสามารถ generate trackingID ได้", new string[] {
+                        "record_mock"});
 #line 7
-#line hidden
-            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "UserName",
-                        "VoucherCode",
-                        "Amount",
-                        "CanUse"});
-            table1.AddRow(new string[] {
-                        "Nit",
-                        "0A15D",
-                        "100",
-                        "True"});
-            table1.AddRow(new string[] {
-                        "Ae",
-                        "16F67",
-                        "200",
-                        "false"});
+this.ScenarioSetup(scenarioInfo);
 #line 8
-testRunner.Given("Server has voucher information for voucher to bonus chips :", ((string)(null)), table1);
+testRunner.Given("The VoucherToBonusChipsExecutor has been created and initialized");
+#line 9
+testRunner.And("Sent UserName\'Nit\' VoucherCode \'448021228C7A10D3\'");
+#line 10
+testRunner.And("The system generated TrackingID for VoucherToBonusChips:\'942D2F350FAA4A32870CF9CF" +
+                    "9A5C7A2E\'");
+#line 11
+testRunner.When("Call VoucherToBonusChipsExecutor()");
+#line 12
+testRunner.Then("TrackingID for VoucherToBonusChips should be :\'942D2F350FAA4A32870CF9CF9A5C7A2E\'");
 #line hidden
+            testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[VoucherToBonusChips]ระบบได้รับข้อมูล voucher code และ userName ระบบทำการตรวจสอบข" +
-            "้อมูล ข้อมูลถูกต้อง ระบบสามารถ generate trackingID ได้")]
+            "้อมูล ข้อมูล voucher code ไม่ถูกต้อง ระบบไม่สามารถ generate trackingID ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "VoucherToBonusChips")]
-        public virtual void VoucherToBonusChipsระบบไดรบขอมลVoucherCodeและUserNameระบบทำการตรวจสอบขอมลขอมลถกตองระบบสามารถGenerateTrackingIDได()
+        public virtual void VoucherToBonusChipsระบบไดรบขอมลVoucherCodeและUserNameระบบทำการตรวจสอบขอมลขอมลVoucherCodeไมถกตองระบบไมสามารถGenerateTrackingIDได()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[VoucherToBonusChips]ระบบได้รับข้อมูล voucher code และ userName ระบบทำการตรวจสอบข" +
-                    "้อมูล ข้อมูลถูกต้อง ระบบสามารถ generate trackingID ได้", new string[] {
-                        "record_mock",
+                    "้อมูล ข้อมูล voucher code ไม่ถูกต้อง ระบบไม่สามารถ generate trackingID ได้", new string[] {
                         "record_mock"});
-#line 14
-this.ScenarioSetup(scenarioInfo);
-#line 15
-testRunner.Given("The VoucherToBonusChipsExecutor has been created and initialized");
 #line 16
-testRunner.And("Sent UserName\'Nit\' VoucherCode \'0A15D\' the player\'s voucher information should re" +
-                    "cieved");
+this.ScenarioSetup(scenarioInfo);
 #line 17
-testRunner.When("Call VoucherToBonusChipsExecutor()");
+testRunner.Given("The VoucherToBonusChipsExecutor has been created and initialized");
 #line 18
-testRunner.Then("The system can sent information to back server #VoucherToBonusChips");
+testRunner.And("Sent UserName\'Nit\' VoucherCode \'448065728C7A10D3\'");
+#line 19
+testRunner.When("Call VoucherToBonusChipsExecutor() for validate input");
+#line 20
+testRunner.Then("VoucherToBonusChips get null and skip checking trackingID");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[VoucherToBonusChips]ระบบได้รับข้อมูล voucher code และ userName ครบ  ระบบตรวจสอบก" +
-            "ารใช้งาน คูปองไม่สามารถใช้งานได้ ระบบส่งข้อมูลไป back server ไม่ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[VoucherToBonusChips]ระบบได้รับข้อมูล voucher code และ userName ระบบทำการตรวจสอบข" +
+            "้อมูล ข้อมูล voucher code มีจำนวนไม่ถูกต้อง ระบบไม่สามารถ generate trackingID ได" +
+            "้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "VoucherToBonusChips")]
-        public virtual void VoucherToBonusChipsระบบไดรบขอมลVoucherCodeและUserNameครบระบบตรวจสอบการใชงานคปองไมสามารถใชงานไดระบบสงขอมลไปBackServerไมได()
+        public virtual void VoucherToBonusChipsระบบไดรบขอมลVoucherCodeและUserNameระบบทำการตรวจสอบขอมลขอมลVoucherCodeมจำนวนไมถกตองระบบไมสามารถGenerateTrackingIDได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[VoucherToBonusChips]ระบบได้รับข้อมูล voucher code และ userName ครบ  ระบบตรวจสอบก" +
-                    "ารใช้งาน คูปองไม่สามารถใช้งานได้ ระบบส่งข้อมูลไป back server ไม่ได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[VoucherToBonusChips]ระบบได้รับข้อมูล voucher code และ userName ระบบทำการตรวจสอบข" +
+                    "้อมูล ข้อมูล voucher code มีจำนวนไม่ถูกต้อง ระบบไม่สามารถ generate trackingID ได" +
+                    "้", new string[] {
                         "record_mock"});
-#line 21
-this.ScenarioSetup(scenarioInfo);
-#line 22
-testRunner.Given("The VoucherToBonusChipsExecutor has been created and initialized");
 #line 23
-testRunner.And("Sent UserName\'Ae\' VoucherCode \'16F67B16ABDF469FA42D6D3BFC380745\' the player\'s vou" +
-                    "cher information should recieved");
+this.ScenarioSetup(scenarioInfo);
 #line 24
-testRunner.When("Call VoucherToBonusChipsExecutor (UserName\'Ae\' VoucherCode \'16F67B16ABDF469FA42D6" +
-                    "D3BFC380745\')");
+testRunner.Given("The VoucherToBonusChipsExecutor has been created and initialized");
 #line 25
-testRunner.Then("The system can\'t sent information to back server #VoucherToBonusChips");
+testRunner.And("Sent UserName\'Nit\' VoucherCode \'448065728C7A\'");
+#line 26
+testRunner.When("Call VoucherToBonusChipsExecutor() for validate input");
+#line 27
+testRunner.Then("VoucherToBonusChips get null and skip checking trackingID");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[VoucherToBonusChips]ระบบได้รับข้อมูล voucher code และ userName ครบ  ระบบตรวจสอบร" +
-            "หัสคูปอง ไม่มีข้อมูลคูปอง ระบบส่งข้อมูลไป back server ไม่ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[VoucherToBonusChips]ระบบไม่ได้รับข้อมูล userName ระบบไม่สามารถ generate tracking" +
+            "ID ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "VoucherToBonusChips")]
-        public virtual void VoucherToBonusChipsระบบไดรบขอมลVoucherCodeและUserNameครบระบบตรวจสอบรหสคปองไมมขอมลคปองระบบสงขอมลไปBackServerไมได()
+        public virtual void VoucherToBonusChipsระบบไมไดรบขอมลUserNameระบบไมสามารถGenerateTrackingIDได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[VoucherToBonusChips]ระบบได้รับข้อมูล voucher code และ userName ครบ  ระบบตรวจสอบร" +
-                    "หัสคูปอง ไม่มีข้อมูลคูปอง ระบบส่งข้อมูลไป back server ไม่ได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[VoucherToBonusChips]ระบบไม่ได้รับข้อมูล userName ระบบไม่สามารถ generate tracking" +
+                    "ID ได้", new string[] {
                         "record_mock"});
-#line 28
-this.ScenarioSetup(scenarioInfo);
-#line 29
-testRunner.Given("The VoucherToBonusChipsExecutor has been created and initialized");
 #line 30
-testRunner.And("Sent UserName\'Ae\' VoucherCode \'DA60FEA34A9D42299B8C066EDC141DC5\' the player\'s vou" +
-                    "cher information should not recieved");
+this.ScenarioSetup(scenarioInfo);
 #line 31
-testRunner.When("Call VoucherToBonusChipsExecutor (UserName\'Ae\' VoucherCode \'DA60FEA34A9D42299B8C0" +
-                    "66EDC141DC5\')");
+testRunner.Given("The VoucherToBonusChipsExecutor has been created and initialized");
 #line 32
-testRunner.Then("The system can\'t sent information to back server #VoucherToBonusChips");
+testRunner.And("Sent UserName\'\' VoucherCode \'448021228C7A10D3\'");
+#line 33
+testRunner.When("Call VoucherToBonusChipsExecutor() for validate input");
+#line 34
+testRunner.Then("VoucherToBonusChips get null and skip checking trackingID");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[VoucherToBonusChips]ระบบไม่ได้รับข้อมูล voucher code ระบบส่งข้อมูลไป back server" +
-            " ไม่ได้_VoucherToBonusChips")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[VoucherToBonusChips]ระบบไม่ได้รับข้อมูล voucher code ระบบไม่สามารถ generate trac" +
+            "kingID ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "VoucherToBonusChips")]
-        public virtual void VoucherToBonusChipsระบบไมไดรบขอมลVoucherCodeระบบสงขอมลไปBackServerไมได_VoucherToBonusChips()
+        public virtual void VoucherToBonusChipsระบบไมไดรบขอมลVoucherCodeระบบไมสามารถGenerateTrackingIDได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[VoucherToBonusChips]ระบบไม่ได้รับข้อมูล voucher code ระบบส่งข้อมูลไป back server" +
-                    " ไม่ได้_VoucherToBonusChips", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[VoucherToBonusChips]ระบบไม่ได้รับข้อมูล voucher code ระบบไม่สามารถ generate trac" +
+                    "kingID ได้", new string[] {
                         "record_mock"});
-#line 35
-this.ScenarioSetup(scenarioInfo);
-#line 36
-testRunner.Given("The VoucherToBonusChipsExecutor has been created and initialized");
 #line 37
-testRunner.When("Call VoucherToBonusChipsExecutor (UserName\'Ae\' VoucherCode \'\')");
-#line 38
-testRunner.Then("The system can\'t sent information to back server #VoucherToBonusChips");
-#line hidden
-            testRunner.CollectScenarioErrors();
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[VoucherToBonusChips]ระบบไม่ได้รับข้อมูล UserName ระบบส่งข้อมูลไป back server ไม่" +
-            "ได้_VoucherToBonusChips")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "VoucherToBonusChips")]
-        public virtual void VoucherToBonusChipsระบบไมไดรบขอมลUserNameระบบสงขอมลไปBackServerไมได_VoucherToBonusChips()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[VoucherToBonusChips]ระบบไม่ได้รับข้อมูล UserName ระบบส่งข้อมูลไป back server ไม่" +
-                    "ได้_VoucherToBonusChips", new string[] {
-                        "record_mock"});
-#line 41
 this.ScenarioSetup(scenarioInfo);
-#line 42
+#line 38
 testRunner.Given("The VoucherToBonusChipsExecutor has been created and initialized");
-#line 43
-testRunner.When("Call VoucherToBonusChipsExecutor (UserName\'\' VoucherCode \'16F67B16ABDF469FA42D6D3" +
-                    "BFC380745\')");
-#line 44
-testRunner.Then("The system can\'t sent information to back server #VoucherToBonusChips");
+#line 39
+testRunner.And("Sent UserName\'Nit\' VoucherCode \'\'");
+#line 40
+testRunner.When("Call VoucherToBonusChipsExecutor() for validate input");
+#line 41
+testRunner.Then("VoucherToBonusChips get null and skip checking trackingID");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

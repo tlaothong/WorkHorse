@@ -11,7 +11,6 @@ namespace TheS.Casinova.ChipExchange.Models
     {
         public class MD
         {
-            [Range(0,double.MaxValue)]
             public double Amount { get; set; }
 
             [Required]
@@ -19,7 +18,6 @@ namespace TheS.Casinova.ChipExchange.Models
 
             public string CardType { get; set; }
 
-            [Required]
             public string AccountType { get; set; }
 
             public string AccountNo { get; set; }

@@ -3,46 +3,70 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
+using TheS.Casinova.ChipExchange.Commands;
+using Rhino.Mocks;
+using TheS.Casinova.ChipExchange.Models;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PerfEx.Infrastructure.Validation;
 
 namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
 {
     [Binding]
-    public class VoucherToBonusChipsSteps
+    public class VoucherToBonusChipsSteps : ChipsExchangeModuleStepsBase
     {
-        [Given(@"Server has voucher information for voucher to bonus chips :")]
-        public void GivenServerHasVoucherInformationForVoucherToBonusChips(Table table)
+        private VoucherToBonusChipsCommand _cmd;
+        private string _trackingID;
+
+        [Given(@"Sent UserName'(.*)' VoucherCode '(.*)'")]
+        public void GivenSentUserNameXVoucherCodeX(string username, string voucherCode)
         {
-            ScenarioContext.Current.Pending();
+            _cmd = new VoucherToBonusChipsCommand {
+                VoucherInformation = new VoucherInformation { 
+                    UserName = username,
+                    VoucherCode = voucherCode
+                }
+            };
         }
 
-        [Given(@"Sent UserName'(.*)' VoucherCode '(.*)' the player's voucher information should recieved")]
-        public void GivenSentUserNameNitVoucherCode0A15D2C519764BF4B698E31B9F77FE90ThePlayerSVoucherInformationShouldRecieve(string userName, string voucherCode)
+        [Given(@"The system generated TrackingID for VoucherToBonusChips:'(.*)'")]
+        public void GivenTheSystemGeneratedTrackingIDForVoucherToBonusChipsX(string trackingID)
         {
-            ScenarioContext.Current.Pending();
+            _trackingID = trackingID;
+            SetupResult.For(svc_GenerateTrackingID.GenerateTrackingID())
+                .IgnoreArguments().Return(Guid.Parse(_trackingID));
         }
 
-        [Given(@"Sent UserName'(.*)' VoucherCode '(.*)' the player's voucher information should not recieved")]
-        public void GivenSentUserNameAeVoucherCodeDA60FEA34A9D42299B8C066EDC141DC5ThePlayerSVoucherInformationShouldNotRecieve(string userName, string voucherCode)
+        //Validation
+        [When(@"Call VoucherToBonusChipsExecutor\(\) for validate input")]
+        public void WhenCallVoucherToBonusChipsExecutorForValidateInput()
         {
-            ScenarioContext.Current.Pending();
+            try {
+                VoucherToBonusChips.Execute(_cmd, (x) => { });
+                Assert.Fail("Shouldn't be here");
+            }
+            catch (Exception ex) {
+                Assert.IsInstanceOfType(ex,
+                   typeof(ValidationErrorException));
+            };
         }
 
-        [When(@"Call VoucherToBonusChipsExecutor \(UserName'(.*)' VoucherCode '(.*)'\)")]
-        public void WhenCallVoucherToBonusChipsExecutorUserNameNitVoucherCode0A15D2C519764BF4B698E31B9F77FE90(string userName, string voucherCode)
+        //Test function
+        [When(@"Call VoucherToBonusChipsExecutor\(\)")]
+        public void WhenCallVoucherToBonusChipsExecutor()
         {
-            ScenarioContext.Current.Pending();
+            VoucherToBonusChips.Execute(_cmd, (x) => { });
         }
 
-        [Then(@"The system can sent information to back server \#VoucherToBonusChips")]
-        public void ThenTheSystemCanSentInformationToBackServerVoucherToBonusChips()
+        [Then(@"TrackingID for VoucherToBonusChips should be :'(.*)'")]
+        public void ThenTrackingIDForVoucherToBonusChipsShouldBeX(string trackingID)
         {
-            ScenarioContext.Current.Pending();
+            Assert.AreEqual(trackingID, _trackingID, "Get trackingID accept");
         }
 
-        [Then(@"The system can't sent information to back server \#VoucherToBonusChips")]
-        public void ThenTheSystemCanTSentInformationToBackServerVoucherToBonusChips()
+        [Then(@"VoucherToBonusChips get null and skip checking trackingID")]
+        public void ThenVoucherToBonusChipsGetNullAndSkipCheckingTrackingID()
         {
-            ScenarioContext.Current.Pending();
+            Assert.IsTrue(true, "Get null and skip checking trackingID");
         }
     }
 }

@@ -17,8 +17,7 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr_GetPlayerAccountInfo] as IGetPlayerAccountInfo;
+                return ScenarioContext.Current.Get<IGetPlayerAccountInfo>();
             }
         }
 
@@ -26,8 +25,7 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dac_MoneyToChips] as IMoneyToChips;
+                return ScenarioContext.Current.Get<IMoneyToChips>();
             }
         }
 
@@ -35,8 +33,7 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dac_MoneyToBonusChips] as IMoneyToBonusChips;
+                return ScenarioContext.Current.Get<IMoneyToBonusChips>();
             }
         }
 
@@ -44,8 +41,7 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr_GetMultiLevelNetworkInfo] as IGetMultiLevelNetworkInfo;
+                return ScenarioContext.Current.Get<IGetMultiLevelNetworkInfo>();
             }
         }
 
@@ -53,17 +49,7 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dac_VoucherToBonusChips] as IVoucherToBonusChips;
-            }
-        }
-
-        protected IGetVoucherInfo Dqr_GetVoucherInfo
-        {
-            get
-            {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_Dqr_GetVoucherInfo] as IGetVoucherInfo;
+                return ScenarioContext.Current.Get<IVoucherToBonusChips>();
             }
         }
 
@@ -91,13 +77,20 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
             }
         }
 
+        protected IChipsToMoney Dac_ChipsToMoney
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<IChipsToMoney>();
+            }
+        }
+
 
         protected VoucherToBonusChipsExecutor VoucherToBonusChips
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_VoucherToBonusChips] as VoucherToBonusChipsExecutor;
+                return ScenarioContext.Current.Get<VoucherToBonusChipsExecutor>();
             }
         }
 
@@ -106,8 +99,7 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_MoneyToChips] as MoneyToChipsExecutor;
+                return ScenarioContext.Current.Get<MoneyToChipsExecutor>();
             }
         }
 
@@ -115,8 +107,7 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
         {
             get
             {
-                return ScenarioContext.Current[
-                    CommonSteps.Key_MoneyToChips] as MoneyToBonusChipsExecutor;
+                return ScenarioContext.Current.Get<MoneyToBonusChipsExecutor>();
             }
         }
 
@@ -133,6 +124,14 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
             get
             {
                 return ScenarioContext.Current.Get<GetVoucherCodeExecutor>();
+            }
+        }
+
+        protected ChipsToMoneyExecutor ChipsToMoney
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<ChipsToMoneyExecutor>();
             }
         }
 

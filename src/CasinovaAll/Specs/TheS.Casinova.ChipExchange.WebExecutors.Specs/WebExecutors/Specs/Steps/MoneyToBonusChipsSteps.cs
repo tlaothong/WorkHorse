@@ -3,65 +3,119 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
+using TheS.Casinova.ChipExchange.Commands;
+using TheS.Casinova.PlayerAccount.Models;
+using TheS.Casinova.ChipExchange.Models;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PerfEx.Infrastructure.Validation;
+using Rhino.Mocks;
+using TheS.Casinova.ChipExchange.Command;
 
 namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
 {
     [Binding]
-    public class MoneyToBonusChipsSteps
+    public class MoneyToBonusChipsSteps : ChipsExchangeModuleStepsBase
     {
+        private MoneyToBonusChipsCommand _cmd;
+        private IEnumerable<PlayerAccountInformation> _playerAccountInfo;
+        private PlayerAccountInformation _playerAccount;
+        private IEnumerable<MultiLevelNetworkInformation> _mlnInfo;
+        private MultiLevelNetworkInformation _mln;
+
         [Given(@"Server has bonus points information for money to bonus chips exchange:")]
         public void GivenServerHasBonusPointsInformationForMoneyToBonusChipsExchange(Table table)
         {
-            ScenarioContext.Current.Pending();
+            _mlnInfo = from item in table.Rows
+                       select new MultiLevelNetworkInformation { 
+                           UserName = Convert.ToString(item["UserName"]),
+                           Bonus = Convert.ToInt32(item["Bonus"])
+                       };
         }
 
         [Given(@"Server has player account information for money to bonus chips exchange:")]
         public void GivenServerHasPlayerAccountInformationForMoneyToBonusChipsExchange(Table table)
         {
-            ScenarioContext.Current.Pending();
+            _playerAccountInfo = from item in table.Rows
+                                 select new PlayerAccountInformation {
+                                     UserName = Convert.ToString(item["UserName"]),
+                                     AccountType = Convert.ToString(item["AccountType"]),
+                                     CardType = Convert.ToString(item["CardType"]),
+                                     AccountNo = Convert.ToString(item["AccountNo"]),
+                                     CVV = Convert.ToString(item["CVV"]),
+                                     ExpireDate = DateTime.Parse(item["ExpireDate"]),
+                                     Active = Convert.ToBoolean(item["Active"]),
+                                     FirstName = Convert.ToString(item["FirstName"]),
+                                     LastName = Convert.ToString(item["LastName"])
+                                 };
         }
 
-        [Given(@"The chips exchange information for money to bonus chips exchange:")]
-        public void GivenTheChipsExchangeInformationForMoneyToBonusChipsExchange(Table table)
+        [Given(@"Sent UserName'(.*)' the player's bonus points should recieved")]
+        public void GivenSentUserNameBoyThePlayerSBonusPointsShouldRecieved(string userName)
         {
-            ScenarioContext.Current.Pending();
+            _mln = (from item in _mlnInfo
+                    where item.UserName == userName
+                    select item).FirstOrDefault();
+
+            SetupResult.For(Dqr_GetMultiLevelNetworkInfo.Get(new GetMultiLevelNetworkInfoCommand()))
+                .IgnoreArguments()
+                .Return(_mln);
         }
 
-        [Given(@"Sent UserName'Boy' the player's bonus points should recieved")]
-        public void GivenSentUserNameBoyThePlayerSBonusPointShouldRecieve()
+        [Given(@"Sent AccountType '(.*)' UserName'(.*)' the player's account for money to bonus chips should recieved")]
+        public void GivenSentAccountTypeXUserNameXThePlayerSAccountForMoneyToBonusChipsShouldRecieved(string accountType, string userName)
         {
-            ScenarioContext.Current.Pending();
+            _playerAccount = (from item in _playerAccountInfo
+                              where accountType == item.AccountType && userName == item.UserName
+                              select item).FirstOrDefault();
+
+            SetupResult.For(Dqr_GetPlayerAccountInfo.Get(new GetPlayerAccountInfoCommand()))
+                .IgnoreArguments()
+                .Return(_playerAccount);
         }
 
-
-        [Given(@"Sent AccountType 'Primary' UserName'Boy' the player's account for money to bonus chips should recieved")]
-        public void GivenSentAccountTypePrimaryUserNameBoyThePlayerSAccountForMoneyToBonusChipsShouldRecieve()
+        [Given(@"Sent AccountType '(.*)' Amonut '(.*)' UserName'(.*)' for money to bonuschips exchange")]
+        public void GivenSentAccountTypeXAmonutXUserNameXForMoneyToBonuschipsExchange(string accountType, double amount, string userName)
         {
-            ScenarioContext.Current.Pending();
+            _cmd = new MoneyToBonusChipsCommand {
+                ExchangeInformation = new ExchangeInformation { 
+                    AccountType = accountType,
+                    UserName = userName,
+                    Amount = amount
+                }
+            };
         }
 
-        [Given(@"Expected executed MoneyToBonusChipsCommand")]
-        public void GivenExpectedExecutedMoneyToBonusChipsCommand()
+        //Test function
+        [When(@"Call MoneyToBonusChipsExecutor \(\)")]
+        public void WhenCallMoneyToBonusChipsExecutor()
         {
-            ScenarioContext.Current.Pending();
+            MoneyToBonusChips.Execute(_cmd, (x) => { });
         }
 
-        [When(@"Call MoneyToBonusChipsExecutor \(AccountType '(.*)' Amonut '(.*)' UserName'(.*)'\) for money to bonus chips")]
-        public void WhenCallMoneyToBonusChipsExecutorAccountTypePrimaryAmonut1000UserNameForMoneyToBonusChips(string cardType, string amount, string userName)
+        //Validation
+        [When(@"Call MoneyToBonusChipsExecutor \(\) for validation")]
+        public void WhenCallMoneyToBonusChipsExecutorForValidation()
         {
-            ScenarioContext.Current.Pending();
+            try {
+                MoneyToBonusChips.Execute(_cmd, (x) => { });
+                Assert.Fail("Shouldn't be here");
+            }
+            catch (Exception ex) {
+                Assert.IsInstanceOfType(ex,
+                    typeof(ValidationErrorException));
+            }
         }
 
-        [Then(@"The system can sent chips exchange information to back server \#MoneyToBonusChips")]
-        public void ThenTheSystemCanSentChipsExchangeInformationToBackServerMoneyToBonusChips()
+        [Then(@"The system can sent money to bonuschips exchange information to back server")]
+        public void ThenTheSystemCanSentMoneyToBonuschipsExchangeInformationToBackServer()
         {
-            ScenarioContext.Current.Pending();
+            Assert.IsTrue(true, "System can sent information to back server");
         }
 
-        [Then(@"The system can't sent chips exchange information to back server \#MoneyToBonusChips")]
-        public void ThenTheSystemCanTSentChipsExchangeInformationToBackServerMoneyToBonusChips()
+        [Then(@"The system can't sent money to bonuschips exchange information to back server")]
+        public void ThenTheSystemCanTSentMoneyToBonuschipsExchangeInformationToBackServer()
         {
-            ScenarioContext.Current.Pending();
+            Assert.IsTrue(true, "System can't sent information to back server");
         }
     }
 }

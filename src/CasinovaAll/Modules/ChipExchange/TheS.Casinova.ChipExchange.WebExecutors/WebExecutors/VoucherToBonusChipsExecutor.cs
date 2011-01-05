@@ -7,6 +7,9 @@ using TheS.Casinova.ChipExchange.Commands;
 using TheS.Casinova.ChipExchange.BackServices;
 using TheS.Casinova.ChipExchange.DAL;
 using TheS.Casinova.ChipExchange.Command;
+using TheS.Casinova.Common.Services;
+using PerfEx.Infrastructure.Validation;
+using PerfEx.Infrastructure;
 
 namespace TheS.Casinova.ChipExchange.WebExecutors
 {
@@ -17,46 +20,28 @@ namespace TheS.Casinova.ChipExchange.WebExecutors
     : SynchronousCommandExecutorBase<VoucherToBonusChipsCommand>
     {
         private IVoucherToBonusChips _iVoucherToBonusChips;
-        private IGetVoucherInfo _iGetVoucherInfo;
+        private IDependencyContainer _container;
+        private IGenerateTrackingID _svc;
 
-        public VoucherToBonusChipsExecutor(IChipsExchangeModuleBackService dac, IChipsExchangeModuleDataQuery dqr)
+        public VoucherToBonusChipsExecutor(IChipsExchangeModuleBackService dac, IDependencyContainer container, IGenerateTrackingID svc)
         {
             _iVoucherToBonusChips = dac;
-            _iGetVoucherInfo = dqr;
+            _container = container;
+            _svc = svc;
         }
 
         protected override void ExecuteCommand(VoucherToBonusChipsCommand command)
         {
-            bool voucherCanUse;  //สถานะการใช้งานคูปอง
-
-            #region Voucher validation
-
-            //ดึงข้อมูลคูปอง
-            GetVoucherInfoCommand cmd_VoucherInfo = new GetVoucherInfoCommand {
-                VoucherCode = command.VoucherInformation.VoucherCode
-            };
-
-            cmd_VoucherInfo.VoucherInfo = _iGetVoucherInfo.Get(cmd_VoucherInfo);
-
-            //ตรวจสอบว่ามีคูปองนี้หรือไม่
-            if (cmd_VoucherInfo.VoucherInfo == null) {
-                Console.WriteLine("ไม่มีหมายเลขคูปองนี้");
-            }
-            else {
-
-                voucherCanUse = cmd_VoucherInfo.VoucherInfo.CanUse;
-
-                //ตรวจสอบการใช้งานของคูปอง ว่าสามารถใช้งานได้หรือไม่
-                if (voucherCanUse == false) {
-                    Console.WriteLine("คูปองนี้ไม่สามารถใช้งานได้");
-                }
-                else {
-                    //TODO: Generate trackingID
-                    _iVoucherToBonusChips.VoucherToBonusChips(command);
-                }
+            //Validation
+            var errors = ValidationHelper.Validate(_container, command.VoucherInformation, command);
+            if (errors.Any()) {
+                throw new ValidationErrorException(errors);
             }
 
-            #endregion Voucher validation
+            //Generate trackingID
+            command.VoucherInformation.TrackingID = _svc.GenerateTrackingID();
+            _iVoucherToBonusChips.VoucherToBonusChips(command);
+                
         }
     }
 }

@@ -44,7 +44,7 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
         {
             _multiLevelNetworkInfos = (from item in table.Rows
                                        select new MultiLevelNetworkInformation {
-                                           Username = item["UserName"],
+                                           UserName = item["UserName"],
                                            Bonus = Convert.ToInt32(item["Bonus"]),
                                        });
         }
@@ -70,7 +70,7 @@ namespace TheS.Casinova.ChipExchange.BackServices.Specs.Steps
         public void GivenSentUserNameXTheMLNInformationShouldRecieved(string userName)
         {
             _multiLevelNetworkInfo = (from item in _multiLevelNetworkInfos
-                                      where item.Username == userName
+                                      where item.UserName == userName
                                       select item).FirstOrDefault();
 
             SetupResult.For(Dqr_GetMLNInfo.Get(new GetMLNInfoCommand()))

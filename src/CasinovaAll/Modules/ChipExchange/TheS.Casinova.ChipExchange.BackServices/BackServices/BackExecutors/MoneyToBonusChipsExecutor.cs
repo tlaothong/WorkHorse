@@ -37,7 +37,7 @@ namespace TheS.Casinova.ChipExchange.BackServices.BackExecutors
             ValidationErrorCollection errorValidations = new ValidationErrorCollection();
 
             //Request amount should more than bonus
-            MultiLevelNetworkInformation mlnInfo = new MultiLevelNetworkInformation { Username = command.UserName };
+            MultiLevelNetworkInformation mlnInfo = new MultiLevelNetworkInformation { UserName = command.ExchangeInformation.UserName };
             ValidationHelper.Validate(_container, mlnInfo, command, errorValidations);
 
             //Request amount should more than minimum exchange rate

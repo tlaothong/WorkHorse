@@ -27,7 +27,7 @@ namespace TheS.Casinova.ChipExchange.BackServices.Validators
 
             getExchangeSettingCmd.ExchangeSetting = _iGetExchangeSetting.Get(getExchangeSettingCmd);
 
-            if (getExchangeSettingCmd.ExchangeSetting.MinChipToMoneyExchange < command.Amount) {
+            if (getExchangeSettingCmd.ExchangeSetting.MinChipToMoneyExchange < command.ChequeInfo.Amount) {
                 errors.Add(new ValidationError {
                     Instance = entity,
                     ErrorMessage = "ชิฟที่จะแลกเป็นเงิน น้อยกว่าขั้นต่ำที่กำหนด",

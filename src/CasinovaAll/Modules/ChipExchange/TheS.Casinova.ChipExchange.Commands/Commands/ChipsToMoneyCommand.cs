@@ -13,25 +13,11 @@ namespace TheS.Casinova.ChipExchange.Commands
     {
         //input
         /// <summary>
-        /// ชื่อผู้เล่น
-        /// </summary>
-        public string UserName { get; set; }
-
-        /// <summary>
-        /// ที่อยู่ผู้เล่น
-        /// </summary>
-        public string Address { get; set; }
-
-        /// <summary>
-        /// จำนวนเงิน
-        /// </summary>
-        public int Amount { get; set; }
-
-        //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-        /// <summary>
         /// ข้อมูลการแลกชิฟเป็นเงิน
+        /// 1. UserName ชื่อผู้เล่น
+        /// 2. Address ที่อยู่
+        /// 3. Amount จำนวนเงิน
         /// </summary>
         public ChequeInformation ChequeInfo { get; set; }
-        //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
     }
 }

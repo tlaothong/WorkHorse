@@ -87,7 +87,7 @@ namespace TheS.Casinova.ChipExchange.GenerateVoucherService
         #endregion Get Voucher Amount Code
 
         #region Random Code
-        static string GetRandomCode()
+        string GetRandomCode()
         {
             string randomCode = null;
             int number;
@@ -105,7 +105,7 @@ namespace TheS.Casinova.ChipExchange.GenerateVoucherService
         #endregion Random Code
 
         #region Time Code
-        static string GetTimeCode(DateTime dateTime)
+        string GetTimeCode(DateTime dateTime)
         {
             //แปลงเวลาเป็นเลขฐานสิบหก
 
@@ -131,7 +131,7 @@ namespace TheS.Casinova.ChipExchange.GenerateVoucherService
         #endregion Time Code,.
 
         #region Checksum Code
-        static string GetChecksumCode(string preVoucherCode)
+        string GetChecksumCode(string preVoucherCode)
         {
             string checksum = null;
             int mod16;

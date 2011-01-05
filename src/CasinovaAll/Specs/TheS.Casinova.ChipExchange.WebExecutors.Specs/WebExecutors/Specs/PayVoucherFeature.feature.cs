@@ -125,7 +125,7 @@ testRunner.And("Sent UserName\'Nit\' Amount\'1000\' for pay voucher");
 #line 27
 testRunner.And("Sent UserName\'Nit\' the player\'s profile should recieved");
 #line 28
-testRunner.When("Call PayVoucherExecutor()");
+testRunner.When("Call PayVoucherExecutor() for validate input");
 #line 29
 testRunner.Then("Get null and skip checking trackingID for pay voucher");
 #line hidden
@@ -150,7 +150,7 @@ testRunner.And("Sent UserName\'Noy\' Amount\'1000\' for pay voucher");
 #line 36
 testRunner.And("Sent UserName\'Noy\' the player\'s profile should recieved");
 #line 37
-testRunner.When("Call PayVoucherExecutor()");
+testRunner.When("Call PayVoucherExecutor() for validate input");
 #line 38
 testRunner.Then("Get null and skip checking trackingID for pay voucher");
 #line hidden
@@ -194,9 +194,9 @@ this.ScenarioSetup(scenarioInfo);
 #line 50
 testRunner.Given("The PayVoucherExecutor has been created and initialized");
 #line 51
-testRunner.And("Sent UserName\'\' Amount\'1000\' for pay voucher");
+testRunner.And("Sent UserName\'Nit\' Amount\'0\' for pay voucher");
 #line 52
-testRunner.And("Sent UserName\'\' the player\'s profile should recieved");
+testRunner.And("Sent UserName\'Nit\' the player\'s profile should recieved");
 #line 53
 testRunner.When("Call PayVoucherExecutor() for validate input");
 #line 54

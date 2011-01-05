@@ -67,8 +67,8 @@ this.ScenarioSetup(scenarioInfo);
 testRunner.Given("The MoneyToChipsExecutor has been created and initialized");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "AccountType",
                         "UserName",
+                        "AccountType",
                         "CardType",
                         "AccountNo",
                         "CVV",
@@ -77,20 +77,20 @@ testRunner.Given("The MoneyToChipsExecutor has been created and initialized");
                         "FirstName",
                         "LastName"});
             table1.AddRow(new string[] {
-                        "Primary",
                         "Boy",
+                        "Primary",
                         "Visa",
-                        "4943129059300146",
+                        "4111111111111111",
                         "0253",
                         "10/31/2010",
                         "True",
                         "Pongsak",
                         "SriPanya"});
             table1.AddRow(new string[] {
-                        "Secondary",
                         "Boy",
+                        "Secondary",
                         "Master\tCard",
-                        "5221000000041804",
+                        "5105105105105100",
                         "4830",
                         "11/30/2010",
                         "True",
@@ -99,37 +99,15 @@ testRunner.Given("The MoneyToChipsExecutor has been created and initialized");
 #line 9
 testRunner.And("Server has player account information as:", ((string)(null)), table1);
 #line 14
-testRunner.And("Sent AccountType \'Primary\' UserName\'Boy\' the player\'s account should recieved");
-#line hidden
-            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                        "UserName",
-                        "Amount",
-                        "AccountType",
-                        "CardType",
-                        "AccountNo",
-                        "CVV",
-                        "ExpireDate",
-                        "FirstName",
-                        "LastName"});
-            table2.AddRow(new string[] {
-                        "Boy",
-                        "1000",
-                        "Primary",
-                        "Visa",
-                        "4943129059300146",
-                        "0253",
-                        "10/31/2010",
-                        "Pongsak",
-                        "SriPanya"});
+testRunner.And("Sent AccountType \'Primary\' UserName\'Boy\' Amount \'1000\' for money to chips exchang" +
+                    "e");
 #line 15
-testRunner.And("The chips exchange information for money to chips :", ((string)(null)), table2);
-#line 19
-testRunner.And("Expected executed MoneyToChipsCommand");
-#line 20
-testRunner.When("Call MoneyToChipsExecutor (AccountType \'Primary\' Amonut \'1000\' UserName\'Boy\') for" +
-                    " money to chips");
-#line 21
-testRunner.Then("The system can sent chips exchange information to back server #MoneyToChips");
+testRunner.And("Sent AccountType \'Primary\' UserName\'Boy\' the player\'s account for money to chips " +
+                    "exchange should recieved");
+#line 16
+testRunner.When("Call MoneyToChipsExecutor ()");
+#line 17
+testRunner.Then("The system can sent money to chips exchange information to back server");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -143,12 +121,12 @@ testRunner.Then("The system can sent chips exchange information to back server #
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[MoneyToChips]ระบบได้รับข้อมูลครบ ระบบตรวจสอบข้อมูลบัตรเครดิต ข้อมูลบัตรเครดิตไม่" +
                     "ถูกต้อง ระบบไม่สามารถส่งข้อมูลไป back server ได้", new string[] {
                         "record_mock"});
-#line 24
+#line 20
 this.ScenarioSetup(scenarioInfo);
-#line 25
+#line 21
 testRunner.Given("The MoneyToChipsExecutor has been created and initialized");
 #line hidden
-            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "AccountType",
                         "UserName",
                         "CardType",
@@ -158,7 +136,7 @@ testRunner.Given("The MoneyToChipsExecutor has been created and initialized");
                         "Active",
                         "FirstName",
                         "LastName"});
-            table3.AddRow(new string[] {
+            table2.AddRow(new string[] {
                         "Primary",
                         "Boy",
                         "Visa",
@@ -168,7 +146,7 @@ testRunner.Given("The MoneyToChipsExecutor has been created and initialized");
                         "True",
                         "Pongsak",
                         "SriPanya"});
-            table3.AddRow(new string[] {
+            table2.AddRow(new string[] {
                         "Secondary",
                         "Boy",
                         "Master\tCard",
@@ -178,81 +156,87 @@ testRunner.Given("The MoneyToChipsExecutor has been created and initialized");
                         "True",
                         "Pongsak",
                         "SriPanya"});
-#line 26
-testRunner.And("Server has player account information as:", ((string)(null)), table3);
-#line 31
-testRunner.And("Sent AccountType \'Primary\' UserName\'Boy\' the player\'s account should recieved");
-#line 32
-testRunner.When("Call MoneyToChipsExecutor (AccountType \'Primary\' Amonut \'1000\' UserName\'Boy\') for" +
-                    " money to chips");
-#line 33
-testRunner.Then("The system can\'t sent chips exchange information to back server #MoneyToChips");
+#line 22
+testRunner.And("Server has player account information as:", ((string)(null)), table2);
+#line 27
+testRunner.And("Sent AccountType \'Primary\' UserName\'Boy\' Amount \'100\' for money to chips exchange" +
+                    "");
+#line 28
+testRunner.And("Sent AccountType \'Primary\' UserName\'Boy\' the player\'s account for money to chips " +
+                    "exchange should recieved");
+#line 29
+testRunner.When("Call MoneyToChipsExecutor () for validation");
+#line 30
+testRunner.Then("The system can\'t sent money to chips exchange information to back server");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[MoneyToChips]ระบบไม่ได้รับข้อมูล AccountType ระบบไม่สามารถตรวจสอบข้อมูลบัตรเครดิ" +
-            "ตได้_MoneyToChips")]
+            "ตเพื่อแลกเงินเป็นชิพต่อไปได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "MoneyToChips")]
-        public virtual void MoneyToChipsระบบไมไดรบขอมลAccountTypeระบบไมสามารถตรวจสอบขอมลบตรเครดตได_MoneyToChips()
+        public virtual void MoneyToChipsระบบไมไดรบขอมลAccountTypeระบบไมสามารถตรวจสอบขอมลบตรเครดตเพอแลกเงนเปนชพตอไปได()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[MoneyToChips]ระบบไม่ได้รับข้อมูล AccountType ระบบไม่สามารถตรวจสอบข้อมูลบัตรเครดิ" +
-                    "ตได้_MoneyToChips", new string[] {
+                    "ตเพื่อแลกเงินเป็นชิพต่อไปได้", new string[] {
                         "record_mock"});
+#line 33
+this.ScenarioSetup(scenarioInfo);
+#line 34
+testRunner.Given("The MoneyToChipsExecutor has been created and initialized");
+#line 35
+testRunner.And("Sent AccountType \'\' UserName\'Boy\' Amount \'100\' for money to chips exchange");
 #line 36
-this.ScenarioSetup(scenarioInfo);
+testRunner.When("Call MoneyToChipsExecutor () for validation");
 #line 37
-testRunner.Given("The MoneyToChipsExecutor has been created and initialized");
-#line 38
-testRunner.When("Call MoneyToChipsExecutor (AccountType \'\' Amonut \'1000\' UserName\'Boy\') for money " +
-                    "to chips");
-#line 39
-testRunner.Then("The system can\'t sent chips exchange information to back server #MoneyToChips");
+testRunner.Then("The system can\'t sent money to chips exchange information to back server");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[MoneyToChips]ระบบไม่ได้รับข้อมูล UserName ระบบไม่สามารถตรวจสอบข้อมูลบัตรเครดิตได" +
-            "้_MoneyToChips")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[MoneyToChips]ระบบไม่ได้รับข้อมูล UserName ระบบไม่สามารถตรวจสอบข้อมูลบัตรเครดิตเพ" +
+            "ื่อแลกเงินเป็นชิพต่อไปได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "MoneyToChips")]
-        public virtual void MoneyToChipsระบบไมไดรบขอมลUserNameระบบไมสามารถตรวจสอบขอมลบตรเครดตได_MoneyToChips()
+        public virtual void MoneyToChipsระบบไมไดรบขอมลUserNameระบบไมสามารถตรวจสอบขอมลบตรเครดตเพอแลกเงนเปนชพตอไปได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[MoneyToChips]ระบบไม่ได้รับข้อมูล UserName ระบบไม่สามารถตรวจสอบข้อมูลบัตรเครดิตได" +
-                    "้_MoneyToChips", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[MoneyToChips]ระบบไม่ได้รับข้อมูล UserName ระบบไม่สามารถตรวจสอบข้อมูลบัตรเครดิตเพ" +
+                    "ื่อแลกเงินเป็นชิพต่อไปได้", new string[] {
                         "record_mock"});
-#line 42
+#line 41
 this.ScenarioSetup(scenarioInfo);
-#line 43
+#line 42
 testRunner.Given("The MoneyToChipsExecutor has been created and initialized");
+#line 43
+testRunner.And("Sent AccountType \'Primary\' UserName\'\' Amount \'100\' for money to chips exchange");
 #line 44
-testRunner.When("Call MoneyToChipsExecutor (AccountType \'Primary\' Amonut \'1000\' UserName\'\') for mo" +
-                    "ney to chips");
+testRunner.When("Call MoneyToChipsExecutor () for validation");
 #line 45
-testRunner.Then("The system can\'t sent chips exchange information to back server #MoneyToChips");
+testRunner.Then("The system can\'t sent money to chips exchange information to back server");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[MoneyToChips]ระบบไม่ได้รับข้อมูล Amount ระบบไม่สามารถตรวจสอบข้อมูลบัตรเครดิตได้_" +
-            "MoneyToChips")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[MoneyToChips]ระบบได้รับข้อมูล Amount ไม่ถูกต้อง ระบบไม่สามารถตรวจสอบข้อมูลบัตรเค" +
+            "รดิตเพื่อแลกเงินเป็นชิพต่อไปได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "MoneyToChips")]
-        public virtual void MoneyToChipsระบบไมไดรบขอมลAmountระบบไมสามารถตรวจสอบขอมลบตรเครดตได_MoneyToChips()
+        public virtual void MoneyToChipsระบบไดรบขอมลAmountไมถกตองระบบไมสามารถตรวจสอบขอมลบตรเครดตเพอแลกเงนเปนชพตอไปได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[MoneyToChips]ระบบไม่ได้รับข้อมูล Amount ระบบไม่สามารถตรวจสอบข้อมูลบัตรเครดิตได้_" +
-                    "MoneyToChips", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[MoneyToChips]ระบบได้รับข้อมูล Amount ไม่ถูกต้อง ระบบไม่สามารถตรวจสอบข้อมูลบัตรเค" +
+                    "รดิตเพื่อแลกเงินเป็นชิพต่อไปได้", new string[] {
                         "record_mock"});
 #line 48
 this.ScenarioSetup(scenarioInfo);
 #line 49
 testRunner.Given("The MoneyToChipsExecutor has been created and initialized");
 #line 50
-testRunner.When("Call MoneyToChipsExecutor (AccountType \'Primary\' Amonut \'\' UserName\'Boy\') for mon" +
-                    "ey to chips");
+testRunner.And("Sent AccountType \'Primary\' UserName\'Boy\' Amount \'-1\' for money to chips exchange");
 #line 51
-testRunner.Then("The system can\'t sent chips exchange information to back server #MoneyToChips");
+testRunner.When("Call MoneyToChipsExecutor () for validation");
+#line 52
+testRunner.Then("The system can\'t sent money to chips exchange information to back server");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

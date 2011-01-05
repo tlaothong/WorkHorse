@@ -25,15 +25,6 @@ namespace TheS.Casinova.ChipExchange.Validators
             double chipsTotal; //จำนวนชิพทั้งหมดที่ผู้เล่นมี
             GetPlayerBalanceCommand playerBalanceCmd;
 
-            playerBalanceCmd = new GetPlayerBalanceCommand {
-                UserProfie = new UserProfile { 
-                    UserName = command.VoucherInformation.UserName
-                }
-            };
-
-            playerBalanceCmd.ChipsBalance = _iGetPlayerBalance.Get(playerBalanceCmd);
-            chipsTotal = playerBalanceCmd.ChipsBalance.NonRefundable + playerBalanceCmd.ChipsBalance.Refundable;
-
             //ตรวจสอบข้อมูลจำนวนเงิน
             if (entity.Amount < 1) {
                 errors.Add(new ValidationError {
@@ -41,13 +32,35 @@ namespace TheS.Casinova.ChipExchange.Validators
                     ErrorMessage = "ค่า Amount ไม่ถูกต้อง",
                 });
             }
+            else {
 
-            //ตรวจสอบจำนวนเงินที่มี
-            if (chipsTotal < entity.Amount) {
-                errors.Add(new ValidationError {
-                    Instance = entity,
-                    ErrorMessage = "มีจำนวนเงินไม่เพียงพอ",
-                });
+                playerBalanceCmd = new GetPlayerBalanceCommand {
+                    UserProfie = new UserProfile {
+                        UserName = command.VoucherInformation.UserName
+                    }
+                };
+
+                playerBalanceCmd.ChipsBalance = _iGetPlayerBalance.Get(playerBalanceCmd);
+
+                //ตรวจสอบข้อมูล userName ใน server
+                if (playerBalanceCmd.ChipsBalance == null) {
+                    errors.Add(new ValidationError {
+                        Instance = entity,
+                        ErrorMessage = "ไม่มี UserName ใน Server",
+                    });
+                }
+                else {
+
+                    chipsTotal = playerBalanceCmd.ChipsBalance.NonRefundable + playerBalanceCmd.ChipsBalance.Refundable;
+
+                    //ตรวจสอบจำนวนเงินที่มี
+                    if (chipsTotal < entity.Amount) {
+                        errors.Add(new ValidationError {
+                            Instance = entity,
+                            ErrorMessage = "มีจำนวนเงินไม่เพียงพอ",
+                        });
+                    }
+                }
             }
         }
     }

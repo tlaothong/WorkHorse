@@ -65,6 +65,52 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.UnitSpecs
             xcutor.Execute(cmd, (xcmd) => { });
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(ValidationErrorException))]
+        public void ValidateVoucherInformation_ChecksumCanNotBeNull()
+        {
+            IDependencyContainer container;
+            IChipsExchangeModuleBackService svc;
+            IGenerateTrackingID commonSvc;
+
+            setupValidators(out container, out svc, out commonSvc);
+
+            var model = new VoucherInformation {
+                UserName = "Ayaya",
+                VoucherCode = null
+            };
+            var cmd = new VoucherToBonusChipsCommand {
+                VoucherInformation = model,
+            };
+
+            VoucherToBonusChipsExecutor xcutor = new VoucherToBonusChipsExecutor(
+                svc, container, commonSvc);
+            xcutor.Execute(cmd, (xcmd) => { });
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ValidationErrorException))]
+        public void ValidateVoucherInformation_ChecksumMustBeCorrected()
+        {
+            IDependencyContainer container;
+            IChipsExchangeModuleBackService svc;
+            IGenerateTrackingID commonSvc;
+
+            setupValidators(out container, out svc, out commonSvc);
+
+            var model = new VoucherInformation {
+                UserName = "Ayaya",
+                VoucherCode = "448021228C7A10D4"
+            };
+            var cmd = new VoucherToBonusChipsCommand {
+                VoucherInformation = model,
+            };
+
+            VoucherToBonusChipsExecutor xcutor = new VoucherToBonusChipsExecutor(
+                svc, container, commonSvc);
+            xcutor.Execute(cmd, (xcmd) => { });
+        }
+
         private static void setupValidators(out IDependencyContainer container, out IChipsExchangeModuleBackService svc, out IGenerateTrackingID commonSvc)
         {
             var fac = new PerfEx.Infrastructure.Containers.StructureMapAdapter.StructureMapAbstractFactory();
@@ -75,6 +121,9 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.UnitSpecs
 
             reg.Register<IValidator<VoucherInformation, PayVoucherCommand>
                , VoucherInformation_PayVoucherValidators>();
+
+            reg.Register<IValidator<VoucherInformation, VoucherToBonusChipsCommand>
+              , VoucherInformation_VoucherToBonusChipsValidators>();
 
             container = fac.CreateContainer(reg);
             commonSvc = null;

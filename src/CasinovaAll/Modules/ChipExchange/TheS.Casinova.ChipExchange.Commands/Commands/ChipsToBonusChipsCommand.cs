@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TheS.Casinova.ChipExchange.Models;
 
 namespace TheS.Casinova.ChipExchange.Commands
 {
@@ -12,13 +13,10 @@ namespace TheS.Casinova.ChipExchange.Commands
     {
         //input
         /// <summary>
-        /// ชื่อผู้เล่น
+        /// ข้อมูลการแลกชิฟตายด้วยชิพเป็น
+        /// 1. UserName ชื่อผู้เล่น
+        /// 2. Amount จำนวนเงิน
         /// </summary>
-        public string UserName { get; set; }
-
-        /// <summary>
-        /// จำนวนชิพเป็น
-        /// </summary>
-        public int Amount { get; set; }
+        public ExchangeInformation ExchangeInfo { get; set; }
     }
 }

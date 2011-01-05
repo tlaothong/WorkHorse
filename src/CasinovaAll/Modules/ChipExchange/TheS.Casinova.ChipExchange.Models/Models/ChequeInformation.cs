@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TheS.Casinova.ChipExchange.Models
 {
-    public class ChequeInformation
+    public partial class ChequeInformation
     {
         /// <summary>
         /// ชื่อผู้เล่น

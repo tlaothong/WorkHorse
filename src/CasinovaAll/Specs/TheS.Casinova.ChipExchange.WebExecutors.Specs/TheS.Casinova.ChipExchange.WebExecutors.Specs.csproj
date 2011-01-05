@@ -70,6 +70,16 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebExecutors\SpecsEventDefinitions.cs" />
+    <Compile Include="WebExecutors\Specs\ChipsToBonusChipsFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChipsToBonusChipsFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\ChipsToMoneyFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChipsToMoneyFeature.feature</DependentUpon>
+    </Compile>
     <Compile Include="WebExecutors\Specs\GetVoucherCodeFeature.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -90,6 +100,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MoneyToChipsFeature.feature</DependentUpon>
     </Compile>
+    <Compile Include="WebExecutors\Specs\Steps\ChipsToBonusChipsSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\ChipsToMoneySteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\GetVoucherCodeSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\PayVoucherSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\ChipsExchangeModuleStepsBase.cs" />
@@ -102,6 +114,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VoucherToBonusChipsFeature.feature</DependentUpon>
     </Compile>
+    <Compile Include="WebExecutors\UnitSpecs\ChequeInformationSpecs.cs" />
+    <Compile Include="WebExecutors\UnitSpecs\ExchangeInformationSpecs.cs" />
     <Compile Include="WebExecutors\UnitSpecs\VoucherInformationSpecs.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -125,6 +139,10 @@
       <Project>{1495EE20-EF19-4D1F-95C9-EA64E5007A47}</Project>
       <Name>TheS.Casinova.ChipExchange.WebExecutors</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Modules\PlayerAccount\TheS.Casinova.PlayerAccount.Models\TheS.Casinova.PlayerAccount.Models.csproj">
+      <Project>{28B48276-2905-4A6C-9BBA-09007F7E7084}</Project>
+      <Name>TheS.Casinova.PlayerAccount.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Modules\PlayerProfile\TheS.Casinova.PlayerProfile.Models\TheS.Casinova.PlayerProfile.Models.csproj">
       <Project>{96BBA83F-EAA6-4EEA-BEC5-98F6AC39B943}</Project>
       <Name>TheS.Casinova.PlayerProfile.Models</Name>
@@ -140,6 +158,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="WebExecutors\App.config" />
+    <None Include="WebExecutors\Specs\ChipsToBonusChipsFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ChipsToBonusChipsFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\ChipsToMoneyFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ChipsToMoneyFeature.feature.cs</LastGenOutput>
+    </None>
     <None Include="WebExecutors\Specs\GetVoucherCodeFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>GetVoucherCodeFeature.feature.cs</LastGenOutput>

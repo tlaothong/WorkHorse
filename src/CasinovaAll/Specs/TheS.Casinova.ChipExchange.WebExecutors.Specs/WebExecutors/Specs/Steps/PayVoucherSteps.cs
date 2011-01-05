@@ -53,20 +53,7 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
                            select item).FirstOrDefault();
 
             SetupResult.For(Dqr_GetPlayerBalance.Get(new GetPlayerBalanceCommand()))
-                .IgnoreArguments().Return(_getBalance);
-
-            if (_getBalance == null) {
-                _validate = false;
-            }
-            else {
-
-                _checkAmount = _getBalance.Refundable + _getBalance.NonRefundable;
-
-                if (_checkAmount < _amount) {
-                    _validate = false;
-                }
-            }
-            
+              .IgnoreArguments().Return(_getBalance);
         }
 
         [Given(@"The system generated TrackingID for PayVoucher:'(.*)'")]

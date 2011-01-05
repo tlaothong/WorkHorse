@@ -2,43 +2,41 @@
 	In order to voucher to BonusChips exchange
 	As a system
 	I want to sent voucher code to BonusChips exchange
-
-@record_mock
-Background:
-	Given Server has voucher information for voucher to bonus chips :
-		|UserName	|VoucherCode	|Amount	|CanUse	|
-		|Nit		|0A15D			| 100	|True	|
-		|Ae			|16F67			| 200	|false	|
 		
 @record_mock
-Scenario:[VoucherToBonusChips]ระบบได้รับข้อมูล voucher code และ userName ระบบทำการตรวจสอบข้อมูล ข้อมูลถูกต้อง ระบบสามารถ generate trackingID ได้  
+Scenario:[VoucherToBonusChips]ระบบได้รับข้อมูล voucher code และ userName ระบบทำการตรวจสอบข้อมูล ข้อมูล voucher code ถูกต้อง ระบบสามารถ generate trackingID ได้  
 	Given The VoucherToBonusChipsExecutor has been created and initialized
-	And   Sent UserName'Nit' VoucherCode '0A15D' the player's voucher information should recieved
+	And   Sent UserName'Nit' VoucherCode '448021228C7A10D3'
+	And   The system generated TrackingID for VoucherToBonusChips:'942D2F350FAA4A32870CF9CF9A5C7A2E'
 	When  Call VoucherToBonusChipsExecutor() 
-	Then  The system can sent information to back server #VoucherToBonusChips
+	Then  TrackingID for VoucherToBonusChips should be :'942D2F350FAA4A32870CF9CF9A5C7A2E'
+
 
 @record_mock
-Scenario:[VoucherToBonusChips]ระบบได้รับข้อมูล voucher code และ userName ครบ  ระบบตรวจสอบการใช้งาน คูปองไม่สามารถใช้งานได้ ระบบส่งข้อมูลไป back server ไม่ได้  
+Scenario:[VoucherToBonusChips]ระบบได้รับข้อมูล voucher code และ userName ระบบทำการตรวจสอบข้อมูล ข้อมูล voucher code ไม่ถูกต้อง ระบบไม่สามารถ generate trackingID ได้
 	Given The VoucherToBonusChipsExecutor has been created and initialized
-	And   Sent UserName'Ae' VoucherCode '16F67B16ABDF469FA42D6D3BFC380745' the player's voucher information should recieved
-	When  Call VoucherToBonusChipsExecutor (UserName'Ae' VoucherCode '16F67B16ABDF469FA42D6D3BFC380745') 
-	Then  The system can't sent information to back server #VoucherToBonusChips
+	And   Sent UserName'Nit' VoucherCode '448065728C7A10D3'
+	When  Call VoucherToBonusChipsExecutor() for validate input
+	Then  VoucherToBonusChips get null and skip checking trackingID
 
 @record_mock
-Scenario:[VoucherToBonusChips]ระบบได้รับข้อมูล voucher code และ userName ครบ  ระบบตรวจสอบรหัสคูปอง ไม่มีข้อมูลคูปอง ระบบส่งข้อมูลไป back server ไม่ได้  
+Scenario:[VoucherToBonusChips]ระบบได้รับข้อมูล voucher code และ userName ระบบทำการตรวจสอบข้อมูล ข้อมูล voucher code มีจำนวนไม่ถูกต้อง ระบบไม่สามารถ generate trackingID ได้
 	Given The VoucherToBonusChipsExecutor has been created and initialized
-	And   Sent UserName'Ae' VoucherCode 'DA60FEA34A9D42299B8C066EDC141DC5' the player's voucher information should not recieved
-	When  Call VoucherToBonusChipsExecutor (UserName'Ae' VoucherCode 'DA60FEA34A9D42299B8C066EDC141DC5') 
-	Then  The system can't sent information to back server #VoucherToBonusChips
+	And   Sent UserName'Nit' VoucherCode '448065728C7A'
+	When  Call VoucherToBonusChipsExecutor() for validate input
+	Then  VoucherToBonusChips get null and skip checking trackingID
 
 @record_mock
-Scenario:[VoucherToBonusChips]ระบบไม่ได้รับข้อมูล voucher code ระบบส่งข้อมูลไป back server ไม่ได้_VoucherToBonusChips   
+Scenario:[VoucherToBonusChips]ระบบไม่ได้รับข้อมูล userName ระบบไม่สามารถ generate trackingID ได้
 	Given The VoucherToBonusChipsExecutor has been created and initialized
-	When  Call VoucherToBonusChipsExecutor (UserName'Ae' VoucherCode '') 
-	Then  The system can't sent information to back server #VoucherToBonusChips
+	And   Sent UserName'' VoucherCode '448021228C7A10D3'
+	When  Call VoucherToBonusChipsExecutor() for validate input
+	Then  VoucherToBonusChips get null and skip checking trackingID
 
 @record_mock
-Scenario:[VoucherToBonusChips]ระบบไม่ได้รับข้อมูล UserName ระบบส่งข้อมูลไป back server ไม่ได้_VoucherToBonusChips  
+Scenario:[VoucherToBonusChips]ระบบไม่ได้รับข้อมูล voucher code ระบบไม่สามารถ generate trackingID ได้
 	Given The VoucherToBonusChipsExecutor has been created and initialized
-	When  Call VoucherToBonusChipsExecutor (UserName'' VoucherCode '16F67B16ABDF469FA42D6D3BFC380745') 
-	Then  The system can't sent information to back server #VoucherToBonusChips
+	And   Sent UserName'Nit' VoucherCode ''
+	When  Call VoucherToBonusChipsExecutor() for validate input
+	Then  VoucherToBonusChips get null and skip checking trackingID
+

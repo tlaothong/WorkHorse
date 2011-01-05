@@ -10,7 +10,7 @@ namespace TheS.Casinova.ChipExchange.Models
         /// <summary>
         /// ชื่อผู้เล่น
         /// </summary>
-        public string Username { get; set; }
+        public string UserName { get; set; }
 
         /// <summary>
         /// จำนวนโบนัส

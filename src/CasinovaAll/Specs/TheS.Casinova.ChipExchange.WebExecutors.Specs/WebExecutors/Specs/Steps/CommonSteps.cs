@@ -22,22 +22,24 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
     [Binding]
     public class CommonSteps
     {
-        public const string Key_MoneyToChips = "MoneyToChips";
-        public const string Key_Dac_MoneyToChips = "mockDac_MoneyToChips";
-        public const string Key_Dqr_GetPlayerAccountInfo = "mockDqr_GetPlayerAccountInfo";
-
-        public const string Key_MoneyToBonusChips = "MoneyToBonusChips";
-        public const string Key_Dac_MoneyToBonusChips = "mockDac_MoneyToBonusChips";
-        public const string Key_Dqr_GetMultiLevelNetworkInfo = "mockDqr_GetMultiLevelNetworkInfo";
-
-        public const string Key_VoucherToBonusChips = "VoucherToBonusChips";
-        public const string Key_Dac_VoucherToBonusChips = "mockDac_VoucherToBonusChips";
-        public const string Key_Dqr_GetVoucherInfo = "mockDqr_GetVoucherInfo";
-
-        public const string Key_IChipsExchangeModuleDataQuery = "IChipsExchangeModuleDataQuery";
-
-
         MockRepository Mocks { get { return SpecEventDefinitions.Mocks; } }
+
+        //Chips to money exchange specs initialized
+        [Given(@"The ChipsToMoneyExecutor has been created and initialized")]
+        public void GivenTheChipsToMoneyExecutorHasBeenCreatedAndInitialized()
+        {
+            var dac = Mocks.DynamicMock<IChipsExchangeModuleBackService>();
+            var dqr = Mocks.DynamicMock<IChipsExchangeModuleDataQuery>();
+
+            IDependencyContainer container;
+
+            ScenarioContext.Current.Set<IChipsToMoney>(dac);
+            ScenarioContext.Current.Set<IChipsExchangeModuleDataQuery>(dqr);
+
+            setupValidators(out container);
+            ScenarioContext.Current.Set<ChipsToMoneyExecutor>(
+                new ChipsToMoneyExecutor(dac, container));
+        }
 
         //Money to chips exchange specs initialized
         [Given(@"The MoneyToChipsExecutor has been created and initialized")]
@@ -46,9 +48,17 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
             var dac = Mocks.DynamicMock<IChipsExchangeModuleBackService>();
             var dqr = Mocks.DynamicMock<IChipsExchangeModuleDataQuery>();
 
-            ScenarioContext.Current[Key_Dac_MoneyToChips] = dac;
-            ScenarioContext.Current[Key_Dqr_GetPlayerAccountInfo] = dqr;
-            ScenarioContext.Current[Key_MoneyToChips] = new MoneyToChipsCommand();
+            IDependencyContainer container;
+
+            ScenarioContext.Current.Set<IGetPlayerAccountInfo>(dqr);
+            ScenarioContext.Current.Set<IVoucherToBonusChips>(dac);
+            ScenarioContext.Current.Set<IChipsExchangeModuleDataQuery>(dqr);
+           
+            setupValidators(out container);
+            ScenarioContext.Current.Set<MoneyToChipsExecutor>(
+                new MoneyToChipsExecutor(dac, container));
+
+          
         }
 
         //Money to bonus chips exchange specs initialized
@@ -58,10 +68,16 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
             var dac = Mocks.DynamicMock<IChipsExchangeModuleBackService>();
             var dqr = Mocks.DynamicMock<IChipsExchangeModuleDataQuery>();
 
-            ScenarioContext.Current[Key_Dac_MoneyToBonusChips] = dac;
-            ScenarioContext.Current[Key_Dqr_GetPlayerAccountInfo] = dqr;
-            ScenarioContext.Current[Key_Dqr_GetMultiLevelNetworkInfo] = dqr;
-            ScenarioContext.Current[Key_MoneyToBonusChips] = new MoneyToBonusChipsCommand();
+            IDependencyContainer container;
+
+            ScenarioContext.Current.Set<IMoneyToBonusChips>(dac);
+            ScenarioContext.Current.Set<IGetPlayerAccountInfo>(dqr);
+            ScenarioContext.Current.Set<IGetMultiLevelNetworkInfo>(dqr);
+            ScenarioContext.Current.Set<IChipsExchangeModuleDataQuery>(dqr);
+
+            setupValidators(out container);
+            ScenarioContext.Current.Set<MoneyToBonusChipsExecutor>(
+                new MoneyToBonusChipsExecutor(dac, container));
            
         }
 
@@ -70,11 +86,18 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
         public void GivenTheVoucherToBonusChipsExecutorHasBeenCreatedAndInitialized()
         {
             var dac = Mocks.DynamicMock<IChipsExchangeModuleBackService>();
+            var svc = Mocks.DynamicMock<IGenerateTrackingID>();
             var dqr = Mocks.DynamicMock<IChipsExchangeModuleDataQuery>();
 
-            ScenarioContext.Current[Key_Dac_VoucherToBonusChips] = dac;
-            ScenarioContext.Current[Key_Dqr_GetVoucherInfo] = dqr;
-            ScenarioContext.Current[Key_VoucherToBonusChips] = new VoucherToBonusChipsCommand();
+            IDependencyContainer container;
+
+            ScenarioContext.Current.Set<IVoucherToBonusChips>(dac);
+            ScenarioContext.Current.Set<IGenerateTrackingID>(svc);
+            ScenarioContext.Current.Set<IChipsExchangeModuleDataQuery>(dqr);
+
+            setupValidators(out container);
+            ScenarioContext.Current.Set<VoucherToBonusChipsExecutor>(
+                new VoucherToBonusChipsExecutor(dac, container, svc));
         }
 
         //Pay voucher specs initialized
@@ -92,9 +115,9 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
 
             ScenarioContext.Current.Set<IChipsExchangeModuleDataQuery>(dqr);
 
-             setupValidators(out container);
-           ScenarioContext.Current.Set<PayVoucherExecutor>(
-                new PayVoucherExecutor(dac, container, svc));
+            setupValidators(out container);
+            ScenarioContext.Current.Set<PayVoucherExecutor>(
+                 new PayVoucherExecutor(dac, container, svc));
         }
 
         //Get voucher code specs initialized
@@ -113,6 +136,13 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
                 new GetVoucherCodeExecutor(dqr, container));
         }
 
+        //Chips to bonus chips exchange specs initialized
+        [Given(@"The ChipsToBonusChipsExecutor has been created and initialized")]
+        public void GivenTheChipsToBonusChipsExecutorHasBeenCreatedAndInitialized()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
         private static void setupValidators(out IDependencyContainer container)
         {
             var fac = new StructureMapAbstractFactory();
@@ -121,12 +151,29 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
             reg.Register<IValidator<VoucherInformation, NullCommand>
                 , DataAnnotationValidator<VoucherInformation, NullCommand>>();
 
+            reg.Register<IValidator<ExchangeInformation, NullCommand>
+                , DataAnnotationValidator<ExchangeInformation, NullCommand>>();
+
+            reg.Register<IValidator<ChequeInformation, NullCommand>
+                , DataAnnotationValidator<ChequeInformation, NullCommand>>();
+
+            reg.Register<IValidator<ChequeInformation, ChipsToMoneyCommand>
+                , ChequeInformation_ChipsToMoneyValidators>();
+
             reg.Register<IValidator<VoucherInformation, PayVoucherCommand>
                , VoucherInformation_PayVoucherValidators>();
 
+            reg.Register<IValidator<VoucherInformation, VoucherToBonusChipsCommand>
+              , VoucherInformation_VoucherToBonusChipsValidators>();
+
+            reg.Register<IValidator<ExchangeInformation, MoneyToChipsCommand>
+             , ExchangeInformation_MoneyToChipsValidators>();
+
+            reg.Register<IValidator<ExchangeInformation, MoneyToBonusChipsCommand>
+             , ExchangeInformation_MoneyToBonusChipsValidators>();
+
             reg.RegisterInstance<IChipsExchangeModuleDataQuery>
                 (ScenarioContext.Current.Get<IChipsExchangeModuleDataQuery>());
-
             reg.Register<IServiceObjectProvider<IChipsExchangeModuleDataQuery>,
                 DependencyInjectionServiceObjectProviderAdapter<IChipsExchangeModuleDataQuery, IChipsExchangeModuleDataQuery>>();
 
