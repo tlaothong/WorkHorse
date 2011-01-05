@@ -60,7 +60,7 @@
     </label>
     <label style="color: Gray; float: left; margin-left: 5px;">
         (152)</label><div>
-            <a href="#" style="color: Gray; margin-left: 40px;">SeeAll</a></div>
+            <a href="#" style="color: Gray; margin-left: 40px;" class="SeeAll">SeeAll</a></div>
 </div>
 <div id="listContent">
     <div style="width: 159; height: 400px;">
@@ -84,7 +84,7 @@
                 (1 day ago) danm fantasic nice
             </div>
             <div style="width: 30px; float: right;">
-                <a href="#" style="color: gray; text-decoration: none;">report</a>
+                <a href="#" style="color: gray; text-decoration: none;" class="Report">report</a>
             </div>
         </div>
         <div style="margin-bottom: 5px; padding-bottom: 5px; width: 159px; margin-left: 5px;
@@ -104,7 +104,7 @@
                 (1 day ago) Not funny, and they from Aqua Teen HuForce
             </div>
             <div style="width: 30px; float: right;">
-                <a href="#" style="float: right; color: gray; text-decoration: none;">report</a>
+                <a href="#" style="float: right; color: gray; text-decoration: none;" class="Report">report</a>
             </div>
         </div>
         <a href="#" id="example-show" class="showLink" onclick="showHide('example');return false;">
@@ -127,7 +127,7 @@
                     (17 hours ago) which joke woz dat?
                 </div>
                 <div style="width: 30px; float: right;">
-                    <a href="#" style="float: right; color: gray; text-decoration: none;">report</a>
+                    <a href="#" style="float: right; color: gray; text-decoration: none;" class="Report">report</a>
                 </div>
             </div>
             <div style="margin-bottom: 5px; padding-bottom: 5px; width: 159px; margin-left: 5px;
@@ -147,7 +147,7 @@
                     (1 day ago) this sucked
                 </div>
                 <div style="width: 30px; float: right;">
-                    <a href="#" style="float: right; color: gray; text-decoration: none;">report</a>
+                    <a href="#" style="float: right; color: gray; text-decoration: none;" class="Report">report</a>
                 </div>
             </div>
             <div style="margin-bottom: 5px; padding-bottom: 5px; width: 159px; margin-left: 5px;
@@ -167,7 +167,7 @@
                     (1 day ago) this sucked
                 </div>
                 <div style="width: 30px; float: right;">
-                    <a href="#" style="float: right; color: gray; text-decoration: none;">report</a>
+                    <a href="#" style="float: right; color: gray; text-decoration: none;" class="Report">report</a>
                 </div>
                 <a href="#" id="example-hide" class="hideLink" onclick="showHide('example');return false;">
                     Hide this content.</a>

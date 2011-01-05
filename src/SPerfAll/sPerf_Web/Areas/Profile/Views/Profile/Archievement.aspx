@@ -138,6 +138,8 @@
             </div>
         </div>
     </div>
+    <% Html.RenderPartial("SeeAll_Archeivement");%>
+    <% Html.RenderPartial("Report_Archeivement"); %>
     <% Html.RenderPartial("Compare_Archeivement"); %>
     <% Html.RenderPartial("FriendList"); %>
     <% Html.RenderPartial("Inbox"); %>

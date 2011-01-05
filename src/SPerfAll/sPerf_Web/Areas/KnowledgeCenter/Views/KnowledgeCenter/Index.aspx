@@ -262,6 +262,8 @@
             if (item.animate) {
                 $("div", nodes).css("height", 0).animate({ height: 116 }, 500);
             }
+
+
         }
 
         function bookingRendered(item) {
