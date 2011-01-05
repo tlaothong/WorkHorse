@@ -50,26 +50,6 @@
         </fieldset>
     </div>
     <br />
-    <table style="text-align: center">
-        <tr>
-            <td align="left">
-                Back
-            </td>
-            <td align="right">
-                Next
-            </td>
-        </tr>
-        <tr>
-            <td align="left">
-                <button type="button">
-                    Step 1</button>
-                <button type="button">
-                    Step 2</button>
-                <button type="button">
-                    Step 3</button>
-            </td>
-        </tr>
-    </table>
     <fieldset>
         <legend>Upload details</legend>
         <table id="FileList">
