@@ -25,7 +25,6 @@ namespace TheS.Casinova.ChipExchange.Validators
 
         public override void Validate(ExchangeInformation entity, MoneyToBonusChipsCommand command, ValidationErrorCollection errors)
         {
-            double amount;
             string cardType;            //ประเภทบัตรเครดิต
             bool accountNoValidate;     //ผลการตรวจสอบหมายเลขบัตรเครดิต
 

@@ -140,7 +140,19 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
         [Given(@"The ChipsToBonusChipsExecutor has been created and initialized")]
         public void GivenTheChipsToBonusChipsExecutorHasBeenCreatedAndInitialized()
         {
-            ScenarioContext.Current.Pending();
+            var dac = Mocks.DynamicMock<IChipsExchangeModuleBackService>();
+            var dqr = Mocks.DynamicMock<IChipsExchangeModuleDataQuery>();
+
+            IDependencyContainer container;
+
+            ScenarioContext.Current.Set<IChipsToBonusChips>(dac);
+            ScenarioContext.Current.Set<IGetPlayerBalance>(dqr);
+            ScenarioContext.Current.Set<IGetMultiLevelNetworkInfo>(dqr);
+            ScenarioContext.Current.Set<IChipsExchangeModuleDataQuery>(dqr);
+
+            setupValidators(out container);
+            ScenarioContext.Current.Set<ChipsToBonusChipsExecutor>(
+                new ChipsToBonusChipsExecutor(dac, container));
         }
 
         private static void setupValidators(out IDependencyContainer container)
@@ -171,6 +183,9 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
 
             reg.Register<IValidator<ExchangeInformation, MoneyToBonusChipsCommand>
              , ExchangeInformation_MoneyToBonusChipsValidators>();
+
+            reg.Register<IValidator<ExchangeInformation, ChipsToBonusChipsCommand>
+             , ExchangeInformation_ChipsToBonusChipsValidators>();
 
             reg.RegisterInstance<IChipsExchangeModuleDataQuery>
                 (ScenarioContext.Current.Get<IChipsExchangeModuleDataQuery>());

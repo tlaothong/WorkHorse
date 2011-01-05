@@ -27,8 +27,6 @@ namespace TheS.Casinova.ChipExchange.WebExecutors
 
         protected override void ExecuteCommand(ChipsToBonusChipsCommand command)
         {
-            //TODO: Check bonus point
-            //TODO: Check Chips amount
             //Validation
             var errors = ValidationHelper.Validate(_container, command.ExchangeInfo, command);
             if (errors.Any()) {

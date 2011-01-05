@@ -124,6 +124,109 @@ testRunner.Then("The system can sent chips to bonus chips exchange information t
 #line hidden
             testRunner.CollectScenarioErrors();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ChipsToBonusChips] ระบบได้รับข้อมูลการแลกชิพเป็นเป็นชิพตาย ระบบทำการตรวจสอบจำนวน" +
+            "โบนัสมีเพียงพอ ระบบทำการตรวจสอบจำนวนชิพเป็นมีไม่เพียงพอ ระบบไม่สามารถส่งข้อมูลไป" +
+            "ยัง back server ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ChipsToBonusChips")]
+        public virtual void ChipsToBonusChipsระบบไดรบขอมลการแลกชพเปนเปนชพตายระบบทำการตรวจสอบจำนวนโบนสมเพยงพอระบบทำการตรวจสอบจำนวนชพเปนมไมเพยงพอระบบไมสามารถสงขอมลไปยงBackServerได()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ChipsToBonusChips] ระบบได้รับข้อมูลการแลกชิพเป็นเป็นชิพตาย ระบบทำการตรวจสอบจำนวน" +
+                    "โบนัสมีเพียงพอ ระบบทำการตรวจสอบจำนวนชิพเป็นมีไม่เพียงพอ ระบบไม่สามารถส่งข้อมูลไป" +
+                    "ยัง back server ได้", new string[] {
+                        "record_mock"});
+#line 30
+this.ScenarioSetup(scenarioInfo);
+#line 31
+testRunner.Given("The ChipsToBonusChipsExecutor has been created and initialized");
+#line 32
+testRunner.And("Sent UserName\'Nit\' Amount \'400\' for chips to bonus chips exchange");
+#line 33
+testRunner.And("Sent UserName\'Nit\' the player\'s bonus points for chips to bonus chips exchange sh" +
+                    "ould recieved");
+#line 34
+testRunner.And("Sent UserName\'Nit\' the player\'s profile for chips to bonus chips exchange should " +
+                    "recieved");
+#line 35
+testRunner.When("Call ChipsToBonusChipsExecutor() for validation");
+#line 36
+testRunner.Then("The system can\'t sent chips to bonus chips exchange information to back server");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ChipsToBonusChips] ระบบได้รับข้อมูลการแลกชิพเป็นเป็นชิพตาย ระบบทำการตรวจสอบจำนวน" +
+            "โบนัสมีไม่เพียงพอ ระบบไม่สามารถส่งข้อมูลไปยัง back server ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ChipsToBonusChips")]
+        public virtual void ChipsToBonusChipsระบบไดรบขอมลการแลกชพเปนเปนชพตายระบบทำการตรวจสอบจำนวนโบนสมไมเพยงพอระบบไมสามารถสงขอมลไปยงBackServerได()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ChipsToBonusChips] ระบบได้รับข้อมูลการแลกชิพเป็นเป็นชิพตาย ระบบทำการตรวจสอบจำนวน" +
+                    "โบนัสมีไม่เพียงพอ ระบบไม่สามารถส่งข้อมูลไปยัง back server ได้", new string[] {
+                        "record_mock"});
+#line 39
+this.ScenarioSetup(scenarioInfo);
+#line 40
+testRunner.Given("The ChipsToBonusChipsExecutor has been created and initialized");
+#line 41
+testRunner.And("Sent UserName\'Nit\' Amount \'600\' for chips to bonus chips exchange");
+#line 42
+testRunner.And("Sent UserName\'Nit\' the player\'s bonus points for chips to bonus chips exchange sh" +
+                    "ould recieved");
+#line 43
+testRunner.When("Call ChipsToBonusChipsExecutor() for validation");
+#line 44
+testRunner.Then("The system can\'t sent chips to bonus chips exchange information to back server");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ChipsToBonusChips] ระบบได้ไม่รับข้อมูล userName เพื่อแลกชิพเป็นเป็นชิพตาย ระบบไม" +
+            "่สามารถส่งข้อมูลไปยัง back server ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ChipsToBonusChips")]
+        public virtual void ChipsToBonusChipsระบบไดไมรบขอมลUserNameเพอแลกชพเปนเปนชพตายระบบไมสามารถสงขอมลไปยงBackServerได()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ChipsToBonusChips] ระบบได้ไม่รับข้อมูล userName เพื่อแลกชิพเป็นเป็นชิพตาย ระบบไม" +
+                    "่สามารถส่งข้อมูลไปยัง back server ได้", new string[] {
+                        "record_mock"});
+#line 47
+this.ScenarioSetup(scenarioInfo);
+#line 48
+testRunner.Given("The ChipsToBonusChipsExecutor has been created and initialized");
+#line 49
+testRunner.And("Sent UserName\'\' Amount \'600\' for chips to bonus chips exchange");
+#line 50
+testRunner.When("Call ChipsToBonusChipsExecutor() for validation");
+#line 51
+testRunner.Then("The system can\'t sent chips to bonus chips exchange information to back server");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ChipsToBonusChips] ระบบได้รับข้อมูล amount เพื่อแลกชิพเป็นเป็นชิพตายไม่ถูกต้อง ร" +
+            "ะบบไม่สามารถส่งข้อมูลไปยัง back server ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ChipsToBonusChips")]
+        public virtual void ChipsToBonusChipsระบบไดรบขอมลAmountเพอแลกชพเปนเปนชพตายไมถกตองระบบไมสามารถสงขอมลไปยงBackServerได()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ChipsToBonusChips] ระบบได้รับข้อมูล amount เพื่อแลกชิพเป็นเป็นชิพตายไม่ถูกต้อง ร" +
+                    "ะบบไม่สามารถส่งข้อมูลไปยัง back server ได้", new string[] {
+                        "record_mock"});
+#line 54
+this.ScenarioSetup(scenarioInfo);
+#line 55
+testRunner.Given("The ChipsToBonusChipsExecutor has been created and initialized");
+#line 56
+testRunner.And("Sent UserName\'Nit\' Amount \'0\' for chips to bonus chips exchange");
+#line 57
+testRunner.When("Call ChipsToBonusChipsExecutor() for validation");
+#line 58
+testRunner.Then("The system can\'t sent chips to bonus chips exchange information to back server");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
     }
 }
 #endregion

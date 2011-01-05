@@ -49,6 +49,7 @@
     <Compile Include="GenerateVoucherService\GenerateVoucherCodeExecutor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validators\ChequeInformation_ChipsToMoneyValidators.cs" />
+    <Compile Include="Validators\ExchangeInformation_ChipsToBonusChipsValidators.cs" />
     <Compile Include="Validators\ExchangeInformation_MoneyToBonusChipsValidators.cs" />
     <Compile Include="Validators\ExchangeInformation_MoneyToChipsValidators.cs" />
     <Compile Include="Validators\VoucherInformation_PayVoucherValidators.cs" />

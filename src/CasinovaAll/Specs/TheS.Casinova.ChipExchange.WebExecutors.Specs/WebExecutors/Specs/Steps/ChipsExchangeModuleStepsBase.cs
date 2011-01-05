@@ -85,6 +85,14 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
             }
         }
 
+        protected IChipsToBonusChips Dac_ChipsToBonusChips
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<IChipsToBonusChips>();
+            }
+        }
+
 
         protected VoucherToBonusChipsExecutor VoucherToBonusChips
         {
@@ -132,6 +140,14 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
             get
             {
                 return ScenarioContext.Current.Get<ChipsToMoneyExecutor>();
+            }
+        }
+
+        protected ChipsToBonusChipsExecutor ChipsToBonusChips
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<ChipsToBonusChipsExecutor>();
             }
         }
 
