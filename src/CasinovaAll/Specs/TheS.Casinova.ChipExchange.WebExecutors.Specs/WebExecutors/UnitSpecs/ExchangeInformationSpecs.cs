@@ -11,6 +11,12 @@ using PerfEx.Infrastructure.CommandPattern;
 using TheS.Casinova.ChipExchange.Commands;
 using TheS.Casinova.ChipExchange.Validators;
 using TheS.Casinova.ChipExchange.DAL;
+using TechTalk.SpecFlow;
+using SpecFlowAssist;
+using Rhino.Mocks;
+using TheS.Casinova.TwoWins.WebExecutors;
+using TheS.Casinova.ChipExchange.Command;
+using TheS.Casinova.PlayerAccount.Models;
 
 namespace TheS.Casinova.ChipExchange.WebExecutors.UnitSpecs
 {
@@ -23,7 +29,6 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.UnitSpecs
         {
             IDependencyContainer container;
             IChipsExchangeModuleBackService svc;
-            IChipsExchangeModuleDataQuery dqr;
 
             setupValidators(out container,out svc);
 
@@ -47,7 +52,7 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.UnitSpecs
         {
             IDependencyContainer container;
             IChipsExchangeModuleBackService svc;
-            IChipsExchangeModuleDataQuery dqr;
+            //IChipsExchangeModuleDataQuery dqr;
 
             setupValidators(out container, out svc);
 
@@ -71,7 +76,7 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.UnitSpecs
         {
             IDependencyContainer container;
             IChipsExchangeModuleBackService svc;
-            IChipsExchangeModuleDataQuery dqr;
+            //IChipsExchangeModuleDataQuery dqr;
 
             setupValidators(out container, out svc);
 
@@ -94,12 +99,38 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.UnitSpecs
             var fac = new PerfEx.Infrastructure.Containers.StructureMapAdapter.StructureMapAbstractFactory();
             var reg = fac.CreateRegistry();
 
+            MockRepository mocks = new MockRepository();
+            IChipsExchangeModuleDataQuery dqr = mocks.DynamicMock<IChipsExchangeModuleDataQuery>();
+            IGetPlayerAccountInfo getPlayerAccount = dqr;
+
+            PlayerAccountInformation playerAccount = new PlayerAccountInformation {
+                UserName = Convert.ToString("Nit"),
+                AccountType = Convert.ToString("Primary"),
+                CardType = Convert.ToString("Visa"),
+                AccountNo = Convert.ToString("4943129059021346"),
+                CVV = Convert.ToString("0532"),
+                ExpireDate = DateTime.Parse("10/31/2010	"),
+                Active = Convert.ToBoolean("true"),
+                FirstName = Convert.ToString("Nittaya"),
+                LastName = Convert.ToString("Lakchai")
+            };
+
+            SetupResult.For(getPlayerAccount.Get(new GetPlayerAccountInfoCommand()))
+                .IgnoreArguments()
+                .Return(playerAccount);
+
             reg.Register<IValidator<ExchangeInformation, NullCommand>
                 , DataAnnotationValidator<ExchangeInformation, NullCommand>>();
 
             reg.Register<IValidator<ExchangeInformation, MoneyToChipsCommand>
                , ExchangeInformation_MoneyToChipsValidators>();
 
+            reg.RegisterInstance<IChipsExchangeModuleDataQuery>
+                (dqr);
+            reg.Register<IServiceObjectProvider<IChipsExchangeModuleDataQuery>,
+                DependencyInjectionServiceObjectProviderAdapter<IChipsExchangeModuleDataQuery, IChipsExchangeModuleDataQuery>>();
+
+            mocks.ReplayAll();
             container = fac.CreateContainer(reg);
             svc = null;
             //dqr = null;

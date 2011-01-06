@@ -18,8 +18,8 @@ namespace TheS.Casinova.MagicNine.WebExecutors.Specs.Steps
         private IEnumerable<BetInformation> _betLog;
         private IEnumerable<BetInformation> _listBetLog;
 
-        [Given(@"server has player information as:")]
-        public void GivenServerHasPlayerInformationAs(Table table)
+        [Given(@"server has BetLog information as:")]
+        public void GivenServerHasBetLogInformationAs(Table table)
         {
             _betLog = from item in table.Rows
                       select new BetInformation { 

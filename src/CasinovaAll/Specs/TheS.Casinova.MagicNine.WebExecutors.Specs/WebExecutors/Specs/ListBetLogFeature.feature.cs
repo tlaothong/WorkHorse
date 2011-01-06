@@ -96,7 +96,7 @@ testRunner.Given("The ListBetLogExecutor has been created and initialized");
                         "4",
                         "833278AF-A221-4916-90CD-96951051F40F"});
 #line 9
-testRunner.Given("server has player information as:", ((string)(null)), table1);
+testRunner.Given("server has BetLog information as:", ((string)(null)), table1);
 #line 15
 testRunner.And("Sent UserName\'Nit\', RoundID \'1\' for test function");
 #line 16
@@ -171,7 +171,7 @@ testRunner.Given("The ListBetLogExecutor has been created and initialized");
                         "4",
                         "833278AF-A221-4916-90CD-96951051F40F"});
 #line 25
-testRunner.Given("server has player information as:", ((string)(null)), table3);
+testRunner.Given("server has BetLog information as:", ((string)(null)), table3);
 #line 31
 testRunner.And("Sent UserName\'Ae\', RoundID \'2\' for test function");
 #line 32

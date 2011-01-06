@@ -6,7 +6,7 @@
 @record_mock
 Scenario:[ListBetLog]ระบบได้รับข้อมูล UserName และ RoundID ถูกต้อง ระบบสามารถลีสต์ข้อมูล Bet log ได้ 
 	Given The ListBetLogExecutor has been created and initialized
-	Given server has player information as:
+	Given server has BetLog information as:
 		|UserName	|RoundID	|BetDateTime |BetOrder|BetTrackingID						|
 		|Nit		|1			|10:00		 |1		  |03D51BC1-1656-454B-8CB2-4202BA8C21D7	|
 		|Boy		|1			|10:05		 |2		  |09630A4D-0B6C-4672-95F0-0AE5E48614FD |
@@ -22,7 +22,7 @@ Scenario:[ListBetLog]ระบบได้รับข้อมูล UserName �
 @record_mock
 Scenario:[ListBetLog]ระบบได้รับ UserName และ RoundID แต่ใน database ยังไม่มีบันทึกการลงเดิมพันของผู้เล่น ได้ข้อมูล Bet log เป็น null 
 	Given The ListBetLogExecutor has been created and initialized
-	Given server has player information as:
+	Given server has BetLog information as:
 		|UserName	|RoundID	|BetDateTime |BetOrder|BetTrackingID						|
 		|Nit		|1			|10:00		 |1		  |03D51BC1-1656-454B-8CB2-4202BA8C21D7	|
 		|Boy		|1			|10:05		 |2		  |09630A4D-0B6C-4672-95F0-0AE5E48614FD |

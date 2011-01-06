@@ -40,42 +40,42 @@ namespace TheS.Casinova.ChipExchange.Validators
                     ErrorMessage = "ค่า AccountType ไม่ถูกต้อง",
                 });
             }
-                #region Credit card validation
-                //ดึงข้อมูลบัญชีบัตรเครดิต
-                GetPlayerAccountInfoCommand cmd_PlayerAccount = new GetPlayerAccountInfoCommand {
-                    PlayerAccount = new PlayerAccountInformation {
-                        UserName = entity.UserName,
-                        AccountType = entity.AccountType
-                    }
-                };
+            #region Credit card validation
+            //ดึงข้อมูลบัญชีบัตรเครดิต
+            GetPlayerAccountInfoCommand cmd_PlayerAccount = new GetPlayerAccountInfoCommand {
+                PlayerAccount = new PlayerAccountInformation {
+                    UserName = entity.UserName,
+                    AccountType = entity.AccountType
+                }
+            };
 
-                //ข้อมูลบัตรเครดิต
-                cmd_PlayerAccount.PlayerAccountInfo = _iGetPlayerAccount.Get(cmd_PlayerAccount);
+            //ข้อมูลบัตรเครดิต
+            cmd_PlayerAccount.PlayerAccountInfo = _iGetPlayerAccount.Get(cmd_PlayerAccount);
 
-                if (cmd_PlayerAccount.PlayerAccountInfo != null) {
-                    //ประเภทบัตรเครดิต
-                    CardType = Convert.ToString(GetCardType(cmd_PlayerAccount.PlayerAccountInfo.AccountNo));
+            if (cmd_PlayerAccount.PlayerAccountInfo != null) {
+                //ประเภทบัตรเครดิต
+                CardType = Convert.ToString(GetCardType(cmd_PlayerAccount.PlayerAccountInfo.AccountNo));
 
-                    //ตรวจสอบความถูกต้องของประเภทบัตรเครดิต
-                    if (CardType != cmd_PlayerAccount.PlayerAccountInfo.CardType) {
+                //ตรวจสอบความถูกต้องของประเภทบัตรเครดิต
+                if (CardType != cmd_PlayerAccount.PlayerAccountInfo.CardType) {
+                    errors.Add(new ValidationError {
+                        Instance = entity,
+                        ErrorMessage = "ค่า AccountType ไม่ถูกต้อง",
+                    });
+                }
+                else {
+                    //ตรวจสอบความถูกต้องของหมายเลขบัตรเครดิต
+                    accountNoValidate = IsCreditCardValid(cmd_PlayerAccount.PlayerAccountInfo.AccountNo);
+
+                    if (accountNoValidate == false) {
                         errors.Add(new ValidationError {
                             Instance = entity,
-                            ErrorMessage = "ค่า AccountType ไม่ถูกต้อง",
+                            ErrorMessage = "ค่า AccountNo ไม่ถูกต้อง",
                         });
                     }
-                    else {
-                        //ตรวจสอบความถูกต้องของหมายเลขบัตรเครดิต
-                        accountNoValidate = IsCreditCardValid(cmd_PlayerAccount.PlayerAccountInfo.AccountNo);
-
-                        if (accountNoValidate == false) {
-                            errors.Add(new ValidationError {
-                                Instance = entity,
-                                ErrorMessage = "ค่า AccountNo ไม่ถูกต้อง",
-                            });
-                        }
-                    }
                 }
-                #endregion Credit card validation
+            }
+            #endregion Credit card validation
         }
 
         #region cardType validation

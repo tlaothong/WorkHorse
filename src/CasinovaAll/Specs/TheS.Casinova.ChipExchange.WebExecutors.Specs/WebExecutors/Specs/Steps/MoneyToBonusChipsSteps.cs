@@ -73,7 +73,7 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
                 .Return(_playerAccount);
         }
 
-        [Given(@"Sent AccountType '(.*)' Amonut '(.*)' UserName'(.*)' for money to bonuschips exchange")]
+        [Given(@"Sent AccountType '(.*)' Amonut '(.*)' UserName'(.*)' for money to bonus chips exchange")]
         public void GivenSentAccountTypeXAmonutXUserNameXForMoneyToBonuschipsExchange(string accountType, double amount, string userName)
         {
             _cmd = new MoneyToBonusChipsCommand {
@@ -106,13 +106,13 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.Specs.Steps
             }
         }
 
-        [Then(@"The system can sent money to bonuschips exchange information to back server")]
-        public void ThenTheSystemCanSentMoneyToBonuschipsExchangeInformationToBackServer()
+        [Then(@"The system can sent money to bonus chips exchange information to back server")]
+        public void ThenTheSystemCanSentMoneyToBonusChipsExchangeInformationToBackServer()
         {
             Assert.IsTrue(true, "System can sent information to back server");
         }
 
-        [Then(@"The system can't sent money to bonuschips exchange information to back server")]
+        [Then(@"The system can't sent money to bonus chips exchange information to back server")]
         public void ThenTheSystemCanTSentMoneyToBonuschipsExchangeInformationToBackServer()
         {
             Assert.IsTrue(true, "System can't sent information to back server");

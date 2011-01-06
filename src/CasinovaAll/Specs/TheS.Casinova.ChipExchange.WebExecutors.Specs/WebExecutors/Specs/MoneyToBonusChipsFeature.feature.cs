@@ -129,12 +129,12 @@ testRunner.And("Sent UserName\'Boy\' the player\'s bonus points should recieved"
 testRunner.And("Sent AccountType \'Primary\' UserName\'Boy\' the player\'s account for money to bonus " +
                     "chips should recieved");
 #line 24
-testRunner.And("Sent AccountType \'Primary\' Amonut \'1000\' UserName\'Boy\' for money to bonuschips ex" +
-                    "change");
+testRunner.And("Sent AccountType \'Primary\' Amonut \'1000\' UserName\'Boy\' for money to bonus chips e" +
+                    "xchange");
 #line 25
 testRunner.When("Call MoneyToBonusChipsExecutor ()");
 #line 26
-testRunner.Then("The system can sent money to bonuschips exchange information to back server");
+testRunner.Then("The system can sent money to bonus chips exchange information to back server");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -193,12 +193,12 @@ testRunner.And("Sent UserName\'Boy\' the player\'s bonus points should recieved"
 testRunner.And("Sent AccountType \'Primary\' UserName\'Boy\' the player\'s account for money to bonus " +
                     "chips should recieved");
 #line 38
-testRunner.And("Sent AccountType \'Primary\' Amonut \'1000\' UserName\'Boy\' for money to bonuschips ex" +
-                    "change");
+testRunner.And("Sent AccountType \'Primary\' Amonut \'1000\' UserName\'Boy\' for money to bonus chips e" +
+                    "xchange");
 #line 39
 testRunner.When("Call MoneyToBonusChipsExecutor () for validation");
 #line 40
-testRunner.Then("The system can\'t sent money to bonuschips exchange information to back server");
+testRunner.Then("The system can\'t sent money to bonus chips exchange information to back server");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -219,12 +219,12 @@ testRunner.Given("The MoneyToBonusChipsExecutor has been created and initialized
 #line 45
 testRunner.And("Sent UserName\'Boy\' the player\'s bonus points should recieved");
 #line 46
-testRunner.And("Sent AccountType \'Primary\' Amonut \'2000\' UserName\'Boy\' for money to bonuschips ex" +
-                    "change");
+testRunner.And("Sent AccountType \'Primary\' Amonut \'2000\' UserName\'Boy\' for money to bonus chips e" +
+                    "xchange");
 #line 47
 testRunner.When("Call MoneyToBonusChipsExecutor () for validation");
 #line 48
-testRunner.Then("The system can\'t sent money to bonuschips exchange information to back server");
+testRunner.Then("The system can\'t sent money to bonus chips exchange information to back server");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -243,11 +243,12 @@ this.ScenarioSetup(scenarioInfo);
 #line 52
 testRunner.Given("The MoneyToBonusChipsExecutor has been created and initialized");
 #line 53
-testRunner.And("Sent AccountType \'\' Amonut \'1000\' UserName\'Boy\' for money to bonuschips exchange");
+testRunner.And("Sent AccountType \'\' Amonut \'1000\' UserName\'Boy\' for money to bonus chips exchange" +
+                    "");
 #line 54
 testRunner.When("Call MoneyToBonusChipsExecutor () for validation");
 #line 55
-testRunner.Then("The system can\'t sent money to bonuschips exchange information to back server");
+testRunner.Then("The system can\'t sent money to bonus chips exchange information to back server");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -266,12 +267,12 @@ this.ScenarioSetup(scenarioInfo);
 #line 59
 testRunner.Given("The MoneyToBonusChipsExecutor has been created and initialized");
 #line 60
-testRunner.And("Sent AccountType \'Primary\' Amonut \'1000\' UserName\'\' for money to bonuschips excha" +
-                    "nge");
+testRunner.And("Sent AccountType \'Primary\' Amonut \'1000\' UserName\'\' for money to bonus chips exch" +
+                    "ange");
 #line 61
 testRunner.When("Call MoneyToBonusChipsExecutor () for validation");
 #line 62
-testRunner.Then("The system can\'t sent money to bonuschips exchange information to back server");
+testRunner.Then("The system can\'t sent money to bonus chips exchange information to back server");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -290,12 +291,12 @@ this.ScenarioSetup(scenarioInfo);
 #line 66
 testRunner.Given("The MoneyToBonusChipsExecutor has been created and initialized");
 #line 67
-testRunner.And("Sent AccountType \'Primary\' Amonut \'0\' UserName\'Boy\' for money to bonuschips excha" +
-                    "nge");
+testRunner.And("Sent AccountType \'Primary\' Amonut \'0\' UserName\'Boy\' for money to bonus chips exch" +
+                    "ange");
 #line 68
 testRunner.When("Call MoneyToBonusChipsExecutor () for validation");
 #line 69
-testRunner.Then("The system can\'t sent money to bonuschips exchange information to back server");
+testRunner.Then("The system can\'t sent money to bonus chips exchange information to back server");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
