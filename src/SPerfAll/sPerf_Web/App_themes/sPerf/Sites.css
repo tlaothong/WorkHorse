@@ -30,8 +30,15 @@
 {
     position: absolute;
     margin-left: 840px;
-    background: url(images/search.png) no-repeat;
     top: 35px;
+    height: 20px;
+    width: 143px;
+}
+.input_text
+{
+    background: transparent url(images/search.png) no-repeat;
+    border: 1px solid #231f20;
+    padding-left: 5px;
     height: 20px;
     width: 143px;
 }
@@ -145,7 +152,7 @@
 .news-marquee
 {
     float: right;
-    background: url(images/newsbotton.png);  
+    background: url(images/newsbotton.png) no-repeat;  
     height: 19px;
     bottom: 0px;
     width: 64px;

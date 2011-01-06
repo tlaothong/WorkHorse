@@ -84,5 +84,15 @@ namespace sPerf_Web.Areas.Profile.Controllers
         {
             return View();
         }
+        public virtual ActionResult StartMenu()
+        {
+            return View();
+        }
+        public virtual ActionResult newsBar()
+        {
+            return View();
+        }
+
+
     }
 }

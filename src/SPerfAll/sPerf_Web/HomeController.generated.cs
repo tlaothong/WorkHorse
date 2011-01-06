@@ -57,6 +57,7 @@ namespace sPerf_Web.Controllers {
             public readonly string AboutUs = "AboutUs";
             public readonly string Option = "Option";
             public readonly string StartMenu = "StartMenu";
+            public readonly string newsBar = "newsBar";
         }
 
 
@@ -72,7 +73,9 @@ namespace sPerf_Web.Controllers {
             public readonly string FAQTutorial = "~/Views/Home/FAQTutorial.aspx";
             public readonly string HightLight = "~/Views/Home/HightLight.aspx";
             public readonly string Index = "~/Views/Home/Index.aspx";
+            public readonly string newsBar = "~/Views/Home/newsBar.ascx";
             public readonly string Option = "~/Views/Home/Option.aspx";
+            public readonly string StartMenu = "~/Views/Home/StartMenu.ascx";
             public readonly string SubMenu = "~/Views/Home/SubMenu.ascx";
             public readonly string Today = "~/Views/Home/Today.ascx";
         }
@@ -134,6 +137,11 @@ namespace sPerf_Web.Controllers {
 
         public override System.Web.Mvc.ActionResult StartMenu() {
             var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.StartMenu);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult newsBar() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.newsBar);
             return callInfo;
         }
 

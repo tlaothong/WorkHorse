@@ -89,17 +89,9 @@
             autoOpen: false,
             modal: true,
             width: 400,
-            height : 400,
-            title : "ความคิดเห็น",
-            buttons: {
-                "Cancel": function () {
-                    $(this).dialog("close");
-                },
-                "Ok": function () {
-                    $(this).dialog("close");
-                }
-            }
+            title: "ความคิดเห็น"
         });
+
         // Dialog Link
         $('#seell').click(function () {
             $('#sellAll').dialog('open');
@@ -204,6 +196,27 @@
                 <img src="/Content/profile/pic_friend/5.png" />
             </td>
             <td valign="top">Kapita<br />ได้แสดงข้อความของคุณเมื่อ (17/11/2510) เวลา 12.00 น.
+            </td>
+        </tr>
+         <tr>
+            <td valign="top">
+                <img src="/Content/profile/pic_friend/6.png" />
+            </td>
+            <td valign="top">Harnnongbour<br />ได้แสดงข้อความของคุณเมื่อ (17/11/2510) เวลา 12.00 น.
+            </td>
+        </tr>
+                 <tr>
+            <td valign="top">
+                <img src="/Content/profile/pic_friend/6.png" />
+            </td>
+            <td valign="top">Harnnongbour<br />ได้แสดงข้อความของคุณเมื่อ (17/11/2510) เวลา 12.00 น.
+            </td>
+        </tr>
+                 <tr>
+            <td valign="top">
+                <img src="/Content/profile/pic_friend/6.png" />
+            </td>
+            <td valign="top">Harnnongbour<br />ได้แสดงข้อความของคุณเมื่อ (17/11/2510) เวลา 12.00 น.
             </td>
         </tr>
     </table>

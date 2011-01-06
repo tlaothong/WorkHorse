@@ -57,6 +57,15 @@
     width: 420px;
     height: 20px;
 }
+.aboutUs
+{
+    background-color: #D1D3D4;
+    margin-left: 10px; 
+    margin-top: -10px; 
+    float: left;
+    width: 550px;
+    height: 20px;
+}
 .logpostevent
 {
     width: 430px;
@@ -83,9 +92,16 @@ img
 .eventdetail
 {
     float: left;
-    margin-left: 10px;
+    margin-left: 5px;
     font-size: 10px;
     width: 290px;
+}
+.aboutDetail
+{
+    float: left;
+    margin-left: 60px;
+    font-size: 10px;
+    width: 360px;
 }
 .eventborder
 {

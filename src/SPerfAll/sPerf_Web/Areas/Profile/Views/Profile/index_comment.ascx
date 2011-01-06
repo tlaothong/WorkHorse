@@ -92,16 +92,7 @@
             autoOpen: false,
             modal: true,
             width: 400,
-            height:400,
-            title: "ความคิดเห็น",
-            buttons: {
-                "Cancel": function () {
-                    $(this).dialog("close");
-                },
-                "Ok": function () {
-                    $(this).dialog("close");
-                }
-            }
+            title: "ความคิดเห็น"
         });
 
         // Dialog Link

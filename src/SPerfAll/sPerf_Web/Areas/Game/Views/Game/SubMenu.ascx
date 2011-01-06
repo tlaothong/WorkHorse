@@ -6,39 +6,29 @@
         });
     });
 </script>
-
-<div style="float: left; padding-left: 5px; display: block;">
-    <table>
-           <tr>
-               <td>
-                    <div style="padding-left: 515px; float: left;">
-                        <div>
-                            <span id="dropCategory_dropWrapper" style="cursor: default;"><span id="dropGameSearch"
-                                style="display: block; width: 150px; height: 18px; background-color: transparent;">All</span>
-                            </span>
-                            <div id="dropGameMenu" class="ContextMenuPanel" style="visibility: hidden; display: none;
-                                width: 148px;">
-                                <a href="">All</a> <%=Html.ActionLink("Bookmark",MVC.Game.Game.Bookmark()) %> <a href="">Action</a> <a href="">Adventure</a> <a href="">Shooting</a>
-                            </div>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="commandPanels">
-                        | <%=Html.ActionLink("Tournament",MVC.Game.Game.Tournament()) %>
-                    </div>
-                </td>
-                <td>
-                    <div id="Upload_Click">
-                        | <a href="#">Upload</a>
-                    </div>
-                </td>
-                <td>
-                    <div id="OptionClick">
-                        | <%=Html.ActionLink("Option",MVC.Game.Game.GameOption()) %>
-                    </div>
-                </td>
-            </tr>
-    </table>
+<div style="float: left; padding-left: 5px; display: block; margin-top: 2px">
+    <div style="padding-left: 530px; float: left;">
+        <div>
+            <span id="dropCategory_dropWrapper" style="cursor: default;"><span id="dropGameSearch"
+                style="display: block; width: 150px; height: 18px; background-color: transparent;">
+                All</span> </span>
+            <div id="dropGameMenu" class="ContextMenuPanel" style="visibility: hidden; display: none;
+                width: 148px;">
+                <a href="">All</a>
+                <%=Html.ActionLink("Bookmark",MVC.Game.Game.Bookmark()) %>
+                <a href="">Action</a> <a href="">Adventure</a> <a href="">Shooting</a>
+            </div>
+        </div>
+    </div>
+    <div class="commandPanels" style="float: left">
+        |
+        <%=Html.ActionLink("Tournament",MVC.Game.Game.Tournament()) %>
+    </div>
+    <div id="Upload_Click" style="float: left">
+        | <a href="#">Upload</a>
+    </div>
+    <div id="OptionClick" style="float: left">
+        |
+        <%=Html.ActionLink("Option",MVC.Game.Game.GameOption()) %>
+    </div>
 </div>
-

@@ -26,14 +26,13 @@
                 </select></div>
         </div>
     </div>
-    <div style="background-color: #505151; padding-top: 10px; padding-bottom: 20px; margin-top: 25px;
-        position: relative;">
+    <div style="background-color: #505151; padding-top: 10px; padding-bottom: 20px; margin-top: 25px; float: left; width: 100%">
         <div style="background-color: White; border: 1px solid gray; margin-left: 50px; width: 50px;
             text-align: center; color: #5FB546;">
             <label>
                 Profile</label></div>
         <div style="background-color: White; border: 1px solid gray; padding-top: 10px; width: 350px;
-            margin-left: 10px;">
+            margin-left: 10px; float: left">
             <div style="border: 2px solid #5FB546; margin-left: 10px; margin-bottom: 10px; margin-right: 10px;">
                 <p>
                     xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -80,8 +79,8 @@
                 <label>
                     SeeMore...</label></div>
         </div>
-        <div style="width: 150px; margin-top: -600px; margin-right: 20px; margin-left: 430px;
-            position: fixed;">
+        <div style="width: 150px; margin-top: -400px; margin-right: 20px; margin-left: 430px;
+            float: left">
             <div>
                 <div style="border: 2px solid #333333; width: 80px; text-align: center; margin-bottom: -2px;">
                     <a href="#" style="color: #5FB546; text-decoration: none;">Lastest</a>
@@ -138,6 +137,8 @@
             </div>
         </div>
     </div>
+    <% Html.RenderPartial("SeeAll_Archeivement");%>
+    <% Html.RenderPartial("Report_Archeivement"); %>
     <% Html.RenderPartial("Compare_Archeivement"); %>
     <% Html.RenderPartial("FriendList"); %>
     <% Html.RenderPartial("Inbox"); %>
@@ -150,6 +151,13 @@
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="SideBar" runat="server">
-    <div style="margin-top: -5px;">
+<div style="margin-top: -5px;">
         <% Html.RenderPartial("Comment_Archeivement"); %></div>
 </asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="startMenu" runat="server">
+<% Html.RenderPartial("StartMenu"); %>
+</asp:Content>
+<asp:Content ID="Content6" ContentPlaceHolderID="newsbar" runat="server">
+<% Html.RenderPartial("newsBar"); %>
+</asp:Content>
+

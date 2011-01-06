@@ -19,7 +19,6 @@
   <script src="../../../../Scripts/ajax.js" type="text/javascript"></script>
   <script src="../../../../Scripts/context-menu.js" type="text/javascript"></script>
   <script src="../../../../Scripts/drag-drop-folder-tree.js" type="text/javascript"></script>
-    <script src="../../../../Scripts/JCore.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(function () {
         $('img.image1').data('ad-desc', 'Whoa! This description is set through elm.data("ad-desc") instead of using the longdesc attribute.<br>And it contains <strong>H</strong>ow <strong>T</strong>o <strong>M</strong>eet <strong>L</strong>adies... <em>What?</em> That aint what HTML stands for? Man...');
@@ -469,3 +468,10 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="SideBar" runat="server">
 <% Html.RenderPartial("photocomment"); %>
 </asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="startMenu" runat="server">
+<% Html.RenderPartial("StartMenu"); %>
+</asp:Content>
+<asp:Content ID="Content6" ContentPlaceHolderID="newsbar" runat="server">
+<% Html.RenderPartial("newsBar"); %>
+</asp:Content>
+

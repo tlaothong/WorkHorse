@@ -309,6 +309,7 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="SubMenu" runat="server">
 <% Html.RenderPartial("SubMenu"); %>
+<% Html.RenderPartial("Upload"); %>
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="SideBar" runat="server">
