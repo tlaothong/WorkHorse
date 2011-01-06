@@ -68,11 +68,6 @@
                         <%= Html.ActionLink("Video", MVC.KnowledgeCenter.KnowledgeCenter.Index()) %>
                     </div>
                 </div>
-                <div class="linkmenu">
-                    <div class="menu">
-                        <%= Html.ActionLink("Map", MVC.Map.Map.Index()) %>
-                    </div>
-                </div>
             </div>
         </div>
         <div id="sub-menu-container">

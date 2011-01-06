@@ -73,7 +73,9 @@ namespace sPerf_Web.Controllers {
             public readonly string FAQTutorial = "~/Views/Home/FAQTutorial.aspx";
             public readonly string HightLight = "~/Views/Home/HightLight.aspx";
             public readonly string Index = "~/Views/Home/Index.aspx";
+            public readonly string newsBar = "~/Views/Home/newsBar.ascx";
             public readonly string Option = "~/Views/Home/Option.aspx";
+            public readonly string StartMenu = "~/Views/Home/StartMenu.ascx";
             public readonly string SubMenu = "~/Views/Home/SubMenu.ascx";
             public readonly string Today = "~/Views/Home/Today.ascx";
         }

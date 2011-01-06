@@ -28,8 +28,6 @@ public static class MVC {
     public static GameClass Game { get { return s_Game; } }
     static readonly KnowledgeCenterClass s_KnowledgeCenter = new KnowledgeCenterClass();
     public static KnowledgeCenterClass KnowledgeCenter { get { return s_KnowledgeCenter; } }
-    static readonly MapClass s_Map = new MapClass();
-    public static MapClass Map { get { return s_Map; } }
     static readonly ProfileClass s_Profile = new ProfileClass();
     public static ProfileClass Profile { get { return s_Profile; } }
     static readonly ScholarshipClass s_Scholarship = new ScholarshipClass();
@@ -53,11 +51,6 @@ namespace T4MVC {
     public class KnowledgeCenterClass {
         public readonly string Name = "KnowledgeCenter";
         public sPerf_Web.Areas.KnowledgeCenter.Controllers.KnowledgeCenterController KnowledgeCenter = new sPerf_Web.Areas.KnowledgeCenter.Controllers.T4MVC_KnowledgeCenterController();
-    }
-    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-    public class MapClass {
-        public readonly string Name = "Map";
-        public sPerf_Web.Areas.Map.Controllers.MapController Map = new sPerf_Web.Areas.Map.Controllers.T4MVC_MapController();
     }
     [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
     public class ProfileClass {
@@ -241,6 +234,7 @@ namespace Links {
         private const string URLPATH = "~/Scripts";
         public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
         public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+        public static readonly string ajax_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/ajax.min.js") ? Url("ajax.min.js") : Url("ajax.js");
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public static class ajaxScripts {
             private const string URLPATH = "~/Scripts/ajaxScripts";
@@ -780,6 +774,11 @@ namespace Links {
             public static readonly string Start_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/Start.min.js") ? Url("Start.min.js") : Url("Start.js");
         }
     
+        public static readonly string context_menu_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/context-menu.min.js") ? Url("context-menu.min.js") : Url("context-menu.js");
+        public static readonly string drag_drop_folder_tree_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/drag-drop-folder-tree.min.js") ? Url("drag-drop-folder-tree.min.js") : Url("drag-drop-folder-tree.js");
+        public static readonly string ExtendedControls_debug_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/ExtendedControls.debug.min.js") ? Url("ExtendedControls.debug.min.js") : Url("ExtendedControls.debug.js");
+        public static readonly string ExtendedControls_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/ExtendedControls.min.js") ? Url("ExtendedControls.min.js") : Url("ExtendedControls.js");
+        public static readonly string hoverIntent_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/hoverIntent.min.js") ? Url("hoverIntent.min.js") : Url("hoverIntent.js");
         public static readonly string JCore_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/JCore.min.js") ? Url("JCore.min.js") : Url("JCore.js");
         public static readonly string jquery_1_3_2_vsdoc_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery-1.3.2-vsdoc.min.js") ? Url("jquery-1.3.2-vsdoc.min.js") : Url("jquery-1.3.2-vsdoc.js");
         public static readonly string jquery_1_3_2_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery-1.3.2.min.js") ? Url("jquery-1.3.2.min.js") : Url("jquery-1.3.2.js");
@@ -789,19 +788,25 @@ namespace Links {
         public static readonly string jquery_1_4_2_vsdoc_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery-1.4.2-vsdoc.min.js") ? Url("jquery-1.4.2-vsdoc.min.js") : Url("jquery-1.4.2-vsdoc.js");
         public static readonly string jquery_1_4_2_min_js = Url("jquery-1.4.2.min.js");
         public static readonly string jquery_1_4_4_min_js = Url("jquery-1.4.4.min.js");
+        public static readonly string jquery_ui_1_7_1_custom_min_js = Url("jquery-ui-1.7.1.custom.min.js");
         public static readonly string jquery_ui_1_8_1_custom_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery-ui-1.8.1.custom.min.js") ? Url("jquery-ui-1.8.1.custom.min.js") : Url("jquery-ui-1.8.1.custom.js");
+        public static readonly string jquery_ui_1_8_2_custom_min_js = Url("jquery-ui-1.8.2.custom.min.js");
         public static readonly string jquery_ui_1_8_6_custom_min_js = Url("jquery-ui-1.8.6.custom.min.js");
         public static readonly string jquery_ui_min_js = Url("jquery-ui.min.js");
         public static readonly string jquery_ad_gallery_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.ad-gallery.min.js") ? Url("jquery.ad-gallery.min.js") : Url("jquery.ad-gallery.js");
         public static readonly string jquery_ad_gallery_pack_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.ad-gallery.pack.min.js") ? Url("jquery.ad-gallery.pack.min.js") : Url("jquery.ad-gallery.pack.js");
         public static readonly string jquery_autocomplete_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.autocomplete.min.js") ? Url("jquery.autocomplete.min.js") : Url("jquery.autocomplete.js");
+        public static readonly string jquery_cleditor_min_js = Url("jquery.cleditor.min.js");
+        public static readonly string jquery_contextMenu_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.contextMenu.min.js") ? Url("jquery.contextMenu.min.js") : Url("jquery.contextMenu.js");
         public static readonly string jquery_galleria_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.galleria.min.js") ? Url("jquery.galleria.min.js") : Url("jquery.galleria.js");
         public static readonly string jquery_hoverscroll_0_2_2_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.hoverscroll-0.2.2.min.js") ? Url("jquery.hoverscroll-0.2.2.min.js") : Url("jquery.hoverscroll-0.2.2.js");
         public static readonly string jquery_jcarousel_min_js = Url("jquery.jcarousel.min.js");
+        public static readonly string jquery_marquee_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.marquee.min.js") ? Url("jquery.marquee.min.js") : Url("jquery.marquee.js");
         public static readonly string jquery_min_js = Url("jquery.min.js");
         public static readonly string jquery_pager_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.pager.min.js") ? Url("jquery.pager.min.js") : Url("jquery.pager.js");
         public static readonly string jquery_popupWindow_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.popupWindow.min.js") ? Url("jquery.popupWindow.min.js") : Url("jquery.popupWindow.js");
         public static readonly string jquery_tmpl_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.tmpl.min.js") ? Url("jquery.tmpl.min.js") : Url("jquery.tmpl.js");
+        public static readonly string jquery_treeview_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.treeview.min.js") ? Url("jquery.treeview.min.js") : Url("jquery.treeview.js");
         public static readonly string jquery_validate_vsdoc_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.validate-vsdoc.min.js") ? Url("jquery.validate-vsdoc.min.js") : Url("jquery.validate-vsdoc.js");
         public static readonly string jquery_validate_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.validate.min.js") ? Url("jquery.validate.min.js") : Url("jquery.validate.js");
         public static readonly string jquery_validate_min_js = Url("jquery.validate.min.js");
@@ -811,7 +816,13 @@ namespace Links {
         public static readonly string MicrosoftMvcAjax_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/MicrosoftMvcAjax.min.js") ? Url("MicrosoftMvcAjax.min.js") : Url("MicrosoftMvcAjax.js");
         public static readonly string MicrosoftMvcValidation_debug_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/MicrosoftMvcValidation.debug.min.js") ? Url("MicrosoftMvcValidation.debug.min.js") : Url("MicrosoftMvcValidation.debug.js");
         public static readonly string MicrosoftMvcValidation_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/MicrosoftMvcValidation.min.js") ? Url("MicrosoftMvcValidation.min.js") : Url("MicrosoftMvcValidation.js");
+        public static readonly string MooEditable_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/MooEditable.min.js") ? Url("MooEditable.min.js") : Url("MooEditable.js");
+        public static readonly string mootools_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/mootools.min.js") ? Url("mootools.min.js") : Url("mootools.js");
         public static readonly string Silverlight_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/Silverlight.min.js") ? Url("Silverlight.min.js") : Url("Silverlight.js");
+        public static readonly string Start_debug_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/Start.debug.min.js") ? Url("Start.debug.min.js") : Url("Start.debug.js");
+        public static readonly string Start_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/Start.min.js") ? Url("Start.min.js") : Url("Start.js");
+        public static readonly string superfish_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/superfish.min.js") ? Url("superfish.min.js") : Url("superfish.js");
+        public static readonly string superup_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/superup.min.js") ? Url("superup.min.js") : Url("superup.js");
     }
 
     [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
