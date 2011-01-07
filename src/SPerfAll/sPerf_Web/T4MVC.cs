@@ -30,8 +30,6 @@ public static class MVC {
     public static KnowledgeCenterClass KnowledgeCenter { get { return s_KnowledgeCenter; } }
     static readonly ProfileClass s_Profile = new ProfileClass();
     public static ProfileClass Profile { get { return s_Profile; } }
-    static readonly ScholarshipClass s_Scholarship = new ScholarshipClass();
-    public static ScholarshipClass Scholarship { get { return s_Scholarship; } }
     public static sPerf_Web.Controllers.HomeController Home = new sPerf_Web.Controllers.T4MVC_HomeController();
     public static T4MVC.SharedController Shared = new T4MVC.SharedController();
 }
@@ -56,11 +54,6 @@ namespace T4MVC {
     public class ProfileClass {
         public readonly string Name = "Profile";
         public sPerf_Web.Areas.Profile.Controllers.ProfileController Profile = new sPerf_Web.Areas.Profile.Controllers.T4MVC_ProfileController();
-    }
-    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-    public class ScholarshipClass {
-        public readonly string Name = "Scholarship";
-        public sPerf_Web.Areas.Scholarship.Controllers.ScholarshipController Scholarship = new sPerf_Web.Areas.Scholarship.Controllers.T4MVC_ScholarshipController();
     }
 }
 
