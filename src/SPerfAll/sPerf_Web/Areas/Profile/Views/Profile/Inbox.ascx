@@ -7,7 +7,7 @@
                 autoOpen: false,
                 modal: true,
                 width: 500,
-                height: 500
+                height: 350
             });
             // Dialog Link
             $("#Message").click(function () {

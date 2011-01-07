@@ -50,11 +50,6 @@
                 </div>
                 <div class="linkmenu">
                     <div class="menu">
-                        <%= Html.ActionLink("Scholarship", MVC.Scholarship.Scholarship.Index()) %>
-                    </div>
-                </div>
-                <div class="linkmenu">
-                    <div class="menu">
                         <%= Html.ActionLink("Club", MVC.Club.Club.Index()) %>
                     </div>
                 </div>

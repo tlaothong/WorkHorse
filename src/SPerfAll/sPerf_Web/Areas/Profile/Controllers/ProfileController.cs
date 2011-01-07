@@ -31,7 +31,23 @@ namespace sPerf_Web.Areas.Profile.Controllers
         {
             return View();
         }
-        public virtual ActionResult Archievement()
+        public virtual ActionResult Archievement_Profile()
+        {
+            return View();
+        }
+        public virtual ActionResult Archievement_Application()
+        {
+            return View();
+        }
+        public virtual ActionResult Archievement_KnowledgeCenter()
+        {
+            return View();
+        }
+        public virtual ActionResult Archievement_Game()
+        {
+            return View();
+        }
+        public virtual ActionResult Archievement_Last()
         {
             return View();
         }

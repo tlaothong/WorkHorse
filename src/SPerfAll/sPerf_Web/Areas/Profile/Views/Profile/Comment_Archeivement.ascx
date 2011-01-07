@@ -53,7 +53,7 @@
         border-bottom: 1px dotted #36f;
     }
 </style>
-<div style="margin: 10px 5px 10px 5px;">
+<div style="margin: 0 5px 5px 5px;">
     <label id="Comment_Archeivement" style="border: 2px solid gray; color: #5FB546; padding: 1px 2px 1px 2px;
         float: left;">
         Comment

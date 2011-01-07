@@ -51,7 +51,11 @@ namespace sPerf_Web.Areas.Profile.Controllers {
             public readonly string Profile = "Profile";
             public readonly string Photo = "Photo";
             public readonly string Blog = "Blog";
-            public readonly string Archievement = "Archievement";
+            public readonly string Archievement_Profile = "Archievement_Profile";
+            public readonly string Archievement_Application = "Archievement_Application";
+            public readonly string Archievement_KnowledgeCenter = "Archievement_KnowledgeCenter";
+            public readonly string Archievement_Game = "Archievement_Game";
+            public readonly string Archievement_Last = "Archievement_Last";
             public readonly string Inbox = "Inbox";
             public readonly string Banners = "Banners";
             public readonly string photocomment = "photocomment";
@@ -74,7 +78,11 @@ namespace sPerf_Web.Areas.Profile.Controllers {
         public ViewNames Views { get { return s_views; } }
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ViewNames {
-            public readonly string Archievement = "~/Areas/Profile/Views/Profile/Archievement.aspx";
+            public readonly string Archievement_Application = "~/Areas/Profile/Views/Profile/Archievement_Application.aspx";
+            public readonly string Archievement_Game = "~/Areas/Profile/Views/Profile/Archievement_Game.aspx";
+            public readonly string Archievement_KnowledgeCenter = "~/Areas/Profile/Views/Profile/Archievement_KnowledgeCenter.aspx";
+            public readonly string Archievement_Last = "~/Areas/Profile/Views/Profile/Archievement_Last.aspx";
+            public readonly string Archievement_Profile = "~/Areas/Profile/Views/Profile/Archievement_Profile.aspx";
             public readonly string Blog = "~/Areas/Profile/Views/Profile/Blog.aspx";
             public readonly string BlogComment = "~/Areas/Profile/Views/Profile/BlogComment.ascx";
             public readonly string Comment_Archeivement = "~/Areas/Profile/Views/Profile/Comment_Archeivement.ascx";
@@ -130,8 +138,28 @@ namespace sPerf_Web.Areas.Profile.Controllers {
             return callInfo;
         }
 
-        public override System.Web.Mvc.ActionResult Archievement() {
-            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Archievement);
+        public override System.Web.Mvc.ActionResult Archievement_Profile() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Archievement_Profile);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult Archievement_Application() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Archievement_Application);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult Archievement_KnowledgeCenter() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Archievement_KnowledgeCenter);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult Archievement_Game() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Archievement_Game);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult Archievement_Last() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Archievement_Last);
             return callInfo;
         }
 

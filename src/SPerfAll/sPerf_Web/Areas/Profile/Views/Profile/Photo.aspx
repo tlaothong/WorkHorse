@@ -51,10 +51,7 @@
     });
   </script>
 <style type="text/css">
-  * {
-    color: #333;
-    line-height: 140%;
-  }
+    
   select, input, textarea {
     font-size: 1em;
   }
