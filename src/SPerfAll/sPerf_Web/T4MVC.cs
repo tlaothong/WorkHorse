@@ -986,6 +986,8 @@ namespace Links {
     
         public static readonly string Site_css = Url("Site.css");
         public static readonly string skin_css = Url("skin.css");
+        public static readonly string styles_css = Url("styles.css");
+        public static readonly string superfish_css = Url("superfish.css");
         public static readonly string ui_dialog_css = Url("ui.dialog.css");
     }
 

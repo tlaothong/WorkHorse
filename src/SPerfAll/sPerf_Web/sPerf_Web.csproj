@@ -187,6 +187,8 @@
     <Content Include="Areas\Profile\Views\Profile\SeeAll_Archeivement.ascx" />
     <Content Include="Areas\Profile\Views\Profile\StartMenu.ascx" />
     <Content Include="Areas\Profile\Views\Profile\SubMenu.ascx" />
+    <Content Include="Content\styles.css" />
+    <Content Include="Content\superfish.css" />
     <Content Include="uploads\TheS.wmv" />
     <Content Include="club.html" />
     <Content Include="Content\galleria.css" />
