@@ -16,10 +16,11 @@
 	background: url("/Content/images/epstart.png") no-repeat;
 	float:left;
 	margin-left:0px;
+
 }
 
 #climber label {
-	width:20px;
+	width:64px;
 	display:block;
 	float:left;
 	font-size:10pt;
