@@ -101,3 +101,9 @@
 <% Html.RenderPartial("AdvanceSearch"); %>
 <% Html.RenderPartial("Banners"); %>
 </asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="startMenu" runat="server">
+<% Html.RenderPartial("StartMenu"); %>
+</asp:Content>
+<asp:Content ID="Content6" ContentPlaceHolderID="newsbar" runat="server">
+<% Html.RenderPartial("newsBar"); %>
+</asp:Content>

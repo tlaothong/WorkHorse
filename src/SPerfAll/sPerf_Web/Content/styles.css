@@ -1,29 +1,28 @@
 
 .icon_image_sml {
-	height:21px;
+	height:22px;
 	width:64px;
 	display:block;
 }
 
 #climber {
-	width:64px;
-	height:21px;
+	width:40px;
+	border-right:1px solid #777;
+	height:28px;
 	position:absolute;
 	left:0px;
-	margin-top:8px;
+	top:10px;
 }
 #climber .icon_image_sml {
 	background: url("/Content/images/epstart.png") no-repeat;
 	float:left;
-	margin-left:0px;
-
 }
 
 #climber label {
-	width:64px;
+	width:20px;
 	display:block;
 	float:left;
 	font-size:10pt;
 	margin-left:5px;
-	margin-top:1px;
+	margin-top:4px;
 }

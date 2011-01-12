@@ -4,14 +4,15 @@
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script src="../../Scripts/jquery-1.4.4.min.js" type="text/javascript"></script>
 <script src="../../Scripts/superfish.js" type="text/javascript"></script>
+<script src="../../Scripts/hoverIntent.js" type="text/javascript"></script>
 <script src="../../Scripts/superup.js" type="text/javascript"></script>
-<div style="position: absolute; bottom: 16px;">
-    <div id="climber">
-        <div class="icon_image_sml">
-        </div>
-    </div>
+<div style='position: absolute; bottom: 16px;'>
     <ul class="sf-menu">
-        <li>
+        <li style='background: transparent;'>
+            <div id="climber">
+                <div class="icon_image_sml">
+                </div>
+            </div>
             <ul>
                 <li><a href="#ab">Applications</a>
                     <ul>
