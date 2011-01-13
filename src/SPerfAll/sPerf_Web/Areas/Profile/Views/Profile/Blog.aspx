@@ -119,7 +119,18 @@
     });
 
 </script>
-
+    <%--directory path--%>
+    <div style="background-color:#DEDFE1;">
+    <table >
+        <tbody>
+            <tr>
+                <td><a href="/Home">Home</a></td>
+                <td>></td>
+                <td>Blog</td>
+            </tr>
+        </tbody>
+    </table>
+   </div>
 <div style="background-color:#DEDFE1">
     <table style="margin-left:29px;"><tr><td>Dick Kapooooook's Blog <br /><label class="reportBlogpage" style="text-decoration:underline; color:#69BA55;">Report</label></td><td ><div class="demo"style="margin-left:247px;">
         Date : <input type="text" id="bdate" />  </td></tr>

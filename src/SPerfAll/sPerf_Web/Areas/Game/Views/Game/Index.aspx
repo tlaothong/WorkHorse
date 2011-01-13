@@ -1,12 +1,29 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/MasterPage.Master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/MasterPage.Master"
+    Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	Index
+    Index
 </asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <%--directory path--%>
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <a href="/Home">Home</a>
+                </td>
+                <td>
+                    >
+                </td>
+                <td>
+                    Game
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <div id="pageBody">
-        <div id="movieList"></div>
+        <div id="movieList">
+        </div>
     </div>
     <script id="movieTmpl" type="text/x-jquery-tmpl">
 	<div>
@@ -328,24 +345,21 @@
         $(document).ready(function () {
             $('#movieList').hoverscroll({ vertical: true, height: 550, width: 595 });
         });        
-    </script> --%>  
-    
-    <div id="pager"></div>
-
+    </script> --%>
+    <div id="pager">
+    </div>
 </asp:Content>
-
 <asp:Content ID="Content3" ContentPlaceHolderID="SubMenu" runat="server">
-<% Html.RenderPartial("SubMenu"); %>
-<% Html.RenderPartial("Upload"); %>
+    <% Html.RenderPartial("SubMenu"); %>
+    <% Html.RenderPartial("Upload"); %>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="SideBar" runat="server">
-<% Html.RenderPartial("AdvanceSearch"); %>
-<% Html.RenderPartial("Banners"); %>
+    <% Html.RenderPartial("AdvanceSearch"); %>
+    <% Html.RenderPartial("Banners"); %>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="startMenu" runat="server">
-<% Html.RenderPartial("StartMenu"); %>
+    <% Html.RenderPartial("StartMenu"); %>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="newsbar" runat="server">
-<% Html.RenderPartial("newsBar"); %>
+    <% Html.RenderPartial("newsBar"); %>
 </asp:Content>
-

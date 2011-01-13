@@ -5,6 +5,28 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <%--directory path--%>
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <a href="/Home">Home</a>
+                </td>
+                <td>
+                    >
+                </td>
+                <td>
+                    <a href="/KnowledgeCenter">Video</a>
+                </td>
+                <td>
+                    >
+                </td>
+                <td>
+                    My Video
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <div id="pageBody">
         <div id="movieList"></div>
     </div>

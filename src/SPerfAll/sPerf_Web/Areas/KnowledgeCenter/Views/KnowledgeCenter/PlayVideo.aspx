@@ -12,6 +12,28 @@
             $(this).slideUp();
         });
     </script>
+        <%--directory path--%>
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <a href="/Home">Home</a>
+                </td>
+                <td>
+                    >
+                </td>
+                <td>
+                    <a href="/KnowledgeCenter">Video</a>
+                </td>
+                <td>
+                    >
+                </td>
+                <td>
+                    PlayVideo
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <div style="padding-top: 10px;">
         <div style="float: left; margin-left: 20px;">
             <label>

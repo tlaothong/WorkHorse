@@ -5,7 +5,22 @@
     ศูนย์การเรียนรู้
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
+    <%--directory path--%>
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <a href="/Home">Home</a>
+                </td>
+                <td>
+                    >
+                </td>
+                <td>
+                     Video
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <div id="pageBody">
         <div id="movieList"></div>
     </div>
