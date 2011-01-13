@@ -145,7 +145,7 @@
     <tr>
         <td valign="top"><div class="picuser"><img src="/Content/images/picuser.png" alt="user" /></div></td>
         <td valign="top">
-            <div style="float: left; padding-left: 50px; margin-top:10px;">
+            <div style="float: left; padding-left: 50px; margin-top:0px;">
                 <div>
                     Name: Dick Kapooook
                 </div>
@@ -170,7 +170,7 @@
                 </div>
             </div>
          </td>
-         <td valign="top"><div style="float: left; padding-left: 35px; margin-top:10px;"><img src="/Content/images/avartar_index.png" alt="Avatar" /></div></td>
+         <td valign="top"><div style="float: left; padding-left: 35px; margin-top:0px;"><img src="/Content/images/avartar_index.png" alt="Avatar" /></div></td>
     </tr>
 </table>
     <%-- Top Friends--%>
@@ -307,7 +307,7 @@
     <div class="logevent">
         <div class="stylefriend">
             Log Events</div>
-        <table style="margin-top:28px;">
+        <table style="margin-top:14px;">
             <tr class="logpostevent">
                 <td class="eventborder">
                     <div class="eventpic">

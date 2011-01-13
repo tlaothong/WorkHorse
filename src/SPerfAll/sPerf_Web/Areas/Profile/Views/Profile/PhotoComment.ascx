@@ -13,46 +13,6 @@
         }
     }
 </script>
-<style type="text/css">
-    /* This CSS is just for presentational purposes. */
-    #listContent
-    {
-        margin-top: 20px;
-    }
-    #wrap
-    {
-        font: 1.3em/1.3 Arial, Helvetica, sans-serif;
-        width: 30em;
-        margin: 0 auto;
-        padding: 1em;
-        background-color: #fff;
-    }
-    h1
-    {
-        font-size: 200%;
-    }
-    
-    /* This CSS is used for the Show/Hide functionality. */
-    .more
-    {
-        display: none;
-    }
-    a.showLink, a.hideLink
-    {
-        text-decoration: none;
-        color: #36f;
-        padding-left: 8px;
-        background: transparent url(down.gif) no-repeat left;
-    }
-    a.hideLink
-    {
-        background: transparent url(up.gif) no-repeat left;
-    }
-    a.showLink:hover, a.hideLink:hover
-    {
-        border-bottom: 1px dotted #36f;
-    }
-</style>
 <%--script for New comment--%>
 <script type="text/javascript">
     $(function () {
@@ -145,7 +105,7 @@
 <div id="dialogphoto">
 <table>
         <tr>
-            <td valign="top">Pet Society<br /><input type="checkbox" />   Rating  : <img src="/Content/images/star.PNG" /><br />
+            <td valign="top">Pet Society<br />
                 Comment :<br /><br />
                 <textarea rows="10"; cols="45">Comment text here</textarea>
             </td>
@@ -199,20 +159,6 @@
             </td>
         </tr>
          <tr>
-            <td valign="top">
-                <img src="/Content/profile/pic_friend/6.png" />
-            </td>
-            <td valign="top">Harnnongbour<br />ได้แสดงข้อความของคุณเมื่อ (17/11/2510) เวลา 12.00 น.
-            </td>
-        </tr>
-                 <tr>
-            <td valign="top">
-                <img src="/Content/profile/pic_friend/6.png" />
-            </td>
-            <td valign="top">Harnnongbour<br />ได้แสดงข้อความของคุณเมื่อ (17/11/2510) เวลา 12.00 น.
-            </td>
-        </tr>
-                 <tr>
             <td valign="top">
                 <img src="/Content/profile/pic_friend/6.png" />
             </td>
@@ -310,89 +256,3 @@
 
                 <a href="#" id="example-show" class="showLink" onclick="showHide('example');return false;">
             SeeMore...</a>
-        <div id="example" class="more showLink">
-
-    <%--แสดงส่วนหลังเมื่อมีการตลิก more...--%>
-        <div>
-            <table>
-                <tr>
-                    <td valign="top">
-                        <img src="/Content/images/e1.png" />
-                    </td>
-                    <td valign="top">
-                        Wanida
-                    </td>
-                </tr>
-            </table>
-            <div style="width:150px;">ทดสอบข้อความเพื่อใช้ทำงานของการเขียนคอมเม้น</div>
-            <label class="reports" style="color:Gray; margin-left:115px;">report</label>
-            <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;width:150px;"></div>
-
-        </div>
-            <div>
-            <table>
-                <tr>
-                    <td valign="top">
-                        <img src="/Content/images/e1.png" />
-                    </td>
-                    <td valign="top">
-                        Wanida
-                    </td>
-                </tr>
-            </table>
-            <div style="width:150px;">ทดสอบข้อความเพื่อใช้ทำงานของการเขียนคอมเม้น</div>
-            <label class="reports" style="color:Gray; margin-left:115px;">report</label>
-            <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;width:150px;"></div>
-
-        </div>
-            <div>
-            <table>
-                <tr>
-                    <td valign="top">
-                        <img src="/Content/images/e1.png" />
-                    </td>
-                    <td valign="top">
-                        Wanida
-                    </td>
-                </tr>
-            </table>
-            <div style="width:150px;">ทดสอบข้อความเพื่อใช้ทำงานของการเขียนคอมเม้น</div>
-            <label class="reports" style="color:Gray; margin-left:115px;">report</label>
-            <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;width:150px;"></div>
-
-        </div>
-            <div>
-            <table>
-                <tr>
-                    <td valign="top">
-                        <img src="/Content/images/e1.png" />
-                    </td>
-                    <td valign="top">
-                        Wanida
-                    </td>
-                </tr>
-            </table>
-            <div style="width:150px;">ทดสอบข้อความเพื่อใช้ทำงานของการเขียนคอมเม้น</div>
-            <label class="reports" style="color:Gray; margin-left:115px;">report</label>
-            <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;width:150px;"></div>
-
-        </div>
-            <div>
-            <table>
-                <tr>
-                    <td valign="top">
-                        <img src="/Content/images/e1.png" />
-                    </td>
-                    <td valign="top">
-                        Wanida
-                    </td>
-                </tr>
-            </table>
-            <div style="width:150px;">ทดสอบข้อความเพื่อใช้ทำงานของการเขียนคอมเม้น</div>
-            <label class="reports" style="color:Gray; margin-left:115px;">report</label>
-            <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;width:150px;"></div>
-
-        </div>
-    </div>
-    <%--end more...--%>
-</div>

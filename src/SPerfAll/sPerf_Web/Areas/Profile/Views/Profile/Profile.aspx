@@ -307,7 +307,7 @@
     <div class="logevent">
         <div class="stylefriend">
             Log Events</div>
-        <table style="margin-top:28px;">
+        <table style="margin-top:14px;">
             <tr class="logpostevent">
                 <td class="eventborder">
                     <div class="eventpic">

@@ -6,8 +6,16 @@
                 bgiframe: true,
                 autoOpen: false,
                 modal: true,
-                width: 500,
-                height: 350
+                width: 560,
+                height: 400,
+                buttons: {
+                    "Cancel": function () {
+                        $(this).dialog("close");
+                    },
+                    "Ok": function () {
+                        $(this).dialog("close");
+                    }
+                }
             });
             // Dialog Link
             $("#Message").click(function () {
@@ -141,64 +149,29 @@
         </div>
         <div id="fragment-compose">
             <div id="Compose">
-                <table>
-                    <tr>
-                         <td>
-                         Friend : <select><option>สุดหล่อ</option><option>สุดสวย</option><option>สุดน่ารัก</option></select>
-                         </td>
-                    </tr>
-                    <tr>
-                         <td>
-                         Topic : <input type="text" style="width:380px;"/>
-                         </td>
-                    </tr>
-                    <tr>
-                         <td>
-                         <textarea rows="10" cols="76" style="margin-left:42px; overflow:hidden;"></textarea>
-                         </td>
-                    </tr>
-                    <tr>
-                         <td>
-                            <input type="checkbox" />save to outbox<label id="sendMsg" style="color:Green; margin-left:350px;">Send</label>|<label id="cancelMsg" style="color:Red;">Cancel</label>
-                         </td>
-                    </tr>
-                </table>
+                <div><select><option>สุดหล่อ</option><option>สุดสวย</option><option>สุดน่ารัก</option></select></div>
+                <div>Topic : <input type="text" style="width:380px;"/></div>
+                <div><textarea rows="9" cols="76" style="margin-left:42px; overflow:hidden;"></textarea></div>
+                <div><input type="checkbox" />save to outbox</div>
             </div>
         </div>
         <div id="fragment-option">
             <div id="OptionInbox">
-                <table>
-                    <tr>
-                         <td>
                             <div>Who can access :</div>
                             <div><input type="radio" />All users</div>
                             <div><input type="radio" />My friend only</div>
                             <div><input type="radio" />Me only</div>
-                         </td>
-                    </tr>
-                    <tr>
-                         <td>
+
                             <div>Comment :</div>
                             <div><input type="radio" />All users read only</div>
                             <div><input type="radio" />All users can read & write</div>
                             <div><input type="radio" />My friend read only</div>
                             <div><input type="radio" />My friend can read & write</div>
                             <div><input type="radio" />Only me can write</div>
-                         </td>
-                    </tr>
-                    <tr>
-                         <td>
+
                             <div>Notification :</div>
                             <div><input type="radio" />All</div>
                             <div><input type="radio" />Only self related</div>
-                         </td>
-                    </tr>
-                    <tr>
-                         <td>
-                            <label id="Label1" style="color:Green; margin-left:350px;">Save</label>|<label id="Label2" style="color:Red;">Cancel</label>
-                         </td>
-                    </tr>
-                </table>
             </div>
         </div>
     </div>
