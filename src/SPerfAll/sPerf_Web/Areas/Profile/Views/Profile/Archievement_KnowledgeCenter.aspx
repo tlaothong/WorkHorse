@@ -95,8 +95,7 @@
                 <label>
                     SeeMore...</label></div>
         </div>
-        <div style="width: 150px; margin-top: -400px; margin-right: 20px; margin-left: 430px;
-            float: left">
+        <div style="width: 150px; padding-left: 50px; float: left">
             <div>
                 <div style="border: 2px solid #333333; width: 80px; text-align: center; margin-bottom: -2px;">
                     <a href="/Profile/Profile/Archievement_Last" style="color: #5FB546; text-decoration: none;">
