@@ -75,13 +75,13 @@ testRunner.Then("System can sent cancel player account information to back serve
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[CancelPlayerAccount]ระบบได้รับ playerAccountID ไม่ถูกต้อง ระบบไม่สามารถส่งข้อมูล" +
-            "การยกเลิกบัญชีผู้ใช้ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[CancelPlayerAccount]ระบบไม่ได้รับข้อมูล UserName ระบบไม่สามารถส่งข้อมูลการยกเลิก" +
+            "บัญชีผู้ใช้ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CancelPlayerAccount")]
-        public virtual void CancelPlayerAccountระบบไดรบPlayerAccountIDไมถกตองระบบไมสามารถสงขอมลการยกเลกบญชผใชได()
+        public virtual void CancelPlayerAccountระบบไมไดรบขอมลUserNameระบบไมสามารถสงขอมลการยกเลกบญชผใชได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[CancelPlayerAccount]ระบบได้รับ playerAccountID ไม่ถูกต้อง ระบบไม่สามารถส่งข้อมูล" +
-                    "การยกเลิกบัญชีผู้ใช้ได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[CancelPlayerAccount]ระบบไม่ได้รับข้อมูล UserName ระบบไม่สามารถส่งข้อมูลการยกเลิก" +
+                    "บัญชีผู้ใช้ได้", new string[] {
                         "record_mock"});
 #line 14
 this.ScenarioSetup(scenarioInfo);
@@ -98,13 +98,13 @@ testRunner.Then("System can\'t sent cancel player account information to back se
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[CancelPlayerAccount]ระบบไม่ได้รับ playerAccountID ระบบไม่สามารถส่งข้อมูลการยกเลิ" +
-            "กบัญชีผู้ใช้ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[CancelPlayerAccount]ระบบไม่ได้รับข้อมูล AccountType ระบบไม่สามารถส่งข้อมูลการยกเ" +
+            "ลิกบัญชีผู้ใช้ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "CancelPlayerAccount")]
-        public virtual void CancelPlayerAccountระบบไมไดรบPlayerAccountIDระบบไมสามารถสงขอมลการยกเลกบญชผใชได()
+        public virtual void CancelPlayerAccountระบบไมไดรบขอมลAccountTypeระบบไมสามารถสงขอมลการยกเลกบญชผใชได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[CancelPlayerAccount]ระบบไม่ได้รับ playerAccountID ระบบไม่สามารถส่งข้อมูลการยกเลิ" +
-                    "กบัญชีผู้ใช้ได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[CancelPlayerAccount]ระบบไม่ได้รับข้อมูล AccountType ระบบไม่สามารถส่งข้อมูลการยกเ" +
+                    "ลิกบัญชีผู้ใช้ได้", new string[] {
                         "record_mock"});
 #line 21
 this.ScenarioSetup(scenarioInfo);

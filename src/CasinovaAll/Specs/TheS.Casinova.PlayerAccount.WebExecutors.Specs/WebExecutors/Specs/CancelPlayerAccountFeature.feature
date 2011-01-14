@@ -11,14 +11,14 @@ Scenario:[CancelPlayerAccount]ระบบได้รับข้อมูล�
 	Then System can sent cancel player account information to back server
 
 @record_mock
-Scenario:[CancelPlayerAccount]ระบบได้รับ playerAccountID ไม่ถูกต้อง ระบบไม่สามารถส่งข้อมูลการยกเลิกบัญชีผู้ใช้ได้
+Scenario:[CancelPlayerAccount]ระบบไม่ได้รับข้อมูล UserName ระบบไม่สามารถส่งข้อมูลการยกเลิกบัญชีผู้ใช้ได้
 	Given The CancelPlayerAccountExecutor has been created and initialized
 	And  Sent UserName '' AccountType 'Primary' for cancel player account
 	When Call CancelPlayerAccountExecutor() for validate input
 	Then System can't sent cancel player account information to back server
 
 @record_mock
-Scenario:[CancelPlayerAccount]ระบบไม่ได้รับ playerAccountID ระบบไม่สามารถส่งข้อมูลการยกเลิกบัญชีผู้ใช้ได้
+Scenario:[CancelPlayerAccount]ระบบไม่ได้รับข้อมูล AccountType ระบบไม่สามารถส่งข้อมูลการยกเลิกบัญชีผู้ใช้ได้
 	Given The CancelPlayerAccountExecutor has been created and initialized
 	And  Sent UserName 'Nit' AccountType '' for cancel player account
 	When Call CancelPlayerAccountExecutor() for validate input

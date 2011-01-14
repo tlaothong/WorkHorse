@@ -34,9 +34,30 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="PerfEx.Infrastructure">
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="PerfEx.Infrastructure.Advanced">
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Advanced.dll</HintPath>
+    </Reference>
+    <Reference Include="PerfEx.Infrastructure.Containers.StructureMapAdapter">
+      <HintPath>..\..\..\..\lib\PerfEx.Infrastructure.Containers.StructureMapAdapter.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\..\..\..\lib\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="SpecFlowAssist">
+      <HintPath>..\..\..\..\lib\SpecFlowAssist.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\..\..\..\lib\StructureMap.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="TechTalk.SpecFlow">
+      <HintPath>..\..\..\..\lib\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -46,7 +67,50 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebExecutors\Specs\UnitTest1.cs" />
+    <Compile Include="WebExecutors\SpecsEventDefinitions.cs" />
+    <Compile Include="WebExecutors\Specs\ListActiveGameRoundInfoFeature1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListActiveGameRoundInfoFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\ListBetLogFeature1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListBetLogFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\ListGamePlayAutoBetInfoFeature1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListGamePlayAutoBetInfoFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\SingleBetFeature1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SingleBetFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\StartAutoBetFeature1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StartAutoBetFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\Steps\CommonSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\ListActiveGameRoundInfoSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\DevilSixGameStepsBase.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\ListBetLogSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\ListGamePlayAutoBetInfoSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\SingleBetSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\StartAutoBetSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\StopAutoBetSteps.cs" />
+    <Compile Include="WebExecutors\Specs\StopAutoBetFeature1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StopAutoBetFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\UnitSpecs\ListBetLogExecutorSpecs.cs" />
+    <Compile Include="WebExecutors\UnitSpecs\ListGamePlayAutoBetInfoExecutorSpecs.cs" />
+    <Compile Include="WebExecutors\UnitSpecs\SingleBetExecutorSpecs.cs" />
+    <Compile Include="WebExecutors\UnitSpecs\StartAutoBetExecutorSpecs.cs" />
+    <Compile Include="WebExecutors\UnitSpecs\StopAutoBetExecutorSpecs.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Modules\DevilSix\TheS.Casinova.DevilSix.BackServices.Contracts\TheS.Casinova.DevilSix.BackServices.Contracts.csproj">
@@ -78,6 +142,34 @@
       <Name>TheS.Casinova.Common.Models</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="WebExecutors\App.config" />
+    <None Include="WebExecutors\Specs\ListActiveGameRoundInfoFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ListActiveGameRoundInfoFeature1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\ListBetLogFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ListBetLogFeature1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\ListGamePlayAutoBetInfoFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ListGamePlayAutoBetInfoFeature1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\SingleBetFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SingleBetFeature1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\StartAutoBetFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>StartAutoBetFeature1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\StopAutoBetFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>StopAutoBetFeature1.feature.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

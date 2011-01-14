@@ -74,6 +74,37 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.UnitSpecs
         [ExpectedException(typeof(ValidationErrorException))]
         public void ValidateExchangeInformation_AccountTypeCanNotBeNull()
         {
+                IDependencyContainer container;
+                IChipsExchangeModuleBackService svc;
+                //IChipsExchangeModuleDataQuery dqr;
+
+                setupValidators(out container, out svc);
+
+                var model = new ExchangeInformation {
+                    UserName = "Nit",
+                    AccountType = "Primary",
+                    Amount = 500,
+                };
+                var cmd = new MoneyToChipsCommand {
+                    ExchangeInformation = model,
+                };
+
+                MoneyToChipsExecutor xcutor = new MoneyToChipsExecutor(
+                    svc, container);
+                xcutor.Execute(cmd, (xcmd) => { });
+
+            //catch (ValidationErrorException ex) {
+            //    foreach (var error in ex.Errors) {
+            //        Console.WriteLine(error.ErrorMessage);
+            //    }
+            //    throw;
+            //}
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ValidationErrorException))]
+        public void ValidateExchangeInformation_AccountNoMustBeCorrect()
+        {
             IDependencyContainer container;
             IChipsExchangeModuleBackService svc;
             //IChipsExchangeModuleDataQuery dqr;
@@ -82,8 +113,8 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.UnitSpecs
 
             var model = new ExchangeInformation {
                 UserName = "Nit",
-                AccountType = null,
-                Amount = 500,
+                AccountType = "Primary",
+                Amount = 400,
             };
             var cmd = new MoneyToChipsCommand {
                 ExchangeInformation = model,
@@ -107,7 +138,7 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.UnitSpecs
                 UserName = Convert.ToString("Nit"),
                 AccountType = Convert.ToString("Primary"),
                 CardType = Convert.ToString("Visa"),
-                AccountNo = Convert.ToString("4943129059021346"),
+                AccountNo = Convert.ToString("4111561111671111"),
                 CVV = Convert.ToString("0532"),
                 ExpireDate = DateTime.Parse("10/31/2010	"),
                 Active = Convert.ToBoolean("true"),
@@ -132,9 +163,8 @@ namespace TheS.Casinova.ChipExchange.WebExecutors.UnitSpecs
 
             mocks.ReplayAll();
             container = fac.CreateContainer(reg);
-            svc = null;
-            //dqr = null;
-           
+            svc = mocks.DynamicMock<IChipsExchangeModuleBackService>();
+            //dqr = null;        
         }
     }
 }
