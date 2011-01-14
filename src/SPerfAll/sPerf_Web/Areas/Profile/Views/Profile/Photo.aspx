@@ -144,7 +144,12 @@
             modal: true,
             width: 620,
             zIndex:1000,
-            title: 'Photo Organize'
+            title: 'Photo Organize',
+            buttons: {
+                "Exit": function () {
+                    $(this).dialog("close");
+                }
+            }
         });
         // Dialog Link
         $('.organizes').click(function () {

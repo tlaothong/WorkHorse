@@ -5,6 +5,8 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <script src="../../Scripts/jquery-1.4.2.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script>
 
 </asp:Content>
 
