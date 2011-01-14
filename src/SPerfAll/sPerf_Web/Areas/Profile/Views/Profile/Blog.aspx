@@ -8,7 +8,7 @@
 <link href="../../../../Content/Calendar.css" rel="stylesheet" type="text/css" />
 <link href="../../../../Content/jquery-ui-1.8.6.custom.css" rel="stylesheet" type="text/css" />
 <link href="../../../../Content/jquery.cleditor.css" rel="stylesheet" type="text/css" />
-<script src="../../../../Scripts/jquery-1.4.2.min.js" type="text/javascript"></script>
+<script src="../../../../Scripts/jquery-1.4.4.min.js" type="text/javascript"></script>
 <script src="../../../../Scripts/jquery-ui-1.8.6.custom.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="../../../../Scripts/jquery.cleditor.min.js"></script>
 
