@@ -8,7 +8,15 @@
             autoOpen: false,
             modal: true,
             width: 450,
-            title: 'Option'
+            title: 'Option',
+            buttons: {
+                "Cancel": function () {
+                    $(this).dialog("close");
+                },
+                "Ok": function () {
+                    $(this).dialog("close");
+                }
+            }
         });
         // Dialog Link
         $('#optionProfiles').click(function () {
@@ -46,10 +54,10 @@
                             <div><input type="radio" />Only self related</div>
                          </td>
                     </tr>
-                    <tr>
+                   <%-- <tr>
                          <td>
                             <label id="Label1" style="color:Green; margin-left:350px;">Save</label>|<label id="Label2" style="color:Red;">Cancel</label>
                          </td>
-                    </tr>
+                    </tr>--%>
                 </table>
 </div>

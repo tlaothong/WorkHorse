@@ -144,7 +144,12 @@
             modal: true,
             width: 620,
             zIndex:1000,
-            title: 'Photo Organize'
+            title: 'Photo Organize',
+            buttons: {
+                "Exit": function () {
+                    $(this).dialog("close");
+                }
+            }
         });
         // Dialog Link
         $('.organizes').click(function () {
@@ -187,16 +192,6 @@
         });
     });
 </script>
-    <%--directory path--%>
-    <table>
-        <tbody>
-            <tr>
-                <td><a href="/Home">Home</a></td>
-                <td>></td>
-                <td>Photo</td>
-            </tr>
-        </tbody>
-    </table>
 <div id="container">
 <div style="margin-left:10px;">ToomMy's Album  <select id="switch-effect" style="margin-top:5px;">
                   <option>วันปีใหม่ 2553</option>

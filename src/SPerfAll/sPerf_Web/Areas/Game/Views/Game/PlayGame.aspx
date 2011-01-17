@@ -24,28 +24,6 @@
             });
         });
     </script>
-            <%--directory path--%>
-        <table>
-            <tbody>
-                <tr>
-                    <td>
-                        <a href="/Home">Home</a>
-                    </td>
-                    <td>
-                        >
-                    </td>
-                    <td>
-                        <a href="/Game">Game</a>
-                    </td>
-                    <td>
-                        >
-                    </td>
-                    <td>
-                        PlayGame
-                    </td>
-                </tr>
-            </tbody>
-        </table>
     <div style="padding-top: 10px;">
         <div style="float: left; margin-left: 20px;">
             <label>

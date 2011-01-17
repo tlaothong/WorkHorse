@@ -7,23 +7,53 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 <table>
     <tr>
-        <td><% Html.RenderPartial("Today"); %></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
         <td><% Html.RenderPartial("Cartoon"); %></td>
     </tr>
 </table>
 <br />
 <br />
-
+<div class="today">
+    <div style="margin-top:2px;"><img src="/Content/images/calendar.png" />Todays <script type="text/javascript">
+                   var d = new Date();
+                       document.write(d.getDate(), "/", d.getMonth(), "/", d.getYear());
+</script></div> 
+    <table style="margin-top:12px;">
+       <tr>
+            <div><td><img src="/Content/profile/pic_friend/1.png" /></td><td valign="top">Tao's Birthday</td></div>
+            
+        </tr>
+    </table>
+    <div>วันเกิดเต๋า : เพื่อนของคุณ</div>
+    <div>เขียนคำอวยพรส่งของขวัญให้เต๋า </div>
+    <table style="margin-top:12px;">
+       <tr>
+            <div><td><img src="/Content/profile/pic_friend/2.png" /></td><td valign="top">Tao's Birthday</td></div>
+            
+        </tr>
+    </table>
+    <div>วันเกิดเต๋า : เพื่อนของคุณ</div>
+    <div>เขียนคำอวยพรส่งของขวัญให้เต๋า </div>
+    <table style="margin-top:12px;">
+       <tr>
+            <div><td><img src="/Content/profile/pic_friend/3.png" /></td><td valign="top">Tao's Birthday</td></div>
+            
+        </tr>
+    </table>
+    <div>วันเกิดเต๋า : เพื่อนของคุณ</div>
+    <div>เขียนคำอวยพรส่งของขวัญให้เต๋า </div>
+    <table style="margin-top:12px;">
+       <tr>
+            <div><td><img src="/Content/profile/pic_friend/4.png" /></td><td valign="top">Tao's Birthday</td></div>
+            
+        </tr>
+    </table>
+    <div>วันเกิดเต๋า : เพื่อนของคุณ</div>
+    <div>เขียนคำอวยพรส่งของขวัญให้เต๋า </div>
+</div>
 <div class="logevent">
         <div class="stylefriend">
             Log Events</div>
-        <table style="margin-top:28px;">
+        <table style="margin-top:5px;">
             <tr class="logpostevent">
                 <td class="eventborder">
                     <div class="eventpic">

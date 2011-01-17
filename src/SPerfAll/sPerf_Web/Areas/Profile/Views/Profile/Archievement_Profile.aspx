@@ -11,22 +11,6 @@
 
     <div style="background-color: #DFE1E3; padding: 2px 3px 5px 3px; position: fixed;
         width: 625px; z-index: 9;">
-                <%--directory path--%>
-        <table>
-            <tbody>
-                <tr>
-                    <td>
-                        <a href="/Home">Home</a>
-                    </td>
-                    <td>
-                        >
-                    </td>
-                    <td>
-                        Archievement
-                    </td>
-                </tr>
-            </tbody>
-        </table>
         <div style="margin-bottom: 10px;">
             <label style="float: left; margin-left: 20px;">
                 Dick Kapooook's Archeivement</label><label style="margin-left: 10px; color: #5FB546;
@@ -42,7 +26,7 @@
                 </select></div>
         </div>
     </div>
-    <div style="background-color: #505151; padding-top: 30px; padding-bottom: 20px; margin-top: 25px; float: left; width: 100%">
+    <div style="background-color: #505151; padding-top: 10px; padding-bottom: 20px; margin-top: 25px; float: left; width: 100%">
         <div style="background-color: White; border: 1px solid gray; margin-left: 50px; width: 50px;
             text-align: center; color: #5FB546;">
             <label>
@@ -95,7 +79,8 @@
                 <label>
                     SeeMore...</label></div>
         </div>
-        <div style="width: 150px; padding-left: 50px; float: left">
+        <div style="width: 150px; margin-top: -400px; margin-right: 20px; margin-left: 430px;
+            float: left">
             <div>
                 <div style="border: 2px solid #333333; width: 80px; text-align: center; margin-bottom: -2px;">
                     <a href="/Profile/Profile/Archievement_Last" style="color: #5FB546; text-decoration: none;">Lastest</a>
