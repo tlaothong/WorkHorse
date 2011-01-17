@@ -5,107 +5,659 @@
     ศูนย์การเรียนรู้
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <%--directory path--%>
-    <table>
-        <tbody>
-            <tr>
-                <td>
-                    <a href="/Home">Home</a>
-                </td>
-                <td>
-                    >
-                </td>
-                <td>
-                     Video
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <div id="pageBody">
-        <div id="movieList"></div>
-    </div>
-    <script id="movieTmpl" type="text/x-jquery-tmpl">
-	<div>
-		<div><a href="/KnowledgeCenter/KnowledgeCenter/PlayVideo"><img src="${BoxArt.LargeUrl}" /> </a></div>
-		<strong>${Name}</strong>
-		<p>{{html Synopsis}}</p>
-        <div>
-            <input type="checkbox" class="toggle1"/>
-        </div>
-        <div>
-            <label>UnLike</label>
-        </div>
-        <div>         
-            <button class="bookmark" type="button">Bookmark</button>
-        </div>
-	</div>        
-    </script>
+    <script src="../../../../Scripts/quickpager.jquery.js" type="text/javascript"></script>
     <script type="text/javascript">
-        var genre = "Cartoons", pageIndex = 1, pageSize = 3, pageCount = 0
 
-        getMovies(pageIndex);
-
-        function getMovies(index) {
-            var query = "http://odata.netflix.com/Catalog/Genres('" + genre + "')/Titles" +
-			"?$format=json" +
-			"&$inlinecount=allpages" + 			// get total number of records
-			"&$skip=" + (index - 1) * pageSize + 	// skip to first record of page
-			"&$top=" + pageSize; 				// page size
-
-            pageIndex = index;
-
-            $("#movieList")
-			.fadeOut("medium", function () {
-			    $.ajax({
-			        dataType: "jsonp",
-			        url: query,
-			        jsonp: "$callback",
-			        success: showMovies
-			    });
-			});
-        }
-
-        function showMovies(data) {
-            pageCount = Math.ceil(data.d.__count / pageSize),
-			movies = data.d.results;
-
-            $("#pager").pager({ pagenumber: pageIndex, pagecount: pageCount, buttonClickCallback: getMovies });
-
-            $("#movieList").empty();
-
-            $("#movieTmpl")
-            // Render movies using the movieTemplate
-			.tmpl(movies)
-
-            // Display rendered movies in the movieList container
-			.appendTo("#movieList")
-
+        $(document).ready(function () {
+            $("ul.paging").quickPager();
+            $("ul.paging").fadeOut("medium");
+            $("ul.paging").fadeIn("medium");
+            $("ul.paging")
             // Animate
-			.find("div").fadeIn(4000).end()
-
-			$("#movieList").fadeIn("medium")
-			Sys.require(Sys.components.toggleButton, function () {
-			    $().toggleButton.defaults = {
-			        CheckedImageUrl: "/Content/images/Unchecked_gray.gif",
-			        UncheckedImageUrl: "/Content/images/checked.gif",
-			        ImageWidth: 20,
-			        ImageHeight: 20
-			    };
-			    $(".toggle1").toggleButton();
-			});
-			$(".bookmark").click(function () {
-			    $(this).slideUp();
-			});
-			$("#bookmark").hover(function () {
-			    $(this).addClass("hilite");
-			}, function () {
-			    $(this).removeClass("hilite");
-			});
-        }   
+			.find("ul.paging").fadeIn(4000).end()
+            Sys.require(Sys.components.toggleButton, function () {
+                $().toggleButton.defaults = {
+                    CheckedImageUrl: "/Content/images/Unchecked_gray.gif",
+                    UncheckedImageUrl: "/Content/images/checked.gif",
+                    ImageWidth: 20,
+                    ImageHeight: 20
+                };
+                $(".toggle1").toggleButton();
+            });
+            $(".bookmark").click(function () {
+                $(this).slideUp();
+            });
+            $("#bookmark").hover(function () {
+                $(this).addClass("hilite");
+            }, function () {
+                $(this).removeClass("hilite");
+            });
+        });
+        
 
     </script>
-    <div id="pager"></div>
-    
+    <style type="text/css">
+        ul.paging li, ul.paging2 li
+        {
+            background: #83bd63;
+            color: #fff;
+            line-height: 1;
+            width: 530px;
+            margin-bottom: 1px;
+            padding: 5px;
+        }
+        
+        ul.red
+        {
+            outline: 10px solid red;
+        }
+        
+        ul.simplePagerNav li
+        {
+            display: block;
+            float: left;
+            padding: 3px;
+            margin-bottom: 10px;
+            font-family: georgia;
+        }
+        
+        ul.simplePagerNav li a
+        {
+            color: #333;
+            text-decoration: none;
+        }
+        
+        li.currentPage
+        {
+            background: red;
+            background: #83bd63;
+        }
+        
+        ul.simplePagerNav li.currentPage a
+        {
+            color: #fff;
+        }
+        
+        table.pageme
+        {
+            border-collapse: collapse;
+            border: 1px solid #ccc;
+        }
+        
+        table.pageme td
+        {
+            border-collapse: collapse;
+            border: 1px solid #ccc;
+        }
+        
+        ul.paging li.sticky
+        {
+            background-color: red !important;
+            display: block !important;
+        }
+    </style>
+    <%--directory path--%>
+    <div>
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <a href="/Home">Home</a>
+                    </td>
+                    <td>
+                        >
+                    </td>
+                    <td>
+                        Video
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="paging">
+        <ul class="paging">
+            <li>
+                <table>
+                    <tr>
+                        <td>
+                            <a href="/KnowledgeCenter/KnowledgeCenter/PlayVideo">
+                                <img src="../../../../Content/images/Video1.jpg" /></a>
+                        </td>
+                        <td>
+                            <div>
+                                <h2>
+                                    Video Cartoon</h2>
+                            </div>
+                            <div>
+                                Cartoon Crazys: Vol. 1Featuring early versions of Tweety Bird, Bugs Bunny, Daffy
+                                Duck, Felix the Cat, Casper the Ghost, and other favorite cartoon characters, this
+                                vintage collection includes 12 shorts from Warner Brothers, Max Fleischer and Van
+                                Beuren studios. Tweety makes his film debut in "A Tale of Two Kitties" (1942), Daffy
+                                meets Hitler in "Daffy the Commando" (1943), and Bugs tries to stop a gremlin from
+                                sabotaging military planes in "Falling Hare" (1943).</div>
+                            <div style="padding-top: 20px">
+                                <div style="float: left; padding-right: 5px">
+                                    <input type="checkbox" class="toggle1" />
+                                </div>
+                                <div style="float: left; padding-right: 5px">
+                                    <label>
+                                        UnLike</label>
+                                </div>
+                                <div style="float: left; padding-right: 5px">
+                                    <button class="bookmark" type="button">
+                                        Bookmark</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+            <li>
+                <table>
+                    <tr>
+                        <td>
+                            <a href="/KnowledgeCenter/KnowledgeCenter/PlayVideo">
+                                <img src="../../../../Content/images/Video1.jpg" /></a>
+                        </td>
+                        <td>
+                            <div>
+                                <h2>
+                                    Video Cartoon</h2>
+                            </div>
+                            <div>
+                                Cartoon Crazys: Vol. 1Featuring early versions of Tweety Bird, Bugs Bunny, Daffy
+                                Duck, Felix the Cat, Casper the Ghost, and other favorite cartoon characters, this
+                                vintage collection includes 12 shorts from Warner Brothers, Max Fleischer and Van
+                                Beuren studios. Tweety makes his film debut in "A Tale of Two Kitties" (1942), Daffy
+                                meets Hitler in "Daffy the Commando" (1943), and Bugs tries to stop a gremlin from
+                                sabotaging military planes in "Falling Hare" (1943).</div>
+                            <div style="padding-top: 20px">
+                                <div style="float: left; padding-right: 5px">
+                                    <input type="checkbox" class="toggle1" />
+                                </div>
+                                <div style="float: left; padding-right: 5px">
+                                    <label>
+                                        UnLike</label>
+                                </div>
+                                <div style="float: left; padding-right: 5px">
+                                    <button class="bookmark" type="button">
+                                        Bookmark</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+            <li>
+                <table>
+                    <tr>
+                        <td>
+                            <a href="/KnowledgeCenter/KnowledgeCenter/PlayVideo">
+                                <img src="../../../../Content/images/Video1.jpg" /></a>
+                        </td>
+                        <td>
+                            <div>
+                                <h2>
+                                    Video Cartoon</h2>
+                            </div>
+                            <div>
+                                Cartoon Crazys: Vol. 1Featuring early versions of Tweety Bird, Bugs Bunny, Daffy
+                                Duck, Felix the Cat, Casper the Ghost, and other favorite cartoon characters, this
+                                vintage collection includes 12 shorts from Warner Brothers, Max Fleischer and Van
+                                Beuren studios. Tweety makes his film debut in "A Tale of Two Kitties" (1942), Daffy
+                                meets Hitler in "Daffy the Commando" (1943), and Bugs tries to stop a gremlin from
+                                sabotaging military planes in "Falling Hare" (1943).</div>
+                            <div style="padding-top: 20px">
+                                <div style="float: left; padding-right: 5px">
+                                    <input type="checkbox" class="toggle1" />
+                                </div>
+                                <div style="float: left; padding-right: 5px">
+                                    <label>
+                                        UnLike</label>
+                                </div>
+                                <div style="float: left; padding-right: 5px">
+                                    <button class="bookmark" type="button">
+                                        Bookmark</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+            <li>
+                <table>
+                    <tr>
+                        <td>
+                            <a href="/KnowledgeCenter/KnowledgeCenter/PlayVideo">
+                                <img src="../../../../Content/images/Video1.jpg" /></a>
+                        </td>
+                        <td>
+                            <div>
+                                <h2>
+                                    Video Cartoon</h2>
+                            </div>
+                            <div>
+                                Cartoon Crazys: Vol. 1Featuring early versions of Tweety Bird, Bugs Bunny, Daffy
+                                Duck, Felix the Cat, Casper the Ghost, and other favorite cartoon characters, this
+                                vintage collection includes 12 shorts from Warner Brothers, Max Fleischer and Van
+                                Beuren studios. Tweety makes his film debut in "A Tale of Two Kitties" (1942), Daffy
+                                meets Hitler in "Daffy the Commando" (1943), and Bugs tries to stop a gremlin from
+                                sabotaging military planes in "Falling Hare" (1943).</div>
+                            <div style="padding-top: 20px">
+                                <div style="float: left; padding-right: 5px">
+                                    <input type="checkbox" class="toggle1" />
+                                </div>
+                                <div style="float: left; padding-right: 5px">
+                                    <label>
+                                        UnLike</label>
+                                </div>
+                                <div style="float: left; padding-right: 5px">
+                                    <button class="bookmark" type="button">
+                                        Bookmark</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+            <li>
+                <table>
+                    <tr>
+                        <td>
+                            <a href="/KnowledgeCenter/KnowledgeCenter/PlayVideo">
+                                <img src="../../../../Content/images/Video1.jpg" /></a>
+                        </td>
+                        <td>
+                            <div>
+                                <h2>
+                                    Video Cartoon</h2>
+                            </div>
+                            <div>
+                                Cartoon Crazys: Vol. 1Featuring early versions of Tweety Bird, Bugs Bunny, Daffy
+                                Duck, Felix the Cat, Casper the Ghost, and other favorite cartoon characters, this
+                                vintage collection includes 12 shorts from Warner Brothers, Max Fleischer and Van
+                                Beuren studios. Tweety makes his film debut in "A Tale of Two Kitties" (1942), Daffy
+                                meets Hitler in "Daffy the Commando" (1943), and Bugs tries to stop a gremlin from
+                                sabotaging military planes in "Falling Hare" (1943).</div>
+                            <div style="padding-top: 20px">
+                                <div style="float: left; padding-right: 5px">
+                                    <input type="checkbox" class="toggle1" />
+                                </div>
+                                <div style="float: left; padding-right: 5px">
+                                    <label>
+                                        UnLike</label>
+                                </div>
+                                <div style="float: left; padding-right: 5px">
+                                    <button class="bookmark" type="button">
+                                        Bookmark</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+            <li>
+                <table>
+                    <tr>
+                        <td>
+                            <a href="/KnowledgeCenter/KnowledgeCenter/PlayVideo">
+                                <img src="../../../../Content/images/Video1.jpg" /></a>
+                        </td>
+                        <td>
+                            <div>
+                                <h2>
+                                    Video Cartoon</h2>
+                            </div>
+                            <div>
+                                Cartoon Crazys: Vol. 1Featuring early versions of Tweety Bird, Bugs Bunny, Daffy
+                                Duck, Felix the Cat, Casper the Ghost, and other favorite cartoon characters, this
+                                vintage collection includes 12 shorts from Warner Brothers, Max Fleischer and Van
+                                Beuren studios. Tweety makes his film debut in "A Tale of Two Kitties" (1942), Daffy
+                                meets Hitler in "Daffy the Commando" (1943), and Bugs tries to stop a gremlin from
+                                sabotaging military planes in "Falling Hare" (1943).</div>
+                            <div style="padding-top: 20px">
+                                <div style="float: left; padding-right: 5px">
+                                    <input type="checkbox" class="toggle1" />
+                                </div>
+                                <div style="float: left; padding-right: 5px">
+                                    <label>
+                                        UnLike</label>
+                                </div>
+                                <div style="float: left; padding-right: 5px">
+                                    <button class="bookmark" type="button">
+                                        Bookmark</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+            <li>
+                <table>
+                    <tr>
+                        <td>
+                            <a href="/KnowledgeCenter/KnowledgeCenter/PlayVideo">
+                                <img src="../../../../Content/images/Video1.jpg" /></a>
+                        </td>
+                        <td>
+                            <div>
+                                <h2>
+                                    Video Cartoon</h2>
+                            </div>
+                            <div>
+                                Cartoon Crazys: Vol. 1Featuring early versions of Tweety Bird, Bugs Bunny, Daffy
+                                Duck, Felix the Cat, Casper the Ghost, and other favorite cartoon characters, this
+                                vintage collection includes 12 shorts from Warner Brothers, Max Fleischer and Van
+                                Beuren studios. Tweety makes his film debut in "A Tale of Two Kitties" (1942), Daffy
+                                meets Hitler in "Daffy the Commando" (1943), and Bugs tries to stop a gremlin from
+                                sabotaging military planes in "Falling Hare" (1943).</div>
+                            <div style="padding-top: 20px">
+                                <div style="float: left; padding-right: 5px">
+                                    <input type="checkbox" class="toggle1" />
+                                </div>
+                                <div style="float: left; padding-right: 5px">
+                                    <label>
+                                        UnLike</label>
+                                </div>
+                                <div style="float: left; padding-right: 5px">
+                                    <button class="bookmark" type="button">
+                                        Bookmark</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+            <li>
+                <table>
+                    <tr>
+                        <td>
+                            <a href="/KnowledgeCenter/KnowledgeCenter/PlayVideo">
+                                <img src="../../../../Content/images/Video1.jpg" /></a>
+                        </td>
+                        <td>
+                            <div>
+                                <h2>
+                                    Video Cartoon</h2>
+                            </div>
+                            <div>
+                                Cartoon Crazys: Vol. 1Featuring early versions of Tweety Bird, Bugs Bunny, Daffy
+                                Duck, Felix the Cat, Casper the Ghost, and other favorite cartoon characters, this
+                                vintage collection includes 12 shorts from Warner Brothers, Max Fleischer and Van
+                                Beuren studios. Tweety makes his film debut in "A Tale of Two Kitties" (1942), Daffy
+                                meets Hitler in "Daffy the Commando" (1943), and Bugs tries to stop a gremlin from
+                                sabotaging military planes in "Falling Hare" (1943).</div>
+                            <div style="padding-top: 20px">
+                                <div style="float: left; padding-right: 5px">
+                                    <input type="checkbox" class="toggle1" />
+                                </div>
+                                <div style="float: left; padding-right: 5px">
+                                    <label>
+                                        UnLike</label>
+                                </div>
+                                <div style="float: left; padding-right: 5px">
+                                    <button class="bookmark" type="button">
+                                        Bookmark</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+            <li>
+                <table>
+                    <tr>
+                        <td>
+                            <a href="/KnowledgeCenter/KnowledgeCenter/PlayVideo">
+                                <img src="../../../../Content/images/Video1.jpg" /></a>
+                        </td>
+                        <td>
+                            <div>
+                                <h2>
+                                    Video Cartoon</h2>
+                            </div>
+                            <div>
+                                Cartoon Crazys: Vol. 1Featuring early versions of Tweety Bird, Bugs Bunny, Daffy
+                                Duck, Felix the Cat, Casper the Ghost, and other favorite cartoon characters, this
+                                vintage collection includes 12 shorts from Warner Brothers, Max Fleischer and Van
+                                Beuren studios. Tweety makes his film debut in "A Tale of Two Kitties" (1942), Daffy
+                                meets Hitler in "Daffy the Commando" (1943), and Bugs tries to stop a gremlin from
+                                sabotaging military planes in "Falling Hare" (1943).</div>
+                            <div style="padding-top: 20px">
+                                <div style="float: left; padding-right: 5px">
+                                    <input type="checkbox" class="toggle1" />
+                                </div>
+                                <div style="float: left; padding-right: 5px">
+                                    <label>
+                                        UnLike</label>
+                                </div>
+                                <div style="float: left; padding-right: 5px">
+                                    <button class="bookmark" type="button">
+                                        Bookmark</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+            <li>
+                <table>
+                    <tr>
+                        <td>
+                            <a href="/KnowledgeCenter/KnowledgeCenter/PlayVideo">
+                                <img src="../../../../Content/images/Video1.jpg" /></a>
+                        </td>
+                        <td>
+                            <div>
+                                <h2>
+                                    Video Cartoon</h2>
+                            </div>
+                            <div>
+                                Cartoon Crazys: Vol. 1Featuring early versions of Tweety Bird, Bugs Bunny, Daffy
+                                Duck, Felix the Cat, Casper the Ghost, and other favorite cartoon characters, this
+                                vintage collection includes 12 shorts from Warner Brothers, Max Fleischer and Van
+                                Beuren studios. Tweety makes his film debut in "A Tale of Two Kitties" (1942), Daffy
+                                meets Hitler in "Daffy the Commando" (1943), and Bugs tries to stop a gremlin from
+                                sabotaging military planes in "Falling Hare" (1943).</div>
+                            <div style="padding-top: 20px">
+                                <div style="float: left; padding-right: 5px">
+                                    <input type="checkbox" class="toggle1" />
+                                </div>
+                                <div style="float: left; padding-right: 5px">
+                                    <label>
+                                        UnLike</label>
+                                </div>
+                                <div style="float: left; padding-right: 5px">
+                                    <button class="bookmark" type="button">
+                                        Bookmark</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+            <li>
+                <table>
+                    <tr>
+                        <td>
+                            <a href="/KnowledgeCenter/KnowledgeCenter/PlayVideo">
+                                <img src="../../../../Content/images/Video1.jpg" /></a>
+                        </td>
+                        <td>
+                            <div>
+                                <h2>
+                                    Video Cartoon</h2>
+                            </div>
+                            <div>
+                                Cartoon Crazys: Vol. 1Featuring early versions of Tweety Bird, Bugs Bunny, Daffy
+                                Duck, Felix the Cat, Casper the Ghost, and other favorite cartoon characters, this
+                                vintage collection includes 12 shorts from Warner Brothers, Max Fleischer and Van
+                                Beuren studios. Tweety makes his film debut in "A Tale of Two Kitties" (1942), Daffy
+                                meets Hitler in "Daffy the Commando" (1943), and Bugs tries to stop a gremlin from
+                                sabotaging military planes in "Falling Hare" (1943).</div>
+                            <div style="padding-top: 20px">
+                                <div style="float: left; padding-right: 5px">
+                                    <input type="checkbox" class="toggle1" />
+                                </div>
+                                <div style="float: left; padding-right: 5px">
+                                    <label>
+                                        UnLike</label>
+                                </div>
+                                <div style="float: left; padding-right: 5px">
+                                    <button class="bookmark" type="button">
+                                        Bookmark</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+            <li>
+                <table>
+                    <tr>
+                        <td>
+                            <a href="/KnowledgeCenter/KnowledgeCenter/PlayVideo">
+                                <img src="../../../../Content/images/Video1.jpg" /></a>
+                        </td>
+                        <td>
+                            <div>
+                                <h2>
+                                    Video Cartoon</h2>
+                            </div>
+                            <div>
+                                Cartoon Crazys: Vol. 1Featuring early versions of Tweety Bird, Bugs Bunny, Daffy
+                                Duck, Felix the Cat, Casper the Ghost, and other favorite cartoon characters, this
+                                vintage collection includes 12 shorts from Warner Brothers, Max Fleischer and Van
+                                Beuren studios. Tweety makes his film debut in "A Tale of Two Kitties" (1942), Daffy
+                                meets Hitler in "Daffy the Commando" (1943), and Bugs tries to stop a gremlin from
+                                sabotaging military planes in "Falling Hare" (1943).</div>
+                            <div style="padding-top: 20px">
+                                <div style="float: left; padding-right: 5px">
+                                    <input type="checkbox" class="toggle1" />
+                                </div>
+                                <div style="float: left; padding-right: 5px">
+                                    <label>
+                                        UnLike</label>
+                                </div>
+                                <div style="float: left; padding-right: 5px">
+                                    <button class="bookmark" type="button">
+                                        Bookmark</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+            <li>
+                <table>
+                    <tr>
+                        <td>
+                            <a href="/KnowledgeCenter/KnowledgeCenter/PlayVideo">
+                                <img src="../../../../Content/images/Video1.jpg" /></a>
+                        </td>
+                        <td>
+                            <div>
+                                <h2>
+                                    Video Cartoon</h2>
+                            </div>
+                            <div>
+                                Cartoon Crazys: Vol. 1Featuring early versions of Tweety Bird, Bugs Bunny, Daffy
+                                Duck, Felix the Cat, Casper the Ghost, and other favorite cartoon characters, this
+                                vintage collection includes 12 shorts from Warner Brothers, Max Fleischer and Van
+                                Beuren studios. Tweety makes his film debut in "A Tale of Two Kitties" (1942), Daffy
+                                meets Hitler in "Daffy the Commando" (1943), and Bugs tries to stop a gremlin from
+                                sabotaging military planes in "Falling Hare" (1943).</div>
+                            <div style="padding-top: 20px">
+                                <div style="float: left; padding-right: 5px">
+                                    <input type="checkbox" class="toggle1" />
+                                </div>
+                                <div style="float: left; padding-right: 5px">
+                                    <label>
+                                        UnLike</label>
+                                </div>
+                                <div style="float: left; padding-right: 5px">
+                                    <button class="bookmark" type="button">
+                                        Bookmark</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+            <li>
+                <table>
+                    <tr>
+                        <td>
+                            <a href="/KnowledgeCenter/KnowledgeCenter/PlayVideo">
+                                <img src="../../../../Content/images/Video1.jpg" /></a>
+                        </td>
+                        <td>
+                            <div>
+                                <h2>
+                                    Video Cartoon</h2>
+                            </div>
+                            <div>
+                                Cartoon Crazys: Vol. 1Featuring early versions of Tweety Bird, Bugs Bunny, Daffy
+                                Duck, Felix the Cat, Casper the Ghost, and other favorite cartoon characters, this
+                                vintage collection includes 12 shorts from Warner Brothers, Max Fleischer and Van
+                                Beuren studios. Tweety makes his film debut in "A Tale of Two Kitties" (1942), Daffy
+                                meets Hitler in "Daffy the Commando" (1943), and Bugs tries to stop a gremlin from
+                                sabotaging military planes in "Falling Hare" (1943).</div>
+                            <div style="padding-top: 20px">
+                                <div style="float: left; padding-right: 5px">
+                                    <input type="checkbox" class="toggle1" />
+                                </div>
+                                <div style="float: left; padding-right: 5px">
+                                    <label>
+                                        UnLike</label>
+                                </div>
+                                <div style="float: left; padding-right: 5px">
+                                    <button class="bookmark" type="button">
+                                        Bookmark</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+            <li>
+                <table>
+                    <tr>
+                        <td>
+                            <a href="/KnowledgeCenter/KnowledgeCenter/PlayVideo">
+                                <img src="../../../../Content/images/Video1.jpg" /></a>
+                        </td>
+                        <td>
+                            <div>
+                                <h2>
+                                    Video Cartoon</h2>
+                            </div>
+                            <div>
+                                Cartoon Crazys: Vol. 1Featuring early versions of Tweety Bird, Bugs Bunny, Daffy
+                                Duck, Felix the Cat, Casper the Ghost, and other favorite cartoon characters, this
+                                vintage collection includes 12 shorts from Warner Brothers, Max Fleischer and Van
+                                Beuren studios. Tweety makes his film debut in "A Tale of Two Kitties" (1942), Daffy
+                                meets Hitler in "Daffy the Commando" (1943), and Bugs tries to stop a gremlin from
+                                sabotaging military planes in "Falling Hare" (1943).</div>
+                            <div style="padding-top: 20px">
+                                <div style="float: left; padding-right: 5px">
+                                    <input type="checkbox" class="toggle1" />
+                                </div>
+                                <div style="float: left; padding-right: 5px">
+                                    <label>
+                                        UnLike</label>
+                                </div>
+                                <div style="float: left; padding-right: 5px">
+                                    <button class="bookmark" type="button">
+                                        Bookmark</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+        </ul>
+    </div>
     <% Html.RenderPartial("PostNewVideos"); %>
     <% Html.RenderPartial("Option"); %>
 </asp:Content>
@@ -113,12 +665,12 @@
     <% Html.RenderPartial("SubmenuVideo"); %>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="SideBar" runat="server">
-<% Html.RenderPartial("AdvanceSearch"); %>
-<% Html.RenderPartial("Banners"); %>
+    <% Html.RenderPartial("AdvanceSearch"); %>
+    <% Html.RenderPartial("Banners"); %>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="startMenu" runat="server">
-<% Html.RenderPartial("StartMenu"); %>
+    <% Html.RenderPartial("StartMenu"); %>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="newsbar" runat="server">
-<% Html.RenderPartial("newsBar"); %>
+    <% Html.RenderPartial("newsBar"); %>
 </asp:Content>
