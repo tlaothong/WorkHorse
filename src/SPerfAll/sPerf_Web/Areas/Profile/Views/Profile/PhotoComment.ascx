@@ -256,3 +256,4 @@
 
                 <a href="#" id="example-show" class="showLink" onclick="showHide('example');return false;">
             SeeMore...</a>
+</div>
