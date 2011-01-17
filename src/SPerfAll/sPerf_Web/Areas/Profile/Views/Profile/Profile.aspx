@@ -5,7 +5,6 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <script src="../../../../Scripts/jquery-1.4.2.min.js" type="text/javascript"></script>
 <%--script for edit profile dialog--%>
 <script type="text/javascript">
     $(function () {

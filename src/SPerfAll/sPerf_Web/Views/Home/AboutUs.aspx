@@ -155,7 +155,6 @@ h1 {
 .containers {
 	overflow: hidden;
 	width: 600px;
-	margin-left:5px;
 }
 
 /*--Main Image Preview--*/
@@ -251,6 +250,14 @@ html .image_thumb ul li h2 {
  
  
 </style>
+<div style="background-color:Gray; width:620px; height:20px; margin-left:">About Us<br /></div>
+<div style="width:625px;"><p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxssxxxxxxxxxxxxxxxxxxxxx<br />
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxssxxxxxxxxxxxxxxxxxxxxxx<br />
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxssxxxxxxxxxxxxxxxxxxxxxx<br />
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxssxxxxxxxxxxxxxxxxxxxxxx<br />
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxssxxxxxxxxxxxxxxxxxxxxxx<br /></p></div>
+<div style="background-color:Gray; width:620px; height:20px;">SPerf Staff<br /></div>
+
 <%--start gallery--%>
 <%--<div id="gallery" class="ad-gallery">
     <div class="ad-image-wrapper"></div>
@@ -383,35 +390,35 @@ html .image_thumb ul li h2 {
 			<li>
 				<a href="/Content/TheSStarf/banner2.jpg"><img src="/Content/TheSStarf/banner2_thumb.jpg" alt="Organized Food Fight" /></a>
 				<div class="block">
-					<h2>Organized Food Fight</h2>
+					Organized Food Fight
 					<p>Autem conventio nimis quis ad, nisl secundum sed, facilisi, vicis augue regula, ratis, autem. Neo nostrud letatio aliquam validus eum quadrum, volutpat et. Autem conventio nimis quis ad, nisl secundum sed, facilisi, vicis augue regula, ratis, autem. Neo nostrud letatio aliquam validus eum quadrum, volutpat et.</p>
 				</div>
 			</li>
 			<li>
 				<a href="/Content/TheSStarf/banner3.jpg"><img src="/Content/TheSStarf/banner3_thumb.jpg" alt="Endangered Species" /></a>
 				<div class="block">
-					<h2>Endangered Species</h2>
+					Endangered Species
 					<p>Autem conventio nimis quis ad, nisl secundum sed, facilisi, vicis augue regula, ratis, autem. Neo nostrud letatio aliquam validus eum quadrum, volutpat et.<br /><a href="http://store.glennz.com/ensp.html" target="_blank">Artwork By Glenn Jones</a></p>
 				</div>
 			</li>
 			<li>
 				<a href="/Content/TheSStarf/banner4.jpg"><img src="/Content/TheSStarf/banner4_thumb.jpg" alt="Evolution" /></a>
 				<div class="block">
-					<h2>Evolution</h2>
+					Evolution
 					<p>Autem conventio nimis quis ad, nisl secundum sed, facilisi, vicis augue regula, ratis, autem. Neo nostrud letatio aliquam validus eum quadrum, volutpat et. Autem conventio nimis quis ad, nisl secundum sed, facilisi, vicis augue regula, ratis, autem. Neo nostrud letatio aliquam validus eum quadrum, volutpat et.<br /><a href="http://store.glennz.com/evolution.html" target="_blank">Artwork By Glenn Jones</a></p>
 				</div>
 			</li>
 			<li>
 				<a href="/Content/TheSStarf/banner5.jpg"><img src="/Content/TheSStarf/banner5_thumb.jpg" alt="Puzzled Putter" /></a>
 				<div class="block">
-					<h2>Puzzled Putter</h2>
+					Puzzled Putter
 					<p>Autem conventio nimis quis ad, nisl secundum sed, facilisi, vicis augue regula, ratis, autem. Neo nostrud letatio aliquam validus eum quadrum, volutpat et. <br /><a href="http://store.glennz.com/puzzledputter.html" target="_blank">Artwork By Glenn Jones</a></p>
 				</div>
 			</li>
 			<li>
 				<a href="/Content/TheSStarf/banner6.jpg"><img src="/Content/TheSStarf/banner6_thumb.jpg" alt="Secret Habit" /></a>
 				<div class="block">
-					<h2>Secret Habit</h2>
+					Secret Habit
 					<p>Autem conventio nimis quis ad, nisl secundum sed, facilisi, vicis augue regula, ratis, autem.<br /><a href="http://store.glennz.com/secrethabit1.html" target="_blank">Artwork By Glenn Jones</a></p>
 				</div>
 			</li>

@@ -47,12 +47,15 @@ ul.sf-menu li:hover li ul, ul.sf-menu li.sfHover li ul
 }
 ul.sf-menu li li:hover ul, ul.sf-menu li li.sfHover ul
 {
-    bottom: -20%;
+    bottom: 1%;
     left: 100%;
+    overflow: auto;
+    height: 500px;
 }
 ul.sf-menu li li:hover li ul, ul.UP li li.sfHover li ul
 {
     top: -999em;
+
 }
 ul.sf-menu li li li:hover ul, ul.sf-menu li li li.sfHover ul
 {
@@ -63,15 +66,16 @@ ul.sf-menu li li li:hover ul, ul.sf-menu li li li.sfHover ul
 /*** DEMO SKIN ***/
 .sf-menu
 {
+    float: left;
     margin-bottom: 1em;
-    background: #010101;
-    opacity: 0.8;      
+    background: #1f2022;
+    opacity: 0.9; 
 }
 .sf-menu a
 {
-
     padding: .75em 1em;
     text-decoration: none;
+    overflow: auto;
 }
 .sf-menu a, .sf-menu a:visited
 {
@@ -80,20 +84,20 @@ ul.sf-menu li li li:hover ul, ul.sf-menu li li li.sfHover ul
 }
 .sf-menu li
 {
-    border-left: 1px solid #090909;
-    border-top: 1px solid #090909; 
+    background: #BDD2FF;
 }
 .sf-menu li li
 {
-    background: #010101;
+    background: #1f2022;
 }
 .sf-menu li li li
 {
-    background: #010101;
+    background: #1f2022;
+    
 }
 .sf-menu li:hover, .sf-menu li.sfHover, .sf-menu a:focus, .sf-menu a:hover, .sf-menu a:active
 {
-    background: #9ACB58;
+    background: #010101;
     outline: 0;
 }
 
@@ -113,7 +117,7 @@ ul.sf-menu li li li:hover ul, ul.sf-menu li li li.sfHover ul
     height: 10px;
     text-indent: -999em;
     overflow: hidden;
-    background: url('/Content/images/arrows-ffffff.png') no-repeat -10px -100px; /* 8-bit indexed alpha png. IE6 gets solid image only */
+    background: url('../images/arrows-ffffff.png') no-repeat -10px -100px; /* 8-bit indexed alpha png. IE6 gets solid image only */
 }
 a > .sf-sub-indicator
 {
@@ -124,7 +128,7 @@ a > .sf-sub-indicator
 /* apply hovers to modern browsers */
 a:focus > .sf-sub-indicator, a:hover > .sf-sub-indicator, a:active > .sf-sub-indicator, li:hover > a > .sf-sub-indicator, li.sfHover > a > .sf-sub-indicator
 {
-    background-position: 8px -80px; /* arrow hovers for modern browsers*/
+    background-position: -10px -100px; /* arrow hovers for modern browsers*/
 }
 
 /* point right for anchors in subs */
@@ -145,7 +149,7 @@ a:focus > .sf-sub-indicator, a:hover > .sf-sub-indicator, a:active > .sf-sub-ind
 /*** shadows for all but IE6 ***/
 .sf-shadow ul
 {
-    background: url('/Content/images/shadow.png') no-repeat bottom right;
+    background: url('../images/shadow.png') no-repeat bottom right;
     padding: 0 8px 0px 0;
     -moz-border-radius-bottomleft: 17px;
     -moz-border-radius-topright: 17px;
