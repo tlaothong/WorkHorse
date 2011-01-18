@@ -48,6 +48,10 @@ namespace sPerf_Web.Areas.KnowledgeCenter.Controllers
         {
             return View();
         }
+        public virtual ActionResult FilterVideo()
+        {
+            return View();
+        }
         [HttpPost]
         public virtual ActionResult UploadVideo(HttpPostedFileBase file)
         {

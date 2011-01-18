@@ -135,6 +135,7 @@
     <Content Include="Areas\Game\Views\Game\Banners.ascx" />
     <Content Include="Areas\Game\Views\Game\Bookmark.aspx" />
     <Content Include="Areas\Game\Views\Game\CommentGame.ascx" />
+    <Content Include="Areas\Game\Views\Game\FilterGame.ascx" />
     <Content Include="Areas\Game\Views\Game\Filter_InviteFriend.ascx" />
     <Content Include="Areas\Game\Views\Game\GameOption.aspx" />
     <Content Include="Areas\Game\Views\Game\Index.aspx" />
@@ -151,6 +152,7 @@
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\AdvanceSearch.ascx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\Banners.ascx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\CommentVideo.ascx" />
+    <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\FilterVideo.ascx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\Filter_InviteFriend.ascx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\Invite_Friend.ascx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\NewCommentVideo.ascx" />

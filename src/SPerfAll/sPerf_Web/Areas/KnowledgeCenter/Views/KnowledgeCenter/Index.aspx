@@ -114,6 +114,7 @@
             </tbody>
         </table>
     </div>
+    <div><% Html.RenderPartial("FilterVideo"); %></div>
     <div id="paging">
         <ul class="paging">
             <li>

@@ -811,6 +811,7 @@ namespace Links {
         public static readonly string MicrosoftMvcValidation_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/MicrosoftMvcValidation.min.js") ? Url("MicrosoftMvcValidation.min.js") : Url("MicrosoftMvcValidation.js");
         public static readonly string MooEditable_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/MooEditable.min.js") ? Url("MooEditable.min.js") : Url("MooEditable.js");
         public static readonly string mootools_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/mootools.min.js") ? Url("mootools.min.js") : Url("mootools.js");
+        public static readonly string quickpager_jquery_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/quickpager.jquery.min.js") ? Url("quickpager.jquery.min.js") : Url("quickpager.jquery.js");
         public static readonly string Silverlight_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/Silverlight.min.js") ? Url("Silverlight.min.js") : Url("Silverlight.js");
         public static readonly string Start_debug_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/Start.debug.min.js") ? Url("Start.debug.min.js") : Url("Start.debug.js");
         public static readonly string Start_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/Start.min.js") ? Url("Start.min.js") : Url("Start.js");
@@ -866,6 +867,7 @@ namespace Links {
             public static readonly string logo3_png = Url("logo3.png");
             public static readonly string logo4_png = Url("logo4.png");
             public static readonly string Logomonk_jpg = Url("Logomonk.jpg");
+            public static readonly string mayatakky_png = Url("mayatakky.png");
             public static readonly string next_horizontal_png = Url("next-horizontal.png");
             public static readonly string next_vertical_png = Url("next-vertical.png");
             public static readonly string nextPageArrow_gif = Url("nextPageArrow.gif");
@@ -880,6 +882,7 @@ namespace Links {
             public static readonly string start_png = Url("start.png");
             public static readonly string topfriend_JPG = Url("topfriend.JPG");
             public static readonly string Unchecked_gray_gif = Url("Unchecked_gray.gif");
+            public static readonly string Video1_jpg = Url("Video1.jpg");
             public static readonly string wanida_jpg = Url("wanida.jpg");
         }
     
@@ -905,6 +908,7 @@ namespace Links {
         public static readonly string jquery_ad_gallery_css = Url("jquery.ad-gallery.css");
         public static readonly string jquery_autocomplete_css = Url("jquery.autocomplete.css");
         public static readonly string jquery_hoverscroll_0_2_2_css = Url("jquery.hoverscroll-0.2.2.css");
+        public static readonly string jquery_marquee_css = Url("jquery.marquee.css");
         public static readonly string jquery_ui_dialog_css = Url("jquery.ui.dialog.css");
         public static readonly string movies_css = Url("movies.css");
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
