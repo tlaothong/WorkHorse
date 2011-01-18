@@ -11,6 +11,7 @@ ul.marquee {
 	border: 1px solid none;
 	left: 64px;
 	float:left;
+	bottom: 10px;
 }
 
 ul.marquee li {
