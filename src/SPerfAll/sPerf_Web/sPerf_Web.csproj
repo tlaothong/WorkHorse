@@ -135,30 +135,36 @@
     <Content Include="Areas\Game\Views\Game\Banners.ascx" />
     <Content Include="Areas\Game\Views\Game\Bookmark.aspx" />
     <Content Include="Areas\Game\Views\Game\CommentGame.ascx" />
+    <Content Include="Areas\Game\Views\Game\FilterGame.ascx" />
     <Content Include="Areas\Game\Views\Game\Filter_InviteFriend.ascx" />
     <Content Include="Areas\Game\Views\Game\GameOption.aspx" />
     <Content Include="Areas\Game\Views\Game\Index.aspx" />
     <Content Include="Areas\Game\Views\Game\Invite_Friend.ascx" />
     <Content Include="Areas\Game\Views\Game\NewCommentGame.ascx" />
+    <Content Include="Areas\Game\Views\Game\newsBar.ascx" />
     <Content Include="Areas\Game\Views\Game\PlayGame.aspx" />
     <Content Include="Areas\Game\Views\Game\ReportCommentGame.ascx" />
     <Content Include="Areas\Game\Views\Game\ReportProblemGame.ascx" />
+    <Content Include="Areas\Game\Views\Game\StartMenu.ascx" />
     <Content Include="Areas\Game\Views\Game\SubMenu.ascx" />
     <Content Include="Areas\Game\Views\Game\Tournament.aspx" />
     <Content Include="Areas\Game\Views\Game\Upload.ascx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\AdvanceSearch.ascx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\Banners.ascx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\CommentVideo.ascx" />
+    <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\FilterVideo.ascx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\Filter_InviteFriend.ascx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\Invite_Friend.ascx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\NewCommentVideo.ascx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\Index.aspx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\MyVideo.aspx" />
+    <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\newsBar.ascx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\Option.ascx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\PlayVideo.aspx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\PostNewVideos.ascx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\ReportCommentVideo.ascx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\ReportProblemVideo.ascx" />
+    <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\StartMenu.ascx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\SubmenuVideo.ascx" />
     <Content Include="Areas\Profile\Views\Profile\Archievement_Application.aspx" />
     <Content Include="Areas\Profile\Views\Profile\Archievement_Game.aspx" />
@@ -187,66 +193,13 @@
     <Content Include="Areas\Profile\Views\Profile\SeeAll_Archeivement.ascx" />
     <Content Include="Areas\Profile\Views\Profile\StartMenu.ascx" />
     <Content Include="Areas\Profile\Views\Profile\SubMenu.ascx" />
-    <Content Include="Content\cartoon\01.jpg" />
-    <Content Include="Content\cartoon\02.jpg" />
-    <Content Include="Content\cartoon\03.jpg" />
-    <Content Include="Content\cartoon\04.jpg" />
-    <Content Include="Content\cartoon\05.jpg" />
-    <Content Include="Content\cartoon\btn_next.gif" />
-    <Content Include="Content\cartoon\btn_prev.gif" />
-    <Content Include="Content\HightLight\App1.png" />
-    <Content Include="Content\HightLight\App2.png" />
-    <Content Include="Content\HightLight\App3.png" />
-    <Content Include="Content\HightLight\Cook.png" />
-    <Content Include="Content\HightLight\Math.png" />
-    <Content Include="Content\images\arrow_left.gif" />
-    <Content Include="Content\images\arrow_right.gif" />
-    <Content Include="Content\images\banner1_thumb.jpg" />
-    <Content Include="Content\images\banner2_thumb.jpg" />
-    <Content Include="Content\images\banner3_thumb.jpg" />
-    <Content Include="Content\images\banner4.jpg" />
-    <Content Include="Content\images\banner4_thumb.jpg" />
-    <Content Include="Content\images\banner5.jpg" />
-    <Content Include="Content\images\banner5_thumb.jpg" />
-    <Content Include="Content\images\banner6.jpg" />
-    <Content Include="Content\images\banner6_thumb.jpg" />
-    <Content Include="Content\images\calendar.png" />
-    <Content Include="Content\images\dog.jpg" />
-    <Content Include="Content\images\field.jpg" />
-    <Content Include="Content\images\gnome.jpg" />
-    <Content Include="Content\images\golf.jpg" />
-    <Content Include="Content\images\home_.jpg" />
-    <Content Include="Content\images\leaf.jpg" />
-    <Content Include="Content\images\pencils.jpg" />
-    <Content Include="Content\images\river.jpg" />
-    <Content Include="Content\images\train.jpg" />
-    <Content Include="Content\jquery.simplyscroll-1.0.4.css" />
-    <Content Include="Content\smoothDivScroll.css" />
+    <Content Include="Content\images\mayatakky.png" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\jquery.marquee.css" />
     <Content Include="Content\styles.css" />
     <Content Include="Content\superfish.css" />
-    <Content Include="Content\TheSStarf\banner1.jpg" />
-    <Content Include="Content\TheSStarf\banner1_thumb.jpg" />
-    <Content Include="Content\TheSStarf\banner2.jpg" />
-    <Content Include="Content\TheSStarf\banner2_thumb.jpg" />
-    <Content Include="Content\TheSStarf\banner3.jpg" />
-    <Content Include="Content\TheSStarf\banner3_thumb.jpg" />
-    <Content Include="Content\TheSStarf\banner4.jpg" />
-    <Content Include="Content\TheSStarf\banner4_thumb.jpg" />
-    <Content Include="Content\TheSStarf\banner5.jpg" />
-    <Content Include="Content\TheSStarf\banner5_thumb.jpg" />
-    <Content Include="Content\TheSStarf\banner6.jpg" />
-    <Content Include="Content\TheSStarf\banner6_thumb.jpg" />
-    <Content Include="Content\thickbox.css" />
-    <Content Include="Scripts\easySlider1.5.js" />
-    <Content Include="Scripts\jquery-latest.js" />
-    <Content Include="Scripts\jquery.ajaxQueue.js" />
-    <Content Include="Scripts\jquery.bgiframe.min.js" />
-    <Content Include="Scripts\jquery.js" />
-    <Content Include="Scripts\jquery.simplyscroll-1.0.4.js" />
-    <Content Include="Scripts\jquery.smoothDivScroll-1.1-min.js" />
-    <Content Include="Scripts\jquery.tagosphere.js" />
-    <Content Include="Scripts\jquery.ui.widget.js" />
-    <Content Include="Scripts\thickbox-compressed.js" />
+    <Content Include="Content\images\Video1.jpg" />
+    <Content Include="Scripts\quickpager.jquery.js" />
     <Content Include="uploads\TheS.wmv" />
     <Content Include="club.html" />
     <Content Include="Content\galleria.css" />
@@ -636,8 +589,8 @@
     <Content Include="Views\Home\Banners.ascx" />
     <Content Include="Views\Home\Cartoon.ascx" />
     <Content Include="Views\Home\FAQTutorial.aspx" />
+    <Content Include="Views\Home\grobalSearch.ascx" />
     <Content Include="Views\Home\HightLight.aspx" />
-    <Content Include="Views\Home\HomeOption.ascx" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Home\newsBar.ascx" />
     <Content Include="Views\Home\StartMenu.ascx" />
@@ -666,7 +619,7 @@
     <Content Include="xap\avatar.xap" />
     <Content Include="xap\Avatar_Silver.xap" />
     <Content Include="xap\doyouknow.xap" />
-    <Content Include="xap\MayaTukkyProject.xap" />
+    <Content Include="xap\TheS.SperfGames.MayaTukky.xap" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -703,7 +656,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1375</DevelopmentServerPort>
+          <DevelopmentServerPort>3676</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

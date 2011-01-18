@@ -32,7 +32,7 @@
             <label>
                 Lastest</label></div>
         <div style="background-color: White; border: 1px solid gray; padding-top: 10px; width: 350px;
-            margin-left: 10px; float: left">
+            margin-left: 10px; float: left;">
             <div style="border: 2px solid #5FB546; margin-left: 10px; margin-bottom: 10px; margin-right: 10px;">
                 <p>
                     xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -79,8 +79,7 @@
                 <label>
                     SeeMore...</label></div>
         </div>
-        <div style="width: 150px; margin-top: -400px; margin-right: 20px; margin-left: 430px;
-            float: left">
+        <div style="width: 150px; margin-right: 20px; margin-left: 430px;">
             <div>
                 <div style="border: 2px solid #727373; width: 80px; text-align: center; margin-bottom: -2px;">
                     <a href="/Profile/Profile/Archievement_Last" style="color: #5FB546; text-decoration: none;">

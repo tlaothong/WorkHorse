@@ -11,10 +11,13 @@
     <link href="../../Content/jquery.ui.dialog.css" rel="stylesheet" type="text/css" />
     <link href="../../Content/skin.css" rel="stylesheet" type="text/css" />
     <link href="../../Content/galleria.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/jquery-ui.css" rel="stylesheet" type="text/css" />
     <script src="../../Scripts/jquery-1.4.4.min.js" type="text/javascript"></script>
     <script src="../../Scripts/jquery-ui-1.8.6.custom.min.js" type="text/javascript"></script>
     <script src="../../Scripts/jquery.pager.js" type="text/javascript"></script>
     <script src="../../Scripts/jquery.tmpl.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery-ui.min.js" type="text/javascript"></script>
     <script src="../../Scripts/ajaxScripts/Start.debug.js" type="text/javascript"></script>
     <script src="../../Scripts/ajaxScripts/extended/ExtendedControls.debug.js" type="text/javascript"></script>
 </head>
@@ -25,31 +28,14 @@
             </div>
             <div id="search-container">
                 <div id="global-search">
-                <script type="text/javascript">
-                    $(function () {
-                        var availableTags = [
-			            "ActionScript",
-			            "BASIC",
-			            "C",
-			            "Erlang",
-			            "Fortran",
-			            "Groovy",
-			            "Haskell",
-			            "Java",
-			            "JavaScript",
-			            "Lisp",
-			            "Perl",
-			            "Ruby",
-			            "Scheme"
-		            ];
-                        $("#tagss").autocomplete({
-                            source: availableTags
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            $("input#autocomplete").autocomplete({
+                                source: ["c++", "java", "php", "coldfusion", "javascript", "asp", "ruby"]
+                            });
                         });
-                    });
-	            </script>
-                <div class="demo">
-                    <input type="text" class="input_text" id="tagss" />
-                </div>
+                </script>
+                <input id="autocomplete" type="text" class="input_text"/>
                 </div>
                 <div id="avatar-face">
                 </div>
