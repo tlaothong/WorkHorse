@@ -194,6 +194,7 @@
     <Content Include="Areas\Profile\Views\Profile\StartMenu.ascx" />
     <Content Include="Areas\Profile\Views\Profile\SubMenu.ascx" />
     <Content Include="Content\images\mayatakky.png" />
+    <Content Include="Content\images\VideoPlay.png" />
     <Content Include="Content\jquery.marquee.css" />
     <Content Include="Content\styles.css" />
     <Content Include="Content\superfish.css" />
@@ -619,6 +620,8 @@
     <Content Include="xap\Avatar_Silver.xap" />
     <Content Include="xap\doyouknow.xap" />
     <Content Include="xap\TheS.SperfGames.MayaTukky.xap" />
+    <Content Include="xap\VideoPlayer.xap" />
+    <Content Include="XMLFile1.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

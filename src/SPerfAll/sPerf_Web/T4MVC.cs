@@ -883,6 +883,7 @@ namespace Links {
             public static readonly string topfriend_JPG = Url("topfriend.JPG");
             public static readonly string Unchecked_gray_gif = Url("Unchecked_gray.gif");
             public static readonly string Video1_jpg = Url("Video1.jpg");
+            public static readonly string VideoPlay_png = Url("VideoPlay.png");
             public static readonly string wanida_jpg = Url("wanida.jpg");
         }
     
