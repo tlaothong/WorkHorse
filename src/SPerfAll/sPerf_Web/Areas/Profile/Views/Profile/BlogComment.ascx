@@ -13,6 +13,46 @@
         }
     }
 </script>
+<style type="text/css">
+    /* This CSS is just for presentational purposes. */
+    #listContent
+    {
+        margin-top: 20px;
+    }
+    #wrap
+    {
+        font: 1.3em/1.3 Arial, Helvetica, sans-serif;
+        width: 30em;
+        margin: 0 auto;
+        padding: 1em;
+        background-color: #fff;
+    }
+    h1
+    {
+        font-size: 200%;
+    }
+    
+    /* This CSS is used for the Show/Hide functionality. */
+    .more
+    {
+        display: none;
+    }
+    a.showLink, a.hideLink
+    {
+        text-decoration: none;
+        color: #36f;
+        padding-left: 8px;
+        background: transparent url(down.gif) no-repeat left;
+    }
+    a.hideLink
+    {
+        background: transparent url(up.gif) no-repeat left;
+    }
+    a.showLink:hover, a.hideLink:hover
+    {
+        border-bottom: 1px dotted #36f;
+    }
+</style>
 <%--script for New comment--%>
 <script type="text/javascript">
     $(function () {

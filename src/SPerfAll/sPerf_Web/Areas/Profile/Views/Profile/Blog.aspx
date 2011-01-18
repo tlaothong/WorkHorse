@@ -175,15 +175,13 @@ Date : <input type="text" id="edate" />
 </div>
 
 <%--div สำหรับพื้นที่แสดงเนื้อหาที่เขียนลงใน blog--%>
-<div style="background-color:#4C4A49; width:630px; height:381px; ">
+<div style="background-color:#4C4A49; background-repeat: repeat-y; width:630px; padding-bottom: 10px;">
 <br />
-    <div style="background-color:#737374; width:565px;margin-left:29px; ">
-     <label style="color:#ffffff;margin-top:20px; float:left;">Topic : </label><fieldset style="width:515px; height:15px; background-color:#333333; margin-top:20px; float:left;"></fieldset>
-     <p>
-        <fieldset style="overflow:hidden; height:263px; width:550px; background-color:White; margin-left:5px;">
+    <div style="background-color:#737374; width:565px;margin-left:29px; padding-bottom: 5px; ">
+     <label style="color:#ffffff;margin-top:20px; float:left;">Topic : </label><fieldset style="width:500px; height:15px; background-color:#333333; margin-top:20px; float:left;"></fieldset>
+        <fieldset style="overflow:hidden; height:263px; width:533px; background-color:White; margin-left:5px;">
             <p style="margin-top:2px;">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
         </fieldset>
-     </p>
     <label id="newblog" style="margin-top:200px;background-color:#ffffff;  margin-left:480px; margin-top:100px ;color:Green; padding:1px 5px 1px 5px;border:1px solid gray inherit;">New</label><label id="editblog" style="background-color:#000000; padding:2px 6px 2px 6px;border:1px solid gray inherit; color:Red">Edit</label>
     </div>
 </div>
