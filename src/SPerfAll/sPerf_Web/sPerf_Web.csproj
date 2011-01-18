@@ -620,8 +620,6 @@
     <Content Include="xap\Avatar_Silver.xap" />
     <Content Include="xap\doyouknow.xap" />
     <Content Include="xap\TheS.SperfGames.MayaTukky.xap" />
-    <Content Include="xap\VideoPlayer.xap" />
-    <Content Include="XMLFile1.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
