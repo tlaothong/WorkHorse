@@ -32,6 +32,8 @@ a{text-decoration:none;}
         $('#tagoSphere').tagoSphere();
     });
 </script>
+<br />
+<br />
 <center>
 <div id="wrapper">
 	<div id="tagoSphere">

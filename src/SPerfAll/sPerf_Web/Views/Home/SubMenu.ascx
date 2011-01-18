@@ -18,8 +18,8 @@
                 </div>
             </td>
             <td>
-                <div id="OptionClick">
-                    | <%=Html.ActionLink("Option",MVC.Home.Option()) %>
+                <div id="linkSub">
+                    | <a href="#" id="homeOption">Option</a>
                 </div>
             </td>
         </tr>

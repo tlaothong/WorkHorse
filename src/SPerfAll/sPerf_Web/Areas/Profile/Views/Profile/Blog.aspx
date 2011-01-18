@@ -175,7 +175,7 @@ Date : <input type="text" id="edate" />
 </div>
 
 <%--div สำหรับพื้นที่แสดงเนื้อหาที่เขียนลงใน blog--%>
-<div style="background-color:#4C4A49; width:630px; height:381px; ">
+<div style="background-color:#4C4A49; width:630px; height:438px; ">
 <br />
     <div style="background-color:#737374; width:565px;margin-left:29px; ">
      <label style="color:#ffffff;margin-top:20px; float:left;">Topic : </label><fieldset style="width:515px; height:15px; background-color:#333333; margin-top:20px; float:left;"></fieldset>

@@ -1,40 +1,30 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<dynamic>" %>
-<link href="../../../../Content/jquery-ui-1.8.6.custom.css" rel="stylesheet" type="text/css" />
-<link href="../../Content/smoothDivScroll.css" rel="stylesheet" type="text/css" />
-<script src="../../../../Scripts/jquery-1.4.2.min.js" type="text/javascript"></script>
+<script src="../../Scripts/jquery-1.4.4.min.js" type="text/javascript"></script>
 <script src="../../../../Scripts/jquery-ui-1.8.6.custom.min.js" type="text/javascript"></script>
-<script src="../../Scripts/jquery.ui.widget.js" type="text/javascript"></script>
-<script src="../../Scripts/jquery.smoothDivScroll-1.1-min.js" type="text/javascript"></script>
+<script src="../../Scripts/easySlider1.5.js" type="text/javascript"></script>
 <script type="text/javascript">
-    $(function () {
-        $("div#makeMeScrollable").smoothDivScroll({ autoScroll: "onstart",
-            autoScrollDirection: "backandforth",
-            autoScrollStep: 1,
-            autoScrollInterval: 15,
-            startAtElementId: "startAtMe",
-            visibleHotSpots: "always"
-        });
-
-    });
+    $(document).ready(function () {
+        $("#slider").easySlider();
+    });	
 	</script>
-<style type="text/css">
+
+
+<style type="text/css"> 
+
+	#slider ul, #slider li{
+		padding:0;
+		list-style:none;
+		overflow:hidden;
+		}
+	#slider li{ 
+		width:630px;
+		height:211px;
+		overflow:hidden; 
+		}
+	span#prevBtn{}
+	span#nextBtn{}					
+</style>
 	
-	#makeMeScrollable
-	{
-		width:400;
-		height: 330px;
-		position: relative;
-	}
-	
-	#makeMeScrollable div.scrollableArea *
-	{
-		position: relative;
-		float: left;
-		margin: 0;
-		padding: 0;
-	}
-	
-	</style>
 
 <%--script for New comment--%>
 <script type="text/javascript">
@@ -43,10 +33,10 @@
         $("#dialog_cartoons").dialog({
             autoOpen: false,
             position:'center',
-            width:620,
-            height:250,
+            width:630,
+            height: 370,
             modal: true,
-            title: 'New Comment',
+            title: 'All Cartoon',
             buttons: {
                 "Cancel": function () {
                     $(this).dialog("close");
@@ -69,26 +59,19 @@
 <div id="clickAll"  style="margin-left:566px; color:White;">SeeAll</div></div>
 <div id="dialog_cartoons">  
    <%--start scroll images--%>
-           <div id="wrapper">
-                <div id="mainColumn">
-	                <div id="makeMeScrollable">
-		                <div class="scrollingHotSpotLeft"></div>
-		                <div class="scrollingHotSpotRight"></div>
-		                <div class="scrollWrapper">
-			                <div class="scrollableArea">
-				                <img src="/Content/images/field.jpg" alt="Demo image" width="150" height="100" />
-				                <img src="/Content/images/gnome.jpg" alt="Demo image" width="150" height="100" />
-				                <img src="/Content/images/pencils.jpg" alt="Demo image" width="150" height="100" />
-				                <img src="/Content/images/golf.jpg" alt="Demo image" width="150" height="100" id="startAtMe" />
-				                <img src="/Content/images/river.jpg" alt="Demo image" width="150" height="100" />
-				                <img src="/Content/images/train.jpg" alt="Demo image" width="150" height="100" />
-				                <img src="/Content/images/leaf.jpg" alt="Demo image" width="150" height="100" />
-				                <img src="/Content/images/dog.jpg" alt="Demo image" width="150" height="100"/>
-			                </div>
-		                </div>
-	                </div>
-	            <br/>
-                </div>
-            </div>
+           <div id="container">
+	        <div id="content">
+		        <div id="slider">
+			        <ul>				
+				        <li><a href="#"><img src="/Content/cartoon/01.jpg" alt="Css Template Preview" /></a></li>
+				        <li><a href="#"><img src="/Content/cartoon/02.jpg" alt="Css Template Preview" /></a></li>
+				        <li><a href="#"><img src="/Content/cartoon/03.jpg" alt="Css Template Preview" /></a></li>
+				        <li><a href="#"><img src="/Content/cartoon/04.jpg" alt="Css Template Preview" /></a></li>
+				        <li><a href="#"><img src="/Content/cartoon/05.jpg" alt="Css Template Preview" /></a></li>			
+			        </ul>
+		        </div>
+          </div>
+         </div>
+
            <%--end scroll images--%>
 </div>

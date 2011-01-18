@@ -14,12 +14,12 @@
 <br />
 <div class="today">
     <div style="margin-top:2px;"><img src="/Content/images/calendar.png" />Todays <script type="text/javascript">
-                   var d = new Date();
+                                                                                      var d = new Date();
                        document.write(d.getDate(), "/", d.getMonth(), "/", d.getYear());
 </script></div> 
     <table style="margin-top:12px;">
        <tr>
-            <div><td><img src="/Content/profile/pic_friend/1.png" /></td><td valign="top">Tao's Birthday</td></div>
+            <td><img src="/Content/profile/pic_friend/1.png" /></td><td valign="top">Tao's Birthday</td>
             
         </tr>
     </table>
@@ -27,7 +27,7 @@
     <div>เขียนคำอวยพรส่งของขวัญให้เต๋า </div>
     <table style="margin-top:12px;">
        <tr>
-            <div><td><img src="/Content/profile/pic_friend/2.png" /></td><td valign="top">Tao's Birthday</td></div>
+            <td><img src="/Content/profile/pic_friend/2.png" /></td><td valign="top">Tao's Birthday</td>
             
         </tr>
     </table>
@@ -35,7 +35,7 @@
     <div>เขียนคำอวยพรส่งของขวัญให้เต๋า </div>
     <table style="margin-top:12px;">
        <tr>
-            <div><td><img src="/Content/profile/pic_friend/3.png" /></td><td valign="top">Tao's Birthday</td></div>
+            <td><img src="/Content/profile/pic_friend/3.png" /></td><td valign="top">Tao's Birthday</td>
             
         </tr>
     </table>
@@ -43,7 +43,7 @@
     <div>เขียนคำอวยพรส่งของขวัญให้เต๋า </div>
     <table style="margin-top:12px;">
        <tr>
-            <div><td><img src="/Content/profile/pic_friend/4.png" /></td><td valign="top">Tao's Birthday</td></div>
+            <td><img src="/Content/profile/pic_friend/4.png" /></td><td valign="top">Tao's Birthday</td>
             
         </tr>
     </table>
@@ -279,12 +279,12 @@
             </tr>
         </table>
     </div>
+    <% Html.RenderPartial("HomeOption"); %>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="SubMenu" runat="server">
 <% Html.RenderPartial("SubMenu"); %>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="SideBar" runat="server">
-<% Html.RenderPartial("AdvanceSearch"); %>
 <% Html.RenderPartial("Banners"); %>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="startMenu" runat="server">
