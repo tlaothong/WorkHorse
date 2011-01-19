@@ -27,7 +27,7 @@
 </script>
 
 <%--div for report dialog--%>
-<div id="OptionProfile">
+<div id="OptionProfile" style="display: none">
     <table>
                     <tr>
                          <td>

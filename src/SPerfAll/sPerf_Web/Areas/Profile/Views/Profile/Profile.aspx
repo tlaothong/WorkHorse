@@ -32,7 +32,7 @@
     });
 
 </script>
-<div id="showEditProfile">
+<div id="showEditProfile" style="display: none">
     <table>
         <tr>
             <td style="float: left; margin-top:5px;">
@@ -229,7 +229,7 @@
         $("#tabs").tabs();
     });
 </script>
-<div class="demo">
+<div class="demo" style="display: none">
     <div id="tabs" title="แสดงเพื่อนทั้งหมด" style="padding-top: 20px;">
         <div>
             <ul>

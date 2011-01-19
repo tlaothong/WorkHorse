@@ -33,7 +33,7 @@
     });
 
 </script>
-<div id="showEditProfile">
+<div id="showEditProfile" style="display: none;">
     <table>
         <tr>
             <td style="float: left; margin-top:5px;">
@@ -230,7 +230,7 @@
         $("#tabs").tabs();
     });
 </script>
-<div class="demo">
+<div class="demo" style="display: none">
     <div id="tabs" title="แสดงเพื่อนทั้งหมด" style="padding-top: 20px;">
         <div>
             <ul>
@@ -238,7 +238,7 @@
             </ul>
         </div>
         <div id="tabs-1">
-            <div id="FriendList">
+            <div id="FriendList" style="display: none" >
                 <div>
                     <div style="padding-bottom: 10px;">
                         <% Html.RenderPartial("Filter"); %></div>

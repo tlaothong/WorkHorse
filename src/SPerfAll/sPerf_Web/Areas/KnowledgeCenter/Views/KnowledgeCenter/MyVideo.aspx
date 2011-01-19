@@ -115,7 +115,7 @@
                         >
                     </td>
                     <td>
-                        <a href="/KnowledgeCenter/KnowledgeCenter" >Video</a>
+                        <a href="/KnowledgeCenter/KnowledgeCenter">Video</a>
                     </td>
                     <td>
                         >
@@ -159,7 +159,9 @@
                                 </div>
                                 <div style="float: left; padding-right: 5px">
                                     <button class="bookmark" type="button">
-                                        Bookmark</button>
+                                        Edit</button>
+                                    <button class="bookmark" type="button">
+                                        Delete</button>
                                 </div>
                             </div>
                         </td>
@@ -194,7 +196,9 @@
                                 </div>
                                 <div style="float: left; padding-right: 5px">
                                     <button class="bookmark" type="button">
-                                        Bookmark</button>
+                                        Edit</button>
+                                    <button class="bookmark" type="button">
+                                        Delete</button>
                                 </div>
                             </div>
                         </td>
@@ -229,7 +233,9 @@
                                 </div>
                                 <div style="float: left; padding-right: 5px">
                                     <button class="bookmark" type="button">
-                                        Bookmark</button>
+                                        Edit</button>
+                                    <button class="bookmark" type="button">
+                                        Delete</button>
                                 </div>
                             </div>
                         </td>
@@ -264,7 +270,9 @@
                                 </div>
                                 <div style="float: left; padding-right: 5px">
                                     <button class="bookmark" type="button">
-                                        Bookmark</button>
+                                        Edit</button>
+                                    <button class="bookmark" type="button">
+                                        Delete</button>
                                 </div>
                             </div>
                         </td>
@@ -299,7 +307,9 @@
                                 </div>
                                 <div style="float: left; padding-right: 5px">
                                     <button class="bookmark" type="button">
-                                        Bookmark</button>
+                                        Edit</button>
+                                    <button class="bookmark" type="button">
+                                        Delete</button>
                                 </div>
                             </div>
                         </td>
@@ -334,7 +344,9 @@
                                 </div>
                                 <div style="float: left; padding-right: 5px">
                                     <button class="bookmark" type="button">
-                                        Bookmark</button>
+                                        Edit</button>
+                                    <button class="bookmark" type="button">
+                                        Delete</button>
                                 </div>
                             </div>
                         </td>
@@ -369,7 +381,9 @@
                                 </div>
                                 <div style="float: left; padding-right: 5px">
                                     <button class="bookmark" type="button">
-                                        Bookmark</button>
+                                        Edit</button>
+                                    <button class="bookmark" type="button">
+                                        Delete</button>
                                 </div>
                             </div>
                         </td>
@@ -404,7 +418,9 @@
                                 </div>
                                 <div style="float: left; padding-right: 5px">
                                     <button class="bookmark" type="button">
-                                        Bookmark</button>
+                                        Edit</button>
+                                    <button class="bookmark" type="button">
+                                        Delete</button>
                                 </div>
                             </div>
                         </td>
@@ -439,7 +455,9 @@
                                 </div>
                                 <div style="float: left; padding-right: 5px">
                                     <button class="bookmark" type="button">
-                                        Bookmark</button>
+                                        Edit</button>
+                                    <button class="bookmark" type="button">
+                                        Delete</button>
                                 </div>
                             </div>
                         </td>
@@ -474,77 +492,9 @@
                                 </div>
                                 <div style="float: left; padding-right: 5px">
                                     <button class="bookmark" type="button">
-                                        Bookmark</button>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </li>
-            <li>
-                <table>
-                    <tr>
-                        <td style="width: 200px;">
-                            <a href="/KnowledgeCenter/KnowledgeCenter/PlayVideo">
-                                <img src="../../../../Content/images/VideoPlay.png" /></a>
-                        </td>
-                        <td>
-                            <div>
-                                <h2>
-                                    Video Cartoon</h2>
-                            </div>
-                            <div>
-                                ID : 452</div>
-                            <div>
-                                Name : BasicMath</div>
-                            <div>
-                                Path : Math/Calulus</div>
-                            <div style="padding-top: 20px">
-                                <div style="float: left; padding-right: 5px">
-                                    <input type="checkbox" class="toggle1" />
-                                </div>
-                                <div style="float: left; padding-right: 5px">
-                                    <label>
-                                        UnLike</label>
-                                </div>
-                                <div style="float: left; padding-right: 5px">
+                                        Edit</button>
                                     <button class="bookmark" type="button">
-                                        Bookmark</button>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </li>
-            <li>
-                <table>
-                    <tr>
-                        <td style="width: 200px;">
-                            <a href="/KnowledgeCenter/KnowledgeCenter/PlayVideo">
-                                <img src="../../../../Content/images/VideoPlay.png" /></a>
-                        </td>
-                        <td>
-                            <div>
-                                <h2>
-                                    Video Cartoon</h2>
-                            </div>
-                            <div>
-                                ID : 452</div>
-                            <div>
-                                Name : BasicMath</div>
-                            <div>
-                                Path : Math/Calulus</div>
-                            <div style="padding-top: 20px">
-                                <div style="float: left; padding-right: 5px">
-                                    <input type="checkbox" class="toggle1" />
-                                </div>
-                                <div style="float: left; padding-right: 5px">
-                                    <label>
-                                        UnLike</label>
-                                </div>
-                                <div style="float: left; padding-right: 5px">
-                                    <button class="bookmark" type="button">
-                                        Bookmark</button>
+                                        Delete</button>
                                 </div>
                             </div>
                         </td>

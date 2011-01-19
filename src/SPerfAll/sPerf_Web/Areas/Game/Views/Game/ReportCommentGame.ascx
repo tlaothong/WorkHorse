@@ -23,7 +23,7 @@
         });
     });
 </script>
-<div id="ReportCommentGame" title="Report Comment" style="z-index: 10;">
+<div id="ReportCommentGame" title="Report Comment" style="z-index: 10; display: none">
     <table>
         <tr>
             <td valign="top">

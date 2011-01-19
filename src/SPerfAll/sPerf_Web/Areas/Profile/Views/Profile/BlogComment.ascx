@@ -104,7 +104,7 @@
    </tr>
 </table>
 <%--div for comment dialog--%>
-<div id="dialogblog">
+<div id="dialogblog" style="display:none">
 <table>
         <tr>
             <td valign="top">Pet Society<br />
@@ -116,7 +116,7 @@
 </div>
 
 <%--div for seeall dialog--%>
-<div id="sellAll">
+<div id="sellAll" style="display:none">
     <table>
             <tr>
             <td valign="top">
@@ -178,7 +178,7 @@
 </div>
 
 <%--div for report dialog--%>
-<div id="showReport">
+<div id="showReport" style="display:none">
 <table>
         <tr>
             <td valign="top">
