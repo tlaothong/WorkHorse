@@ -9,7 +9,7 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
-            $("ul.paging").quickPager();
+            $("ul.paging").quickPager({ pagerLocation: "both" });
             $("ul.paging").fadeOut("medium");
             $("ul.paging").fadeIn("medium");
             $("ul.paging")
@@ -37,6 +37,10 @@
 
     </script>
     <style type="text/css">
+        ul
+        {
+            clear: both;
+        }
         ul.paging li, ul.paging2 li
         {
             background: #FFFFFF;
