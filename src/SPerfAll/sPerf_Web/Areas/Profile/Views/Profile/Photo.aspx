@@ -10,6 +10,7 @@
   <link href="../../../../Content/jquery.treeview.css" rel="stylesheet" type="text/css" />
   <link href="../../../../Content/context-menu.css" rel="stylesheet" type="text/css" />
   <link href="../../../../Content/drag-drop-folder-tree.css" rel="stylesheet" type="text/css" />
+  <link href="../../../../Content/pagination.css" rel="stylesheet" type="text/css" />
   <script src="../../../../Scripts/jquery.min.js" type="text/javascript"></script>
   <script src="../../../../Scripts/jquery-ui.min.js" type="text/javascript"></script>
   <script  src="../../../../Scripts/jquery.ad-gallery.js" type="text/javascript"></script>
@@ -19,6 +20,7 @@
   <script src="../../../../Scripts/ajax.js" type="text/javascript"></script>
   <script src="../../../../Scripts/context-menu.js" type="text/javascript"></script>
   <script src="../../../../Scripts/drag-drop-folder-tree.js" type="text/javascript"></script>
+    <script src="../../../../Scripts/jquery.pagination.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(function () {
         $('img.image1').data('ad-desc', 'Whoa! This description is set through elm.data("ad-desc") instead of using the longdesc attribute.<br>And it contains <strong>H</strong>ow <strong>T</strong>o <strong>M</strong>eet <strong>L</strong>adies... <em>What?</em> That aint what HTML stands for? Man...');
@@ -150,7 +152,7 @@
             title: 'Add Photo'
         });
         // Dialog Link
-        $("#addphoto").click(function () {
+        $(".addphoto").click(function () {
             $('#showaddphoto').dialog('open');
             return false;
         });
@@ -169,12 +171,34 @@
             title: 'Edit Photo'
         });
         // Dialog Link
-        $("#editphoto").click(function () {
+        $(".editphoto").click(function () {
             $('#showeditphoto').dialog('open');
             return false;
         });
     });
 </script>
+<%--start paging script--%>
+<script type="text/javascript">
+    function pageselectCallback(page_index, jq) {
+        var new_content = jQuery('#hiddenresult div.result:eq(' + page_index + ')').clone();
+        $('#Searchresult').empty().append(new_content);
+        return false;
+    }
+    function initPagination() {
+        // count entries inside the hidden content
+        var num_entries = jQuery('#hiddenresult div.result').length;
+        // Create content inside pagination element
+        $("#Pagination").pagination(num_entries, {
+            callback: pageselectCallback,
+            items_per_page: 1 // Show only one item per page
+        });
+    }
+    // When document is ready, initialize pagination
+    $(document).ready(function () {
+        initPagination();
+    });
+        </script>
+<%--end paging script--%>
 <div id="container">
 <div style="margin-left:10px;">ToomMy's Album  <select id="switch-effect" style="margin-top:5px;">
                   <option>วันปีใหม่ 2553</option>
@@ -206,27 +230,25 @@
 </div>
     <%--div for organize dialog--%>
     <div id="showorganize" style="display:none;">
-    <table style="margin-left:400px;"><tr><td>Page : 1 2 3 4 5 6 7 .. next last</td></tr></table>      
-    <table>
-            <tr>
-                <td valign="top">
-                    <div style="background-color:#ffffff; width:181px; height:380px;">
+        <div id="Pagination"style="margin-left:400px;"></div> 
+        <br style="clear:both;" />
+        <div>    
+        <div style="float:left; clear:right; border: 1px solid gray ">
+            <div style="color:White; width:200px; margin-left:0px; background-color:#2D2C2C;">Album'name</div>
+            <div style="width:200px; height:380px; background-color:#ffffff;">
+                 <%--treeview part--%>
+                 <%Html.RenderPartial("DGTreeview"); %>
+                 <%--end treeview--%>                      
+            </div> 
+        </div>
+        <div style="float:left; margin-left: 5px; border: 1px solid gray ">
+            <div style="color:White; width:380px; margin-left:0px; background-color:#2D2C2C;">Album'Picture</div>
+            <div id="Searchresult">
+                This content will be replaced when pagination inits.
+            </div>
+            <div id="hiddenresult" style="display:none; ">
+                <div class="result" style="background-color:#ffffff; border:1px solid #ffffff; width:380px; height:380px;">
                     <table>
-                        <tr><td style="color:White; width:500px; margin-left:0px; background-color:#2D2C2C;">Album'name</td></tr>
-                        <tr valign="top"><td>
-                        <div style="background-color:White; width:176px; height:330px">
-                        <%--treeview part--%>
-                        <%Html.RenderPartial("DGTreeview"); %>
-                        <%--end treeview--%>                      
-                        </div>
-                        </td></tr>
-                        <tr><td style="color:White; width:500px; background-color:#2D2C2C;"><label style="color:Green;">New Album</label>|<label style="color:Green;">Edit Album</label>|<label style="color:Red;">Delete</label></td></tr>
-                    </table>
-                    </div>
-                </td>
-                <td valign="top">
-                    <div style="background-color:#ffffff; border:1px solid #ffffff; width:380px; height:380px;">
-                     <table>
                         <tr style="border:0px solid;">
                           <td  style="background-color:#2D2C2C;" valign="top" align="right"><img src="/Content/profile/thumbs/t1.jpg" /></td>
                           <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
@@ -276,13 +298,120 @@
                           <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox8" type="checkbox"></td>
                           <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox16" type="checkbox"></td>
                           </tr>
-                        <tr><td></td><td align="center" style="border:1px solid Gray;"><label id="addphoto" style="color:Green;">Add Photo</label></td><td align="center" style="border:1px solid Gray;"><label id="editphoto" style="color:Green;">Edit Photo</label></td><td align="center" style="border:1px solid Gray;"><label style="color:Red;">Delete</label></td></tr>  
+                        <tr><td></td><td align="center" style="border:1px solid Gray;"><label class="addphoto" style="color:Green;">Add Photo</label></td><td align="center" style="border:1px solid Gray;"><label class="editphoto" style="color:Green;">Edit Photo</label></td><td align="center" style="border:1px solid Gray;"><label style="color:Red;">Delete</label></td></tr>  
                       </table>
+                </div>
+                <div class="result" style="background-color:#ffffff; border:1px solid #ffffff; width:380px; height:380px;">
+                    <table>
+                        <tr style="border:0px solid;">
+                          <td  style="background-color:#2D2C2C;" valign="top" align="right"><img src="/Content/profile/thumbs/t1.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t1.jpg" /></td>
+                          </tr>
+                        <tr>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox6" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox5" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox4" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox13" type="checkbox"></td>
 
-                    </div>
-                    </td>
-            </tr>
-        </table>
+                        </tr>
+                        <tr>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t1.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t1.jpg" /></td>
+                        </tr>
+                        <tr>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox3" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox2" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox14" type="checkbox"></td>
+                          </tr>
+                        <tr>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t1.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t1.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
+                          </tr>
+                        <tr>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox11" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox9" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox7" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox15" type="checkbox"></td>
+                        </tr>
+                        <tr>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t1.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t1.jpg" /></td>
+                        </tr>
+                        <tr>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox12" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox10" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox8" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox16" type="checkbox"></td>
+                          </tr>
+                        <tr><td></td><td align="center" style="border:1px solid Gray;"><label class="addphoto" style="color:Green;">Add Photo</label></td><td align="center" style="border:1px solid Gray;"><label class="editphoto" style="color:Green;">Edit Photo</label></td><td align="center" style="border:1px solid Gray;"><label style="color:Red;">Delete</label></td></tr>  
+                      </table> 
+                </div>
+                <div class="result" style="background-color:#ffffff; border:1px solid #ffffff; width:380px; height:380px;">
+                    <table>
+                        <tr style="border:0px solid;">
+                          <td  style="background-color:#2D2C2C;" valign="top" align="right"><img src="/Content/profile/thumbs/t1.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t1.jpg" /></td>
+                          </tr>
+                        <tr>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox6" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox5" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox4" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox13" type="checkbox"></td>
+
+                        </tr>
+                        <tr>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t1.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t1.jpg" /></td>
+                        </tr>
+                        <tr>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox3" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox2" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox14" type="checkbox"></td>
+                          </tr>
+                        <tr>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t1.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t1.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
+                          </tr>
+                        <tr>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox11" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox9" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox7" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox15" type="checkbox"></td>
+                        </tr>
+                        <tr>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t1.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t1.jpg" /></td>
+                        </tr>
+                        <tr>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox12" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox10" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox8" type="checkbox"></td>
+                          <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox16" type="checkbox"></td>
+                          </tr>
+                        <tr><td></td><td align="center" style="border:1px solid Gray;"><label class="addphoto" style="color:Green;">Add Photo</label></td><td align="center" style="border:1px solid Gray;"><label class="editphoto" style="color:Green;">Edit Photo</label></td><td align="center" style="border:1px solid Gray;"><label style="color:Red;">Delete</label></td></tr>  
+                      </table>
+                 </div>
+            </div>
+         </div>
+         </div>
     </div>
     <%--div for addphoto dialog--%>
     <div id="showaddphoto" style="display:none;">
