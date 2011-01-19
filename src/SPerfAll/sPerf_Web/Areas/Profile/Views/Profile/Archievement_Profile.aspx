@@ -1,14 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/MasterPage.Master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/MasterPage.Master"
+    Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	Archievement
+    Archievement
 </asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-<link href="../../../../Content/jquery-ui-1.8.6.custom.css" rel="stylesheet" type="text/css" />
-<script src="../../../../Scripts/jquery-1.4.4.min.js" type="text/javascript"></script>
-<script src="../../../../Scripts/jquery-ui-1.8.6.custom.min.js" type="text/javascript"></script>
-
+    <script src="../../../../Scripts/jquery-1.4.4.min.js" type="text/javascript"></script>
+    <script src="../../../../Scripts/jquery-ui-1.8.6.custom.min.js" type="text/javascript"></script>
+    <link href="../../../../Content/jquery-ui-1.8.6.custom.css" rel="stylesheet" type="text/css" />
     <div style="background-color: #DFE1E3; padding: 2px 3px 5px 3px; position: fixed;
         width: 625px; z-index: 9;">
         <div style="margin-bottom: 10px;">
@@ -26,7 +25,8 @@
                 </select></div>
         </div>
     </div>
-    <div style="background-color: #505151; padding-top: 10px; padding-bottom: 20px; margin-top: 25px; float: left; width: 100%">
+    <div style="background-color: #505151; padding-top: 10px; padding-bottom: 20px; margin-top: 25px;
+        float: left; width: 100%">
         <div style="background-color: White; border: 1px solid gray; margin-left: 50px; width: 50px;
             text-align: center; color: #5FB546;">
             <label>
@@ -82,7 +82,8 @@
         <div style="width: 150px; margin-right: 20px; margin-left: 430px;">
             <div>
                 <div style="border: 2px solid #333333; width: 80px; text-align: center; margin-bottom: -2px;">
-                    <a href="/Profile/Profile/Archievement_Last" style="color: #5FB546; text-decoration: none;">Lastest</a>
+                    <a href="/Profile/Profile/Archievement_Last" style="color: #5FB546; text-decoration: none;">
+                        Lastest</a>
                 </div>
                 <div style="background-color: #727373; border: 2px solid #333333; width: 150px; text-align: center;
                     color: White; padding-top: 5px; padding-bottom: 5px;">
@@ -93,7 +94,8 @@
             <div style="margin-top: 10px;">
                 <div style="border: 2px solid #727373; width: 80px; text-align: center; color: #5FB546;
                     margin-bottom: -2px;">
-                    <a href="/Profile/Profile/Archievement_Profile" style="color: #5FB546; text-decoration: none;">Profile</a>
+                    <a href="/Profile/Profile/Archievement_Profile" style="color: #5FB546; text-decoration: none;">
+                        Profile</a>
                 </div>
                 <div style="background-color: #333333; border: 2px solid #727373; width: 150px; text-align: center;
                     color: White; padding-top: 5px; padding-bottom: 5px;">
@@ -104,7 +106,8 @@
             <div style="margin-top: 10px;">
                 <div style="border: 2px solid #333333; width: 80px; text-align: center; color: #5FB546;
                     margin-bottom: -2px;">
-                    <a href="/Profile/Profile/Archievement_Application" style="color: #5FB546; text-decoration: none;">Application</a>
+                    <a href="/Profile/Profile/Archievement_Application" style="color: #5FB546; text-decoration: none;">
+                        Application</a>
                 </div>
                 <div style="background-color: #727373; border: 2px solid #333333; width: 150px; text-align: center;
                     color: White; padding-top: 5px; padding-bottom: 5px;">
@@ -115,7 +118,8 @@
             <div style="margin-top: 10px;">
                 <div style="border: 2px solid #333333; width: 150px; text-align: center; color: #5FB546;
                     margin-bottom: -2px;">
-                    <a href="/Profile/Profile/Archievement_KnowledgeCenter" style="color: #5FB546; text-decoration: none;">Knowledge Center</a>
+                    <a href="/Profile/Profile/Archievement_KnowledgeCenter" style="color: #5FB546; text-decoration: none;">
+                        Knowledge Center</a>
                 </div>
                 <div style="background-color: #727373; border: 2px solid #333333; width: 150px; text-align: center;
                     color: White; padding-top: 5px; padding-bottom: 5px;">
@@ -126,7 +130,8 @@
             <div style="margin-top: 10px;">
                 <div style="border: 2px solid #333333; width: 80px; text-align: center; color: #5FB546;
                     margin-bottom: -2px;">
-                    <a href="/Profile/Profile/Archievement_Game" style="color: #5FB546; text-decoration: none;">Game</a>
+                    <a href="/Profile/Profile/Archievement_Game" style="color: #5FB546; text-decoration: none;">
+                        Game</a>
                 </div>
                 <div style="background-color: #727373; border: 2px solid #333333; width: 150px; text-align: center;
                     color: White; padding-top: 5px; padding-bottom: 5px;">
@@ -144,19 +149,16 @@
     <% Html.RenderPartial("OptionProfile"); %>
     <% Html.RenderPartial("Popup_Comment_Archeivement"); %>
 </asp:Content>
-
 <asp:Content ID="Content3" ContentPlaceHolderID="SubMenu" runat="server">
-<% Html.RenderPartial("SubMenu"); %>
+    <% Html.RenderPartial("SubMenu"); %>
 </asp:Content>
-
 <asp:Content ID="Content4" ContentPlaceHolderID="SideBar" runat="server">
-<div style="margin-top: -5px;">
+    <div style="margin-top: -5px;">
         <% Html.RenderPartial("Comment_Archeivement"); %></div>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="startMenu" runat="server">
-<% Html.RenderPartial("StartMenu"); %>
+    <% Html.RenderPartial("StartMenu"); %>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="newsbar" runat="server">
-<% Html.RenderPartial("newsBar"); %>
+    <% Html.RenderPartial("newsBar"); %>
 </asp:Content>
-

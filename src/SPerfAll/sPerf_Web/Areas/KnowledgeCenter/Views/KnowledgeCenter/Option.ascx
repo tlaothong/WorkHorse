@@ -1,11 +1,4 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<dynamic>" %>
-<style type="text/css">
-    div.demo
-    {
-        padding: 10px !important;
-        width: 300px;
-    }
-</style>
 <script type="text/javascript">
     $(function () {
         $("#Option_Video").dialog({

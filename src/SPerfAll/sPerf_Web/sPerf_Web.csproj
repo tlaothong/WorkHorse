@@ -194,6 +194,11 @@
     <Content Include="Areas\Profile\Views\Profile\StartMenu.ascx" />
     <Content Include="Areas\Profile\Views\Profile\SubMenu.ascx" />
     <Content Include="Content\images\mayatakky.png" />
+    <Content Include="Content\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Content\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\images\VideoPlay.png" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\jquery.marquee.css" />
@@ -325,8 +330,6 @@
     <Content Include="Content\images\searchbutton.png" />
     <Content Include="Content\images\topfriend.JPG" />
     <Content Include="Content\images\Unchecked_gray.gif" />
-    <Content Include="Content\jquery-ui-1.8.1.custom.css" />
-    <Content Include="Content\jquery-ui-1.8.2.custom.css" />
     <Content Include="Content\jquery.ui.dialog.css" />
     <Content Include="Content\movies.css" />
     <Content Include="Content\ui.dialog.css" />

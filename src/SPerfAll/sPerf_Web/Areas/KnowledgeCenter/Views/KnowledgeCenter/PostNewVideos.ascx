@@ -1,7 +1,4 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<dynamic>" %>
-<script src="../../../../Scripts/jquery-ui-1.8.6.custom.min.js" type="text/javascript"></script>
-<script src="../../../../Scripts/JCore.js" type="text/javascript"></script>
-<link href="../../../../Content/jquery-ui-1.8.6.custom.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
     $(function () {
         $("#New_Video").dialog({
@@ -10,7 +7,7 @@
             modal: true,
             width: 600,
             show: "Transfer",
-			hide: "Transfer",
+            hide: "Transfer",
             title: "Upload Video",
             buttons: {
                 "Cancel": function () {
@@ -18,45 +15,17 @@
                 }
             }
         });
-        $("#New_Video").dialog({ zIndex: 3999 });
         $("#Popup").click(function () {
             $("#New_Video").dialog("open");
         });
     });
-    $.maxZIndex = $.fn.maxZIndex = function (opt) {
-        /// <summary>
-        /// Returns the max zOrder in the document (no parameter)
-        /// Sets max zOrder by passing a non-zero number
-        /// which gets added to the highest zOrder.
-        /// </summary>    
-        /// <param name="opt" type="object">
-        /// inc: increment value, 
-        /// group: selector for zIndex elements to find max for
-        /// </param>
-        /// <returns type="jQuery" />
-        var def = { inc: 10, group: "*" };
-        $.extend(def, opt);
-        var zmax = 0;
-        $(def.group).each(function () {
-            var cur = parseInt($(this).css('z-index'));
-            zmax = cur > zmax ? cur : zmax;
-        });
-        if (!this.jquery)
-            return zmax;
-
-        return this.each(function () {
-            zmax += def.inc;
-            $(this).css("z-index", zmax);
-        });
-    }
 </script>
 <script type="text/javascript">
 </script>
-<div id="New_Video" style=" z-index: 9999999">
+<div id="New_Video">
     <div>
-        <fieldset style="border: 1px solid #A49F9F; padding: 10">
-            <legend align="left" style="font-size: small; height: 30px; color: #A49F9F">
-                Agreement</legend>
+        <fieldset style="border: 1px solid #A49F9F;">
+            <legend align="left" style="font-size: small; color: #A49F9F">Agreement</legend>
             <div style="padding-left: 80px">
                 <br />
                 <p>
