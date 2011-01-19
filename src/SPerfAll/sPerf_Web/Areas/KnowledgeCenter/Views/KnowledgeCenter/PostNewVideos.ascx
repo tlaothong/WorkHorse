@@ -1,4 +1,5 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<dynamic>" %>
+    <link href="../../../../Content/jquery-ui-1.8.6.custom.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
     $(function () {
         $("#New_Video").dialog({
@@ -22,7 +23,7 @@
 </script>
 <script type="text/javascript">
 </script>
-<div id="New_Video">
+<div id="New_Video" style="display: none;">
     <div>
         <fieldset style="border: 1px solid #A49F9F;">
             <legend align="left" style="font-size: small; color: #A49F9F">Agreement</legend>

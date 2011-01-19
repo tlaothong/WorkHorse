@@ -195,9 +195,12 @@
     <Content Include="Areas\Profile\Views\Profile\SubMenu.ascx" />
     <Content Include="Content\images\mayatakky.png" />
     <Content Include="Content\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\images\ui-bg_glass_100_fdf5ce_1x400.png" />
     <Content Include="Content\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
     <Content Include="Content\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
     <Content Include="Content\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Content\images\ui-icons_ffd27a_256x240.png" />
     <Content Include="Content\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\images\VideoPlay.png" />
     <Content Include="Content\jquery-ui.css" />
@@ -595,6 +598,7 @@
     <Content Include="Views\Home\FAQTutorial.aspx" />
     <Content Include="Views\Home\grobalSearch.ascx" />
     <Content Include="Views\Home\HightLight.aspx" />
+    <Content Include="Views\Home\HomeOption.ascx" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Home\newsBar.ascx" />
     <Content Include="Views\Home\StartMenu.ascx" />

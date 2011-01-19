@@ -30,7 +30,7 @@
         });
     });
 </script>
-<div id="Option_Video">
+<div id="Option_Video" style="display: none">
     <div>
         <label>
             Default Page</label><select><option>Most Views</option>
