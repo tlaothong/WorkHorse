@@ -22,7 +22,7 @@
     });
   </script>
 
-<div class="demo">
+<div class="demo" style="display:none">
     <div id="tab" title="Friends List" style="padding-top: 5px;">
         <div>
             <ul>     

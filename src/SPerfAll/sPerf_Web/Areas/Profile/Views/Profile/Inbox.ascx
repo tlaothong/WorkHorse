@@ -75,7 +75,7 @@
   }
 </style>
 
-<div class="demo">
+<div class="demo" style="display: none">
     <div id="tabInbox" title="Message InBox" style="padding-top: 5px;">
         <div>
             <ul>

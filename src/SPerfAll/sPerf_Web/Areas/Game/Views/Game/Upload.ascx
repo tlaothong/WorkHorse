@@ -26,7 +26,7 @@
 </script>
 <script type="text/javascript">
 </script>
-<div id="Upload_Popup">
+<div id="Upload_Popup" style=" display: none">
     <div>
         <fieldset style="border: 1px solid #A49F9F; padding: 10">
             <legend align="left" style="font-size: small; height: 30px; color: #A49F9F">Agreement</legend>

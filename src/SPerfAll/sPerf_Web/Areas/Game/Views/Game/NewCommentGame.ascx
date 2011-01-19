@@ -26,7 +26,7 @@
     });
 </script>
 
-<div id="NewCommentGame" title="New Comment" style="z-index: 10 ;">
+<div id="NewCommentGame" title="New Comment" style="z-index: 10 ; display: none">
     <div>
         <div><label>Pet Society</label></div>
         <div><input type="checkbox" />Rating:</div>

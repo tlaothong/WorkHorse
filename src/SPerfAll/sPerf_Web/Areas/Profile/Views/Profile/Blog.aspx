@@ -139,7 +139,7 @@
 </div>
 
 <%--div for report dialog--%>
-<div id="showReport">
+<div id="showReport" style="display: none">
 <table>
         <tr>
             <td valign="top">
@@ -159,7 +159,7 @@
 </div>
 
 <%--div for report new blog--%>
-<div id="newblog_dialog">
+<div id="newblog_dialog" style="display:none">
 Date : <input type="text" id="ndate" />
 <p>
           <textarea class="input" name="input">Go ahead, take it for a test drive. Highlight some text and click some buttons.</textarea>
@@ -167,7 +167,7 @@ Date : <input type="text" id="ndate" />
 
 </div>
 <%--div for report edit blog--%>
-<div id="editblog_dialog">
+<div id="editblog_dialog" style="display:none">
 Date : <input type="text" id="edate" />
 <p>
           <textarea class="input" name="input">Go ahead, take it for a test drive. Highlight some text and click some buttons.</textarea>
