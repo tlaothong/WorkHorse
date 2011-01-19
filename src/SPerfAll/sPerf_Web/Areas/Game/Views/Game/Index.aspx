@@ -39,12 +39,18 @@
     <style type="text/css">
         ul.paging li, ul.paging2 li
         {
-            background: #83bd63;
-            color: #fff;
+            background: #FFFFFF;
+            color: #111;
             line-height: 1;
-            width: 530px;
+            width: 590px;
             margin-bottom: 1px;
             padding: 5px;
+            list-style: none;
+            margin-left: -30px;
+        }
+        ul.paging li
+        {
+            border-bottom: 1px solid #D1D3D4;
         }
         
         ul.red
@@ -59,6 +65,7 @@
             padding: 3px;
             margin-bottom: 10px;
             font-family: georgia;
+            font-size: large;
         }
         
         ul.simplePagerNav li a
@@ -114,24 +121,24 @@
             </tbody>
         </table>
     </div>
-    <div><% Html.RenderPartial("FilterGame"); %></div>
+    <div style="padding-top: 10px">
+        <% Html.RenderPartial("FilterGame"); %></div>
     <div id="paging">
         <ul class="paging">
             <li>
                 <table>
                     <tr>
-                        <td>
+                        <td style="width: 150px;">
                             <a href="/Game/Game/PlayGame">
                                 <img src="../../../../Content/images/mayatakky.png" /></a>
                         </td>
                         <td>
                             <div>
                                 <h2>
-                                    MaYA TaKKy</h2>
+                                    MaYaTaKKY</h2>
                             </div>
                             <div>
-                                เกมส์แนวใหม่ที่ใครๆ ก็อยากเล่น สนุกสนานปนความรู้ เล่นแล้วรับรองติดใจไม่แพ้เกมส์อื่น
-                                ใครต้องการเป็นเจ้าของคลิกเลย
+                                เกมส์แนวมายา ที่ใครก็ไม่เคยเห็นที่ไหนในโลกมีที่นี่ที่เดียว
                             </div>
                             <div style="padding-top: 20px">
                                 <div style="float: left; padding-right: 5px">
@@ -153,18 +160,17 @@
             <li>
                 <table>
                     <tr>
-                        <td>
+                        <td style="width: 150px;">
                             <a href="/Game/Game/PlayGame">
                                 <img src="../../../../Content/images/mayatakky.png" /></a>
                         </td>
                         <td>
                             <div>
                                 <h2>
-                                    MaYA TaKKy</h2>
+                                    MaYaTaKKY</h2>
                             </div>
                             <div>
-                                เกมส์แนวใหม่ที่ใครๆ ก็อยากเล่น สนุกสนานปนความรู้ เล่นแล้วรับรองติดใจไม่แพ้เกมส์อื่น
-                                ใครต้องการเป็นเจ้าของคลิกเลย
+                                เกมส์แนวมายา ที่ใครก็ไม่เคยเห็นที่ไหนในโลกมีที่นี่ที่เดียว
                             </div>
                             <div style="padding-top: 20px">
                                 <div style="float: left; padding-right: 5px">
@@ -183,21 +189,20 @@
                     </tr>
                 </table>
             </li>
-            <li>
+                        <li>
                 <table>
                     <tr>
-                        <td>
+                        <td style="width: 150px;">
                             <a href="/Game/Game/PlayGame">
                                 <img src="../../../../Content/images/mayatakky.png" /></a>
                         </td>
                         <td>
                             <div>
                                 <h2>
-                                    MaYA TaKKy</h2>
+                                    MaYaTaKKY</h2>
                             </div>
                             <div>
-                                เกมส์แนวใหม่ที่ใครๆ ก็อยากเล่น สนุกสนานปนความรู้ เล่นแล้วรับรองติดใจไม่แพ้เกมส์อื่น
-                                ใครต้องการเป็นเจ้าของคลิกเลย
+                                เกมส์แนวมายา ที่ใครก็ไม่เคยเห็นที่ไหนในโลกมีที่นี่ที่เดียว
                             </div>
                             <div style="padding-top: 20px">
                                 <div style="float: left; padding-right: 5px">
@@ -216,21 +221,20 @@
                     </tr>
                 </table>
             </li>
-            <li>
+                        <li>
                 <table>
                     <tr>
-                        <td>
+                        <td style="width: 150px;">
                             <a href="/Game/Game/PlayGame">
                                 <img src="../../../../Content/images/mayatakky.png" /></a>
                         </td>
                         <td>
                             <div>
                                 <h2>
-                                    MaYA TaKKy</h2>
+                                    MaYaTaKKY</h2>
                             </div>
                             <div>
-                                เกมส์แนวใหม่ที่ใครๆ ก็อยากเล่น สนุกสนานปนความรู้ เล่นแล้วรับรองติดใจไม่แพ้เกมส์อื่น
-                                ใครต้องการเป็นเจ้าของคลิกเลย
+                                เกมส์แนวมายา ที่ใครก็ไม่เคยเห็นที่ไหนในโลกมีที่นี่ที่เดียว
                             </div>
                             <div style="padding-top: 20px">
                                 <div style="float: left; padding-right: 5px">
@@ -249,21 +253,20 @@
                     </tr>
                 </table>
             </li>
-            <li>
+                        <li>
                 <table>
                     <tr>
-                        <td>
+                        <td style="width: 150px;">
                             <a href="/Game/Game/PlayGame">
                                 <img src="../../../../Content/images/mayatakky.png" /></a>
                         </td>
                         <td>
                             <div>
                                 <h2>
-                                    MaYA TaKKy</h2>
+                                    MaYaTaKKY</h2>
                             </div>
                             <div>
-                                เกมส์แนวใหม่ที่ใครๆ ก็อยากเล่น สนุกสนานปนความรู้ เล่นแล้วรับรองติดใจไม่แพ้เกมส์อื่น
-                                ใครต้องการเป็นเจ้าของคลิกเลย
+                                เกมส์แนวมายา ที่ใครก็ไม่เคยเห็นที่ไหนในโลกมีที่นี่ที่เดียว
                             </div>
                             <div style="padding-top: 20px">
                                 <div style="float: left; padding-right: 5px">
@@ -282,21 +285,20 @@
                     </tr>
                 </table>
             </li>
-            <li>
+                        <li>
                 <table>
                     <tr>
-                        <td>
+                        <td style="width: 150px;">
                             <a href="/Game/Game/PlayGame">
                                 <img src="../../../../Content/images/mayatakky.png" /></a>
                         </td>
                         <td>
                             <div>
                                 <h2>
-                                    MaYA TaKKy</h2>
+                                    MaYaTaKKY</h2>
                             </div>
                             <div>
-                                เกมส์แนวใหม่ที่ใครๆ ก็อยากเล่น สนุกสนานปนความรู้ เล่นแล้วรับรองติดใจไม่แพ้เกมส์อื่น
-                                ใครต้องการเป็นเจ้าของคลิกเลย
+                                เกมส์แนวมายา ที่ใครก็ไม่เคยเห็นที่ไหนในโลกมีที่นี่ที่เดียว
                             </div>
                             <div style="padding-top: 20px">
                                 <div style="float: left; padding-right: 5px">
@@ -315,21 +317,20 @@
                     </tr>
                 </table>
             </li>
-            <li>
+                        <li>
                 <table>
                     <tr>
-                        <td>
+                        <td style="width: 150px;">
                             <a href="/Game/Game/PlayGame">
                                 <img src="../../../../Content/images/mayatakky.png" /></a>
                         </td>
                         <td>
                             <div>
                                 <h2>
-                                    MaYA TaKKy</h2>
+                                    MaYaTaKKY</h2>
                             </div>
                             <div>
-                                เกมส์แนวใหม่ที่ใครๆ ก็อยากเล่น สนุกสนานปนความรู้ เล่นแล้วรับรองติดใจไม่แพ้เกมส์อื่น
-                                ใครต้องการเป็นเจ้าของคลิกเลย
+                                เกมส์แนวมายา ที่ใครก็ไม่เคยเห็นที่ไหนในโลกมีที่นี่ที่เดียว
                             </div>
                             <div style="padding-top: 20px">
                                 <div style="float: left; padding-right: 5px">
@@ -348,21 +349,20 @@
                     </tr>
                 </table>
             </li>
-            <li>
+                        <li>
                 <table>
                     <tr>
-                        <td>
+                        <td style="width: 150px;">
                             <a href="/Game/Game/PlayGame">
                                 <img src="../../../../Content/images/mayatakky.png" /></a>
                         </td>
                         <td>
                             <div>
                                 <h2>
-                                    MaYA TaKKy</h2>
+                                    MaYaTaKKY</h2>
                             </div>
                             <div>
-                                เกมส์แนวใหม่ที่ใครๆ ก็อยากเล่น สนุกสนานปนความรู้ เล่นแล้วรับรองติดใจไม่แพ้เกมส์อื่น
-                                ใครต้องการเป็นเจ้าของคลิกเลย
+                                เกมส์แนวมายา ที่ใครก็ไม่เคยเห็นที่ไหนในโลกมีที่นี่ที่เดียว
                             </div>
                             <div style="padding-top: 20px">
                                 <div style="float: left; padding-right: 5px">
@@ -381,417 +381,20 @@
                     </tr>
                 </table>
             </li>
-            <li>
+                        <li>
                 <table>
                     <tr>
-                        <td>
+                        <td style="width: 150px;">
                             <a href="/Game/Game/PlayGame">
                                 <img src="../../../../Content/images/mayatakky.png" /></a>
                         </td>
                         <td>
                             <div>
                                 <h2>
-                                    MaYA TaKKy</h2>
+                                    MaYaTaKKY</h2>
                             </div>
                             <div>
-                                เกมส์แนวใหม่ที่ใครๆ ก็อยากเล่น สนุกสนานปนความรู้ เล่นแล้วรับรองติดใจไม่แพ้เกมส์อื่น
-                                ใครต้องการเป็นเจ้าของคลิกเลย
-                            </div>
-                            <div style="padding-top: 20px">
-                                <div style="float: left; padding-right: 5px">
-                                    <input type="checkbox" class="toggle1" />
-                                </div>
-                                <div style="float: left; padding-right: 5px">
-                                    <label>
-                                        UnLike</label>
-                                </div>
-                                <div style="float: left; padding-right: 5px">
-                                    <button class="bookmark" type="button">
-                                        Bookmark</button>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </li>
-            <li>
-                <table>
-                    <tr>
-                        <td>
-                            <a href="/Game/Game/PlayGame">
-                                <img src="../../../../Content/images/mayatakky.png" /></a>
-                        </td>
-                        <td>
-                            <div>
-                                <h2>
-                                    MaYA TaKKy</h2>
-                            </div>
-                            <div>
-                                เกมส์แนวใหม่ที่ใครๆ ก็อยากเล่น สนุกสนานปนความรู้ เล่นแล้วรับรองติดใจไม่แพ้เกมส์อื่น
-                                ใครต้องการเป็นเจ้าของคลิกเลย
-                            </div>
-                            <div style="padding-top: 20px">
-                                <div style="float: left; padding-right: 5px">
-                                    <input type="checkbox" class="toggle1" />
-                                </div>
-                                <div style="float: left; padding-right: 5px">
-                                    <label>
-                                        UnLike</label>
-                                </div>
-                                <div style="float: left; padding-right: 5px">
-                                    <button class="bookmark" type="button">
-                                        Bookmark</button>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </li>
-            <li>
-                <table>
-                    <tr>
-                        <td>
-                            <a href="/Game/Game/PlayGame">
-                                <img src="../../../../Content/images/mayatakky.png" /></a>
-                        </td>
-                        <td>
-                            <div>
-                                <h2>
-                                    MaYA TaKKy</h2>
-                            </div>
-                            <div>
-                                เกมส์แนวใหม่ที่ใครๆ ก็อยากเล่น สนุกสนานปนความรู้ เล่นแล้วรับรองติดใจไม่แพ้เกมส์อื่น
-                                ใครต้องการเป็นเจ้าของคลิกเลย
-                            </div>
-                            <div style="padding-top: 20px">
-                                <div style="float: left; padding-right: 5px">
-                                    <input type="checkbox" class="toggle1" />
-                                </div>
-                                <div style="float: left; padding-right: 5px">
-                                    <label>
-                                        UnLike</label>
-                                </div>
-                                <div style="float: left; padding-right: 5px">
-                                    <button class="bookmark" type="button">
-                                        Bookmark</button>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </li>
-            <li>
-                <table>
-                    <tr>
-                        <td>
-                            <a href="/Game/Game/PlayGame">
-                                <img src="../../../../Content/images/mayatakky.png" /></a>
-                        </td>
-                        <td>
-                            <div>
-                                <h2>
-                                    MaYA TaKKy</h2>
-                            </div>
-                            <div>
-                                เกมส์แนวใหม่ที่ใครๆ ก็อยากเล่น สนุกสนานปนความรู้ เล่นแล้วรับรองติดใจไม่แพ้เกมส์อื่น
-                                ใครต้องการเป็นเจ้าของคลิกเลย
-                            </div>
-                            <div style="padding-top: 20px">
-                                <div style="float: left; padding-right: 5px">
-                                    <input type="checkbox" class="toggle1" />
-                                </div>
-                                <div style="float: left; padding-right: 5px">
-                                    <label>
-                                        UnLike</label>
-                                </div>
-                                <div style="float: left; padding-right: 5px">
-                                    <button class="bookmark" type="button">
-                                        Bookmark</button>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </li>
-            <li>
-                <table>
-                    <tr>
-                        <td>
-                            <a href="/Game/Game/PlayGame">
-                                <img src="../../../../Content/images/mayatakky.png" /></a>
-                        </td>
-                        <td>
-                            <div>
-                                <h2>
-                                    MaYA TaKKy</h2>
-                            </div>
-                            <div>
-                                เกมส์แนวใหม่ที่ใครๆ ก็อยากเล่น สนุกสนานปนความรู้ เล่นแล้วรับรองติดใจไม่แพ้เกมส์อื่น
-                                ใครต้องการเป็นเจ้าของคลิกเลย
-                            </div>
-                            <div style="padding-top: 20px">
-                                <div style="float: left; padding-right: 5px">
-                                    <input type="checkbox" class="toggle1" />
-                                </div>
-                                <div style="float: left; padding-right: 5px">
-                                    <label>
-                                        UnLike</label>
-                                </div>
-                                <div style="float: left; padding-right: 5px">
-                                    <button class="bookmark" type="button">
-                                        Bookmark</button>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </li>
-            <li>
-                <table>
-                    <tr>
-                        <td>
-                            <a href="/Game/Game/PlayGame">
-                                <img src="../../../../Content/images/mayatakky.png" /></a>
-                        </td>
-                        <td>
-                            <div>
-                                <h2>
-                                    MaYA TaKKy</h2>
-                            </div>
-                            <div>
-                                เกมส์แนวใหม่ที่ใครๆ ก็อยากเล่น สนุกสนานปนความรู้ เล่นแล้วรับรองติดใจไม่แพ้เกมส์อื่น
-                                ใครต้องการเป็นเจ้าของคลิกเลย
-                            </div>
-                            <div style="padding-top: 20px">
-                                <div style="float: left; padding-right: 5px">
-                                    <input type="checkbox" class="toggle1" />
-                                </div>
-                                <div style="float: left; padding-right: 5px">
-                                    <label>
-                                        UnLike</label>
-                                </div>
-                                <div style="float: left; padding-right: 5px">
-                                    <button class="bookmark" type="button">
-                                        Bookmark</button>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </li>
-            <li>
-                <table>
-                    <tr>
-                        <td>
-                            <a href="/Game/Game/PlayGame">
-                                <img src="../../../../Content/images/mayatakky.png" /></a>
-                        </td>
-                        <td>
-                            <div>
-                                <h2>
-                                    MaYA TaKKy</h2>
-                            </div>
-                            <div>
-                                เกมส์แนวใหม่ที่ใครๆ ก็อยากเล่น สนุกสนานปนความรู้ เล่นแล้วรับรองติดใจไม่แพ้เกมส์อื่น
-                                ใครต้องการเป็นเจ้าของคลิกเลย
-                            </div>
-                            <div style="padding-top: 20px">
-                                <div style="float: left; padding-right: 5px">
-                                    <input type="checkbox" class="toggle1" />
-                                </div>
-                                <div style="float: left; padding-right: 5px">
-                                    <label>
-                                        UnLike</label>
-                                </div>
-                                <div style="float: left; padding-right: 5px">
-                                    <button class="bookmark" type="button">
-                                        Bookmark</button>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </li>
-            <li>
-                <table>
-                    <tr>
-                        <td>
-                            <a href="/Game/Game/PlayGame">
-                                <img src="../../../../Content/images/mayatakky.png" /></a>
-                        </td>
-                        <td>
-                            <div>
-                                <h2>
-                                    MaYA TaKKy</h2>
-                            </div>
-                            <div>
-                                เกมส์แนวใหม่ที่ใครๆ ก็อยากเล่น สนุกสนานปนความรู้ เล่นแล้วรับรองติดใจไม่แพ้เกมส์อื่น
-                                ใครต้องการเป็นเจ้าของคลิกเลย
-                            </div>
-                            <div style="padding-top: 20px">
-                                <div style="float: left; padding-right: 5px">
-                                    <input type="checkbox" class="toggle1" />
-                                </div>
-                                <div style="float: left; padding-right: 5px">
-                                    <label>
-                                        UnLike</label>
-                                </div>
-                                <div style="float: left; padding-right: 5px">
-                                    <button class="bookmark" type="button">
-                                        Bookmark</button>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </li>
-            <li>
-                <table>
-                    <tr>
-                        <td>
-                            <a href="/Game/Game/PlayGame">
-                                <img src="../../../../Content/images/mayatakky.png" /></a>
-                        </td>
-                        <td>
-                            <div>
-                                <h2>
-                                    MaYA TaKKy</h2>
-                            </div>
-                            <div>
-                                เกมส์แนวใหม่ที่ใครๆ ก็อยากเล่น สนุกสนานปนความรู้ เล่นแล้วรับรองติดใจไม่แพ้เกมส์อื่น
-                                ใครต้องการเป็นเจ้าของคลิกเลย
-                            </div>
-                            <div style="padding-top: 20px">
-                                <div style="float: left; padding-right: 5px">
-                                    <input type="checkbox" class="toggle1" />
-                                </div>
-                                <div style="float: left; padding-right: 5px">
-                                    <label>
-                                        UnLike</label>
-                                </div>
-                                <div style="float: left; padding-right: 5px">
-                                    <button class="bookmark" type="button">
-                                        Bookmark</button>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </li>
-            <li>
-                <table>
-                    <tr>
-                        <td>
-                            <a href="/Game/Game/PlayGame">
-                                <img src="../../../../Content/images/mayatakky.png" /></a>
-                        </td>
-                        <td>
-                            <div>
-                                <h2>
-                                    MaYA TaKKy</h2>
-                            </div>
-                            <div>
-                                เกมส์แนวใหม่ที่ใครๆ ก็อยากเล่น สนุกสนานปนความรู้ เล่นแล้วรับรองติดใจไม่แพ้เกมส์อื่น
-                                ใครต้องการเป็นเจ้าของคลิกเลย
-                            </div>
-                            <div style="padding-top: 20px">
-                                <div style="float: left; padding-right: 5px">
-                                    <input type="checkbox" class="toggle1" />
-                                </div>
-                                <div style="float: left; padding-right: 5px">
-                                    <label>
-                                        UnLike</label>
-                                </div>
-                                <div style="float: left; padding-right: 5px">
-                                    <button class="bookmark" type="button">
-                                        Bookmark</button>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </li>
-            <li>
-                <table>
-                    <tr>
-                        <td>
-                            <a href="/Game/Game/PlayGame">
-                                <img src="../../../../Content/images/mayatakky.png" /></a>
-                        </td>
-                        <td>
-                            <div>
-                                <h2>
-                                    MaYA TaKKy</h2>
-                            </div>
-                            <div>
-                                เกมส์แนวใหม่ที่ใครๆ ก็อยากเล่น สนุกสนานปนความรู้ เล่นแล้วรับรองติดใจไม่แพ้เกมส์อื่น
-                                ใครต้องการเป็นเจ้าของคลิกเลย
-                            </div>
-                            <div style="padding-top: 20px">
-                                <div style="float: left; padding-right: 5px">
-                                    <input type="checkbox" class="toggle1" />
-                                </div>
-                                <div style="float: left; padding-right: 5px">
-                                    <label>
-                                        UnLike</label>
-                                </div>
-                                <div style="float: left; padding-right: 5px">
-                                    <button class="bookmark" type="button">
-                                        Bookmark</button>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </li>
-            <li>
-                <table>
-                    <tr>
-                        <td>
-                            <a href="/Game/Game/PlayGame">
-                                <img src="../../../../Content/images/mayatakky.png" /></a>
-                        </td>
-                        <td>
-                            <div>
-                                <h2>
-                                    MaYA TaKKy</h2>
-                            </div>
-                            <div>
-                                เกมส์แนวใหม่ที่ใครๆ ก็อยากเล่น สนุกสนานปนความรู้ เล่นแล้วรับรองติดใจไม่แพ้เกมส์อื่น
-                                ใครต้องการเป็นเจ้าของคลิกเลย
-                            </div>
-                            <div style="padding-top: 20px">
-                                <div style="float: left; padding-right: 5px">
-                                    <input type="checkbox" class="toggle1" />
-                                </div>
-                                <div style="float: left; padding-right: 5px">
-                                    <label>
-                                        UnLike</label>
-                                </div>
-                                <div style="float: left; padding-right: 5px">
-                                    <button class="bookmark" type="button">
-                                        Bookmark</button>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </li>
-            <li>
-                <table>
-                    <tr>
-                        <td>
-                            <a href="/Game/Game/PlayGame">
-                                <img src="../../../../Content/images/mayatakky.png" /></a>
-                        </td>
-                        <td>
-                            <div>
-                                <h2>
-                                    MaYA TaKKy</h2>
-                            </div>
-                            <div>
-                                เกมส์แนวใหม่ที่ใครๆ ก็อยากเล่น สนุกสนานปนความรู้ เล่นแล้วรับรองติดใจไม่แพ้เกมส์อื่น
-                                ใครต้องการเป็นเจ้าของคลิกเลย
+                                เกมส์แนวมายา ที่ใครก็ไม่เคยเห็นที่ไหนในโลกมีที่นี่ที่เดียว
                             </div>
                             <div style="padding-top: 20px">
                                 <div style="float: left; padding-right: 5px">

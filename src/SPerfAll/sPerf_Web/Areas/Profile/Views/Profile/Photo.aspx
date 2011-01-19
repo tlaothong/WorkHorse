@@ -74,38 +74,13 @@
   ul {
     list-style-image:url(/Content/profile/list-style.gif);
   }
-  pre {
-    border: 1px solid #CCC;
-    background: #f2f2f2;
-    padding: 10px;
-  }
-  code {
-    margin: 0;
-    padding: 0;
-  }
-
-  #gallery 
+   #gallery 
   {
     margin-top:-10px;
     margin-left:30px;
     margin-right:30px;
-    margin-bottom:0px;
+    margin-bottom:55px;
   }
-  #descriptions {
-    position: relative;
-    height: 50px;
-    background:#F9F4CA;
-    margin-top: 10px;
-    width: 640px;
-    padding: 10px;
-    overflow: hidden;
-  }
-    #descriptions .ad-image-description {
-      position: absolute;
-    }
-      #descriptions .ad-image-description .ad-description-title {
-        display: block;
-      }
   </style>
 <%--script for report--%>
 <script type="text/javascript">
@@ -115,6 +90,8 @@
             autoOpen: false,
             modal: true,
             width: 450,
+            show: "Transfer",
+            hide: "Transfer",
             title: 'Report Problem',
             buttons: {
                 "Cancel": function () {
@@ -143,7 +120,9 @@
             autoOpen: false,
             modal: true,
             width: 620,
-            zIndex:1000,
+            zIndex: 1000,
+            show: "Transfer",
+            hide: "Transfer",
             title: 'Photo Organize',
             buttons: {
                 "Exit": function () {
@@ -166,6 +145,8 @@
             autoOpen: false,
             modal: true,
             width: 620,
+            show: "Transfer",
+            hide: "Transfer",
             title: 'Add Photo'
         });
         // Dialog Link
@@ -182,6 +163,8 @@
         $("#showeditphoto").dialog({
             autoOpen: false,
             modal: true,
+            show: "Transfer",
+            hide: "Transfer",
             width: 620,
             title: 'Edit Photo'
         });
@@ -203,7 +186,7 @@
     </div>
 <div style="margin-left:10px; color:#69BA55;"><input type="checkbox" />Use as display<label class="reportsphotopage" style="text-decoration:underline; color:#69BA55; margin-left:10px">Report</label></div>
 <%--div for report dialog--%>
-<div id="showReportphotopage">
+<div id="showReportphotopage" style="display:none;">
     <table>
             <tr>
                 <td valign="top">
@@ -222,7 +205,7 @@
         </table>
 </div>
     <%--div for organize dialog--%>
-    <div id="showorganize">
+    <div id="showorganize" style="display:none;">
     <table style="margin-left:400px;"><tr><td>Page : 1 2 3 4 5 6 7 .. next last</td></tr></table>      
     <table>
             <tr>
@@ -302,7 +285,7 @@
         </table>
     </div>
     <%--div for addphoto dialog--%>
-    <div id="showaddphoto">
+    <div id="showaddphoto" style="display:none;">
       <table>
             <tr>
                 <td valign="top">
@@ -329,7 +312,7 @@
         </table>
     </div>
     <%--div for editphoto dialog--%>
-    <div id="showeditphoto">
+    <div id="showeditphoto" style="display:none;">
       <table>
             <tr>
                 <td valign="top">
@@ -354,7 +337,7 @@
             </tr>
         </table>
     </div>
-    </div>
+    
     <br />
  <div id="gallery" class="ad-gallery">
     <div class="ad-image-wrapper"></div>
@@ -457,6 +440,7 @@
           </ul>
         </div>
       </div>
+    </div>
     </div>
 <% Html.RenderPartial("FriendList"); %>
      <% Html.RenderPartial("Inbox"); %>

@@ -26,7 +26,7 @@
 </script>
 
 <%--div for report dialog--%>
-<div id="HomeOption">
+<div id="HomeOption" style="display:none;">
     <table>
                     <tr>
                          <td>

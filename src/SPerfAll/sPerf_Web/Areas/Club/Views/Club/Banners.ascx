@@ -3,12 +3,11 @@
     <tbody>
         <tr>
             <td>
-                <a href=''>MAYA TAKKY </a>
+                <div style="margin-left:25px;"><%=Html.ActionLink("MAYA TAKKY",MVC.Game.Game.Index()) %></div>
                 <br />
-                <br />
-                <a href=''>
+                <div style="margin-left:25px;">
                     <img id="mayatakky" src="/Content/images/mayatakky.png" style="border-width: 0px;" />
-                </a>
+                </div>
                 <table>
                     <tr>
                         <td>
@@ -23,12 +22,11 @@
         </tr>
         <tr>
             <td>
-                <a href=''>MY AVATAR </a>
+                <div style="margin-left:25px;"><%=Html.ActionLink("MY AVATAR",MVC.Home.Index()) %></div>
                 <br />
-                <br />
-                <a href=''>
+                <div style="margin-left:25px;">
                     <img id="avatar" src="/Content/images/avatar.png" style="border-width: 0px;" />
-                </a>
+                </div>
                 <table>
                     <tr>
                         <td>
@@ -44,16 +42,15 @@
         </tr>
                 <tr>
             <td>
-                <a href=''>VIDEO </a>
+                <div style="margin-left:25px;"><%=Html.ActionLink("Video",MVC.KnowledgeCenter.KnowledgeCenter.Index()) %></div>
                 <br />
-                <a href=''>
+                <div style="margin-left:25px;">
                     <img id="video" src="/Content/images/video.png" style="border-width: 0px;" />
-                </a>
+                </div>
                 <table>
                     <tr>
                         <td>
-                            มากมายด้วยคลิปวิดีโอ<br />
-                            มาดูกันเลย<br />
+                            มากมายด้วยคลิปวิดีโอมาดูกันเลย<br />
                             <label>
                                 --------------------------------------
                             </label>

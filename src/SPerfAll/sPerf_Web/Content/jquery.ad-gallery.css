@@ -51,13 +51,18 @@
       .ad-gallery .ad-image-wrapper .ad-image .ad-image-description {
         position:fixed;
         margin-top:20px;
-        margin-bottom: 100px;
+        margin-bottom: 160px;
         left: 60px;
         padding-left: 115px;
         text-align: left;
-        width: 400px;
+        width: 625px;
         z-index: 2;
       }
+      .descriptions
+      {
+          width:625px;
+          margin-bottom:55px;
+          }
       * html .ad-gallery .ad-image-wrapper .ad-image .ad-image-description {
         background: none;
         filter:progid:DXImageTransform.Microsoft.AlphaImageLoader (enabled=true, sizingMethod=scale, src='/Content/profile/opa75.png');

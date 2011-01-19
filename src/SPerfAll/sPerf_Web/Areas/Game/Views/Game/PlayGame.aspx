@@ -51,7 +51,7 @@
             </div>
         </div>
     </div>
-    <div style="width: 600px; height: 500px; left: -65px; position: relative;">
+    <div style="width: 600px; height: 500px; position:relative; left: -60px">
         <%--Silverlight--%>
         <object data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="740" height= "580" >
             <param name="source" value="/xap/TheS.SperfGames.MayaTukky.xap" />
@@ -84,6 +84,7 @@
     </div>
     <% Html.RenderPartial("ReportProblemGame"); %>
     <% Html.RenderPartial("Invite_Friend"); %>
+    <% Html.RenderPartial("Upload"); %>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="SubMenu" runat="server">
     <% Html.RenderPartial("SubMenu"); %>

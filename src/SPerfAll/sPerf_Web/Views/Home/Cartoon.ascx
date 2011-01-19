@@ -57,7 +57,7 @@
 <div style="margin-left:0px"><img src="/Content/images/home_.jpg" /></div>
 <div style="margin-left:0px;  width:607px; height:15px; background-color:#504B4B;">
 <div id="clickAll"  style="margin-left:566px; color:White;">SeeAll</div></div>
-<div id="dialog_cartoons">  
+<div id="dialog_cartoons" style="display:none;">  
    <%--start scroll images--%>
            <div id="container">
 	        <div id="content">
