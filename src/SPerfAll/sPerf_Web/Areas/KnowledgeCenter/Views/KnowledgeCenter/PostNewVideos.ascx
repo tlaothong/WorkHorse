@@ -9,6 +9,8 @@
             autoOpen: false,
             modal: true,
             width: 600,
+            show: "Transfer",
+			hide: "Transfer",
             title: "Upload Video",
             buttons: {
                 "Cancel": function () {
@@ -16,14 +18,41 @@
                 }
             }
         });
+        $("#New_Video").dialog({ zIndex: 3999 });
         $("#Popup").click(function () {
             $("#New_Video").dialog("open");
         });
     });
+    $.maxZIndex = $.fn.maxZIndex = function (opt) {
+        /// <summary>
+        /// Returns the max zOrder in the document (no parameter)
+        /// Sets max zOrder by passing a non-zero number
+        /// which gets added to the highest zOrder.
+        /// </summary>    
+        /// <param name="opt" type="object">
+        /// inc: increment value, 
+        /// group: selector for zIndex elements to find max for
+        /// </param>
+        /// <returns type="jQuery" />
+        var def = { inc: 10, group: "*" };
+        $.extend(def, opt);
+        var zmax = 0;
+        $(def.group).each(function () {
+            var cur = parseInt($(this).css('z-index'));
+            zmax = cur > zmax ? cur : zmax;
+        });
+        if (!this.jquery)
+            return zmax;
+
+        return this.each(function () {
+            zmax += def.inc;
+            $(this).css("z-index", zmax);
+        });
+    }
 </script>
 <script type="text/javascript">
 </script>
-<div id="New_Video">
+<div id="New_Video" style=" z-index: 9999999">
     <div>
         <fieldset style="border: 1px solid #A49F9F; padding: 10">
             <legend align="left" style="font-size: small; height: 30px; color: #A49F9F">
