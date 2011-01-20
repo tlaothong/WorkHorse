@@ -52,24 +52,6 @@ namespace sPerf_Web.Areas.KnowledgeCenter.Controllers
         {
             return View();
         }
-        public virtual ActionResult ListVideo()
-        {
-            return View();
-        }
-        [HttpPost]
-        public virtual ActionResult UploadVideo(HttpPostedFileBase file)
-        {
-
-            if (file.ContentLength > 0)
-            {
-                var fileName = Path.GetFileName(file.FileName);
-                var path = Path.Combine(Server.MapPath("~/uploads"), fileName);
-                file.SaveAs(fileName);
-            }
-
-            return RedirectToAction("Index");
-        }
-
 
     }
 }

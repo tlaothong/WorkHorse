@@ -797,7 +797,6 @@ namespace Links {
         public static readonly string jquery_marquee_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.marquee.min.js") ? Url("jquery.marquee.min.js") : Url("jquery.marquee.js");
         public static readonly string jquery_min_js = Url("jquery.min.js");
         public static readonly string jquery_pager_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.pager.min.js") ? Url("jquery.pager.min.js") : Url("jquery.pager.js");
-        public static readonly string jquery_pagination_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.pagination.min.js") ? Url("jquery.pagination.min.js") : Url("jquery.pagination.js");
         public static readonly string jquery_popupWindow_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.popupWindow.min.js") ? Url("jquery.popupWindow.min.js") : Url("jquery.popupWindow.js");
         public static readonly string jquery_tmpl_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.tmpl.min.js") ? Url("jquery.tmpl.min.js") : Url("jquery.tmpl.js");
         public static readonly string jquery_treeview_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.treeview.min.js") ? Url("jquery.treeview.min.js") : Url("jquery.treeview.js");
@@ -825,7 +824,6 @@ namespace Links {
         private const string URLPATH = "~/Content";
         public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
         public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-        public static readonly string demo_css = Url("demo.css");
         public static readonly string galleria_css = Url("galleria.css");
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public static class images {
@@ -921,7 +919,6 @@ namespace Links {
         public static readonly string jquery_marquee_css = Url("jquery.marquee.css");
         public static readonly string jquery_ui_dialog_css = Url("jquery.ui.dialog.css");
         public static readonly string movies_css = Url("movies.css");
-        public static readonly string pagination_css = Url("pagination.css");
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public static class profile {
             private const string URLPATH = "~/Content/profile";

@@ -155,7 +155,6 @@
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\FilterVideo.ascx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\Filter_InviteFriend.ascx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\Invite_Friend.ascx" />
-    <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\ListVideo.ascx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\NewCommentVideo.ascx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\Index.aspx" />
     <Content Include="Areas\KnowledgeCenter\Views\KnowledgeCenter\MyVideo.aspx" />
@@ -194,7 +193,6 @@
     <Content Include="Areas\Profile\Views\Profile\SeeAll_Archeivement.ascx" />
     <Content Include="Areas\Profile\Views\Profile\StartMenu.ascx" />
     <Content Include="Areas\Profile\Views\Profile\SubMenu.ascx" />
-    <Content Include="Content\demo.css" />
     <Content Include="Content\images\mayatakky.png" />
     <Content Include="Content\images\ui-bg_glass_100_f6f6f6_1x400.png" />
     <Content Include="Content\images\ui-bg_glass_100_fdf5ce_1x400.png" />
@@ -207,12 +205,9 @@
     <Content Include="Content\images\VideoPlay.png" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\jquery.marquee.css" />
-    <Content Include="Content\pagination.css" />
     <Content Include="Content\styles.css" />
     <Content Include="Content\superfish.css" />
     <Content Include="Content\images\Video1.jpg" />
-    <Content Include="Scripts\jquery.pagination.js" />
-    <Content Include="Scripts\members.js" />
     <Content Include="Scripts\quickpager.jquery.js" />
     <Content Include="uploads\TheS.wmv" />
     <Content Include="club.html" />

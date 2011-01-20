@@ -33,11 +33,6 @@ namespace sPerf_Web.Areas.KnowledgeCenter.Controllers {
             return RedirectToRoute(callInfo.RouteValueDictionary);
         }
 
-        [NonAction]
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public System.Web.Mvc.ActionResult UploadVideo() {
-            return new T4MVC_ActionResult(Area, Name, ActionNames.UploadVideo);
-        }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public KnowledgeCenterController Actions { get { return MVC.KnowledgeCenter.KnowledgeCenter; } }
@@ -61,8 +56,6 @@ namespace sPerf_Web.Areas.KnowledgeCenter.Controllers {
             public readonly string PlayVideo = "PlayVideo";
             public readonly string newsBar = "newsBar";
             public readonly string FilterVideo = "FilterVideo";
-            public readonly string ListVideo = "ListVideo";
-            public readonly string UploadVideo = "UploadVideo";
         }
 
 
@@ -78,7 +71,6 @@ namespace sPerf_Web.Areas.KnowledgeCenter.Controllers {
             public readonly string FilterVideo = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/FilterVideo.ascx";
             public readonly string Index = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/Index.aspx";
             public readonly string Invite_Friend = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/Invite_Friend.ascx";
-            public readonly string ListVideo = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/ListVideo.ascx";
             public readonly string MyVideo = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/MyVideo.aspx";
             public readonly string NewCommentVideo = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/NewCommentVideo.ascx";
             public readonly string newsBar = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/newsBar.ascx";
@@ -143,17 +135,6 @@ namespace sPerf_Web.Areas.KnowledgeCenter.Controllers {
 
         public override System.Web.Mvc.ActionResult FilterVideo() {
             var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.FilterVideo);
-            return callInfo;
-        }
-
-        public override System.Web.Mvc.ActionResult ListVideo() {
-            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.ListVideo);
-            return callInfo;
-        }
-
-        public override System.Web.Mvc.ActionResult UploadVideo(System.Web.HttpPostedFileBase file) {
-            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.UploadVideo);
-            callInfo.RouteValueDictionary.Add("file", file);
             return callInfo;
         }
 
