@@ -23,7 +23,7 @@
         });
     });
 </script>
-<div id="ReportProblem" title="Report Problem" style="z-index: 10;">
+<div id="ReportProblem" title="Report Problem" style="z-index: 10; display: none">
     <table>
         <tr>
             <td valign="top">

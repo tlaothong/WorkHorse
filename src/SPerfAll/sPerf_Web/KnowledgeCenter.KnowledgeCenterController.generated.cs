@@ -59,6 +59,9 @@ namespace sPerf_Web.Areas.KnowledgeCenter.Controllers {
             public readonly string Banners = "Banners";
             public readonly string PostNewVideos = "PostNewVideos";
             public readonly string PlayVideo = "PlayVideo";
+            public readonly string newsBar = "newsBar";
+            public readonly string FilterVideo = "FilterVideo";
+            public readonly string ListVideo = "ListVideo";
             public readonly string UploadVideo = "UploadVideo";
         }
 
@@ -72,15 +75,19 @@ namespace sPerf_Web.Areas.KnowledgeCenter.Controllers {
             public readonly string Banners = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/Banners.ascx";
             public readonly string CommentVideo = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/CommentVideo.ascx";
             public readonly string Filter_InviteFriend = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/Filter_InviteFriend.ascx";
+            public readonly string FilterVideo = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/FilterVideo.ascx";
             public readonly string Index = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/Index.aspx";
             public readonly string Invite_Friend = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/Invite_Friend.ascx";
+            public readonly string ListVideo = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/ListVideo.ascx";
             public readonly string MyVideo = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/MyVideo.aspx";
             public readonly string NewCommentVideo = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/NewCommentVideo.ascx";
+            public readonly string newsBar = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/newsBar.ascx";
             public readonly string Option = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/Option.ascx";
             public readonly string PlayVideo = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/PlayVideo.aspx";
             public readonly string PostNewVideos = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/PostNewVideos.ascx";
             public readonly string ReportCommentVideo = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/ReportCommentVideo.ascx";
             public readonly string ReportProblemVideo = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/ReportProblemVideo.ascx";
+            public readonly string StartMenu = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/StartMenu.ascx";
             public readonly string SubmenuVideo = "~/Areas/KnowledgeCenter/Views/KnowledgeCenter/SubmenuVideo.ascx";
         }
     }
@@ -126,6 +133,21 @@ namespace sPerf_Web.Areas.KnowledgeCenter.Controllers {
 
         public override System.Web.Mvc.ActionResult PlayVideo() {
             var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.PlayVideo);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult newsBar() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.newsBar);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult FilterVideo() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.FilterVideo);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult ListVideo() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.ListVideo);
             return callInfo;
         }
 

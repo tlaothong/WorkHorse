@@ -55,6 +55,8 @@ namespace sPerf_Web.Areas.Game.Controllers {
             public readonly string Banners = "Banners";
             public readonly string PlayGame = "PlayGame";
             public readonly string Bookmark = "Bookmark";
+            public readonly string newsBar = "newsBar";
+            public readonly string FilterGame = "FilterGame";
         }
 
 
@@ -68,13 +70,16 @@ namespace sPerf_Web.Areas.Game.Controllers {
             public readonly string Bookmark = "~/Areas/Game/Views/Game/Bookmark.aspx";
             public readonly string CommentGame = "~/Areas/Game/Views/Game/CommentGame.ascx";
             public readonly string Filter_InviteFriend = "~/Areas/Game/Views/Game/Filter_InviteFriend.ascx";
+            public readonly string FilterGame = "~/Areas/Game/Views/Game/FilterGame.ascx";
             public readonly string GameOption = "~/Areas/Game/Views/Game/GameOption.aspx";
             public readonly string Index = "~/Areas/Game/Views/Game/Index.aspx";
             public readonly string Invite_Friend = "~/Areas/Game/Views/Game/Invite_Friend.ascx";
             public readonly string NewCommentGame = "~/Areas/Game/Views/Game/NewCommentGame.ascx";
+            public readonly string newsBar = "~/Areas/Game/Views/Game/newsBar.ascx";
             public readonly string PlayGame = "~/Areas/Game/Views/Game/PlayGame.aspx";
             public readonly string ReportCommentGame = "~/Areas/Game/Views/Game/ReportCommentGame.ascx";
             public readonly string ReportProblemGame = "~/Areas/Game/Views/Game/ReportProblemGame.ascx";
+            public readonly string StartMenu = "~/Areas/Game/Views/Game/StartMenu.ascx";
             public readonly string SubMenu = "~/Areas/Game/Views/Game/SubMenu.ascx";
             public readonly string Tournament = "~/Areas/Game/Views/Game/Tournament.aspx";
             public readonly string Upload = "~/Areas/Game/Views/Game/Upload.ascx";
@@ -127,6 +132,16 @@ namespace sPerf_Web.Areas.Game.Controllers {
 
         public override System.Web.Mvc.ActionResult Bookmark() {
             var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Bookmark);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult newsBar() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.newsBar);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult FilterGame() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.FilterGame);
             return callInfo;
         }
 
