@@ -208,7 +208,6 @@
     <Content Include="Content\styles.css" />
     <Content Include="Content\superfish.css" />
     <Content Include="Content\images\Video1.jpg" />
-    <Content Include="Game.html" />
     <Content Include="Scripts\quickpager.jquery.js" />
     <Content Include="uploads\TheS.wmv" />
     <Content Include="club.html" />
@@ -665,7 +664,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>61066</DevelopmentServerPort>
+          <DevelopmentServerPort>54587</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
