@@ -13,6 +13,14 @@ namespace TheS.Casinova.DevilSix.Validators
     {
         public override void Validate(BetInformation entity, ListBetLogCommand command, ValidationErrorCollection errors)
         {
+            //ตรวจสอบข้อมูล UserName
+            if (string.IsNullOrEmpty(entity.UserName)) {
+                errors.Add(new ValidationError {
+                    Instance = entity,
+                    ErrorMessage = "ไม่มีข้อมูล UserName",
+                });
+            }
+
             //ตรวจสอบข้อมูล RoundID 
             if (entity.RoundID < 1 || entity.RoundID > 4) {
                 errors.Add(new ValidationError {

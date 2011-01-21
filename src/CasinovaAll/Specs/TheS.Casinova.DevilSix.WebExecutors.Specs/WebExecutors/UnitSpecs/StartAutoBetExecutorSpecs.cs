@@ -28,8 +28,8 @@ namespace TheS.Casinova.DevilSix.WebExecutors.UnitSpecs
             var model = new GamePlayAutoBetInformation {
                 UserName = null,
                 RoundID = 1,
-                Amount = 1,
-                TotalAmount = 10,
+                BetInterval = 1,
+                Amount = 10,
                 Interval = 3
             };
             var cmd = new StartAutoBetCommand {
@@ -53,8 +53,8 @@ namespace TheS.Casinova.DevilSix.WebExecutors.UnitSpecs
             var model = new GamePlayAutoBetInformation {
                 UserName = "Nit",
                 RoundID = -1,
-                Amount = 1,
-                TotalAmount = 10,
+                BetInterval = 1,
+                Amount = 10,
                 Interval = 3
             };
             var cmd = new StartAutoBetCommand {
@@ -78,8 +78,8 @@ namespace TheS.Casinova.DevilSix.WebExecutors.UnitSpecs
             var model = new GamePlayAutoBetInformation {
                 UserName = "Nit",
                 RoundID = 6,
-                Amount = 1,
-                TotalAmount = 10,
+                BetInterval = 1,
+                Amount = 10,
                 Interval = 3
             };
             var cmd = new StartAutoBetCommand {
@@ -103,8 +103,8 @@ namespace TheS.Casinova.DevilSix.WebExecutors.UnitSpecs
             var model = new GamePlayAutoBetInformation {
                 UserName = "Nit",
                 RoundID = 1,
-                Amount = -5,
-                TotalAmount = 10,
+                BetInterval = -5,
+                Amount = 10,
                 Interval = 3
             };
             var cmd = new StartAutoBetCommand {
@@ -128,8 +128,8 @@ namespace TheS.Casinova.DevilSix.WebExecutors.UnitSpecs
             var model = new GamePlayAutoBetInformation {
                 UserName = "Nit",
                 RoundID = 1,
-                Amount = 5,
-                TotalAmount = 10,
+                BetInterval = 5,
+                Amount = 10,
                 Interval = 3
             };
             var cmd = new StartAutoBetCommand {
@@ -153,8 +153,8 @@ namespace TheS.Casinova.DevilSix.WebExecutors.UnitSpecs
             var model = new GamePlayAutoBetInformation {
                 UserName = "Nit",
                 RoundID = 1,
-                Amount = 2,
-                TotalAmount = -10,
+                BetInterval = 2,
+                Amount = -10,
                 Interval = 3
             };
             var cmd = new StartAutoBetCommand {
@@ -179,8 +179,8 @@ namespace TheS.Casinova.DevilSix.WebExecutors.UnitSpecs
             var model = new GamePlayAutoBetInformation {
                 UserName = "Nit",
                 RoundID = 4,
-                Amount = 100,
-                TotalAmount = 50,
+                BetInterval = 100,
+                Amount = 50,
                 Interval = 3
             };
             var cmd = new StartAutoBetCommand {

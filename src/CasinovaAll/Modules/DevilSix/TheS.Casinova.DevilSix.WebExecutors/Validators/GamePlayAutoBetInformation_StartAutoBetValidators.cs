@@ -30,7 +30,7 @@ namespace TheS.Casinova.DevilSix.Validators
 
             //ตรวจสอบข้อมูลจำนวน Amount
             if (entity.RoundID == 1) {
-                if (entity.Amount != 1 && entity.Amount != 2) {
+                if (entity.BetInterval != 1 && entity.BetInterval != 2) {
                     errors.Add(new ValidationError {
                         Instance = entity,
                         ErrorMessage = "ค่า Amount ไม่ถูกต้อง",
@@ -39,7 +39,7 @@ namespace TheS.Casinova.DevilSix.Validators
             }
 
             if (entity.RoundID == 2) {
-                if (entity.Amount != 1 && entity.Amount != 5 && entity.Amount != 10 && entity.Amount != 20) {
+                if (entity.BetInterval != 1 && entity.BetInterval != 5 && entity.BetInterval != 10 && entity.BetInterval != 20) {
                     errors.Add(new ValidationError {
                         Instance = entity,
                         ErrorMessage = "ค่า Amount ไม่ถูกต้อง",
@@ -48,7 +48,7 @@ namespace TheS.Casinova.DevilSix.Validators
             }
 
             if (entity.RoundID == 3) {
-                if (entity.Amount != 1 && entity.Amount != 5 && entity.Amount != 10 && entity.Amount != 50 && entity.Amount != 200) {
+                if (entity.BetInterval != 1 && entity.BetInterval != 5 && entity.BetInterval != 10 && entity.BetInterval != 50 && entity.BetInterval != 200) {
                     errors.Add(new ValidationError {
                         Instance = entity,
                         ErrorMessage = "ค่า Amount ไม่ถูกต้อง",
@@ -57,7 +57,7 @@ namespace TheS.Casinova.DevilSix.Validators
             }
 
             if (entity.RoundID == 4) {
-                if (entity.Amount != 1 && entity.Amount != 10 && entity.Amount != 100 && entity.Amount != 500 && entity.Amount != 2000) {
+                if (entity.BetInterval != 1 && entity.BetInterval != 10 && entity.BetInterval != 100 && entity.BetInterval != 500 && entity.BetInterval != 2000) {
                     errors.Add(new ValidationError {
                         Instance = entity,
                         ErrorMessage = "ค่า Amount ไม่ถูกต้อง",
@@ -66,7 +66,7 @@ namespace TheS.Casinova.DevilSix.Validators
             }
 
             //ตรวจสอบจำนวนเงินทั้งหมด
-            if (entity.TotalAmount < entity.Amount ){
+            if (entity.Amount < entity.BetInterval) {
                 errors.Add(new ValidationError {
                     Instance = entity,
                     ErrorMessage = "ค่า Amountไม่ถูกต้อง",

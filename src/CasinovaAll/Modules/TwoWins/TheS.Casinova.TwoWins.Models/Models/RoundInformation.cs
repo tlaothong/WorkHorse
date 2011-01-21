@@ -51,16 +51,6 @@ namespace TheS.Casinova.TwoWins.Models
         public string WinnerLowRange { get; set; }
 
         /// <summary>
-        /// ผู้ชนะสูงสุดในช่วงเวลาวิกฤต
-        /// </summary>
-        public string WinnerHightNameCritical { get; set; }
-
-        /// <summary>
-        /// ผู้ชนะต่ำสุดในช่วงเวลาวิกฤต
-        /// </summary>
-        public string WinnerLowNameCritical { get; set; }
-
-        /// <summary>
         /// จำนวนชิฟทั้งหมดในโต๊ะเกม
         /// </summary>
         public double Pot { get; set; }

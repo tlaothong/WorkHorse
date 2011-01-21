@@ -47,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Validators\BetInformation_ListBetLogValidators.cs" />
+    <Compile Include="Validators\BetInformation_ListRangeActionLogValidators.cs" />
+    <Compile Include="Validators\BetInformation_ListSingleActionLogValidators.cs" />
     <Compile Include="Validators\BetInformation_SingleBetValidators.cs" />
     <Compile Include="Validators\GamePlayAutoBetInformation_StartAutoBetValidators.cs" />
     <Compile Include="Validators\GamePlayAutoBetInformation_StopAutoBetValidators.cs" />
@@ -54,6 +56,8 @@
     <Compile Include="WebExecutors\ListActiveGameRoundInfoExecutor.cs" />
     <Compile Include="WebExecutors\ListBetLogExecutor.cs" />
     <Compile Include="WebExecutors\ListGamePlayAutoBetInfoExecutor.cs" />
+    <Compile Include="WebExecutors\ListRangeActionLogExecutor.cs" />
+    <Compile Include="WebExecutors\ListSingleActionLogExecutor.cs" />
     <Compile Include="WebExecutors\SingleBetExecutor.cs" />
     <Compile Include="WebExecutors\StartAutoBetExecutor.cs" />
     <Compile Include="WebExecutors\StopAutoBetExecutor.cs" />

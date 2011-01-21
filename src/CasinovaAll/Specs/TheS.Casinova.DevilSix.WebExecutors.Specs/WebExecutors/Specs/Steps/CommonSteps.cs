@@ -10,7 +10,6 @@ using PerfEx.Infrastructure.CommandPattern;
 using SpecFlowAssist;
 using TheS.Casinova.DevilSix.Validators;
 using TheS.Casinova.Common.Services;
-using TheS.Casinova.Colors.WebExecutors;
 using TheS.Casinova.DevilSix.Models;
 using TheS.Casinova.DevilSix.BackServices;
 using PerfEx.Infrastructure.Containers.StructureMapAdapter;
@@ -110,6 +109,20 @@ namespace TheS.Casinova.DevilSix.WebExecutors.Specs.Steps
                 new StopAutoBetExecutor(dac, container, svc));
         }
 
+        //List single action log information specs initialized
+        [Given(@"The ListSingleActionLogInfoExecutor has been created and initialized")]
+        public void GivenTheListSingleActionLogInfoExecutorHasBeenCreatedAndInitialized()
+        {
+            var dqr = Mocks.DynamicMock<IDevilSixGameDataQuery>();
+           
+            IDependencyContainer container;
+            setupValidators(out container);
+
+            ScenarioContext.Current.Set<IListSingleActionLog>(dqr);
+            ScenarioContext.Current.Set<ListSingleActionLogExecutor>(
+                new ListSingleActionLogExecutor(dqr, container));
+        }
+
         private static void setupValidators(out IDependencyContainer container)
         {
             var fac = new StructureMapAbstractFactory();
@@ -120,6 +133,12 @@ namespace TheS.Casinova.DevilSix.WebExecutors.Specs.Steps
 
             reg.Register<IValidator<BetInformation, SingleBetCommand>
                , BetInformation_SingleBetValidators>();
+
+            reg.Register<IValidator<BetInformation, ListSingleActionLogCommand>
+               , BetInformation_ListSingleActionLogValidators>();
+
+            reg.Register<IValidator<BetInformation, ListBetLogCommand>
+              , BetInformation_ListBetLogValidators>();
 
             reg.Register<IValidator<GamePlayAutoBetInformation, NullCommand>
               , DataAnnotationValidator<GamePlayAutoBetInformation, NullCommand>>();
@@ -132,7 +151,6 @@ namespace TheS.Casinova.DevilSix.WebExecutors.Specs.Steps
 
             reg.Register<IValidator<GamePlayAutoBetInformation, StopAutoBetCommand>
                , GamePlayAutoBetInformation_StopAutoBetValidators>();
-
 
             container = fac.CreateContainer(reg);
         }

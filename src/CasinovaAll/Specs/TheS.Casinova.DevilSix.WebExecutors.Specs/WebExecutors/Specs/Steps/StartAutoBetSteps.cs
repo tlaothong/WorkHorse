@@ -18,15 +18,15 @@ namespace TheS.Casinova.DevilSix.WebExecutors.Specs.Steps
         private string _trackingID;
 
         [Given(@"Sent StartAutoBetInformation UserName '(.*)' RoundID '(.*)' Amount '(.*)' Interval '(.*)' TotalAmount '(.*)'")]
-        public void GivenSentStartAutoBetInformationUserNameXRoundIDXAmountXIntervalXTotalAmount(string userName, int roundId, double amount, int interval, double totalAMount)
+        public void GivenSentStartAutoBetInformationUserNameXRoundIDXAmountXIntervalXTotalAmount(string userName, int roundId, double betInterval, int interval, double amount)
         {
             _cmd = new StartAutoBetCommand {
                 GamePlayAutoBetInfo = new GamePlayAutoBetInformation {
                     UserName = userName,
                     RoundID = roundId,
-                    Amount = amount,
+                    BetInterval = betInterval,
                     Interval = interval,
-                    TotalAmount = totalAMount
+                  Amount = amount
                 }
             };
         }

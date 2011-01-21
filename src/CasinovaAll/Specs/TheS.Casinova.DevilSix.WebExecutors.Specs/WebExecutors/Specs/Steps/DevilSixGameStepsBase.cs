@@ -15,6 +15,15 @@ namespace TheS.Casinova.DevilSix.WebExecutors.Specs.Steps
     public class DevilSixGameStepsBase
     {
 
+        protected IListSingleActionLog Dqr_ListSingleActionLog
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<IListSingleActionLog>();
+            }
+        }
+
+
         protected IStopAutoBet Dac_StopAutoBet
         {
             get
@@ -22,7 +31,6 @@ namespace TheS.Casinova.DevilSix.WebExecutors.Specs.Steps
                 return ScenarioContext.Current.Get<IStopAutoBet>();
             }
         }
-
 
         protected IStartAutoBet Dac_StartAutoBet
         {
@@ -61,6 +69,14 @@ namespace TheS.Casinova.DevilSix.WebExecutors.Specs.Steps
             get
             {
                 return ScenarioContext.Current.Get<ISingleBet>();
+            }
+        }
+
+        protected ListSingleActionLogExecutor ListSingleActionLog
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<ListSingleActionLogExecutor>();
             }
         }
 

@@ -20,7 +20,7 @@ namespace TheS.Casinova.DevilSix.Models
             public double Amount { get; set; }
 
             [Range (0, double.MaxValue)]
-            public double TotalAmount { get; set; }
+            public double BetInterval { get; set; }
 
             public int Interval { get; set; }
 

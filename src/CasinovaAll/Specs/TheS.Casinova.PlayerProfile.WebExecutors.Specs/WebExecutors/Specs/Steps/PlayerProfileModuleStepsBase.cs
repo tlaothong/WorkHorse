@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
 using Rhino.Mocks;
-using TheS.Casinova.ColorsGame;
 using TheS.Casinova.PlayerProfile.BackServices;
 using TheS.Casinova.PlayerProfile.DAL;
 using SpecFlowAssist;

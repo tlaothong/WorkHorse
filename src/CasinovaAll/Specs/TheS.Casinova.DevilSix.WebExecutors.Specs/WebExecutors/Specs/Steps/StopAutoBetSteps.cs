@@ -65,8 +65,8 @@ namespace TheS.Casinova.DevilSix.WebExecutors.Specs.Steps
             Assert.AreEqual(trackingID, _trackingID, "Get trackingID accept");
         }
 
-        [Then(@"Get null and skip checking trackingID for stop auto bet")]
-        public void ThenGetNullAndSkipCheckingTrackingIDForStopAutoBet()
+        [Then(@"StopAutoBet get null and skip checking trackingID")]
+        public void ThenStopAutoBetGetNullAndSkipCheckingTrackingID()
         {
             Assert.IsTrue(true, "Get null and skip checking trackingID.");
         }

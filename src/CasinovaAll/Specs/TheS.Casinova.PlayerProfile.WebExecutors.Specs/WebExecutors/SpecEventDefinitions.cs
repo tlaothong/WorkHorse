@@ -5,7 +5,7 @@ using System.Text;
 using TechTalk.SpecFlow;
 using Rhino.Mocks;
 
-namespace TheS.Casinova.ColorsGame
+namespace TheS.Casinova.Profile.WebExecutors
 {
     [Binding]
     public class SpecEventDefinitions

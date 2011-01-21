@@ -11,7 +11,9 @@ namespace TheS.Casinova.DevilSix.DAL
     public interface IDevilSixGameDataQuery :
                        IListBetLog,
                        IListActiveGameRoundInfo,
-                       IListGamePlayAutoBetInfo
+                       IListGamePlayAutoBetInfo,
+                       IListSingleActionLog,
+                       IListRangeActionLog
     { }
 
     /// <summary>
@@ -33,5 +35,19 @@ namespace TheS.Casinova.DevilSix.DAL
     /// </summary>
     public interface IListGamePlayAutoBetInfo
          : IFetchData<GamePlayAutoBetInformation, ListGamePlayAutoBetInfoCommand>
+    { }
+
+    /// <summary>
+    /// ดึงข้อมูล log การลงเดิมพันที่ชนะในโต๊ะเกมนั้น ๆ ตามวันที่ผู้เล่นเลือกดู
+    /// </summary>
+    public interface IListSingleActionLog
+         : IFetchData<BetInformation, ListSingleActionLogCommand>
+    { }
+
+    /// <summary>
+    /// ดึงข้อมูล log การลงเดิมพันที่ชนะในโต๊ะเกมนั้น ๆ ตามช่วงวันที่ผู้เล่นเลือกดู
+    /// </summary>
+    public interface IListRangeActionLog
+         : IFetchData<BetInformation, ListRangeActionLogCommand>
     { }
 }

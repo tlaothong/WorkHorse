@@ -83,6 +83,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ListGamePlayAutoBetInfoFeature.feature</DependentUpon>
     </Compile>
+    <Compile Include="WebExecutors\Specs\ListRangeActionLogFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListRangeActionLogFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebExecutors\Specs\ListSingleActionLogFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListSingleActionLogFeature.feature</DependentUpon>
+    </Compile>
     <Compile Include="WebExecutors\Specs\SingleBetFeature1.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -98,6 +108,7 @@
     <Compile Include="WebExecutors\Specs\Steps\DevilSixGameStepsBase.cs" />
     <Compile Include="WebExecutors\Specs\Steps\ListBetLogSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\ListGamePlayAutoBetInfoSteps.cs" />
+    <Compile Include="WebExecutors\Specs\Steps\ListSingleActionLogSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\SingleBetSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\StartAutoBetSteps.cs" />
     <Compile Include="WebExecutors\Specs\Steps\StopAutoBetSteps.cs" />
@@ -108,6 +119,8 @@
     </Compile>
     <Compile Include="WebExecutors\UnitSpecs\ListBetLogExecutorSpecs.cs" />
     <Compile Include="WebExecutors\UnitSpecs\ListGamePlayAutoBetInfoExecutorSpecs.cs" />
+    <Compile Include="WebExecutors\UnitSpecs\ListRangeActionLogExecutorSpecs.cs" />
+    <Compile Include="WebExecutors\UnitSpecs\ListSingleActionLogExecutorSpecs.cs" />
     <Compile Include="WebExecutors\UnitSpecs\SingleBetExecutorSpecs.cs" />
     <Compile Include="WebExecutors\UnitSpecs\StartAutoBetExecutorSpecs.cs" />
     <Compile Include="WebExecutors\UnitSpecs\StopAutoBetExecutorSpecs.cs" />
@@ -155,6 +168,14 @@
     <None Include="WebExecutors\Specs\ListGamePlayAutoBetInfoFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ListGamePlayAutoBetInfoFeature1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\ListRangeActionLogFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ListRangeActionLogFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WebExecutors\Specs\ListSingleActionLogFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ListSingleActionLogFeature.feature.cs</LastGenOutput>
     </None>
     <None Include="WebExecutors\Specs\SingleBetFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

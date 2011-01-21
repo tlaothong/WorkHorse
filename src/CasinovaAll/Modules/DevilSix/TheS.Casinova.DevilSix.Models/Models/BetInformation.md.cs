@@ -11,7 +11,6 @@ namespace TheS.Casinova.DevilSix.Models
     {
         public class MD
         {
-            [Required]
             public string UserName { get; set; }
 
             [Range(0, int.MaxValue)]

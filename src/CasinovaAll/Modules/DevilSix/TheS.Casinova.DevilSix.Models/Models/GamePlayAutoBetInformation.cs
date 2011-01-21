@@ -22,12 +22,12 @@ namespace TheS.Casinova.DevilSix.Models
         /// <summary>
         /// จำนวนเงินที่ลงเดิมพันแบบอัตโนมัติแต่ละครั้ง
         /// </summary>
-        public double Amount { get; set; }
+        public double BetInterval { get; set; }
 
         /// <summary>
         /// จำนวนเงินทั้งหมดที่ลงเดิมพันแบบอัตโนมัติ
         /// </summary>
-        public double TotalAmount { get; set; }
+        public double Amount { get; set; }
 
         /// <summary>
         /// จำนวนชิพตาย
