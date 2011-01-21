@@ -8,7 +8,7 @@
             autoOpen: false,
             modal: true,
             width: 600,
-            title: "Upload Video",
+            title: "Upload Game",
             buttons: {                
                 "OK": function () {
                     $(this).dialog("close");
