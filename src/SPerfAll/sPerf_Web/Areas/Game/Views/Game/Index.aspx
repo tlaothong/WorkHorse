@@ -24,7 +24,6 @@
             }, function () {
                 $(this).removeClass("hilite");
             });
-        });  
 
     </script>
     <%--directory path--%>
