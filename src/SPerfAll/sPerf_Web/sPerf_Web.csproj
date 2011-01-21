@@ -225,6 +225,7 @@
     <Content Include="Content\images\banner6.jpg" />
     <Content Include="Content\images\banner6_thumb.jpg" />
     <Content Include="Content\images\bin.png" />
+    <Content Include="Content\images\btn-delete.gif" />
     <Content Include="Content\images\buttons.gif" />
     <Content Include="Content\images\calendar.png" />
     <Content Include="Content\images\context-menu-gradient.gif" />
@@ -277,7 +278,6 @@
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\jquery.marquee.css" />
     <Content Include="Content\jquery.cleditor.css" />
-
     <Content Include="Content\styles.css" />
     <Content Include="Content\superfish.css" />
     <Content Include="Content\images\Video1.jpg" />
@@ -762,7 +762,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>3676</DevelopmentServerPort>
+          <DevelopmentServerPort>61066</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
