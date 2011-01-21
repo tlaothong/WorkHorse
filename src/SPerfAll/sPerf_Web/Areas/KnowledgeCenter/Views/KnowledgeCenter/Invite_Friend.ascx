@@ -25,7 +25,7 @@
         });
     });
 </script>
-<div id="InviteFriend">
+<div id="InviteFriend" style="display: none">
     <div>
         <div style="margin-top: 25px">
             <% Html.RenderPartial("Filter_InviteFriend"); %></div>

@@ -72,6 +72,7 @@ namespace sPerf_Web.Controllers {
             public readonly string Banners = "~/Views/Home/Banners.ascx";
             public readonly string Cartoon = "~/Views/Home/Cartoon.ascx";
             public readonly string FAQTutorial = "~/Views/Home/FAQTutorial.aspx";
+            public readonly string grobalSearch = "~/Views/Home/grobalSearch.ascx";
             public readonly string HightLight = "~/Views/Home/HightLight.aspx";
             public readonly string HomeOption = "~/Views/Home/HomeOption.ascx";
             public readonly string Index = "~/Views/Home/Index.aspx";
