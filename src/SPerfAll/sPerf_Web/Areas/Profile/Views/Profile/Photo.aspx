@@ -149,7 +149,15 @@
             width: 620,
             show: "Transfer",
             hide: "Transfer",
-            title: 'Add Photo'
+            title: 'Add Photo',
+            buttons: {
+                "Upload": function () {
+                    $(this).dialog("close");
+                },
+                "Cancel": function () {
+                    $(this).dialog("close");
+                }
+            }
         });
         // Dialog Link
         $(".addphoto").click(function () {
@@ -168,7 +176,18 @@
             show: "Transfer",
             hide: "Transfer",
             width: 620,
-            title: 'Edit Photo'
+            title: 'Edit Photo',
+            buttons: {
+                "Cancel": function () {
+                    $(this).dialog("close");
+                },
+                "Skip": function () {
+                    $(this).dialog("close");
+                },
+                "Save": function () {
+                    $(this).dialog("close");
+                }
+            }
         });
         // Dialog Link
         $(".editphoto").click(function () {
@@ -235,7 +254,7 @@
         <div>    
         <div style="float:left; clear:right; border: 1px solid gray ">
             <div style="color:White; width:200px; margin-left:0px; background-color:#2D2C2C;">Album'name</div>
-            <div style="width:200px; height:380px; background-color:#ffffff;">
+            <div style="width:200px; height:396px; background-color:#ffffff;">
                  <%--treeview part--%>
                  <%Html.RenderPartial("DGTreeview"); %>
                  <%--end treeview--%>                      
@@ -247,7 +266,7 @@
                 This content will be replaced when pagination inits.
             </div>
             <div id="hiddenresult" style="display:none; ">
-                <div class="result" style="background-color:#ffffff; border:1px solid #ffffff; width:380px; height:380px;">
+                <div class="result" style="background-color:#ffffff; border:0px solid #ffffff; width:380px; height:380px;">
                     <table>
                         <tr style="border:0px solid;">
                           <td  style="background-color:#2D2C2C;" valign="top" align="right"><img src="/Content/profile/thumbs/t1.jpg" /></td>
@@ -298,16 +317,15 @@
                           <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox8" type="checkbox"></td>
                           <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox16" type="checkbox"></td>
                           </tr>
-                        <tr><td></td><td align="center" style="border:1px solid Gray;"><label class="addphoto" style="color:Green;">Add Photo</label></td><td align="center" style="border:1px solid Gray;"><label class="editphoto" style="color:Green;">Edit Photo</label></td><td align="center" style="border:1px solid Gray;"><label style="color:Red;">Delete</label></td></tr>  
                       </table>
                 </div>
-                <div class="result" style="background-color:#ffffff; border:1px solid #ffffff; width:380px; height:380px;">
+                <div class="result" style="background-color:#ffffff; border:0px solid #ffffff; width:380px; height:380px;">
                     <table>
                         <tr style="border:0px solid;">
                           <td  style="background-color:#2D2C2C;" valign="top" align="right"><img src="/Content/profile/thumbs/t1.jpg" /></td>
-                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
-                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
-                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t1.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t3.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t4.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t5.jpg" /></td>
                           </tr>
                         <tr>
                           <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox6" type="checkbox"></td>
@@ -329,10 +347,10 @@
                           <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox14" type="checkbox"></td>
                           </tr>
                         <tr>
-                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t1.jpg" /></td>
-                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
-                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t1.jpg" /></td>
-                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t3.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t4.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t5.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t6.jpg" /></td>
                           </tr>
                         <tr>
                           <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox11" type="checkbox"></td>
@@ -352,16 +370,15 @@
                           <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox8" type="checkbox"></td>
                           <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox16" type="checkbox"></td>
                           </tr>
-                        <tr><td></td><td align="center" style="border:1px solid Gray;"><label class="addphoto" style="color:Green;">Add Photo</label></td><td align="center" style="border:1px solid Gray;"><label class="editphoto" style="color:Green;">Edit Photo</label></td><td align="center" style="border:1px solid Gray;"><label style="color:Red;">Delete</label></td></tr>  
                       </table> 
                 </div>
-                <div class="result" style="background-color:#ffffff; border:1px solid #ffffff; width:380px; height:380px;">
+                <div class="result" style="background-color:#ffffff; border:0px solid #ffffff; width:380px; height:380px;">
                     <table>
                         <tr style="border:0px solid;">
                           <td  style="background-color:#2D2C2C;" valign="top" align="right"><img src="/Content/profile/thumbs/t1.jpg" /></td>
-                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
-                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
-                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t1.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t7.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t8.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t9.jpg" /></td>
                           </tr>
                         <tr>
                           <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox6" type="checkbox"></td>
@@ -372,7 +389,7 @@
                         </tr>
                         <tr>
                           <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t1.jpg" /></td>
-                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
+                          <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t10.jpg" /></td>
                           <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t2.jpg" /></td>
                           <td style="background-color:#2D2C2C;"><img src="/Content/profile/thumbs/t1.jpg" /></td>
                         </tr>
@@ -406,10 +423,10 @@
                           <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox8" type="checkbox"></td>
                           <td valign="top" align="right" style="background-color:#2D2C2C;"><input name="checkbox16" type="checkbox"></td>
                           </tr>
-                        <tr><td></td><td align="center" style="border:1px solid Gray;"><label class="addphoto" style="color:Green;">Add Photo</label></td><td align="center" style="border:1px solid Gray;"><label class="editphoto" style="color:Green;">Edit Photo</label></td><td align="center" style="border:1px solid Gray;"><label style="color:Red;">Delete</label></td></tr>  
                       </table>
                  </div>
             </div>
+            <div style="background-color:White; margin-left:0px;"><label class="addphoto" style="color:Green;">Add Photo</label> | <label class="editphoto" style="color:Green;">Edit Photo</label> | <label style="color:Red;">Delete</label></div>
          </div>
          </div>
     </div>
@@ -434,8 +451,8 @@
                     <div>Album'name : <select style="width:250px; height:20px;"><option>สุดหล่อ</option><option>สุดสวย</option></select></div><br />
                     <div><form action="" method="post" enctype="multipart/form-data"><label for="file">File'name :<input type="file" name="file" id="file" style="width:250px; height:25px;" /></label> <input type="submit" value="upload"  /></form> <br /></div>
                     <div><br /><img src="/Content/images/a.JPG" /></div><br />  
-                    <div style="margin-left:300px;"><label style="color:Green;">Upload</label>| <label style="color:Red;">Cancel</label></div>                  
-                </div>
+<%--                    <div style="margin-left:300px;"><label style="color:Green;">Upload</label>| <label style="color:Red;">Cancel</label></div>                  
+--%>                </div>
                 </td>
             </tr>
         </table>
@@ -460,8 +477,8 @@
                     <div style="margin-top:5px;"><label style="border:1px solid Gray; padding:2px 2px 2px 2px;">Edit Photo</label></div><br />
                     <div><table><tr><td valign="top"><img src="/Content/images/picuser.png" /></td><td valign="top"><select style="width:230px; height:20px;"><option>สุดหล่อ</option><option>สุดสวย</option></select><br />Description :<br /><input type="text" style="width:225px; height:295px;" /></td></tr>
                     </table></div>
-                    <div style="margin-left:250px;"><label style="color:Green;">Save</label>| <label style="color:Green;">Skip</label>|<label style="color:Red;">Cancel</label></div>                  
-                </div>
+<%--                    <div style="margin-left:250px;"><label style="color:Green;">Save</label>| <label style="color:Green;">Skip</label>|<label style="color:Red;">Cancel</label></div>                  
+--%>                </div>
                 </td>
             </tr>
         </table>

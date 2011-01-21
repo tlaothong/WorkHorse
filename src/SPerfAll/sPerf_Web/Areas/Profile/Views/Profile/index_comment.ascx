@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<dynamic>" %>
 <link href="../../../../Content/jquery-ui-1.8.6.custom.css" rel="stylesheet" type="text/css" />
-<script src="../../../../Scripts/jquery-1.4.2.min.js" type="text/javascript"></script>
+<script src="../../../../Scripts/jquery-1.4.4.min.js" type="text/javascript"></script>
 <script src="../../../../Scripts/jquery-ui-1.8.6.custom.min.js" type="text/javascript"></script>
 <script language="javascript" type="text/javascript">
     function showHide(shID) {

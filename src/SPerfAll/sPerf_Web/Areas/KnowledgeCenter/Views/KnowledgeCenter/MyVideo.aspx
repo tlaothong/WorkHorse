@@ -6,10 +6,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <script src="../../../../Scripts/quickpager.jquery.js" type="text/javascript"></script>
+    <script src="../../../../Scripts/jquery-ui-1.8.6.custom.min.js" type="text/javascript"></script>    
     <script type="text/javascript">
 
         $(document).ready(function () {
-            $("ul.paging").quickPager();
+            $("ul.paging").quickPager({ pagerLocation: "both" });
             $("ul.paging").fadeOut("medium");
             $("ul.paging").fadeIn("medium");
             $("ul.paging")
@@ -37,6 +38,10 @@
 
     </script>
     <style type="text/css">
+        ul
+        {
+            clear: both;
+        }
         ul.paging li, ul.paging2 li
         {
             background: #FFFFFF;
@@ -514,3 +519,10 @@
     <% Html.RenderPartial("AdvanceSearch"); %>
     <% Html.RenderPartial("Banners"); %>
 </asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="startMenu" runat="server">
+    <% Html.RenderPartial("StartMenu"); %>
+</asp:Content>
+<asp:Content ID="Content6" ContentPlaceHolderID="newsbar" runat="server">
+    <% Html.RenderPartial("newsBar"); %>
+</asp:Content>
+

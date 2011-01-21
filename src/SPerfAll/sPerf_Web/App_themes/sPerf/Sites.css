@@ -184,3 +184,13 @@ input .input_text
 #el07 {font-family:"Courier New",Courier} /* Different font */
 
 
+.avatar-bar /*===Avatar Style===*/
+{
+    width: 167px;
+    z-index: 0;
+}
+.doyouknow-bar /*===Doyouknow Style===*/
+{
+    width: 180px;
+    z-index: 0;
+}

@@ -178,9 +178,9 @@ Date : <input type="text" id="edate" />
 <div style="background-color:#4C4A49; width:630px; height:438px; ">
 <br />
     <div style="background-color:#737374; width:565px;margin-left:29px; ">
-     <label style="color:#ffffff;margin-top:20px; float:left;">Topic : </label><fieldset style="width:515px; height:15px; background-color:#333333; margin-top:20px; float:left;"></fieldset>
+     <label style="color:#ffffff;margin-top:20px; float:left;">Topic : </label><fieldset style="width:500px; height:15px; background-color:#333333; margin-top:20px; float:left;"></fieldset>
      <p>
-        <fieldset style="overflow:hidden; height:263px; width:550px; background-color:White; margin-left:5px;">
+        <fieldset style="overflow:hidden; height:263px; width:533px; background-color:White; margin-left:5px;">
             <p style="margin-top:2px;">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
         </fieldset>
      </p>
