@@ -223,8 +223,6 @@
     <Content Include="Content\superfish.css" />
     <Content Include="Content\images\Video1.jpg" />
     <Content Include="Scripts\jquery-ui-1.8.8.custom.min.js" />
-    <Content Include="Scripts\jquery.dialogWrapper.js" />
-    <Content Include="Scripts\jquery.dialogWrapper.min.js" />
     <Content Include="Scripts\quickpager.jquery.js" />
     <Content Include="uploads\TheS.wmv" />
     <Content Include="club.html" />
