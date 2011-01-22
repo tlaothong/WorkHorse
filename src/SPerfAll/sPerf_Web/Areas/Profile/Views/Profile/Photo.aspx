@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">    
   <link  href="../../../../Content/jquery.ad-gallery.css" rel="stylesheet" type="text/css" />
-  <link href="../../../../Content/jquery-ui-1.8.6.custom.css" rel="stylesheet" type="text/css" />
+  <link href="../../../../Content/jquery-ui-1.8.8.custom.css" rel="stylesheet" type="text/css" />
   <link href="../../../../Content/jquery.treeview.css" rel="stylesheet" type="text/css" />
   <link href="../../../../Content/context-menu.css" rel="stylesheet" type="text/css" />
   <link href="../../../../Content/drag-drop-folder-tree.css" rel="stylesheet" type="text/css" />
@@ -14,7 +14,7 @@
   <script src="../../../../Scripts/jquery.min.js" type="text/javascript"></script>
   <script src="../../../../Scripts/jquery-ui.min.js" type="text/javascript"></script>
   <script  src="../../../../Scripts/jquery.ad-gallery.js" type="text/javascript"></script>
-  <script src="../../../../Scripts/jquery-ui-1.8.6.custom.min.js" type="text/javascript"></script>
+  <script src="../../../../Scripts/jquery-ui-1.8.8.custom.min.js" type="text/javascript"></script>
   <script src="../../../../Scripts/jquery.treeview.js" type="text/javascript"></script>
   <script src="../../../../Scripts/jquery.treeview.js" type="text/javascript"></script>
   <script src="../../../../Scripts/ajax.js" type="text/javascript"></script>

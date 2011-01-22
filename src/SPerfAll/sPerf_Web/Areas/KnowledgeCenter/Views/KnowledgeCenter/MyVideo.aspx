@@ -5,7 +5,7 @@
     MyVideo
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <script src="../../../../Scripts/jquery-ui-1.8.6.custom.min.js" type="text/javascript"></script>
+    <script src="../../../../Scripts/jquery-ui-1.8.8.custom.min.js" type="text/javascript"></script>
     <script src="../../../../Scripts/quickpager.jquery.js" type="text/javascript"></script>
     <script type="text/javascript">
 
