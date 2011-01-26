@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Command\ListDownLineByLevel1Command.cs" />
+    <Compile Include="Command\ListDownLineByLevel2Command.cs" />
+    <Compile Include="Command\ListDownLineByLevel3Command.cs" />
     <Compile Include="DAL\IMLNModuleDataQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

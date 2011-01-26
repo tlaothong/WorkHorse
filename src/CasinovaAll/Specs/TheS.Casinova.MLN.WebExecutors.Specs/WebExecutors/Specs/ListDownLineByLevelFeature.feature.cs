@@ -268,18 +268,18 @@ namespace TheS.Casinova.MLN.WebExecutors.Specs
                         "0",
                         "20"});
 #line 8
-testRunner.Given("Server has DownLine information :", ((string)(null)), table1);
+testRunner.Given("Server has downline information :", ((string)(null)), table1);
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ListDownLineByLevel] ระบบได้รับข้อมูลการขอดูข้อมูล DownLine ตรวจสอบข้อมูล ข้อมูล" +
-            "ถูกต้อง ดึงข้อมูล Downline แต่ละ level ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ListDownLineByLevel] ระบบได้รับข้อมูลการขอดูข้อมูล DownLine ทำการตรวจสอบข้อมูล ข" +
+            "้อมูลถูกต้อง ดึงข้อมูล Downline แต่ละ level ได้")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListDownLineByLevel")]
-        public virtual void ListDownLineByLevelระบบไดรบขอมลการขอดขอมลDownLineตรวจสอบขอมลขอมลถกตองดงขอมลDownlineแตละLevelได()
+        public virtual void ListDownLineByLevelระบบไดรบขอมลการขอดขอมลDownLineทำการตรวจสอบขอมลขอมลถกตองดงขอมลDownlineแตละLevelได()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ListDownLineByLevel] ระบบได้รับข้อมูลการขอดูข้อมูล DownLine ตรวจสอบข้อมูล ข้อมูล" +
-                    "ถูกต้อง ดึงข้อมูล Downline แต่ละ level ได้", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ListDownLineByLevel] ระบบได้รับข้อมูลการขอดูข้อมูล DownLine ทำการตรวจสอบข้อมูล ข" +
+                    "้อมูลถูกต้อง ดึงข้อมูล Downline แต่ละ level ได้", new string[] {
                         "record_mock",
                         "record_mock"});
 #line 30
@@ -287,51 +287,305 @@ this.ScenarioSetup(scenarioInfo);
 #line 31
 testRunner.Given("The ListDownLineByLevelExecutor has been created and initialized");
 #line 32
-testRunner.And("Sent UserName\'Boy\'");
+testRunner.And("Sent UserName\'Boy\' to list downline by level");
 #line 33
 testRunner.When("Call ListDownLineBylavelExecutor()");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "UserName",
+                        "UplineLevel1",
+                        "UplineLevel2",
+                        "UplineLevel3",
+                        "BonusThisMonth",
+                        "BonusLastMonth",
+                        "TotalDownLineLevel1",
+                        "TotalDownLineLevel2",
+                        "TotalDownLineLevel3",
+                        "TotalBonus",
                         "GroupCount"});
             table2.AddRow(new string[] {
                         "OhAe",
+                        "Boy",
+                        "Nit",
+                        "TheS",
+                        "324",
+                        "350",
+                        "3",
+                        "4",
+                        "3",
+                        "1056",
                         "7"});
 #line 34
 testRunner.Then("DowwnLineLevel1 information should be as:", ((string)(null)), table2);
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "UserName",
+                        "UplineLevel1",
+                        "UplineLevel2",
+                        "UplineLevel3",
+                        "BonusThisMonth",
+                        "BonusLastMonth",
+                        "TotalDownLineLevel1",
+                        "TotalDownLineLevel2",
+                        "TotalDownLineLevel3",
+                        "TotalBonus",
                         "GroupCount"});
             table3.AddRow(new string[] {
                         "Jay",
-                        "1"});
+                        "OhAe",
+                        "Boy",
+                        "Nit",
+                        "200",
+                        "120",
+                        "2",
+                        "2",
+                        "0",
+                        "524",
+                        "2"});
             table3.AddRow(new string[] {
                         "Of",
+                        "OhAe",
+                        "Boy",
+                        "Nit",
+                        "106",
+                        "57",
+                        "1",
+                        "1",
+                        "0",
+                        "236",
                         "1"});
             table3.AddRow(new string[] {
                         "Top",
+                        "OhAe",
+                        "Boy",
+                        "Nit",
+                        "20",
+                        "12",
+                        "1",
+                        "0",
+                        "0",
+                        "45",
                         "1"});
-#line 37
+#line 38
 testRunner.And("DowwnLineLevel2 information should be as:", ((string)(null)), table3);
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "UserName",
+                        "UplineLevel1",
+                        "UplineLevel2",
+                        "UplineLevel3",
+                        "BonusThisMonth",
+                        "BonusLastMonth",
+                        "TotalDownLineLevel1",
+                        "TotalDownLineLevel2",
+                        "TotalDownLineLevel3",
+                        "TotalBonus",
                         "GroupCount"});
             table4.AddRow(new string[] {
                         "Art",
+                        "Jay",
+                        "OhAe",
+                        "Boy",
+                        "165",
+                        "155",
+                        "1",
+                        "0",
+                        "0",
+                        "426",
                         "0"});
             table4.AddRow(new string[] {
                         "Kab",
+                        "Of",
+                        "OhAe",
+                        "Boy",
+                        "265",
+                        "254",
+                        "1",
+                        "0",
+                        "0",
+                        "630",
                         "0"});
             table4.AddRow(new string[] {
                         "Jo",
+                        "Jay",
+                        "OhAe",
+                        "Boy",
+                        "55",
+                        "25",
+                        "1",
+                        "0",
+                        "0",
+                        "110",
                         "0"});
             table4.AddRow(new string[] {
                         "Map",
+                        "Top",
+                        "OhAe",
+                        "Boy",
+                        "12",
+                        "10",
+                        "0",
+                        "0",
+                        "0",
+                        "20",
                         "0"});
-#line 42
+#line 43
 testRunner.And("DowwnLineLevel3 information should be as:", ((string)(null)), table4);
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ListDownLineByLevel] ระบบได้รับข้อมูลการขอดูข้อมูล DownLine แต่ในฐานข้อมูลผู้ใช้" +
+            "ดังกล่าวยังไม่มี downline ได้ข้อมูล downline เป็น null")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListDownLineByLevel")]
+        public virtual void ListDownLineByLevelระบบไดรบขอมลการขอดขอมลDownLineแตในฐานขอมลผใชดงกลาวยงไมมDownlineไดขอมลDownlineเปนNull()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ListDownLineByLevel] ระบบได้รับข้อมูลการขอดูข้อมูล DownLine แต่ในฐานข้อมูลผู้ใช้" +
+                    "ดังกล่าวยังไม่มี downline ได้ข้อมูล downline เป็น null", new string[] {
+                        "record_mock"});
+#line 51
+this.ScenarioSetup(scenarioInfo);
+#line 52
+testRunner.Given("The ListDownLineByLevelExecutor has been created and initialized");
+#line 53
+testRunner.And("Sent UserName\'Amp\' to list downline by level");
+#line 54
+testRunner.When("Call ListDownLineBylavelExecutor()");
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "UserName",
+                        "UplineLevel1",
+                        "UplineLevel2",
+                        "UplineLevel3",
+                        "BonusThisMonth",
+                        "BonusLastMonth",
+                        "TotalDownLineLevel1",
+                        "TotalDownLineLevel2",
+                        "TotalDownLineLevel3",
+                        "TotalBonus",
+                        "GroupCount"});
+#line 55
+testRunner.Then("DowwnLineLevel1 information should be as:", ((string)(null)), table5);
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "UserName",
+                        "UplineLevel1",
+                        "UplineLevel2",
+                        "UplineLevel3",
+                        "BonusThisMonth",
+                        "BonusLastMonth",
+                        "TotalDownLineLevel1",
+                        "TotalDownLineLevel2",
+                        "TotalDownLineLevel3",
+                        "TotalBonus",
+                        "GroupCount"});
+#line 58
+testRunner.And("DowwnLineLevel2 information should be as:", ((string)(null)), table6);
+#line hidden
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                        "UserName",
+                        "UplineLevel1",
+                        "UplineLevel2",
+                        "UplineLevel3",
+                        "BonusThisMonth",
+                        "BonusLastMonth",
+                        "TotalDownLineLevel1",
+                        "TotalDownLineLevel2",
+                        "TotalDownLineLevel3",
+                        "TotalBonus",
+                        "GroupCount"});
+#line 61
+testRunner.And("DowwnLineLevel3 information should be as:", ((string)(null)), table7);
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ListDownLineByLevel] ระบบได้รับข้อมูลการขอดูข้อมูล DownLine แต่ในฐานข้อมูลไม่มีช" +
+            "ื่อผู้ใช้ดังกล่าว ได้ข้อมูล downline เป็น null")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListDownLineByLevel")]
+        public virtual void ListDownLineByLevelระบบไดรบขอมลการขอดขอมลDownLineแตในฐานขอมลไมมชอผใชดงกลาวไดขอมลDownlineเปนNull()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ListDownLineByLevel] ระบบได้รับข้อมูลการขอดูข้อมูล DownLine แต่ในฐานข้อมูลไม่มีช" +
+                    "ื่อผู้ใช้ดังกล่าว ได้ข้อมูล downline เป็น null", new string[] {
+                        "record_mock"});
+#line 65
+this.ScenarioSetup(scenarioInfo);
+#line 66
+testRunner.Given("The ListDownLineByLevelExecutor has been created and initialized");
+#line 67
+testRunner.And("Sent UserName\'Amp\' to list downline by level");
+#line 68
+testRunner.When("Call ListDownLineBylavelExecutor()");
+#line hidden
+            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                        "UserName",
+                        "UplineLevel1",
+                        "UplineLevel2",
+                        "UplineLevel3",
+                        "BonusThisMonth",
+                        "BonusLastMonth",
+                        "TotalDownLineLevel1",
+                        "TotalDownLineLevel2",
+                        "TotalDownLineLevel3",
+                        "TotalBonus",
+                        "GroupCount"});
+#line 69
+testRunner.Then("DowwnLineLevel1 information should be as:", ((string)(null)), table8);
+#line hidden
+            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                        "UserName",
+                        "UplineLevel1",
+                        "UplineLevel2",
+                        "UplineLevel3",
+                        "BonusThisMonth",
+                        "BonusLastMonth",
+                        "TotalDownLineLevel1",
+                        "TotalDownLineLevel2",
+                        "TotalDownLineLevel3",
+                        "TotalBonus",
+                        "GroupCount"});
+#line 72
+testRunner.And("DowwnLineLevel2 information should be as:", ((string)(null)), table9);
+#line hidden
+            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+                        "UserName",
+                        "UplineLevel1",
+                        "UplineLevel2",
+                        "UplineLevel3",
+                        "BonusThisMonth",
+                        "BonusLastMonth",
+                        "TotalDownLineLevel1",
+                        "TotalDownLineLevel2",
+                        "TotalDownLineLevel3",
+                        "TotalBonus",
+                        "GroupCount"});
+#line 75
+testRunner.And("DowwnLineLevel3 information should be as:", ((string)(null)), table10);
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("[ListDownLineByLevel] ระบบได้รับข้อมูลการขอดูข้อมูล DownLine แต่ข้อมูลไม่ถูกต้อง " +
+            "ระบบไม่สามารถดึงข้อมูล downline ได้")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ListDownLineByLevel")]
+        public virtual void ListDownLineByLevelระบบไดรบขอมลการขอดขอมลDownLineแตขอมลไมถกตองระบบไมสามารถดงขอมลDownlineได()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[ListDownLineByLevel] ระบบได้รับข้อมูลการขอดูข้อมูล DownLine แต่ข้อมูลไม่ถูกต้อง " +
+                    "ระบบไม่สามารถดึงข้อมูล downline ได้", new string[] {
+                        "record_mock"});
+#line 80
+this.ScenarioSetup(scenarioInfo);
+#line 81
+testRunner.Given("The ListDownLineByLevelExecutor has been created and initialized");
+#line 82
+testRunner.And("Sent UserName\'\' to list downline by level");
+#line 83
+testRunner.When("Call ListDownLineBylavelExecutor() for validate information");
+#line 84
+testRunner.Then("The result DowwnLine information should be throw exception");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

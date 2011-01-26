@@ -30,10 +30,26 @@ namespace TheS.Casinova.MLN.WebExecutors.Specs.Steps
             }
         }
 
-        protected IListDownLineByLevel Dqr_ListDownLineByLevel        {
+        protected IListDownLineByLevel1 Dqr_ListDownLineByLevel1        {
             get
             {
-                return ScenarioContext.Current.Get<IListDownLineByLevel>();
+                return ScenarioContext.Current.Get<IListDownLineByLevel1>();
+            }
+        }
+
+        protected IListDownLineByLevel2 Dqr_ListDownLineByLevel2
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<IListDownLineByLevel2>();
+            }
+        }
+
+        protected IListDownLineByLevel3 Dqr_ListDownLineByLevel3
+        {
+            get
+            {
+                return ScenarioContext.Current.Get<IListDownLineByLevel3>();
             }
         }
 

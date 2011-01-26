@@ -66,7 +66,9 @@ namespace TheS.Casinova.MLN.WebExecutors.Specs.Steps
 
             setupValidators(out container);
 
-            ScenarioContext.Current.Set<IListDownLineByLevel>(dqr);
+            ScenarioContext.Current.Set<IListDownLineByLevel1>(dqr);
+            ScenarioContext.Current.Set<IListDownLineByLevel2>(dqr);
+            ScenarioContext.Current.Set<IListDownLineByLevel3>(dqr);
             ScenarioContext.Current.Set<ListDownLineByLevelExecutor>(
                new ListDownLineByLevelExecutor(dqr, container));
         }
@@ -78,6 +80,9 @@ namespace TheS.Casinova.MLN.WebExecutors.Specs.Steps
 
             reg.Register<IValidator<MLNInformation, NullCommand>
                 , DataAnnotationValidator<MLNInformation, NullCommand>>();
+
+            reg.Register<IValidator<MLNInformation, ListMLNInfoCommand>
+            , MLNInformation_ListMLNInfoValidators>();
 
             reg.Register<IValidator<MLNInformation, CreateMLNInfoCommand>
               , MLNInformation_CreateMLNInfoValidators>();

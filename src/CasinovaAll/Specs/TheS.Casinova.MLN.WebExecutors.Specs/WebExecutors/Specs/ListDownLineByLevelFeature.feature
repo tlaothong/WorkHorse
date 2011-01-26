@@ -5,7 +5,7 @@
 
 @record_mock
 Background:
-Given Server has DownLine information :
+Given Server has downline information :
 	|UserName	|UplineLevel1	|UplineLevel2	|UplineLevel3	|BonusThisMonth	|BonusLastMonth	|TotalDownLineLevel1|TotalDownLineLevel2|TotalDownLineLevel3|TotalBonus	|
 	|Nit		|TheS			|TheS			|TheS			|200			|300			|3					|3					|4					|2541		|
 	|Boy		|Nit			|TheS			|TheS			|150			|274			|1					|3					|4					|503		|
@@ -27,21 +27,59 @@ Given Server has DownLine information :
 	|Amp		|Art			|Jay			|OhAe			|2				|4				|0					|0					|0					|20			|
 
 @record_mock
-Scenario:[ListDownLineByLevel] ระบบได้รับข้อมูลการขอดูข้อมูล DownLine ตรวจสอบข้อมูล ข้อมูลถูกต้อง ดึงข้อมูล Downline แต่ละ level ได้
+Scenario:[ListDownLineByLevel] ระบบได้รับข้อมูลการขอดูข้อมูล DownLine ทำการตรวจสอบข้อมูล ข้อมูลถูกต้อง ดึงข้อมูล Downline แต่ละ level ได้
 	Given The ListDownLineByLevelExecutor has been created and initialized
-	And   Sent UserName'Boy' 
+	And   Sent UserName'Boy' to list downline by level
 	When  Call ListDownLineBylavelExecutor()
 	Then  DowwnLineLevel1 information should be as:
-			|UserName	|GroupCount	|	
-			|OhAe		|7			|
+			|UserName	|UplineLevel1	|UplineLevel2	|UplineLevel3	|BonusThisMonth	|BonusLastMonth	|TotalDownLineLevel1|TotalDownLineLevel2|TotalDownLineLevel3|TotalBonus	|GroupCount	|	
+			|OhAe		|Boy			|Nit			|TheS			|324			|350			|3					|4					|3					|1056		|7			|
+	
 	And   DowwnLineLevel2 information should be as:
-			|UserName	|GroupCount	|	
-			|Jay		|1			|		
-			|Of			|1			|
-			|Top		|1			|
+			|UserName	|UplineLevel1	|UplineLevel2	|UplineLevel3	|BonusThisMonth	|BonusLastMonth	|TotalDownLineLevel1|TotalDownLineLevel2|TotalDownLineLevel3|TotalBonus	|GroupCount	|
+			|Jay		|OhAe			|Boy			|Nit			|200			|120			|2					|2					|0					|524		|2			|	
+			|Of			|OhAe			|Boy			|Nit			|106			|57				|1					|1					|0					|236		|1			|
+			|Top		|OhAe			|Boy			|Nit			|20				|12				|1					|0					|0					|45			|1			|
 	And   DowwnLineLevel3 information should be as:
-			|UserName	|GroupCount	|	
-			|Art		|0			|		
-			|Kab		|0			|
-			|Jo			|0			|
-			|Map		|0			|
+			|UserName	|UplineLevel1	|UplineLevel2	|UplineLevel3	|BonusThisMonth	|BonusLastMonth	|TotalDownLineLevel1|TotalDownLineLevel2|TotalDownLineLevel3|TotalBonus	|GroupCount	|
+			|Art		|Jay			|OhAe			|Boy			|165			|155			|1					|0					|0					|426		|0			|
+			|Kab		|Of				|OhAe			|Boy			|265			|254			|1					|0					|0					|630		|0			|
+			|Jo			|Jay			|OhAe			|Boy			|55				|25				|1					|0					|0					|110		|0			|
+			|Map		|Top			|OhAe			|Boy			|12				|10				|0					|0					|0					|20			|0			|
+	
+@record_mock
+Scenario:[ListDownLineByLevel] ระบบได้รับข้อมูลการขอดูข้อมูล DownLine แต่ในฐานข้อมูลผู้ใช้ดังกล่าวยังไม่มี downline ได้ข้อมูล downline เป็น null 
+	Given The ListDownLineByLevelExecutor has been created and initialized
+	And   Sent UserName'Amp' to list downline by level
+	When  Call ListDownLineBylavelExecutor()
+	Then  DowwnLineLevel1 information should be as:
+			|UserName	|UplineLevel1	|UplineLevel2	|UplineLevel3	|BonusThisMonth	|BonusLastMonth	|TotalDownLineLevel1|TotalDownLineLevel2|TotalDownLineLevel3|TotalBonus	|GroupCount	|	
+				
+	And   DowwnLineLevel2 information should be as:
+			|UserName	|UplineLevel1	|UplineLevel2	|UplineLevel3	|BonusThisMonth	|BonusLastMonth	|TotalDownLineLevel1|TotalDownLineLevel2|TotalDownLineLevel3|TotalBonus	|GroupCount	|
+			
+	And   DowwnLineLevel3 information should be as:
+			|UserName	|UplineLevel1	|UplineLevel2	|UplineLevel3	|BonusThisMonth	|BonusLastMonth	|TotalDownLineLevel1|TotalDownLineLevel2|TotalDownLineLevel3|TotalBonus	|GroupCount	|
+
+@record_mock
+Scenario:[ListDownLineByLevel] ระบบได้รับข้อมูลการขอดูข้อมูล DownLine แต่ในฐานข้อมูลไม่มีชื่อผู้ใช้ดังกล่าว ได้ข้อมูล downline เป็น null 
+	Given The ListDownLineByLevelExecutor has been created and initialized
+	And   Sent UserName'Amp' to list downline by level
+	When  Call ListDownLineBylavelExecutor()
+	Then  DowwnLineLevel1 information should be as:
+			|UserName	|UplineLevel1	|UplineLevel2	|UplineLevel3	|BonusThisMonth	|BonusLastMonth	|TotalDownLineLevel1|TotalDownLineLevel2|TotalDownLineLevel3|TotalBonus	|GroupCount	|	
+				
+	And   DowwnLineLevel2 information should be as:
+			|UserName	|UplineLevel1	|UplineLevel2	|UplineLevel3	|BonusThisMonth	|BonusLastMonth	|TotalDownLineLevel1|TotalDownLineLevel2|TotalDownLineLevel3|TotalBonus	|GroupCount	|
+			
+	And   DowwnLineLevel3 information should be as:
+			|UserName	|UplineLevel1	|UplineLevel2	|UplineLevel3	|BonusThisMonth	|BonusLastMonth	|TotalDownLineLevel1|TotalDownLineLevel2|TotalDownLineLevel3|TotalBonus	|GroupCount	|
+						
+
+@record_mock
+Scenario:[ListDownLineByLevel] ระบบได้รับข้อมูลการขอดูข้อมูล DownLine แต่ข้อมูลไม่ถูกต้อง ระบบไม่สามารถดึงข้อมูล downline ได้
+	Given The ListDownLineByLevelExecutor has been created and initialized
+	And   Sent UserName'' to list downline by level
+	When  Call ListDownLineBylavelExecutor() for validate information
+	Then  The result DowwnLine information should be throw exception
+			

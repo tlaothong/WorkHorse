@@ -13,11 +13,11 @@ namespace TheS.Casinova.MLN.Validators
     {
         public override void Validate(MLNInformation entity, ListDownLineByLevelCommand command, ValidationErrorCollection errors)
         {
-            //ตรวจสอบการกรอกข้อมูล upline
-            if (string.IsNullOrEmpty(entity.UplineLevel1)) {
+            //ตรวจสอบการกรอกข้อมูล userName
+            if (string.IsNullOrEmpty(entity.UserName)) {
                 errors.Add(new ValidationError {
                     Instance = entity,
-                    ErrorMessage = "กรอกข้อมูล upline",
+                    ErrorMessage = "กรอกข้อมูล userName",
                 });
             }
         }
