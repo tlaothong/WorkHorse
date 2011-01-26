@@ -2,7 +2,8 @@
 {
     background-color: Gray;
     font-size: 11px;
-    font-family: Tahoma;
+    font-family: lucida grande,tahoma,verdana,arial,sans-serif;
+    direction: ltr;
 }
 #header
 {
@@ -30,23 +31,31 @@
 {
     position: absolute;
     margin-left: 840px;
-    top: 35px;
+    top: 25px;
     height: 20px;
     width: 143px;
+
 }
 .input_text
 {
-    background: transparent url(images/search.png) no-repeat;
-    border: 1px solid #231f20;
-    padding-left: 5px;
-    height: 20px;
-    width: 143px;
+    background: url(images/Global_Search.png) no-repeat;
+    padding-left: 15px;
+    padding-top: 10px;
+    height: 35px;   
+    border-left: none medium;
+    border-bottom: none medium;
+    border-right: none medium;
+    border-top: none medium;
+}
+input .input_text 
+{
+    width: 50px;
 }
 #avatar-face
 {
     position: absolute;
-    margin-left: 988px;
-    top:35px;
+    margin-left: 990px;
+    top:32px;
     background: url(images/avatar.png) no-repeat;
     height: 24px;
     width: 21px;
@@ -166,7 +175,7 @@
 }
 /*=======Fieldset======*/
 #el02 { /* Text and background colour, blue on light gray */
-    background-color:#fff
+    background-color:#504B4B
 }
 #el03 { /* Text and background colour, blue on light gray */
     color:#00f;
@@ -175,3 +184,13 @@
 #el07 {font-family:"Courier New",Courier} /* Different font */
 
 
+.avatar-bar /*===Avatar Style===*/
+{
+    width: 167px;
+    z-index: 0;
+}
+.doyouknow-bar /*===Doyouknow Style===*/
+{
+    width: 180px;
+    z-index: 0;
+}

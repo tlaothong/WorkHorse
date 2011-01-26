@@ -47,5 +47,14 @@ namespace sPerf_Web.Areas.Game.Controllers
         {
             return View();
         }
+        public virtual ActionResult newsBar()
+        {
+            return View();
+        }
+        public virtual ActionResult FilterGame()
+        {
+            return View();
+        }
+
     }
 }

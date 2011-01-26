@@ -5,7 +5,6 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <script src="../../../../Scripts/jquery-1.4.2.min.js" type="text/javascript"></script>
 <%--script for edit profile dialog--%>
 <script type="text/javascript">
     $(function () {
@@ -33,7 +32,7 @@
     });
 
 </script>
-<div id="showEditProfile">
+<div id="showEditProfile" style="display: none">
     <table>
         <tr>
             <td style="float: left; margin-top:5px;">
@@ -210,13 +209,8 @@
                 bgiframe: true,
                 autoOpen: false,
                 modal: true,
-                width: 550,
-                height: 550,
-                buttons: {
-                    "Cancel": function () {
-                        $(this).dialog("close");
-                    }
-                }
+                width: 500,
+                height: 500
             });
             // Dialog Link
             $("#seeallFriends").click(function () {
@@ -230,16 +224,16 @@
         $("#tabs").tabs();
     });
 </script>
-<div class="demo">
-    <div id="tabs" title="แสดงเพื่อนทั้งหมด" style="padding-top: 20px;">
+<div class="demo" style="display:none">
+    <div id="tabs" title="Friends List" style="padding-top: 5px;">
         <div>
-            <ul>
-                <li style="float: right;"><a href="#tabs-1">เพื่อนทั้งหมด</a></li>
+            <ul>     
+                     <li><a href="#allFriends"><span>Friends List</span></a></li>
             </ul>
         </div>
-        <div id="tabs-1">
-            <div id="FriendList">
-                <div>
+        <div id="allFriends">
+            <div id="FriendDetail">
+                 <div>
                     <div style="padding-bottom: 10px;">
                         <% Html.RenderPartial("Filter"); %></div>
                     <div style="padding-top: 5px; margin-bottom: 5px; width: 430px; border-top: 1px solid gray;">
@@ -267,47 +261,16 @@
                         <label>
                             Peemai Shr</label>
                     </div>
-                    <div style="padding-top: 5px; margin-bottom: 5px; width: 430px; border-top: 1px solid gray;">
-                        <img src="/Content/Profile/pic_friend/7.png" alt="" />
-                        <label>
-                            Miiwremy Pareerat</label>
-                    </div>
-                    <div style="padding-top: 5px; margin-bottom: 5px; width: 430px; border-top: 1px solid gray;">
-                        <img src="/Content/Profile/pic_friend/8.png" alt="" />
-                        <label>
-                            Ma-ey Titapura</label>
-                    </div>
-                    <div style="padding-top: 5px; margin-bottom: 5px; width: 430px; border-top: 1px solid gray;">
-                        <img src="/Content/Profile/pic_friend/9.png" alt="" />
-                        <label>
-                            Ojoyso Phonbun</label>
-                    </div>
-                    <div style="padding-top: 5px; margin-bottom: 5px; width: 430px; border-top: 1px solid gray;">
-                        <img src="/Content/Profile/pic_friend/10.png" alt="" />
-                        <label>
-                            Suchada Suptawon</label>
-                    </div>
-                    <div style="padding-top: 5px; margin-bottom: 5px; width: 430px; border-top: 1px solid gray;">
-                        <img src="/Content/Profile/pic_friend/11.png" alt="" />
-                        <label>
-                            Geann' Elf</label>
-                    </div>
                 </div>
             </div>
         </div>
-        <div id="tabs-2">
-        </div>
-        <div id="tabs-3">
-        </div>
-        <div style="text-align: center;">
-            <a href="#" style="text-decoration: none;">SeeMore...</a></div>
     </div>
 </div>
     <%-- Log events--%>
     <div class="logevent">
         <div class="stylefriend">
             Log Events</div>
-        <table style="margin-top:28px;">
+        <table style="margin-top:14px;">
             <tr class="logpostevent">
                 <td class="eventborder">
                     <div class="eventpic">

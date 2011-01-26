@@ -48,7 +48,7 @@ namespace sPerf_Web.Controllers
         {
             return View();
         }
-        public virtual ActionResult Option()
+        public virtual ActionResult HomeOption()
         {
             return View();
         }
@@ -57,6 +57,10 @@ namespace sPerf_Web.Controllers
             return View();
         }
         public virtual ActionResult newsBar()
+        {
+            return View();
+        }
+        public virtual ActionResult grobalSearch()
         {
             return View();
         }

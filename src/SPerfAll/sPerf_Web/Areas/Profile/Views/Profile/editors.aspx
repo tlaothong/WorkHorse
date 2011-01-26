@@ -5,7 +5,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <script src="../../../../Scripts/jquery-1.4.2.min.js" type="text/javascript"></script>
+    <script src="../../../../Scripts/jquery-1.4.4.min.js" type="text/javascript"></script>
     <link href="../../../../Content/jquery.cleditor.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="../../../../Scripts/jquery.cleditor.min.js"></script>
      <script type="text/javascript">

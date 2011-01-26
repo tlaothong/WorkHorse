@@ -3,7 +3,7 @@
     float: left; 
     padding-left: 10px; 
     width: 100px;
-    margin-top:10px;
+    margin-top:0px;
 }
 .picuser img
 {
@@ -14,7 +14,7 @@
 {
     background-color: #D1D3D4;
     margin-left: 10px; 
-    margin-top: 40px; 
+    margin-top: 20px; 
     float: left;
     width: 150px;
     height: 25px;
@@ -54,7 +54,16 @@
     margin-left: 173px; 
     margin-top: -25px; 
     float: left;
-    width: 420px;
+    width: 435px;
+    height: 20px;
+}
+.today
+{
+    background-color: #D1D3D4;
+    margin-left: 3px; 
+    margin-top: -25px; 
+    float: left;
+    width: 160px;
     height: 20px;
 }
 .aboutUs

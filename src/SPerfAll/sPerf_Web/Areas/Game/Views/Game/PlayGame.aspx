@@ -5,8 +5,8 @@
     PlayGame
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <link href="../../../../Content/jquery-ui-1.8.6.custom.css" rel="stylesheet" type="text/css" />
-    <script src="../../../../Scripts/jquery-ui-1.8.6.custom.min.js" type="text/javascript"></script>
+    <link href="../../../../Content/jquery-ui-1.8.8.custom.css" rel="stylesheet" type="text/css" />
+    <script src="../../../../Scripts/jquery-ui-1.8.8.custom.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(".readmore").click(function () {
             $(this).slideUp();
@@ -24,7 +24,7 @@
             });
         });
     </script>
-    <div style="padding-top: 10px;">
+    <div style="padding-top: 10px; z-index: 100;">
         <div style="float: left; margin-left: 20px;">
             <label>
                 ID: 1234567</label>
@@ -51,10 +51,10 @@
             </div>
         </div>
     </div>
-    <div style="background-color: Gray; width: 100%; height: 500px; margin-top: 25px; position: relative;">
+    <div style="width: 600px; height: 500px; position:relative; left: -60px">
         <%--Silverlight--%>
-        <object data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="100%" height="100%"">
-            <param name="source" value="/xap/MayaTukkyProject.xap" />
+        <object data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="740" height= "580" >
+            <param name="source" value="/xap/TheS.SperfGames.MayaTukky.xap" />
             <param name="onerror" value="onSilverlightError" />
             <param name="minRuntimeVersion" value="2.0.31005.0" />
             <param name="autoUpgrade" value="true" />
@@ -84,6 +84,7 @@
     </div>
     <% Html.RenderPartial("ReportProblemGame"); %>
     <% Html.RenderPartial("Invite_Friend"); %>
+    <% Html.RenderPartial("Upload"); %>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="SubMenu" runat="server">
     <% Html.RenderPartial("SubMenu"); %>

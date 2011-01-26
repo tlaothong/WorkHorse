@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<dynamic>" %>
-<link href="../../../../Content/jquery-ui-1.8.6.custom.css" rel="stylesheet" type="text/css" />
-<script src="../../../../Scripts/jquery-1.4.2.min.js" type="text/javascript"></script>
-<script src="../../../../Scripts/jquery-ui-1.8.6.custom.min.js" type="text/javascript"></script>
+<link href="../../../../Content/jquery-ui-1.8.8.custom.css" rel="stylesheet" type="text/css" />
+<script src="../../../../Scripts/jquery-1.4.4.min.js" type="text/javascript"></script>
+<script src="../../../../Scripts/jquery-ui-1.8.8.custom.min.js" type="text/javascript"></script>
 <script language="javascript" type="text/javascript">
     function showHide(shID) {
         if (document.getElementById(shID)) {
@@ -147,10 +147,10 @@
    </tr>
 </table>
 <%--div for comment dialog--%>
-<div id="dialog">
+<div id="dialog" style="display: none">
 <table>
         <tr>
-            <td valign="top">Pet Society<br /><input type="checkbox" />   Rating  : <img src="/Content/images/star.PNG" /><br />
+            <td valign="top">Pet Society<br />
                 Comment :<br /><br />
                 <textarea rows="10"; cols="45">Comment text here</textarea>
             </td>
@@ -159,7 +159,7 @@
 </div>
 
 <%--div for seeall dialog--%>
-<div id="sellAll">
+<div id="sellAll" style="display: none">
     <table>
             <tr>
             <td valign="top">
@@ -217,18 +217,11 @@
             <td valign="top">Harnnongbour<br />ได้แสดงข้อความของคุณเมื่อ (17/11/2510) เวลา 12.00 น.
             </td>
         </tr>
-                 <tr>
-            <td valign="top">
-                <img src="/Content/profile/pic_friend/6.png" />
-            </td>
-            <td valign="top">Harnnongbour<br />ได้แสดงข้อความของคุณเมื่อ (17/11/2510) เวลา 12.00 น.
-            </td>
-        </tr>
     </table>
 </div>
 
 <%--div for report dialog--%>
-<div id="showReport">
+<div id="showReport" style=" display:none">
 <table>
         <tr>
             <td valign="top">
@@ -334,22 +327,6 @@
 
     <%--แสดงส่วนหลังเมื่อมีการตลิก more...--%>
         <div>
-            <table>
-                <tr>
-                    <td valign="top">
-                        <img src="/Content/images/e1.png" />
-                    </td>
-                    <td valign="top">
-                        Wanida
-                    </td>
-                </tr>
-            </table>
-            <div style="width:150px;">ทดสอบข้อความเพื่อใช้ทำงานของการเขียนคอมเม้น</div>
-            <label class="reports" style="color:Gray; margin-left:115px;">report</label>
-            <div style="border-bottom-color:#D2D5D2; border-bottom-style:solid; border-collapse:collapse; border-bottom-width:thin;width:150px;"></div>
-
-        </div>
-            <div>
             <table>
                 <tr>
                     <td valign="top">

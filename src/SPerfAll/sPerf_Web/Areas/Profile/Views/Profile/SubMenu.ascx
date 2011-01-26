@@ -1,25 +1,28 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<dynamic>" %>
-   <div style="float: right; margin-right:160px;">
+<div style="float: right; margin-right: 160px;">
     <table>
-            <tr>
-                <td>
-
-                     <%=Html.ActionLink("Profile",MVC.Profile.Profile.Profile()) %>
-                    
-                </td>
+        <tr>
+            <td>
+                <div class="linkSub">
+                    <%=Html.ActionLink("Profile",MVC.Profile.Profile.Profile()) %>
+                </div>
+            </td>
             <td>
                 <div class="commandPanels">
-                    | <%=Html.ActionLink("Photo",MVC.Profile.Profile.Photo()) %>
+                    |
+                    <%=Html.ActionLink("Photo",MVC.Profile.Profile.Photo()) %>
                 </div>
             </td>
             <td>
                 <div id="blog">
-                    | <%=Html.ActionLink("Blog",MVC.Profile.Profile.Blog()) %>
+                    |
+                    <%=Html.ActionLink("Blog",MVC.Profile.Profile.Blog()) %>
                 </div>
             </td>
             <td>
                 <div id="ardhievement">
-                    | <%=Html.ActionLink("Archievement", MVC.Profile.Profile.Archievement())%>
+                    |
+                    <%=Html.ActionLink("Archievement", MVC.Profile.Profile.Archievement_Last())%>
                 </div>
             </td>
             <td>

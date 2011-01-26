@@ -6,8 +6,7 @@
             bgiframe: true,
             autoOpen: false,
             modal: true,
-            width: 500,
-            height: 500,
+            width: 450,
             buttons: {
                 "Cancel": function () {
                     $(this).dialog("close");
@@ -22,56 +21,20 @@
     });
 </script>
 <div id="Report_Archeivement" title="Report Archeivement" style="z-index: 10;">
-    <div style="background-color: White; margin-bottom: 5px; border: 1px solid #5FB546;">
-        <table>
-            <tr>
-                <td style="width: 200px;">
-                    <label>
-                        Ohh.! I'm your top Friend</label>
-                </td>
-                <td style="width: 200px;">
-                    <img src="../../../../Content/profile/1.png" alt="" />
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div style="background-color: White; margin-bottom: 5px; border: 1px solid #5FB546;">
-        <table>
-            <tr>
-                <td style="width: 200px;">
-                    <label>
-                        You are welcome</label>
-                </td>
-                <td style="width: 200px;">
-                    <img src="../../../../Content/profile/1.png" alt="" />
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div style="background-color: White; margin-bottom: 5px; border: 1px solid #5FB546;">
-        <table>
-            <tr>
-                <td style="width: 200px;">
-                    <img src="../../../../Content/profile/2.png" alt="" />
-                </td>
-                <td style="width: 200px;">
-                    <label>
-                        Thanks,...Nanay...</label>
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div style="background-color: White; margin-bottom: 5px; border: 1px solid #5FB546;">
-        <table>
-            <tr>
-                <td style="width: 200px;">
-                     <label>
-                        Hi,first comment</label>
-                </td>
-                <td style="width: 200px;">
-                   <img src="../../../../Content/profile/1.png" alt="" />
-                </td>
-            </tr>
-        </table>
-    </div>
+<table>
+        <tr>
+            <td valign="top">
+                <img src="/Content/images/ProfileAvatar.png" />
+            </td>
+            <td valign="top">username: Wanida<br />DateTime(1/8/2552 12:50:45)<br />
+                <select>
+                      <option>Inappriate content</option>
+                      <option>Bug</option>
+                      <option>Error</option>
+                </select><br /><br />
+                Topic : <input type="text" title="Some Text"/>
+                <textarea rows="10"; cols="27">Details.....</textarea>
+            </td>
+        </tr>
+    </table>
 </div>

@@ -1,14 +1,14 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<dynamic>" %>
-<script src="../../../../Scripts/jquery-ui-1.8.6.custom.min.js" type="text/javascript"></script>
-<link href="../../../../Content/jquery-ui-1.8.6.custom.css" rel="stylesheet" type="text/css" />
+<script src="../../../../Scripts/jquery-ui-1.8.8.custom.min.js" type="text/javascript"></script>
+<link href="../../../../Content/jquery-ui-1.8.8.custom.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
     $(function () {
         $("#Upload_Popup").dialog({
             bgiframe: true,
             autoOpen: false,
             modal: true,
-            width: 600,
-            title: "Upload Video",
+            width: 630,
+            title: "Upload Game",
             buttons: {                
                 "OK": function () {
                     $(this).dialog("close");
@@ -26,7 +26,7 @@
 </script>
 <script type="text/javascript">
 </script>
-<div id="Upload_Popup">
+<div id="Upload_Popup" style=" display: none">
     <div>
         <fieldset style="border: 1px solid #A49F9F; padding: 10">
             <legend align="left" style="font-size: small; height: 30px; color: #A49F9F">Agreement</legend>
@@ -53,15 +53,15 @@
                         </label>
                         <input type="text" /></div>
                     <div>
-                        <label>
+                        <label for="one">
                             Application file:
                         </label>
-                        <input type="file" value="Browse"/></div>
+                        <input type="file" name="one" /></div>
                     <div>
-                        <label>
+                        <label for="two">
                             Application image:
                         </label>
-                        <input type="file" /></div>
+                        <input type="file" name="two" /></div>
                 </td>
                 <td>
                     <label>

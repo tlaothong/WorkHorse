@@ -44,20 +44,14 @@ namespace sPerf_Web.Areas.KnowledgeCenter.Controllers
         {
             return View();
         }
-        [HttpPost]
-        public virtual ActionResult UploadVideo(HttpPostedFileBase file)
+        public virtual ActionResult newsBar()
         {
-
-            if (file.ContentLength > 0)
-            {
-                var fileName = Path.GetFileName(file.FileName);
-                var path = Path.Combine(Server.MapPath("~/uploads"), fileName);
-                file.SaveAs(fileName);
-            }
-
-            return RedirectToAction("Index");
+            return View();
         }
-
+        public virtual ActionResult FilterVideo()
+        {
+            return View();
+        }
 
     }
 }

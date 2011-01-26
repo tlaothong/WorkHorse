@@ -55,9 +55,10 @@ namespace sPerf_Web.Controllers {
             public readonly string HightLight = "HightLight";
             public readonly string FAQTutorial = "FAQTutorial";
             public readonly string AboutUs = "AboutUs";
-            public readonly string Option = "Option";
+            public readonly string HomeOption = "HomeOption";
             public readonly string StartMenu = "StartMenu";
             public readonly string newsBar = "newsBar";
+            public readonly string grobalSearch = "grobalSearch";
         }
 
 
@@ -71,10 +72,11 @@ namespace sPerf_Web.Controllers {
             public readonly string Banners = "~/Views/Home/Banners.ascx";
             public readonly string Cartoon = "~/Views/Home/Cartoon.ascx";
             public readonly string FAQTutorial = "~/Views/Home/FAQTutorial.aspx";
+            public readonly string grobalSearch = "~/Views/Home/grobalSearch.ascx";
             public readonly string HightLight = "~/Views/Home/HightLight.aspx";
+            public readonly string HomeOption = "~/Views/Home/HomeOption.ascx";
             public readonly string Index = "~/Views/Home/Index.aspx";
             public readonly string newsBar = "~/Views/Home/newsBar.ascx";
-            public readonly string Option = "~/Views/Home/Option.aspx";
             public readonly string StartMenu = "~/Views/Home/StartMenu.ascx";
             public readonly string SubMenu = "~/Views/Home/SubMenu.ascx";
             public readonly string Today = "~/Views/Home/Today.ascx";
@@ -130,8 +132,8 @@ namespace sPerf_Web.Controllers {
             return callInfo;
         }
 
-        public override System.Web.Mvc.ActionResult Option() {
-            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Option);
+        public override System.Web.Mvc.ActionResult HomeOption() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.HomeOption);
             return callInfo;
         }
 
@@ -142,6 +144,11 @@ namespace sPerf_Web.Controllers {
 
         public override System.Web.Mvc.ActionResult newsBar() {
             var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.newsBar);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult grobalSearch() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.grobalSearch);
             return callInfo;
         }
 

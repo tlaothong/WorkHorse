@@ -89,7 +89,15 @@
             autoOpen: false,
             modal: true,
             width: 400,
-            title: "ความคิดเห็น"
+            title: "ความคิดเห็น",
+            buttons: {
+                "Cancel": function () {
+                    $(this).dialog("close");
+                },
+                "Ok": function () {
+                    $(this).dialog("close");
+                }
+            }
         });
 
         // Dialog Link
@@ -144,10 +152,10 @@
    </tr>
 </table>
 <%--div for comment dialog--%>
-<div id="dialogblog">
+<div id="dialogblog" style="display:none">
 <table>
         <tr>
-            <td valign="top">Pet Society<br /><input type="checkbox" />   Rating  : <img src="/Content/images/star.PNG" /><br />
+            <td valign="top">Pet Society<br />
                 Comment :<br /><br />
                 <textarea rows="10"; cols="45">Comment text here</textarea>
             </td>
@@ -156,7 +164,7 @@
 </div>
 
 <%--div for seeall dialog--%>
-<div id="sellAll">
+<div id="sellAll" style="display:none">
     <table>
             <tr>
             <td valign="top">
@@ -214,18 +222,11 @@
             <td valign="top">Harnnongbour<br />ได้แสดงข้อความของคุณเมื่อ (17/11/2510) เวลา 12.00 น.
             </td>
         </tr>
-                 <tr>
-            <td valign="top">
-                <img src="/Content/profile/pic_friend/6.png" />
-            </td>
-            <td valign="top">Harnnongbour<br />ได้แสดงข้อความของคุณเมื่อ (17/11/2510) เวลา 12.00 น.
-            </td>
-        </tr>
     </table>
 </div>
 
 <%--div for report dialog--%>
-<div id="showReport">
+<div id="showReport" style="display:none">
 <table>
         <tr>
             <td valign="top">

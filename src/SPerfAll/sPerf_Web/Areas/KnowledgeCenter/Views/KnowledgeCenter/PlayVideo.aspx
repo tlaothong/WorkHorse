@@ -5,13 +5,33 @@
     PlayVideo
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <link href="../../../../Content/jquery-ui-1.8.6.custom.css" rel="stylesheet" type="text/css" />
-    <script src="../../../../Scripts/jquery-ui-1.8.6.custom.min.js" type="text/javascript"></script>
+    <link href="../../../../Content/jquery-ui-1.8.8.custom.css" rel="stylesheet" type="text/css" />
+    <script src="../../../../Scripts/jquery-ui-1.8.8.custom.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(".readmore").click(function () {
             $(this).slideUp();
         });
     </script>
+        <%--directory path--%>
+    <div>
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <a href="/Home">Home</a>
+                    </td>
+                    <td>
+                        >
+                    </td>
+                    <td>
+                        <a href="/KnowledgeCenter">Video</a>
+                    </td>
+                    <td>></td>
+                    <td>PlayVideo</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <div style="padding-top: 10px;">
         <div style="float: left; margin-left: 20px;">
             <label>
@@ -93,4 +113,10 @@
     <% Html.RenderPartial("NewCommentVideo"); %>
     <% Html.RenderPartial("CommentVideo"); %>
     <% Html.RenderPartial("ReportCommentVideo"); %>
+</asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="startMenu" runat="server">
+    <% Html.RenderPartial("StartMenu"); %>
+</asp:Content>
+<asp:Content ID="Content6" ContentPlaceHolderID="newsbar" runat="server">
+    <% Html.RenderPartial("newsBar"); %>
 </asp:Content>
